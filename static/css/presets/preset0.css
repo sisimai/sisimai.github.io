@@ -1,0 +1,102 @@
+
+.r0 {
+    color: #b7282e;
+}
+
+#home-slider .caption h1 span {
+    color: #eb6101; /* Shu-iro */
+}
+
+a,
+#footer .footer-bottom,
+.single-table.featured .btn.btn-primary,
+#footer .footer-bottom a  {
+    background-color: #b7282e; /* Akane-iro */
+    color: #fbfaf5; /* Kinari-iro */
+}
+
+p a, ul.spec a {
+    color: #b7282e;
+    background-color: transparent;
+}
+
+p a:hover, ul.spec a:hover {
+    color: #b7282e;
+    text-decoration: underline;
+}
+
+.btn-continue {
+    color: #b7282e;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding:14px 40px;
+    border: 1px solid #b7282e;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.btn-continue:hover {
+    color: #fbfaf5;
+    background-color: #b7282e;
+}
+
+.btn-disabled, .btn-disabled:hover {
+    color: #dddcd6;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding:14px 40px;
+    border: 1px solid #dddcd6;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.progress-bar.progress-bar-primary, 
+.about-icon, 
+.left-control:hover, 
+.right-control:hover, 
+.caption .btn-start:hover,
+.btn.btn-primary:hover,
+.btn.btn-continue:hover,
+.btn-submit:hover {
+    background-color: #b7282e;
+}
+
+a:hover, a:focus {
+    color: #fbfaf5;
+}
+
+.main-nav, 
+.single-table.featured, 
+.btn.btn-primary, 
+.twitter-icon .fa-twitter, 
+.twitter-left-control:hover, .twitter-right-control:hover, 
+.post-icon, 
+.entry-header .date:after, 
+.btn-loadmore:hover, 
+.btn-submit,
+#footer, 
+.folio-overview a:hover {
+    background-color: #b7282e;
+}
+
+.single-table.disabled {
+    background-color: #2b2b2b;
+}
+
+.twitter-left-control:hover, 
+.twitter-right-control:hover, 
+.btn-loadmore:hover  {
+    border: 1px solid #432f2f;
+}
+
+.caption .btn-start:hover, 
+.left-control:hover, 
+.right-control:hover {
+    border-color: #432f2f;
+}
+
+.twitter-icon .fa-twitter:after {
+    border-color: #432f2f transparent transparent;
+}
