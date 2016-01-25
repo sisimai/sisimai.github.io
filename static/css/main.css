@@ -88,14 +88,14 @@ h3 {
 }
 
 .ss {
-    font-family: 'Century Gothic';
+    font-family: 'Century Gothic', Muli;
     font-weight: bold;
     color: inherit !important;
     letter-spacing: 1px;
 }
 
 .bh {
-    font-family: 'Century Gothic';
+    font-family: 'Century Gothic', Muli;
     color: inherit !important;
     letter-spacing: 1px;
 }
