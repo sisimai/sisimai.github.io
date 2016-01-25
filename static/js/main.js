@@ -57,11 +57,6 @@ jQuery(function($) {
         return false;
     });
 
-    //Initiat WOW JS
-    // new WOW().init();
-    //smoothScroll
-    // smoothScroll.init();
-    
     // Progress Bar
     $('#versus').bind('inview', function(event, visible, visiblePartX, visiblePartY) {
         if (visible) {
