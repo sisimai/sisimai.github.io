@@ -184,6 +184,8 @@ Original-Recipient: rfc822;kijitora@example.org
                         "deliverystatus" is the value of Status: field in a bounce message.
                         When the message has no Status: field, <span class = 'ss'>Sisimai</span> set pseudo value like
                         5.0.9XX to this value. The range of values only "4.x.x" or "5.x.x".
+                        <br>
+                        <br>
                     </p>
                     <pre class = 'prettyprint'>
 Status: 5.0.0 (permanent failure)
@@ -246,6 +248,8 @@ Diagnostic-Code: SMTP; 554 5.4.6 Too many hops
                         "diagnostictype" is a type like "SMTP" or "X-Unix"
                         picked from Diagnostic-Code: field in a bounce message.
                         When there is no Diagnostic-Code: field in the bounce message, this value will be empty.
+                        <br>
+                        <br>
                     </p>
                     <pre class = 'prettyprint'>
 Diagnostic-Code: X-Unix; 255
@@ -267,6 +271,8 @@ Diagnostic-Code: X-Unix; 255
                         "abuse", "fraud", "opt-out" in a bounce message.
                         When the message is not ARF format or the value of "reason" is not
                         "feedback", this value will be empty.
+                        <br>
+                        <br>
                     </p>
                     <pre class = 'prettyprint'>
 Content-Type: message/feedback-report
@@ -314,6 +320,8 @@ Reporting-MTA: dns; mx4.smtp.example.co.jp
                         When there is no List-Id field in the original message or
                         the bounce message did not include the original message,
                         this value will be empty.
+                        <br>
+                        <br>
                     </p>
                     <pre class = 'prettyprint'>
 List-Id: Mailman mailing list management users 
@@ -410,6 +418,8 @@ X-Failed-Recipients: kijitora@example.ed.jp
                         "replyacode" is the value of SMTP reply code picked from the error message
                         or the value of Diagnostic-Code: field in a bounce message.
                         The range of values is only 4xx or 5xx.
+                        <br>
+                        <br>
                     </p>
                     <pre class = 'prettyprint'>
    ----- The following addresses had permanent fatal errors -----
@@ -521,6 +531,8 @@ Remote-MTA: DNS; g5.example.net
                         The value of "softbounce" indicates whether the reason of the bounce
                         is soft bounce or hard bounce.
                         This accessor has added in Sisimai 4.1.28. The range of the values are the followings:
+                        <br>
+                        <br>
                     </p>
                     <ul>
                         <li>1 = Soft bounce</li>
@@ -540,7 +552,7 @@ Remote-MTA: DNS; g5.example.net
 
             <div class = 'row'>
                 <div class = 'col-sm-8 col-sm-offset-2'>
-                    <h3 class = 'in-desc'>softbounce (Integer)</h3>
+                    <h3 class = 'in-desc'>subject (String)</h3>
                     <p>
                         <img class = 'lhs' src = '/static/images/icon/topic-1.png'>
                         "subject" is the value of Subject header of the original message. 
