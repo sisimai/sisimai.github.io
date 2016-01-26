@@ -530,6 +530,44 @@ section {
 }
 
 /*****************************************************************************/
+#support {
+  text-align: center;
+  background-image: url(../images/background/desk-01.jpg);
+}
+
+#support h2, #support p.description {
+    text-align: left;
+}
+
+#support i {
+  font-size: 48px;
+}
+
+#support h3 {
+  margin-top: 15px;
+  font-size: 30px;
+  margin-bottom: 7px;
+  color: #fbfaf5;
+}
+
+.btn-contactus {
+    color: #fbfaf5;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding:14px 40px;
+    border: 1px solid #fbfaf5;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.btn-contactus:hover {
+    background-color: #b7282e;
+    border-color: #b7282e;
+    color: #fbfaf5;
+}
+
+/*****************************************************************************/
 #footer {
   color:#fbfaf5;
 }
