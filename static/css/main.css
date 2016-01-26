@@ -149,6 +149,11 @@ section {
     display: inline-block;
 }
 
+p.description {
+    text-align: left;
+    text-shadow: 0 -1px 0 #fff;
+}
+
 /*****************************************************************************/
 #home-slider {
     overflow: hidden;
@@ -182,8 +187,13 @@ section {
     margin-bottom: 30px;
 }
 
+.caption p {
+    text-shadow: 0 -1px 0 #16160e;
+}
+
 .caption .btn-start {
     color: #fbfaf5;
+    text-shadow: 0 -1px 0 #16160e;
     background-color: transparent;
     font-size: 14px;
     font-weight: 600;
@@ -292,6 +302,7 @@ section {
 .navbar-right li a {
     color: #fbfaf5;
     text-transform: uppercase;
+    text-shadow: 0 -1px 0 #16160e;
     font-size: 14px;
     font-weight: 600;
     padding-top: 30px;
@@ -395,9 +406,13 @@ section {
   background-image: url(../images/background/colosseum-04.jpg);
 }
 
-#versus h2,
+#versus h2 {
+    text-align: left;
+}
+
 #versus p.description {
     text-align: left;
+    text-shadow: 0 -1px 0 #16160e;
 }
 
 #versus i {
@@ -539,10 +554,6 @@ section {
   background-image: url(../images/background/desk-01.jpg);
 }
 
-#support h2, #support p.description {
-    text-align: left;
-}
-
 #support i {
   font-size: 48px;
 }
@@ -552,6 +563,11 @@ section {
   font-size: 30px;
   margin-bottom: 7px;
   color: #fbfaf5;
+}
+
+#support p.description {
+    text-align: left;
+    text-shadow: 0 -1px 0 #16160e;
 }
 
 .btn-contactus {
@@ -635,6 +651,11 @@ section {
 }
 #footer .social-icons ul li a.github:hover {
   background-color: #000000;
+}
+
+#footer p.description {
+    text-align: left;
+    text-shadow: 0 -1px 0 #16160e;
 }
 
 /*****************************************************************************/
