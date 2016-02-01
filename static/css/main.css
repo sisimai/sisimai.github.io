@@ -361,6 +361,16 @@ p.description {
     margin-top: 35px;
 }
 
+.latest {
+    width: 100%;
+    margin: 8px 0 0 0;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #b7282e;
+    border-radius: 4px;
+    background-color: #fef4f4;
+    color: #2b2b2b;
+}
 
 .social-icons {
   margin-top:30px;
@@ -674,16 +684,14 @@ p.description {
 }
 
 /*****************************************************************************/
-#environment, #usage, #address, #server, #accessor {
+#environment, #usage, #address, #server, #accessor,
+#oss-mta, #msp-esp {
     color: #2b2b2b;
     background-color: #ede4cd;
 }
 
-#environment hr,
-#usage hr,
-#address hr,
-#server hr,
-#accessor hr {
+#environment hr, #usage hr, #address hr, #server hr, #accessor hr,
+#oss-mta hr, #msp-esp hr {
     border-color: #a59564;
     border-style: dashed;
 }
@@ -691,6 +699,11 @@ p.description {
 #content hr, #others hr {
     border-color: #adadad;
     border-style: dashed;
+}
+
+#oss-mta th, #msp-esp th,
+#oss-mta td, #msp-esp td {
+    border-color: #a59564;
 }
 
 /*****************************************************************************/
@@ -820,38 +833,6 @@ img.diagram {
     border-color: #afafb0;
     border-style: solid;
     border-width: 1px;
-}
-
-.table {
-    display: table;
-    border-collapse: collapse;
-    border-spacing: 0;
-    margin: 5px 0;
-    width: 100%;
-}
-
-.table .tr {
-    display: table-row;
-}
-
-.table .tr:nth-child(2n) {
-    background: #fffffc;
-}
-
-.table .tr .th {
-    display: table-cell;
-    background: #ffffff;
-    font-weight: bold;
-    text-align: center;
-    padding: 2px 4px;
-}
-
-.table .tr .td {
-    display: table-cell;
-    border-width: 1px;
-    border-style: solid;
-    border-color: #3f312b;
-    padding: 4px 6px;
 }
 
 .rtext {
