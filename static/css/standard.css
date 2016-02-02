@@ -1,0 +1,369 @@
+/* CSS for standard layout */
+.parallax {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.parallax,
+.parallax h1,
+.parallax h2,
+.parallax h3,
+.parallax h4,
+.parallax h5,
+.parallax h6 {
+    color: #fbfaf5; /* Kinari-iro */
+}
+
+.parallax input[type="text"],
+.parallax input[type="text"]:hover,
+.parallax input[type="email"],
+.parallax input[type="email"]:hover,
+.parallax input[type="url"],
+.parallax input[type="url"]:hover,
+.parallax input[type="password"],
+.parallax input[type="password"]:hover,
+.parallax textarea,
+.parallax textarea:hover {
+    font-weight: 300;
+    color: #fbfaf5; /* Kinari-iro */
+}
+
+/*****************************************************************************/
+#home-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+#home-slider .caption {
+    position: absolute;
+    top: 25%;
+    margin-top: -108px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-transform: uppercase;
+    z-index: 15;
+    font-size: 18px;
+    font-weight: 300;
+    color: #fbfaf5; /* Kinari-iro */
+}
+
+#home-slider .caption img {
+    width: 50%;
+    min-width: 169px;
+    max-width: 255px;
+}
+
+#home-slider .caption h1 {
+    color: #fbfaf5; /* Kinari-iro */
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.caption p {
+    text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
+}
+
+.caption .btn-start {
+    color: #fbfaf5; /* Kinari-iro */
+    text-shadow: 0 -1px 0 #16160e;  /* Ankokushoku */
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding:14px 40px;
+    border: 1px solid #6e6d6c;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.caption .btn-start:hover {
+    color: #fbfaf5; /* Kinari-iro */
+}
+
+.carousel-fade .carousel-inner .item {
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 2037px;
+}
+
+.carousel-fade .carousel-inner .item:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,.7);
+}
+
+.carousel-fade .carousel-inner .active {
+    opacity: 1;
+}
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+}
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+    opacity: 1;
+}
+.carousel-fade .carousel-control {
+    z-index: 2;
+}
+
+.left-control, .right-control {
+    position: absolute;
+    top: 50%;
+    height: 51px;
+    width: 51px;
+    line-height: 48px;
+    border-radius: 50%;
+    border:1px solid #fbfaf5; /* Kinari-iro */
+    z-index: 20;
+    font-size: 24px;
+    color: #fbfaf5; /* Kinari-iro */
+    background-color: transparent;
+    text-align: center;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.left-control {
+    left: -51px
+} 
+
+.right-control {
+    right: -51px;
+}
+
+.left-control:hover, 
+.right-control:hover {
+    color: #fbfaf5; /* Kinari-iro */
+}
+
+#home-slider:hover .left-control {
+    left: 30px
+} 
+
+#home-slider:hover .right-control {
+    right:30px
+}
+
+#home-slider .fa-angle-down {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    color: #fbfaf5; /* Kinari-iro */
+    display: inline-block;
+    width: 24px;
+    margin-left: -12px;
+    font-size: 24px;
+    line-height: 24px;
+    z-index: 999;
+    -webkit-animation: bounce 3000ms infinite;
+    animation: bounce 3000ms infinite;
+}
+
+/*****************************************************************************/
+#versus {
+  text-align: center;
+  background-image: url(../images/background/colosseum-04.jpg);
+}
+
+#versus h2 {
+    text-align: left;
+}
+
+#versus p.description {
+    text-align: left;
+    text-shadow: 0 -1px 0 #16160e;
+}
+
+#versus i {
+  font-size: 48px;
+}
+
+#versus h3 {
+  margin-top: 15px;
+  font-size: 30px;
+  margin-bottom: 7px;
+  color: #fbfaf5;
+}
+
+#versus .slider-overlay {
+  opacity: 0.8;
+}
+
+#versus .lead {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#versus .lead i {
+  font-size: 14px;
+}
+
+.progress {
+  height: 20px;
+  background-color: #eee;
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  margin-bottom: 25px;
+}
+
+.progress-bar {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  text-align: right;
+  padding-right: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.progress .progress-bar.six-sec-ease-in-out {
+  -webkit-transition: width 2s ease-in-out;
+  transition:  width 2s ease-in-out;
+}
+
+.progress .versus {
+  font-size: 12px;
+  font-weight: 600;
+  color: #16160e;
+  text-align: right;
+  padding-right: 12px;
+}
+
+/*****************************************************************************/
+.download-table {
+  text-align: center;
+}
+
+.single-table {
+  padding: 30px 20px 20px;
+  border:1px solid #f2f2f2;
+}
+
+.single-table h3 {
+  margin-top: 0;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.download {
+  font-size: 36px;
+  line-height: 36px;
+}
+
+.download span {
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.single-table ul {
+  list-style: disc inside;
+  text-align: left;
+  padding: 0 0 0 10px;
+  margin: 30px 0;
+}
+
+.single-table ul li {
+  line-height: 30px;
+}
+
+.single-table .btn {
+    width: 70%;
+}
+
+.single-table.featured {  
+  color: #fbfaf5;
+  font-weight: 600;
+}
+
+.single-table.featured h3 { 
+  color: #fbfaf5;
+}
+
+.single-table.featured .btn.btn-primary {
+  background-color: #fbfaf5;
+  border: 1px solid #fbfaf5;
+  font-weight: 600;
+}
+
+.single-table.disabled {  
+  color: #524e4d;
+}
+
+.single-table.disabled h3 { 
+  color: #a3a3a2;
+}
+
+.single-table.disabled h3 span { 
+  font-size: 10px;
+}
+
+.single-table.disabled .btn.btn-primary {
+  color: #383c3c;
+  background-color: #16160e;
+}
+
+/*****************************************************************************/
+#support {
+  text-align: center;
+  background-image: url(../images/background/desk-01.jpg);
+}
+
+#support i {
+  font-size: 48px;
+}
+
+#support h3 {
+  margin-top: 15px;
+  font-size: 30px;
+  margin-bottom: 7px;
+  color: #fbfaf5;
+}
+
+#support p.description {
+    text-align: left;
+    text-shadow: 0 -1px 0 #16160e;
+}
+
+.btn-contactus {
+    color: #fbfaf5;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+    padding:14px 40px;
+    border: 1px solid #fbfaf5;
+    border-radius: 4px;
+    margin-top: 40px;
+}
+
+.btn-contactus:hover {
+    background-color: #b7282e;
+    border-color: #b7282e;
+    color: #fbfaf5;
+}
+
+
+
+
+
+
