@@ -43,6 +43,18 @@ p.description {
     text-shadow: 0 -1px 0 #fff;
 }
 
+p.ja {
+    text-align: left;
+    text-shadow: 0 -1px 0 #fff;
+    font-size: 13px;
+}
+
+p.description + hr {
+    border-color: #adadad; /* Usunibi */
+    border-style: dashed;
+    margin: 0 0 8px 0;
+}
+
 .heading {
     padding-bottom:90px;
 }
@@ -153,10 +165,7 @@ p.description {
     margin-top: -2%;
 }
 
-.index-table .col-sm-4:hover .index-icon {
-    background-color: #2b2b2b; /* Kuro */
-}
-
+.index-table .col-sm-3,
 .index-table .col-sm-4 {
     border-right: 0px dotted red;
     border-bottom: 0px dotted red;
@@ -164,21 +173,37 @@ p.description {
     padding-top: 10px;
 }
 
-.index-table .col-sm-4:nth-child(4), 
-.index-table .col-sm-4:nth-child(5), 
+.index-table .col-sm-3:nth-child(5),
+.index-table .col-sm-3:nth-child(6),
+.index-table .col-sm-3:nth-child(7),
+.index-table .col-sm-3:nth-child(8) {
+    border-bottom:0;
+    padding-top: 60px;
+}
+
+.index-table .col-sm-4:nth-child(4),
+.index-table .col-sm-4:nth-child(5),
 .index-table .col-sm-4:nth-child(6) {
     border-bottom:0;
     padding-top: 60px;
 }
 
 .index-table .col-sm-4:nth-child(3), 
-.index-table .col-sm-4:nth-child(6) {
+.index-table .col-sm-4:nth-child(6), 
+.index-table .col-sm-3:nth-child(4), 
+.index-table .col-sm-3:nth-child(8) {
     border-right:0;
+}
+
+.index-table .col-sm-3:hover .index-icon,
+.index-table .col-sm-4:hover .index-icon {
+    background-color: #2b2b2b; /* Kuro */
 }
 
 .index-icon {
     border-radius: 4px;
-    color: #fbfaf5;
+    color: #fbfaf5; /* Hakuji */
+    background-color: #b7282e; /* Akane-iro */
     display: inline-block;
     font-size: 36px;
     height: 90px;
@@ -188,8 +213,13 @@ p.description {
     transition: background-color 0.2s ease;
 }
 
+.index-info {
+    height: 224px;
+    margin: 0;
+}
+
 .index-info h3 {
-    margin-top: 35px;
+    margin: 20px 0;
 }
 
 /*****************************************************************************/
@@ -302,6 +332,13 @@ p.description {
     text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
 }
 
+#footer ul + hr,
+#footer p.description + hr {
+    border-color: #e8d3d1; /* Usuzakura */
+    border-style: dashed;
+    margin: 0 0 8px 0;
+}
+
 #footer h2 {
     margin: 0 0 10px 0;
     font-size: 16px;
@@ -316,10 +353,4 @@ p.description {
     padding-left: 10px;
     text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
 }
-
-
-
-
-
-
 
