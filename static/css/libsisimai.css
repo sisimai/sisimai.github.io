@@ -99,11 +99,17 @@ p.description + hr {
 /*****************************************************************************/
 .btn {
     border: 0;
-    border-radius: 0;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    border: 1px solid #b7282e; /* Akane-iro */
 }
 
 .btn.btn-primary:hover {
-    background-color: #b7282e; /* Akane-iro */
+    border: 1px solid #b7282e; /* Akane-iro */
+    background-color: transparent!important;
+    color: #b7282e; /* Akane-iro */
 }
 
 .btn-continue {
@@ -117,6 +123,7 @@ p.description + hr {
     outline-offset: 0;
     text-decoration: none;  
     background: transparent;
+    color: #f8fbf8;
 }
 
 .navbar-right li a {
@@ -127,6 +134,19 @@ p.description + hr {
     font-weight: 600;
     padding-top: 30px;
     padding-bottom: 30px;
+}
+
+.navbar-right li.others a {
+    background-color: #d3381c; /* Hi-iro */
+    border: 1px dashed #b7282e; /* Akane-iro */
+}
+
+.navbar-right li.others a:hover,
+.navbar-right li.others a:focus {
+    outline: none;
+    outline-offset: 0;
+    text-decoration: none;  
+    background-color: #383c3c; /* Youkan-iro */
 }
 
 .navbar-right li.active a {
@@ -142,10 +162,31 @@ p.description + hr {
     margin: 8px 0 0 0;
     padding: 8px;
     text-align: left;
-    border: 1px solid #b7282e; /* Akane-iro */
+    text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
+    border: 1px solid #2b2b2b; /* Kuro */
     border-radius: 4px;
-    background-color: #fef4f4; /* Sakura-iro */
-    color: #2b2b2b; /* Kuro */
+    background-color: #82ae46; /* Hiwamoegi */
+    color: #f8fbf8; /* Hakuji */
+}
+
+.attention i.fa {
+    color: #fff;
+    font-size: 55px;
+    display: block;
+    float: left;
+    margin: auto 10px auto 0;
+}
+
+.attention strong {
+    color: #fff;
+}
+
+.attention a,
+.attention a:hover {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
 }
 
 .rtext {
@@ -203,6 +244,7 @@ p.description + hr {
 .index-icon {
     border-radius: 4px;
     color: #fbfaf5; /* Hakuji */
+    text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
     background-color: #b7282e; /* Akane-iro */
     display: inline-block;
     font-size: 36px;

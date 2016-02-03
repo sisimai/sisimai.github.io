@@ -94,18 +94,27 @@ pre.prettyprint {
     font-size: 13px;
     font-family: monospace;
     white-space: pre;
-    background: #f8fbf8; /* Hakuji */
+    background: #6b7b6e; /* Aonibi */
+    color: #f8fbf8; /* Hakuji */
+    text-shadow: 0 -1px 0 #16160e;
     overflow-x:auto;
     line-height: inherit;
     text-decoration: none;
     border-width: 1px;
-    border-color: #9e9478; /* Kaihakushoku */
+    border-color: #333631; /* Kuromidori */
     border-style: solid;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     -ms-border-radius: 4px;
     -o-border-radius: 4px;
     border-radius: 4px;
+}
+
+.parallax pre.prettyprint {
+    border-color: #9e9478; /* Kaihakushoku */
+    background: #f8fbf8; /* Hakuji */
+    color: #2b2b2b;
+    text-shadow: 0 -1px 0 #fff;
 }
 
 .prettyprint kbd {
