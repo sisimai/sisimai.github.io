@@ -1,0 +1,201 @@
+/* CSS for document layout */
+
+.read-more {
+  display: block;
+  text-align: center;
+  margin-top: 70px;
+}
+
+.btn-readmore {
+  border: 1px solid #f2f2f2;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 15px 125px;
+  text-transform: uppercase;
+}
+
+.btn-readmore:hover {
+  color:#fff;
+}
+
+/*****************************************************************************/
+hr {
+    border-color: #adadad; /* Usunibi */
+    border-style: dashed;
+}
+
+.parallax {
+    color: #2b2b2b; /* Kuro */
+    background-color: #ede4cd; /* Neri-iro */
+}
+
+.parallax hr {
+    border-color: #a59564; /* Rikyucha */
+    border-style: dashed;
+}
+
+table tr th, table tr td {
+}
+
+.parallax table tr th, .parallax table tr td {
+    border-color: #a59564; /* Rikyucha */
+}
+
+table.index tr th, table.index tr td {
+    text-align: left;
+    vertical-align: middle;
+    padding: 8px;
+    margin: 0;
+}
+
+table.index tr th {
+    color: #b7282e; /* Akane-iro */
+    text-align: center;
+    vertical-align: middle;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+table.index tr th i.fa {
+    font-size: 56px;
+}
+
+table.index tr th a {
+    text-decoration: none;
+    color: #2b2b2b;
+    background-color: transparent;
+}
+
+table.index tr th a:hover {
+    text-decoration: underline;
+    color: #b7282e; /* Akane-iro */
+    background-color: transparent;
+}
+
+/*****************************************************************************/
+kbd {
+    padding: 1px 2px;
+    margin: 0 4px;
+    border-width: 1px;
+    border-color: #949495; /* Nezumi-iro */
+    border-style: solid;
+    border-radius: 2px;
+    color: #f8fbf8; /* Hakuji */
+    background: #595857; /* Rikyucha */
+}
+
+pre.prettyprint {
+    display: block;
+    width: 100%;
+    padding: 10px 10px 0 10px;
+    margin: 0 0 20px 0;
+    font-size: 13px;
+    font-family: monospace;
+    white-space: pre;
+    background: #f8fbf8; /* Hakuji */
+    overflow-x:auto;
+    line-height: inherit;
+    text-decoration: none;
+    border-width: 1px;
+    border-color: #9e9478; /* Kaihakushoku */
+    border-style: solid;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.prettyprint kbd {
+    padding: 0;
+    margin: 0;
+    color: #3f312b; /* Akasumi */
+    background-color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: none;
+    border-width: 0;
+    border-radius: 0;
+}
+
+.prettyprint kbd:after {
+    content: ' ⏎';
+}
+
+.spec-icon {
+    margin: 12px 0 0 0;
+}
+
+ul.spec {
+    text-align: left;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+h3.icon-caption {
+    font-size: 18px;
+    font-weight: 600;
+    border-width: 0 0 1px 0;
+    border-color: #f3f3f2; /* Shironeri */
+    padding: 0 0 0 8px;
+    margin: 8px 0 12px 0;
+}
+
+h2.in-desc {
+    text-align: left;
+}
+
+h3.in-desc {
+    font-size:20px;
+    display: block;
+    margin: 10px 0 10px 0px;
+    width: 100%;
+    padding: 5px 0 0 0;
+    text-align: left;
+}
+
+h4.in-desc {
+    font-size: 18px;
+    display: block;
+    margin: 20px 0 10px 0;
+    padding: 0;
+    clear: left;
+}
+
+img.lhs {
+    float: left;
+    margin: 10px 10px 0 0;
+    height: 100%;
+}
+
+img.rhs {
+    float: right;
+    margin: 10px 0 0 10px;
+    height: 100%;
+}
+
+span.footnote {
+    color: #c9171e; /* Kokihi */
+}
+
+img.diagram {
+    width: 100%;
+    margin: 8px 0;
+    padding: 0px;
+    border-color: #afafb0; /* Ginnezu */
+    border-style: solid;
+    border-width: 1px;
+}
+
+ol.footnote {
+    list-style-type: decimal;
+    list-style-position: inside;
+    margin: 4px 2px;
+    text-decoration: italic;
+    color: #c9171e; /* Kokihi */
+}
+
+
+

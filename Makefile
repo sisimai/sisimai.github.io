@@ -25,9 +25,16 @@ REPOS_TARGETS = git-status git-push git-commit-amend git-tag-list git-diff \
 preview:
 	open -a 'Google Chrome' ./index.html
 
-start-httpd:
+open-the-page:
 	open -a 'Google Chrome' 'http://127.0.0.1:$(PORT)/'
+
+start-httpd:
+	$(MAKE) open-the-page
 	ruby -run -e httpd . -p $(PORT) 
+
+start-server:
+	$(MAKE) open-the-page
+	jekyll server --watch -P $(PORT) -H 127.0.0.1
 
 $(REPOS_TARGETS):
 	$(MAKE) -f Repository.mk $@

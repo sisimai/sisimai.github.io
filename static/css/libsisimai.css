@@ -1,0 +1,356 @@
+/* CSS for libsisimai.org */
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 24px;
+    color: #383c3c; /* Youkan-iro */
+    background-color: #fbfaf5;  /* Kinari-iro */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #2b2b2b; /* Kuro */
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    transition: 300ms;
+}
+
+a:focus, 
+a:hover {
+    text-decoration: none;
+    outline: none
+}
+
+section {
+    padding: 90px 0;
+}
+
+p.description {
+    text-align: left;
+    text-shadow: 0 -1px 0 #fff;
+}
+
+p.ja {
+    text-align: left;
+    text-shadow: 0 -1px 0 #fff;
+    font-size: 13px;
+}
+
+p.description + hr {
+    border-color: #adadad; /* Usunibi */
+    border-style: dashed;
+    margin: 0 0 8px 0;
+}
+
+.heading {
+    padding-bottom:90px;
+}
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+    background: #fbfaf5;
+}
+
+.preloader > i {
+    position: absolute;
+    font-size: 36px;
+    line-height: 36px;
+    top: 50%;
+    left: 50%;
+    height: 36px;
+    width: 36px;
+    margin-top: -15px;
+    margin-left: -15px;
+    display: inline-block;
+}
+
+/*****************************************************************************/
+.ss {
+    font-family: 'Century Gothic', Muli;
+    font-weight: bold;
+    color: inherit !important;
+    letter-spacing: 1px;
+}
+
+.bh {
+    font-family: 'Century Gothic', Muli;
+    color: inherit !important;
+    letter-spacing: 1px;
+}
+
+/*****************************************************************************/
+.btn {
+    border: 0;
+    border-radius: 0;
+}
+
+.btn.btn-primary:hover {
+    background-color: #b7282e; /* Akane-iro */
+}
+
+.btn-continue {
+    margin: 0 0 20px 0;
+}
+
+/*****************************************************************************/
+.navbar-nav li a:hover, 
+.navbar-nav li a:focus {
+    outline: none;
+    outline-offset: 0;
+    text-decoration: none;  
+    background: transparent;
+}
+
+.navbar-right li a {
+    color: #fbfaf5;
+    text-transform: uppercase;
+    text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.navbar-right li.active a {
+    background-color: rgba(0,0,0,.2);
+}
+
+.navbar-brand h1 {
+  margin-top: 5px;
+}
+
+.attention {
+    width: 100%;
+    margin: 8px 0 0 0;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #b7282e; /* Akane-iro */
+    border-radius: 4px;
+    background-color: #fef4f4; /* Sakura-iro */
+    color: #2b2b2b; /* Kuro */
+}
+
+.rtext {
+    text-align: right;
+}
+
+.ltext {
+    text-align: left;
+}
+
+.ctext {
+    text-align: center;
+}
+
+/*****************************************************************************/
+.index-table {
+    margin-top: -2%;
+}
+
+.index-table .col-sm-3,
+.index-table .col-sm-4 {
+    border-right: 0px dotted red;
+    border-bottom: 0px dotted red;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+
+.index-table .col-sm-3:nth-child(5),
+.index-table .col-sm-3:nth-child(6),
+.index-table .col-sm-3:nth-child(7),
+.index-table .col-sm-3:nth-child(8) {
+    border-bottom:0;
+    padding-top: 60px;
+}
+
+.index-table .col-sm-4:nth-child(4),
+.index-table .col-sm-4:nth-child(5),
+.index-table .col-sm-4:nth-child(6) {
+    border-bottom:0;
+    padding-top: 60px;
+}
+
+.index-table .col-sm-4:nth-child(3), 
+.index-table .col-sm-4:nth-child(6), 
+.index-table .col-sm-3:nth-child(4), 
+.index-table .col-sm-3:nth-child(8) {
+    border-right:0;
+}
+
+.index-table .col-sm-3:hover .index-icon,
+.index-table .col-sm-4:hover .index-icon {
+    background-color: #2b2b2b; /* Kuro */
+}
+
+.index-icon {
+    border-radius: 4px;
+    color: #fbfaf5; /* Hakuji */
+    background-color: #b7282e; /* Akane-iro */
+    display: inline-block;
+    font-size: 36px;
+    height: 90px;
+    line-height: 90px;
+    width: 90px;  
+    -webkit-transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
+}
+
+.index-info {
+    height: 224px;
+    margin: 0;
+}
+
+.index-info h3 {
+    margin: 20px 0;
+}
+
+/*****************************************************************************/
+.social-icons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+.social-icons ul li {
+    float: left;
+    margin-right: 8px;
+}
+
+.social-icons ul li:last-child {
+    margin-right: 0;
+}
+
+.social-icons ul li a {
+    color: #fbfaf5;
+    background-color: #d9d9d9;
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+    display: block;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.social-icons ul li a:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/*****************************************************************************/
+#footer {
+    color: #fbfaf5; /* Kinari-iro */
+}
+
+.footer-top {
+    position: relative;
+    padding:30px 0;
+}
+
+#footer .footer-bottom {
+    padding: 20px 0 10px;
+}
+
+#footer .footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+#footer .social-icons {
+    margin-top: 15px;
+}
+
+#footer .social-icons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#footer .social-icons ul li a {
+    background-color: rgba(0,0,0,.2);
+    border-radius: 4px;
+    line-height: 33px;
+}
+
+#footer .social-icons ul li a:hover {
+    color: #fbfaf5; /* Kinari-iro */
+}
+
+#footer .social-icons ul li a.envelope:hover {
+    background-color: #CECB26;
+}
+
+#footer .social-icons ul li a.facebook:hover {
+    background-color: #3b5999;
+}
+#footer .social-icons ul li a.twitter:hover {
+    background-color: #2ac6f7;
+}
+#footer .social-icons ul li a.dribbble:hover {
+    background-color: #ff5b92;
+}
+#footer .social-icons ul li a.linkedin:hover {
+    background-color: #036dc0;
+}
+#footer .social-icons ul li a.tumblr:hover {
+    background-color: #36455C;
+}
+#footer .social-icons ul li a.github:hover {
+    background-color: #000000;
+}
+
+#footer p.description {
+    text-align: left;
+    text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
+}
+
+#footer ul + hr,
+#footer p.description + hr {
+    border-color: #e8d3d1; /* Usuzakura */
+    border-style: dashed;
+    margin: 0 0 8px 0;
+}
+
+#footer h2 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
+    color: #fbfaf5;
+}
+
+#footer ul {
+    list-style-type: none;
+    list-style-position: outside;
+    padding-left: 10px;
+    text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
+}
+
