@@ -1,275 +1,276 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset = 'utf-8'>
-    <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
-    <meta name = 'description' content = 'Sisimai, Getting Started: System requirements, how to install, and basic usage'>
-    <meta name = 'author' content = 'azumakuniyuki'>
-    <title>Sisimai | Getting Started</title>
-    <link href = '/static/css/bootstrap.min.css' rel = 'stylesheet'>
-    <link href = '/static/css/animate.min.css' rel = 'stylesheet'> 
-    <link href = '/static/css/font-awesome.min.css' rel = 'stylesheet'>
-    <link href = '/static/css/main.css' rel = 'stylesheet'>
-    <link href = '/static/css/presets/preset0.css' id = 'css-preset' rel = 'stylesheet'>
-    <link href = '/static/css/responsive.css' rel = 'stylesheet'>
+---
+layout: document
+title: Getting Started
+description: Sisimai, Getting Started, System requirements, how to install, and basic usage
+author: azumakuniyuki
+---
 
-    <!--[if lt IE 9]>
-        <script src = '/static/js/html5shiv.js'></script>
-        <script src = '/static/js/respond.min.js'></script>
-    <![endif]-->
-
-    <link href = 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel = 'stylesheet' type = 'text/css'>
-    <link href = 'https://fonts.googleapis.com/css?family=Muli:400,300,300italic,400italic' rel = 'stylesheet' type = 'text/css'>
-    <link rel = 'shortcut icon' href = '/static/images/favicon/sisimai.ico'>
-    <link rel = 'apple-touch-icon' sizes = '57x57'   href = '/static/images/favicon/apple-icon-57x57.png'>
-    <link rel = 'apple-touch-icon' sizes = '60x60'   href = '/static/images/favicon/apple-icon-60x60.png'>
-    <link rel = 'apple-touch-icon' sizes = '72x72'   href = '/static/images/favicon/apple-icon-72x72.png'>
-    <link rel = 'apple-touch-icon' sizes = '76x76'   href = '/static/images/favicon/apple-icon-76x76.png'>
-    <link rel = 'apple-touch-icon' sizes = '114x114' href = '/static/images/favicon/apple-icon-114x114.png'>
-    <link rel = 'apple-touch-icon' sizes = '120x120' href = '/static/images/favicon/apple-icon-120x120.png'>
-    <link rel = 'apple-touch-icon' sizes = '144x144' href = '/static/images/favicon/apple-icon-144x144.png'>
-    <link rel = 'apple-touch-icon' sizes = '152x152' href = '/static/images/favicon/apple-icon-152x152.png'>
-    <link rel = 'apple-touch-icon' sizes = '180x180' href = '/static/images/favicon/apple-icon-180x180.png'>
-    <link rel = 'icon' type = 'image/png' sizes = '192x192'  href = '/static/images/favicon/android-icon-192x192.png'>
-    <link rel = 'icon' type = 'image/png' sizes = '32x32'    href = '/static/images/favicon/favicon-32x32.png'>
-    <link rel = 'icon' type = 'image/png' sizes = '96x96'    href = '/static/images/favicon/favicon-96x96.png'>
-    <link rel = 'icon' type = 'image/png' sizes = '16x16'    href = '/static/images/favicon/favicon-16x16.png'>
-    <link rel = 'manifest' href = '/static/images/favicon/manifest.json'>
-    <meta name = 'msapplication-TileColor' content = '#ffffff'>
-    <meta name = 'msapplication-TileImage' content = '/static/images/favicon/ms-icon-144x144.png'>
-    <meta name = 'theme-color' content = '#ffffff'>
-</head><!--/head-->
-
-<body>
-    <!--.preloader-->
-    <div class = 'preloader'> <i class = 'fa fa-circle-o-notch fa-spin'></i></div>
-    <!--/.preloader-->
-
-    <a id = 'tohash' href = '#'></a>
-    <header id = 'home'>
-        <div class = 'main-nav'>
-            <div class = 'container'>
-                <div class = 'navbar-header'>
-                    <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
-                        <span class = 'sr-only'>Toggle navigation</span>
-                        <span class = 'icon-bar'></span>
-                        <span class = 'icon-bar'></span>
-                        <span class = 'icon-bar'></span>
-                    </button>
-                    <a class = 'navbar-brand' href = '/'>
-                        <h1>
-                            <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
-                                width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
-                        </h1>
-                    </a>                    
-                </div>
-                <div class = 'collapse navbar-collapse'>
-                    <ul class = 'nav navbar-nav navbar-right'>                 
-                        <li class = 'scroll active'><a href = '#index'>Getting Started</a></li>
-                        <li class = 'scroll'><a href = '#environment'>Environment</a></li>
-                        <li class = 'scroll'><a href = '#install'>Install</a></li> 
-                        <li class = 'scroll'><a href = '#usage'>Basic Usage</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- /#main-nav -->
-    </header><!-- /#home -->
-
-    <section id = 'index'>
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
         <div class = 'container'>
-            <div class = 'heading'>
-                <div class = 'row'>
-                    <div class = 'text-center col-sm-8 col-sm-offset-2'>
-                        <img src = '/static/images/logo/sisimai-x01.png' width = '50%'>
-                        <h2>Getting Started</h2>
-                    </div>
-                </div> 
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>                    
             </div>
-            <div class = 'text-center page-index'>
-                <div class = 'row'>
-                    <div class = 'col-sm-4'>
-                        <div class = 'about-icon'>
-                            <i class = 'fa fa-desktop'></i>
-                        </div>
-                        <div class = 'about-info'>
-                            <h3>Environment</h3>
-                            <p>
-                                <span class = 'ss'>Sisimai</span> works on any OS
-                                that Perl or Ruby is available to execute except Windows.
-                            </p>
-                            <a href = '#environment' class = 'btn btn-continue'>Read</a>
-                        </div>
-                    </div>
-                    <div class = 'col-sm-4'>
-                        <div class = 'about-icon'>
-                            <i class = 'fa fa-cloud-download'></i>
-                        </div>
-                        <div class = 'about-info'>
-                            <h3>How To Install</h3>
-                            <p>
-                                <span class = 'ss'>Sisimai</span> could be downloaded and installed from GitHub
-                                repository and CPAN.
-                            </p>
-                            <a href = '#install' class = 'btn btn-continue'>Read</a>
-                        </div>
-                    </div>
-                    <div class = 'col-sm-4'>
-                        <div class = 'about-icon'>
-                            <i class = 'fa fa-keyboard-o'></i>
-                        </div>
-                        <div class = 'about-info'>
-                            <h3>Basic Usage</h3>
-                            <p>
-                                Parse emails, generating structured data, and getting parsed data as JSON.
-                            </p>
-                            <a href = '#usage' class = 'btn btn-continue'>Read</a>
-                        </div>
-                    </div>
-                </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>                 
+                    <li class = 'scroll active'><a href = '#index'>Getting Started</a></li>
+                    <li class = 'scroll'><a href = '#environment'>Environment</a></li>
+                    <li class = 'scroll'><a href = '#install'>Install</a></li> 
+                    <li class = 'scroll'><a href = '#usage'>Basic Usage</a></li>
+                </ul>
             </div>
         </div>
-    </section><!-- /#about -->
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
 
-    <section id = 'environment'>
-        <div class = 'container'>
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
             <div class = 'row'>
-                <div class = 'heading col-sm-8 col-sm-offset-2'>
-                    <h2 class = 'in-desc' style = 'padding-top: 40px;'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Getting Started</h2>
+                </div>
+            </div> 
+        </div>
+        <div class = 'text-center index-table'>
+            <div class = 'row'>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
                         <i class = 'fa fa-desktop'></i>
-                        System Requirements
-                    </h2>
-                    <p style = 'text-align: left;'>
-                        <span class = 'ss'>Sisimai</span> can run on the system that Perl or Ruby is available
-                        like the following lists, such as *BSD, Mac OS X, and Linux. 
-                    </p>
-                    <p style = 'text-align: left;'>
-                        However, as of the present, 
-                        <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
-                            <span class = 'ss'>Sisimai</span> does not work ( make test fails ) with 
-                            ActivePerl and other Perl implementations on Windows (<i class = 'fa fa-github'></i>)
-                        </a>.
-                    </p>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Environment</h3>
+                        <p class = 'description'>
+                            <span class = 'ss'>Sisimai</span> works on any OS
+                            that Perl or Ruby is available to execute except Windows.
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            シシマイはPerlかRubyが動くOS(ただしWindowsを除く)で動作します。
+                        </p>
+                    </div>
+                    <a href = '#environment' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-cloud-download'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>How To Install</h3>
+                        <p class = 'description'>
+                            <span class = 'ss'>Sisimai</span> could be downloaded and installed from CPAN,
+                            RubyGems.org, and GitHub repository.
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            シシマイはCPAN(Perl版)とRubyGems.org(Ruby版)、そしてGitHub(Perl版とRuby版)
+                            からダウンロードできます。
+                        </p>
+                    </div>
+                    <a href = '#install' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-keyboard-o'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Basic Usage</h3>
+                        <p class = 'description'>
+                            Parse emails, generating structured data, and getting parsed data as JSON.
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            メールの解析、構造化されたデータの取得とJSON化など
+                            簡単な使い方を紹介します。
+                        </p>
+                    </div>
+                    <a href = '#usage' class = 'btn btn-continue'>Read</a>
                 </div>
             </div>
-            <div class = 'text-center about-sisimai'>
-                <div class = 'row'>
-                    <div class = 'col-sm-6'>
-                        <div class = 'spec-icon'>
-                            <img src = '/static/images/icon/dinosaur-1.png'>
-                            <h3 class = 'icon-caption'>Perl 5.10.1 or later</h3>
-                        </div>
-                        <div class = 'about-info'>
-                            <ul class = 'spec'>
-                                <li>2 External modules</li>
-                                <ul>
-                                    <li>
-                                        <a href = 'https://metacpan.org/pod/Class::Accessor::Lite' target = 'new'>
-                                            Class::Accessor::Lite
-                                        </a> module
-                                    </li>
-                                    <li><a href = 'https://metacpan.org/pod/JSON' target = 'new'>JSON</a> module</li>
-                                </ul>
-                                <li>Some core modules</li>
-                                <ul>
-                                    <li title = 'Core module from Perl 5.9.4'>
-                                        <a href = 'https://metacpan.org/pod/Module::Load'>Module::Load</a>
-                                    </li>
-                                    <li title = 'Core module from Perl 5.9.5'>
-                                        <a href = 'https://metacpan.org/pod/Time::Piece'>Time::Piece</a>
-                                    </li>
-                                    <li title = 'Core module from Perl 5'>
-                                        <a href = 'https://metacpan.org/pod/Time::Local'>Time::Local</a>
-                                    </li>
-                                </ul>
-                            </ul>
-                            <a href = 'https://metacpan.org/pod/Sisimai' class = 'btn btn-continue'>Download from CPAN</a>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</section> <!-- /#index -->
 
-                    <div class = 'col-sm-6'>
-                        <div class = 'spec-icon'>
-                            <img src = '/static/images/icon/ruby-1.png'>
-                            <h3 class = 'icon-caption'>Ruby 2.1.0 or later</h3>
-                        </div>
-                        <div class = 'about-info'>
-                            <ul class = 'spec'>
-                                <li><strong class = 'r0'>UNDER THE DEVELOPMENT</strong></li>
+<section id = 'environment' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'heading col-sm-8 col-sm-offset-2'>
+                <h2 class = 'in-desc' style = 'padding-top: 40px;'>
+                    <i class = 'fa fa-desktop'></i>
+                    System Requirements
+                </h2>
+                <p class = 'description'>
+                    <span class = 'ss'>Sisimai</span> can run on the system that Perl or Ruby is available
+                    like the following lists, such as *BSD, Mac OS X, and Linux. 
+                    However, as of the present, 
+                    <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
+                        <span class = 'ss'>Sisimai</span> does not work ( make test fails ) with 
+                        ActivePerl and other Perl implementations on Windows.
+                    </a>.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    シシマイは*BSDやMac OS XやLinuxのようなPerlまたはRubyが動作するOSで動きます。
+                    <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
+                    しかしながら、現時点でWindowsでは動作しません。
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class = 'text-center index-table'>
+            <div class = 'row'>
+                <div class = 'col-sm-4 col-sm-offset-2'>
+                    <div class = 'spec-icon'>
+                        <img src = '/static/images/icon/dinosaur-1.png'>
+                        <h3 class = 'icon-caption'>Perl 5.10.1 or later</h3>
+                    </div>
+                    <div class = 'index-info'>
+                        <ul class = 'spec'>
+                            <li>2 External modules</li>
+                            <ul>
                                 <li>
-                                    <a href = 'https://github.com/sisimai/rb-Sisimai' target = 'new'>Some codes</a> may work
+                                    <a href = 'https://metacpan.org/pod/Class::Accessor::Lite' target = 'new'>
+                                        Class::Accessor::Lite
+                                    </a> module
+                                </li>
+                                <li><a href = 'https://metacpan.org/pod/JSON' target = 'new'>JSON</a> module</li>
+                            </ul>
+                            <li>Some core modules</li>
+                            <ul>
+                                <li title = 'Core module from Perl 5.9.4'>
+                                    <a href = 'https://metacpan.org/pod/Module::Load' target = 'new'>Module::Load</a>
+                                </li>
+                                <li title = 'Core module from Perl 5.9.5'>
+                                    <a href = 'https://metacpan.org/pod/Time::Piece' target = 'new'>Time::Piece</a>
+                                </li>
+                                <li title = 'Core module from Perl 5'>
+                                    <a href = 'https://metacpan.org/pod/Time::Local' target = 'new'>Time::Local</a>
+                                </li>
+                            </ul>
+                        </ul>
+                        <a href = 'https://metacpan.org/pod/Sisimai' class = 'btn btn-continue'>Download from CPAN</a>
+                    </div>
+                </div>
+
+                <div class = 'col-sm-4'>
+                    <div class = 'spec-icon'>
+                        <img src = '/static/images/icon/ruby-1.png'>
+                        <h3 class = 'icon-caption'>Ruby 2.1.0 or later</h3>
+                    </div>
+                    <div class = 'index-info'>
+                        <ul class = 'spec'>
+                            <li>Also works on JRuby 9.0.0.0</li>
+                            <li>Development dependencies</li>
+                            <ul>
+                                <li>
+                                    <a href = 'https://rubygems.org/gems/bundler' target = 'new'>bundler</a>
                                 </li>
                                 <li>
-                                    <a href = 'https://travis-ci.org/sisimai/rb-Sisimai' target = 'new'>all tests passed</a>
+                                    <a href = 'https://rubygems.org/gems/rake' target = 'new'>rake</a>
                                 </li>
                                 <li>
-                                    <a href = 'https://github.com/sisimai/rb-Sisimai/issues/9' target = 'new'>does not work on JRuby</a>
+                                    <a href = 'https://rubygems.org/gems/rspec' target = 'new'>rspec</a>
                                 </li>
-                                <li>will be released until the next spring</li>
                                 <li></li>
                                 <li></li>
                             </ul>
-                            <span class = 'btn btn-disabled'>RubyGems(coming soon)</span>
-                        </div>
+                        </ul>
+                        <a href = 'https://rubygems.org/gems/sisimai' class = 'btn btn-continue'>Download from RubyGems</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!-- /#environment -->
+    </div>
+</section> <!-- /#environment -->
 
-    <section id = 'install'>
-        <div class = 'container'>
-            <div class = 'row'>
-                <div class = 'heading col-sm-8 col-sm-offset-2'>
-                    <h2 class = 'in-desc'>
-                        <i class = 'fa fa-cloud-download'></i>
-                        Install <span class = 'ss'>Sisimai</span>
-                    </h2>
-                </div>
+<section id = 'install'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'heading col-sm-8 col-sm-offset-2'>
+                <h2 class = 'in-desc'>
+                    <i class = 'fa fa-cloud-download'></i>
+                    Install <span class = 'ss'>Sisimai</span>
+                </h2>
             </div>
-            <div class = 'row'>
-                <div class = 'col-sm-8 col-sm-offset-2'>
-                    <h3 class = 'in-desc'>From GitHub</h3>
-                    <p>
-                        <img class = 'lhs' src = '/static/images/icon/github-1.png'>
-                        The latest version of <span class = 'ss'>Sisimai</span> including development version
-                        and stable version is available to download from 
-                        <a href = 'https://github.com/sisimai/' target = 'new'>GitHub</a> master branch.
-                        Both the Perl and the Ruby version are available in the repository.
-                    </p>
-                    <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
-                    <pre class = 'prettyprint'>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <h3 class = 'in-desc'>From GitHub</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/github-1.png'>
+                    The latest version of <span class = 'ss'>Sisimai</span> including development version
+                    and stable version is available to download from 
+                    <a href = 'https://github.com/sisimai/' target = 'new'>GitHub</a> master branch.
+                    Both the Perl and the Ruby version are available in the repository.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    開発版を含む最新バージョンと安定版のシシマイは
+                    <a href = 'https://github.com/sisimai/' target = 'new'>GitHub</a>
+                    のmasterブランチからダウンロード出来ます。Perl版・Ruby版ともに
+                    このリポジトリにあります。
+                </p>
+                <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
+                <pre class = 'prettyprint'>
 % <kbd>git clone https://github.com/sisimai/p5-Sisimai.git</kbd>
 % <kbd>cd ./p5-Sisimai</kbd>
 % <kbd>sudo make install-from-local</kbd>
 --&gt; Working on .
 Configuring Sisimai-4.14.2 ... OK
 1 distribution installed
-                    </pre>
-                </div>
-                <div class = 'col-sm-8 col-sm-offset-2'>
-                    <h4 class = 'in-desc'>Ruby version of <span class = 'ss'>Sisimai</span></h4>
-                    <pre class = 'prettyprint'>
-% <kbd>echo 'Coming soon'</kbd>
-                    </pre>
-                </div>
+                </pre>
             </div>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <h4 class = 'in-desc'>Ruby version of <span class = 'ss'>Sisimai</span></h4>
+                <pre class = 'prettyprint'>
+% <kbd>git clone https://github.com/sisimai/rb-Sisimai.git</kbd>
+% <kbd>cd ./rb-Sisimai</kbd>
+% <kbd>sudo make depend install-from-local</kbd>
+gem install bundle rake rspec coveralls
+...
+sisimai 4.14.2 built to pkg/sisimai-4.14.2.gem.
+sisimai (4.14.2) installed.
+                </pre>
+            </div>
+        </div>
 
-            <div class = 'row'>
-                <div class = 'col-sm-8 col-sm-offset-2'>
-                    <hr>
-                    <h3 class = 'in-desc'>From CPAN</h3>
-                    <p>
-                        <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
-                        Only the stable version of <span class = 'ss'>Sisimai</span> is available to download from
-                        <a href = 'https://metacpan.org/pod/Sisimai' target = 'new'>CPAN</a>.
-                        You can install the software using cpan command, however, 
-                        <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><strong>cpanm</strong></a>
-                        command is very usefull to install the software and other Perl modules.
-                    </p>
-                </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <h3 class = 'in-desc'>From CPAN</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    Only the stable version of <span class = 'ss'>Sisimai</span> is available to download from
+                    <a href = 'https://metacpan.org/pod/Sisimai' target = 'new'>CPAN</a>.
+                    You can install the software using <kbd>cpan</kbd> command, however, 
+                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
+                    command is very usefull to install the software and other Perl modules.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    Perl版シシマイの安定版のみ
+                    <a href = 'https://metacpan.org/pod/Sisimai' target = 'new'>CPAN</a>
+                    からダウンロードが可能です。<kbd>cpan</kbd>コマンドでもインストール出来ますが、
+                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
+                    コマンドを使うとPerlモジュールのインストールが非常に楽です。
+                </p>
             </div>
-            <div class = 'row'>
-                <div class = 'col-sm-8 col-sm-offset-2'>
-                    <pre class = 'prettyprint'>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <pre class = 'prettyprint'>
 % <kbd>sudo cpanm Sisimai</kbd>
 --&gt; Working on Sisimai
 Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.14.1.tar.gz ... OK
@@ -277,34 +278,69 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.14.1.tar.gz ... OK
 1 distribution installed
 % <kbd>perldoc -l Sisimai</kbd>
 /usr/local/lib/perl5/site_perl/5.20.0/Sisimai.pm
-                    </pre>
-                </div>
+                </pre>
             </div>
         </div>
-    </section><!-- /#install -->
 
-    <section id = 'usage'>
-        <div class = 'container'>
-            <div class = 'row'>
-                <div class = 'heading col-sm-8 col-sm-offset-2'>
-                    <h2 class = 'in-desc'>
-                        <i class = 'fa fa-keyboard-o'></i>
-                        Basic Usage
-                    </h2>
-                </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <h3 class = 'in-desc'>From RubyGems.org</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
+                    Only the stable version of <span class = 'ss'>Sisimai</span> is available to download from
+                    <a href = 'https://rubygems.org/gems/sisimai' target = 'new'>RubyGems.org</a>.
+                    You can install the software using <kbd>gem</kbd> command.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    Ruby版シシマイの安定版のみ
+                    <a href = 'https://rubygems.org/gems/sisimai' target = 'new'>RubyGems.org</a>
+                    からダウンロードが可能で、<kbd>gem</kbd>コマンドでインストールが出来ます。
+                </p>
             </div>
-            <div class = 'row'>
-                <div class = 'col-sm-8 col-sm-offset-2'>
-                    <h3 class = 'in-desc'>make() method of <span class = 'ss'>Sisimai</span></h3>
-                    <p>
-                        <img class = 'lhs' src = '/static/images/icon/outline-1.png'>
-                        For example, the following code shows that make() method of 
-                        <span class = 'ss'>Sisimai</span> provides feature for
-                        getting parsed data from bounced email messages.
-                        <br><br>
-                    </p>
-                    <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
-                    <pre class = 'prettyprint'>#! /usr/bin/env perl
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <pre class = 'prettyprint'>
+% <kbd>sudo gem install sisimai</kbd>
+Fetching: sisimai-4.14.2.gem (100%)
+Successfully installed sisimai-4.14.2
+Parsing documentation for sisimai-4.14.2
+Installing ri documentation for sisimai-4.14.2
+Done installing documentation for sisimai after 6 seconds
+1 gem installed
+                </pre>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#install -->
+
+<section id = 'usage' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'heading col-sm-8 col-sm-offset-2'>
+                <h2 class = 'in-desc'>
+                    <i class = 'fa fa-keyboard-o'></i>
+                    Basic Usage
+                </h2>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <h3 class = 'in-desc'>make() method of <span class = 'ss'>Sisimai</span></h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/outline-1.png'>
+                    For example, the following code shows that <kbd>make()</kbd> method of 
+                    <span class = 'ss'>Sisimai</span> provides feature for
+                    getting parsed data from bounced email messages.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    下記のコードは<span class = 'ss'>Sisimai</span>の<kbd>make()</kbd>
+                    メソッドを使ってバウンスメールを解析し解析結果のデータを得る例です。
+                </p>
+                <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
+                <pre class = 'prettyprint'>#! /usr/bin/env perl
 use Sisimai;
 my $v = Sisimai-&gt;make('/path/to/mbox'); # or Path to Maildir
 
@@ -321,41 +357,86 @@ if( defined $v ) {
     # There is no bounce message in the mailbox
     # or Sisimai could not parse
 }
-                    </pre>
-                </div>
-            </div>
+                </pre>
 
-            <div class = 'row'>
-                <div class = 'col-sm-8 col-sm-offset-2'>
-                    <h3 class = 'in-desc'>dump() method of <span class = 'ss'>Sisimai</span></h3>
-                    <p>
-                        <img class = 'lhs' src = '/static/images/icon/purchase-order-1.png'>
-                        Beginning with the Perl version of Sisimai v4.1.27, 
-                        Sisimai-&gt;dump() method is usefull to get the parsed results as JSON.
-                        The following sample code shows that usage of dump() method with a path to
-                        Maildir/ you want to parse in the first argument.
-                    </p>
-                    <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
-                    <pre class = 'prettyprint'>#! /usr/bin/env perl
+                <h4 class = 'in-desc'>Ruby version of <span class = 'ss'>Sisimai</span></h4>
+                <pre class = 'prettyprint'>#! /usr/bin/env ruby
+require 'sisimai'
+v = Sisimai.make('/path/to/mbox') # or Path to Maildir
+
+if v.void
+  # There is no bounce message in the mailbox
+  # or Sisimai could not parse
+else
+  v.each do |e|
+    puts e.addresser.address    # shironeko@example.org # From
+    puts e.recipient.address    # kijitora@example.jp   # To
+    puts e.recipient.host       # example.jp
+    puts e.deliverystatus       # 5.1.1
+    puts e.replycode            # 550
+    puts e.reason               # userunknown
+  end
+end
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <h3 class = 'in-desc'>dump() method of <span class = 'ss'>Sisimai</span></h3>
+                <p>
+                    <img class = 'lhs' src = '/static/images/icon/purchase-order-1.png'>
+                    Beginning with the Perl version of Sisimai v4.1.27, 
+                    Sisimai-&gt;dump() method is usefull to get the parsed results as JSON.
+                    The following sample code shows that usage of dump() method with a path to
+                    Maildir/ you want to parse in the first argument.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    Perl版Sisimai v4.1.27から登場した<kbd>dump()</kbd>メソッドは解析結果を
+                    JSONで得るのに便利です。下記のように解析したいメールのPATHを渡すだけの
+                    簡単なコードで済みます。
+                </p>
+                <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
+                <pre class = 'prettyprint'>#! /usr/bin/env perl
 use Sisimai;
 print Sisimai-&gt;dump('~/Maildir/cur');
-                    </pre>
-                </div>
-            </div>
+                </pre>
 
-            <div class = 'row'>
-                <div class = 'col-sm-8 col-sm-offset-2'>
-                    <h3 class = 'in-desc'>Filter using &quot;jq&quot; utility</h3>
-                    <p>
-                        <img class = 'lhs' src = '/static/images/icon/js-1.png'>
-                        If you would like to make sure of parsed results, you may want to install 
-                        <a href = 'https://stedolan.github.io/jq/' target = 'new'>jq</a> utility.
-                        The following command shows that &quot;jq&quot; utility will be easier to read
-                        the parsed data generated by dump() method.
-                    </p>
-                    <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
-                    <pre class = 'prettyprint'>
+                <h4 class = 'in-desc'>Ruby version of <span class = 'ss'>Sisimai</span></h4>
+                <pre class = 'prettyprint'>#! /usr/bin/env ruby
+require 'sisimai'
+puts Sisimai.dump('~/Maildir/cur')
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <h3 class = 'in-desc'>Filter using &quot;jq&quot; utility</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/js-1.png'>
+                    If you would like to make sure of parsed results, you may want to install 
+                    <a href = 'https://stedolan.github.io/jq/' target = 'new'><kbd>jq</kbd></a> utility.
+                    The following command shows that &quot;jq&quot; utility will be easier to read
+                    the parsed data generated by <kbd>dump()</kbd> method.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    解析結果のJSONデータを目で確認したい場合は
+                    <a href = 'https://stedolan.github.io/jq/' target = 'new'><kbd>jq</kbd></a>コマンドが便利です。
+                    下記のように<kbd>dump()</kbd>メソッドの出力が読みやすく表示されます。
+                </p>
+                <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
+                <pre class = 'prettyprint'>
 % <kbd>perl -MSisimai -lE 'print Sisimai-&gt;dump(shift)' path/to/mbox | jq .</kbd>
+                </pre>
+
+                <h4 class = 'in-desc'>Ruby version of <span class = 'ss'>Sisimai</span></h4>
+                <pre class = 'prettyprint'>
+% <kbd>ruby -rsisimai -e 'puts Sisimai.dump($*.shift)' path/to/mbox | jq .</kbd>
+                </pre>
+                <pre class = 'prettyprint'>
 [
   {
     "senderdomain": "example.jp",
@@ -383,121 +464,9 @@ print Sisimai-&gt;dump('~/Maildir/cur');
     "lhost": "o7463194126.static.reverse.sendgrid.net"
   }
 ]
-                    </pre>
-                </div>
+                </pre>
             </div>
         </div>
-    </section>
-
-    <footer id = 'footer'>
-        <div class = 'footer-top wow fadeInUp' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
-            <div class = 'container text-center'>
-                <div class = 'footer-logo'>
-                    <a href = '/'>
-                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-a01.png' 
-                            width = '200' alt = 'Sisimai: Mail Analyzing Interface'>
-                    </a>
-                </div>
-                <div class = 'social-icons'>
-                    <ul>
-                        <li><a class = 'twitter' href = 'https://twitter.com/libsisimai'><i class = 'fa fa-twitter'></i></a></li> 
-                        <li><a class = 'facebook' href = 'https://facebook.com/libsisimai'><i class = 'fa fa-facebook'></i></a></li>
-                        <li><a class = 'tumblr' href = 'http://libsisimai.tumblr.com'><i class = 'fa fa-tumblr-square'></i></a></li>
-                        <li><a class = 'github' href = 'https://github.com/sisimai'><i class = 'fa fa-github-square'></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class = 'footer-bottom'>
-            <div class = 'container'>
-                <div class = 'row'>
-                    <div class = 'col-sm-4'>
-                        <p class = 'description'>
-                            <span class = 'ss'>Sisimai</span> is an open source software under the BSD 2-Clause License.
-                        </p>
-                        <hr>
-                        <p class = 'description'>
-                            <strong>LIBSISIMAI.ORG</strong> |
-                            Copyright 2015-2016
-                            <a href = 'https://twitter.com/azumakuniyuki' target = 'new'>azumakuniyuki</a>,
-                            <a href = 'http://cubicroot.jp/' target = 'new'>Cubicroot Co. Ltd.</a> (Kyoto, Japan),
-                            and
-                            <a href = 'http://libsisimai.org/' target = 'new'>Sisimai Project</a>,
-                            All Rights Reserved.
-                        </p>
-                        <hr>
-                        <p class = 'description'>
-                            HTML5 Template of this site is based on
-                            <a href = 'http://demo.themeum.com/html/oxygen/' target = 'new'>Oxygen Theme</a>
-                            Designed by <a href = 'http://www.themeum.com/' target = 'new'><strong>Themeum</strong></a>.
-                            Icons used in this site are in
-                            <a href = 'https://icons8.com/' target = 'new'><strong>icons8.com</strong></a>.
-                        </p>
-                    </div>
-                    <div class = 'col-sm-4'>
-                        <a class="twitter-timeline" href="https://twitter.com/libsisimai" data-widget-id="259644286679793664">Tweets by @libsisimai</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                    </div>
-                    <div class = 'col-sm-4'>
-                        <h2>Source Codes</h2>
-                        <ul>
-                            <li>
-                                <i class = 'fa fa-github'></i>
-                                <a href = 'https://github.com/sisimai' target = 'new'>
-                                    <span class = 'ss'>Sisimai</span> Project on GitHub
-                                </a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-github-alt'></i>
-                                <a href = 'https://github.com/sisimai/p5-Sisimai' target = 'new'>
-                                    Perl version of <span class = 'ss'>Sisimai</span>
-                                </a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-github-alt'></i>
-                                <a href = 'https://github.com/sisimai/rb-Sisimai' target = 'new'>
-                                    Ruby version of <span class = 'ss'>Sisimai</span>
-                                </a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-cloud-download'></i>
-                                <a href = 'https://metacpan.org/pod/Sisimai' target = 'new'>
-                                    <span class = 'ss'>Sisimai</span> on meta::cpan
-                                </a>
-                            </li>
-                        </ul>
-                        <h2>Other Resources</h2>
-                        <ul>
-                            <li>
-                                <i class = 'fa fa-tumblr-square'></i>
-                                <a href = 'http://blog.libsisimai.org' target = 'new'>
-                                    The latest information and updates
-                                </a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-twitter'></i>
-                                <a href = 'https://twitter.com/libsisimai' target = 'new'>@libsisimai on Twitter</a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-facebook-square'></i>
-                                <a href = 'https://www.facebook.com/libsisimai/' target = 'new'>Facebook Page</a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-building'></i>
-                                <a href = 'http://cubicroot.jp/' target = 'new'>Suponsored by Cubicroot Co. Ltd.,</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script type = 'text/javascript' src = '/static/js/google-analytics.js'></script>
-    <script type = 'text/javascript' src = '/static/js/jquery.js'></script>
-    <script type = 'text/javascript' src = '/static/js/bootstrap.min.js'></script>
-    <script type = 'text/javascript' src = '/static/js/main.js'></script>
-</body>
-</html>
-
+    </div>
+</section> <!-- #usage -->
 

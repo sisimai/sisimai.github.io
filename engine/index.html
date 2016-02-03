@@ -1,741 +1,641 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset = 'utf-8'>
-    <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0'>
-    <meta name = 'description' content = 'Sisimai, List of including MTA/MSP modules'>
-    <meta name = 'author' content = 'azumakuniyuki'>
-    <title>Sisimai | Parser Engines</title>
-    <link href = '/static/css/bootstrap.min.css' rel = 'stylesheet'>
-    <link href = '/static/css/animate.min.css' rel = 'stylesheet'> 
-    <link href = '/static/css/font-awesome.min.css' rel = 'stylesheet'>
-    <link href = '/static/css/main.css' rel = 'stylesheet'>
-    <link href = '/static/css/presets/preset0.css' id = 'css-preset' rel = 'stylesheet'>
-    <link href = '/static/css/responsive.css' rel = 'stylesheet'>
-
-    <!--[if lt IE 9]>
-        <script src = '/static/js/html5shiv.js'></script>
-        <script src = '/static/js/respond.min.js'></script>
-    <![endif]-->
-
-    <link href = 'http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel = 'stylesheet' type = 'text/css'>
-    <link href = 'https://fonts.googleapis.com/css?family=Muli:400,300,300italic,400italic' rel = 'stylesheet' type = 'text/css'>
-    <link rel = 'shortcut icon' href = '/static/images/favicon/sisimai.ico'>
-    <link rel = 'apple-touch-icon' sizes = '57x57'   href = '/static/images/favicon/apple-icon-57x57.png'>
-    <link rel = 'apple-touch-icon' sizes = '60x60'   href = '/static/images/favicon/apple-icon-60x60.png'>
-    <link rel = 'apple-touch-icon' sizes = '72x72'   href = '/static/images/favicon/apple-icon-72x72.png'>
-    <link rel = 'apple-touch-icon' sizes = '76x76'   href = '/static/images/favicon/apple-icon-76x76.png'>
-    <link rel = 'apple-touch-icon' sizes = '114x114' href = '/static/images/favicon/apple-icon-114x114.png'>
-    <link rel = 'apple-touch-icon' sizes = '120x120' href = '/static/images/favicon/apple-icon-120x120.png'>
-    <link rel = 'apple-touch-icon' sizes = '144x144' href = '/static/images/favicon/apple-icon-144x144.png'>
-    <link rel = 'apple-touch-icon' sizes = '152x152' href = '/static/images/favicon/apple-icon-152x152.png'>
-    <link rel = 'apple-touch-icon' sizes = '180x180' href = '/static/images/favicon/apple-icon-180x180.png'>
-    <link rel = 'icon' type = 'image/png' sizes = '192x192'  href = '/static/images/favicon/android-icon-192x192.png'>
-    <link rel = 'icon' type = 'image/png' sizes = '32x32'    href = '/static/images/favicon/favicon-32x32.png'>
-    <link rel = 'icon' type = 'image/png' sizes = '96x96'    href = '/static/images/favicon/favicon-96x96.png'>
-    <link rel = 'icon' type = 'image/png' sizes = '16x16'    href = '/static/images/favicon/favicon-16x16.png'>
-    <link rel = 'manifest' href = '/static/images/favicon/manifest.json'>
-    <meta name = 'msapplication-TileColor' content = '#ffffff'>
-    <meta name = 'msapplication-TileImage' content = '/static/images/favicon/ms-icon-144x144.png'>
-    <meta name = 'theme-color' content = '#ffffff'>
-</head><!--/head-->
-
-<body>
-    <!--.preloader-->
-    <div class = 'preloader'> <i class = 'fa fa-circle-o-notch fa-spin'></i></div>
-    <!--/.preloader-->
-
-    <a id = 'tohash' href = '#'></a>
-    <header id = 'home'>
-        <div class = 'main-nav'>
-            <div class = 'container'>
-                <div class = 'navbar-header'>
-                    <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
-                        <span class = 'sr-only'>Toggle navigation</span>
-                        <span class = 'icon-bar'></span>
-                        <span class = 'icon-bar'></span>
-                        <span class = 'icon-bar'></span>
-                    </button>
-                    <a class = 'navbar-brand' href = '/'>
-                        <h1>
-                            <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
-                                width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
-                        </h1>
-                    </a>
-                </div>
-                <div class = 'collapse navbar-collapse'>
-                    <ul class = 'nav navbar-nav navbar-right'>
-                        <li class = 'scroll active'><a href = '#index'>Engines</a></li>
-                        <li class = 'scroll'><a href = '#oss-mta'>OSS MTA</a></li>
-                        <li class = 'scroll'><a href = '#com-mta'>Commercial MTA</a></li>
-                        <li class = 'scroll'><a href = '#msp-esp'>MSP/ESP</a></li>
-                        <li class = 'scroll'><a href = '#others'>Others</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- /#main-nav -->
-    </header><!-- /#home -->
-
-    <section id = 'index'>
+---
+layout: document
+title: Parser Engines
+description: Sisimai, List of including MTA/MSP modules
+author: azumakuniyuki
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
         <div class = 'container'>
-            <div class = 'heading'>
-                <div class = 'row'>
-                    <div class = 'text-center col-sm-8 col-sm-offset-2'>
-                        <img src = '/static/images/logo/sisimai-x01.png' width = '50%'>
-                        <h2>Parser Engines</h2>
-                        <p class = 'description'>
-                            The following table shows the parser engine modules list of
-                            the latest version of <span class = 'ss'>Sisimai</span>
-                            including comparison column with bounceHammer. All the engine modules
-                            are included in both Perl version and Ruby version of 
-                            <span class = 'ss'>Sisimai</span>.
-                        <p>
-                    </div>
-                </div> 
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
             </div>
-            <div class = 'text-center page-index'>
-                <div class = 'row'>
-                    <div class = 'col-sm-3'>
-                        <div class = 'about-icon'>
-                            <i class = 'fa fa-file-code-o'></i>
-                        </div>
-                        <div class = 'about-info'>
-                            <h3>Open Source MTAs</h3>
-                            <p>
-                                Such as Sendmail, Postfix, OpenSMTPD, qmail, Exim, Courier MTA,
-                                and other open source MTAs
-                            </p>
-                            <a href = '#oss-mta' class = 'btn btn-continue'>Read</a>
-                        </div>
-                    </div>
-                    <div class = 'col-sm-3'>
-                        <div class = 'about-icon'>
-                            <i class = 'fa fa-server'></i>
-                        </div>
-                        <div class = 'about-info'>
-                            <h3>Commercial MTAs</h3>
-                            <p>
-                                Such as Microsoft Exchange Server, Domino, Notes, and
-                                other commercial MTAs and email appliances.
-                            </p>
-                            <a href = '#com-mta' class = 'btn btn-continue'>Read</a>
-                        </div>
-                    </div>
-                    <div class = 'col-sm-3'>
-                        <div class = 'about-icon'>
-                            <i class = 'fa fa-globe'></i>
-                        </div>
-                        <div class = 'about-info'>
-                            <h3>MSP or ESPs</h3>
-                            <p>
-                                Such as Google Mail, Outlook, Yahoo! Mail, SendGrid, 
-                                Amazon SES, and other major or large mail service providers.
-                            </p>
-                            <a href = '#msp-esp' class = 'btn btn-continue'>Read</a>
-                        </div>
-                    </div>
-                    <div class = 'col-sm-3'>
-                        <div class = 'about-icon'>
-                            <i class = 'fa fa-envelope'></i>
-                        </div>
-                        <div class = 'about-info'>
-                            <h3>Others</h3>
-                            <p>
-                                <span class = 'ss'>Sisimai</span> Can parse Feedback loop messages,
-                                bounce emails which are based on RFC3464, and other unknown MTAs.
-                            </p>
-                            <a href = '#others' class = 'btn btn-continue'>Read</a>
-                        </div>
-                    </div>
-                </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'scroll active'><a href = '#index'>Engines</a></li>
+                    <li class = 'scroll'><a href = '#oss-mta'>OSS MTA</a></li>
+                    <li class = 'scroll'><a href = '#com-mta'>Commercial MTA</a></li>
+                    <li class = 'scroll'><a href = '#msp-esp'>MSP/ESP</a></li>
+                    <li class = 'scroll'><a href = '#others'>Others</a></li>
+                </ul>
             </div>
         </div>
-    </section><!-- /#index -->
+    </div><!-- /#main-nav -->
+</header><!-- /#home -->
 
-    <section id = 'oss-mta'>
-        <div class = 'container'>
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
             <div class = 'row'>
-                <div class = 'heading text-center col-sm-8 col-sm-offset-2'>
-                    <h2 class = 'in-desc' style = 'padding-top: 40px;'>
-                        <i class = 'fa fa-file-code-o'></i>
-                        Open Source MTAs
-                    </h2>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Parser Engines</h2>
                     <p class = 'description'>
-                        Such as Sendmail, Postfix, OpenSMTPD, qmail, Exim, Courier MTA, 
-                        and other open source MTAs. Almost all the modules in the following table
-                        are also available in bounceHammer, however, analytical precision ratio of each
-                        module is less than <span class = 'ss'>Sisimai</span>.
-                    </p>
-                </div>
-            </div>
-            <div class = 'text-center'>
-                <div class = 'row'>
-                    <div class = 'col-sm-10 col-sm-offset-1'>
-                        <div class = 'table-responsive'>
-                            <table class = 'table table-hover table-condensed'>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Module Name<br>
-                                            Sisimai::MTA::
-                                        </th>
-                                        <th>
-                                            Included in<br>bounceHammer
-                                        </th>
-                                        <th>
-                                            Ratio in<br>
-                                            bounceHammer
-                                        </th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class = 'ltext'>ApacheJames</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Java Apache Mail Enterprise Server</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>Courier</td>
-                                        <td>Yes</td>
-                                        <td>0.87</td>
-                                        <td class = 'ltext'>Courier MTA</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>Exim</td>
-                                        <td>Yes</td>
-                                        <td>0.83</td>
-                                        <td class = 'ltext'>Exim</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>OpenSMTPD</td>
-                                        <td>Yes</td>
-                                        <td>0.22</td>
-                                        <td class = 'ltext'>OpenSMTPD</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>Postfix</td>
-                                        <td>Yes</td>
-                                        <td>0.90</td>
-                                        <td class = 'ltext'>Postfix</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>Sendmail</td>
-                                        <td>Yes</td>
-                                        <td>1.00</td>
-                                        <td class = 'ltext'>V8 Sendmail: /usr/sbin/sendmail</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>V5sendmail</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>V5 Sendmail</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>qmail</td>
-                                        <td>Yes</td>
-                                        <td>0.67</td>
-                                        <td class = 'ltext'>qmail: Module name is "Qmail" in Ruby version</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- /#oss-mta -->
-
-    <section id = 'com-mta'>
-        <div class = 'container'>
-            <div class = 'row'>
-                <div class = 'heading col-sm-8 col-sm-offset-2'>
-                    <h2 class = 'in-desc'>
-                        <i class = 'fa fa-server'></i>
-                        Commercial MTAs and Appliances
-                    </h2>
-                    <p class = 'description'>
-                        Such as Microsoft Exchange Server, Domino, Notes, and other commercial MTAs and
-                        email appliances. All the modules in the following table are not included in
-                        bounceHammer, however, sometimes there is a bounce email generated by commercial
-                        MTA which could be parsed Fallback module of bounceHammer.
-                    </p>
-                </div>
-            </div>
-            <div class = 'text-center'>
-                <div class = 'row'>
-                    <div class = 'col-sm-10 col-sm-offset-1'>
-                        <div class = 'table-responsive'>
-                            <table class = 'table table-hover table-condensed'>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Module Name<br>
-                                            Sisimai::MTA::
-                                        </th>
-                                        <th>
-                                            Included in<br>bounceHammer
-                                        </th>
-                                        <th>
-                                            Ratio in<br>
-                                            bounceHammer
-                                        </th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class = 'ltext'>Activehunter</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>TransWARE Active!hunter</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>Domino</td>
-                                        <td>No</td>
-                                        <td>0.54</td>
-                                        <td class = 'ltext'>IBM Domino Server</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>Exchange</td>
-                                        <td>No</td>
-                                        <td>0.02</td>
-                                        <td class = 'ltext'>Microsoft Exchange Server</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>IMailServer</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>IPSWITCH IMail Server</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>InterScanMSS</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Trend Micro InterScan Messaging Security Suite</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>MXLogic</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>McAfee SaaS</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>MailFoundry</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>MailFoundry</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>MailMarshalSMTP</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Trustwave Secure Email Gateway</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>McAfee</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>McAfee Email Appliance</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>MessagingServer</td>
-                                        <td>No</td>
-                                        <td>0.86</td>
-                                        <td class = 'ltext'>Oracle Communications Messaging Server</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>Notes</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Lotus Notes</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>SurfControl</td>
-                                        <td>No</td>
-                                        <td>0.75</td>
-                                        <td class = 'ltext'>WebSense SurfControl</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>mFILTER</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Digital Arts m-FILTER: Module name is "MFILTER" in Ruby version</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section><!-- /#com-mta -->
-
-    <section id = 'msp-esp'>
-        <div class = 'container'>
-            <div class = 'row'>
-                <div class = 'heading col-sm-8 col-sm-offset-2'>
-                    <h2 class = 'in-desc'>
-                        <i class = 'fa fa-globe'></i>
-                        MSP: Mail Service Providers
-                    </h2>
+                        The following table shows the parser engine modules list of
+                        the latest version of <span class = 'ss'>Sisimai</span>
+                        including comparison column with bounceHammer. All the engine modules
+                        are included in both Perl version and Ruby version of 
+                        <span class = 'ss'>Sisimai</span>.
                     <p>
-                        Such as Google Mail, Outlook, Yahoo! Mail, SendGrid, Amazon SES, 
-                        and other major or large mail service providers. Almost all the modules
-                        in the following table are not included in bounceHammer and bounceHammer
-                        can not parse bounce emails from Gmail with the new bounce message format.
+                    <hr>
+                    <p class = 'description ja'>
+                        下記の表は最新版シシマイに含まれる解析エンジンとしてのMTA/MSPモジュール
+                        一覧です。シシマイにのみ実装されているものもりますので、bounceHammerとの
+                        比較項目も併記しています。
                     </p>
                 </div>
-            </div>
-            <div class = 'text-center'>
-                <div class = 'row'>
-                    <div class = 'col-sm-10 col-sm-offset-1'>
-                        <div class = 'table-responsive'>
-                            <table class = 'table table-hover table-condensed'>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Module Name<br>
-                                            Sisimai::MSP::
-                                        </th>
-                                        <th>
-                                            Included in<br>bounceHammer
-                                        </th>
-                                        <th>
-                                            Ratio in<br>
-                                            bounceHammer
-                                        </th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class = 'ltext'>DE::EinsUndEins</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>1&amp;1: http://www.1and1.de</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>DE::GMX</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>GMX: http://www.gmx.net</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>JP::Biglobe</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>BIGLOBE: http://www.biglobe.ne.jp</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>JP::EZweb</td>
-                                        <td>Yes</td>
-                                        <td>1.00</td>
-                                        <td class = 'ltext'>au EZweb: http://www.au.kddi.com/mobile/</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>JP::KDDI</td>
-                                        <td>Yes</td>
-                                        <td>1.00</td>
-                                        <td class = 'ltext'>au by KDDI: http://www.au.kddi.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>RU::MailRu</td>
-                                        <td>No</td>
-                                        <td>0.29</td>
-                                        <td class = 'ltext'>@mail.ru: https://mail.ru</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>RU::Yandex</td>
-                                        <td>No</td>
-                                        <td>0.57</td>
-                                        <td class = 'ltext'>Yandex.Mail: http://www.yandex.ru</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>UK::MessageLabs</td>
-                                        <td>No</td>
-                                        <td>1.00</td>
-                                        <td class = 'ltext'>Symantec.cloud http://www.messagelabs.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::AmazonSES</td>
-                                        <td>No</td>
-                                        <td>1.00</td>
-                                        <td class = 'ltext'>Amazon SES(Sending): http://aws.amazon.com/ses/</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::Aol</td>
-                                        <td>No</td>
-                                        <td>0.86</td>
-                                        <td class = 'ltext'>Aol Mail: http://www.aol.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::Bigfoot</td>
-                                        <td>No</td>
-                                        <td>1.00</td>
-                                        <td class = 'ltext'>Bigfoot: http://www.bigfoot.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::Facebook</td>
-                                        <td>Yes</td>
-                                        <td>1.00</td>
-                                        <td class = 'ltext'>Facebook: https://www.facebook.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::Google</td>
-                                        <td>Yes</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Google Gmail: https://mail.google.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::Outlook</td>
-                                        <td>No</td>
-                                        <td>0.83</td>
-                                        <td class = 'ltext'>Microsoft Outlook.com: https://www.outlook.com/</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::ReceivingSES</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Amazon SES(Receiving): http://aws.amazon.com/ses/</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::SendGrid</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>SendGrid: http://sendgrid.com/</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::Verizon</td>
-                                        <td>Yes</td>
-                                        <td>1.00</td>
-                                        <td class = 'ltext'>Verizon Wireless: http://www.verizonwireless.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::Yahoo</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Yahoo! MAIL: https://www.yahoo.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>US::Zoho</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Zoho Mail: https://www.zoho.com</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div> 
         </div>
-    </section>
-
-    <section id = 'others'>
-        <div class = 'container'>
+        <div class = 'text-center index-table'>
             <div class = 'row'>
-                <div class = 'heading text-center col-sm-8 col-sm-offset-2'>
-                    <h2 class = 'in-desc' style = 'padding-top: 40px;'>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-file-code-o'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Open Source MTAs</h3>
+                        <p class = 'description'>
+                            Such as Sendmail, Postfix, OpenSMTPD, qmail, Exim, Courier MTA,
+                            and other open source MTAs
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            SendmailやPostfix, OpenSMTPDのようなオープンソースのMTA用解析
+                            モジュール一覧です。
+                        </p>
+                    </div>
+                    <a href = '#oss-mta' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-server'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Commercial MTAs</h3>
+                        <p class = 'description'>
+                            Such as Microsoft Exchange Server, Domino, Notes, and
+                            other commercial MTAs and email appliances.
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            Microsoft Exchange ServerやDominoのような商用MTA用の
+                            解析モジュール一覧です。
+                        </p>
+                    </div>
+                    <a href = '#com-mta' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-globe'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>MSP or ESPs</h3>
+                        <p class = 'description'>
+                            Such as Google Mail, Outlook, Yahoo! Mail, SendGrid, 
+                            Amazon SES, and other major or large mail service providers.
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            GmailやOutlook, Yahoo!のようなメールプロバイダと
+                            SendGridやAmazon SESのような配信サービス用解析モジュール
+                            の一覧です。
+                        </p>
+                    </div>
+                    <a href = '#msp-esp' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
                         <i class = 'fa fa-envelope'></i>
-                        FBL and Other Unknown MTAs
-                    </h2>
-                    <p class = 'description'>
-                        <span class = 'ss'>Sisimai</span> can parse FBL: Feedback loop messages,
-                       bounce emails which are based on RFC3464, and other unknown MTAs.
-                    </p>
-                </div>
-            </div>
-            <div class = 'text-center'>
-                <div class = 'row'>
-                    <div class = 'col-sm-10 col-sm-offset-1'>
-                        <div class = 'table-responsive'>
-                            <table class = 'table table-hover table-condensed'>
-                                <thead>
-                                    <tr>
-                                        <th>
-                                            Module Name<br>
-                                            Sisimai::
-                                        </th>
-                                        <th>
-                                            Included in<br>bounceHammer
-                                        </th>
-                                        <th>
-                                            Ratio in<br>
-                                            bounceHammer
-                                        </th>
-                                        <th>Description</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class = 'ltext'>ARF</td>
-                                        <td>No</td>
-                                        <td>0.18</td>
-                                        <td class = 'ltext'>Abuse Feedback Reporting Format</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>RFC3464</td>
-                                        <td>Yes</td>
-                                        <td>0.47</td>
-                                        <td class = 'ltext'>Fallback Module for MTAs</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>RFC3834</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Detector for auto replied message</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>MTA::X1</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Unknown MTA #1</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>MTA::X2</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Unknown MTA #2</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>MTA::X3</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Unknown MTA #3</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>MTA::X4</td>
-                                        <td>No</td>
-                                        <td>0.00</td>
-                                        <td class = 'ltext'>Unknown MTA #4 qmail clones</td>
-                                    </tr>
-                                    <tr>
-                                        <td class = 'ltext'>MTA::X5</td>
-                                        <td>No</td>
-                                        <td>1.00</td>
-                                        <td class = 'ltext'>Unknown MTA #5</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- /#oss-mta -->
-
-    <footer id = 'footer'>
-        <div class = 'footer-top wow fadeInUp' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
-            <div class = 'container text-center'>
-                <div class = 'footer-logo'>
-                    <a href = '/'>
-                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-a01.png' 
-                            width = '200' alt = 'Sisimai: Mail Analyzing Interface'>
-                    </a>
-                </div>
-                <div class = 'social-icons'>
-                    <ul>
-                        <li><a class = 'twitter' href = 'https://twitter.com/libsisimai'><i class = 'fa fa-twitter'></i></a></li> 
-                        <li><a class = 'facebook' href = 'https://facebook.com/libsisimai'><i class = 'fa fa-facebook'></i></a></li>
-                        <li><a class = 'tumblr' href = 'http://libsisimai.tumblr.com'><i class = 'fa fa-tumblr-square'></i></a></li>
-                        <li><a class = 'github' href = 'https://github.com/sisimai'><i class = 'fa fa-github-square'></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class = 'footer-bottom'>
-            <div class = 'container'>
-                <div class = 'row'>
-                    <div class = 'col-sm-4'>
+                    <div class = 'index-info'>
+                        <h3>Others</h3>
                         <p class = 'description'>
-                            <span class = 'ss'>Sisimai</span> is an open source software under the BSD 2-Clause License.
+                            <span class = 'ss'>Sisimai</span> Can parse Feedback loop messages,
+                            bounce emails which are based on RFC3464, and other unknown MTAs.
                         </p>
                         <hr>
-                        <p class = 'description'>
-                            <strong>LIBSISIMAI.ORG</strong> |
-                            Copyright 2015-2016
-                            <a href = 'https://twitter.com/azumakuniyuki' target = 'new'>azumakuniyuki</a>,
-                            <a href = 'http://cubicroot.jp/' target = 'new'>Cubicroot Co. Ltd.</a> (Kyoto, Japan),
-                            and
-                            <a href = 'http://libsisimai.org/' target = 'new'>Sisimai Project</a>,
-                            All Rights Reserved.
-                        </p>
-                        <hr>
-                        <p class = 'description'>
-                            HTML5 Template of this site is based on
-                            <a href = 'http://demo.themeum.com/html/oxygen/' target = 'new'>Oxygen Theme</a>
-                            Designed by <a href = 'http://www.themeum.com/' target = 'new'><strong>Themeum</strong></a>.
-                            Icons used in this site are in
-                            <a href = 'https://icons8.com/' target = 'new'><strong>icons8.com</strong></a>.
+                        <p class = 'description ja'>
+                            Feedback loopやRFC3464に準拠した形式のバウンスメール、それと
+                            名称が未知のMTA用解析モジュール一覧です。
                         </p>
                     </div>
-                    <div class = 'col-sm-4'>
-                        <a class="twitter-timeline" href="https://twitter.com/libsisimai" data-widget-id="259644286679793664">Tweets by @libsisimai</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-                    </div>
-                    <div class = 'col-sm-4'>
-                        <h2>Source Codes</h2>
-                        <ul>
-                            <li>
-                                <i class = 'fa fa-github'></i>
-                                <a href = 'https://github.com/sisimai' target = 'new'>
-                                    <span class = 'ss'>Sisimai</span> Project on GitHub
-                                </a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-github-alt'></i>
-                                <a href = 'https://github.com/sisimai/p5-Sisimai' target = 'new'>
-                                    Perl version of <span class = 'ss'>Sisimai</span>
-                                </a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-github-alt'></i>
-                                <a href = 'https://github.com/sisimai/rb-Sisimai' target = 'new'>
-                                    Ruby version of <span class = 'ss'>Sisimai</span>
-                                </a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-cloud-download'></i>
-                                <a href = 'https://metacpan.org/pod/Sisimai' target = 'new'>
-                                    <span class = 'ss'>Sisimai</span> on meta::cpan
-                                </a>
-                            </li>
-                        </ul>
-                        <h2>Other Resources</h2>
-                        <ul>
-                            <li>
-                                <i class = 'fa fa-tumblr-square'></i>
-                                <a href = 'http://blog.libsisimai.org' target = 'new'>
-                                    The latest information and updates
-                                </a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-twitter'></i>
-                                <a href = 'https://twitter.com/libsisimai' target = 'new'>@libsisimai on Twitter</a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-facebook-square'></i>
-                                <a href = 'https://www.facebook.com/libsisimai/' target = 'new'>Facebook Page</a>
-                            </li>
-                            <li>
-                                <i class = 'fa fa-building'></i>
-                                <a href = 'http://cubicroot.jp/' target = 'new'>Suponsored by Cubicroot Co. Ltd.,</a>
-                            </li>
-                        </ul>
+                    <a href = '#others' class = 'btn btn-continue'>Read</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /#index -->
+
+<section id = 'oss-mta' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-2'>
+                <h2 class = 'in-desc' style = 'padding-top: 40px;'>
+                    <i class = 'fa fa-file-code-o'></i>
+                    Open Source MTAs
+                </h2>
+                <p class = 'description'>
+                    Such as Sendmail, Postfix, OpenSMTPD, qmail, Exim, Courier MTA, 
+                    and other open source MTAs. Almost all the modules in the following table
+                    are also available in bounceHammer, however, analytical precision ratio of each
+                    module is less than <span class = 'ss'>Sisimai</span>.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    Sendmail, Postfix, OpenSMTPDやqmailのような広く使われているオープンソースの
+                    MTA用解析モジュール一覧です。下記表の殆どは、シシマイよりも解析精度が劣りますが
+                    bounceHammerにも実装されているものです。
+                </p>
+            </div>
+        </div>
+        <div class = 'text-center'>
+            <div class = 'row'>
+                <div class = 'col-sm-10 col-sm-offset-1'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-condensed'>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Module Name<br>
+                                        Sisimai::MTA::
+                                    </th>
+                                    <th>
+                                        Included in<br>bounceHammer
+                                    </th>
+                                    <th>
+                                        Ratio in<br>
+                                        bounceHammer
+                                    </th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = 'ltext'>ApacheJames</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Java Apache Mail Enterprise Server</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Courier</td>
+                                    <td>Yes</td>
+                                    <td>0.87</td>
+                                    <td class = 'ltext'>Courier MTA</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Exim</td>
+                                    <td>Yes</td>
+                                    <td>0.83</td>
+                                    <td class = 'ltext'>Exim</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>OpenSMTPD</td>
+                                    <td>Yes</td>
+                                    <td>0.22</td>
+                                    <td class = 'ltext'>OpenSMTPD</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Postfix</td>
+                                    <td>Yes</td>
+                                    <td>0.90</td>
+                                    <td class = 'ltext'>Postfix</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Sendmail</td>
+                                    <td>Yes</td>
+                                    <td>1.00</td>
+                                    <td class = 'ltext'>V8 Sendmail: /usr/sbin/sendmail</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>V5sendmail</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>V5 Sendmail</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>qmail</td>
+                                    <td>Yes</td>
+                                    <td>0.67</td>
+                                    <td class = 'ltext'>qmail: Module name is "Qmail" in Ruby version</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+</section><!-- /#oss-mta -->
 
-    <script type = 'text/javascript' src = '/static/js/google-analytics.js'></script>
-    <script type = 'text/javascript' src = '/static/js/jquery.js'></script>
-    <script type = 'text/javascript' src = '/static/js/bootstrap.min.js'></script>
-    <script type = 'text/javascript' src = '/static/js/main.js'></script>
-</body>
-</html>
+<section id = 'com-mta'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'heading col-sm-8 col-sm-offset-2'>
+                <h2 class = 'in-desc'>
+                    <i class = 'fa fa-server'></i>
+                    Commercial MTAs and Appliances
+                </h2>
+                <p class = 'description'>
+                    Such as Microsoft Exchange Server, Domino, Notes, and other commercial MTAs and
+                    email appliances. All the modules in the following table are not included in
+                    bounceHammer, however, sometimes there is a bounce email generated by commercial
+                    MTA which could be parsed Fallback module of bounceHammer.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    Microsoft Exchange SErverやDomino,Notesのような商用MTA・商用アプライアンスの
+                    作ったバウンスメールを解析するモジュール一覧です。この表にあるモジュールは
+                    bounceHammerには実装されていないものですが、極稀にbounceHammerのFallback
+                    モジュールでも解析出来るバウンスメールがあります。
+                </p>
+            </div>
+        </div>
+        <div class = 'text-center'>
+            <div class = 'row'>
+                <div class = 'col-sm-10 col-sm-offset-1'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-condensed'>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Module Name<br>
+                                        Sisimai::MTA::
+                                    </th>
+                                    <th>
+                                        Included in<br>bounceHammer
+                                    </th>
+                                    <th>
+                                        Ratio in<br>
+                                        bounceHammer
+                                    </th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = 'ltext'>Activehunter</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>TransWARE Active!hunter</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Domino</td>
+                                    <td>No</td>
+                                    <td>0.54</td>
+                                    <td class = 'ltext'>IBM Domino Server</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Exchange</td>
+                                    <td>No</td>
+                                    <td>0.02</td>
+                                    <td class = 'ltext'>Microsoft Exchange Server</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>IMailServer</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>IPSWITCH IMail Server</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>InterScanMSS</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Trend Micro InterScan Messaging Security Suite</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>MXLogic</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>McAfee SaaS</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>MailFoundry</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>MailFoundry</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>MailMarshalSMTP</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Trustwave Secure Email Gateway</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>McAfee</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>McAfee Email Appliance</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>MessagingServer</td>
+                                    <td>No</td>
+                                    <td>0.86</td>
+                                    <td class = 'ltext'>Oracle Communications Messaging Server</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Notes</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Lotus Notes</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>SurfControl</td>
+                                    <td>No</td>
+                                    <td>0.75</td>
+                                    <td class = 'ltext'>WebSense SurfControl</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>mFILTER</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Digital Arts m-FILTER: Module name is "MFILTER" in Ruby version</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
+</section><!-- /#com-mta -->
+
+<section id = 'msp-esp' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'heading col-sm-8 col-sm-offset-2'>
+                <h2 class = 'in-desc'>
+                    <i class = 'fa fa-globe'></i>
+                    MSP: Mail Service Providers
+                </h2>
+                <p class = 'description'>
+                    Such as Google Mail, Outlook, Yahoo! Mail, SendGrid, Amazon SES, 
+                    and other major or large mail service providers. Almost all the modules
+                    in the following table are not included in bounceHammer and bounceHammer
+                    can not parse bounce emails from Gmail with the new bounce message format.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    Gmail,Outlook, Yahoo! MailのようなメールサービスとSendGridやAmazon SES
+                    のような配信サービスの作るバウンスメールを解析する為のモジュール一覧です。
+                    殆どのモジュールはbounceHammerには含まれていないものです。
+                    また、現在のところGmailからのバウンスメールは
+                    bounceHammerにあるGmail用モジュールでは解析出来なくなっています。
+                </p>
+            </div>
+        </div>
+        <div class = 'text-center'>
+            <div class = 'row'>
+                <div class = 'col-sm-10 col-sm-offset-1'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-condensed'>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Module Name<br>
+                                        Sisimai::MSP::
+                                    </th>
+                                    <th>
+                                        Included in<br>bounceHammer
+                                    </th>
+                                    <th>
+                                        Ratio in<br>
+                                        bounceHammer
+                                    </th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = 'ltext'>DE::EinsUndEins</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>1&amp;1: http://www.1and1.de</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>DE::GMX</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>GMX: http://www.gmx.net</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>JP::Biglobe</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>BIGLOBE: http://www.biglobe.ne.jp</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>JP::EZweb</td>
+                                    <td>Yes</td>
+                                    <td>1.00</td>
+                                    <td class = 'ltext'>au EZweb: http://www.au.kddi.com/mobile/</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>JP::KDDI</td>
+                                    <td>Yes</td>
+                                    <td>1.00</td>
+                                    <td class = 'ltext'>au by KDDI: http://www.au.kddi.com</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>RU::MailRu</td>
+                                    <td>No</td>
+                                    <td>0.29</td>
+                                    <td class = 'ltext'>@mail.ru: https://mail.ru</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>RU::Yandex</td>
+                                    <td>No</td>
+                                    <td>0.57</td>
+                                    <td class = 'ltext'>Yandex.Mail: http://www.yandex.ru</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>UK::MessageLabs</td>
+                                    <td>No</td>
+                                    <td>1.00</td>
+                                    <td class = 'ltext'>Symantec.cloud http://www.messagelabs.com</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::AmazonSES</td>
+                                    <td>No</td>
+                                    <td>1.00</td>
+                                    <td class = 'ltext'>Amazon SES(Sending): http://aws.amazon.com/ses/</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::Aol</td>
+                                    <td>No</td>
+                                    <td>0.86</td>
+                                    <td class = 'ltext'>Aol Mail: http://www.aol.com</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::Bigfoot</td>
+                                    <td>No</td>
+                                    <td>1.00</td>
+                                    <td class = 'ltext'>Bigfoot: http://www.bigfoot.com</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::Facebook</td>
+                                    <td>Yes</td>
+                                    <td>1.00</td>
+                                    <td class = 'ltext'>Facebook: https://www.facebook.com</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::Google</td>
+                                    <td>Yes</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Google Gmail: https://mail.google.com</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::Outlook</td>
+                                    <td>No</td>
+                                    <td>0.83</td>
+                                    <td class = 'ltext'>Microsoft Outlook.com: https://www.outlook.com/</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::ReceivingSES</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Amazon SES(Receiving): http://aws.amazon.com/ses/</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::SendGrid</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>SendGrid: http://sendgrid.com/</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::Verizon</td>
+                                    <td>Yes</td>
+                                    <td>1.00</td>
+                                    <td class = 'ltext'>Verizon Wireless: http://www.verizonwireless.com</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::Yahoo</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Yahoo! MAIL: https://www.yahoo.com</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::Zoho</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Zoho Mail: https://www.zoho.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'others'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-2'>
+                <h2 class = 'in-desc' style = 'padding-top: 40px;'>
+                    <i class = 'fa fa-envelope'></i>
+                    FBL and Other Unknown MTAs
+                </h2>
+                <p class = 'description'>
+                    <span class = 'ss'>Sisimai</span> can parse FBL: Feedback loop messages,
+                   bounce emails which are based on RFC3464, and other unknown MTAs.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    Feedback loopやRFC3464に準拠したバウンスメールと、
+                    未知のMTAが作ったバウンスメールを解析するモジュール一覧です。
+                </p>
+            </div>
+        </div>
+        <div class = 'text-center'>
+            <div class = 'row'>
+                <div class = 'col-sm-10 col-sm-offset-1'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-condensed'>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Module Name<br>
+                                        Sisimai::
+                                    </th>
+                                    <th>
+                                        Included in<br>bounceHammer
+                                    </th>
+                                    <th>
+                                        Ratio in<br>
+                                        bounceHammer
+                                    </th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = 'ltext'>ARF</td>
+                                    <td>No</td>
+                                    <td>0.18</td>
+                                    <td class = 'ltext'>Abuse Feedback Reporting Format</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>RFC3464</td>
+                                    <td>Yes</td>
+                                    <td>0.47</td>
+                                    <td class = 'ltext'>Fallback Module for MTAs</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>RFC3834</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Detector for auto replied message</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>MTA::X1</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Unknown MTA #1</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>MTA::X2</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Unknown MTA #2</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>MTA::X3</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Unknown MTA #3</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>MTA::X4</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>Unknown MTA #4 qmail clones</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>MTA::X5</td>
+                                    <td>No</td>
+                                    <td>1.00</td>
+                                    <td class = 'ltext'>Unknown MTA #5</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#oss-mta -->
 
