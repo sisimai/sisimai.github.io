@@ -268,17 +268,20 @@ p.description + hr {
 
 .left-icon {
     margin: 20px 0 0 0;
-    border-radius: 4px;
+    border-radius: 2px;
+    border-width: 24px 0 0 0;
+    border-color: #595857; /* Sumi */
+    border-style: solid;
     color: #fbfaf5; /* Hakuji */
     text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
     text-align: center;
     background-color: #2b2b2b; /* Akane-iro */
     display: inline-block;
     font-size: 32px;
-    height: 64px;
+    height: 128px;
     width: 64px;  
-    vertical-align: middle;
-    line-height: 64px;
+    line-height: 128px;
+    vertical-align: bottom;
     -webkit-transition: background-color 0.2s ease;
     transition: background-color 0.2s ease;
 }
