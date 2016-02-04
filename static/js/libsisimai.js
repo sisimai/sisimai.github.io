@@ -38,7 +38,7 @@ jQuery(function($) {
             contentBottom.push( $( $(this).attr('href') ).offset().top + $( $(this).attr('href') ).height() );
         });
         $.each( contentTop, function(i){
-            if ( winTop > contentTop[i] - rangeTop ){
+            if( winTop > contentTop[i] - rangeTop ){
                 $('.navbar-collapse li.scroll')
                     .removeClass('active')
                     .eq(i).addClass('active');
@@ -50,5 +50,13 @@ jQuery(function($) {
         $('html, body').animate({scrollTop: $(this.hash).offset().top - 50}, 1000);
         return false;
     });
+
+    // Enable hyperlink in each row
+    $('tr[data-href]').addClass('row-as-a-link').click(function(e) {
+        if( ! $(e.target).is('a') ){
+            window.location = $(e.target).closest('tr').data('href');
+        }
+    });
+
 });
 
