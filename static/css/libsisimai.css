@@ -5,6 +5,7 @@ body {
     line-height: 24px;
     color: #383c3c; /* Youkan-iro */
     background-color: #fbfaf5;  /* Kinari-iro */
+    background-image: url('/static/images/texture/seamlesstexture-852-101.png');
 }
 
 h1, h2, h3, h4, h5, h6 {

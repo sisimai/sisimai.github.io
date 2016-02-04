@@ -27,7 +27,8 @@ hr {
 
 .parallax {
     color: #2b2b2b; /* Kuro */
-    background-color: #ede4cd; /* Neri-iro */
+    background-color: #f8f4e6; /* Zouge-Iro */
+    background-image: url('/static/images/texture/seamlesstexture-291-500.jpg');
 }
 
 .parallax hr {
