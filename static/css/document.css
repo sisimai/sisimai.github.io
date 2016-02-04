@@ -35,21 +35,22 @@ hr {
     border-style: dashed;
 }
 
-table tr th, table tr td {
-}
-
 .parallax table tr th, .parallax table tr td {
     border-color: #a59564; /* Rikyucha */
 }
 
-table.index tr th, table.index tr td {
+table.link-index tr {
+    cursor: pointer;
+}
+
+table.link-index tr th, table.link-index tr td {
     text-align: left;
     vertical-align: middle;
     padding: 8px;
     margin: 0;
 }
 
-table.index tr th {
+table.link-index tr th {
     color: #b7282e; /* Akane-iro */
     text-align: center;
     vertical-align: middle;
@@ -58,18 +59,14 @@ table.index tr th {
     border-radius: 4px;
 }
 
-table.index tr th i.fa {
+table.link-index tr th i.fa {
     font-size: 56px;
-}
-
-table.index tr th a {
     text-decoration: none;
     color: #2b2b2b;
     background-color: transparent;
 }
 
-table.index tr th a:hover {
-    text-decoration: underline;
+table.link-index tr:hover th i.fa {
     color: #b7282e; /* Akane-iro */
     background-color: transparent;
 }
