@@ -206,6 +206,7 @@ p.description + hr {
     margin-top: -2%;
 }
 
+.index-table .col-sm-2,
 .index-table .col-sm-3,
 .index-table .col-sm-4 {
     border-right: 0px dotted red;
@@ -236,6 +237,7 @@ p.description + hr {
     border-right:0;
 }
 
+.index-table .col-sm-2:hover .index-icon,
 .index-table .col-sm-3:hover .index-icon,
 .index-table .col-sm-4:hover .index-icon {
     background-color: #2b2b2b; /* Kuro */
@@ -262,6 +264,23 @@ p.description + hr {
 
 .index-info h3 {
     margin: 20px 0;
+}
+
+.left-icon {
+    margin: 20px 0 0 0;
+    border-radius: 4px;
+    color: #fbfaf5; /* Hakuji */
+    text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
+    text-align: center;
+    background-color: #2b2b2b; /* Akane-iro */
+    display: inline-block;
+    font-size: 32px;
+    height: 64px;
+    width: 64px;  
+    vertical-align: middle;
+    line-height: 64px;
+    -webkit-transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease;
 }
 
 /*****************************************************************************/
