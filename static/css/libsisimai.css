@@ -96,6 +96,10 @@ p.description + hr {
     letter-spacing: 1px;
 }
 
+.warn {
+    color: #8f2e14; /* Bengara-iro */
+}
+
 /*****************************************************************************/
 .btn {
     border: 0;
