@@ -1,0 +1,261 @@
+---
+layout: document
+title: Differencies between Sisimai and bounceHammer
+description: Differencies between Sisimai and bounceHammer
+author: azumakuniyuki
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>                    
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>                 
+                    <li class = 'scroll active'><a href = '#index'>Differencies</a></li>
+                    <li class = 'scroll'><a href = '#advantage'>Advantages</a></li>
+                    <li class = 'scroll'><a href = '#environment'>Environment</a></li> 
+                    <li class = 'scroll'><a href = '#performance'>Performance</a></li> 
+                    <li class = 'others'><a href = '/docs'>Documents</a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Differencies</h2>
+                    <p class = 'description'>
+                        The table in this page show differecies between <span class = 'ss'>Sisimai</span>
+                        ( both of perl and ruby version ) and bounceHammer.
+                    </p>
+                    <hr>
+                    <p class = 'description ja'>
+                        このページの表はシシマイ(Perl版とRuby版)とbounceHammerの違いを
+                        列挙したものです。
+                    </p>
+                </div>
+            </div> 
+        </div>
+        <div class = 'row'>
+            <div class = 'text-center index-table'>
+                <div class = 'col-sm-4 col-sm-offset-0'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-thumbs-o-up'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Advantages</h3>
+                        <p class = 'description'>
+                            Advantages of <span class = 'ss'>Sisimai</span> over the final version
+                            of bounceHammer(v2.7.13),
+                            and resolved serious problems on <span class = 'ss'>Sisimai</span>.
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            シシマイがbounceHammer最終版よりも優れている点と
+                            シシマイで解決した重大な問題点について
+                        </p>
+                    </div>
+                    <a href = '#advantage' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-desktop'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Environment</h3>
+                        <p class = 'description'>
+                            Differencies about environment for running Sisimai
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            シシマイ動作環境周りの違い
+                        </p>
+                    </div>
+                    <a href = '#environment' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-line-chart'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Performance</h3>
+                        <p class = 'description'>
+                            The message you sent has rejected due to a message content:
+                            a part of message header and message body.
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            送信したメールの内容(一部のヘッダ・本文)に起因して差し戻された
+                            バウンス理由の一覧です。
+                        </p>
+                    </div>
+                    <a href = '#content' class = 'btn btn-continue'>Read</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /#index -->
+
+<section id = 'advantage' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-thumbs-o-up'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Advantages</h2>
+                <p class = 'description'>
+                    Advantages of <span class = 'ss'>Sisimai</span> over the final
+                    version of bounceHammer, and resolved serious problems on 
+                    <span class = 'ss'>Sisimai</span>.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    シシマイがbounceHammer最終版よりも優れている点と解決した深刻な
+                    問題点について。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-envelope'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>2 or more bounces in a single message</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    <span class = 'ss'>Sisimai</span> can detect all the recipient addresses and error reasons from 
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/postfix-02.eml'
+                       target = 'new'>a single message which include 2 or more bounce records</a>
+                    like the following.
+                    <em class = 'warn'>bounceHammer can detect the first recipient address only.</em>
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    シシマイは下記のような
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/postfix-02.eml'
+                        target = 'new'>2件以上のバウンス記録を含む単一のメール</a>
+                    から全ての受信者アドレスとエラー理由を検出する事が出来ます。
+                    <em class = 'warn'>bounceHammerは最初の一件のみ検出可能です。</em>
+                </p>
+                <pre class = 'prettyprint ltext'>
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; nijo.example.jp
+Received-From-MTA: DNS; smtp-gateway.kyoto.ocn.ne.jp
+Arrival-Date: Wed, 26 Feb 2014 06:05:47 -0500
+
+Final-Recipient: RFC822; userunknown@example.org
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mx.example.org
+Diagnostic-Code: SMTP; 550 5.1.1 <userunknown@example.org>... User Unknown
+Last-Attempt-Date: Wed, 26 Feb 2014 06:05:48 -0500
+
+Final-Recipient: RFC822; filtered@example.com
+Action: failed
+Status: 5.2.1
+Remote-MTA: DNS; mx.example.com
+Diagnostic-Code: SMTP; 550 5.2.1 <filtered@example.com>... User Unknown
+Last-Attempt-Date: Wed, 26 Feb 2014 06:05:48 -0500
+
+--s1QB5ma0018057.1393412748/nijo.example.jp
+Content-Type: message/rfc822
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-google'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Bounce mails in Gmail mailbox</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    <span class = 'ss'>Sisimai</span> can parse bounce mails in Gmail mailbox.
+                    <em class = 'warn'>bounceHammer parse only old formatted bounce mails in Gmail mailbox.</em>
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    シシマイはGmailのメールボックスにあるバウンスメールも解析出来ます。
+                    <em class = 'warn'>
+                        bounceHammerは古い形式のバウンスメールであればGmailのメールボックスにあるものでも
+                        解析出来ますが、現在の形式のものは解析出来ません。
+                    </em>
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-tachometer'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Faster than bounceHammer</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    <span class = 'ss'>Sisimai</span> can parse bounce mails and generate structured data
+                    faster than bounceHammer (bin/mailboxparser command).
+                    Perl version of <span class = 'ss'>Sisimai</span> is about 1.7 times faster,
+                    Ruby version of <span class = 'ss'>Sisimai</span> is about 1.1 times faster.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    シシマイはbounceHammerのbin/mailboxparserコマンドよりも高速にメールを解析し、構造化された
+                    データを生成します。
+                    Perl版<span class = 'ss'>Sisimai</span>で約1.7倍、
+                    Ruby版<span class = 'ss'>Sisimai</span>で約1.1倍高速です。
+                </p>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</section>
+
