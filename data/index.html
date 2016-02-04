@@ -637,37 +637,8 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fa fa-at'></i></div>
-                <div class = 'post-it'>T</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>token (String)</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/hashtag-1.png'>
-                    "token" is an identifier of each email-bounce. 
-                    The token string is created from the sender email address(addresser)
-                    and the recipient email address(recipient) and the machine time of the date
-                    in a bounce message as an MD5 hash value.
-                    The token value is generated at token() method of Sisimai::String class.
-                    If you want to get the same token string at command line, try to run the following comand:
-                </p>
-                <pre class = 'prettyprint'>
-% printf "\x02%s\x1e%s\x1e%d\x03" sender@example.jp recipient@example.org `date '+%s'` | md5
-714d72dfd972242ad04f8053267e7365
-                </pre>
-                <p class = 'description ja'>
-                    "token"は元メールの発信者アドレス、受信者アドレス、時刻を元に生成される
-                    バウンス記録の一意な識別子です。値はMD5のハッシュ値でSisimai::Stringクラスのtoken()
-                    メソッドで生成されます。
-                    もしもtokenの値をコマンドラインで得るなら、上記のようなコマンドを実行してください。
-                </p>
-                <hr>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'><i class = 'fa fa-clock-o'></i></div>
+                <div class = 'post-it'>T</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>timestamp (Sisimai::Time)</h3>
@@ -715,6 +686,36 @@ Remote-MTA: DNS; g5.example.net
                 <hr>
             </div>
         </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-at'></i></div>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>token (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/hashtag-1.png'>
+                    "token" is an identifier of each email-bounce. 
+                    The token string is created from the sender email address(addresser)
+                    and the recipient email address(recipient) and the machine time of the date
+                    in a bounce message as an MD5 hash value.
+                    The token value is generated at token() method of Sisimai::String class.
+                    If you want to get the same token string at command line, try to run the following comand:
+                </p>
+                <pre class = 'prettyprint'>
+% printf "\x02%s\x1e%s\x1e%d\x03" sender@example.jp recipient@example.org `date '+%s'` | md5
+714d72dfd972242ad04f8053267e7365
+                </pre>
+                <p class = 'description ja'>
+                    "token"は元メールの発信者アドレス、受信者アドレス、時刻を元に生成される
+                    バウンス記録の一意な識別子です。値はMD5のハッシュ値でSisimai::Stringクラスのtoken()
+                    メソッドで生成されます。
+                    もしもtokenの値をコマンドラインで得るなら、上記のようなコマンドを実行してください。
+                </p>
+                <hr>
+            </div>
+        </div>
+
     </div>
 </section>
 
