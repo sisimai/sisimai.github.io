@@ -10,10 +10,10 @@
         </div>
         <div class = 'social-icons'>
             <ul>
-                <li><a class = 'twitter' href = 'https://twitter.com/libsisimai'><i class = 'fa fa-twitter'></i></a></li> 
-                <li><a class = 'facebook' href = 'https://facebook.com/libsisimai'><i class = 'fa fa-facebook'></i></a></li>
-                <li><a class = 'tumblr' href = 'http://libsisimai.tumblr.com'><i class = 'fa fa-tumblr-square'></i></a></li>
-                <li><a class = 'github' href = 'https://github.com/sisimai'><i class = 'fa fa-github-square'></i></a></li>
+                <li><a class = 'twitter' href = '{{ site.sisimai.socialmedia.twitter }}'><i class = 'fa fa-twitter'></i></a></li> 
+                <li><a class = 'facebook' href = '{{ site.sisimai.socialmedia.facebook }}'><i class = 'fa fa-facebook'></i></a></li>
+                <li><a class = 'tumblr' href = '{{ site.sisimai.socialmedia.tumblr }}'><i class = 'fa fa-tumblr-square'></i></a></li>
+                <li><a class = 'github' href = '{{ site.sisimai.repository.project }}'><i class = 'fa fa-github-square'></i></a></li>
             </ul>
         </div>
     </div>
@@ -23,14 +23,14 @@
         <div class = 'row'>
             <div class = 'col-sm-4'>
                 <p class = 'description'>
-                    <span class = 'ss'>Sisimai</span> is an open source software under the BSD 2-Clause License.
+                    {{ site.html.ss }} is an open source software under {{ site.sisimai.spec.license }}
                 </p>
                 <hr>
                 <p class = 'description'>
                     <strong>LIBSISIMAI.ORG</strong> |
                     Copyright 2015-2016
                     <a href = 'https://twitter.com/azumakuniyuki' target = 'new'>azumakuniyuki</a>,
-                    <a href = 'http://cubicroot.jp/' target = 'new'>Cubicroot Co. Ltd.</a> (Kyoto, Japan),
+                    <a href = 'http://cubicroot.jp/' target = 'new'>Cubicroot Co. Ltd.</a>,
                     and
                     <a href = 'http://libsisimai.org/' target = 'new'>Sisimai Project</a>,
                     All Rights Reserved.
@@ -53,32 +53,32 @@
                 <ul>
                     <li>
                         <i class = 'fa fa-github'></i>
-                        <a href = 'https://github.com/sisimai' target = 'new'>
-                            <span class = 'ss'>Sisimai</span> Project on GitHub
+                        <a href = '{{ site.sisimai.repository.project }}' target = 'new'>
+                            {{ site.html.ss }} Project on GitHub
                         </a>
                     </li>
                     <li>
                         <i class = 'fa fa-github-alt'></i>
-                        <a href = 'https://github.com/sisimai/p5-Sisimai' target = 'new'>
-                            Perl version of <span class = 'ss'>Sisimai</span>
+                        <a href = '{{ site.sisimai.repository.perl }}' target = 'new'>
+                            Perl version of {{ site.html.ss }}
                         </a>
                     </li>
                     <li>
                         <i class = 'fa fa-github-alt'></i>
-                        <a href = 'https://github.com/sisimai/rb-Sisimai' target = 'new'>
-                            Ruby version of <span class = 'ss'>Sisimai</span>
+                        <a href = '{{ site.sisimai.repository.ruby }}' target = 'new'>
+                            Ruby version of {{ site.html.ss }}
                         </a>
                     </li>
                     <li>
                         <i class = 'fa fa-cloud-download'></i>
-                        <a href = 'https://metacpan.org/pod/Sisimai' target = 'new'>
-                            <span class = 'ss'>Sisimai</span> on meta::cpan
+                        <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>
+                            {{ site.html.ss }} on meta::cpan
                         </a>
                     </li>
                     <li>
                         <i class = 'fa fa-cloud-download'></i>
-                        <a href = 'https://rubygems.org/gems/sisimai' target = 'new'>
-                            <span class = 'ss'>Sisimai</span> on RubyGems.org
+                        <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>
+                            {{ site.html.ss }} on RubyGems.org
                         </a>
                     </li>
                 </ul>
@@ -87,17 +87,17 @@
                 <ul>
                     <li>
                         <i class = 'fa fa-tumblr-square'></i>
-                        <a href = 'http://blog.libsisimai.org' target = 'new'>
+                        <a href = '{{ site.sisimai.socialmedia.weblog }}' target = 'new'>
                             The latest information and updates
                         </a>
                     </li>
                     <li>
                         <i class = 'fa fa-twitter'></i>
-                        <a href = 'https://twitter.com/libsisimai' target = 'new'>@libsisimai on Twitter</a>
+                        <a href = '{{ site.sisimai.socialmedia.twitter }}' target = 'new'>@libsisimai on Twitter</a>
                     </li>
                     <li>
                         <i class = 'fa fa-facebook-square'></i>
-                        <a href = 'https://www.facebook.com/libsisimai/' target = 'new'>Facebook Page</a>
+                        <a href = '{{ site.sisimai.socialmedia.facebook }}' target = 'new'>Facebook Page</a>
                     </li>
                     <li>
                         <i class = 'fa fa-building'></i>
