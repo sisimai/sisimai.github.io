@@ -1,8 +1,27 @@
+sisimai:
+  domain: 'libsisimai.org'
+  author: 'azumakuniyuki'
+  version: 'v4.14.2'
+  release: 'Wed., February 3, 2016'
+  spec:
+    modules: 51
+    reasons: 25
+    license: 'The BSD 2-Clause License'
+  repository: 
+    project: 'https://github.com/sisimai'
+    perl: 'https://github.com/sisimai/p5-Sisimai'
+    ruby: 'https://github.com/sisimai/rb-Sisimai'
+  distribution:
+    perl: 'https://metacpan.org/pod/Sisimai'
+    ruby: 'https://rubygems.org/gems/sisimai'
+  socialmedia:
+    weblog: 'http://blog.libsisimai.org/'
+    twitter: 'https://twitter.com/libsisimai'
+    tumblr: 'http://libsisimai.tumblr.com/'
+    facebook: 'https://www.facebook.com/libsisimai/'
+neko: 'nyan'
 html:
   ss: "<span class = 'ss'>Sisimai</span>"
-  bh: <span class = 'bh'>bounce<strong>Hammer</strong></span>
-neko: nyan
-
-gems:
-  - jekyll-redirect-from
+  bh: "<span class = 'bh'>bounce<strong>Hammer</strong></span>"
+  cr: "<span class = 'ss'>Cubicroot</span>"
 
