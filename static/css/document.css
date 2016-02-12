@@ -40,6 +40,11 @@ hr {
     border-color: #a59564; /* Rikyucha */
 }
 
+table tr td a {
+    background: transparent;
+    color: #8f2e14; /* Akasumi */
+}
+
 table.link-index tr {
     cursor: pointer;
 }
