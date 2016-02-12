@@ -28,13 +28,18 @@ preview:
 open-the-page:
 	open -a 'Google Chrome' 'http://127.0.0.1:$(PORT)/'
 
-start-httpd:
-	$(MAKE) open-the-page
-	ruby -run -e httpd . -p $(PORT) 
-
 start-server:
-	$(MAKE) open-the-page
-	jekyll server --watch -P $(PORT) -H 127.0.0.1
+	jekyll clean
+	jekyll server --watch -I -P $(PORT) -H 127.0.0.1 --config ./_config.yml
+
+stop-server:
+	kill -TERM `ps axu | grep 'jekyll server' | grep -v grep | awk '{ print $$2 }'`
+	jekyll clean
+
+restart-server:
+	$(MAKE) stop-server
+	sleep 1
+	$(MAKE) start-server
 
 $(REPOS_TARGETS):
 	$(MAKE) -f Repository.mk $@
