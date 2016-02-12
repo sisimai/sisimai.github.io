@@ -1,3 +1,8 @@
+html:
+  ss: "<span class = 'ss'>Sisimai</span>"
+  bh: <span class = 'bh'>bounce<strong>Hammer</strong></span>
+neko: nyan
+
 gems:
   - jekyll-redirect-from
 
