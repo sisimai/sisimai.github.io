@@ -4,7 +4,6 @@ title: The successor to bounceHammer, Library to parse bounce mails
 description: The successor to bounceHammer, Library to parse bounce mails
 author: azumakuniyuki
 ---
-<!-- {{ site.html.ss }} -->
 <header id = 'home'>
     <div id = 'home-slider' class = 'carousel slide carousel-fade' data-ride = 'carousel'>
         <div class = 'carousel-inner'>
@@ -16,7 +15,7 @@ author: azumakuniyuki
                         lib<span>sisimai</span>.org
                     </h1>
                     <p class = 'animated fadeInRightBig'>
-                        <strong>Sisimai</strong> | Mail Analyzing Interface | Bounce Mail Parser
+                        <strong>{{ site.html.ss }}</strong> | Mail Analyzing Interface | Bounce Mail Parser
                     </p>
                     <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '#index'>Start now</a>
                 </div>
@@ -53,7 +52,7 @@ author: azumakuniyuki
         <a class = 'left-control' href = '#home-slider' data-slide = 'prev'><i class = 'fa fa-angle-left'></i></a>
         <a class = 'right-control' href = '#home-slider' data-slide = 'next'><i class = 'fa fa-angle-right'></i></a>
         <a id = 'tohash' href = '#index'><i class = 'fa fa-angle-down'></i></a>
-    </div><!-- /#home-slider -->
+    </div> <!-- /#home-slider -->
 
     <div class = 'main-nav'>
         <div class = 'container'>
@@ -93,10 +92,9 @@ author: azumakuniyuki
             <div class = 'row'>
                 <div class = 'text-center col-sm-8 col-sm-offset-2'>
                     <img src = '/static/images/logo/sisimai-logomark-b02.png' width = '25%'>
-                    <h2>What is <span class = 'ss'>Sisimai</span> ?</h2>
+                    <h2>What is {{ site.html.ss }} ?</h2>
                     <p class = 'description'>
-                        <span class = 'ss'>Sisimai</span> is the successor of
-                        <span class = 'bh'>bounce<strong>Hammer</strong></span>,
+                        {{ site.html.ss }} is the successor of {{ site.html.bh }},
                         is a Mail Analyzing Interface:
                         a <strong>Perl module</strong> and a <strong>Ruby Gem</strong>
                         for parsing RFC5322 bounce emails and
@@ -104,12 +102,12 @@ author: azumakuniyuki
                     </p>
                     <div class = 'attention'>
                         <i class = 'fa fa-newspaper-o'></i>
-                        Both of the latest version of <span class = 'ss'>Sisimai</span> is
-                        <a href = '#download'><strong>v4.14.2</strong></a>,
+                        Both of the latest version of {{ site.html.ss }} is
+                        <a href = '#download'><strong>{{ site.sisimai.version }}</strong></a>,
                         <a href = 'http://blog.libsisimai.org/post/138599786351/perl-version-of-sisimai-4142'
-                           target = 'new'>was released on Wednesday, February 3, 2016.</a> And then, this release is also
+                            target = 'new'>was released on {{ site.sisimai.release }} .</a> And then, this release is also
                         <a href = 'http://blog.libsisimai.org/post/138599486521/the-first-ruby-version-of-sisimai'
-                           target = 'new'>the first ruby version of Sisimai.</a>
+                           target = 'new'>the first ruby version of {{ site.html.ss }}.</a>
                     </div>
                 </div>
             </div> 
@@ -123,7 +121,7 @@ author: azumakuniyuki
                     <div class = 'index-info'>
                         <h3>Parse Bounce Emails</h3>
                         <p class = 'description'>
-                            <span class = 'ss'>Sisimai</span> is a library to parse bounce emails in
+                            {{ site.html.ss }} is a library to parse bounce emails in
                             <strong>UNIX mbox</strong> file or emails in <strong>Maildir/</strong> directory.
                         </p>
                         <hr>
@@ -140,12 +138,13 @@ author: azumakuniyuki
                     <div class = 'index-info'>
                         <h3>Detect Bounce Reasons</h3>
                         <p class = 'description'>
-                            <span class = 'ss'>Sisimai</span> can detect <strong>25 bounce reasons</strong> such as
-                            "blocked", "mailboxfull", "userunknown", and so on.
+                            {{ site.html.ss }} can detect <strong>{{ site.sisimai.spec.reasons }} bounce reasons</strong>
+                            such as "blocked", "mailboxfull", "userunknown", and so on.
                         </p>
                         <hr>
                         <p class = 'description ja'>
-                            シシマイは<strong>25種類のバウンス理由</strong>を検出する事が出来ます。
+                            シシマイは<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>
+                            を検出する事が出来ます。
                         </p>
                     </div>
                     <a href = '/reason' class = 'btn btn-continue'>Details</a>
@@ -157,7 +156,7 @@ author: azumakuniyuki
                     <div class = 'index-info'>
                         <h3>Data Structure</h3>
                         <p class = 'description'>
-                            Parsed results generated by <span class = 'ss'>Sisimai</span> are converted to
+                            Parsed results generated by {{ site.html.ss }} are converted to
                             structured data, and could be converted to <strong>JSON</strong>.
                         </p>
                         <hr>
@@ -172,14 +171,15 @@ author: azumakuniyuki
                         <i class = 'fa fa-gears'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>49 Parser Engines</h3>
+                        <h3>{{ site.sisimai.spec.modules }} Parser Engines</h3>
                         <p class = 'description'>
-                            <span class = 'ss'>Sisimai</span> can parse bounce mails from
+                            {{ site.html.ss }} can parse bounce mails from
                             open source MTAs, commercial MTAs, and some major MSPs/ESPs.
                         </p>
                         <hr>
                         <p class = 'description ja'>
-                            商用MTA解析にも対応の<strong>49種類の解析エンジン</strong>を搭載しています。
+                            商用MTA解析にも対応の<strong>{{ site.sisimai.spec.modules }}種類の解析エンジン</strong>
+                            を搭載しています。
                         </p>
                     </div>
                     <a href = '/engine' class = 'btn btn-continue'>Details</a>
@@ -199,32 +199,31 @@ author: azumakuniyuki
                         vs. <span class = 'bh'>bounce<strong>Hammer</strong></span>
                     </h2>
                     <p class = 'description'>
-                        On August 2014, We have started to develop a Perl version of <span class = 'ss'>Sisimai</span>
-                        to resolve many fundamental problems of <span class = 'bh'>bounce<strong>Hammer</strong></span>
+                        On August 2014, We have started to develop a Perl version of {{ site.html.ss }}
+                        to resolve many fundamental problems of {{ site.html.bh }}
                         which are related to analytical precision ( it could not be detected 2 or more bounces in a single email ),
                         many dependencies of external modules ( some modules have not maintained for a long time ),
                         and cannot work on Perl 5.16 or later.
                     </p>
                     <p class = 'description'>
-                        As of the present, the Perl version <span class = 'ss'>Sisimai</span> is about 1.7 times faster
+                        As of the present, the Perl version {{ site.html.ss }} is about 1.7 times faster
                         than <span class = 'bh'>bounce<strong>Hammer</strong></span>, have 2.0 times higher of analytical precision,
                         depends only 2 external modules, and can work on Perl 5.10.1 or later versions of Perl.
                         From August 2015, We have started to develop a 
-                        <strong>Ruby version of <span class = 'ss'>Sisimai</span></strong>.
+                        <strong>Ruby version of {{ site.html.ss }}</strong>.
                         The software has been released on Feburary 3, 2016.
                     </p>
                     <hr>
                     <p class = 'description ja'>
-                        2014年夏、Perl版<span class = 'ss'>Sisimai</span>(シシマイ)は
-                        <span class = 'bh'>bounce<strong>Hammer</strong></span>が抱える解析精度に関わる致命的な問題の数々
+                        2014年夏、Perl版{{ site.html.ss }}(シシマイ)は
+                        {{ site.html.bh }}が抱える解析精度に関わる致命的な問題の数々
                         (一通のメールに複数件のバウンスがある場合に一件目しか解析出来ない、依存モジュールが多く、
                         うち幾つかは既にメンテナンスされていない、Perl 5.16以降で動作しない等)
                         を解決する為に開発されました。
                     </p>
                     <p class = 'description ja'>
-                        現在、Perl版<span class = 'ss'>Sisimai</span>は
-                        <span class = 'bh'>bounce<strong>Hammer</strong></span>の1.7倍程度高速に動作し、
-                        2倍の解析精度を誇ります。そして2016年2月3日にはRuby版<span class = 'ss'>Sisimai</span>
+                        現在、Perl版{{ site.html.ss }}は{{ site.html.bh }}の1.7倍程度高速に動作し、
+                        2倍の解析精度を誇ります。そして2016年2月3日にはRuby版{{ site.html.ss }}
                         をリリースしました。
                     </p>
                 </div>
@@ -263,7 +262,7 @@ author: azumakuniyuki
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '33'>8,900
+                                role = 'progressbar'  aria-valuetransitiongoal = '34'>10,000
                             </div>
                             <p class = 'versus'>18,200</p>
                         </div>
@@ -275,7 +274,7 @@ author: azumakuniyuki
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '85'>160,500
+                                role = 'progressbar'  aria-valuetransitiongoal = '85'>160,000
                             </div>
                             <p class = 'versus'>27,365</p>
                         </div>
@@ -287,7 +286,7 @@ author: azumakuniyuki
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '57'>25
+                                role = 'progressbar'  aria-valuetransitiongoal = '57'>{{ site.sisimai.spec.reasons }}
                             </div>
                             <p class = 'versus'>19</p>
                         </div>
@@ -299,7 +298,7 @@ author: azumakuniyuki
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '77'>49
+                                role = 'progressbar'  aria-valuetransitiongoal = '77'>{{ site.sisimai.spec.modules }}
                             </div>
                             <p class = 'versus'>15</p>
                         </div>
@@ -325,19 +324,19 @@ author: azumakuniyuki
             <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
                 <p>Can Detect</p>
                 <i class = 'fa fa-exclamation-triangle'></i>
-                <h3 class = 'timer'>25</h3>
+                <h3 class = 'timer'>{{ site.sisimai.spec.reasons }}</h3>
                 <p>Bounce Reasons</p>
             </div>
             <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
                 <p>Have</p>
                 <i class = 'fa fa-gears'></i>
-                <h3 class = 'timer'>49</h3>                    
+                <h3 class = 'timer'>{{ site.sisimai.spec.modules }}</h3>
                 <p>Engine Modules</p>
             </div> 
             <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '700ms'>
                 <p>Including</p>
                 <i class = 'fa fa-cubes'></i>
-                <h3 class = 'timer'>12</h3>                    
+                <h3 class = 'timer'>14</h3>
                 <p>Commercial MTA Modules</p>
             </div> 
             <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '900ms'>
@@ -359,17 +358,18 @@ author: azumakuniyuki
                     Download
                 </h2>
                 <p class = 'description'>
-                    <span class = 'ss'>Sisimai</span> can run on the system that Perl or Ruby is available
+                    {{ site.html.ss }} can run on the system that Perl or Ruby is available
                     like the following lists, such as *BSD, Mac OS X, and Linux. 
                     However, as of the present, 
                     <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
-                        <span class = 'ss'>Sisimai</span> does not work ( make test fails ) with 
+                        {{ site.html.ss }} does not work ( make test fails ) with 
                         ActivePerl and other Perl implementations on Windows.
                     </a>.
                 </p>
                 <hr>
                 <p class = 'decription ja'>
-                    シシマイは*BSDやMac OS XやLinuxのようなPerlまたはRubyが動作するOSで動きます。
+                    {{ site.html.ss }}(シシマイ)は*BSDやMac OS XやLinuxのようなPerlまたは
+                    Rubyが動作するOSで動きます。
                     <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
                     しかしながら、現時点でWindowsでは動作しません。
                     </a>
@@ -389,7 +389,7 @@ author: azumakuniyuki
                             <li>Perl 5.10.1 - 5.22.X</li>
                             <li>CPAN</li>
                         </ul>
-                        <a href = 'https://metacpan.org/pod/Sisimai' target = 'new'
+                        <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Download</a>
                     </div>
                 </div>
@@ -403,9 +403,9 @@ author: azumakuniyuki
                         <ul>
                             <li>Stable version</li>
                             <li>Ruby 2.1.0 - 2.3.0</li>
-                            <li>JRuby 9.0.0.0 - 9.0.4.0</li>
+                            <li>JRuby 9.0.4.0 -</li>
                         </ul>
-                        <a href = 'https://rubygems.org/gems/sisimai' target = 'new'
+                        <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Download</a>
                     </div>
                 </div>
@@ -421,7 +421,7 @@ author: azumakuniyuki
                             <li>p5-Sisimai (Perl)</li>
                             <li>rb-Sisimai (Ruby)</li>
                         </ul>
-                        <a href = 'https://github.com/sisimai/' target = 'new'
+                        <a href = '{{ site.sisimai.repository.project }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Fork</a>
                     </div>
                 </div>
@@ -440,12 +440,12 @@ author: azumakuniyuki
                         Support
                     </h2>
                     <p class = 'description'>
-                        Anyone can use <span class = 'ss'>Sisimai</span> because it is an Open Source Software,
-                        however, we, Cubicroot Corporation Limited ( a development company of 
-                        <span class = 'ss'>Sisimai</span> ) is ready to support your installation of
-                        <span class = 'ss'>Sisimai</span>, development of relevant scripts, 
-                        data management of parsed bounces on RDBMS, operations on your system for continuous
-                        management of email bounces, and migration from bounceHammer.
+                        Anyone can use {{ site.html.ss }} because it is an Open Source Software,
+                        however, we, {{ site.html.cr }} Corporation Limited ( a development company of {{ site.html.ss }} )
+                        is ready to support your installation of {{ site.html.ss }},
+                        development of relevant scripts, data management of parsed bounces on RDBMS,
+                        operations on your system for continuous management of email bounces,
+                        and migration from {{ site.html.bh }}.
                     </p>
                     <a href = 'http://cubicroot.jp/en/products/sisimai/' target = 'new' 
                         class = 'btn btn-lg btn-contactus'>Read More About Support</a>
@@ -457,12 +457,14 @@ author: azumakuniyuki
                         <i class = 'fa fa-phone-square' style = 'font-size: 100%;'></i>
                         サポート
                     </h2>
-                    <p class = 'description'>
-                        <span class = 'ss'>Sisimai</span>はオープンソースで公開しているライブラリですので、
-                        どなた様でも自由にお使い頂けます。<br>しかし、バウンスメール解析の為の環境構築や
-                        シシマイ周辺スクリプトの開発、解析済データのDB管理、継続的なバウンス管理、そして
-                        bounceHammerからの移行などをサポートする品目を、開発元である株式会社Cubicrootにて
-                        提供しております。
+                    <p class = 'description ja'>
+                        {{ site.html.ss }}はオープンソースライセンス(二条項BSD)
+                        で公開しているライブラリですので、どなた様でも自由にお使い頂けます。
+                        <br>
+                        しかし、バウンスメール解析の為の環境構築や
+                        シシマイ周辺スクリプトの開発、解析済データを蓄積するデータベース設計や管理、継続的なバウンス管理、
+                        そしてこれまでのバウンスメール解析システムである{{ site.html.bh }}からの移行などをサポートする品目を、
+                        開発元である株式会社{{ site.html.cr }}にて提供しております。
                     </p>
                     <a href = 'http://cubicroot.jp/ja/products/sisimai/' target = 'new' 
                         class = 'btn btn-lg btn-contactus'>サポートについて詳しく</a>
