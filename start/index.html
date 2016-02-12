@@ -55,12 +55,12 @@ author: azumakuniyuki
                     <div class = 'index-info'>
                         <h3>Environment</h3>
                         <p class = 'description'>
-                            <span class = 'ss'>Sisimai</span> works on any OS
-                            that Perl or Ruby is available to execute except Windows.
+                            {{ site.html.ss }} works on any operating systems
+                            that Perl or Ruby ( including JRuby ) is available to execute except Windows.
                         </p>
                         <hr>
                         <p class = 'description ja'>
-                            シシマイはPerlかRubyが動くOS(ただしWindowsを除く)で動作します。
+                            {{ site.html.ss }}(シシマイ)はPerlかRuby(JRubyも含む)が動くOS(ただしWindowsを除く)で動作します。
                         </p>
                     </div>
                     <a href = '#environment' class = 'btn btn-continue'>Read</a>
@@ -72,7 +72,7 @@ author: azumakuniyuki
                     <div class = 'index-info'>
                         <h3>How To Install</h3>
                         <p class = 'description'>
-                            <span class = 'ss'>Sisimai</span> could be downloaded and installed from CPAN,
+                            {{ site.html.ss }} could be downloaded and installed from CPAN,
                             RubyGems.org, and GitHub repository.
                         </p>
                         <hr>
@@ -90,7 +90,8 @@ author: azumakuniyuki
                     <div class = 'index-info'>
                         <h3>Basic Usage</h3>
                         <p class = 'description'>
-                            Parse emails, generating structured data, and getting parsed data as JSON.
+                            How to use {{ site.html.ss }} for parsing bounce mails,
+                            for getting structured data, and for converting parsed data as JSON.
                         </p>
                         <hr>
                         <p class = 'description ja'>
@@ -116,8 +117,8 @@ author: azumakuniyuki
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>System Requirements</h2>
                 <p class = 'description'>
-                    <span class = 'ss'>Sisimai</span> can run on the system that Perl or Ruby is available
-                    like the following lists, such as *BSD, Mac OS X, and Linux. 
+                    {{ site.html.ss }} can run on the system that Perl or Ruby ( Including JRuby )
+                    is available like the following lists, such as *BSD, Mac OS X, and Linux. 
                     However, as of the present, 
                     <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
                         <span class = 'ss'>Sisimai</span> does not work ( make test fails ) with 
@@ -126,7 +127,8 @@ author: azumakuniyuki
                 </p>
                 <hr>
                 <p class = 'description ja'>
-                    シシマイは*BSDやMac OS XやLinuxのようなPerlまたはRubyが動作するOSで動きます。
+                    {{ site.html.ss }}(シシマイ)は*BSDやMac OS XやLinuxのようなPerlまたは
+                    Ruby(JRubyを含む)が動作するOSで動きます。
                     <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
                     しかしながら、現時点でWindowsでは動作しません。
                     </a>
@@ -164,7 +166,7 @@ author: azumakuniyuki
                                 </li>
                             </ul>
                         </ul>
-                        <a href = 'https://metacpan.org/pod/Sisimai' class = 'btn btn-continue'>Download from CPAN</a>
+                        <a href = '{{ site.sisimai.distribution.perl }}' class = 'btn btn-continue'>Download from CPAN</a>
                     </div>
                 </div>
 
@@ -175,23 +177,23 @@ author: azumakuniyuki
                     </div>
                     <div class = 'index-info'>
                         <ul class = 'spec'>
-                            <li>Also works on JRuby 9.0.0.0</li>
-                            <li>Development dependencies</li>
+                            <li>Also works on JRuby 9.0.4.0-</li>
+                            <li>Runtime dependencies in MRI</li>
                             <ul>
                                 <li>
-                                    <a href = 'https://rubygems.org/gems/bundler' target = 'new'>bundler</a>
-                                </li>
-                                <li>
-                                    <a href = 'https://rubygems.org/gems/rake' target = 'new'>rake</a>
-                                </li>
-                                <li>
-                                    <a href = 'https://rubygems.org/gems/rspec' target = 'new'>rspec</a>
+                                    <a href = 'https://rubygems.org/gems/oj' target = 'new'>Oj</a>
                                 </li>
                                 <li></li>
+                            </ul>
+                            <li>Runtime dependencies in JRuby</li>
+                            <ul>
+                                <li>
+                                    <a href = 'https://rubygems.org/gems/jrjackson' target = 'new'>JrJackson</a>
+                                </li>
                                 <li></li>
                             </ul>
                         </ul>
-                        <a href = 'https://rubygems.org/gems/sisimai' class = 'btn btn-continue'>Download from RubyGems</a>
+                        <a href = '{{ site.sisimai.distribution.ruby }}' class = 'btn btn-continue'>Download from RubyGems</a>
                     </div>
                 </div>
             </div>
@@ -209,10 +211,10 @@ author: azumakuniyuki
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>
-                    Install <span class = 'ss'>Sisimai</span>
+                    Install {{ site.html.ss }}
                 </h2>
                 <p class = 'description'>
-                    <span class = 'ss'>Sisimai</span> cloud be downloaded and installed from GitHub, CPAN, and RubyGems.org .
+                    {{ site.html.ss }} cloud be downloaded and installed from GitHub, CPAN, and RubyGems.org .
                 </p>
                 <hr>
                 <p class = 'description'>
@@ -228,15 +230,15 @@ author: azumakuniyuki
                 <h3 class = 'in-desc'>From GitHub</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/github-1.png'>
-                    The latest version of <span class = 'ss'>Sisimai</span> including development version
+                    The latest version of {{ site.html.ss }} including development version
                     and stable version is available to download from 
-                    <a href = 'https://github.com/sisimai/' target = 'new'>GitHub</a> master branch.
+                    <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a> master branch.
                     Both the Perl and the Ruby version are available in the repository.
                 </p>
                 <hr>
                 <p class = 'description ja'>
                     開発版を含む最新バージョンと安定版のシシマイは
-                    <a href = 'https://github.com/sisimai/' target = 'new'>GitHub</a>
+                    <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a>
                     のmasterブランチからダウンロード出来ます。Perl版・Ruby版ともに
                     このリポジトリにあります。
                 </p>
@@ -248,15 +250,15 @@ author: azumakuniyuki
                 <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
+                <h4 class = 'in-desc'>Perl version of {{ site.html.ss }}</h4>
                 <p class = 'description'>
-                    Repository name of Perl version Sisimai is 
-                    <a href = 'https://github.com/sisimai/p5-Sisimai'><strong>sisimai/p5-Sisimai</strong></a>.
+                    A repository name of the Perl version {{ site.html.ss }} is 
+                    <a href = '{{ site.sisimai.repository.perl }}'><strong>sisimai/p5-Sisimai</strong></a>.
                 </p>
                 <hr>
                 <p class = 'description ja'>
                     Perl版シシマイのリポジトリ名は
-                    <a href = 'https://github.com/sisimai/p5-Sisimai'><strong>sisimai/p5-Sisimai</strong></a>
+                    <a href = '{{ site.sisimai.repository.perl }}'><strong>sisimai/p5-Sisimai</strong></a>
                     です。
                 </p>
                 <pre class = 'prettyprint'>
@@ -275,15 +277,15 @@ Configuring Sisimai-4.14.2 ... OK
                 <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Ruby version of <span class = 'ss'>Sisimai</span></h4>
+                <h4 class = 'in-desc'>Ruby version of {{ site.html.ss }}</h4>
                 <p class = 'description'>
-                    Repository name of Ruby version Sisimai is 
-                    <a href = 'https://github.com/sisimai/rb-Sisimai'><strong>sisimai/rb-Sisimai</strong></a>.
+                    A repository name of the Ruby version {{ site.html.ss }} is 
+                    <a href = '{{ site.sisimai.repository.ruby }}'><strong>sisimai/rb-Sisimai</strong></a>.
                 </p>
                 <hr>
                 <p class = 'description ja'>
                     Ruby版シシマイのリポジトリ名は
-                    <a href = 'https://github.com/sisimai/rb-Sisimai'><strong>sisimai/rb-Sisimai</strong></a>
+                    <a href = '{{ site.sisimai.repository.ruby }}'><strong>sisimai/rb-Sisimai</strong></a>
                     です。
                 </p>
                 <pre class = 'prettyprint'>
@@ -306,8 +308,8 @@ sisimai (4.14.2) installed.
                 <h3 class = 'in-desc'>From CPAN</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
-                    Only the stable version of <span class = 'ss'>Sisimai</span> is available to download from
-                    <a href = 'https://metacpan.org/pod/Sisimai' target = 'new'>CPAN</a>.
+                    Only the stable version of {{ site.html.ss }} is available to download from
+                    <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>.
                     You can install the software using <kbd>cpan</kbd> command, however, 
                     <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
                     command is very usefull to install the software and other Perl modules.
@@ -315,7 +317,7 @@ sisimai (4.14.2) installed.
                 <hr>
                 <p class = 'description ja'>
                     Perl版シシマイの安定版のみ
-                    <a href = 'https://metacpan.org/pod/Sisimai' target = 'new'>CPAN</a>
+                    <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>
                     からダウンロードが可能です。<kbd>cpan</kbd>コマンドでもインストール出来ますが、
                     <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
                     コマンドを使うとPerlモジュールのインストールが非常に楽です。
@@ -345,14 +347,14 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.14.1.tar.gz ... OK
                 <h3 class = 'in-desc'>From RubyGems.org</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
-                    Only the stable version of <span class = 'ss'>Sisimai</span> is available to download from
-                    <a href = 'https://rubygems.org/gems/sisimai' target = 'new'>RubyGems.org</a>.
+                    Only the stable version of {{ site.html.ss }} is available to download from
+                    <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>.
                     You can install the software using <kbd>gem</kbd> command.
                 </p>
                 <hr>
                 <p class = 'description ja'>
                     Ruby版シシマイの安定版のみ
-                    <a href = 'https://rubygems.org/gems/sisimai' target = 'new'>RubyGems.org</a>
+                    <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>
                     からダウンロードが可能で、<kbd>gem</kbd>コマンドでインストールが出来ます。
                 </p>
             </div>
@@ -390,16 +392,15 @@ Done installing documentation for sisimai after 6 seconds
                 <div class = 'index-label'>make()</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>make() method of <span class = 'ss'>Sisimai</span></h3>
+                <h3 class = 'in-desc'>make() method of {{ site.html.ss }}</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/outline-1.png'>
                     For example, the following code shows that <kbd>make()</kbd> method of 
-                    <span class = 'ss'>Sisimai</span> provides feature for
-                    getting parsed data from bounced email messages.
+                    {{ site.html.ss }} provides feature for getting parsed data from bounced email messages.
                 </p>
                 <hr>
                 <p class = 'description ja'>
-                    下記のコードは<span class = 'ss'>Sisimai</span>の<kbd>make()</kbd>
+                    下記のコードは{{ site.html.ss }}の<kbd>make()</kbd>
                     メソッドを使ってバウンスメールを解析し解析結果のデータを得る例です。
                 </p>
             </div>
@@ -409,7 +410,7 @@ Done installing documentation for sisimai after 6 seconds
                 <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
+                <h4 class = 'in-desc'>Perl version of {{ site.html.ss }}</h4>
                 <pre class = 'prettyprint'>#! /usr/bin/env perl
 use Sisimai;
 my $v = Sisimai-&gt;make('/path/to/mbox'); # or Path to Maildir
@@ -435,7 +436,7 @@ if( defined $v ) {
                 <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Ruby version of <span class = 'ss'>Sisimai</span></h4>
+                <h4 class = 'in-desc'>Ruby version of {{ site.html.ss }}</h4>
                 <pre class = 'prettyprint'>#! /usr/bin/env ruby
 require 'sisimai'
 v = Sisimai.make('/path/to/mbox') # or Path to Maildir
@@ -462,17 +463,17 @@ end
                 <div class = 'index-label'>dump()</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>dump() method of <span class = 'ss'>Sisimai</span></h3>
+                <h3 class = 'in-desc'>dump() method of {{ site.html.ss }}</h3>
                 <p>
                     <img class = 'lhs' src = '/static/images/icon/purchase-order-1.png'>
-                    Beginning with the Perl version of Sisimai v4.1.27, 
-                    Sisimai-&gt;dump() method is usefull to get the parsed results as JSON.
+                    Beginning with the Perl version of {{ site.html.ss }} v4.1.27, 
+                    <kbd>dump()</kbd> method of {{ site.html.ss }} is usefull to get the parsed results as JSON.
                     The following sample code shows that usage of dump() method with a path to
                     Maildir/ you want to parse in the first argument.
                 </p>
                 <hr>
                 <p class = 'description ja'>
-                    Perl版Sisimai v4.1.27から登場した<kbd>dump()</kbd>メソッドは解析結果を
+                    Perl版{{ site.html.ss }} v4.1.27から登場した<kbd>dump()</kbd>メソッドは解析結果を
                     JSONで得るのに便利です。下記のように解析したいメールのPATHを渡すだけの
                     簡単なコードで済みます。
                 </p>
