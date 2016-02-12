@@ -44,14 +44,16 @@ author: azumakuniyuki
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
                     <h2>Bounce Reason List</h2>
                     <p class = 'description'>
-                        <span class = 'ss'>Sisimai</span> can detect the following <strong>25 bounce reasons</strong>
+                        {{ site.html.ss }} can detect the following
+                        <strong>{{ site.sisimai.spec.reasons }} bounce reasons</strong>
                         from parsed bounce message. 
                         Detected error reason is set in the value of "reason" accessor of 
                         Sisimai::Data object in lower case like "userunknown", "expired".
                     </p>
                     <hr>
                     <p class = 'description ja'>
-                        シシマイは以下の<strong>25種類のバウンス理由</strong>をバウンスメールを解析する事によって検出します。
+                        シシマイはバウンスメールを解析する事によって
+                        以下の<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>を検出します。
                         検出したバウンス理由はSisimai::Dataオブジェクトの"reason"アクセサから得る事が出来ます。
                         "reason"の値は"userunknown"や"expired"のように、
                         全て小文字で表記されます。
@@ -123,7 +125,7 @@ author: azumakuniyuki
                         <h3>Others</h3>
                         <p class = 'description'>
                             Rejected due to other reason or
-                            Sisimai could not detect the reason
+                            {{ site.html.ss }} could not detect the reason
                         </p>
                         <hr>
                         <p class = 'description ja'>
@@ -171,7 +173,7 @@ author: azumakuniyuki
                     This is the error that a domain part ( Right hand side of @ sign ) of
                     a recipient's email address does not exist. 
                     In many case, the domain part is misspelled, or the domain name has been expired.
-                    <span class = 'ss'>Sisimai</span> will set "hostunknown" to the reason
+                    {{ site.html.ss }} will set "hostunknown" to the reason
                     of email bounce if the value of Status: field in a bounce mail is "5.1.2".
                 </p>
                 <pre class = 'prettyprint'>
@@ -203,7 +205,7 @@ Your message to the following recipients cannot be delivered:
                     This is the error that a local part ( Left hand side of @ sign ) of a recipient's
                     email address does not exist. 
                     In many case, a user has changed internet service provider, or has quit company,
-                    or the local part is misspelled. Sisimai will set "userunknown" 
+                    or the local part is misspelled. {{ site.html.ss }} will set "userunknown" 
                     to the resason of email bounce if the value of Status: field in a bounce email is 
                     "5.1.1", or connection was refused at SMTP RCPT command, 
                     or the contents of Diagnostic-Code: field represents that it is unknown user.
@@ -239,8 +241,7 @@ RCPT TO command)
                     This is the error that an email has been rejected by a header content after SMTP DATA command.
                     In Japanese cellular phones, the error will incur that a sender's email address or
                     a domain is rejected by recipient's email configuration. 
-                    <span class = 'ss'>Sisimai</span> will set "filtered" to the reason 
-                    of email bounce if the value of Status: 
+                    {{ site.html.ss }} will set "filtered" to the reason of email bounce if the value of Status: 
                     field in a bounce email is "5.2.0" or "5.2.1".
                 </p>
                 <p>This error reason is almost the same as UserUnknown.</p>
@@ -274,7 +275,7 @@ RCPT TO command)
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
                     This is the error that a user's mailbox has moved ( and is not forwarded automatically ).
-                    <span class = 'ss'>Sisimai</span> will set "hasmoved" to the reason of email
+                    {{ site.html.ss }} will set "hasmoved" to the reason of email
                     bounce if the value of Status: field in a bounce email is "5.1.6".
                 </p>
                 <pre class = 'prettyprint'>
@@ -301,7 +302,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                     <img class = 'lhs' src = '/static/images/icon/private-5.png'>
                     This is the error that a connection to destination server was rejected by a sender's email address
                     (envelope from). 
-                    <span class = 'ss'>Sisimai</span> set "rejected" to the reason of email bounce
+                    {{ site.html.ss }} set "rejected" to the reason of email bounce
                     if the value of Status: field in a bounce email is "5.1.8"
                     or the connection has been rejected due to the argument of SMTP MAIL command.
                 </p>
@@ -330,9 +331,8 @@ Remote host said: 550 5.7.1 &lt;root@nijo.example.jp&gt;... Access denied
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/inbox-3.png'>
                     This is the error that a recipient's mailbox is full.
-                    <span class = 'ss'>Sisimai</span> will set "mailboxfull"
-                    to the reason of email bounce if the value of Status: field in a bounce email is
-                    "4.2.2" or "5.2.2".
+                    {{ site.html.ss }} will set "mailboxfull" to the reason of email bounce
+                    if the value of Status: field in a bounce email is "4.2.2" or "5.2.2".
                 </p>
                 <pre class = 'prettyprint'>
 Action: failed
@@ -391,14 +391,14 @@ The user(s) account is disabled.
                     <img class = 'lhs' src = '/static/images/icon/bento-3.png'>
                     This is the reason that the recipient is out of office. 
                     The bounce message is generated and returned from auto reponder program. 
-                    This reason has added in <span class = 'ss'>Sisimai</span> 4.1.28 and does not exist
+                    This reason has added in {{ site.html.ss }} 4.1.28 and does not exist
                     in any version of bounceHammer.
                 </p>
                 <p class = 'description ja'>
                     受信者が休暇を取っている等の理由で、メールを受けとれない状態を示します。
                     この理由が検出されるバウンスメールは自動応答プログラムによって発信されます。
-                    このバウンス理由は<span class = 'ss'>Sisimai</span> 4.1.28で実装されたもので、
-                    bounceHammerでは実装されていないものです。
+                    このバウンス理由は{{ site.html.ss }} 4.1.28で実装されたもので、
+                    {{ site.html.bh }}では実装されていないものです。
                 </p>
             </div>
         </div>
@@ -436,9 +436,8 @@ The user(s) account is disabled.
                     <img class = 'lhs' src = '/static/images/icon/magazine-1.png'>
                     This is the error that a destination mail server has rejected email
                     due to header format of the email like the following. 
-                    <span class = 'ss'>Sisimai</span> will set "contenterror"
-                    to the reason of email bounce if the value of Status: field in a bounce email is
-                    "5.6.*".
+                    {{ site.html.ss }} will set "contenterror" to the reason of email bounce
+                    if the value of Status: field in a bounce email is "5.6.*".
                 </p>
                 <ul>
                     <li>8 bit data in message header</li>
@@ -563,7 +562,7 @@ The user(s) account is disabled.
                     <img class = 'lhs' src = '/static/images/icon/gorilla-1.png'>
                     This is the error that a sent email size is too big for a destination mail server.
                     In many case, There are many attachment files with email, or the file size is too large.
-                    <span class = 'ss'>Sisimai</span> will set "mesgtoobig" to the reason of email
+                    {{ site.html.ss }} will set "mesgtoobig" to the reason of email
                     bounce if the value of Status: field in a bounce email is "5.3.4".
                 </p>
                 <pre class = 'prettyprint'>
@@ -594,7 +593,7 @@ Status: 553 Exceeded maximum inbound message size
                     This is the error that a security violation was detected on a destination mail server.
                     Depends on the security policy on the server, there is any viruse in the email, 
                     a sender's email address is phished. 
-                    <span class = 'ss'>Sisimai</span> will set "securityerror" to the reason
+                    {{ site.html.ss }} will set "securityerror" to the reason
                     of email bounce if the value of Status: field in a bounce email is "5.7.*".
                 </p>
                 <pre class = 'prettyprint'>
@@ -624,8 +623,8 @@ Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on yo
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/spam-1.png'>
                     This is the error that the message you sent was rejected by spam filter running on the remote host.
-                    This reason has added in <span class = 'ss'>Sisimai</span> 4.1.25 and
-                    does not exist in any version of bounceHammer.
+                    This reason has added in {{ site.html.ss }} 4.1.25 and
+                    does not exist in any version of {{ site.html.bh }}.
                 </p>
                 <pre class = 'prettyprint'>
 Action: failed
@@ -635,11 +634,11 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                 </pre>
                 <p class = 'description ja'>
                     送信したメールがスパムとして検出された、あるいはDNSBLによってスパム送信ホストとして認識された場合、
-                    <span class = 'ss'>Sisimai</span>はバウンス理由をSpamDetectedに決定します。
+                    {{ site.html.ss }}はバウンス理由をSpamDetectedに決定します。
                 </p>
                 <p class = 'description ja'>
-                    このバウンス理由は<span class = 'ss'>Sisimai</span> 4.1.25で実装されたもので、
-                    bounceHammerでは実装されていないものです。
+                    このバウンス理由は{{ site.html.ss }} 4.1.25で実装されたもので、
+                    {{ site.html.bh }}では実装されていないものです。
                 </p>
             </div>
         </div>
@@ -680,7 +679,8 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                     <img class = 'lhs' src = '/static/images/icon/roadblock-3.png'>
                     This is the error that SMTP connection was rejected due to a client IP address
                     or a hostname, or the parameter of HELO/EHLO command.
-                    This reason has added in Sisimai 4.0.0 and does not exist in any version of bounceHammer.
+                    This reason has added in {{ site.html.ss }} 4.0.0 and does not exist in any version of
+                    {{ site.html.bh }}.
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.net&gt;: 
@@ -690,9 +690,9 @@ Remote host said: 501 5.0.0 Invalid domain name
                 <p class = 'description ja'>
                     宛先ホストに接続した際に、発信元メールサーバのIPアドレスやホスト名、
                     またはEHLO/EHLOコマンドの値によって接続が拒否されたメールは、
-                    <span class = 'ss'>Sisimai</span>によってこの理由に決定されます。
-                    このバウンス理由は<span class = 'ss'>Sisimai</span> 4.0.0で実装されたもので
-                    bounceHammerでは実装されていないものです。
+                    {{ site.html.ss }}によってこの理由に決定されます。
+                    このバウンス理由は{{ site.html.ss }} 4.0.0で実装されたもので
+                    {{ site.html.bh }}では実装されていないものです。
                 </p>
                 <hr>
             </div>
@@ -762,8 +762,8 @@ Diagnostic-Code: X-Unix; 255
                     <img class = 'lhs' src = '/static/images/icon/network-cable-1.png'>
                     This is the error that SMTP connection failed due to DNS look up failure
                     or other network problems.
-                    This reason has added in <span class = 'ss'>Sisimai</span> 4.1.12 and
-                    does not exist in any version of bounceHammer.
+                    This reason has added in {{ site.html.ss }} 4.1.12 and
+                    does not exist in any version of {{ site.html.bh }}.
                 </p>
                 <pre class = 'prettyprint'>
 A message is delayed for more than 10 minutes for the following
@@ -774,9 +774,9 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 <p class = 'description ja'>
                     DNSによる名前解決失敗を原因としてSMTP接続が出来なかった、
                     あるいは他のネットワーク関連エラーによってメールが送信出来なかった場合、
-                    <span class = 'ss'>Sisimai</span>はバウンス理由をこの理由として決定します。
-                    このバウンス理由は<span class = 'ss'>Sisimai</span> 4.1.12で実装されたもので、
-                    bounceHammerでは実装されていないものです。
+                    {{ site.html.ss }}はバウンス理由をこの理由として決定します。
+                    このバウンス理由は{{ site.html.ss }} 4.1.12で実装されたもので、
+                    {{ site.html.bh }}では実装されていないものです。
                 </p>
                 <hr>
             </div>
@@ -792,7 +792,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     <img class = 'lhs' src = '/static/images/icon/disclaimer-2.png'>
                     This is the error that SMTP connection rejected with error message 
                     "Relaying Denied". 
-                    This reason does not exist in any version of bounceHammer.
+                    This reason does not exist in any version of {{ site.html.bh }}.
                     <br>
                     <br>
                 </p>
@@ -804,7 +804,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 </pre>
                 <p class = 'description ja'>
                     SMTPリレー拒否によってバウンスした場合、シシマイはこのバウンス理由に決定します。
-                    このバウンス理由はbounceHammerでは実装されていないものです。
+                    このバウンス理由は{{ site.html.bh }}では実装されていないものです。
                 </p>
                 <hr>
             </div>
@@ -820,7 +820,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     <img class = 'lhs' src = '/static/images/icon/firewall-3.png'>
                     This is the error that a destination mail server does(can) not accespt any email.
                     In many case, the server is high load or under the maintenance.
-                    <span class = 'ss'>Sisimai</span> will set "notaccept" to the reason
+                    {{ site.html.ss }} will set "notaccept" to the reason
                     of email bounce if the value of Status: field in a bounce email is 
                     "5.3.2" or the value of SMTP reply code is "556".
                 </p>
@@ -830,8 +830,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 </p>
                 <p class = 'description ja'>
                     シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.3.2"のものが、あるいはSMTP応答コードの値が"556"のものが、
-                    この理由に決定されます。
+                    "5.3.2"のものが、あるいはSMTP応答コードの値が"556"のものが、この理由に決定されます。
                 </p>
                 <hr>
             </div>
@@ -872,9 +871,8 @@ message has been in the queue too long.
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/hdd-1.png'>
                     This is the error that a destination mail server's disk (or spool) is full.
-                    <span class = 'ss'>Sisimai</span> will set "systemfull" 
-                    to the reason of email bounce if the value of Status: field in a bounce email is
-                    "4.3.1" or "5.3.1".
+                    {{ site.html.ss }} will set "systemfull" to the reason of email bounce
+                    if the value of Status: field in a bounce email is "4.3.1" or "5.3.1".
                 </p>
                 <p class = 'description ja'>
                     宛先のメールサーバのディスクがいっぱいになっている場合に返ってくるエラーです。
@@ -896,7 +894,7 @@ message has been in the queue too long.
                     <img class = 'lhs' src = '/static/images/icon/groups-1.png'>
                     This is the error that SMTP connection was rejected temporarily due to too many
                     concurrency connections to the remote server.
-                    This reason has added in <span class = 'ss'>Sisimai</span> 4.1.26 and 
+                    This reason has added in {{ site.html.ss }} 4.1.26 and 
                     does not exist in any version of bounceHammer.
                 </p>
                 <pre class = 'prettyprint'>
@@ -906,10 +904,9 @@ message has been in the queue too long.
                 <p class = 'description ja'>
                     相手側SMTPサーバに対して同時に多数の接続を行った場合、
                     新たなSMTP接続が一時的に拒否される事があります。
-                    そのような場合に返ってきたバウンスメールは<span class = 'ss'>Sisimai</span>
-                    によってこのバウンス理由に決定されます。
-                    このバウンス理由は<span class = 'ss'>Sisimai</span> 4.1.26で実装されたもので、
-                    bounceHammerでは実装されていないものです。
+                    そのような場合に返ってきたバウンスメールは{{ site.html.ss }}によってこのバウンス理由に決定されます。
+                    このバウンス理由は{{ site.html.ss }} 4.1.26で実装されたもので、{{ site.html.bh }}では
+                    実装されていないものです。
                 </p>
             </div>
         </div>
@@ -927,7 +924,7 @@ message has been in the queue too long.
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Others</h2>
                 <p class = 'description'>
-                    Rejected due to other reason or Sisimai could not detect the reason
+                    Rejected due to other reason or {{ site.html.ss }}could not detect the reason
                 </p>
                 <hr>
                 <p class = 'description ja'>
@@ -943,8 +940,8 @@ message has been in the queue too long.
                 <h3 class = 'in-desc'>On Hold</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/question-1.png'>
-                    <span class = 'ss'>Sisimai</span> will set "onhold" to the reason
-                    of email bounce if there is no (or less) detailed information about email bounce for judging the reason.
+                    {{ site.html.ss }} will set "onhold" to the reason of email bounce
+                    if there is no (or less) detailed information about email bounce for judging the reason.
                 </p>
                 <p class = 'description ja'>
                     一部のWebメールサービス経由でメールを送信し、それがエラーとなった場合、
@@ -963,7 +960,7 @@ message has been in the queue too long.
                 <h3 class = 'in-desc'>Undefined</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/question-1.png'>
-                    <span class = 'ss'>Sisimai</span> could not detect the error reason. 
+                    {{ site.html.ss }} could not detect the error reason. 
                     In many case, error message is written in non English or there are
                     no enough error message in a bounce email to decide the reason.
                 </p>
@@ -973,8 +970,6 @@ message has been in the queue too long.
                 </p>
             </div>
         </div>
-
-
     </div>
 </section>
 
