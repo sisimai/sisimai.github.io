@@ -938,11 +938,41 @@ message has been in the queue too long.
                 <div class = 'index-label'><i class = 'fa fa-question-circle'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Delivered (Not implemented yet)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/cat-4.png'>
+                    This is <strong>NOT AN ERROR</strong> and means that an email you sent is successfully
+                    delivered to the recipient.
+                    <br>
+                    <strong>This reason will be added at the future release of {{ site.html.ss }}.</strong>
+                </p>
+                <pre class = 'prettyprint'>
+Final-Recipient: rfc822; kijitora@neko.nyaan.jp
+Action: deliverable
+Status: 2.1.5
+Remote-MTA: dns; home.neko.nyaan.jp
+Diagnostic-Code: SMTP; 250 2.1.5 OK
+                </pre>
+                <p class = 'description ja'>
+                    この理由は<strong>エラーではなく</strong>送信したメールが受信者に正しく配送された
+                    事を意味します。
+                    <strong>この理由は将来リリースされる{{ site.html.ss }}で実装されます。</strong>
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-question-circle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Syntax Error (Not implemented yet)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-1.png'>
                     This is the error that a destination mail server could not recognize SMTP command
                     which is sent from a sender's MTA.
+                    <br>
                     <strong>This reason will be added at the future release of {{ site.html.ss }}.</strong>
                 </p>
                 <p class = 'description ja'>
@@ -950,6 +980,7 @@ message has been in the queue too long.
                     出来なかった事を意味します。
                     <strong>このエラー理由は将来リリースされる{{ site.html.ss }}で実装されます。</strong>
                 </p>
+                <hr>
             </div>
         </div>
         <div class = 'row'>
