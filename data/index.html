@@ -398,6 +398,19 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                     All the reasons Sisismai can detect are available at 
                     <a href = '/reason'>Bounce Reason List</a> page.
                 </p>
+                <pre class = 'prettyprint'>
+   ----- The following addresses had permanent fatal errors -----
+<kijitora@nyaan.example.com>
+    (reason: 550 5.1.1 Requested action not taken: mailbox unavailable)
+
+   ----- Transcript of session follows -----
+... while talking to inbound-smtp.us-west-2.amazonaws.com.:
+&gt;&gt;&gt; RCPT To:<kijitora@nyaan.example.com>
+&lt;&lt;&lt; 550 5.1.1 Requested action not taken: mailbox unavailable
+550 5.1.1 <kijitora@nyaan.example.com>... User unknown
+&gt;&gt;&gt; DATA
+&lt;&lt;&lt; 503 Error: need RCPT command
+                </pre>
                 <p class = 'description ja'>
                     "reason"は{{ site.html.ss }}が検出したバウンス理由(メールが配信エラーになった理由)
                     を保持します。値が"undefined"か"onhold"の時は{{ site.html.ss }}がバウンス理由を
