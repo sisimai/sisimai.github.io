@@ -25,7 +25,7 @@ author: azumakuniyuki
             <div class = 'collapse navbar-collapse'>
                 <ul class = 'nav navbar-nav navbar-right'>                 
                     <li class = 'scroll active'><a href = '#index'>Differencies</a></li>
-                    <li class = 'scroll'><a href = '#advantage'>Advantages</a></li>
+                    <li class = 'scroll'><a href = '#problem'>Problems</a></li>
                     <li class = 'scroll'><a href = '#environment'>Environment</a></li> 
                     <li class = 'scroll'><a href = '#performance'>Performance</a></li> 
                     <li class = 'others'><a href = '/docs'>Documents</a></li>
@@ -43,13 +43,13 @@ author: azumakuniyuki
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
                     <h2>Differencies</h2>
                     <p class = 'description'>
-                        The table in this page show differecies between <span class = 'ss'>Sisimai</span>
-                        ( both of perl and ruby version ) and bounceHammer.
+                        The table in this page show differecies between {{ site.html.ss }}
+                        ( both of the perl and the ruby version ) and {{ site.html.bh }}.
                     </p>
                     <hr>
                     <p class = 'description ja'>
-                        このページの表はシシマイ(Perl版とRuby版)とbounceHammerの違いを
-                        列挙したものです。
+                        このページの表ではシシマイ(Perl版とRuby版)と{{ site.html.bh }}の違い、
+                        特に{{ site.html.ss }}の優位性を中心に説明しています。
                     </p>
                 </div>
             </div> 
@@ -61,19 +61,17 @@ author: azumakuniyuki
                         <i class = 'fa fa-thumbs-o-up'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>Advantages</h3>
+                        <h3>Resolved Problems</h3>
                         <p class = 'description'>
-                            Advantages of <span class = 'ss'>Sisimai</span> over the final version
-                            of bounceHammer(v2.7.13),
-                            and resolved serious problems on <span class = 'ss'>Sisimai</span>.
+                            Some unresolvable and serious problems ( {{ site.html.ss }} resolved these problems )
+                            on the final version of {{ site.html.bh }}(v2.7.13).
                         </p>
                         <hr>
                         <p class = 'description ja'>
-                            シシマイがbounceHammer最終版よりも優れている点と
-                            シシマイで解決した重大な問題点について
+                            {{ site.html.bh }}に存在する解決困難で深刻な問題点({{ site.html.ss }}にて解決済)について
                         </p>
                     </div>
-                    <a href = '#advantage' class = 'btn btn-continue'>Read</a>
+                    <a href = '#problem' class = 'btn btn-continue'>Read</a>
                 </div>
                 <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
@@ -82,11 +80,13 @@ author: azumakuniyuki
                     <div class = 'index-info'>
                         <h3>Environment</h3>
                         <p class = 'description'>
-                            Differencies about environment for running Sisimai
+                            Differencies about environment for running {{ site.html.ss }}
+                            ( both of the Perl and the Ruby version ) and all the versions of {{ site.html.bh }}.
                         </p>
                         <hr>
                         <p class = 'description ja'>
-                            シシマイ動作環境周りの違い
+                            シシマイ(Perl版とRuby版)の動作環境周りにおける違い
+                            ({{ site.html.bh }}と比較して)
                         </p>
                     </div>
                     <a href = '#environment' class = 'btn btn-continue'>Read</a>
@@ -98,13 +98,14 @@ author: azumakuniyuki
                     <div class = 'index-info'>
                         <h3>Performance</h3>
                         <p class = 'description'>
-                            The message you sent has rejected due to a message content:
-                            a part of message header and message body.
+                            Numerical advantages of performance in {{ site.html.ss }}
+                            ( both of the Perl and the Ruby vesrion )
+                            over the final version of {{ site.html.bh }}.
                         </p>
                         <hr>
                         <p class = 'description ja'>
-                            送信したメールの内容(一部のヘッダ・本文)に起因して差し戻された
-                            バウンス理由の一覧です。
+                            {{ site.html.bh }}に対する{{ site.html.ss }}
+                            (Perl版とRuby版)の性能における数値的な優位点について
                         </p>
                     </div>
                     <a href = '#content' class = 'btn btn-continue'>Read</a>
@@ -112,9 +113,9 @@ author: azumakuniyuki
             </div>
         </div>
     </div>
-</section><!-- /#index -->
+</section> <!-- /#index -->
 
-<section id = 'advantage' class = 'parallax'>
+<section id = 'problem' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -123,16 +124,16 @@ author: azumakuniyuki
                 </div>
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>Advantages</h2>
+                <h2 class = 'in-desc'>Resolved Problems</h2>
                 <p class = 'description'>
-                    Advantages of <span class = 'ss'>Sisimai</span> over the final
-                    version of bounceHammer, and resolved serious problems on 
-                    <span class = 'ss'>Sisimai</span>.
+                    There are some unresolvable and serious problems related to precision of analysis
+                    on the final version of {{ site.html.bh }}(v2.7.13).
+                    {{ site.html.ss }} has been developed to resolve these problems.
                 </p>
                 <hr>
                 <p class = 'description ja'>
-                    シシマイがbounceHammer最終版よりも優れている点と解決した深刻な
-                    問題点について。
+                    {{ site.html.bh }}の最終版(v2.7.13)には解決困難で深刻な解析精度に関わる問題点が幾つかあり、
+                    それらの問題を解決する為に{{ site.html.ss }}は開発されました。
                 </p>
             </div>
         </div>
@@ -152,11 +153,11 @@ author: azumakuniyuki
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    <span class = 'ss'>Sisimai</span> can detect all the recipient addresses and error reasons from 
+                    {{ site.html.ss }} can detect all the recipient addresses and error reasons from 
                     <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/postfix-02.eml'
                        target = 'new'>a single message which include 2 or more bounce records</a>
                     like the following.
-                    <em class = 'warn'>bounceHammer can detect the first recipient address only.</em>
+                    <em class = 'warn'>{{ site.html.bh }} can detect the first recipient address only.</em>
                 </p>
                 <hr>
                 <p class = 'description ja'>
@@ -164,7 +165,7 @@ author: azumakuniyuki
                     <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/postfix-02.eml'
                         target = 'new'>2件以上のバウンス記録を含む単一のメール</a>
                     から全ての受信者アドレスとエラー理由を検出する事が出来ます。
-                    <em class = 'warn'>bounceHammerは最初の一件のみ検出可能です。</em>
+                    <em class = 'warn'>{{ site.html.bh }}は最初の一件のみ検出可能です。</em>
                 </p>
                 <pre class = 'prettyprint ltext'>
 Content-Type: message/delivery-status
@@ -208,26 +209,105 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    <span class = 'ss'>Sisimai</span> can parse bounce mails in Gmail mailbox.
-                    <em class = 'warn'>bounceHammer parse only old formatted bounce mails in Gmail mailbox.</em>
+                    {{ site.html.ss }} can parse bounce mails in Gmail mailbox.
+                    <em class = 'warn'>{{ site.html.bh }} parse only old formatted bounce mails in Gmail mailbox.</em>
                 </p>
                 <hr>
                 <p class = 'description ja'>
                     シシマイはGmailのメールボックスにあるバウンスメールも解析出来ます。
                     <em class = 'warn'>
-                        bounceHammerは古い形式のバウンスメールであればGmailのメールボックスにあるものでも
+                        {{ site.html.bh }}は古い形式のバウンスメールであればGmailのメールボックスにあるものでも
                         解析出来ますが、現在の形式のものは解析出来ません。
                     </em>
                 </p>
             </div>
         </div>
 
+    </div>
+</section>
+
+<section id = 'environment'>
+    <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fa fa-tachometer'></i></div>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-desktop'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Environment</h2>
+                <p class = 'description'>
+                    Differencies about environment for running {{ site.html.ss }}
+                    ( both of the Perl and the Ruby version ) and all the versions of {{ site.html.bh }}.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    シシマイ(Perl版とRuby版)の動作環境周りにおける違い
+                    ({{ site.html.bh }}と比較して)
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-desktop'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Faster than bounceHammer</h3>
+                <h3 class = 'in-desc'>{{ site.html.ss }} works on Perl 5.16 or later</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    <img src = '/static/images/icon/dinosaur-1.png' class = 'rhs'>
+                    {{ site.html.ss }} works on Perl 5.10.1 or later but {{ site.html.bh }} cannot work on 
+                    Perl 5.16.1 or later. Therefore, for example, if the Perl version is 5.18 in a host which
+                    you want to install {{ site.html.bh }}, you should install older version of Perl into
+                    the host.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}はPerl 5.10.1以降で動作しますが{{ site.html.bh }}はPerl 5.16以降では
+                    動作しません。ですので、例えば{{ site.html.bh }}をインストールしようとしているサーバー
+                    のPerlが5.18であれば、古いバージョンのPerlを別途インストールする必要があります。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-desktop'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>{{ site.html.ss }} also works on Ruby 2.1.0 or later</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    <img src = '/static/images/icon/ruby-1.png' class = 'rhs'>
+                    Beginning of {{ site.html.ss }} v4.14.2,
+                    {{ site.html.ss }} works on both of Perl and Ruby ( including JRuby ).
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.ss }} v4.14.2から
+                    {{ site.html.ss }}はPerlでもRuby(JRubyを含む)でも動作します。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-desktop'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Easy to install</h3>
             </div>
         </div>
         <div class = 'row'>
@@ -237,17 +317,19 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    <span class = 'ss'>Sisimai</span> can parse bounce mails and generate structured data
-                    faster than bounceHammer (bin/mailboxparser command).
-                    Perl version of <span class = 'ss'>Sisimai</span> is about 1.7 times faster,
-                    Ruby version of <span class = 'ss'>Sisimai</span> is about 1.1 times faster.
+                    To install {{ site.html.bh }} is troublesome because many tasks such as
+                    downloading archive file, installing many many dependent Perl modules, and running
+                    configure, make, make test, make install command before installation has completed.
+                    However, to install {{ site.html.ss }} is very easy because the software could be
+                    installed using <kbd>cpanm</kbd> or <kbd>gem</kbd> command.
                 </p>
                 <hr>
                 <p class = 'description ja'>
-                    シシマイはbounceHammerのbin/mailboxparserコマンドよりも高速にメールを解析し、構造化された
-                    データを生成します。
-                    Perl版<span class = 'ss'>Sisimai</span>で約1.7倍、
-                    Ruby版<span class = 'ss'>Sisimai</span>で約1.1倍高速です。
+                    {{ site.html.bh }}をインストールする作業はやや面倒で、
+                    アーカイブのダウンロード・多くの依存モジュールのインストール・
+                    configure, make, make test, make installコマンドの実行を経て完了します。
+                    一方、{{ site.html.ss }}のインストールは<kbd>cpanm</kbd>や<kbd>gem</kbd>コマンドでインストールが
+                    出来るので非常に簡単です。
                 </p>
             </div>
         </div>
@@ -255,7 +337,63 @@ Content-Type: message/rfc822
 
 
 
-
     </div>
 </section>
 
+<section id = 'performance' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-line-chart'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Performance</h2>
+                <p class = 'description'>
+                    Numerical advantages of performance in {{ site.html.ss }}
+                    ( both of the Perl and the Ruby vesrion )
+                    over the final version of {{ site.html.bh }}.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.bh }}に対する{{ site.html.ss }}
+                    (Perl版とRuby版)の性能における数値的な優位点について
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-tachometer'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Faster than {{ site.html.bh }}</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    {{ site.html.ss }} can parse bounce mails and generate structured data
+                    faster than {{ site.html.bh }} (bin/mailboxparser command).
+                    Perl version of {{ site.html.ss }} is about 1.7 times faster,
+                    Ruby version of {{ site.html.ss }} is about 1.1 times faster.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    シシマイは{{ site.html.bh }}のbin/mailboxparserコマンドよりも高速にメールを解析し、
+                    構造化されたデータを生成します。
+                    Perl版{{ site.html.ss }}で約1.7倍、
+                    Ruby版{{ site.html.ss }}で約1.1倍高速です。
+                </p>
+            </div>
+        </div>
+
+
+
+
+    </div>
+</section>
