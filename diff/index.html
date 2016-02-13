@@ -223,6 +223,44 @@ Content-Type: message/rfc822
             </div>
         </div>
 
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-reply-all'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Feedback Loop message</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    {{ site.html.ss }} deals ARF (Abuse Reporting Format) message for Feedback Loop, 
+                    Many Email Service Providers such as
+                    <a href = 'http://postmaster.aol.com/Postmaster.FeedbackLoop.php' target = 'new'>AOL</a>, 
+                    <a href = 'https://help.yahoo.com/kb/complaint-feedback-loop-sln3438.html' target = 'new'>Yahoo!</a>,
+                    as a bounce message and can parse it. 
+                </p>
+                <p class = 'description'>
+                    Implementation of FBL in {{ site.html.bh }} is just an experimental and not fully support ARF message.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    <a href = 'http://postmaster.aol.com/Postmaster.FeedbackLoop.php' target = 'new'>AOL</a>や
+                    <a href = 'https://help.yahoo.com/kb/complaint-feedback-loop-sln3438.html' target = 'new'>Yahoo!</a>
+                    など海外のメールサービスでは導入されているARF(Abuse Reporting Format)形式のメールも
+                    {{ site.html.ss }}では解析可能です。
+                </p>
+                <p class = 'description ja'>
+                    {{ site.html.bh }}のFBL対応はあくまでも実験的実装で、完全にARF形式のメールを解析する事は
+                    できません。
+                </p>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -252,20 +290,24 @@ Content-Type: message/rfc822
                 <div class = 'index-label'><i class = 'fa fa-desktop'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>{{ site.html.ss }} works on Perl 5.16 or later</h3>
+                <h3 class = 'in-desc'>{{ site.html.ss }} works on Perl and Ruby</h3>
             </div>
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    <img src = '/static/images/icon/dinosaur-1.png' class = 'rhs'>
                     {{ site.html.ss }} works on Perl 5.10.1 or later but {{ site.html.bh }} cannot work on 
                     Perl 5.16.1 or later. Therefore, for example, if the Perl version is 5.18 in a host which
                     you want to install {{ site.html.bh }}, you should install older version of Perl into
                     the host.
+                </p>
+                <p class = 'description'>
+                    And then, beginning of {{ site.html.ss }} v4.14.2,
+                    {{ site.html.ss }} works on both of Perl and Ruby ( including JRuby ).
                 </p>
                 <hr>
                 <p class = 'description ja'>
@@ -273,38 +315,15 @@ Content-Type: message/rfc822
                     動作しません。ですので、例えば{{ site.html.bh }}をインストールしようとしているサーバー
                     のPerlが5.18であれば、古いバージョンのPerlを別途インストールする必要があります。
                 </p>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fa fa-desktop'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>{{ site.html.ss }} also works on Ruby 2.1.0 or later</h3>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <p class = 'description'>
-                    <img src = '/static/images/icon/ruby-1.png' class = 'rhs'>
-                    Beginning of {{ site.html.ss }} v4.14.2,
-                    {{ site.html.ss }} works on both of Perl and Ruby ( including JRuby ).
-                </p>
-                <hr>
                 <p class = 'description ja'>
-                    {{ site.html.ss }} v4.14.2から
-                    {{ site.html.ss }}はPerlでもRuby(JRubyを含む)でも動作します。
+                    そして、{{ site.html.ss }} v4.14.2からは{{ site.html.ss }}はPerlでもRuby(JRubyを含む)でも動作します。
                 </p>
             </div>
         </div>
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fa fa-desktop'></i></div>
+                <div class = 'index-label'><i class = 'fa fa-download'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Easy to install</h3>
@@ -334,8 +353,36 @@ Content-Type: message/rfc822
             </div>
         </div>
 
-
-
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-keyboard-o'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Command Line Tools, DB Schema, WebUI</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    {{ site.html.ss }} have neigther command-line tools nor DB schema nor WebUI such as 
+                    <kbd>bin/mailboxparser</kbd> in {{ site.html.bh }}. {{ site.html.ss }} is just 
+                    a light-weight and a simple library. Command line tools or these environment you want
+                    are better to be implemented on yourself as you like, we think.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}には{{ site.html.bh }}の<kbd>bin/mailboxparser</kbd>や<kbd>bin/databasectl</kbd>
+                    のようなコマンドラインツールは無く、またWebUIやDBスキーマも持っていません。
+                    あくまでもモジュールのみの軽量でシンプルな提供形態です。
+                    数行のコードで解析できるようになるので、ユーザ側で好きなようにコマンドラインツールを実装してください、
+                    または既存のシステムに組み込んで実装してください、という方針です。
+                </p>
+            </div>
+        </div>
 
     </div>
 </section>
@@ -362,6 +409,41 @@ Content-Type: message/rfc822
                 </p>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-line-chart'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>High Precision of Analysis</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    Precision of analysis in {{ site.html.ss }} is 2.0 times higher than
+                    {{ site.html.bh }} because {{ site.html.ss }} have 
+                    <a href = '/engine'>{{ site.sisimai.spec.modules }} MTA/MSP modules</a>.
+                    And then, {{ site.html.ss }} can parse bounce mails via commercial MTA
+                    such as Microsoft Exchange Server, IBM Notes and Domino, 
+                    via Email Service Providers such as Amazon SES, WorkMail, SendGrid.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}は内部に
+                    <a href = '/engine'>{{ site.sisimai.spec.modules }}個のMTA/MSP用解析モジュール</a>
+                    を持っているので、その解析精度は{{ site.html.bh }}の約二倍を誇ります。
+                    また、Microsoft Exchange ServerやIBM Notes and Dominoのような商用MTAや
+                    Amazon SESやWorkMail, SendGridのような商用メールサービスからのバウンスメール
+                    であっても{{ site.html.ss }}は解析する事が出来ます。
+                </p>
+            </div>
+        </div>
+
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'><i class = 'fa fa-tachometer'></i></div>
