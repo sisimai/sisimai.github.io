@@ -508,6 +508,16 @@ puts Sisimai.dump('~/Maildir/cur')
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Demo</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>Demonstration of the <strong>dump</strong> method</h4>
+                <img src = '/static/images/demo/sisimai-dump-01.gif' width = '100%'>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>jq</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
@@ -554,35 +564,46 @@ puts Sisimai.dump('~/Maildir/cur')
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Demo</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>Demonstration of the <strong>dump</strong> method with <strong>jq</strong></h4>
+                <img src = '/static/images/demo/sisimai-dump-02.gif' width = '100%'>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-text'>JSON</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>JSON string filtered by <strong>jq</strong> utility</h4>
                 <pre class = 'prettyprint'>
 [
   {
-    "senderdomain": "example.jp",
-    "messageid": "F9B4AEED-722D-47FD-929E-3625AF2161BB@example.jp",
+    "smtpcommand": "DATA",
+    "timestamp": 1397054085,
+    "action": "failed",
+    "listid": "",
+    "reason": "hasmoved",
+    "deliverystatus": "5.1.6",
+    "smtpagent": "Sendmail",
+    "destination": "example.net",
+    "timezoneoffset": "+0900",
     "feedbacktype": "",
     "diagnostictype": "SMTP",
-    "reason": "userunknown",
-    "addresser": "shironeko@example.jp",
-    "subject": "[Debug:1] test",
-    "token": "2357ee3ab77d120f1b028efb74b0be2ae209f49e",
-    "deliverystatus": "5.1.1",
-    "softbounce": 0,
-    "replycode": "550",
-    "diagnosticcode": "550 5.1.1 <kijitora@example.jp>... User Unknown",
+    "senderdomain": "example.co.jp",
+    "rhost": "mx-s.neko.example.jp",
+    "lhost": "localhost",
+    "addresser": "shironeko@example.co.jp",
+    "replycode": "551",
+    "messageid": "0000000011111.fff0000000003@mx.example.co.jp",
+    "token": "cf17945938502bd876603a375f0e9517c921bbab",
+    "recipient": "kijitora@example.net",
     "alias": "",
-    "smtpagent": "US::SendGrid",
-    "action": "failed",
-    "recipient": "kijitora@example.jp",
-    "destination": "example.jp",
-    "timestamp": 1351669672,
-    "timezoneoffset": "+0900",
-    "smtpcommand": "RCPT",
-    "listid": "shironeko.example.jp",
-    "rhost": "nijo.example.jp",
-    "lhost": "o7463194126.static.reverse.sendgrid.net"
+    "diagnosticcode": "551 not our customer",
+    "subject": "Nyaaaan",
+    "softbounce": 0
   }
 ]
                 </pre>
