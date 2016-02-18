@@ -943,26 +943,61 @@ message has been in the queue too long.
                 <div class = 'index-label'><i class = 'fa fa-question-circle'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Delivered (Not implemented yet)</h3>
+                <h3 class = 'in-desc'>Delivered (beginning with v4.16.0)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/cat-4.png'>
                     This reason is <strong>NOT AN ERROR</strong> and means that an email you sent is successfully
-                    delivered to the recipient.
-                    <br>
-                    <strong>This reason will be added at the future release of {{ site.html.ss }}.</strong>
+                    delivered to the recipient. {{ site.html.ss }} will set "delivered" to the reason
+                    of email bounce if the value of Status: field in a bounce mail begins with "2".
+                </p>
+                <p class = 'description'>
+                    This reason <strong>is not included in parsed results by default</strong>.
+                    To get parsed results which includes this reason, specify "delivered" option at the argument
+                    of make(), dump() method of Sisimai like following sample codes.
                 </p>
                 <pre class = 'prettyprint'>
 Final-Recipient: rfc822; kijitora@neko.nyaan.jp
 Action: deliverable
 Status: 2.1.5
-Remote-MTA: dns; home.neko.nyaan.jp
 Diagnostic-Code: SMTP; 250 2.1.5 OK
                 </pre>
                 <p class = 'description ja'>
                     この理由は<strong>エラーではなく</strong>送信したメールが受信者に正しく配送された
-                    事を意味します。
-                    <strong>この理由は将来リリースされる{{ site.html.ss }}で実装されます。</strong>
+                    事を意味します。{{ site.html.ss }}はバウンスメールのStatus:フィールドが"2"で始まっている場合、
+                    "delivered"を"reason"の値に設定します。
                 </p>
+                <p class = 'description ja'>
+                    この理由はデフォルトで解析結果には含まれません。解析結果に"delivered"となる記録も
+                    含めるには、下記のサンプルコードのように"delivered"オプションをSisimaiのmake(),
+                    dump()メソッドの引数に指定してください。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <pre class = 'prettyprint'>
+#! /usr/bin/env perl
+my $v = Sisimai->make('/path/to/mbox', 'delivered' => 1);
+my $r = Sisimai->dump('/path/to/mbox', 'delivered' => 1);
+my $d = Sisimai::Data->make('data' => $q, 'delivered' => 1);
+                </pre>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <pre class = 'prettyprint'>
+#! /usr/bin/env ruby
+v = Sisimai.make('/path/to/mbox', delivered: true)
+r = Sisimai.dump('/path/to/mbox', delivered: true)
+d = Sisimai::Data.make(data: q, delivered: true)
+                </pre>
                 <hr>
             </div>
         </div>
