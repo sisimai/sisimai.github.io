@@ -719,3 +719,72 @@ author: azumakuniyuki
     </div>
 </section> <!-- /#oss-mta -->
 
+<section id = 'method' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-file-code-o'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2>engine() method of {{ site.html.ss }}</h2>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <p class = 'description'>
+                    Beginning with {{ site.html.ss }} v4.16.0, <kbd>engine()</kbd> method is available
+                    at <kbd>Sisimai</kbd> class. The method provides feature that returns the list of all the MTA/MSP
+                    module names and its descriptions like the following example.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.ss }} v4.16.0から<kbd>engine()</kbd>メソッドが<kbd>Sisimai</kbd>で
+                    利用可能になりました。このメソッドは実装されている全てのMTA/MSPモジュールの名前と
+                    その説明を一覧として返す機能を提供します。
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                <h3>Sisimai-&gt;engine()</h3>
+                <pre class = 'prettyprint'>
+#!/usr/bin/env perl
+require Sisimai;
+my $v = Sisimai->engine;
+print keys %$v;         # {{ site.sisimai.spec.modules }}
+for my $e ( keys %$v ) {
+    print $e;           # Exchange
+    print $v->{ $e };   # Microsoft Exchange Server
+}
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3>Sisimai.engine()</h3>
+                <pre class = 'prettyprint'>
+#!/usr/bin/env ruby
+require 'sisimai'
+v = Sisimai.engine
+puts v.keys.size;  # {{ site.sisimai.spec.modules }}
+v.keys.each do |e|
+  puts e    # Exchange
+  puts v[e] # Microsoft Exchange Server
+end
+                </pre>
+            </div>
+        </div>
+
+    </div>
+</section>
+
