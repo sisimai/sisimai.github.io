@@ -225,6 +225,70 @@ Content-Type: message/rfc822
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-truck'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Status: 2.X.X</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    {{ site.html.ss }} can parse and decide the reason to "delivered" properly a bounce message which includes
+                    <kbd>Status: 2.1.5</kbd> line in its message body such as
+                    <a href = 'https://github.com/sisimai/p5-Sisimai/blob/master/set-of-emails/maildir/bsd/rfc3464-28.eml'>
+                        rfc3464-28.eml
+                    </a>.
+                </p>
+                <p>
+                    However, <em class = 'warn'>{{ site.html.bh }} decides the reason to "undefined"</em>
+                    when parsed such email like the following.
+                </p>
+                <pre class = 'prettyprint'>
+  {
+    "token": "0ac0d79df3cc8ef4fc606334af840330",
+    "description": {
+      "timezoneoffset": "+0900",
+      "subject": "Nyaaan",
+      "smtpagent": "",
+      "messageid": "<20151025071802.22CC00222233@neko-222-2222.vs.example.ne.jp>",
+      "listid": "",
+      "diagnosticcode": "smtp; 250 2.1.5 Ok",
+      "deliverystatus": "2.1.5"
+    },
+    "frequency": 1,
+    "bounced": 1430318085,
+    "addresser": "root@neko-222-2222.vs.example.ne.jp",
+    "recipient": "kijitora@neko.example.jp",
+    "senderdomain": "neko-222-2222.vs.example.ne.jp",
+    "destination": "neko.example.jp",
+    <strong>"reason": "undefined",</strong>
+    "hostgroup": "reserved",
+    "provider": "reserved"
+  },
+                </pre>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}は<kbd>Status: 2.1.5</kbd>のような行を含むバウンスメール(
+                    <a href = 'https://github.com/sisimai/p5-Sisimai/blob/master/set-of-emails/maildir/bsd/rfc3464-28.eml'>
+                        rfc3464-28.eml
+                    </a>)
+                    を正しく解析し、バウンス理由を"delivered"として決定します。
+                    しかし、
+                    <em class = 'warn'>
+                        {{ site.html.bh }}はこのようなメールを解析出来るものの、上記の出力例のように、
+                        バウンス理由を"undefined"に決定してしまいます。
+                    </em>
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'><i class = 'fa fa-reply-all'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
