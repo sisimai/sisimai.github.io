@@ -28,6 +28,7 @@ author: azumakuniyuki
                     <li class = 'scroll'><a href = '#problem'>Problems</a></li>
                     <li class = 'scroll'><a href = '#environment'>Environment</a></li> 
                     <li class = 'scroll'><a href = '#performance'>Performance</a></li> 
+                    <li class = 'scroll'><a href = '#data'>Data</a></li> 
                     <li class = 'others'><a href = '/docs'>Documents</a></li>
                 </ul>
             </div>
@@ -56,7 +57,7 @@ author: azumakuniyuki
         </div>
         <div class = 'row'>
             <div class = 'text-center index-table'>
-                <div class = 'col-sm-4 col-sm-offset-0'>
+                <div class = 'col-sm-3 col-sm-offset-0'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-thumbs-o-up'></i>
                     </div>
@@ -73,7 +74,7 @@ author: azumakuniyuki
                     </div>
                     <a href = '#problem' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-desktop'></i>
                     </div>
@@ -91,7 +92,7 @@ author: azumakuniyuki
                     </div>
                     <a href = '#environment' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-line-chart'></i>
                     </div>
@@ -108,7 +109,26 @@ author: azumakuniyuki
                             (Perl版とRuby版)の性能における数値的な優位点について
                         </p>
                     </div>
-                    <a href = '#content' class = 'btn btn-continue'>Read</a>
+                    <a href = '#performance' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-list'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Data</h3>
+                        <p class = 'description'>
+                            Differences of data structure (parsed data fields and
+                            detectable bounce reasons)
+                            between {{ site.html.ss }} and {{ site.html.bh }}.
+                        </p>
+                        <hr>
+                        <p class = 'description ja'>
+                            {{ site.html.ss }}と{{ site.html.bh }}でのデータ構造
+                            (解析結果の構造、検出可能なバウンス理由)の違いについて
+                        </p>
+                    </div>
+                    <a href = '#data' class = 'btn btn-continue'>Read</a>
                 </div>
             </div>
         </div>
@@ -537,9 +557,657 @@ Content-Type: message/rfc822
                 </p>
             </div>
         </div>
+    </div>
+</section>
 
+<section id = 'data'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-list'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Data Structure</h2>
+                <p class = 'description'>
+                    Differences of data structure (parsed data fields and
+                    detectable bounce reasons)
+                    between {{ site.html.ss }} and {{ site.html.bh }}.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}と{{ site.html.bh }}でのデータ構造
+                    (解析結果の構造、検出可能なバウンス理由)の違いについて
+                </p>
+            </div>
+        </div>
 
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-list'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Each field of parsed data</h3>
+                <p class = 'description'>
+                    All the fields of parsed data in {{ site.html.ss }} is available on
+                    <a href = '/data'>/data</a> page.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}が生成する解析結果の全項目は
+                    <a href = '/data'>/data</a>ページをご覧ください。
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <div class = 'text-center'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-bordered'>
+                            <thead>
+                                <tr>
+                                    <th>Field name</th>
+                                    <th>{{ site.html.ss }}</th>
+                                    <th>{{ site.html.bh }}</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = 'ltext'>action</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        "failed", "expired", "delivered"
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>addresser</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        Sender's email address
+                                        <br>
+                                        発信者アドレス
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>alias</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        Alias address of the recipient
+                                        <br>
+                                        宛先メールアドレスのエイリアス
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>deliverystatus</td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/deliverystatus</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        D.S.N. Value(ex. 5.1.1)
+                                        <br>
+                                        D.S.Nの値(例:4.4.7)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>destination</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        Domain part of a recipient address
+                                        <br>
+                                        宛先メールアドレスのドメイン部分
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>diagnosticcode</td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/diagnosticcode</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        Diagnostic or error message in a bounce mail
+                                        <br>
+                                        バウンスメールのエラーメッセージや診断メッセージ
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>diagnostictype</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        Error type string such as "SMTP" or "X-Unix"
+                                        <br>
+                                        エラーの種別(主にSMTPまたはX-Unix)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>feedbacktype</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        value of Feedback-Type: field, such as "abuse", "fraud"
+                                        <br>
+                                        Feedback-Typeの値(abuseやfraud等)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>frequency</td>
+                                    <td>-</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        The number of email bounces, however, the value in parsed data
+                                        is always "1"
+                                        <br>
+                                        バウンスした回数ですが解析済データでは常に"1"です
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>hostgroup</td>
+                                    <td>-</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        Host group of a recipient domain such as "webmail", "pc"
+                                        <br>
+                                        宛先メールアドレスのドメインによる大分類項目です
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>lhost</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        Local MTA name: hostname or IP address
+                                        <br>
+                                        発信に使用されたメールサーバ名(ホスト名かIPアドレス)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>listid</td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/listid<br>(&gt;= v2.7.10)</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        The value of "List-Id" field, Mailling list name.
+                                        <br>
+                                        List-Idの値、メーリングリスト名
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>messageid</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>Does not include &gt;,&lt;</em>
+                                    </td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/messageid<br>(&gt;= v2.7.11)</em><br>
+                                        <em class = 'warn'>Including &gt; and &lt;</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        The value of Message-Id of the original message. 
+                                        <br>
+                                        元メールのMessage-Idヘッダの値です。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>provider</td>
+                                    <td>-</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        Provider name such as "google", "microsoft"
+                                        <br>
+                                        宛先メールアドレスの小分類(所属)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>reason</td>
+                                    <td>OK({{ site.sisimai.spec.reasons }})</td>
+                                    <td>OK(19)</td>
+                                    <td class = 'ltext'>
+                                        Bounce reason
+                                        <br>
+                                        バウンス理由
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>recipient</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        Recipient's mail address
+                                        <br>
+                                        受信者のメールアドレス
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>replycode</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        SMTP reply code such as "550", "422".
+                                        <br>
+                                        "503"や"251"のようなSMTP応答コード
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>rhost</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        Remote MTA name: hostname or IP address
+                                        <br>
+                                        宛先のメールサーバ名(ホスト名かIPアドレス)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>senderdomain</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        Domain part of a sender email address
+                                        <br>
+                                        発信者メールアドレスのドメイン部分
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>smtpagent</td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>decription/smtpagent</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        MTA/MSP Module name used for parsing
+                                        <br>
+                                        解析する為に使用されたMTA/MSPモジュール名
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>smtpcommand</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        The last SMTP command in failed session
+                                        <br>
+                                        バウンスした際のSMTPコマンド名
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>softbounce</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        value for checking whether it is soft bounce or not
+                                        <br>
+                                        ソフトバウンスかどうかを判別する値
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>subject</td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/subject<br>(&gt;= v2.7.11)</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        Subject of the original message
+                                        <br>
+                                        元メールの件名
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>timestamp</td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>bounced</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        Date and time of an email bounce
+                                        <br>
+                                        バウンスした日時
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>timezoneoffset</td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/timezoneoffset</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        Timezome offset value of bounce date
+                                        <br>
+                                        バウンスした日時のタイムゾーン(時差j
+                                    </td>
+                                </tr>
 
+                                <tr>
+                                    <td class = 'ltext'>token</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>including timestamp</em>
+                                    </td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>generated from a sender and a recipient only)</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        An identifier of each email-bounce.
+                                        <br>
+                                        バウンス記録を識別する固有文字列
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Detectable bounce reasons</h3>
+                <p class = 'description'>
+                    All the reasons of parsed data in {{ site.html.ss }} is available on
+                    <a href = '/reason'>/reason</a> page.
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}が生成する解析結果のバウンス理由一覧は
+                    <a href = '/reason'>/reason</a>ページをご覧ください。
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <div class = 'text-center'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-bordered'>
+                            <thead>
+                                <tr>
+                                    <th>Reason</th>
+                                    <th>{{ site.html.ss }}</th>
+                                    <th>{{ site.html.bh }}</th>
+                                    <th>name in parsed data</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = 'ltext'>Blocked</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>blocked
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Content Error</td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>contenterr</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        contenterror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Delivered</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.16.0)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        delivered<br>
+                                        <em class = 'warn'>Option</em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Exceed Limit</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        exceedlimit
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Expired</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        expired
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Feedback</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        feedback
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Filtered</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        filtered
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Has Moved</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        hasmoved
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Host Unknown</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        hostunknown
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Mailbox Full</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        mailboxfull
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Mailbox Full</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        mailboxfull
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Mailer Error</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        mailererror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Mesg Too Big</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        mesgtoobig
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Network Error</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.1.12)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        networkerror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>No Relaying</td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        norelaying
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Not Accept</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        notaccept
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>On Hold</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        onhold
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Rejected</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        rejected
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Security Error</td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>securityerr</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        securityerror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Spam Detected</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.1.25)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        spamdetected
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Suspend</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        suspend
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Syntax Error</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.17.0)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        syntaxerror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>System Error</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        systemerror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>System Full</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        systemfull
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Too Many Conn</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.1.26)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        toomanyconn
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Undefined</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>User Unknown</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        userunknown
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Vacation</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.1.28)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        vacation
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
