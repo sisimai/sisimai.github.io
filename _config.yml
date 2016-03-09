@@ -5,7 +5,7 @@ sisimai:
   release: 'Thursday, February 18, 2016'
   spec:
     modules: 51
-    reasons: 26
+    reasons: 27
     license: 'The BSD 2-Clause License'
   repository: 
     project: 'https://github.com/sisimai'
