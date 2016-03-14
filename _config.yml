@@ -24,4 +24,6 @@ html:
   ss: "<span class = 'ss'>Sisimai</span>"
   bh: "<span class = 'bh'>bounce<strong>Hammer</strong></span>"
   cr: "<span class = 'ss'>Cubicroot</span>"
+gems:
+  - jekyll-sitemap
 
