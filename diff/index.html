@@ -44,8 +44,8 @@ author: azumakuniyuki
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
                     <h2>Differences</h2>
                     <p class = 'description'>
-                        The table in this page show differeces between {{ site.html.ss }}
-                        ( both of the perl and the ruby version ) and {{ site.html.bh }}.
+                        The table on this page shows differences between {{ site.html.ss }}
+                        (both of the Perl and the Ruby version) and {{ site.html.bh }}.
                     </p>
                     <hr>
                     <p class = 'description ja'>
@@ -64,7 +64,7 @@ author: azumakuniyuki
                     <div class = 'index-info'>
                         <h3>Resolved Problems</h3>
                         <p class = 'description'>
-                            Some unresolvable and serious problems ( {{ site.html.ss }} resolved these problems )
+                            Some unresolvable and serious problems ({{ site.html.ss }} resolved these problems)
                             on the final version of {{ site.html.bh }}(v2.7.13).
                         </p>
                         <hr>
@@ -82,7 +82,7 @@ author: azumakuniyuki
                         <h3>Environment</h3>
                         <p class = 'description'>
                             Differences about environment for running {{ site.html.ss }}
-                            ( both of the Perl and the Ruby version ) and all the versions of {{ site.html.bh }}.
+                            (both of the Perl and the Ruby version) and all the versions of {{ site.html.bh }}.
                         </p>
                         <hr>
                         <p class = 'description ja'>
@@ -100,7 +100,7 @@ author: azumakuniyuki
                         <h3>Performance</h3>
                         <p class = 'description'>
                             Numerical advantages of performance in {{ site.html.ss }}
-                            ( both of the Perl and the Ruby vesrion )
+                            (both of the Perl and the Ruby vesrion)
                             over the final version of {{ site.html.bh }}.
                         </p>
                         <hr>
@@ -147,7 +147,7 @@ author: azumakuniyuki
                 <h2 class = 'in-desc'>Resolved Problems</h2>
                 <p class = 'description'>
                     There are some unresolvable and serious problems related to precision of analysis
-                    on the final version of {{ site.html.bh }}(v2.7.13).
+                    of the final version of {{ site.html.bh }}(v2.7.13).
                     {{ site.html.ss }} has been developed to resolve these problems.
                 </p>
                 <hr>
@@ -329,7 +329,8 @@ Content-Type: message/rfc822
                     as a bounce message and can parse it. 
                 </p>
                 <p class = 'description'>
-                    Implementation of FBL in {{ site.html.bh }} is just an experimental and not fully support ARF message.
+                    The FBL feature in {{ site.html.bh }} is just an experimental implementation and
+                    not fully support the ARF message.
                 </p>
                 <hr>
                 <p class = 'description ja'>
@@ -360,7 +361,7 @@ Content-Type: message/rfc822
                 <h2 class = 'in-desc'>Environment</h2>
                 <p class = 'description'>
                     Differences about environment for running {{ site.html.ss }}
-                    ( both of the Perl and the Ruby version ) and all the versions of {{ site.html.bh }}.
+                    (both of the Perl and the Ruby version) and all the versions of {{ site.html.bh }}.
                 </p>
                 <hr>
                 <p class = 'description ja'>
@@ -384,14 +385,14 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} works on Perl 5.10.1 or later but {{ site.html.bh }} cannot work on 
-                    Perl 5.16.1 or later. Therefore, for example, if the Perl version is 5.18 in a host which
+                    {{ site.html.ss }} works on Perl 5.10.1 or later, but {{ site.html.bh }} cannot work on 
+                    Perl 5.16.1 or later. Therefore, for example, if the Perl version is 5.18 at a host which
                     you want to install {{ site.html.bh }}, you should install older version of Perl into
                     the host.
                 </p>
                 <p class = 'description'>
                     And then, beginning of {{ site.html.ss }} v4.14.2,
-                    {{ site.html.ss }} works on both of Perl and Ruby ( including JRuby ).
+                    {{ site.html.ss }} works on both of Perl and Ruby (including JRuby).
                 </p>
                 <hr>
                 <p class = 'description ja'>
@@ -422,7 +423,7 @@ Content-Type: message/rfc822
                 <p class = 'description'>
                     To install {{ site.html.bh }} is troublesome because many tasks such as
                     downloading archive file, installing many many dependent Perl modules, and running
-                    configure, make, make test, make install command before installation has completed.
+                    the configure script, make, make test, make install command before installation has completed.
                     However, to install {{ site.html.ss }} is very easy because the software could be
                     installed using <kbd>cpanm</kbd> or <kbd>gem</kbd> command.
                 </p>
@@ -452,9 +453,9 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} have neigther command-line tools nor DB schema nor WebUI such as 
+                    {{ site.html.ss }} have neither command-line tools nor DB schema nor WebUI such as 
                     <kbd>bin/mailboxparser</kbd> in {{ site.html.bh }}. {{ site.html.ss }} is just 
-                    a light-weight and a simple library. Command line tools or these environment you want
+                    a light-weight and a simple library. Command line tools or these environments you want
                     are better to be implemented on yourself as you like, we think.
                 </p>
                 <hr>
@@ -483,7 +484,7 @@ Content-Type: message/rfc822
                 <h2 class = 'in-desc'>Performance</h2>
                 <p class = 'description'>
                     Numerical advantages of performance in {{ site.html.ss }}
-                    ( both of the Perl and the Ruby vesrion )
+                    (both of the Perl and the Ruby vesrion)
                     over the final version of {{ site.html.bh }}.
                 </p>
                 <hr>
@@ -545,8 +546,8 @@ Content-Type: message/rfc822
                 <p class = 'description'>
                     {{ site.html.ss }} can parse bounce mails and generate structured data
                     faster than {{ site.html.bh }} (bin/mailboxparser command).
-                    Perl version of {{ site.html.ss }} is about 1.7 times faster,
-                    Ruby version of {{ site.html.ss }} is about 1.1 times faster.
+                    The Perl version of {{ site.html.ss }} is about 1.7 times faster,
+                    and the Ruby version of {{ site.html.ss }} is about 1.1 times faster.
                 </p>
                 <hr>
                 <p class = 'description ja'>
@@ -590,7 +591,7 @@ Content-Type: message/rfc822
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Each field of parsed data</h3>
                 <p class = 'description'>
-                    All the fields of parsed data in {{ site.html.ss }} is available on
+                    All the fields of parsed data in {{ site.html.ss }} are available on
                     <a href = '/data'>/data</a> page.
                 </p>
                 <hr>
@@ -927,7 +928,7 @@ Content-Type: message/rfc822
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Detectable bounce reasons</h3>
                 <p class = 'description'>
-                    All the reasons of parsed data in {{ site.html.ss }} is available on
+                    All the reasons of parsed data in {{ site.html.ss }} are available on
                     <a href = '/reason'>/reason</a> page.
                 </p>
                 <hr>
