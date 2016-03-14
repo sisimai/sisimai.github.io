@@ -46,7 +46,7 @@ author: azumakuniyuki
                     <p class = 'description'>
                         {{ site.html.ss }} can detect the following
                         <strong>{{ site.sisimai.spec.reasons }} bounce reasons</strong>
-                        from parsed bounce message. 
+                        from the parsed bounce message. 
                         Detected error reason is set in the value of "reason" accessor of 
                         Sisimai::Data object in lower case like "userunknown", "expired".
                     </p>
@@ -89,7 +89,7 @@ author: azumakuniyuki
                         <h3>By Content</h3>
                         <p class = 'description'>
                             The message you sent has rejected due to a message content:
-                            a part of message header and message body.
+                            a part of a message header and a message body.
                         </p>
                         <hr>
                         <p class = 'description ja'>
@@ -152,7 +152,7 @@ author: azumakuniyuki
                 <h2 class = 'in-desc'>Rejected By Address</h2>
                 <p class = 'description'>
                     The following shows the list of reasons that the message you sent has rejected
-                    due to an envelope sender's email address, an envelope recipient email address,
+                    due to an envelope sender's email address, an envelope recipient's email address,
                     or a recipient's mailbox status.
                 </p>
                 <hr>
@@ -170,9 +170,9 @@ author: azumakuniyuki
                 <h3 class = 'in-desc'>Host Unknown</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/coffin-1.png'>
-                    This is the error that a domain part ( Right hand side of @ sign ) of
+                    This is the error that a domain part (Right hand side of @ sign) of
                     a recipient's email address does not exist. 
-                    In many case, the domain part is misspelled, or the domain name has been expired.
+                    In many cases, the domain part is misspelled, or the domain name has been expired.
                     {{ site.html.ss }} will set "hostunknown" to the reason
                     of email bounce if the value of Status: field in a bounce mail is "5.1.2".
                 </p>
@@ -202,11 +202,11 @@ Your message to the following recipients cannot be delivered:
                 <h3 class = 'in-desc'>User Unknown</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/headstone-1.png'>
-                    This is the error that a local part ( Left hand side of @ sign ) of a recipient's
+                    This is the error that a local part (Left hand side of @ sign) of a recipient's
                     email address does not exist. 
-                    In many case, a user has changed internet service provider, or has quit company,
+                    In many cases, a user has changed internet service provider, or has quit the company,
                     or the local part is misspelled. {{ site.html.ss }} will set "userunknown" 
-                    to the resason of email bounce if the value of Status: field in a bounce email is 
+                    to the reason of email bounce if the value of Status: field in a bounce email is 
                     "5.1.1", or connection was refused at SMTP RCPT command, 
                     or the contents of Diagnostic-Code: field represents that it is unknown user.
                 </p>
@@ -238,7 +238,7 @@ RCPT TO command)
                 <h3 class = 'in-desc'>Filtered</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/ghost-1.png'>
-                    This is the error that an email has been rejected by a header content after SMTP DATA command.
+                    This is the error that an email has been rejected by a header content after the SMTP DATA command.
                     In Japanese cellular phones, the error will incur that a sender's email address or
                     a domain is rejected by recipient's email configuration. 
                     {{ site.html.ss }} will set "filtered" to the reason of email bounce if the value of Status: 
@@ -274,7 +274,7 @@ RCPT TO command)
                 <h3 class = 'in-desc'>Has Moved</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
-                    This is the error that a user's mailbox has moved ( and is not forwarded automatically ).
+                    This is the error that a user's mailbox has moved (and is not forwarded automatically).
                     {{ site.html.ss }} will set "hasmoved" to the reason of email
                     bounce if the value of Status: field in a bounce email is "5.1.6".
                 </p>
@@ -304,7 +304,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                     (envelope from). 
                     {{ site.html.ss }} set "rejected" to the reason of email bounce
                     if the value of Status: field in a bounce email is "5.1.8"
-                    or the connection has been rejected due to the argument of SMTP MAIL command.
+                    or the connection has been rejected due to the argument of the SMTP MAIL command.
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.org&gt;:
@@ -390,7 +390,7 @@ The user(s) account is disabled.
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/bento-3.png'>
                     This is the reason that the recipient is out of office. 
-                    The bounce message is generated and returned from auto reponder program. 
+                    The bounce message is generated and returned from the auto reponder program. 
                     This reason has added in {{ site.html.ss }} 4.1.28 and does not exist
                     in any version of bounceHammer.
                 </p>
@@ -422,7 +422,7 @@ I am of the office returning 5th Jan
                 <h2 class = 'in-desc'>Rejected By Content</h2>
                 <p class = 'description'>
                     The following shows the list of reasons that the message you sent has rejected
-                    due to contents of the message by a spam filter or a MTA program on a remote host.
+                    due to the contents of the message by a spam filter or an MTA program on a remote host.
                 </p>
                 <hr>
                 <p class = 'description ja'>
@@ -566,7 +566,7 @@ I am of the office returning 5th Jan
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/gorilla-1.png'>
                     This is the error that a sent email size is too big for a destination mail server.
-                    In many case, There are many attachment files with email, or the file size is too large.
+                    In many cases, There are many attachment files by email, or the file size is too large.
                     {{ site.html.ss }} will set "mesgtoobig" to the reason of email
                     bounce if the value of Status: field in a bounce email is "5.3.4".
                 </p>
@@ -596,8 +596,8 @@ Status: 553 Exceeded maximum inbound message size
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/virus-3.png'>
                     This is the error that a security violation was detected on a destination mail server.
-                    Depends on the security policy on the server, there is any viruse in the email, 
-                    a sender's email address is phished. 
+                    Depends on the security policy on the server, there is any virus in the email, 
+                    a sender's email address is assumed. 
                     {{ site.html.ss }} will set "securityerror" to the reason
                     of email bounce if the value of Status: field in a bounce email is "5.7.*".
                 </p>
@@ -627,7 +627,7 @@ Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on yo
                 <h3 class = 'in-desc'>Spam Detected</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/spam-1.png'>
-                    This is the error that the message you sent was rejected by spam filter running on the remote host.
+                    This is the error that the message you sent was rejected by the spam filter running on the remote host.
                     This reason has added in {{ site.html.ss }} 4.1.25 and
                     does not exist in any version of {{ site.html.bh }}.
                 </p>
@@ -682,8 +682,8 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                 <h3 class = 'in-desc'>Blocked</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-3.png'>
-                    This is the error that SMTP connection was rejected due to a client IP address
-                    or a hostname, or the parameter of HELO/EHLO command.
+                    This is the error that SMTP connection was rejected due to a client's IP address
+                    or a hostname, or the parameter of the HELO/EHLO command.
                     This reason has added in {{ site.html.ss }} 4.0.0 and does not exist in any version of
                     {{ site.html.bh }}.
                 </p>
@@ -712,7 +712,7 @@ Remote host said: 501 5.0.0 Invalid domain name
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/expired-3.png'>
                     This is the error that delivery time has expired due to connection failure or 
-                    network error and the message you sent has been in the queue for long time.
+                    network error and the message you sent has been in the queue for a long time.
                     <br>
                     <br>
                 </p>
@@ -765,7 +765,7 @@ Diagnostic-Code: X-Unix; 255
                 <h3 class = 'in-desc'>Network Error</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/network-cable-1.png'>
-                    This is the error that SMTP connection failed due to DNS look up failure
+                    This is the error that SMTP connection failed due to DNS lookup failure
                     or other network problems.
                     This reason has added in {{ site.html.ss }} 4.1.12 and
                     does not exist in any version of {{ site.html.bh }}.
@@ -823,8 +823,8 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 <h3 class = 'in-desc'>Not Accept</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/firewall-3.png'>
-                    This is the error that a destination mail server does(can) not accespt any email.
-                    In many case, the server is high load or under the maintenance.
+                    This is the error that a destination mail server does (can) not accept any email.
+                    In many cases, the server is high load or under the maintenance.
                     {{ site.html.ss }} will set "notaccept" to the reason
                     of email bounce if the value of Status: field in a bounce email is 
                     "5.3.2" or the value of SMTP reply code is "556".
@@ -929,7 +929,7 @@ message has been in the queue too long.
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Others</h2>
                 <p class = 'description'>
-                    Rejected due to other reason or {{ site.html.ss }}could not detect the reason
+                    Rejected due to other reason or {{ site.html.ss }} could not detect the reason
                 </p>
                 <hr>
                 <p class = 'description ja'>
@@ -951,8 +951,8 @@ message has been in the queue too long.
                     of email bounce if the value of Status: field in a bounce mail begins with "2".
                 </p>
                 <p class = 'description'>
-                    This reason <strong>is not included in parsed results by default</strong>.
-                    To get parsed results which includes this reason, specify "delivered" option at the argument
+                    This reason <strong>is not included in the parsed results by default</strong>.
+                    To get the parsed results which are including this reason, specify "delivered" option at the argument
                     of make(), dump() method of Sisimai like following sample codes.
                 </p>
                 <pre class = 'prettyprint'>
@@ -1053,7 +1053,7 @@ d = Sisimai::Data.make(data: q, delivered: true)
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/question-1.png'>
                     {{ site.html.ss }} could not detect the error reason. 
-                    In many case, error message is written in non English or there are
+                    In many cases, the error message is written in non English or there is
                     no enough error message in a bounce email to decide the reason.
                 </p>
                 <p class = 'description ja'>
