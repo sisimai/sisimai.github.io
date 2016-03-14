@@ -104,7 +104,7 @@ Action: failed
                     <img class = 'lhs' src = '/static/images/icon/business-contact-2.png'>
                     "addressser" is a Sisimai::Address object generated from the sender address.
                     When Sisimai::Data object is dumped as JSON, this value converted to an email address.
-                    Sisimai::Address object have the following accessors:
+                    Sisimai::Address object has the following accessors:
                 </p>
                 <ul>
                     <li>user() - the local part of the address</li>
@@ -306,8 +306,8 @@ User-Agent: SMP-FBL
                 <h3 class = 'in-desc'>lhost (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/server-1.png'>
-                    "lhost" is a local MTA name to be used as a gateway for sending email message
-                    or the value of Reporting-MTA field in a bounce message.
+                    "lhost" is a local MTA name to be used as a gateway for sending email messages
+                    or the value of the Reporting-MTA field in a bounce message.
                     When there is no Reporting-MTA field in the bounce message,
                     {{ site.html.ss }} try to get the value from Received header.
                 </p>
@@ -330,7 +330,7 @@ Reporting-MTA: dns; mx4.smtp.example.co.jp
                 <h3 class = 'in-desc'>listid (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/list-1.png'>
-                    "listid" is the value of List-Id header of the original message.
+                    "listid" is the value of the List-Id header of the original message.
                     When there is no List-Id field in the original message or
                     the bounce message did not include the original message,
                     this value will be empty.
@@ -362,7 +362,7 @@ List-Id: Mailman mailing list management users
                 <h3 class = 'in-desc'>messageid (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/message-3.png'>
-                    "messageid" is the value of Message-Id header of the original message.
+                    "messageid" is the value of the Message-Id header of the original message.
                     When the original message did not include Message-Id: header or
                     the bounce message did not include the original message,
                     this value will be  empty.
@@ -395,7 +395,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                     "reason" is the value of bounce reason {{ site.html.ss }} detected. 
                     When this value is "undefined" or "onhold", 
                     it means that {{ site.html.ss }} could not decide the reason.
-                    All the reasons Sisismai can detect are available at 
+                    All the reasons Sisismai can detect are available at the
                     <a href = '/reason'>Bounce Reason List</a> page.
                 </p>
                 <pre class = 'prettyprint'>
@@ -562,7 +562,7 @@ Remote-MTA: DNS; g5.example.net
                 <h3 class = 'in-desc'>smtpcommand (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
-                    "smtpcommand" is a SMTP command name picked from the error message or
+                    "smtpcommand" is an SMTP command name picked from the error message or
                     the value of Diagnostic-Code: field in a bounce message.
                     When there is no SMTP command in the bounce message,
                     this value will be empty. The list of values below.
@@ -598,7 +598,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                     <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
                     The value of "softbounce" indicates whether the reason of the bounce
                     is soft bounce or hard bounce.
-                    This accessor has added in {{ site.html.ss }} 4.1.28. The range of the values are the followings:
+                    This accessor has added in {{ site.html.ss }} 4.1.28. The range of the values is the followings:
                     <br>
                     <br>
                 </p>
@@ -626,12 +626,12 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>subject (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/topic-1.png'>
-                    "subject" is the value of Subject header of the original message. 
+                    "subject" is the value of the Subject header of the original message. 
                     When the original message which is included in a bounce email contains
-                    no Subject header ( removed by remote MTA ), this value will be empty.
-                    If the value of Subject header of the original message contain any multibyte
-                    character ( non ASCII character ), such as MIME encoded Japanese or German and so on,
-                    the value of subject in parsed data is encoded with UTF-8 again.
+                    no Subject header (removed by remote MTA), this value will be empty.
+                    If the value of the Subject header of the original message contains any multibyte
+                    character (non ASCII character), such as MIME encoded Japanese or German and so on,
+                    the value of the subject in parsed data is encoded with UTF-8 again.
                 </p>
                 <p class = 'description ja'>
                     "subject"は元メールのSubject:ヘッダの値を保持します。
@@ -657,9 +657,9 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/calendar-9.png'>
                     "timestamp" is the date which email has bounced as a Sisima::Time
-                    ( Child class of Perl/Time::Piece or Ruby/DateTime) object.
+                    (Child class of Perl/Time::Piece or Ruby/DateTime) object.
                     When Sisimai::Data object is dumped as JSON, this value will be converted
-                    to an UNIX machine time ( 32 bits integer ).
+                    to a UNIX machine time (32 bit integer).
                 </p>
                 <pre class = 'prettyprint'>
 Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
@@ -683,8 +683,8 @@ Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/timezone-1.png'>
                     "timezoneoffset" is a time zone offset of a bounce email which its email has bounced.
-                    The format of this value is String like "+0900", "-0200".
-                    If {{ site.html.ss }} has failed to get a value of time zone offset, this value will be set as "+0000".
+                    The format of this value is a String like "+0900", "-0200".
+                    If {{ site.html.ss }} has failed to get a value of the timezone offset, this value will be set as "+0000".
                 </p>
                 <pre class = 'prettyprint'>
 Remote-MTA: DNS; g5.example.net
@@ -709,10 +709,10 @@ Remote-MTA: DNS; g5.example.net
                     <img class = 'lhs' src = '/static/images/icon/hashtag-1.png'>
                     "token" is an identifier of each email-bounce. 
                     The token string is created from the sender email address(addresser)
-                    and the recipient email address(recipient) and the machine time of the date
+                    and the recipient's email address(recipient) and the machine time of the date
                     in a bounce message as an MD5 hash value.
                     The token value is generated at token() method of Sisimai::String class.
-                    If you want to get the same token string at command line, try to run the following comand:
+                    If you want to get the same token string at the command line, try to run the following command:
                 </p>
                 <pre class = 'prettyprint'>
 % printf "\x02%s\x1e%s\x1e%d\x03" sender@example.jp recipient@example.org `date '+%s'` | md5
