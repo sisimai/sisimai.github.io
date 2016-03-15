@@ -12,12 +12,14 @@ WGET  := wget -c
 CURL  := curl -LOk
 CHMOD := chmod
 PORT  := 4401
+GEM   := gem
 CP    := cp
 RM    := rm -f
 
 .DEFAULT_GOAL = git-status
 REPOS_TARGETS = git-status git-push git-commit-amend git-tag-list git-diff \
 				git-reset-soft git-rm-cached git-branch
+DEPENDENCIES  = jekyll-sitemap jekyll-redirect-from
 
 # -----------------------------------------------------------------------------
 .PHONY: clean
@@ -40,6 +42,9 @@ restart-server:
 	$(MAKE) stop-server
 	sleep 1
 	$(MAKE) start-server
+
+depend:
+	gem install $(DEPENDENCIES)
 
 $(REPOS_TARGETS):
 	$(MAKE) -f Repository.mk $@
