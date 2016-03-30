@@ -1,8 +1,8 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.17.0'
-  release: 'Wednesday, 16 March, 2016'
+  version: 'v4.17.1'
+  release: 'Wednesday, 30 March, 2016'
   spec:
     modules: 51
     reasons: 27
