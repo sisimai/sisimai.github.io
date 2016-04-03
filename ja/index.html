@@ -1,0 +1,382 @@
+---
+layout: standard
+title: bounceHammerの後継となるバウンスメール解析ライブラリSisimai
+description: bounceHammerの後継であるSisimaiはバウンスメールを解析するライブラリであり構造化したデータをJSONで出力します
+author: azumakuniyuki
+---
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'scroll active'><a href = '#home'>Home</a></li>
+                    <li class = 'scroll'><a href = '#index'>Sisimai?</a></li> 
+                    <li class = 'scroll'><a href = '#versus'>vs.</a></li>
+                    <li class = 'scroll'><a href = '#download'><strong>Download</strong></a></li>
+                    <li class = 'others'><a href = '/ja/start'><strong>Start</strong></a></li>
+                    <li class = 'others'><a href = '/ja/docs'><strong>Docs</strong></a></li>
+                    <li class = 'others'><a href = 'http://blog.libsisimai.org/' target = 'new'>Blog</a></li>
+                    <li class = 'scroll'><a href = '#support'>Support</a></li>
+                    <li class = 'others'><a href = '/en'><span class = 'uk16'></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- /#main-nav -->
+</header><!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading wow fadeInUp' data-wow-duration = '500ms' data-wow-delay = '300ms'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-logomark-b02.png' width = '25%'>
+                    <h2>{{ site.html.ss }}(シシマイ)とは?</h2>
+                    <p class = 'description'>
+                        {{ site.html.ss }}は{{ site.html.bh }}の後継となるバウンスメール(エラーメール)解析ライブラリ
+                        (<strong>Perlモジュール</strong>と<strong>Ruby Gem</strong>)であり、RFC5322に準拠した
+                        バウンスメールを解析し、JSONなどの構造化されたデータとして出力します。
+                    </p>
+                    <div class = 'attention'>
+                        <i class = 'fa fa-newspaper-o'></i>
+                        現在の安定板最新バージョンは
+                        <a href = 'http://blog.libsisimai.org/post/141942434181/sisimai-4171-bug-fix'
+                           target = 'new'>{{ site.sisimai.release.ja }}</a>にリリースされた
+                        <a href = '#download'>
+                            <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
+                        </a>
+                        です。
+                        主な変更点はRuby版Sisimaiの深刻なバグの修正とRuby版とPerl版両方の小さなバグの修正です。
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class = 'text-center index-table'>
+            <div class = 'row'>
+                <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '100ms'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-envelope-o'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>解析ライブラリ</h3>
+                        <hr>
+                        <p class = 'description ja'>
+                        {{ site.html.ss }}は<strong>UNIX mbox</strong>形式のファイルや
+                            <strong>Maildir/</strong>ディレクトリ内にあるような
+                            バウンスメール用解析ライブラリです。
+                        </p>
+                    </div>
+                    <a href = '/ja/start' class = 'btn btn-continue'>使ってみる</a>
+                </div>
+                <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '200ms'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-exclamation-triangle'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>エラー理由検出</h3>
+                        <hr>
+                        <p class = 'description ja'>
+                            {{ site.html.ss }}は "宛先不明"や"メールボックスがいっぱい"、 "拒否"など、
+                            <strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>
+                            を検出する事が出来ます。
+                        </p>
+                    </div>
+                    <a href = '/ja/reason' class = 'btn btn-continue'>詳細を見る</a>
+                </div>
+                <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '300ms'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-list'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>構造化データ</h3>
+                        <hr>
+                        <p class = 'description ja'>
+                            {{ site.html.ss }}によって解析されたバウンスメールのデータは構造化されていて
+                            <strong>JSON</strong>形式としても出力できます。
+                        </p>
+                    </div>
+                    <a href = '/ja/data' class = 'btn btn-continue'>詳細を見る</a>
+                </div>
+                <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '400ms'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-gears'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>{{ site.sisimai.spec.modules }}の解析エンジン</h3>
+                        <hr>
+                        <p class = 'description ja'>
+                            {{ site.html.ss }}はオープンソースのMTAや商用MTA、メール専用アプライアンス、
+                            著名なメールサービスからのバウンスメールの解析が可能です。
+                        </p>
+                    </div>
+                    <a href = '/ja/engine' class = 'btn btn-continue'>詳細を見る</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'versus' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-6'>
+                <div class = 'versus-info wow fadeInUp' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
+                    <h2>
+                        <i class = 'fa fa-legal' style = 'font-size: 85%;'></i>
+                        vs. <span class = 'bh'>bounce<strong>Hammer</strong></span>
+                    </h2>
+                    <hr>
+                    <p class = 'description ja'>
+                        2014年夏、Perl版{{ site.html.ss }}(シシマイ)は
+                        {{ site.html.bh }}が抱える解析精度に関わる致命的な問題の数々
+                        (一通のメールに複数件のバウンスがある場合に一件目しか解析出来ない、依存モジュールが多く、
+                        うち幾つかは既にメンテナンスされていない、Perl 5.16以降で動作しない等)
+                        を解決する為に開発されました。
+                    </p>
+                    <p class = 'description ja'>
+                        現在、Perl版{{ site.html.ss }}は{{ site.html.bh }}の1.7倍程度高速に動作し、
+                        2倍の解析精度を誇ります。そして2016年2月3日にはRuby版{{ site.html.ss }}
+                        をリリースしました。
+                    </p>
+                </div>
+            </div>
+
+            <div class = 'col-sm-6'>
+                <div class = 'our-skills wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
+                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
+                        <p class = 'lead'>
+                            <i class = 'fa fa-percent'></i>
+                            解析精度
+                        </p>
+                        <div class = 'progress'>
+                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
+                                role = 'progressbar'  aria-valuetransitiongoal = '67'>100%
+                            </div>
+                            <p class = 'versus'>49%</p>
+                        </div>
+                    </div>
+                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '400ms'>
+                        <p class = 'lead'>
+                            <i class = 'fa fa-tachometer'></i>
+                            解析速度(1000通)
+                        </p>
+                        <div class = 'progress'>
+                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
+                                role = 'progressbar'  aria-valuetransitiongoal = '35'>2.3s
+                            </div>
+                            <p class = 'versus'>4.24s</p>
+                        </div>
+                    </div>
+                    <!--
+                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
+                        <p class = 'lead'>
+                            <i class = 'fa fa-code'></i>
+                            コード行数
+                        </p>
+                        <div class = 'progress'>
+                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
+                                role = 'progressbar'  aria-valuetransitiongoal = '34'>9,500
+                            </div>
+                            <p class = 'versus'>18,200</p>
+                        </div>
+                    </div>
+                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '600ms'>
+                        <p class = 'lead'>
+                            <i class = 'fa fa-flask'></i>
+                            テスト件数
+                        </p>
+                        <div class = 'progress'>
+                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
+                                role = 'progressbar'  aria-valuetransitiongoal = '86'>170,000
+                            </div>
+                            <p class = 'versus'>27,365</p>
+                        </div>
+                    </div>
+                    -->
+                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
+                        <p class = 'lead'>
+                            <i class = 'fa fa-exclamation-triangle'></i>
+                            検出可能なバウンス理由数
+                        </p>
+                        <div class = 'progress'>
+                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
+                                role = 'progressbar'  aria-valuetransitiongoal = '58'>{{ site.sisimai.spec.reasons }}
+                            </div>
+                            <p class = 'versus'>19</p>
+                        </div>
+                    </div>
+                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '600ms'>
+                        <p class = 'lead'>
+                            <i class = 'fa fa-gears'></i>
+                            解析モジュール数
+                        </p>
+                        <div class = 'progress'>
+                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
+                                role = 'progressbar'  aria-valuetransitiongoal = '77'>{{ site.sisimai.spec.modules }}
+                            </div>
+                            <p class = 'versus'>15</p>
+                        </div>
+                    </div>
+                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '700ms'>
+                        <p class = 'lead'>
+                            <i class = 'fa fa-file-archive-o'></i>
+                            依存モジュール数
+                        </p>
+                        <div class = 'progress'>
+                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
+                                role = 'progressbar'  aria-valuetransitiongoal = '8'>2
+                            </div>
+                            <p class = 'versus'>24</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class = 'row count'>
+            <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
+                <p>検出可能なバウンス理由</p>
+                <i class = 'fa fa-exclamation-triangle'></i>
+                <h3 class = 'timer'>{{ site.sisimai.spec.reasons }}</h3>
+                </p>種類</p>
+            </div>
+            <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
+                <p>解析エンジン数</p>
+                <i class = 'fa fa-gears'></i>
+                <h3 class = 'timer'>{{ site.sisimai.spec.modules }}</h3>
+                <p>種類</p>
+            </div> 
+            <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '700ms'>
+                <p>対応済み商用MTA数</p>
+                <i class = 'fa fa-cubes'></i>
+                <h3 class = 'timer'>14</h3>
+                <p>種類</p>
+            </div> 
+            <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '900ms'>
+                <p>依存モジュール数</p>
+                <i class = 'fa fa-file-archive-o'></i>
+                <h3 class = 'timer'>2</h3>
+                <p>個</p>
+            </div>
+        </div>
+    </div>
+</section><!-- /#versus -->
+
+<section id = 'download'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'heading col-sm-8 col-sm-offset-2 wow fadeInUp' data-wow-duration = '1200ms' data-wow-delay = '300ms'>
+                <h2>
+                    <i class = 'fa fa-cloud-download' style = 'font-size: 85%;'></i>
+                    ダウンロード
+                </h2>
+                <div class = 'attention'>
+                    最新版シシマイは{{ site.html.ss }} <strong>{{ site.sisimai.version }}</strong>で
+                    {{ site.sisimai.release.ja }}にリリースされました。
+                </div>
+                <br>
+                <hr>
+                <p class = 'decription ja'>
+                    {{ site.html.ss }}(シシマイ)は*BSDやMac OS XやLinuxのようなPerlまたは
+                    Rubyが動作するOSで動きます。
+                    <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
+                    しかしながら、現時点でWindowsでは動作しません。
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class = 'download-table'>
+            <div class = 'row'>
+                <div class = 'col-sm-4'>
+                    <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
+                        <h3>Perl Version</h3>
+                        <div class = 'download'>
+                            <img src = '/static/images/icon/dinosaur-1.png'>
+                        </div>
+                        <ul>
+                            <li>安定版のみ提供</li>
+                            <li>Perl 5.10.1 - 5.22.X</li>
+                            <li>CPAN</li>
+                        </ul>
+                        <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'
+                           class = 'btn btn-lg btn-primary'>Download</a>
+                    </div>
+                </div>
+
+                <div class = 'col-sm-4'>
+                    <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
+                        <h3>Ruby Version</h3>
+                        <div class = 'download'>
+                            <img src = '/static/images/icon/ruby-1.png'>
+                        </div>
+                        <ul>
+                            <li>安定版のみ提供</li>
+                            <li>Ruby 2.1.0 - 2.3.0</li>
+                            <li>JRuby 9.0.4.0 -</li>
+                        </ul>
+                        <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'
+                           class = 'btn btn-lg btn-primary'>Download</a>
+                    </div>
+                </div>
+
+                <div class = 'col-sm-4'>
+                    <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '800ms'>
+                        <h3>Fork on GitHub</h3>
+                        <div class = 'download'>
+                            <img src = '/static/images/icon/github-1.png'>
+                        </div>
+                        <ul>
+                            <li>開発版と安定板</li>
+                            <li>p5-Sisimai (Perl)</li>
+                            <li>rb-Sisimai (Ruby)</li>
+                        </ul>
+                        <a href = '{{ site.sisimai.repository.project }}' target = 'new'
+                           class = 'btn btn-lg btn-primary'>Fork</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#download -->
+
+<section id = 'support' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-6 col-sm-offset-3'>
+                <div class = 'support-info wow fadeInUp' data-wow-duration = '500ms' data-wow-delay = '200ms'>
+                    <h2>
+                        <i class = 'fa fa-phone-square' style = 'font-size: 100%;'></i>
+                        サポート
+                    </h2>
+                    <p class = 'description ja'>
+                        {{ site.html.ss }}はオープンソースライセンス(二条項BSD)
+                        で公開しているライブラリですので、どなた様でも自由にお使い頂けます。
+                        <br>
+                        しかし、バウンスメール解析の為の環境構築や
+                        {{ site.html.ss }}周辺スクリプトの開発、解析済データを蓄積するデータベース設計や管理、
+                        継続的なバウンス管理、そしてこれまでのバウンスメール解析システムである
+                        {{ site.html.bh }}からの移行などをサポートする品目を、
+                        開発元である株式会社{{ site.html.cr }}にて提供しております。
+                    </p>
+                    <a href = 'http://cubicroot.jp/ja/products/sisimai/' target = 'new' 
+                        class = 'btn btn-lg btn-contactus'>サポートについて詳しく</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#support -->
+
