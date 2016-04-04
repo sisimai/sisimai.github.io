@@ -1,0 +1,123 @@
+---
+layout: document
+title: ドキュメントの一覧
+description: Sisimaiのドキュメント一覧
+author: azumakuniyuki
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'scroll active'><a href = '#index'>ドキュメント</a></li>
+                    <li class = 'scroll'><a href = '#architecture'>内部構造</a></li>
+                    <li class = 'others'><a href = '/en/docs'><span class = 'uk16'></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- /#main-nav -->
+</header><!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-6 col-sm-offset-3'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '50%'>
+                    <h2>ドキュメント</h2>
+                    <p class = 'description ja'>
+                        下記の表は{{ site.html.ss }}の導入方法やサンプルコード、
+                        生成されるデータのついて説明した文書です
+                    <p>
+                </div>
+            </div>
+        </div>
+        <div class = 'text-center page-index'>
+            <div class = 'row'>
+                <div class = 'col-sm-8 col-sm-offset-2'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-condensed link-index'>
+                            <tbody>
+                                <tr data-href = '/ja/start'>
+                                    <th><i class = 'fa fa-play'></i></th>
+                                    <td>
+                                        <p class = 'description ja'>
+                                            <strong>導入ガイド:</strong>
+                                            動作環境・インストール方法・簡単な使用例
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr data-href = '/ja/reason'>
+                                    <th><i class = 'fa fa-exclamation-triangle'></i></th>
+                                    <td>
+                                        <p class = 'description ja'>
+                                            <strong>バウンス理由一覧:</strong>
+                                            {{ site.html.ss }}が検出可能なバウンス理由の一覧
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr data-href = '/ja/data'>
+                                    <th><i class = 'fa fa-list'></i></th>
+                                    <td>
+                                        <p class = 'description ja'>
+                                            <strong>データ構造:</strong>
+                                            {{ site.html.ss }}が生成するデータ構造・項目の一覧
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr data-href = '/ja/engine'>
+                                    <th><i class = 'fa fa-cogs'></i></th>
+                                    <td>
+                                        <p class = 'description ja'>
+                                            <strong>モジュール一覧:</strong>
+                                            {{ site.html.ss }}に含まれる解析エンジンモジュールの一覧
+                                        </p>
+                                    </td>
+                                </tr>
+
+                                <tr data-href = '/ja/diff'>
+                                    <th><i class = 'fa fa-gavel'></i></th>
+                                    <td>
+                                        <p class = 'description ja'>
+                                            <strong>違いの一覧:</strong>
+                                            {{ site.html.ss }}と{{ site.html.bh }}の違いについて
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'architecture' style = 'background-color: #fff;'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'text-center col-sm-12 col-sm-offset-0'>
+                <img src = '/static/images/figure/sisimai-architecture.png' width = '100%'>
+            </div>
+        </div>
+    </div>
+</section>
+
