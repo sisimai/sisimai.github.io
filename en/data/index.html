@@ -1,0 +1,601 @@
+---
+layout: document
+title: Data Structure of Sisimai::Data
+description: Data structure and all the accessors of Sisimai::Data Object
+author: azumakuniyuki
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>                    
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>                 
+                    <li class = 'scroll active'><a href = '#index'>Data Structure</a></li>
+                    <li class = 'scroll'><a href = '#a'>A</a></li>
+                    <li class = 'scroll'><a href = '#d'>D</a></li>
+                    <li class = 'scroll'><a href = '#f'>F</a></li>
+                    <li class = 'scroll'><a href = '#l'>L</a></li>
+                    <li class = 'scroll'><a href = '#m'>M</a></li>
+                    <li class = 'scroll'><a href = '#r'>R</a></li>
+                    <li class = 'scroll'><a href = '#s'>S</a></li>
+                    <li class = 'scroll'><a href = '#t'>T</a></li>
+                    <li class = 'others'><a href = '/en/docs'>Documents</a></li>
+                    <li class = 'others'><a href = '/ja/data'><span class = 'jp16'></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!-- /#main-nav -->
+</header><!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Data Structure of Sisimai::Data</h2>
+                    <p class = 'description'>
+                        <kbd>make()</kbd> method of {{ site.html.ss }} method returns
+                        an array reference including parsed data as a Sisimai::Data object.
+                        The object has the following accessors.
+                    </p>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class = 'read-more'>
+        <a href = '#accessor' class = 'btn-continue'>Read More</a>
+    </div>      
+</section> <!-- /#index -->
+
+<section id = 'a' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+                <div class = 'post-it'>A</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Action (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/urgent-message-3.png'>
+                    "action" is the value of Action: field in a bounce email message such as "failed"
+                    or "delayed".
+                    <br>
+                    <br>
+                </p>
+                <pre class = 'prettyprint'>
+Action: failed
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-at'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Addresser (Sisimai::Address)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/business-contact-2.png'>
+                    "addressser" is a Sisimai::Address object generated from the sender address.
+                    When Sisimai::Data object is dumped as JSON, this value converted to an email address.
+                    Sisimai::Address object has the following accessors:
+                </p>
+                <ul>
+                    <li>user() - the local part of the address</li>
+                    <li>host() - the domain part of the address</li>
+                    <li>address() - email address</li>
+                    <li>verp() - variable envelope return path</li>
+                    <li>alias() - alias of the address</li>
+                </ul>
+                <pre class = 'prettyprint'>
+From: "Kijitora Cat" &lt;kijitora@example.org&gt;
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-at'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>alias (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/email-1.png'>
+                    "alias" is an alias address of the recipient. When the Original-Recipient: field
+                    or "expanded from &hellip;" string&nbsp; did not exist in a bounce message, 
+                    this value is empty.
+                    <br><br>
+                </p>
+                <pre class = 'prettyprint'>
+Original-Recipient: rfc822;kijitora@example.org
+                </pre>
+                <pre class = 'prettyprint'>
+"|IFS=' ' &amp;&amp; exec /usr/local/bin/procmail -f- || exit 75 #kijitora"
+(expanded from: &lt;kijitora@neko.example.edu&gt;)
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'd'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+                <div class = 'post-it'>D</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>deliverystatus (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
+                    "deliverystatus" is the value of Status: field in a bounce message.
+                    When the message has no Status: field, {{ site.html.ss }} set pseudo value like
+                    5.0.9XX to this value. The range of values only "2.x.x", "4.x.x" or "5.x.x".
+                    <br>
+                    <br>
+                </p>
+                <pre class = 'prettyprint'>
+Status: 5.0.0 (permanent failure)
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-at'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>destination (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/contact-card-1.png'>
+                    "destination" is the domain part of the recipient address.
+                    This value is the same as the return value from <kbd>host()</kbd> method of "recipient" accessor.
+                    <br><br>
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>diagnosticcode (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/system-report-3.png'>
+                    "diagnosticcode" is an error message picked from Diagnostic-Code:
+                    field or message body in a bounce message.
+                    This value and the value of "diagnostictype", "action",
+                    "deliverystatus", "replycode", and "smtpcommand"
+                    will be referred in Sisimai::Reason class to decide a bounce reason.
+                </p>
+                <pre class = 'prettyprint'>
+Diagnostic-Code: SMTP; 554 5.4.6 Too many hops
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>diagnostictype (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/system-report-2.png'>
+                    "diagnostictype" is a type like "SMTP" or "X-Unix"
+                    picked from Diagnostic-Code: field in a bounce message.
+                    When there is no Diagnostic-Code: field in the bounce message, this value will be empty.
+                    <br>
+                    <br>
+                </p>
+                <pre class = 'prettyprint'>
+Diagnostic-Code: X-Unix; 255
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'f' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+                <div class = 'post-it'>F</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>feedbacktype (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/strike-3.png'>
+                    "feedbacktype" is the value of Feedback-Type: field like
+                    "abuse", "fraud", "opt-out" in a bounce message.
+                    When the message is not ARF format or the value of "reason" is not
+                    "feedback", this value will be empty.
+                    <br>
+                    <br>
+                </p>
+                <pre class = 'prettyprint'>
+Content-Type: message/feedback-report
+
+Feedback-Type: abuse
+User-Agent: SMP-FBL
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'l'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-server'></i></div>
+                <div class = 'post-it'>L</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>lhost (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/server-1.png'>
+                    "lhost" is a local MTA name to be used as a gateway for sending email messages
+                    or the value of the Reporting-MTA field in a bounce message.
+                    When there is no Reporting-MTA field in the bounce message,
+                    {{ site.html.ss }} try to get the value from Received header.
+                </p>
+                <pre class = 'prettyprint'>
+Reporting-MTA: dns; mx4.smtp.example.co.jp
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-server'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>listid (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/list-1.png'>
+                    "listid" is the value of the List-Id header of the original message.
+                    When there is no List-Id field in the original message or
+                    the bounce message did not include the original message,
+                    this value will be empty.
+                    <br>
+                    <br>
+                </p>
+                <pre class = 'prettyprint'>
+List-Id: Mailman mailing list management users 
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'm' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-envelope'></i></div>
+                <div class = 'post-it'>M</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>messageid (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/message-3.png'>
+                    "messageid" is the value of the Message-Id header of the original message.
+                    When the original message did not include Message-Id: header or
+                    the bounce message did not include the original message,
+                    this value will be  empty.
+                </p>
+                <pre class = 'prettyprint'>
+Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
+                </pre>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id = 'r'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+                <div class = 'post-it'>R</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>reason (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/sms-3.png'>
+                    "reason" is the value of bounce reason {{ site.html.ss }} detected. 
+                    When this value is "undefined" or "onhold", 
+                    it means that {{ site.html.ss }} could not decide the reason.
+                    All the reasons Sisismai can detect are available at the
+                    <a href = '/en/reason'>Bounce Reason List</a> page.
+                </p>
+                <pre class = 'prettyprint'>
+   ----- The following addresses had permanent fatal errors -----
+<kijitora@nyaan.example.com>
+    (reason: 550 5.1.1 Requested action not taken: mailbox unavailable)
+
+   ----- Transcript of session follows -----
+... while talking to inbound-smtp.us-west-2.amazonaws.com.:
+&gt;&gt;&gt; RCPT To:<kijitora@nyaan.example.com>
+&lt;&lt;&lt; 550 5.1.1 Requested action not taken: mailbox unavailable
+550 5.1.1 <kijitora@nyaan.example.com>... User unknown
+&gt;&gt;&gt; DATA
+&lt;&lt;&lt; 503 Error: need RCPT command
+                </pre>
+                <hr>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-at'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>recipient (Sisimai::Address)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/business-contact-1.png'>
+                    "recipient" is Sisimai::Address object generated from the recipient address.
+                    When Sisimai::Data object is dumped as JSON, this value converted to an email address.
+                    Sisimai::Address object have the following accessors:
+                </p>
+                <ul>
+                    <li>user() - the local part of the address</li>
+                    <li>host() - the domain part of the address</li>
+                    <li>address() - email address</li>
+                    <li>verp() - variable envelope return path</li>
+                    <li>alias() - alias of the address</li>
+                </ul>
+                <pre class = 'prettyprint'>
+Final-Recipient: RFC822; shironeko@example.ne.jp
+                </pre>
+                <pre class = 'prettyprint'>
+X-Failed-Recipients: kijitora@example.ed.jp
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>replycode (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/rules-3.png'>
+                    "replyacode" is the value of SMTP reply code picked from the error message
+                    or the value of Diagnostic-Code: field in a bounce message.
+                    The range of values is only 4xx or 5xx.
+                    <br>
+                    <br>
+                </p>
+                <pre class = 'prettyprint'>
+----- The following addresses had permanent fatal errors -----
+<userunknown@bouncehammer.jp>
+(reason: 550 5.1.1 <userunknown@bouncehammer.jp>... User Unknown)
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-server'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>rhost (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/server-2.png'>
+                    "rhost" is a remote MTA name which has rejected the message
+                    you sent or the value of Remote-MTA: field in a bounce message.
+                    When there is no Remote-MTA field in the bounce message, 
+                    {{ site.html.ss }} try to get the value from Received header.
+                </p>
+                <pre class = 'prettyprint'>
+Remote-MTA: DNS; g5.example.net
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 's' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-at'></i></div>
+                <div class = 'post-it'>S</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>senderdomain (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/contact-card-2.png'>
+                    "senderdomain" is the domain part of the sender address.
+                    This value is the same as the return value from <kbd>host()</kbd> method of addresser accessor.
+                    <br>
+                    <br>
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-server'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>smtpagent (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/puzzle-1.png'>
+                    "smtpagent" is a module name to be used for detecting bounce reason.
+                    For example, when the value is "Sendmail", {{ site.html.ss }} used Sisimai::MTA::Sendmail
+                    to get the recipient address and other delivery status information from a bounce message.
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>smtpcommand (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
+                    "smtpcommand" is an SMTP command name picked from the error message or
+                    the value of Diagnostic-Code: field in a bounce message.
+                    When there is no SMTP command in the bounce message,
+                    this value will be empty. The list of values below.
+                </p>
+                <ul>
+                    <li>HELO</li>
+                    <li>EHLO</li>
+                    <li>MAIL</li>
+                    <li>RCPT</li>
+                    <li>DATA</li>
+                </ul>
+                <pre class = 'prettyprint'>
+<kijitora@example.go.jp>: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
+no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)                        
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>softbounce (Integer)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
+                    The value of "softbounce" indicates whether the reason of the bounce
+                    is soft bounce or hard bounce.
+                    This accessor has added in {{ site.html.ss }} 4.1.28. The range of the values is the followings:
+                    <br>
+                    <br>
+                </p>
+                <ul>
+                    <li>1 = Soft bounce</li>
+                    <li>0 = Hard bounce</li>
+                    <li>-1 = {{ site.html.ss }} could not decide</li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-envelope'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>subject (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/topic-1.png'>
+                    "subject" is the value of the Subject header of the original message. 
+                    When the original message which is included in a bounce email contains
+                    no Subject header (removed by remote MTA), this value will be empty.
+                    If the value of the Subject header of the original message contains any multibyte
+                    character (non ASCII character), such as MIME encoded Japanese or German and so on,
+                    the value of the subject in parsed data is encoded with UTF-8 again.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 't'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-clock-o'></i></div>
+                <div class = 'post-it'>T</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>timestamp (Sisimai::Time)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/calendar-9.png'>
+                    "timestamp" is the date which email has bounced as a Sisima::Time
+                    (Child class of Perl/Time::Piece or Ruby/DateTime) object.
+                    When Sisimai::Data object is dumped as JSON, this value will be converted
+                    to a UNIX machine time (32 bit integer).
+                </p>
+                <pre class = 'prettyprint'>
+Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-clock-o'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>timezoneoffset (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/timezone-1.png'>
+                    "timezoneoffset" is a time zone offset of a bounce email which its email has bounced.
+                    The format of this value is a String like "+0900", "-0200".
+                    If {{ site.html.ss }} has failed to get a value of the timezone offset, this value will be set as "+0000".
+                </p>
+                <pre class = 'prettyprint'>
+Remote-MTA: DNS; g5.example.net
+                </pre>
+                <hr>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-at'></i></div>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>token (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/hashtag-1.png'>
+                    "token" is an identifier of each email-bounce. 
+                    The token string is created from the sender email address(addresser)
+                    and the recipient's email address(recipient) and the machine time of the date
+                    in a bounce message as an MD5 hash value.
+                    The token value is generated at token() method of Sisimai::String class.
+                    If you want to get the same token string at the command line, try to run the following command:
+                </p>
+                <pre class = 'prettyprint'>
+% printf "\x02%s\x1e%s\x1e%d\x03" sender@example.jp recipient@example.org `date '+%s'` | md5
+714d72dfd972242ad04f8053267e7365
+                </pre>
+            </div>
+        </div>
+
+    </div>
+</section>
+
