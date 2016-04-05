@@ -3,6 +3,8 @@ layout: document
 title: Bounce Reason List Sisimai Detects
 description: All the bounce reason list and its description Sisimai can detect
 author: azumakuniyuki
+redirect_from: 
+  - /reason/
 ---
 <a id = 'tohash' href = '#'></a>
 <header id = 'home'>
@@ -20,16 +22,18 @@ author: azumakuniyuki
                         <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
                             width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
                     </h1>
-                </a>                    
+                </a>
             </div>
             <div class = 'collapse navbar-collapse'>
-                <ul class = 'nav navbar-nav navbar-right'>                 
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><span class = 'uk16'></span></a></li>
                     <li class = 'scroll active'><a href = '#index'>Reason List</a></li>
                     <li class = 'scroll'><a href = '#address'>Address</a></li>
                     <li class = 'scroll'><a href = '#content'>Content</a></li> 
                     <li class = 'scroll'><a href = '#server'>Server</a></li> 
                     <li class = 'scroll'><a href = '#others'>Others</a></li> 
-                    <li class = 'others'><a href = '/docs'>Documents</a></li>
+                    <li class = 'others'><a href = '/en/docs'>Documents</a></li>
+                    <li class = 'others'><a href = '/ja/reason'><span class = 'jp16'></span></a></li>
                 </ul>
             </div>
         </div>
@@ -50,14 +54,6 @@ author: azumakuniyuki
                         Detected error reason is set in the value of "reason" accessor of 
                         Sisimai::Data object in lower case like "userunknown", "expired".
                     </p>
-                    <hr>
-                    <p class = 'description ja'>
-                        シシマイはバウンスメールを解析する事によって
-                        以下の<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>を検出します。
-                        検出したバウンス理由はSisimai::Dataオブジェクトの"reason"アクセサから得る事が出来ます。
-                        "reason"の値は"userunknown"や"expired"のように、
-                        全て小文字で表記されます。
-                    </p>
                 </div>
             </div> 
         </div>
@@ -73,11 +69,6 @@ author: azumakuniyuki
                             The message you sent has rejected due to a sender's email address
                             or a recipient's email address.
                         </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            発信者または受信者のメールアドレス・メールボックスに起因して
-                            差し戻されたバウンス理由の一覧です。
-                        </p>
                     </div>
                     <a href = '#address' class = 'btn btn-continue'>Read</a>
                 </div>
@@ -90,11 +81,6 @@ author: azumakuniyuki
                         <p class = 'description'>
                             The message you sent has rejected due to a message content:
                             a part of a message header and a message body.
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            送信したメールの内容(一部のヘッダ・本文)に起因して差し戻された
-                            バウンス理由の一覧です。
                         </p>
                     </div>
                     <a href = '#content' class = 'btn btn-continue'>Read</a>
@@ -109,11 +95,6 @@ author: azumakuniyuki
                             The message you sent rejected due to status on
                             a local MTA or a remote MTA.
                         </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            送信したメールが送信側サーバまたは受信者側サーバの
-                            状態に起因して差し戻されたバウンス理由の一覧です。
-                        </p>
                     </div>
                     <a href = '#server' class = 'btn btn-continue'>Read</a>
                 </div>
@@ -126,11 +107,6 @@ author: azumakuniyuki
                         <p class = 'description'>
                             Rejected due to other reason or
                             {{ site.html.ss }} could not detect the reason
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            その他のバウンス理由やシシマイが原因を特定出来なかった
-                            バウンス理由の一覧です。
                         </p>
                     </div>
                     <a href = '#others' class = 'btn btn-continue'>Read</a>
@@ -155,11 +131,6 @@ author: azumakuniyuki
                     due to an envelope sender's email address, an envelope recipient's email address,
                     or a recipient's mailbox status.
                 </p>
-                <hr>
-                <p class = 'description ja'>
-                    下記は発信者アドレスや受信者アドレス、または受信者のメールボックスの状態に起因して
-                    メールが差し戻されたバウンス理由の一覧です。
-                </p>
             </div>
         </div>
         <div class = 'row'>
@@ -182,14 +153,6 @@ Your message to the following recipients cannot be delivered:
 &lt;kijitora@example.cat&gt;:
 &lt;&lt;&lt; No such domain.
                 </pre>
-                <p class = 'description ja'>
-                    宛先メールアドレスのドメインパート(@よりも右の文字列)が、
-                    不明なホストあるいは存在しないドメイン名の場合に返ってくるエラーです。
-                    多くはドメイン部分の綴り間違い、DNSのレコードが無効になっている、
-                    ドメインが消滅した、というケースです。
-                    シシマイの内部処理では、バウンスメールのStatus:フィールドの値が"5.1.2"
-                    の時もこの理由に決定されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -215,17 +178,6 @@ Your message to the following recipients cannot be delivered:
 550 5.1.1 Address rejected kijitora@example.co.jp (in reply to
 RCPT TO command)
                 </pre>
-                <p class = 'description ja'>
-                    宛先メールアドレスのローカルパート(@よりも左側の文字列)が
-                    存在しないユーザである場合に返ってくるエラーです。 多くは、携帯電話の場合は
-                    メールアドレスを変更したユーザ、 PCの場合はプロバイダを退会した、会社・組織から
-                    いなくなったユーザのケースです。
-                </p>
-                <p class = 'description ja'>
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が"5.1.1"のもの、
-                    またはSMTPセッションにおいて、 RCPT TO:で接続が拒否されたもの、ほか
-                    Diagnostic-Code:ヘッダから 宛先不明であると判断した場合に、この理由に決定されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -251,17 +203,6 @@ RCPT TO command)
 &lt;&lt;&lt; 550 Unknown user kijitora@ntt.example.ne.jp
 554 5.0.0 Service unavailable
                 </pre>
-                <p class = 'description ja'>
-                    なんらかの事由により、ユーザがメールの受け取り拒否設定を行っている場合、
-                    メールボックスが存在するが受け取らない状態になっている場合に返ってくるエラーです。
-                    日本国内の携帯電話(主要3キャリア)宛配信の場合はドメイン指定拒否(ドメイン指定受信から除外されている)か、 
-                    URLフィルターによる拒否であればこの理由に決定されます。
-                </p>
-                <p class = 'description ja'>
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.2.0","5.2.1"のもの、SMTPセッションにおいて
-                    DATAコマンド以降の内容によって拒否されたものこの理由に決定されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -282,12 +223,6 @@ RCPT TO command)
 &lt;kijitora@example.go.jp&gt;: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
 no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 </pre>
-                <p class = 'description ja'>
-                    宛先のメールボックスは別のアドレスに移動した(そして自動で転送はされない)
-                    場合に返ってくるエラーです。
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.1.6"のものがこの理由に決定されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -311,13 +246,6 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
 Connected to 192.0.2.225 but sender was rejected.
 Remote host said: 550 5.7.1 &lt;root@nijo.example.jp&gt;... Access denied
                 </pre>
-                <p class = 'description ja'>
-                    送信したメールが発信者アドレス(Envelope From)によって拒否された場合に
-                    返ってくるエラーです。
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.1.8"のもの、SMTPセッションにおいてMAILコマンドの内容に基づいて
-                    拒否されたものこの理由に決定されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -339,18 +267,6 @@ Action: failed
 Status: 5.2.2
 Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</code></pre>
                 </pre>
-                <p class = 'description ja'>
-                    宛先のメールボックスがいっぱい(メールサーバが指定した最大保存量超過)になっている場合に
-                    返ってくるエラーです。
-                    携帯電話・PC共通して、ユーザがメールを受信せずに放置している、あるいは受信はしているが
-                    受信済メールをサーバから削除していない状態が該当します。
-                </p>
-                <p class = 'description ja'>
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "4.2.2"か"5.2.2"のものがこの理由に決定されます。
-                    送信したメールが発信者アドレス(Envelope From)によって拒否された場合に
-                    返ってくるエラーです。
-                </p>
                 <hr>
             </div>
         </div>
@@ -374,9 +290,6 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
 The user(s) account is disabled.
 &lt;this-local-part-does-not-exist-on-the-site@ezweb.ne.jp&gt;
                 </pre>
-                <p class = 'description ja'>
-                    au by KDDI宛(@ezweb.ne.jp)において、ユーザが料金未払いである場合にこのエラーが検出されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -399,12 +312,6 @@ I am out of the office until 05/01/2010.
 
 I am of the office returning 5th Jan
                 </pre>
-                <p class = 'description ja'>
-                    受信者が休暇を取っている等の理由で、メールを受けとれない状態を示します。
-                    この理由が検出されるバウンスメールは自動応答プログラムによって発信されます。
-                    このバウンス理由は{{ site.html.ss }} 4.1.28で実装されたもので、
-                    {{ site.html.bh }}では実装されていないものです。
-                </p>
             </div>
         </div>
     </div>
@@ -425,10 +332,6 @@ I am of the office returning 5th Jan
                     due to the contents of the message by a spam filter or an MTA program on a remote host.
                 </p>
                 <hr>
-                <p class = 'description ja'>
-                    下記は送信したメール本文や一部のヘッダの内容に起因して差し戻されたバウンス理由の
-                    一覧です。多くはMTA側のプログラムやスパムフィルタによる検査によるものです。
-                </p>
             </div>
         </div>
         <div class = 'row'>
@@ -455,12 +358,6 @@ I am of the office returning 5th Jan
 &lt;&lt;&lt; 550 5.6.9 improper use of 8-bit data in message header
 554 5.0.0 Service unavailable
                 </pre>
-                <p class = 'description ja'>
-                    送信したメールの形式が宛先メールサーバで変換できないまたは理解できない形式
-                    である場合、このエラーに分類されます。
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.6.x"のものがこの理由に決定されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -492,16 +389,6 @@ I am of the office returning 5th Jan
 &lt;&lt;&lt; 552 5.2.3 Message size exceeds fixed maximum message size (10485760)
 554 5.0.0 Service unavailable
                 </pre>
-                <p class = 'description ja'>
-                    宛先のメール量がサーバで設定された限界値を超えた場合に返ってくるエラーです。
-                    具体的には送信したメールのサイズが既定値よりも大きなケースで、後述の"MesgTooBig"とほぼ同じです。
-                    Sendmailのdeliver.cでは上記のように配送先によってこの理由となるか、あるいはMesgTooBig
-                    となるかという実装になっています。
-                </p>
-                <p class = 'description ja'>
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "4.2.3"か"5.2.3"のものがこの理由に決定されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -548,11 +435,6 @@ I am of the office returning 5th Jan
     }
 ]
                 </pre>
-                <p class = 'description ja'>
-                    受信者がプロバイダに対して苦情申し立てをした際に発信されるARF形式のメールを解析した場合、
-                    シシマイはこの理由に決定します。
-                    この理由となるメールの解析結果をJSON形式で表現すると上記のようになります。
-                </p>
                 <hr>
             </div>
         </div>
@@ -574,15 +456,6 @@ I am of the office returning 5th Jan
 Action: failure
 Status: 553 Exceeded maximum inbound message size
                 </pre>
-                <p class = 'description ja'>
-                    送信したメールの容量(メールサイズ)が、相手側メールサーバの許容する大きさを超えた
-                    場合に返ってくるエラーです。多くの場合、添付ファイルが大きすぎた、
-                    沢山の添付ファイルによって容量超過した時に、このエラーと遭遇します。
-                </p>
-                <p class = 'description ja'>
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.3.4"のものがこの理由に決定されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -606,15 +479,6 @@ Status: 5.7.0
 Remote-MTA: DNS; gmail-smtp-in.l.google.com
 Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on your message. Please
                 </pre>
-                <p class = 'description ja'>
-                    宛先メールサーバがセキュリティ上の理由やポリシー違反で受け取りを拒否した
-                    場合に返ってくるエラーです。どのようなものをセキュリティ上のエラーとするかは
-                    各メールサーバのポリシー次第ですが、発信者アドレス詐称、ウィルス検査陽性反応等が代表的です。
-                </p>
-                <p class = 'description ja'>
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.7.x"のものがこの理由に決定されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -637,14 +501,6 @@ Status: 5.7.1
 Diagnostic-Code: smtp; 550 5.7.1 Message content rejected, UBE, id=00000-00-000
 Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                 </pre>
-                <p class = 'description ja'>
-                    送信したメールがスパムとして検出された、あるいはDNSBLによってスパム送信ホストとして認識された場合、
-                    {{ site.html.ss }}はバウンス理由をSpamDetectedに決定します。
-                </p>
-                <p class = 'description ja'>
-                    このバウンス理由は{{ site.html.ss }} 4.1.25で実装されたもので、
-                    {{ site.html.bh }}では実装されていないものです。
-                </p>
             </div>
         </div>
     </div>
@@ -666,12 +522,6 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                     of a remote MTA such as the number of concurrent connections, resolver, and other
                     backend systems.
                 </p>
-                <hr>
-                <p class = 'description ja'>
-                    下記は送信側MTAや宛先側MTAの状態に起因して差し戻されたバウンス理由の一覧です。
-                    多くは発信者のIPアドレスやホスト名、宛先サーバの接続数や他バックエンドの状態
-                    によるものです。
-                </p>
             </div>
         </div>
         <div class = 'row'>
@@ -692,13 +542,6 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
 Connected to 192.0.2.112 but my name was rejected. 
 Remote host said: 501 5.0.0 Invalid domain name
                 </pre>
-                <p class = 'description ja'>
-                    宛先ホストに接続した際に、発信元メールサーバのIPアドレスやホスト名、
-                    またはEHLO/EHLOコマンドの値によって接続が拒否されたメールは、
-                    {{ site.html.ss }}によってこの理由に決定されます。
-                    このバウンス理由は{{ site.html.ss }} 4.0.0で実装されたもので
-                    {{ site.html.bh }}では実装されていないものです。
-                </p>
                 <hr>
             </div>
         </div>
@@ -722,10 +565,6 @@ kijitora@example.org
 all hosts have been failing for a long time and were last
 tried after this message arrived
                 </pre>
-                <p class = 'description ja'>
-                    送信したメールが、宛先のホストに繋がらないなどの理由で配送時間切れとなって
-                    差し戻された場合にこのエラーに分類されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -747,12 +586,6 @@ tried after this message arrived
 X-Actual-Recipient: X-Unix; |/home/kijitora/mail/catch.php
 Diagnostic-Code: X-Unix; 255
                 </pre>
-                <p class = 'description ja'>
-                    受信者がプログラムへのパスである場合、メール受信時に起動するプログラムが
-                    正常終了しなかった場合に返ってくるエラーです。
-                    多くはプログラムのバグ、またはバックエンドの必要なサービス(データベース等)
-                    へ接続できなかった場合の 例外処理不足の時に起こります。
-                </p>
                 <hr>
             </div>
         </div>
@@ -776,13 +609,6 @@ list of recipients:
 
 kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 </pre>
-                <p class = 'description ja'>
-                    DNSによる名前解決失敗を原因としてSMTP接続が出来なかった、
-                    あるいは他のネットワーク関連エラーによってメールが送信出来なかった場合、
-                    {{ site.html.ss }}はバウンス理由をこの理由として決定します。
-                    このバウンス理由は{{ site.html.ss }} 4.1.12で実装されたもので、
-                    {{ site.html.bh }}では実装されていないものです。
-                </p>
                 <hr>
             </div>
         </div>
@@ -807,10 +633,6 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
 &lt;&lt;&lt; 554 5.7.1 &lt;kijitora@example.org&gt;: Relay access denied
 554 5.0.0 Service unavailable
                 </pre>
-                <p class = 'description ja'>
-                    SMTPリレー拒否によってバウンスした場合、シシマイはこのバウンス理由に決定します。
-                    このバウンス理由は{{ site.html.bh }}では実装されていないものです。
-                </p>
                 <hr>
             </div>
         </div>
@@ -828,14 +650,6 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     {{ site.html.ss }} will set "notaccept" to the reason
                     of email bounce if the value of Status: field in a bounce email is 
                     "5.3.2" or the value of SMTP reply code is "556".
-                </p>
-                <p class = 'description ja'>
-                    相手側メールサーバがメールを受け取れない場合に返ってくるエラーです。
-                    宛先メールサーバが過負荷であったりメンテナンス中である状態にこのエラーが発生します。
-                </p>
-                <p class = 'description ja'>
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.3.2"のものが、あるいはSMTP応答コードの値が"556"のものが、この理由に決定されます。
                 </p>
                 <hr>
             </div>
@@ -859,10 +673,6 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
 Unable to contact LDAP server. (#4.4.3)I'm not going to try again; this
 message has been in the queue too long.
                 </pre>
-                <p class = 'description ja'>
-                    宛先メールサーバ内でLDAPサーバへの接続失敗などのシステムエラーが発生した事によって
-                    バウンスした場合、このバウンス理由に分類されます。
-                </p>
                 <hr>
             </div>
         </div>
@@ -878,12 +688,6 @@ message has been in the queue too long.
                     This is the error that a destination mail server's disk (or spool) is full.
                     {{ site.html.ss }} will set "systemfull" to the reason of email bounce
                     if the value of Status: field in a bounce email is "4.3.1" or "5.3.1".
-                </p>
-                <p class = 'description ja'>
-                    宛先のメールサーバのディスクがいっぱいになっている場合に返ってくるエラーです。
-                    宛先のホストがこれ以上メールを受け取れない状態を表しています。
-                    シシマイが行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.3.1"か"4.3.1"のものがこの理由に決定されます。
                 </p>
                 <hr>
             </div>
@@ -906,13 +710,6 @@ message has been in the queue too long.
 &lt;kijitora@example.ne.jp&gt;: host mx02.example.ne.jp[192.0.1.20] said:
 452 4.3.2 Connection rate limit exceeded. (in reply to MAIL FROM command)</code></pre>
                 </pre>
-                <p class = 'description ja'>
-                    相手側SMTPサーバに対して同時に多数の接続を行った場合、
-                    新たなSMTP接続が一時的に拒否される事があります。
-                    そのような場合に返ってきたバウンスメールは{{ site.html.ss }}によってこのバウンス理由に決定されます。
-                    このバウンス理由は{{ site.html.ss }} 4.1.26で実装されたもので、{{ site.html.bh }}では
-                    実装されていないものです。
-                </p>
             </div>
         </div>
     </div>
@@ -930,10 +727,6 @@ message has been in the queue too long.
                 <h2 class = 'in-desc'>Others</h2>
                 <p class = 'description'>
                     Rejected due to other reason or {{ site.html.ss }} could not detect the reason
-                </p>
-                <hr>
-                <p class = 'description ja'>
-                    その他の理由、あるいはシシマイがバウンス理由を特定出来なかったものの一覧です。
                 </p>
             </div>
         </div>
@@ -961,16 +754,6 @@ Action: deliverable
 Status: 2.1.5
 Diagnostic-Code: SMTP; 250 2.1.5 OK
                 </pre>
-                <p class = 'description ja'>
-                    この理由は<strong>エラーではなく</strong>送信したメールが受信者に正しく配送された
-                    事を意味します。{{ site.html.ss }}はバウンスメールのStatus:フィールドが"2"で始まっている場合、
-                    "delivered"を"reason"の値に設定します。
-                </p>
-                <p class = 'description ja'>
-                    この理由はデフォルトで解析結果には含まれません。解析結果に"delivered"となる記録も
-                    含めるには、下記のサンプルコードのように"delivered"オプションをSisimaiのmake(),
-                    dump()メソッドの引数に指定してください。
-                </p>
             </div>
         </div>
 
@@ -1015,11 +798,6 @@ d = Sisimai::Data.make(data: q, delivered: true)
                     <br>
                     <strong>This reason will be added at {{ site.html.ss }} v4.17.0.</strong>
                 </p>
-                <p class = 'description ja'>
-                    このエラーは宛先メールサーバーが、送信側メールサーバーの送ったSMTPコマンドを認識
-                    出来なかった事を意味します。
-                    <strong>このエラー理由は{{ site.html.ss }} v4.17.0で実装されます。</strong>
-                </p>
                 <hr>
             </div>
         </div>
@@ -1033,12 +811,8 @@ d = Sisimai::Data.make(data: q, delivered: true)
                     <img class = 'lhs' src = '/static/images/icon/question-1.png'>
                     {{ site.html.ss }} will set "onhold" to the reason of email bounce
                     if there is no (or less) detailed information about email bounce for judging the reason.
-                </p>
-                <p class = 'description ja'>
-                    一部のWebメールサービス経由でメールを送信し、それがエラーとなった場合、
-                    エラー内容の詳細が削除された状態でバウンスメールが返ってきます。
-                    このような場合、なんらかのエラーが起こった事はわかるが、その理由を特定するための情報が欠損している為、
-                    シシマイはバウンス理由の決定を保留します。
+                    <br>
+                    <br>
                 </p>
                 <hr>
             </div>
@@ -1055,10 +829,6 @@ d = Sisimai::Data.make(data: q, delivered: true)
                     {{ site.html.ss }} could not detect the error reason. 
                     In many cases, the error message is written in non English or there is
                     no enough error message in a bounce email to decide the reason.
-                </p>
-                <p class = 'description ja'>
-                    シシマイがバウンス理由を決定する為に必要なエラーメッセージや応答コード、
-                    配送状態コード等が一切無く、バウンス理由が決定出来なかった場合は"undefined"となります。
                 </p>
             </div>
         </div>

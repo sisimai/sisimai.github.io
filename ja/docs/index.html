@@ -1,7 +1,7 @@
 ---
 layout: document
-title: Documentation
-description: Links to all the documentaion about Sisimai
+title: ドキュメントの一覧
+description: Sisimaiのドキュメント一覧
 author: azumakuniyuki
 ---
 <a id = 'tohash' href = '#'></a>
@@ -24,8 +24,10 @@ author: azumakuniyuki
             </div>
             <div class = 'collapse navbar-collapse'>
                 <ul class = 'nav navbar-nav navbar-right'>
-                    <li class = 'scroll active'><a href = '#index'>Documents</a></li>
-                    <li class = 'scroll'><a href = '#architecture'>Architecuture</a></li>
+                    <li class = 'others'><a href = '/ja'><span class = 'jp16'></span></a></li>
+                    <li class = 'scroll active'><a href = '#index'>ドキュメント</a></li>
+                    <li class = 'scroll'><a href = '#architecture'>内部構造</a></li>
+                    <li class = 'others'><a href = '/en/docs'><span class = 'uk16'></span></a></li>
                 </ul>
             </div>
         </div>
@@ -38,18 +40,13 @@ author: azumakuniyuki
             <div class = 'row'>
                 <div class = 'text-center col-sm-6 col-sm-offset-3'>
                     <img src = '/static/images/logo/sisimai-x01.png' width = '50%'>
-                    <h2>Documentation</h2>
-                    <p class = 'description'>
-                        The following table shows Documentation list such as installation, structured data,
-                        bounce reasons, and other resources of {{ site.html.ss }}
-                    <p>
-                    <hr>
+                    <h2>ドキュメント</h2>
                     <p class = 'description ja'>
-                        下記の表はシシマイの導入方法やサンプルコード、生成されるデータのついての説明などの
-                        文書です
+                        下記の表は{{ site.html.ss }}の導入方法やサンプルコード、
+                        生成されるデータのついて説明した文書です
                     <p>
                 </div>
-            </div> 
+            </div>
         </div>
         <div class = 'text-center page-index'>
             <div class = 'row'>
@@ -57,13 +54,9 @@ author: azumakuniyuki
                     <div class = 'table-responsive'>
                         <table class = 'table table-hover table-condensed link-index'>
                             <tbody>
-                                <tr data-href = '/start'>
+                                <tr data-href = '/ja/start'>
                                     <th><i class = 'fa fa-play'></i></th>
                                     <td>
-                                        <p class = 'description'>
-                                            <strong>Getting Started:</strong>
-                                            Environment, How To Install, Basic Usage
-                                        </p>
                                         <p class = 'description ja'>
                                             <strong>導入ガイド:</strong>
                                             動作環境・インストール方法・簡単な使用例
@@ -71,58 +64,42 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
 
-                                <tr data-href = '/reason'>
+                                <tr data-href = '/ja/reason'>
                                     <th><i class = 'fa fa-exclamation-triangle'></i></th>
                                     <td>
-                                        <p class = 'description'>
-                                            <strong>Reasons:</strong>
-                                            Bounce Reason List Sisimai Can Detect
-                                        </p>
                                         <p class = 'description ja'>
                                             <strong>バウンス理由一覧:</strong>
-                                            シシマイが検出可能なバウンス理由の一覧
+                                            {{ site.html.ss }}が検出可能なバウンス理由の一覧
                                         </p>
                                     </td>
                                 </tr>
 
-                                <tr data-href = '/data'>
+                                <tr data-href = '/ja/data'>
                                     <th><i class = 'fa fa-list'></i></th>
                                     <td>
-                                        <p class = 'description'>
-                                            <strong>Data Structure:</strong>
-                                            Structured Data generated from Sisimai::Data object
-                                        </p>
                                         <p class = 'description ja'>
                                             <strong>データ構造:</strong>
-                                            シシマイが生成するデータ構造・項目の一覧
+                                            {{ site.html.ss }}が生成するデータ構造・項目の一覧
                                         </p>
                                     </td>
                                 </tr>
 
-                                <tr data-href = '/engine'>
+                                <tr data-href = '/ja/engine'>
                                     <th><i class = 'fa fa-cogs'></i></th>
                                     <td>
-                                        <p class = 'description'>
-                                            <strong>Parse Engines:</strong>
-                                            Parser Engine Modules in Sisimai
-                                        </p>
                                         <p class = 'description ja'>
                                             <strong>モジュール一覧:</strong>
-                                            シシマイに含まれる解析エンジンモジュールの一覧
+                                            {{ site.html.ss }}に含まれる解析エンジンモジュールの一覧
                                         </p>
                                     </td>
                                 </tr>
 
-                                <tr data-href = '/diff'>
+                                <tr data-href = '/ja/diff'>
                                     <th><i class = 'fa fa-gavel'></i></th>
                                     <td>
-                                        <p class = 'description'>
-                                            <strong>Differences:</strong>
-                                            Between Sisimai and bounceHammer
-                                        </p>
                                         <p class = 'description ja'>
                                             <strong>違いの一覧:</strong>
-                                            シシマイとbounceHammerの違いについて
+                                            {{ site.html.ss }}と{{ site.html.bh }}の違いについて
                                         </p>
                                     </td>
                                 </tr>

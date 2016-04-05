@@ -2,7 +2,10 @@ sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
   version: 'v4.17.1'
-  release: 'Wednesday, 30 March, 2016'
+  release: 
+    en: 'Wednesday, 30 March, 2016'
+    ja: '2016年3月30日(水)'
+
   spec:
     modules: 51
     reasons: 27
@@ -26,4 +29,5 @@ html:
   cr: "<span class = 'ss'>Cubicroot</span>"
 gems:
   - jekyll-sitemap
+  - jekyll-redirect-from
 

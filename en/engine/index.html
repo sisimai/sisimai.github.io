@@ -3,6 +3,8 @@ layout: document
 title: Parser Engines
 description: List of including MTA/MSP module names and its description in Sisimai
 author: azumakuniyuki
+redirect_from: 
+  - /engine/
 ---
 <a id = 'tohash' href = '#'></a>
 <header id = 'home'>
@@ -24,12 +26,14 @@ author: azumakuniyuki
             </div>
             <div class = 'collapse navbar-collapse'>
                 <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><span class = 'uk16'></span></a></li>
                     <li class = 'scroll active'><a href = '#index'>Engines</a></li>
                     <li class = 'scroll'><a href = '#oss-mta'>OSS MTA</a></li>
                     <li class = 'scroll'><a href = '#com-mta'>Commercial MTA</a></li>
                     <li class = 'scroll'><a href = '#msp-esp'>MSP/ESP</a></li>
                     <li class = 'scroll'><a href = '#others'>Others</a></li>
-                    <li class = 'others'><a href = '/docs'>Documents</a></li>
+                    <li class = 'others'><a href = '/en/docs'>Documents</a></li>
+                    <li class = 'others'><a href = '/ja/engine'><span class = 'jp16'></span></a></li>
                 </ul>
             </div>
         </div>
@@ -48,12 +52,6 @@ author: azumakuniyuki
                         the latest version of {{ site.html.ss }} including comparison column with {{ site.html.bh }}.
                         All the engine modules are included in both Perl version and Ruby version of {{ site.html.ss }}.
                     <p>
-                    <hr>
-                    <p class = 'description ja'>
-                        下記の表は最新版シシマイに含まれる解析エンジンとしてのMTA/MSPモジュール
-                        一覧です。シシマイにのみ実装されているものもりますので、{{ site.html.bh }}との
-                        比較項目も併記しています。
-                    </p>
                 </div>
             </div> 
         </div>
@@ -65,14 +63,10 @@ author: azumakuniyuki
                     </div>
                     <div class = 'index-info'>
                         <h3>Open Source MTAs</h3>
+                        <hr>
                         <p class = 'description'>
                             Such as Sendmail, Postfix, OpenSMTPD, qmail, Exim, Courier MTA,
                             and other open source MTAs.
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            SendmailやPostfix, OpenSMTPDのようなオープンソースのMTA用解析
-                            モジュール一覧です。
                         </p>
                     </div>
                     <a href = '#oss-mta' class = 'btn btn-continue'>Read</a>
@@ -83,14 +77,10 @@ author: azumakuniyuki
                     </div>
                     <div class = 'index-info'>
                         <h3>Commercial MTAs</h3>
+                        <hr>
                         <p class = 'description'>
                             Such as Microsoft Exchange Server, Domino, Notes, and
                             other commercial MTAs and email appliances.
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            Microsoft Exchange ServerやDominoのような商用MTA用の
-                            解析モジュール一覧です。
                         </p>
                     </div>
                     <a href = '#com-mta' class = 'btn btn-continue'>Read</a>
@@ -101,15 +91,10 @@ author: azumakuniyuki
                     </div>
                     <div class = 'index-info'>
                         <h3>MSP or ESPs</h3>
+                        <hr>
                         <p class = 'description'>
                             Such as Google Mail, Outlook, Yahoo! Mail, SendGrid, 
                             Amazon SES, and other major or large mail service providers.
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            GmailやOutlook, Yahoo!のようなメールプロバイダと
-                            SendGridやAmazon SESのような配信サービス用解析モジュール
-                            の一覧です。
                         </p>
                     </div>
                     <a href = '#msp-esp' class = 'btn btn-continue'>Read</a>
@@ -120,14 +105,10 @@ author: azumakuniyuki
                     </div>
                     <div class = 'index-info'>
                         <h3>Others</h3>
+                        <hr>
                         <p class = 'description'>
                             {{ site.html.ss }} Can parse Feedback loop messages,
                             bounce emails which are based on RFC3464, and other unknown MTAs.
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            Feedback loopやRFC3464に準拠した形式のバウンスメール、それと
-                            名称が未知のMTA用解析モジュール一覧です。
                         </p>
                     </div>
                     <a href = '#others' class = 'btn btn-continue'>Read</a>
@@ -152,12 +133,6 @@ author: azumakuniyuki
                     and other open source MTAs. Almost all the modules in the following table
                     are also available in {{ site.html.bh }}, however, the analytical precision
                     ratio of each module is less than {{ site.html.ss }}.
-                </p>
-                <hr>
-                <p class = 'description ja'>
-                    Sendmail, Postfix, OpenSMTPDやqmailのような広く使われているオープンソースの
-                    MTA用解析モジュール一覧です。下記表の殆どは、シシマイよりも解析精度が劣りますが
-                    {{ site.html.bh }}にも実装されているものです。
                 </p>
             </div>
         </div>
@@ -258,13 +233,6 @@ author: azumakuniyuki
                     email appliances. All the modules in the following table are not included in
                     {{ site.html.bh }}, however, sometimes there is a bounce email generated by commercial
                     MTA which could be parsed Fallback module of bounceHammer.
-                </p>
-                <hr>
-                <p class = 'description ja'>
-                    Microsoft Exchange ServerやDomino,Notesのような商用MTA・商用アプライアンスの
-                    作ったバウンスメールを解析するモジュール一覧です。この表にあるモジュールは
-                    {{ site.html.bh }}には実装されていないものですが、極稀に{{ site.html.bh }}
-                    のFallbackモジュールでも解析出来るバウンスメールがあります。
                 </p>
             </div>
         </div>
@@ -393,17 +361,7 @@ author: azumakuniyuki
                     and other major or large mail service providers. Almost all the modules
                     in the following table are not included in {{ site.html.bh }} and
                     <strong>
-                    {{ site.html.bh }} can not parse bounce emails from Gmail with the new bounce message format.
-                    </strong>
-                </p>
-                <hr>
-                <p class = 'description ja'>
-                    Gmail,Outlook, Yahoo! MailのようなメールサービスとSendGridやAmazon SES
-                    のような配信サービスの作るバウンスメールを解析する為のモジュール一覧です。
-                    殆どのモジュールは{{ site.html.bh }}には含まれていないものです。
-                    <strong>
-                    また、現在のところGmailからのバウンスメールは
-                    {{ site.html.bh }}にあるGmail用モジュールでは解析出来なくなっています。
+                        {{ site.html.bh }} can not parse bounce emails from Gmail with the new bounce message format.
                     </strong>
                 </p>
             </div>
@@ -624,11 +582,6 @@ author: azumakuniyuki
                     <span class = 'ss'>Sisimai</span> can parse FBL: Feedback loop messages,
                    bounce emails which are based on RFC3464, and other unknown MTAs.
                 </p>
-                <hr>
-                <p class = 'description ja'>
-                    Feedback loopやRFC3464に準拠したバウンスメールと、
-                    未知のMTAが作ったバウンスメールを解析するモジュール一覧です。
-                </p>
             </div>
         </div>
         <div class = 'text-center'>
@@ -738,13 +691,6 @@ author: azumakuniyuki
                     at <kbd>Sisimai</kbd> class. The method provides a feature that
                     returns the list of all the MTA/MSP module names and its descriptions
                     like the following example.
-                </p>
-                <hr>
-                <p class = 'description ja'>
-                    {{ site.html.ss }} v4.16.0から<kbd>engine()</kbd>メソッドが<kbd>Sisimai</kbd>クラスで
-                    利用可能になりました。下記のサンプルコードのように、
-                    このメソッドは実装されている全てのMTA/MSPモジュールの名前とその説明を一覧として
-                    返す機能を提供します。
                 </p>
             </div>
         </div>

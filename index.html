@@ -1,5 +1,5 @@
 ---
-layout: standard
+layout: starting
 title: The successor to bounceHammer, Library to parse bounce mails
 description: The successor to bounceHammer, Library to parse bounce mails, Making data structure as JSON from bounce mails
 author: azumakuniyuki
@@ -17,7 +17,12 @@ author: azumakuniyuki
                     <p class = 'animated fadeInRightBig'>
                         <strong>{{ site.html.ss }}</strong> | Mail Analyzing Interface | Parse Every Email Bounces
                     </p>
-                    <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '#index'>Start now</a>
+                    <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '/en'>
+                        <span class = 'uk24'></span><br>English
+                    </a>
+                    <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '/ja'>
+                        <span class = 'jp24'><span><br>日本語
+                    </a>
                 </div>
             </div>
 
@@ -30,7 +35,12 @@ author: azumakuniyuki
                     <p class = 'animated fadeInRightBig'>
                         <strong>Making Data Structure from bounce mails</strong> | Perl Module | Ruby Gem
                     </p>
-                    <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '#index'>Start now</a>
+                    <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '/en'>
+                        <span class = 'uk24'></span><br>English
+                    </a>
+                    <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '/ja'>
+                        <span class = 'jp24'><span><br>日本語
+                    </a>
                 </div>
             </div>
 
@@ -43,441 +53,19 @@ author: azumakuniyuki
                     </h1>
                     <p class = 'animated fadeInRightBig'>
                         <strong>2 times higher</strong> precision of analysis |
-                        <strong>1.7 times faster</strong> than bounceHammer
+                        <strong title = 'As of present, only the Perl version of Sisimai is'>1.7 times faster</strong> than bounceHammer
                     </p>
-                    <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '#index'>Start now</a>
+                    <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '/en'>
+                        <span class = 'uk24'></span><br>English
+                    </a>
+                    <a data-scroll class = 'btn btn-start animated fadeInUpBig' href = '/ja'>
+                        <span class = 'jp24'><span><br>日本語
+                    </a>
                 </div>
             </div>
         </div>
         <a class = 'left-control' href = '#home-slider' data-slide = 'prev'><i class = 'fa fa-angle-left'></i></a>
         <a class = 'right-control' href = '#home-slider' data-slide = 'next'><i class = 'fa fa-angle-right'></i></a>
-        <a id = 'tohash' href = '#index'><i class = 'fa fa-angle-down'></i></a>
     </div> <!-- /#home-slider -->
-
-    <div class = 'main-nav'>
-        <div class = 'container'>
-            <div class = 'navbar-header'>
-                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
-                    <span class = 'sr-only'>Toggle navigation</span>
-                    <span class = 'icon-bar'></span>
-                    <span class = 'icon-bar'></span>
-                    <span class = 'icon-bar'></span>
-                </button>
-                <a class = 'navbar-brand' href = '/'>
-                    <h1>
-                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
-                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
-                    </h1>
-                </a>                    
-            </div>
-            <div class = 'collapse navbar-collapse'>
-                <ul class = 'nav navbar-nav navbar-right'>                 
-                    <li class = 'scroll active'><a href = '#home'>Home</a></li>
-                    <li class = 'scroll'><a href = '#index'>Sisimai?</a></li> 
-                    <li class = 'scroll'><a href = '#versus'>vs.</a></li>
-                    <li class = 'scroll'><a href = '#download'><strong>Download</strong></a></li>
-                    <li class = 'others'><a href = '/start'><strong>Start</strong></a></li>
-                    <li class = 'others'><a href = '/docs'><strong>Docs</strong></a></li>
-                    <li class = 'others'><a href = 'http://blog.libsisimai.org/' target = 'new'>Blog</a></li>
-                    <li class = 'scroll'><a href = '#support'>Support</a></li>
-                </ul>
-            </div>
-        </div>
-    </div><!-- /#main-nav -->
-</header><!-- /#home -->
-
-<section id = 'index'>
-    <div class = 'container'>
-        <div class = 'heading wow fadeInUp' data-wow-duration = '500ms' data-wow-delay = '300ms'>
-            <div class = 'row'>
-                <div class = 'text-center col-sm-8 col-sm-offset-2'>
-                    <img src = '/static/images/logo/sisimai-logomark-b02.png' width = '25%'>
-                    <h2>What is {{ site.html.ss }} ?</h2>
-                    <p class = 'description'>
-                        {{ site.html.ss }} is the successor of {{ site.html.bh }},
-                        is a Mail Analyzing Interface:
-                        a <strong>Perl module</strong> and a <strong>Ruby Gem</strong>
-                        for parsing RFC5322 bounce emails and
-                        for generating structured data such as JSON.
-                    </p>
-                    <div class = 'attention'>
-                        <i class = 'fa fa-newspaper-o'></i>
-                        <a href = '#download'>
-                            <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
-                        </a>
-                        was released on
-                        <a href = 'http://blog.libsisimai.org/post/141942434181/sisimai-4171-bug-fix'
-                           target = 'new'>{{ site.sisimai.release }}.</a>
-                        Fixed serious bug in rb-Sisimai, and other minor bugs in the
-                        both of the Perl and the Ruby version of Sisimai.
-                    </div>
-                </div>
-            </div> 
-        </div>
-        <div class = 'text-center index-table'>
-            <div class = 'row'>
-                <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '100ms'>
-                    <div class = 'index-icon'>
-                        <i class = 'fa fa-envelope-o'></i>
-                    </div>
-                    <div class = 'index-info'>
-                        <h3>Parse Bounce Emails</h3>
-                        <p class = 'description'>
-                            {{ site.html.ss }} is a library to parse bounce emails in a
-                            <strong>UNIX mbox</strong> file or emails in the <strong>Maildir/</strong> directory.
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            シシマイは<strong>UNIX mbox</strong>や<strong>Maildir/</strong>内のメール用解析ライブラリです。
-                        </p>
-                    </div>
-                    <a href = '/start' class = 'btn btn-continue'>Getting Started</a>
-                </div>
-                <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '200ms'>
-                    <div class = 'index-icon'>
-                        <i class = 'fa fa-exclamation-triangle'></i>
-                    </div>
-                    <div class = 'index-info'>
-                        <h3>Detect Bounce Reasons</h3>
-                        <p class = 'description'>
-                            {{ site.html.ss }} can detect <strong>{{ site.sisimai.spec.reasons }} bounce reasons</strong>
-                            such as "blocked", "mailboxfull", "userunknown", and so on.
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            シシマイは<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>
-                            を検出する事が出来ます。
-                        </p>
-                    </div>
-                    <a href = '/reason' class = 'btn btn-continue'>Details</a>
-                </div>
-                <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '300ms'>
-                    <div class = 'index-icon'>
-                        <i class = 'fa fa-list'></i>
-                    </div>
-                    <div class = 'index-info'>
-                        <h3>Data Structure</h3>
-                        <p class = 'description'>
-                            Parsed results generated by {{ site.html.ss }} are converted to
-                            structured data, and could be converted to <strong>JSON</strong>.
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            解析済データは構造化されていて<strong>JSON</strong>にも変換出来ます。
-                        </p>
-                    </div>
-                    <a href = '/data' class = 'btn btn-continue'>Details</a>
-                </div>
-                <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '400ms'>
-                    <div class = 'index-icon'>
-                        <i class = 'fa fa-gears'></i>
-                    </div>
-                    <div class = 'index-info'>
-                        <h3>{{ site.sisimai.spec.modules }} Parser Engines</h3>
-                        <p class = 'description'>
-                            {{ site.html.ss }} can parse bounce mails from
-                            open source MTAs, commercial MTAs, and some major MSPs/ESPs.
-                        </p>
-                        <hr>
-                        <p class = 'description ja'>
-                            商用MTA解析にも対応の<strong>{{ site.sisimai.spec.modules }}種類の解析エンジン</strong>
-                            を搭載しています。
-                        </p>
-                    </div>
-                    <a href = '/engine' class = 'btn btn-continue'>Details</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> <!-- /#index -->
-
-<section id = 'versus' class = 'parallax'>
-    <div class = 'container'>
-        <div class = 'row'>
-            <div class = 'col-sm-6'>
-                <div class = 'versus-info wow fadeInUp' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
-                    <h2>
-                        <i class = 'fa fa-legal' style = 'font-size: 85%;'></i>
-                        vs. <span class = 'bh'>bounce<strong>Hammer</strong></span>
-                    </h2>
-                    <p class = 'description'>
-                        On August 2014, We have started to develop a Perl version of {{ site.html.ss }}
-                        to resolve many fundamental problems of {{ site.html.bh }}
-                        which are related to analytical precision (it could not be detected 2 or more bounces in a single email),
-                        many dependencies of external modules (some modules have not maintained for a long time),
-                        and cannot work on Perl 5.16 or later.
-                    </p>
-                    <p class = 'description'>
-                        As of the present, the Perl version {{ site.html.ss }} is about 1.7 times faster
-                        than <span class = 'bh'>bounce<strong>Hammer</strong></span>, have 2.0 times higher of analytical precision,
-                        depends only 2 external modules, and can work on Perl 5.10.1 or later versions of Perl.
-                        From August 2015, We have started to develop a 
-                        <strong>Ruby version of {{ site.html.ss }}</strong>.
-                        The software has been released on Feburary 3, 2016.
-                    </p>
-                    <hr>
-                    <p class = 'description ja'>
-                        2014年夏、Perl版{{ site.html.ss }}(シシマイ)は
-                        {{ site.html.bh }}が抱える解析精度に関わる致命的な問題の数々
-                        (一通のメールに複数件のバウンスがある場合に一件目しか解析出来ない、依存モジュールが多く、
-                        うち幾つかは既にメンテナンスされていない、Perl 5.16以降で動作しない等)
-                        を解決する為に開発されました。
-                    </p>
-                    <p class = 'description ja'>
-                        現在、Perl版{{ site.html.ss }}は{{ site.html.bh }}の1.7倍程度高速に動作し、
-                        2倍の解析精度を誇ります。そして2016年2月3日にはRuby版{{ site.html.ss }}
-                        をリリースしました。
-                    </p>
-                </div>
-            </div>
-
-            <div class = 'col-sm-6'>
-                <div class = 'our-skills wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
-                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
-                        <p class = 'lead'>
-                            <i class = 'fa fa-percent'></i>
-                            Analytical Precision Ratio | 解析精度
-                        </p>
-                        <div class = 'progress'>
-                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '67'>100%
-                            </div>
-                            <p class = 'versus'>49%</p>
-                        </div>
-                    </div>
-                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '400ms'>
-                        <p class = 'lead'>
-                            <i class = 'fa fa-tachometer'></i>
-                            The Speed Of Parsing 1000 Emails | 解析速度(1000通)
-                        </p>
-                        <div class = 'progress'>
-                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '35'>2.3s
-                            </div>
-                            <p class = 'versus'>4.24s</p>
-                        </div>
-                    </div>
-                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
-                        <p class = 'lead'>
-                            <i class = 'fa fa-code'></i>
-                            Source Lines Of Code | コード行数
-                        </p>
-                        <div class = 'progress'>
-                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '34'>9,500
-                            </div>
-                            <p class = 'versus'>18,200</p>
-                        </div>
-                    </div>
-                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '600ms'>
-                        <p class = 'lead'>
-                            <i class = 'fa fa-flask'></i>
-                            The Number Of Tests | テスト件数
-                        </p>
-                        <div class = 'progress'>
-                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '86'>170,000
-                            </div>
-                            <p class = 'versus'>27,365</p>
-                        </div>
-                    </div>
-                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
-                        <p class = 'lead'>
-                            <i class = 'fa fa-exclamation-triangle'></i>
-                            Detectable Bounce Reasons | 検出可能なバウンス理由数
-                        </p>
-                        <div class = 'progress'>
-                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '58'>{{ site.sisimai.spec.reasons }}
-                            </div>
-                            <p class = 'versus'>19</p>
-                        </div>
-                    </div>
-                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '600ms'>
-                        <p class = 'lead'>
-                            <i class = 'fa fa-gears'></i>
-                            The Number Of MTA/MSP Modules | 解析モジュール数
-                        </p>
-                        <div class = 'progress'>
-                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '77'>{{ site.sisimai.spec.modules }}
-                            </div>
-                            <p class = 'versus'>15</p>
-                        </div>
-                    </div>
-                    <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '700ms'>
-                        <p class = 'lead'>
-                            <i class = 'fa fa-file-archive-o'></i>
-                            Dependent External Modules | 依存モジュール数
-                        </p>
-                        <div class = 'progress'>
-                            <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '8'>2
-                            </div>
-                            <p class = 'versus'>24</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-
-        <div class = 'row count'>
-            <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
-                <p>Can Detect</p>
-                <i class = 'fa fa-exclamation-triangle'></i>
-                <h3 class = 'timer'>{{ site.sisimai.spec.reasons }}</h3>
-                <p>Bounce Reasons</p>
-            </div>
-            <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
-                <p>Have</p>
-                <i class = 'fa fa-gears'></i>
-                <h3 class = 'timer'>{{ site.sisimai.spec.modules }}</h3>
-                <p>Engine Modules</p>
-            </div> 
-            <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '700ms'>
-                <p>Including</p>
-                <i class = 'fa fa-cubes'></i>
-                <h3 class = 'timer'>14</h3>
-                <p>Commercial MTA Modules</p>
-            </div> 
-            <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '900ms'>
-                <p>Only</p>
-                <i class = 'fa fa-file-archive-o'></i>                    
-                <h3 class = 'timer'>2</h3>
-                <p>External Modules Required</p>
-            </div>                 
-        </div>
-    </div>
-</section><!-- /#versus -->
-
-<section id = 'download'>
-    <div class = 'container'>
-        <div class = 'row'>
-            <div class = 'heading col-sm-8 col-sm-offset-2 wow fadeInUp' data-wow-duration = '1200ms' data-wow-delay = '300ms'>
-                <h2>
-                   <i class = 'fa fa-cloud-download' style = 'font-size: 85%;'></i>
-                    Download
-                </h2>
-                <div class = 'attention'>
-                    The latest version is <strong>{{ site.sisimai.version }}</strong>,
-                    released on {{ site.sisimai.release }}.
-                </div>
-                <br>
-                <p class = 'description'>
-                    {{ site.html.ss }} can run on the system that Perl or Ruby is available
-                    like the following lists, such as *BSD, Mac OS X, and Linux. 
-                    However, as of the present, 
-                    <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
-                        {{ site.html.ss }} does not work (make test fails) with 
-                        ActivePerl and other Perl implementations on Windows.
-                    </a>.
-                </p>
-                <hr>
-                <p class = 'decription ja'>
-                    {{ site.html.ss }}(シシマイ)は*BSDやMac OS XやLinuxのようなPerlまたは
-                    Rubyが動作するOSで動きます。
-                    <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
-                    しかしながら、現時点でWindowsでは動作しません。
-                    </a>
-                </p>
-            </div>
-        </div>
-        <div class = 'download-table'>
-            <div class = 'row'>
-                <div class = 'col-sm-4'>
-                    <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
-                        <h3>Perl Version</h3>
-                        <div class = 'download'>
-                            <img src = '/static/images/icon/dinosaur-1.png'>
-                        </div>
-                        <ul>
-                            <li>Stable version</li>
-                            <li>Perl 5.10.1 - 5.22.X</li>
-                            <li>CPAN</li>
-                        </ul>
-                        <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'
-                           class = 'btn btn-lg btn-primary'>Download</a>
-                    </div>
-                </div>
-
-                <div class = 'col-sm-4'>
-                    <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
-                        <h3>Ruby Version</h3>
-                        <div class = 'download'>
-                            <img src = '/static/images/icon/ruby-1.png'>
-                        </div>
-                        <ul>
-                            <li>Stable version</li>
-                            <li>Ruby 2.1.0 - 2.3.0</li>
-                            <li>JRuby 9.0.4.0 -</li>
-                        </ul>
-                        <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'
-                           class = 'btn btn-lg btn-primary'>Download</a>
-                    </div>
-                </div>
-
-                <div class = 'col-sm-4'>
-                    <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '800ms'>
-                        <h3>Fork on GitHub</h3>
-                        <div class = 'download'>
-                            <img src = '/static/images/icon/github-1.png'>
-                        </div>
-                        <ul>
-                            <li>Development Version</li>
-                            <li>p5-Sisimai (Perl)</li>
-                            <li>rb-Sisimai (Ruby)</li>
-                        </ul>
-                        <a href = '{{ site.sisimai.repository.project }}' target = 'new'
-                           class = 'btn btn-lg btn-primary'>Fork</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> <!-- /#download -->
-
-<section id = 'support' class = 'parallax'>
-    <div class = 'container'>
-        <div class = 'row'>
-            <div class = 'col-sm-6'>
-                <div class = 'support-info wow fadeInUp' data-wow-duration = '500ms' data-wow-delay = '100ms'>
-                    <h2>
-                        <i class = 'fa fa-life-ring' style = 'font-size: 85%;'></i>
-                        Support
-                    </h2>
-                    <p class = 'description'>
-                        Anyone can use {{ site.html.ss }} because it is an Open Source Software,
-                        however, we, {{ site.html.cr }} Corporation Limited (a development company of {{ site.html.ss }})
-                        is ready to support your installation of {{ site.html.ss }},
-                        development of relevant scripts, data management of parsed bounces on RDBMS,
-                        operations on your system for continuous management of email bounces,
-                        and migration from {{ site.html.bh }}.
-                    </p>
-                    <a href = 'http://cubicroot.jp/en/products/sisimai/' target = 'new' 
-                        class = 'btn btn-lg btn-contactus'>Read More About Support</a>
-                </div>
-            </div>
-            <div class = 'col-sm-6'>
-                <div class = 'support-info wow fadeInUp' data-wow-duration = '500ms' data-wow-delay = '200ms'>
-                    <h2>
-                        <i class = 'fa fa-phone-square' style = 'font-size: 100%;'></i>
-                        サポート
-                    </h2>
-                    <p class = 'description ja'>
-                        {{ site.html.ss }}はオープンソースライセンス(二条項BSD)
-                        で公開しているライブラリですので、どなた様でも自由にお使い頂けます。
-                        <br>
-                        しかし、バウンスメール解析の為の環境構築や
-                        シシマイ周辺スクリプトの開発、解析済データを蓄積するデータベース設計や管理、継続的なバウンス管理、
-                        そしてこれまでのバウンスメール解析システムである{{ site.html.bh }}からの移行などをサポートする品目を、
-                        開発元である株式会社{{ site.html.cr }}にて提供しております。
-                    </p>
-                    <a href = 'http://cubicroot.jp/ja/products/sisimai/' target = 'new' 
-                        class = 'btn btn-lg btn-contactus'>サポートについて詳しく</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </section> <!-- /#support -->
 
