@@ -29,4 +29,5 @@ html:
   cr: "<span class = 'ss'>Cubicroot</span>"
 gems:
   - jekyll-sitemap
+  - jekyll-redirect-from
 
