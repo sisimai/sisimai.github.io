@@ -163,6 +163,7 @@ p.description + hr {
 }
 
 .navbar-right li.others a {
+    background-color: #d3381c;
 }
 
 .navbar-right li.others a:hover,
