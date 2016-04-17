@@ -155,33 +155,30 @@ p.description + hr {
 
 .navbar-right li a {
     color: #fbfaf5;
-    text-transform: uppercase;
     text-shadow: 0 -1px 0 #16160e; /* Ankokushoku */
-    font-size: 10px;
+    font-size: 14px;
     font-weight: 600;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .navbar-right li.others a {
-    background-color: #d3381c; /* Hi-iro */
-    border: 1px dashed #b7282e; /* Akane-iro */
 }
 
 .navbar-right li.others a:hover,
 .navbar-right li.others a:focus {
     outline: none;
     outline-offset: 0;
-    text-decoration: none;  
+    text-decoration: none;
     background-color: #383c3c; /* Youkan-iro */
 }
 
 .navbar-right li.active a {
-    background-color: rgba(0,0,0,.2);
+    background-color: rgba(0,0,0,.3);
 }
 
 .navbar-brand h1 {
-  margin-top: 5px;
+    margin-top: 2px;
 }
 
 .attention {
