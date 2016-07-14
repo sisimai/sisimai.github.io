@@ -46,7 +46,7 @@ author: azumakuniyuki
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
                     <h2>バウンス理由の一覧</h2>
                     <p class = 'description ja'>
-                        {{ site.html.ss }}はバウンスメールを解析する事によって
+                        {{ site.html.ss }}はバウンスメールを解析する事によって、
                         以下の<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>を検出します。
                         検出したバウンス理由はSisimai::Dataオブジェクトの"reason"アクセサから得る事が出来ます。
                         "reason"の値は"userunknown"や"expired"のように、
@@ -243,7 +243,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                     返ってくるエラーです。
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
                     "5.1.8"のもの、SMTPセッションにおいてMAILコマンドの内容に基づいて
-                    拒否されたものこの理由に決定されます。
+                    拒否された場合もこの理由に決定されます。
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.org&gt;:
@@ -290,7 +290,7 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
                 <h3 class = 'in-desc'>Suspend</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/remove-user-3.png'>
-                    au by KDDI宛(@ezweb.ne.jp)において、ユーザが料金未払いである場合にこのエラーが検出されます。
+                    au by KDDI宛(***@ezweb.ne.jp)において、ユーザが料金未払いである場合にこのエラーが検出されます。
                     <br>
                     <br>
                 </p>
@@ -416,7 +416,7 @@ I am of the office returning 5th Jan
                     <img class = 'lhs' src = '/static/images/icon/strike-1.png'>
                     受信者がプロバイダに対して苦情申し立てをした際に発信されるARF形式のメールを解析した場合、
                     {{ site.html.ss }}はこの理由に決定します。
-                    この理由となるメールの解析結果をJSON形式で表現すると上記のようになります。
+                    この理由となるメールの解析結果をJSON形式で表現すると下記のようになります。
                 </p>
                 <pre class = 'prettyprint'>
 [
