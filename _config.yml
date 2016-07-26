@@ -1,10 +1,10 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.17.1'
+  version: 'v4.17.2'
   release: 
-    en: 'Wednesday, 30 March, 2016'
-    ja: '2016年3月30日(水)'
+    en: 'Tuesday, 26 July, 2016'
+    ja: '平成28年7月26日(火)'
 
   spec:
     modules: 51
