@@ -426,6 +426,13 @@ use Sisimai;
 print Sisimai-&gt;dump('~/Maildir/cur');
                 </pre>
             </div>
+
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <h4 class = 'in-desc'>Read from STDIN(Perl)</h4>
+                <pre class = 'prettyprint'>
+% <kbd>cat ./path/to/email | perl -MSisimai -lE 'print Sisimai->dump(STDIN)'</kbd>
+                </pre>
+            </div>
         </div>
 
         <div class = 'row'>
@@ -437,6 +444,13 @@ print Sisimai-&gt;dump('~/Maildir/cur');
                 <pre class = 'prettyprint'>#! /usr/bin/env ruby
 require 'sisimai'
 puts Sisimai.dump('~/Maildir/cur')
+                </pre>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <h4 class = 'in-desc'>Read from STDIN(Ruby)</h4>
+                <pre class = 'prettyprint'>
+% <kbd>cat ./path/to/email | ruby -rsisimai -e 'puts Sisimai.dump(STDIN)'</kbd>
                 </pre>
             </div>
         </div>
