@@ -37,8 +37,13 @@ hr {
     border-style: dashed;
 }
 
+.parallax table,
 .parallax table tr th, .parallax table tr td {
     border-color: #a59564; /* Rikyucha */
+}
+
+.parallax table tr th, .parallax table tr td  {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 table tr td a {
