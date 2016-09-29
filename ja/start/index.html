@@ -97,7 +97,7 @@ author: azumakuniyuki
                         <i class = 'fa fa-code'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>その他の解析方法</h3>
+                        <h3>シシマイでの解析方法</h3>
                         <hr>
                         <p class = 'description ja'>
                             標準入力(STDIN)からの読み込み、配信成功も解析結果に含める方法、
@@ -358,6 +358,8 @@ Done installing documentation for sisimai after 6 seconds
                     <img class = 'lhs' src = '/static/images/icon/outline-1.png'>
                     下記のコードは{{ site.html.ss }}の<kbd>make()</kbd>
                     メソッドを使ってバウンスメールを解析し解析結果のデータを得る例です。
+                    <kbd>make()</kbd>メソッドに指定できる他の引数については
+                    <a href = '/ja/usage'>シシマイでの解析方法</a>をご覧ください。
                 </p>
             </div>
         </div>
@@ -441,12 +443,6 @@ print Sisimai-&gt;dump('~/Maildir/cur');
                 </pre>
             </div>
 
-            <div class = 'col-sm-8 col-sm-offset-2'>
-                <h4 class = 'in-desc'>標準入力から読み込む(Perl)</h4>
-                <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | perl -MSisimai -lE 'print Sisimai->dump(STDIN)'</kbd>
-                </pre>
-            </div>
         </div>
 
         <div class = 'row'>
@@ -461,12 +457,6 @@ puts Sisimai.dump('~/Maildir/cur')
                 </pre>
             </div>
 
-            <div class = 'col-sm-8 col-sm-offset-2'>
-                <h4 class = 'in-desc'>標準入力から読み込む(Ruby)</h4>
-                <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | ruby -rsisimai -e 'puts Sisimai.dump(STDIN)'</kbd>
-                </pre>
-            </div>
         </div>
 
         <div class = 'row'>
