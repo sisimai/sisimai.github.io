@@ -50,7 +50,7 @@ author: azumakuniyuki
         </div>
         <div class = 'text-center index-table'>
             <div class = 'row'>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-desktop'></i>
                     </div>
@@ -58,12 +58,13 @@ author: azumakuniyuki
                         <h3>動作環境</h3>
                         <hr>
                         <p class = 'description ja'>
-                            {{ site.html.ss }}(シシマイ)はPerlかRuby(JRubyも含む)が動くOS(ただしWindowsを除く)で動作します。
+                            {{ site.html.ss }}(シシマイ)はPerlまたはRuby (JRubyも含む) が動くOS
+                            (ただしWindowsを除く) で動作します。
                         </p>
                     </div>
                     <a href = '#environment' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-cloud-download'></i>
                     </div>
@@ -71,13 +72,13 @@ author: azumakuniyuki
                         <h3>インストール</h3>
                         <hr>
                         <p class = 'description ja'>
-                            {{ site.html.ss }}はCPAN(Perl版)とRubyGems.org(Ruby版)、そしてGitHub(Perl版とRuby版)
-                            からダウンロードできます。
+                            {{ site.html.ss }}はCPAN (Perl版)とRubyGems.org (Ruby版)、
+                            そしてGitHub (Perl版とRuby版) からダウンロードできます。
                         </p>
                     </div>
                     <a href = '#install' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-keyboard-o'></i>
                     </div>
@@ -85,8 +86,22 @@ author: azumakuniyuki
                         <h3>基本的な使い方</h3>
                         <hr>
                         <p class = 'description ja'>
-                            メールの解析、構造化されたデータの取得とJSON化など
-                            簡単な使い方を紹介します。
+                            バウンスメールの解析、構造化された解析済みデータの取得と
+                            JSON化など簡単な使い方を紹介します。
+                        </p>
+                    </div>
+                    <a href = '#usage' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-code'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>その他の解析方法</h3>
+                        <hr>
+                        <p class = 'description ja'>
+                            標準入力(STDIN)からの読み込み、配信成功も解析結果に含める方法、
+                            コールバック機能で独自の処理を組み込む方法について。
                         </p>
                     </div>
                     <a href = '#usage' class = 'btn btn-continue'>Read</a>
@@ -536,6 +551,7 @@ puts Sisimai.dump('~/Maildir/cur')
     "senderdomain": "example.co.jp",
     "rhost": "mx-s.neko.example.jp",
     "lhost": "localhost",
+    "catch": "",
     "addresser": "shironeko@example.co.jp",
     "replycode": "551",
     "messageid": "0000000011111.fff0000000003@mx.example.co.jp",
