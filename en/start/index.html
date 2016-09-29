@@ -356,6 +356,8 @@ Done installing documentation for sisimai after 6 seconds
                     <img class = 'lhs' src = '/static/images/icon/outline-1.png'>
                     For example, the following code shows that <kbd>make()</kbd> method of 
                     {{ site.html.ss }} provides the feature for getting parsed data from bounced email messages.
+                    Other arguments of <kbd>make()</kbd> method are available at
+                    <a href = '/en/usage'>How To Parse</a> page.
                 </p>
             </div>
         </div>
@@ -439,13 +441,6 @@ use Sisimai;
 print Sisimai-&gt;dump('~/Maildir/cur');
                 </pre>
             </div>
-
-            <div class = 'col-sm-8 col-sm-offset-2'>
-                <h4 class = 'in-desc'>Read from STDIN(Perl)</h4>
-                <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | perl -MSisimai -lE 'print Sisimai->dump(STDIN)'</kbd>
-                </pre>
-            </div>
         </div>
 
         <div class = 'row'>
@@ -457,13 +452,6 @@ print Sisimai-&gt;dump('~/Maildir/cur');
                 <pre class = 'prettyprint'>#! /usr/bin/env ruby
 require 'sisimai'
 puts Sisimai.dump('~/Maildir/cur')
-                </pre>
-            </div>
-
-            <div class = 'col-sm-8 col-sm-offset-2'>
-                <h4 class = 'in-desc'>Read from STDIN(Ruby)</h4>
-                <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | ruby -rsisimai -e 'puts Sisimai.dump(STDIN)'</kbd>
                 </pre>
             </div>
         </div>
