@@ -711,8 +711,7 @@ author: azumakuniyuki
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
                 <h3>Sisimai-&gt;engine()</h3>
-                <pre class = 'prettyprint'>
-#!/usr/bin/env perl
+                <pre class = 'prettyprint'><span class = 'shebang'>#!/usr/bin/env perl</span>
 require Sisimai;
 my $v = Sisimai->engine;
 print keys %$v;         # {{ site.sisimai.spec.modules }}
@@ -730,8 +729,7 @@ for my $e ( keys %$v ) {
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3>Sisimai.engine()</h3>
-                <pre class = 'prettyprint'>
-#!/usr/bin/env ruby
+                <pre class = 'prettyprint'><span class = 'shebang'>#!/usr/bin/env ruby</span>
 require 'sisimai'
 v = Sisimai.engine
 puts v.keys.size;  # {{ site.sisimai.spec.modules }}

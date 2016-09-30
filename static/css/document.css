@@ -151,6 +151,24 @@ pre.prettyprint {
     content: ' ⏎';
 }
 
+.parallax .prettyprint strong {
+    color: #e2041b; /* Shojohi */
+}
+
+.prettyprint strong {
+    color: #ffec47; /* Nanohana-Iro */
+}
+
+.parallax .prettyprint .shebang {
+    font-weight: bold;
+    color: #007bbb; /* Kompeki */
+}
+
+.prettyprint .shebang {
+    font-weight: bold;
+    color: #a0d8ef; /* Sora-Iro */
+}
+
 .spec-icon {
     margin: 12px 0 0 0;
 }

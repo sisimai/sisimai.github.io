@@ -762,8 +762,7 @@ Diagnostic-Code: SMTP; 250 2.1.5 OK
                 <div class = 'index-label'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <pre class = 'prettyprint'>
-#! /usr/bin/env perl
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 my $v = Sisimai->make('/path/to/mbox', 'delivered' => 1);
 my $r = Sisimai->dump('/path/to/mbox', 'delivered' => 1);
 my $d = Sisimai::Data->make('data' => $q, 'delivered' => 1);
@@ -775,8 +774,7 @@ my $d = Sisimai::Data->make('data' => $q, 'delivered' => 1);
                 <div class = 'index-label'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <pre class = 'prettyprint'>
-#! /usr/bin/env ruby
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 v = Sisimai.make('/path/to/mbox', delivered: true)
 r = Sisimai.dump('/path/to/mbox', delivered: true)
 d = Sisimai::Data.make(data: q, delivered: true)

@@ -352,7 +352,7 @@ Done installing documentation for sisimai after 6 seconds
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Perl version of {{ site.html.ss }}</h4>
-                <pre class = 'prettyprint'>#! /usr/bin/env perl
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
 my $v = Sisimai-&gt;make('/path/to/mbox'); # or Path to Maildir
 
@@ -378,7 +378,7 @@ if( defined $v ) {
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Ruby version of {{ site.html.ss }}</h4>
-                <pre class = 'prettyprint'>#! /usr/bin/env ruby
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 v = Sisimai.make('/path/to/mbox') # or Path to Maildir
 
@@ -421,7 +421,7 @@ end
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
-                <pre class = 'prettyprint'>#! /usr/bin/env perl
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
 print Sisimai-&gt;dump('~/Maildir/cur');
                 </pre>
@@ -441,7 +441,7 @@ print Sisimai-&gt;dump('~/Maildir/cur');
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Ruby version of <span class = 'ss'>Sisimai</span></h4>
-                <pre class = 'prettyprint'>#! /usr/bin/env ruby
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 puts Sisimai.dump('~/Maildir/cur')
                 </pre>
