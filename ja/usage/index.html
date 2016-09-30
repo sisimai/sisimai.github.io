@@ -248,8 +248,7 @@ sironeko@example.org
                     配信に成功したメール(配信通知)も解析結果に含まれるようになります。<kbd>delivered</kbd>
                     に偽となる値(0,undef,'')を指定した場合は、解析結果は生成されません。
                 </p>
-                <pre class = 'prettyprint'>
-#! /usr/bin/env perl
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
 my $f = './set-of-emails/maildir/bsd/rfc3464-28.eml';
 my $v = Sisimai->make($f, <strong>'delivered' => 1</strong>);
@@ -276,8 +275,7 @@ for my $e ( @$v ) {
                     解析結果に含まれるようになります。<kbd>delivered</kbd>
                     に偽となる値(nil,false)を指定した場合は、解析結果は生成されません。
                 </p>
-                <pre class = 'prettyprint'>
-#! /usr/bin/env ruby
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 f = './set-of-emails/maildir/bsd/rfc3464-28.eml'
 v = Sisimai.make(f, <strong>delivered: true</strong>)
@@ -328,7 +326,7 @@ end
                 <pre class = 'prettyprint'>...
 Subject: Nyaaan
 Date: Wed, 31 Mar 2010 22:59:43 +0900
-X-Mailer: Apple Mail (2.936)
+<strong>X-Mailer: Apple Mail (2.936)</strong>
 
 Nyaan
                 </pre>
@@ -377,7 +375,7 @@ Nyaan
                 </p>
 
                 <pre class = 'prettyprint'>{
-    'headers' => {
+    <strong>'headers'</strong> => {
         'from' => 'MAILER-DAEMON@example.co.jp',
         'return-path' => undef,
         'subject' => 'failure notice',
@@ -393,7 +391,7 @@ Nyaan
         'content-transfer-encoding' => undef,
         'date' => '1 Apr 2010 14:59:45 -0000'
     },
-    'message' => 'Hi. This is the qmail-send program at example.co.jp.
+    <strong>'message'</strong> => 'Hi. This is the qmail-send program at example.co.jp.
 I\'m afraid I wasn\'t able to deliver your message to the following addresses.
 This is a permanent error; I\'ve given up. Sorry it didn\'t work out.
 ...
@@ -423,7 +421,7 @@ Nyaan
                     実行したい処理内容を書いたサブルーチンのコードリファレンスを第二引数
                     <kbd>hook</kbd>として渡すことができます。
                 </p>
-                <pre class = 'prettyprint'>#! /usr/bin/env perl
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
 my $f = './set-of-emails/maildir/bsd/sendmail-24.eml';
 my $x = sub {
@@ -435,9 +433,9 @@ my $x = sub {
     }
     return $data;
 };
-my $j = Sisimai-&gt;dump($f, 'hook' => $x); # JSON文字列を得る
-my $v = Sisimai-&gt;make($f, 'hook' => $x);
-print $v->[0]->{'catch'}->{'x-mailer'};     # Apple Mail (2.936)
+my $j = Sisimai-&gt;dump($f, <strong>'hook' => $x</strong>); # JSON文字列を得る
+my $v = Sisimai-&gt;make($f, <strong>'hook' => $x</strong>);
+print $v->[0]->{<strong>'catch'</strong>}->{'x-mailer'};     # Apple Mail (2.936)
                 </pre>
             </div>
         </div>
@@ -452,7 +450,7 @@ print $v->[0]->{'catch'}->{'x-mailer'};     # Apple Mail (2.936)
                     実行したい処理内容を書いたProcオブジェクトを
                     <kbd>hook:</kbd>として渡すことができます。
                 </p>
-                <pre class = 'prettyprint'>#! /usr/bin/env ruby
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 f = './set-of-emails/maildir/bsd/sendmail-24.eml'
 x = lambda do |argv|
@@ -463,9 +461,9 @@ x = lambda do |argv|
   return data
 end
 
-j = Sisimai.dump(f, hook: x)    # JSON文字列を得る
-v = Sisimai.make(f, hook: x)
-puts v[0]['catch']['x-mailer']  # Apple Mail (2.936)
+j = Sisimai.dump(f, <strong>hook: x</strong>)    # JSON文字列を得る
+v = Sisimai.make(f, <strong>hook: x</strong>)
+puts v[0][<strong>'catch'</strong>]['x-mailer']  # Apple Mail (2.936)
                 </pre>
             </div>
         </div>
