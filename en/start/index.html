@@ -34,7 +34,7 @@ redirect_from:
                     <li class = 'scroll'><a href = '#install'>Install</a></li> 
                     <li class = 'scroll'><a href = '#usage'>Basic Usage</a></li>
                     <li class = 'others'><a href = '/en/docs'>Documents</a></li>
-                    <li class = 'others'><a href = '/ja/reason'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = '/ja/start'><i class = 'fa fa-language'></i></a></li>
                 </ul>
             </div>
         </div>
@@ -53,7 +53,7 @@ redirect_from:
         </div>
         <div class = 'text-center index-table'>
             <div class = 'row'>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-desktop'></i>
                     </div>
@@ -66,7 +66,7 @@ redirect_from:
                     </div>
                     <a href = '#environment' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-cloud-download'></i>
                     </div>
@@ -79,7 +79,7 @@ redirect_from:
                     </div>
                     <a href = '#install' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-keyboard-o'></i>
                     </div>
@@ -91,6 +91,19 @@ redirect_from:
                         </p>
                     </div>
                     <a href = '#usage' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-code'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>How To Parse</h3>
+                        <p class = 'description'>
+                            How to read bounce mail data from Standard-In, to include a delivery success
+                            in the parsed results, and to use callback feature.
+                        </p>
+                    </div>
+                    <a href = '/en/usage' class = 'btn btn-continue'>Read</a>
                 </div>
             </div>
         </div>
@@ -343,6 +356,8 @@ Done installing documentation for sisimai after 6 seconds
                     <img class = 'lhs' src = '/static/images/icon/outline-1.png'>
                     For example, the following code shows that <kbd>make()</kbd> method of 
                     {{ site.html.ss }} provides the feature for getting parsed data from bounced email messages.
+                    Other arguments of <kbd>make()</kbd> method are available at
+                    <a href = '/en/usage'>How To Parse</a> page.
                 </p>
             </div>
         </div>
@@ -426,13 +441,6 @@ use Sisimai;
 print Sisimai-&gt;dump('~/Maildir/cur');
                 </pre>
             </div>
-
-            <div class = 'col-sm-8 col-sm-offset-2'>
-                <h4 class = 'in-desc'>Read from STDIN(Perl)</h4>
-                <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | perl -MSisimai -lE 'print Sisimai->dump(STDIN)'</kbd>
-                </pre>
-            </div>
         </div>
 
         <div class = 'row'>
@@ -444,13 +452,6 @@ print Sisimai-&gt;dump('~/Maildir/cur');
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 puts Sisimai.dump('~/Maildir/cur')
-                </pre>
-            </div>
-
-            <div class = 'col-sm-8 col-sm-offset-2'>
-                <h4 class = 'in-desc'>Read from STDIN(Ruby)</h4>
-                <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | ruby -rsisimai -e 'puts Sisimai.dump(STDIN)'</kbd>
                 </pre>
             </div>
         </div>
@@ -538,6 +539,7 @@ puts Sisimai.dump('~/Maildir/cur')
     "senderdomain": "example.co.jp",
     "rhost": "mx-s.neko.example.jp",
     "lhost": "localhost",
+    "catch": "",
     "addresser": "shironeko@example.co.jp",
     "replycode": "551",
     "messageid": "0000000011111.fff0000000003@mx.example.co.jp",

@@ -29,6 +29,7 @@ redirect_from:
                     <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
                     <li class = 'scroll'><a href = '#a'>A</a></li>
+                    <li class = 'scroll'><a href = '#c'>C</a></li>
                     <li class = 'scroll'><a href = '#d'>D</a></li>
                     <li class = 'scroll'><a href = '#f'>F</a></li>
                     <li class = 'scroll'><a href = '#l'>L</a></li>
@@ -139,7 +140,49 @@ Original-Recipient: rfc822;kijitora@example.org
     </div>
 </section>
 
-<section id = 'd'>
+<section id = 'c' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-asterisk'></i></div>
+                <div class = 'post-it'>C</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>catch (*)</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/cat-2.png'>
+                    "catch" keeps the value returned from a hook method given as the
+                    2nd argument of <kbd>make()</kbd> method of Sisimai.
+                    The value is <kbd>undef</kbd> in Perl, is <kbd>nil</kbd> in Ruby
+                    when a hook method was not specified.
+                </p>
+                <p class = 'description ja'>
+                    Callback, hook method, and <kbd>catch()</kbd> method are implemented
+                    at Sisimai 4.19.0.
+                </p>
+                <pre class = 'prettyprint'>#! /usr/bin/env perl
+my $f = './set-of-emails/maildir/bsd/sendmail-24.eml';
+my $x = sub {
+    my $argv = shift;
+    my $data = { 'x-mailer' => '' };
+
+    if( $argv->{'message'} =~ m/^X-Mailer:\s*(.+)$/m ) {
+        $data->{'x-mailer'} = $1;
+    }
+    return $data;   # <strong>$data is the value of "catch"</strong>
+};
+my $v = Sisimai-&gt;make($f, 'hook' => $x);
+for my $e ( @$v ) {
+    print ref $e->catch;            # HASH
+    print $e->catch->{'x-mailer'};  # Apple Mail
+}
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'd' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -222,7 +265,7 @@ Diagnostic-Code: X-Unix; 255
     </div>
 </section>
 
-<section id = 'f' class = 'parallax'>
+<section id = 'f' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -251,7 +294,7 @@ User-Agent: SMP-FBL
     </div>
 </section>
 
-<section id = 'l'>
+<section id = 'l' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -297,7 +340,7 @@ List-Id: Mailman mailing list management users
     </div>
 </section>
 
-<section id = 'm' class = 'parallax'>
+<section id = 'm' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -322,7 +365,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
     </div>
 </section>
 
-<section id = 'r'>
+<section id = 'r' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -428,7 +471,7 @@ Remote-MTA: DNS; g5.example.net
     </div>
 </section>
 
-<section id = 's' class = 'parallax'>
+<section id = 's' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -535,7 +578,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
     </div>
 </section>
 
-<section id = 't'>
+<section id = 't' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
