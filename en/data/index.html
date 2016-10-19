@@ -148,7 +148,7 @@ Original-Recipient: rfc822;kijitora@example.org
                 <div class = 'post-it'>C</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>catch (*)</h3>
+                <h3 class = 'in-desc'>catch (*) | Beginning with v4.17.0</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/cat-2.png'>
                     "catch" keeps the value returned from a hook method given as the
@@ -157,8 +157,8 @@ Original-Recipient: rfc822;kijitora@example.org
                     when a hook method was not specified.
                 </p>
                 <p class = 'description ja'>
-                    Callback, hook method, and <kbd>catch()</kbd> method are implemented
-                    at Sisimai 4.19.0.
+                    Callback, hook method, and <kbd>catch()</kbd> method are
+                    <strong>implemented at Sisimai 4.19.0.</strong>
                 </p>
                 <pre class = 'prettyprint'>#! /usr/bin/env perl
 my $f = './set-of-emails/maildir/bsd/sendmail-24.eml';
@@ -632,7 +632,7 @@ Remote-MTA: DNS; g5.example.net
                     The token string is created from the sender email address(addresser)
                     and the recipient's email address(recipient) and the machine time of the date
                     in a bounce message as an MD5 hash value.
-                    The token value is generated at token() method of Sisimai::String class.
+                    The token value is generated at <kbd>token()</kbd> method of Sisimai::String class.
                     If you want to get the same token string at the command line, try to run the following command:
                 </p>
                 <pre class = 'prettyprint'>

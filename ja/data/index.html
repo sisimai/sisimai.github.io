@@ -75,8 +75,8 @@ author: azumakuniyuki
                 <h3 class = 'in-desc'>Action (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/urgent-message-3.png'>
-                    action" はバウンスメール内のAction:フィールドの値を保持します。
-                    この値は主に "delayed" や "failed"となります。
+                    "action" はバウンスメール内のAction:フィールドの値を保持します。
+                    この値は主に "delayed" や "failed" となります。
                     <br>
                     <br>
                 </p>
@@ -96,8 +96,10 @@ Action: failed
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-2.png'>
                     "addresser" はバウンスメール内にある元メールの発信者アドレス(From)から作られる
-                    Sisimai::Addressオブジェクトです。
-                    Sisimai::DataオブジェクトをJSON形式にダンプした場合はメールアドレス(文字列)を保持します。
+                    Sisimai::Address オブジェクトです。
+                    Sisimai::Data オブジェクトをJSON形式にダンプした場合はメールアドレス(文字列)を保持します。
+                    <br />
+                    <br />
                 </p>
                 <ul>
                     <li>user() - メールアドレスの"@"の左側</li>
@@ -121,8 +123,8 @@ From: "Kijitora Cat" &lt;kijitora@example.org&gt;
                 <h3 class = 'in-desc'>alias (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/email-1.png'>
-                    "alias"は受信者アドレスのエイリアスです。
-                    バウンスメール内にOriginal-Recipient:フィールドや"expanded from"
+                    "alias" は受信者アドレスのエイリアスです。
+                    バウンスメール内に Original-Recipient: フィールドや "expanded from"
                     に続くメールアドレスが記述されていたらそこから値を取り出します。
                     <br><br>
                 </p>
@@ -146,16 +148,16 @@ Original-Recipient: rfc822;kijitora@example.org
                 <div class = 'post-it'>C</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>catch (*)</h3>
+                <h3 class = 'in-desc'>catch (*) | Beginning with v4.17.0</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/cat-2.png'>
-                    "catch"はSisimaiの<kbd>make()</kbd>メソッドに渡したフックメソッドが
+                    "catch" はSisimaiの<kbd>make()</kbd>メソッドに渡したフックメソッドが
                     返した値を保持します。フックメソッドを渡さなかった場合は、Perlなら
                     <kbd>undef</kbd>、Rubyなら<kbd>nil</kbd>となります。
                 </p>
                 <p class = 'description ja'>
                     コールバック機能とフックメソッドの設定、<kbd>catch()</kbd>
-                    メソッドはSisimai 4.19.0で追加されました。
+                    メソッドは<strong>Sisimai 4.19.0で追加</strong>されました。
                 </p>
                 <pre class = 'prettyprint'>#! /usr/bin/env perl
 my $f = './set-of-emails/maildir/bsd/sendmail-24.eml';
@@ -190,9 +192,9 @@ for my $e ( @$v ) {
                 <h3 class = 'in-desc'>deliverystatus (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
-                    "deliverystatus"はバウンスメール内のStatus:フィールドの値を保持します。
-                    もしもバウンスメールにStatus:フィールドが無かった場合は"5.0.9XX"が入る事があります。
-                    この値の形式は"4.x.x"か"5.x.x"あるいは"2.x.x"のような文字列となります。
+                    "deliverystatus" はバウンスメール内の Status: フィールドの値を保持します。
+                    もしもバウンスメールに Status: フィールドが無かった場合は "5.0.9XX" が入る事があります。
+                    この値の形式は "4.x.x" か "5.x.x" あるいは "2.x.x" のような文字列となります。
                 </p>
                 <pre class = 'prettyprint'>
 Status: 5.0.0 (permanent failure)
@@ -207,14 +209,12 @@ Status: 5.0.0 (permanent failure)
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>destination (String)</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/contact-card-1.png'>
-                    "destination" is the domain part of the recipient address.
-                    This value is the same as the return value from <kbd>host()</kbd> method of "recipient" accessor.
-                </p>
                 <p class = 'description ja'>
-                    "destination"は受信者アドレスのドメインパートを値として保持します。
-                    この値は"recipient"アクセサの<kbd>host()</kbd>メソッドが返す値と同じです。
+                    <img class = 'lhs' src = '/static/images/icon/contact-card-1.png'>
+                    "destination" は受信者アドレスのドメインパートを値として保持します。
+                    この値は "recipient" アクセサの<kbd>host()</kbd>メソッドが返す値と同じです。
+                    <br />
+                    <br />
                 </p>
                 <hr>
             </div>
@@ -228,11 +228,13 @@ Status: 5.0.0 (permanent failure)
                 <h3 class = 'in-desc'>diagnosticcode (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/system-report-3.png'>
-                    "diagnosticcode"はバウンスメール内のDiagnostic-Code:フィールド
+                    "diagnosticcode" はバウンスメール内の Diagnostic-Code: フィールド
                     またはバウンスメールの本文から取り出したエラーメッセージを保持します。
-                    この値と"diagnostictype", "action", "deliverystatus",
-                    "replycode", "smtpcommand"の各値はバウンス理由を決定する為に
-                    Sisimai::Reasonクラスから参照されます。
+                </p>
+                <p class = 'description ja'>
+                    この値と "diagnostictype", "action", "deliverystatus",
+                    "replycode", "smtpcommand" の各値はバウンス理由を決定する為に
+                    Sisimai::Reason クラスから参照されます。
                 </p>
                 <pre class = 'prettyprint'>
 Diagnostic-Code: SMTP; 554 5.4.6 Too many hops
@@ -249,8 +251,11 @@ Diagnostic-Code: SMTP; 554 5.4.6 Too many hops
                 <h3 class = 'in-desc'>diagnostictype (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/system-report-2.png'>
-                    "diagnostictype"はバウンスメール内のDiagnostic-Code:フィールドの先頭部分、
-                    SMTPやX-Unixのような値を保持します。Diagnostic-Code:フィールドが無い場合、この値は空になります。
+                    "diagnostictype" はバウンスメール内の Diagnostic-Code: フィールドの先頭部分、
+                    "SMTP" や "X-Unix" のような値を保持します。
+                    Diagnostic-Code: フィールドが無い場合、この値は空になります。
+                    <br />
+                    <br />
                 </p>
                 <pre class = 'prettyprint'>
 Diagnostic-Code: X-Unix; 255
@@ -271,10 +276,10 @@ Diagnostic-Code: X-Unix; 255
                 <h3 class = 'in-desc'>feedbacktype (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/strike-3.png'>
-                    "feedbacktype"はバウンスメール内のFeedback-Type:フィールドの値で、
-                    "abuse", "fraud", "opt-out"のような値を保持します。
-                    バウンスメールがARFフォーマットではない、または"reason"の値が"feedback"ではない場合、
-                    この値は空になります。
+                    "feedbacktype" はバウンスメール内のFeedback-Type:フィールドの値で、
+                    "abuse", "fraud", "opt-out" のような値を保持します。
+                    バウンスメールがARFフォーマットではない、または "reason" の値が "feedback"
+                    ではない場合、この値は空になります。
                 </p>
                 <pre class = 'prettyprint'>
 Content-Type: message/feedback-report
@@ -298,8 +303,8 @@ User-Agent: SMP-FBL
                 <h3 class = 'in-desc'>lhost (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/server-1.png'>
-                    "lhost"はバウンスメール内のReporting-MTA:フィールドの値または
-                    Receivedヘッダから取り出した送信に使われたMTAのホスト名またはIPアドレスを保持します。
+                    "lhost" はバウンスメール内の Reporting-MTA: フィールドの値または
+                    "Received" ヘッダから取り出した送信に使われたMTAのホスト名またはIPアドレスを保持します。
                     <br><br>
                 </p>
                 <pre class = 'prettyprint'>
@@ -317,7 +322,7 @@ Reporting-MTA: dns; mx4.smtp.example.co.jp
                 <h3 class = 'in-desc'>listid (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/list-1.png'>
-                    "listid"はバウンスメールに含まれる元メッセージからList-Id:
+                    "listid" はバウンスメールに含まれる元メッセージから "List-Id:"
                     ヘッダの値を撮り出したものを保持します。
                     元メッセージが無い形式のバウンスメールの場合、この値は空になります。
                     <br><br>
@@ -341,7 +346,7 @@ List-Id: Mailman mailing list management users
                 <h3 class = 'in-desc'>messageid (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/message-3.png'>
-                    "messageid"はバウンスメールに含まれる元メッセージのMessage-Id:ヘッダ
+                    "messageid" はバウンスメールに含まれる元メッセージの "Message-Id:" ヘッダ
                     の値を保持します。バウンスメールに元メッセージが無い場合、この値は空になります。
                 </p>
                 <pre class = 'prettyprint'>
@@ -364,13 +369,14 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <h3 class = 'in-desc'>reason (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/sms-3.png'>
-                    "reason"は{{ site.html.ss }}が検出したバウンス理由(メールが配信エラーになった理由)
-                    を保持します。値が"undefined"か"onhold"の時は{{ site.html.ss }}がバウンス理由を
+                    "reason" は<strong>{{ site.html.ss }}が検出したバウンス理由</strong>
+                    (メールが配信エラーになった理由)を保持します。
+                    値が "undefined" か "onhold" の時は{{ site.html.ss }}がバウンス理由を
                     特定出来なかった事を意味します。
                 </p>
                 <p class = 'description ja'>
                     {{ site.html.ss }}が検出出来るバウンス理由の一覧は
-                    <a href = '/ja/reason'>Bounce Reason List</a>のページで確認出来ます。
+                    <a href = '/ja/reason'>バウンス理由の一覧</a>のページで確認出来ます。
                 </p>
                 <pre class = 'prettyprint'>
    ----- The following addresses had permanent fatal errors -----
@@ -396,10 +402,10 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <h3 class = 'in-desc'>recipient (Sisimai::Address)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-1.png'>
-                    "recipient"はバウンスメール内にある受信者アドレスから作られる
-                    Sisimai::Addressオブジェクトです。
+                    "recipient" はバウンスメール内にある受信者アドレスから作られる
+                    Sisimai::Address オブジェクトです。
                     このアドレスがまさに配信出来なかったアドレスとなります。
-                    Sisimai::DataオブジェクトをJSON形式にダンプした場合はメールアドレス(文字列)を保持します。
+                    Sisimai::Data オブジェクトをJSON形式にダンプした場合はメールアドレス(文字列)を保持します。
                 </p>
                 <ul>
                     <li>user() - メールアドレスの"@"の左側</li>
@@ -426,9 +432,9 @@ X-Failed-Recipients: kijitora@example.ed.jp
                 <h3 class = 'in-desc'>replycode (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/rules-3.png'>
-                    "replycode"はバウンスメール内のDiagnostic-Code:フィールドや
+                    "replycode" はバウンスメール内の "Diagnostic-Code:" フィールドや
                     バウンスメール本文から取り出したSMTP応答コードを保持します。
-                    値の範囲は4xx〜5xxとなります。
+                    値の範囲は2xx, 4xx〜5xxとなります。
                     <br>
                     <br>
                 </p>
@@ -449,8 +455,8 @@ X-Failed-Recipients: kijitora@example.ed.jp
                 <h3 class = 'in-desc'>rhost (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/server-2.png'>
-                    "rhost"はバウンスメール内にあるRemote-MTA:フィールドの値または
-                    Receivedヘッダから取り出した相手側MTAのホスト名かIPアドレスを保持します。
+                    "rhost" はバウンスメール内にある "Remote-MTA:" フィールドの値または
+                    "Received:" ヘッダから取り出した相手側MTAのホスト名かIPアドレスを保持します。
                     <br>
                     <br>
                 </p>
@@ -473,8 +479,8 @@ Remote-MTA: DNS; g5.example.net
                 <h3 class = 'in-desc'>senderdomain (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/contact-card-2.png'>
-                    "senderdomain"は元メールの発信者アドレスのドメイン部分を保持します。
-                    この値は "addresser"アクセサの<kbd>host()</kbd>メソッドが返す値と同じです。
+                    "senderdomain" は元メールの発信者アドレスのドメイン部分を保持します。
+                    この値は "addresser" アクセサの<kbd>host()</kbd>メソッドが返す値と同じです。
                     <br>
                     <br>
                 </p>
@@ -490,8 +496,9 @@ Remote-MTA: DNS; g5.example.net
                 <h3 class = 'in-desc'>smtpagent (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/puzzle-1.png'>
-                    "smtpagent"はバウンス理由を特定したMTAモジュール名を保持します。
-                    例えば値がSendmailであればSisimai::MTA::Sendmailモジュールがエラーとなった受信者アドレス取得や
+                    "smtpagent" はバウンス理由を特定したMTAモジュール名を保持します。
+                    例えば値が "Sendmail" であれば Sisimai::MTA::Sendmail 
+                    モジュールがエラーとなった受信者アドレス取得や
                     バウンス理由特定を行った事を意味します。
                 </p>
                 <hr>
@@ -506,7 +513,7 @@ Remote-MTA: DNS; g5.example.net
                 <h3 class = 'in-desc'>smtpcommand (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
-                    "smtpcommand"はバウンスメールのDiagnostic-Code:フィールドまたは
+                    "smtpcommand" はバウンスメールの "Diagnostic-Code:" フィールドまたは
                     バウンスメール本文から取り出した、SMTPセッションで最後に発行したと
                     思われるSMTPコマンドを保持します。
                     バウンスメール内にSMTPコマンドの記録が無い場合、この値は空になります。
@@ -534,9 +541,9 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>softbounce (Integer)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
-                    "softbounce"の値はバウンス理由がソフトバウンス(再試行で送信可能)か
+                    "softbounce" の値はバウンス理由がソフトバウンス(再試行で送信可能)か
                     ハードバウンスであるかを示します。
-                    この項目は{{ site.html.ss }} 4.1.28で追加されました。
+                    この項目は<strong>{{ site.html.ss }} 4.1.28で追加</strong>されました。
                     とりうる値は上記の通り、1がソフトバウンス、0がハードバウンス、
                     -1がどちらか判断出来なかった、となります。
                 </p>
@@ -557,8 +564,10 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>subject (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/topic-1.png'>
-                    "subject"は元メールのSubject:ヘッダの値を保持します。
+                    "subject" は元メールの "Subject:" ヘッダの値を保持します。
                     バウンスメールに元メッセージが含まれていない場合、この値は空になります。
+                </p>
+                <p class = 'description ja'>
                     もしも元メッセージのSubjectがMIMEエンコードされたマルチバイト文字を含むもの
                     (日本語など非ASCII文字を使用する言語)である場合、{{ site.html.ss }}はUTF-8として扱います。
                 </p>
@@ -578,9 +587,10 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>timestamp (Sisimai::Time)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/calendar-9.png'>
-                    "timestamp"はバウンスした日時を保持するSisima::Time 
-                    (PerlではTime::Pieceの子クラス, RubyではDateTimeの子クラス)オブジェクトです。
-                    Sisimai::DataオブジェクトをJSON形式にダンプした場合、
+                    "timestamp" はバウンスした日時を保持する Sisima::Time 
+                    <em>(PerlではTime::Pieceの子クラス, RubyではDateTimeの子クラス)</em>
+                    オブジェクトです。
+                    Sisimai::Data オブジェクトをJSON形式にダンプした場合、
                     32ビット整数のマシンタイムに変換されます。
                 </p>
                 <pre class = 'prettyprint'>
@@ -598,10 +608,10 @@ Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
                 <h3 class = 'in-desc'>timezoneoffset (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/timezone-1.png'>
-                    "timezoneoffset"はバウンスした日時のタイムゾーンを"+0900"や"-0200"
+                    "timezoneoffset" はバウンスした日時のタイムゾーンを "+0900" や "-0200"
                     のような文字列で保持します。
                     {{ site.html.ss }}がバウンスメール内のタイムスタンプからタイムゾーンの特定に失敗した場合、
-                    この値は"+0000"となります。
+                    この値は "+0000" となります。
                 </p>
                 <pre class = 'prettyprint'>
 Remote-MTA: DNS; g5.example.net
@@ -618,8 +628,9 @@ Remote-MTA: DNS; g5.example.net
                 <h3 class = 'in-desc'>token (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/hashtag-1.png'>
-                    "token"は元メールの発信者アドレス、受信者アドレス、時刻を元に生成される
-                    バウンス記録の一意な識別子です。値はMD5のハッシュ値でSisimai::Stringクラスのtoken()
+                    "token" は元メールの発信者アドレス、受信者アドレス、時刻を元に生成される
+                    バウンス記録の一意な識別子です。
+                    値はMD5のハッシュ値で Sisimai::String クラスの<kbd>token()</kbd>
                     メソッドで生成されます。
                     もしもtokenの値をコマンドラインで得るなら、上記のようなコマンドを実行してください。
                 </p>
