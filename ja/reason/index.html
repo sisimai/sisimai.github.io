@@ -151,6 +151,7 @@ Your message to the following recipients cannot be delivered:
                     {{ site.html.ss }}の内部処理では、バウンスメールのStatus:フィールドの値が"5.1.2"
                     の時もこの理由に決定されます。
                 </p>
+                {% include error-messages/hostunknown.html %}
                 <hr>
             </div>
         </div>
@@ -178,6 +179,7 @@ RCPT TO command)
                     またはSMTPセッションにおいて、 RCPT TO:で接続が拒否されたもの、ほか
                     Diagnostic-Code:ヘッダから 宛先不明であると判断した場合に、この理由に決定されます。
                 </p>
+                {% include error-messages/userunknown.html %}
                 <hr>
             </div>
         </div>
@@ -206,6 +208,7 @@ RCPT TO command)
                     "5.2.0","5.2.1"のもの、SMTPセッションにおいて
                     DATAコマンド以降の内容によって拒否された場合も、この理由に決定されます。
                 </p>
+                {% include error-messages/filtered.html %}
                 <hr>
             </div>
         </div>
@@ -227,6 +230,7 @@ RCPT TO command)
 &lt;kijitora@example.go.jp&gt;: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
 no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 </pre>
+                {% include error-messages/hasmoved.html %}
                 <hr>
             </div>
         </div>
@@ -250,6 +254,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
 Connected to 192.0.2.225 but sender was rejected.
 Remote host said: 550 5.7.1 &lt;root@nijo.example.jp&gt;... Access denied
                 </pre>
+                {% include error-messages/rejected.html %}
                 <hr>
             </div>
         </div>
@@ -278,6 +283,7 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
                     送信したメールが発信者アドレス(Envelope From)によって拒否された場合に
                     返ってくるエラーです。
                 </p>
+                {% include error-messages/mailboxfull.html %}
                 <hr>
             </div>
         </div>
@@ -291,6 +297,8 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/remove-user-3.png'>
                     au by KDDI宛(***@ezweb.ne.jp)において、ユーザが料金未払いである場合にこのエラーが検出されます。
+                    また、Yahoo!宛のメールでも何らかの理由によってアカウントが一時停止されている場合もこのエラーと
+                    なります。
                     <br>
                     <br>
                 </p>
@@ -301,6 +309,7 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
 The user(s) account is disabled.
 &lt;this-local-part-does-not-exist-on-the-site@ezweb.ne.jp&gt;
                 </pre>
+                {% include error-messages/suspend.html %}
                 <hr>
             </div>
         </div>
@@ -323,6 +332,7 @@ I am out of the office until 05/01/2010.
 
 I am of the office returning 5th Jan
                 </pre>
+                {% include error-messages/vacation.html %}
             </div>
         </div>
     </div>
@@ -368,6 +378,7 @@ I am of the office returning 5th Jan
 &lt;&lt;&lt; 550 5.6.9 improper use of 8-bit data in message header
 554 5.0.0 Service unavailable
                 </pre>
+                {% include error-messages/contenterror.html %}
                 <hr>
             </div>
         </div>
@@ -383,8 +394,8 @@ I am of the office returning 5th Jan
                     宛先のメール量がサーバで設定された限界値を超えた場合に返ってくるエラーです。
                     具体的には送信したメールのサイズが既定値よりも大きなケースで、後述の"MesgTooBig"とほぼ同じです。
                     <a href = 'http://www.sendmail.com/sm/open_source/download/' target="new">Sendmail</a>のdeliver.c
-                    では下記のように配送先によってこの理由となるか、あるいはMesgTooBig
-                    となるかという実装になっています。
+                    では下記のように配送先によってこの理由となるか、あるいはMesgTooBigとなるか、
+                    という実装になっています。
                 </p>
                 <pre class = 'prettyprint'>
 1586: if (bitnset(M_LOCALMAILER, to-&gt;q_mailer-&gt;m_flags))
@@ -402,6 +413,7 @@ I am of the office returning 5th Jan
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
                     "4.2.3"か"5.2.3"のものがこの理由に決定されます。
                 </p>
+                {% include error-messages/exceedlimit.html %}
                 <hr>
             </div>
         </div>
@@ -446,6 +458,7 @@ I am of the office returning 5th Jan
     }
 ]
                 </pre>
+                {% include error-messages/feedback.html %}
                 <hr>
             </div>
         </div>
@@ -470,6 +483,7 @@ Status: 553 Exceeded maximum inbound message size
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
                     "5.3.4"のものがこの理由に決定されます。
                 </p>
+                {% include error-messages/mesgtoobig.html %}
                 <hr>
             </div>
         </div>
@@ -495,6 +509,7 @@ Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on yo
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
                     "5.7.x"のものがこの理由に決定されます。
                 </p>
+                {% include error-messages/securityerror.html %}
                 <hr>
             </div>
         </div>
@@ -520,6 +535,7 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                     このバウンス理由は{{ site.html.ss }} 4.1.25で実装されたもので、
                     {{ site.html.bh }}では実装されていないものです。
                 </p>
+                {% include error-messages/spamdetected.html %}
             </div>
         </div>
     </div>
@@ -561,6 +577,7 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
 Connected to 192.0.2.112 but my name was rejected. 
 Remote host said: 501 5.0.0 Invalid domain name
                 </pre>
+                {% include error-messages/blocked.html %}
                 <hr>
             </div>
         </div>
@@ -583,6 +600,7 @@ kijitora@example.org
 all hosts have been failing for a long time and were last
 tried after this message arrived
                 </pre>
+                {% include error-messages/expired.html %}
                 <hr>
             </div>
         </div>
@@ -604,6 +622,7 @@ tried after this message arrived
 X-Actual-Recipient: X-Unix; |/home/kijitora/mail/catch.php
 Diagnostic-Code: X-Unix; 255
                 </pre>
+                {% include error-messages/mailererror.html %}
                 <hr>
             </div>
         </div>
@@ -628,6 +647,7 @@ list of recipients:
 
 kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 </pre>
+                {% include error-messages/networkerror.html %}
                 <hr>
             </div>
         </div>
@@ -649,6 +669,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
 &lt;&lt;&lt; 554 5.7.1 &lt;kijitora@example.org&gt;: Relay access denied
 554 5.0.0 Service unavailable
                 </pre>
+                {% include error-messages/norelaying.html %}
                 <hr>
             </div>
         </div>
@@ -668,6 +689,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
                     "5.3.2"のものが、あるいはSMTP応答コードの値が"556"のものが、この理由に決定されます。
                 </p>
+                {% include error-messages/notaccept.html %}
                 <hr>
             </div>
         </div>
@@ -690,6 +712,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
 Unable to contact LDAP server. (#4.4.3)I'm not going to try again; this
 message has been in the queue too long.
                 </pre>
+                {% include error-messages/systemerror.html %}
                 <hr>
             </div>
         </div>
@@ -709,6 +732,7 @@ message has been in the queue too long.
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
                     "5.3.1"か"4.3.1"のものがこの理由に決定されます。
                 </p>
+                {% include error-messages/systemfull.html %}
                 <hr>
             </div>
         </div>
@@ -733,6 +757,7 @@ message has been in the queue too long.
                     このバウンス理由は{{ site.html.ss }} 4.1.26で実装されたもので、{{ site.html.bh }}では
                     実装されていないものです。
                 </p>
+                {% include error-messages/toomanyconn.html %}
             </div>
         </div>
     </div>
@@ -821,6 +846,7 @@ d = Sisimai::Data.make(data: q, delivered: true)
                 <p class = 'description ja'>
                     <strong>このエラー理由は{{ site.html.ss }} v4.17.0で実装されました。</strong>
                 </p>
+                {% include error-messages/syntaxerror.html %}
                 <hr>
             </div>
         </div>

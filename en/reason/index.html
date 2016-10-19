@@ -153,6 +153,7 @@ Your message to the following recipients cannot be delivered:
 &lt;kijitora@example.cat&gt;:
 &lt;&lt;&lt; No such domain.
                 </pre>
+                {% include error-messages/hostunknown.html %}
                 <hr>
             </div>
         </div>
@@ -178,6 +179,7 @@ Your message to the following recipients cannot be delivered:
 550 5.1.1 Address rejected kijitora@example.co.jp (in reply to
 RCPT TO command)
                 </pre>
+                {% include error-messages/userunknown.html %}
                 <hr>
             </div>
         </div>
@@ -203,6 +205,7 @@ RCPT TO command)
 &lt;&lt;&lt; 550 Unknown user kijitora@ntt.example.ne.jp
 554 5.0.0 Service unavailable
                 </pre>
+                {% include error-messages/filtered.html %}
                 <hr>
             </div>
         </div>
@@ -223,6 +226,7 @@ RCPT TO command)
 &lt;kijitora@example.go.jp&gt;: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
 no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 </pre>
+                {% include error-messages/hasmoved.html %}
                 <hr>
             </div>
         </div>
@@ -246,6 +250,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
 Connected to 192.0.2.225 but sender was rejected.
 Remote host said: 550 5.7.1 &lt;root@nijo.example.jp&gt;... Access denied
                 </pre>
+                {% include error-messages/rejected.html %}
                 <hr>
             </div>
         </div>
@@ -267,6 +272,7 @@ Action: failed
 Status: 5.2.2
 Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</code></pre>
                 </pre>
+                {% include error-messages/mailboxfull.html %}
                 <hr>
             </div>
         </div>
@@ -290,6 +296,7 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
 The user(s) account is disabled.
 &lt;this-local-part-does-not-exist-on-the-site@ezweb.ne.jp&gt;
                 </pre>
+                {% include error-messages/suspend.html %}
                 <hr>
             </div>
         </div>
@@ -312,6 +319,7 @@ I am out of the office until 05/01/2010.
 
 I am of the office returning 5th Jan
                 </pre>
+                {% include error-messages/vacation.html %}
             </div>
         </div>
     </div>
@@ -358,6 +366,7 @@ I am of the office returning 5th Jan
 &lt;&lt;&lt; 550 5.6.9 improper use of 8-bit data in message header
 554 5.0.0 Service unavailable
                 </pre>
+                {% include error-messages/contenterror.html %}
                 <hr>
             </div>
         </div>
@@ -389,6 +398,7 @@ I am of the office returning 5th Jan
 &lt;&lt;&lt; 552 5.2.3 Message size exceeds fixed maximum message size (10485760)
 554 5.0.0 Service unavailable
                 </pre>
+                {% include error-messages/exceedlimit.html %}
                 <hr>
             </div>
         </div>
@@ -405,7 +415,6 @@ I am of the office returning 5th Jan
                     from your mailbox provider. 
                     When <span class = 'ss'>Sismai</span> has set "feedback" to the reason,
                     the value of "feedbacktype" is also set like the following parsed data.
-
                 </p>
                 <pre class = 'prettyprint'>
 [
@@ -435,6 +444,7 @@ I am of the office returning 5th Jan
     }
 ]
                 </pre>
+                {% include error-messages/feedback.html %}
                 <hr>
             </div>
         </div>
@@ -456,6 +466,7 @@ I am of the office returning 5th Jan
 Action: failure
 Status: 553 Exceeded maximum inbound message size
                 </pre>
+                {% include error-messages/mesgtoobig.html %}
                 <hr>
             </div>
         </div>
@@ -479,6 +490,7 @@ Status: 5.7.0
 Remote-MTA: DNS; gmail-smtp-in.l.google.com
 Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on your message. Please
                 </pre>
+                {% include error-messages/securityerror.html %}
                 <hr>
             </div>
         </div>
@@ -501,6 +513,7 @@ Status: 5.7.1
 Diagnostic-Code: smtp; 550 5.7.1 Message content rejected, UBE, id=00000-00-000
 Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                 </pre>
+                {% include error-messages/spamdetected.html %}
             </div>
         </div>
     </div>
@@ -542,6 +555,7 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
 Connected to 192.0.2.112 but my name was rejected. 
 Remote host said: 501 5.0.0 Invalid domain name
                 </pre>
+                {% include error-messages/blocked.html %}
                 <hr>
             </div>
         </div>
@@ -565,6 +579,7 @@ kijitora@example.org
 all hosts have been failing for a long time and were last
 tried after this message arrived
                 </pre>
+                {% include error-messages/expired.html %}
                 <hr>
             </div>
         </div>
@@ -586,6 +601,7 @@ tried after this message arrived
 X-Actual-Recipient: X-Unix; |/home/kijitora/mail/catch.php
 Diagnostic-Code: X-Unix; 255
                 </pre>
+                {% include error-messages/mailererror.html %}
                 <hr>
             </div>
         </div>
@@ -609,6 +625,7 @@ list of recipients:
 
 kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 </pre>
+                {% include error-messages/networkerror.html %}
                 <hr>
             </div>
         </div>
@@ -633,6 +650,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
 &lt;&lt;&lt; 554 5.7.1 &lt;kijitora@example.org&gt;: Relay access denied
 554 5.0.0 Service unavailable
                 </pre>
+                {% include error-messages/norelaying.html %}
                 <hr>
             </div>
         </div>
@@ -651,6 +669,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     of email bounce if the value of Status: field in a bounce email is 
                     "5.3.2" or the value of SMTP reply code is "556".
                 </p>
+                {% include error-messages/notaccept.html %}
                 <hr>
             </div>
         </div>
@@ -673,6 +692,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
 Unable to contact LDAP server. (#4.4.3)I'm not going to try again; this
 message has been in the queue too long.
                 </pre>
+                {% include error-messages/systemerror.html %}
                 <hr>
             </div>
         </div>
@@ -689,6 +709,7 @@ message has been in the queue too long.
                     {{ site.html.ss }} will set "systemfull" to the reason of email bounce
                     if the value of Status: field in a bounce email is "4.3.1" or "5.3.1".
                 </p>
+                {% include error-messages/systemfull.html %}
                 <hr>
             </div>
         </div>
@@ -710,6 +731,7 @@ message has been in the queue too long.
 &lt;kijitora@example.ne.jp&gt;: host mx02.example.ne.jp[192.0.1.20] said:
 452 4.3.2 Connection rate limit exceeded. (in reply to MAIL FROM command)</code></pre>
                 </pre>
+                {% include error-messages/toomanyconn.html %}
             </div>
         </div>
     </div>
@@ -794,8 +816,9 @@ d = Sisimai::Data.make(data: q, delivered: true)
                     This is the error that a destination mail server could not recognize SMTP command
                     which is sent from a sender's MTA.
                     <br>
-                    <strong>This reason will be added at {{ site.html.ss }} v4.17.0.</strong>
+                    <strong>This reason has been added at {{ site.html.ss }} v4.17.0.</strong>
                 </p>
+                {% include error-messages/syntaxerror.html %}
                 <hr>
             </div>
         </div>
