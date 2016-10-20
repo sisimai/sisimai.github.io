@@ -1,109 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-<url>
-  <loc>http://libsisimai.org/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-</url>
-<url>
-  <loc>http://libsisimai.org/en/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/ja/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/en/start/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/start/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/start/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/en/docs/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/docs/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/docs/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/en/reason/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/reason/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/reason/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/en/data/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/data/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/data/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/en/engine/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/engine/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/engine/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/ja/start/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/start/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/start/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/ja/docs/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/docs/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/docs/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/ja/reason/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/reason/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/reason/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/ja/data/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/data/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/data/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/ja/engine/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/engine/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/engine/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/en/usage/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/usage/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/usage/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/ja/usage/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/usage/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/usage/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/en/diff/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/diff/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/diff/" hreflang="ja" />
-</url>
-<url>
-  <loc>http://libsisimai.org/ja/diff/</loc>
-  <lastmod>2016-10-20T01:33:50+00:00</lastmod>
-  <link rel="alternate" href="http://libsisimai.org/en/diff/" hreflang="en" />
-  <link rel="alternate" href="http://libsisimai.org/ja/diff/" hreflang="ja" />
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>http://libsisimai.org/</loc>
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/en/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/ja/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/en/start/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/start/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/start/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.66</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/en/docs/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/docs/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/docs/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/en/reason/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/reason/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/reason/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/en/data/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/data/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/data/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/en/engine/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/engine/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/engine/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.53</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/en/diff/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/diff/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/diff/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.55</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/en/usage/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/usage/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/usage/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/ja/start/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/start/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/start/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.66</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/ja/docs/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/docs/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/docs/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.50</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/ja/reason/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/reason/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/reason/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/ja/data/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/data/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/data/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/ja/engine/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/engine/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/engine/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.53</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/ja/diff/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/diff/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/diff/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.55</priority>
+    </url>
+    <url>
+        <loc>http://libsisimai.org/ja/usage/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/usage/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/usage/" />
+        <lastmod>2016-10-20T03:50:28+00:00</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.64</priority>
+    </url>
 </urlset>
+
