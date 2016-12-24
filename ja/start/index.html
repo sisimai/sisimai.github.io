@@ -400,10 +400,7 @@ if( defined $v ) {
 require 'sisimai'
 v = Sisimai.make('/path/to/mbox') # or Path to Maildir
 
-if v.void
-  # There is no bounce message in the mailbox
-  # or Sisimai could not parse
-else
+if v.is_a? Array
   v.each do |e|
     puts e.addresser.address    # shironeko@example.org # From
     puts e.recipient.address    # kijitora@example.jp   # To
@@ -412,6 +409,9 @@ else
     puts e.replycode            # 550
     puts e.reason               # userunknown
   end
+else
+  # There is no bounce message in the mailbox
+  # or Sisimai could not parse
 end
                 </pre>
             </div>
