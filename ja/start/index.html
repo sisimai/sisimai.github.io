@@ -245,7 +245,7 @@ author: azumakuniyuki
 % <kbd>cd ./p5-Sisimai</kbd>
 % <kbd>sudo make install-from-local</kbd>
 --&gt; Working on .
-Configuring Sisimai-4.14.2 ... OK
+Configuring Sisimai-4.20.0 ... OK
 1 distribution installed
                 </pre>
             </div>
@@ -268,8 +268,8 @@ Configuring Sisimai-4.14.2 ... OK
 % <kbd>sudo make depend install-from-local</kbd>
 gem install bundle rake rspec coveralls
 ...
-sisimai 4.14.2 built to pkg/sisimai-4.14.2.gem.
-sisimai (4.14.2) installed.
+sisimai 4.20.0 built to pkg/sisimai-4.20.0.gem.
+sisimai (4.20.0) installed.
                 </pre>
             </div>
         </div>
@@ -287,6 +287,8 @@ sisimai (4.14.2) installed.
                     からダウンロードが可能です。<kbd>cpan</kbd>コマンドでもインストール出来ますが、
                     <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
                     コマンドを使うとPerlモジュールのインストールが非常に楽です。
+                    <br />
+                    <br />
                 </p>
             </div>
         </div>
@@ -296,7 +298,7 @@ sisimai (4.14.2) installed.
                 <pre class = 'prettyprint'>
 % <kbd>sudo cpanm Sisimai</kbd>
 --&gt; Working on Sisimai
-Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.14.1.tar.gz ... OK
+Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.20.0.tar.gz ... OK
 ...
 1 distribution installed
 % <kbd>perldoc -l Sisimai</kbd>
@@ -325,10 +327,10 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.14.1.tar.gz ... OK
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <pre class = 'prettyprint'>
 % <kbd>sudo gem install sisimai</kbd>
-Fetching: sisimai-4.14.2.gem (100%)
-Successfully installed sisimai-4.14.2
-Parsing documentation for sisimai-4.14.2
-Installing ri documentation for sisimai-4.14.2
+Fetching: sisimai-4.20.0.gem (100%)
+Successfully installed sisimai-4.20.0
+Parsing documentation for sisimai-4.20.0
+Installing ri documentation for sisimai-4.20.0
 Done installing documentation for sisimai after 6 seconds
 1 gem installed
                 </pre>
@@ -452,7 +454,7 @@ print Sisimai-&gt;dump('~/Maildir/cur');
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Ruby版{{ site.html.ss }}</h4>
-                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 puts Sisimai.dump('~/Maildir/cur')
                 </pre>
