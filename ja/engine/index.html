@@ -373,6 +373,10 @@ author: azumakuniyuki
                         {{ site.html.bh }}にあるGmail用モジュールでは解析出来なくなっています。
                     </strong>
                 </p>
+                <p class = 'description ja'>
+                    Sisimai 4.20.0からAmazon SESとSendGridで得られるバウンスオブジェクト(JSON)
+                    も解析できるモジュールが追加されました。
+                </p>
             </div>
         </div>
         <div class = 'text-center'>
@@ -575,6 +579,58 @@ author: azumakuniyuki
                 </div>
             </div>
         </div>
+
+        <div class = 'text-center'>
+            <div class = 'row'>
+                <div class = 'col-sm-8 col-sm-offset-2'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-condensed'>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        モジュール名<br>
+                                        Sisimai::CED::
+                                    </th>
+                                    <th>
+                                        bounceHammer
+                                        <br>に含まれるか否か
+                                    </th>
+                                    <th>
+                                        bounceHammer
+                                        <br>での解析精度
+                                    </th>
+                                    <th>補足</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = 'ltext'>US::AmazonSES</td>
+                                    <td>含まない</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/notification-contents.html'
+                                            target = 'new'>
+                                            Amazon SES への Amazon SNS 通知のコンテンツ
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>US::SendGrid</td>
+                                    <td>含まない</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://sendgrid.kke.co.jp/docs/API_Reference/Web_API/bounces.html' target = 'new'>
+                                            SendGrid(バウンスオブジェクト)
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
 
