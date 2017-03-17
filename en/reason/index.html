@@ -29,6 +29,7 @@ redirect_from:
                 <ul class = 'nav navbar-nav navbar-right'>
                     <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#table'>TABLE</a></li>
                     <li class = 'scroll'><a href = '#address'>Address</a></li>
                     <li class = 'scroll'><a href = '#content'>Content</a></li> 
                     <li class = 'scroll'><a href = '#server'>Server</a></li> 
@@ -117,7 +118,216 @@ redirect_from:
     </div>
 </section><!-- /#index -->
 
-<section id = 'address' class = 'parallax'>
+<section id = 'table' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-table'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Table of Bounce Reasons</h2>
+                <p class = 'description ja'>
+                    Sisimai can detect <strong>{{ site.sisimai.spec.reasons }} bounce reasons</strong> and
+                    set the reason into the value of "reason" in the parsed results.
+                    <strong>The value of "reason" is written in lower case like "userunknown", "expired".</strong>
+                </p>
+                <p class = 'description ja'>
+                    <kbd>reason()</kbd> method of <kbd>Sisimai</kbd> class is useful to get
+                    all the bounce reasons Sisimai can detect.
+                </p>
+            </div>
+        </div>
+        <div class = 'text-center'>
+            <div class = 'row'>
+                <div class = 'col-sm-8 col-sm-offset-2'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-condensed'>
+                            <thead>
+                                <tr>
+                                    <th class = 'ctext'></th>
+                                    <th class = 'ltext'>Reason Name</th>
+                                    <th class = 'ctext'>Hard Bounce</th>
+                                    <th class = 'ctext'>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-href = '#hostunknown'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'By Address'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#hostunknown'>Host Unknown</a></strong></td>
+                                    <td><strong>Yes</strong></td>
+                                    <td class = 'ltext'>Destination host name does not exist</td>
+                                </tr>
+                                <tr data-href = '#userunknown'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'By Address'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#userunknown'>User Unknown</a></strong></td>
+                                    <td><strong>Yes</strong></td>
+                                    <td class = 'ltext'>Recipient's address does not exist</td>
+                                </tr>
+                                <tr data-href = '#filtered'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'By Address'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#filtered'>Filtered</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Rejected after DATA command</td>
+                                </tr>
+                                <tr data-href = '#hasmoved'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'By Address'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#hasmoved'>Has Moved</a></strong></td>
+                                    <td><strong>Yes</strong></td>
+                                    <td class = 'ltext'>Destination mail addrees has moved</td>
+                                </tr>
+                                <tr data-href = '#rejected'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'By Address'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#rejected'>Rejected</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Rejected due to envelope from address</td>
+                                </tr>
+                                <tr data-href = '#mailboxfull'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'By Address'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#mailboxfull'>Mailbox Full</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Recipient's mailbox is full</td>
+                                </tr>
+                                <tr data-href = '#suspend'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'By Address'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#suspend'>Suspend</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Recipient's account is suspended</td>
+                                </tr>
+                                <tr data-href = '#vacation'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'By Address'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#vacation'>Vacation</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Auto replied message (recipient is away)</td>
+                                </tr>
+
+                                <tr data-href = '#contenterror'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'By Content'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#contenterror'>Content Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Email body or header is invalid format</td>
+                                </tr>
+                                <tr data-href = '#exceedlimit'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'By Content'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#exceedlimit'>Exceed Limit</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Message size exceeded the limit(5.2.3)</td>
+                                </tr>
+                                <tr data-href = '#feedback'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'By Content'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#feedback'>Feedback</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Bounced for a complaint of the message(FBL)</td>
+                                </tr>
+                                <tr data-href = '#mesgtoobig'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'By Content'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#mesgtoobig'>Mesg Too Big</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Message size is too big(5.3.4)</td>
+                                </tr>
+                                <tr data-href = '#securityerror'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'By Content'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#securityerror'>Security Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Virus detected or authentication error</td>
+                                </tr>
+                                <tr data-href = '#spamdetected'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'By Content'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#spamdetected'>Spam Detected</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Detected a message as spam</td>
+                                </tr>
+
+                                <tr data-href = '#blocked'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#blocked'>Blocked</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Blocked due to client IP address or hostname</td>
+                                </tr>
+                                <tr data-href = '#expired'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#expired'>Expired</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Delivery time expired</td>
+                                </tr>
+                                <tr data-href = '#mailererror'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#mailererror'>Mailer Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Mailer program error on remote host</td>
+                                </tr>
+                                <tr data-href = '#networkerror'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#networkerror'>Network Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Network error: DNS or routing</td>
+                                </tr>
+                                <tr data-href = '#norelaying'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#norelaying'>No Relaying</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Relay access denied</td>
+                                </tr>
+                                <tr data-href = '#notaccept'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#notaccept'>Not Accept</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Destinaion does not accept any message</td>
+                                </tr>
+                                <tr data-href = '#systemerror'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#systemerror'>System Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Some error on the destination host</td>
+                                </tr>
+                                <tr data-href = '#systemfull'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#systemfull'>System Full</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Disk full on the destination host</td>
+                                </tr>
+                                <tr data-href = '#toomanyconn'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#toomanyconn'>Too Many Conn</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Connection rate limit exceeded</td>
+                                </tr>
+
+                                <tr data-href = '#delivered'>
+                                    <td class = 'ltext'><i class = 'fa fa-question-circle' title = 'Others'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#delivered'>Delivered</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Successfully delivered</td>
+                                </tr>
+                                <tr data-href = '#syntaxerror'>
+                                    <td class = 'ltext'><i class = 'fa fa-question-circle' title = 'Others'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#syntaxerror'>Syntax Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>syntax error in SMTP</td>
+                                </tr>
+                                <tr data-href = '#onhold'>
+                                    <td class = 'ltext'><i class = 'fa fa-question-circle' title = 'Others'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#onhold'>On Hold</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Deciding the bounce reason is on hold</td>
+                                </tr>
+                                <tr data-href = '#undefined'>
+                                    <td class = 'ltext'><i class = 'fa fa-question-circle' title = 'Others'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#undefined'>Undefined</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Could not decide an error reason</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'address' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -291,8 +501,8 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
                     <br>
                 </p>
                 <pre class = 'prettyprint'>
-送信先メールアドレスが見つかりませんでした。
-メールアドレスをご確認の上、再送信してください。
+送信先By Addressが見つかりませんでした。
+By Addressをご確認の上、再送信してください。
 
 The user(s) account is disabled.
 &lt;this-local-part-does-not-exist-on-the-site@ezweb.ne.jp&gt;
@@ -326,7 +536,7 @@ I am of the office returning 5th Jan
     </div>
 </section> <!-- /#address -->
 
-<section id = 'content'>
+<section id = 'content' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -520,7 +730,7 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
     </div>
 </section>
 
-<section id = 'server' class = 'parallax'>
+<section id = 'server' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -738,7 +948,7 @@ message has been in the queue too long.
     </div>
 </section>
 
-<section id = 'others'>
+<section id = 'others' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
