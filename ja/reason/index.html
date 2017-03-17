@@ -27,9 +27,10 @@ author: azumakuniyuki
                 <ul class = 'nav navbar-nav navbar-right'>
                     <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#table'>一覧表</a></li>
                     <li class = 'scroll'><a href = '#address'>アドレスで</a></li>
                     <li class = 'scroll'><a href = '#content'>内容で</a></li> 
-                    <li class = 'scroll'><a href = '#server'>ホスト名等で</a></li> 
+                    <li class = 'scroll'><a href = '#server'>発信元・宛先ホストで</a></li> 
                     <li class = 'scroll'><a href = '#others'>その他</a></li> 
                     <li class = 'others'><a href = '/ja/docs'>ドキュメント</a></li>
                     <li class = 'others'><a href = '/en/reason'><i class = 'fa fa-language'></i></a></li>
@@ -50,8 +51,7 @@ author: azumakuniyuki
                         {{ site.html.ss }}はバウンスメールを解析する事によって、
                         以下の<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>を検出します。
                         検出したバウンス理由はSisimai::Dataオブジェクトの"reason"アクセサから得る事が出来ます。
-                        "reason"の値は"userunknown"や"expired"のように、
-                        全て小文字で表記されます。
+                        <strong>"reason"の値は"userunknown"や"expired"のように、全て小文字で表記されます。</strong>
                     </p>
                 </div>
             </div>
@@ -89,7 +89,7 @@ author: azumakuniyuki
                         <i class = 'fa fa-server'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>ホスト名等で</h3>
+                        <h3>発信元・宛先ホストで</h3>
                         <p class = 'description ja'>
                             送信したメールが送信側サーバまたは受信者側サーバの
                             状態に起因して差し戻されたバウンス理由の一覧です。
@@ -115,7 +115,216 @@ author: azumakuniyuki
     </div>
 </section><!-- /#index -->
 
-<section id = 'address' class = 'parallax'>
+<section id = 'table' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-table'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>バウンス理由の一覧表</h2>
+                <p class = 'description ja'>
+                    Sisimaiは以下の<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>を検出し、
+                    解析済みデータの"reason"にバウンス理由を入れます。
+                    <strong>"reason"の値は"userunknown"や"expired"のように、全て小文字で表記されます。</strong>
+                </p>
+                <p class = 'description ja'>
+                    検出可能なバウンス理由全てを得るには、<kbd>Sisimai</kbd>クラスの<kbd>reason()</kbd>
+                    メソッドの戻り値を参照してください。
+                </p>
+            </div>
+        </div>
+        <div class = 'text-center'>
+            <div class = 'row'>
+                <div class = 'col-sm-8 col-sm-offset-2'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-condensed'>
+                            <thead>
+                                <tr>
+                                    <th class = 'ctext'></th>
+                                    <th class = 'ltext'>バウンス理由名</th>
+                                    <th class = 'ctext'>ハードバウンス</th>
+                                    <th class = 'ctext'>説明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-href = '#hostunknown'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#hostunknown'>Host Unknown</a></strong></td>
+                                    <td><strong>Yes</strong></td>
+                                    <td class = 'ltext'>宛先ホスト名が存在しない</td>
+                                </tr>
+                                <tr data-href = '#userunknown'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#userunknown'>User Unknown</a></strong></td>
+                                    <td><strong>Yes</strong></td>
+                                    <td class = 'ltext'>宛先メールアドレスは存在しない</td>
+                                </tr>
+                                <tr data-href = '#filtered'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#filtered'>Filtered</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>DATAコマンド以降で拒否された</td>
+                                </tr>
+                                <tr data-href = '#hasmoved'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#hasmoved'>Has Moved</a></strong></td>
+                                    <td><strong>Yes</strong></td>
+                                    <td class = 'ltext'>宛先メールアドレスは移動した</td>
+                                </tr>
+                                <tr data-href = '#rejected'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#rejected'>Rejected</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>エンベロープFromで拒否された</td>
+                                </tr>
+                                <tr data-href = '#mailboxfull'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#mailboxfull'>Mailbox Full</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>メールボックスが一杯</td>
+                                </tr>
+                                <tr data-href = '#suspend'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#suspend'>Suspend</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>宛先アカウントは一時的に停止中</td>
+                                </tr>
+                                <tr data-href = '#vacation'>
+                                    <td class = 'ltext'><i class = 'fa fa-user-times' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#vacation'>Vacation</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>宛先は現在不在である自動応答メッセージ</td>
+                                </tr>
+
+                                <tr data-href = '#contenterror'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#contenterror'>Content Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>不正な形式のヘッダまたはメール</td>
+                                </tr>
+                                <tr data-href = '#exceedlimit'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#exceedlimit'>Exceed Limit</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>メールサイズが最大値を超過</td>
+                                </tr>
+                                <tr data-href = '#feedback'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#feedback'>Feedback</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>元メールへの苦情によるバウンス(FBL形式の)</td>
+                                </tr>
+                                <tr data-href = '#mesgtoobig'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#mesgtoobig'>Mesg Too Big</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>メールが大き過ぎる</td>
+                                </tr>
+                                <tr data-href = '#securityerror'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#securityerror'>Security Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>ウィルスの検出または認証失敗</td>
+                                </tr>
+                                <tr data-href = '#spamdetected'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#spamdetected'>Spam Detected</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>メールはスパムとして判定された</td>
+                                </tr>
+
+                                <tr data-href = '#blocked'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#blocked'>Blocked</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>IPアドレスやホスト名による拒否</td>
+                                </tr>
+                                <tr data-href = '#expired'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#expired'>Expired</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>配送時間切れ</td>
+                                </tr>
+                                <tr data-href = '#mailererror'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#mailererror'>Mailer Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>メールプログラムのエラー</td>
+                                </tr>
+                                <tr data-href = '#networkerror'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#networkerror'>Network Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>DNS等ネットワーク関係のエラー</td>
+                                </tr>
+                                <tr data-href = '#norelaying'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#norelaying'>No Relaying</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>リレーの拒否</td>
+                                </tr>
+                                <tr data-href = '#notaccept'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#notaccept'>Not Accept</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>宛先ホストはメールを受けとらない</td>
+                                </tr>
+                                <tr data-href = '#systemerror'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#systemerror'>System Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>宛先サーバでのOSレベルのエラー</td>
+                                </tr>
+                                <tr data-href = '#systemfull'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#systemfull'>System Full</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>宛先サーバのディスクが一杯</td>
+                                </tr>
+                                <tr data-href = '#toomanyconn'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#toomanyconn'>Too Many Conn</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>接続制限数を超過した</td>
+                                </tr>
+
+                                <tr data-href = '#delivered'>
+                                    <td class = 'ltext'><i class = 'fa fa-question-circle' title = 'その他'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#delivered'>Delivered</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>正常に配信された</td>
+                                </tr>
+                                <tr data-href = '#syntaxerror'>
+                                    <td class = 'ltext'><i class = 'fa fa-question-circle' title = 'その他'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#syntaxerror'>Syntax Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>SMTPの文法エラー</td>
+                                </tr>
+                                <tr data-href = '#onhold'>
+                                    <td class = 'ltext'><i class = 'fa fa-question-circle' title = 'その他'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#onhold'>On Hold</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>エラー理由の特定は保留</td>
+                                </tr>
+                                <tr data-href = '#undefined'>
+                                    <td class = 'ltext'><i class = 'fa fa-question-circle' title = 'その他'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#undefined'>Undefined</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>バウンスした理由は特定出来ず</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'address' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -339,7 +548,7 @@ I am of the office returning 5th Jan
     </div>
 </section> <!-- /#address -->
 
-<section id = 'content'>
+<section id = 'content' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -542,7 +751,7 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
     </div>
 </section>
 
-<section id = 'server' class = 'parallax'>
+<section id = 'server' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -764,7 +973,7 @@ message has been in the queue too long.
     </div>
 </section>
 
-<section id = 'others'>
+<section id = 'others' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
