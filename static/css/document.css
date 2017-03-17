@@ -46,7 +46,16 @@ hr {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-table tr td a {
+table tr th,
+table tr td {
+    display: table-cell;
+    vertical-align: middle !important;
+}
+
+table tr td a,
+table tr td a:active,
+table tr td a:hover,
+table tr td a:visited {
     background: transparent;
     color: #8f2e14; /* Akasumi */
 }
