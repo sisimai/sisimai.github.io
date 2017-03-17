@@ -516,11 +516,9 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
                     <br>
                 </p>
                 <pre class = 'prettyprint'>
-送信先By Addressが見つかりませんでした。
-By Addressをご確認の上、再送信してください。
-
-The user(s) account is disabled.
-&lt;this-local-part-does-not-exist-on-the-site@ezweb.ne.jp&gt;
+SMTP error from remote mail server after end of data: host mx2.mail.yahoo.com [192.0.2.222]:
+554 delivery error: dd Sorry your message to **@yahoo.com.ar cannot be delivered.
+This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.com"
                 </pre>
                 {% include error-messages/suspend.html %}
                 <hr>
