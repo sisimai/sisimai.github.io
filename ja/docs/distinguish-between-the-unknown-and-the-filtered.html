@@ -1,0 +1,461 @@
+---
+layout: document
+directory: docs/distinguish-between-the-unknown-and-the-filtered.html
+title: 携帯電話宛バウンスの宛先不明とドメイン指定拒否を見分ける
+description: 携帯電話宛バウンスメールの宛先不明とドメイン指定拒否を見分ける方法
+author: azumakuniyuki
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#sendmail'>Sendmail</a></li>
+                    <li class = 'scroll'><a href = '#postfix'>Postfix</a></li>
+                    <li class = 'scroll'><a href = '#qmail'>qmail</a></li> 
+                    <li class = 'scroll'><a href = '#exim'>Exim</a></li> 
+                    <li class = 'scroll'><a href = '#courier'>Courier-MTA</a></li> 
+                    <li class = 'others'><a href = '/ja/docs'>ドキュメント</a></li>
+                    <!--
+                    <li class = 'others'>
+                        <a href = '/en/docs/distinguish-between-the-unknown-and-the-filtered.html'>
+                            <i class = 'fa fa-language'></i>
+                        </a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>携帯電話宛バウンスの見分け</h2>
+                    <p class = 'description ja'>
+                        日本の携帯電話、例えばNTT docomo(ドコモ)にメールを送ってバウンスしてくる場合、
+                        その多くが宛先不明かドメイン指定拒否によるものです。 
+                        宛先不明もドメイン指定拒否も、どちらのバウンスメールも内容は<strong>Unknown User</strong>
+                        と書かれていて、一見しただけでは判別しにくいのですが、よく観察すると僅かな違いがあります。
+                    </p>
+                    <p class = 'description ja'>
+                        戻ってきたバウンスメールが、どのMTA(メールサーバ)で作られたものであるかは
+                        文面や構造をよく見ないと判別できませんので、より詳細な解析結果が必要な場合は
+                        {{ site.html.ss }}による解析をお試しください。
+                    </p>
+                    <p class = 'description ja'>
+                        {{ site.html.ss }}は携帯電話宛バウンスメールの宛先不明を<strong>userunknown</strong>と、
+                        ドメイン指定拒否を<strong>filtered</strong>として自動で区別して検出しますが、
+                        ここでは目視による簡単な判別方法を紹介します。
+                    </p>
+                    <hr>
+                    <p class = 'description ja'>
+                        初出:
+                        <a href = 'http://bouncehammer.jp/ja/email-topics/distinguish-between-the-unknown-and-the-filtered'>
+                            bouncehammer.jp/.../distinguish-between-the-unknown-and-the-filtered'
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /#index -->
+
+<section id = 'sendmail' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-envelope-o'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Sendmailの場合</h2>
+                <p class = 'description ja'>
+                    送信するメールサーバがSendmailの場合、宛先不明(userunknown)と
+                    ドメイン指定拒否(filtered)を見分ける方法は非常に容易で、
+                    バウンスメールの本文内<strong>Status:</strong>の値を見ます。後述のメールサーバと比べて
+                    最も目視で判別がしやすい構造、文面となっています。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>宛先不明(userunknown)の応答</h3>
+                <pre class = 'prettyprint'>
+Final-Recipient: RFC822; *********@docomo.ne.jp
+Action: failed
+Status: <strong>5.1.1</strong> ←ここを見る
+Remote-MTA: DNS; mfsmax.docomo.ne.jp
+Diagnostic-Code: SMTP; 550 Unknown user *********@docomo.ne.jp
+Last-Attempt-Date: Fri, 2 Apr 2010 01:23:45 +0900
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>ドメイン指定拒否(filtered)の応答</h3>
+                <pre class = 'prettyprint'>
+Final-Recipient: RFC822; *********@docomo.ne.jp
+Action: failed
+Status: <strong>5.2.0</strong> ←ここを見る
+Remote-MTA: DNS; mfsmax.docomo.ne.jp
+Diagnostic-Code: SMTP; 550 Unknown user *********@docomo.ne.jp
+Last-Attempt-Date: Fri, 2 Apr 2010 01:24:09 +0900
+                </pre>
+                <hr>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <p class = 'description ja'>
+                    Status:の値が<strong>5.1.1なら宛先不明(userunknown)</strong>です。
+                    一方Status:の値が<strong>5.2.0ならドメイン指定拒否(filtered)</strong>です。
+                    まとめると次のようになります。
+                </p>
+
+                <ul>
+                    <li><strong>Status: 5.1.1</strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
+                    <li><strong>Status: 5.2.0</strong> = ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'postfix' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-envelope-o'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Postfixの場合</h2>
+                <p class = 'description ja'>
+                    送信するメールサーバがPostfixの場合は、どのエラーであっても前述の
+                    Status:の値は概ね5.0.0となっていて判別ができません。
+                    そこでバウンスメールの本文に書かれている、<strong>エラーの発生したSMTPコマンド</strong>
+                    を読み取って判断します。Sendmailと比べると多少英語で書かれたエラーメッセージの単語を
+                    追いかける必要があります。
+                </p>
+            </div>
+
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>宛先不明(userunknown)の応答</h3>
+                <pre class = 'prettyprint'>
+        The mail system
+
+<*******@docomo.ne.jp>: host mfsmax.docomo.ne.jp[203.138.180.112] said: 550
+    Unknown user *****@docomo.ne.jp (in reply to <strong>RCPT TO</strong> command)
+                </pre>
+            </div>
+
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>ドメイン指定拒否(filtered)の応答</h3>
+                <pre class = 'prettyprint'>
+        The mail system
+
+<*******@docomo.ne.jp>: host mfsmax.docomo.ne.jp[203.138.180.112] said: 550
+    Unknown user *****@docomo.ne.jp (in reply to end of <strong>DATA</strong> command)
+                </pre>
+                <hr>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <p class = 'description ja'>
+                    Status:の値を見る事に比べて一見しただけでは分かりにくいのですが、
+                    <strong>in reply to RCPT TO Command</strong>と書いていれば
+                    <strong>宛先不明(userunknown)</strong>で、
+                    <strong>in reply to end of DATA Command</strong>と書いていれば
+                    <strong>ドメイン指定拒否(filtered)</strong>という事になります。
+                    纏めると次のようになります。
+                </p>
+
+                <ul>
+                    <li><strong>in reply to RCPT TO command</strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
+                    <li><strong>in reply to end of DATA command</strong> =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#postfix -->
+
+<section id = 'qmail' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-envelope-o'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>qmailの場合</h2>
+                <p class = 'description ja'>
+                    送信するメールサーバがqmailの場合は更に判別が難しく、
+                    バウンスメール本文の文章における表現の違いを読み取ります。
+                    ここまで来ると最早簡易な判別ではないかもしれませんが、
+                    qmailもそこそこユーザのいるMTAなので同じように紹介します。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>宛先不明(userunknown)の応答</h3>
+                <pre class = 'prettyprint'>
+<*****@docomo.ne.jp>:
+203.138.180.240 <strong>does not like recipient.</strong> ←ここを見る
+Remote host said: 550 Unknown user ******@docomo.ne.jp
+Giving up on 203.138.180.240.
+                </pre>
+            </div>
+
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>ドメイン指定拒否(filtered)の応答</h3>
+                <pre class = 'prettyprint'>
+<*****@docomo.ne.jp>:
+203.138.180.112 <strong>failed after I sent the message.</strong> ←ここを見る
+Remote host said: 550 Unknown user *****@docomo.ne.jp
+                </pre>
+                <hr>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <p class = 'description ja'>
+                    qmailはエラーメッセージの文面で判別します。
+                    上記のように<strong>does not like recipient</strong>
+                    と書いていれば<strong>宛先不明(userunknown)</strong>であり、
+                    <strong>failed after I sent the message</strong>と書いていれば
+                    <strong>ドメイン指定拒否(filtered)</strong>となります。
+                    纏めると次のようになります。
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>does not like recipient</strong>
+                        = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)
+                    </li>
+                    <li>
+                        <strong>failed after I sent the message</strong>
+                        =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)
+                    </li>
+                </ul>
+
+                <p class = 'description ja'>
+                    非常に見分けにくいのですが、無理やり解釈するならば、
+                    <strong>does not like recipient</strong>は正しい受信者ではない=SMTPのRCPT TOコマンドでエラーが発生した、
+                    <strong>failed after I sent the message</strong>はメッセージ送信後に失敗した=メッセージの送信は
+                    SMTPのDATAコマンドを使う=SMTPのDATAコマンドでエラーが発生した、ということでしょう。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'exim' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-envelope-o'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Eximの場合</h2>
+                <p class = 'description ja'>
+                    送信するメールサーバがEximの場合は、
+                    Postfixと同じくバウンスメールの文面からエラーの発生したコマンドを読み取るだけです。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>宛先不明(userunknown)の応答</h3>
+                <pre class = 'prettyprint'>
+ *******@docomo.ne.jp
+   SMTP error from remote mail server after <strong>RCPT TO:</strong><*****@docomo.ne.jp>:←この行を見る
+   host mfsmax.docomo.ne.jp [203.138.180.112]: 550 Unknown user *****@docomo.ne.jp
+                </pre>
+            </div>
+
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>ドメイン指定拒否(filtered)の応答</h3>
+                <pre class = 'prettyprint'>
+ *******@docomo.ne.jp
+   SMTP error from remote mail server after <strong>end of data</strong>:<*****@docomo.ne.jp>:←この行を見る
+   host mfsmax.docomo.ne.jp [203.138.180.112]: 550 Unknown user *****@docomo.ne.jp
+                </pre>
+                <hr>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <p class = 'description ja'>
+                    Eximのバウンスメールは、エラーが発生したSMTPコマンドが書かれているので
+                    qmailと比較すると判別がしやすいでしょう。纏めると次のようになります。
+                </p>
+
+                <ul>
+                    <li><strong>after RCPT TO</strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
+                    <li><strong>after end of data</strong> =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'courier' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-envelope-o'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Courier-MTAの場合</h2>
+                <p class = 'description ja'>
+                    送信するメールサーバがCourier-MTAの場合は、
+                    PostfixやEximと同じくバウンスメールの文面からエラーの発生したコマンドを読み取るだけです。
+                </p>
+            </div>
+
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>宛先不明(userunknown)の応答</h3>
+                <pre class = 'prettyprint'>
+        UNDELIVERABLE MAIL
+
+Your message to the following recipients cannot be delivered:
+
+<********@docomo.ne.jp>:
+    mfsmax.docomo.ne.jp [203.138.180.240]:
+>>> <strong>RCPT TO</strong>:<******@docomo.ne.jp> ←この行を見る
+<<< 550 Unknown user ****@docomo.ne.jp
+                </pre>
+            </div>
+
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>ドメイン指定拒否(filtered)の応答</h3>
+                <pre class = 'prettyprint'>
+        UNDELIVERABLE MAIL
+
+Your message to the following recipients cannot be delivered:
+
+<********@docomo.ne.jp>:
+    mfsmax.docomo.ne.jp [203.138.181.112]:
+>>> <strong>DATA</strong> ←この行を見る
+<<< 550 Unknown user ****@docomo.ne.jp
+                </pre>
+                <hr>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <p class = 'description ja'>
+                    Courier-MTAのバウンスメールは、PostfixやEximと同様にエラーが発生したSMTPコマンドが
+                    書かれているのでqmailと比較すると判別がしやすいでしょう。纏めると次のようになります。
+                </p>
+
+                <ul>
+                    <li><strong>&lt;&lt;&lt; RCPT TO</strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
+                    <li><strong>&lt;&lt;&lt; DATA</strong> =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'sisimai' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-server'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>シシマイでの解析</h2>
+                <p class = 'description ja'>
+                    この文書では一例として、日本の携帯電話宛、特にドコモ宛で発生したバウンスメールの、
+                    宛先不明(userunknown)とドメイン指定拒否(filtered)を見分ける方法を紹介しました。
+                </p>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}は、自動でこの区別を行うだけでなく、メールボックスがいっぱい、
+                    メールが大きすぎるなど 他のエラー理由(合計{{ site.sisimai.spec.reasons }}種類)も検出し、
+                    また携帯電話だけでなくGmailやYahoo!などのメールサービスのエラー解析にも対応しています。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
