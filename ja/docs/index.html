@@ -27,6 +27,8 @@ author: azumakuniyuki
                 <ul class = 'nav navbar-nav navbar-right'>
                     <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#sisimai'>シシマイ</a></li>
+                    <li class = 'scroll'><a href = '#smtp'>SMTP</a></li>
                     <li class = 'scroll'><a href = '#architecture'>内部構造</a></li>
                     <li class = 'others'><a href = '/en/docs'><i class = 'fa fa-language'></i></a></li>
                 </ul>
@@ -35,7 +37,7 @@ author: azumakuniyuki
     </div><!-- /#main-nav -->
 </header><!-- /#home -->
 
-<section id = 'index'>
+<section id = 'index' class = 'non-parallax'>
     <div class = 'container'>
         <div class = 'heading'>
             <div class = 'row'>
@@ -44,85 +46,160 @@ author: azumakuniyuki
                     <h2>ドキュメント</h2>
                     <p class = 'description ja'>
                         下記の表は{{ site.html.ss }}の導入方法やサンプルコード、
-                        解析方法および生成されるデータのついて説明した文書です
+                        解析方法および生成されるデータのついて説明した文書へのリンクです。
                     <p>
                 </div>
             </div>
         </div>
-        <div class = 'text-center page-index'>
-            <div class = 'row'>
-                <div class = 'col-sm-8 col-sm-offset-2'>
-                    <div class = 'table-responsive'>
-                        <table class = 'table table-hover table-condensed link-index'>
-                            <tbody>
-                                <tr data-href = '/ja/start'>
-                                    <th><i class = 'fa fa-play'></i></th>
-                                    <td>
-                                        <p class = 'description ja'>
-                                            <strong>導入ガイド:</strong>
-                                            動作環境・インストール方法・簡単な使用例
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr data-href = '/ja/usage'>
-                                    <th><i class = 'fa fa-code'></i></th>
-                                    <td>
-                                        <p class = 'description ja'>
-                                            <strong>解析方法:</strong>
-                                            標準入力からの読み込み・解析オプション・コールバック
-                                        </p>
-                                    </td>
-                                </tr>
+    </div>
+</section>
 
-                                <tr data-href = '/ja/reason'>
-                                    <th><i class = 'fa fa-exclamation-triangle'></i></th>
-                                    <td>
-                                        <p class = 'description ja'>
-                                            <strong>バウンス理由一覧:</strong>
-                                            {{ site.html.ss }}が検出可能なバウンス理由の一覧
-                                        </p>
-                                    </td>
-                                </tr>
+<section id = 'sisimai' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-book'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }}に関する文書</h2>
+                <p class = 'description ja'>
+                    以下は、{{ site.html.ss }}の導入方法、使い方、引数の説明、解析結果のデータ構造、
+                    対応している解析エンジン(メールサーバ)の一覧、bounceHammerからの改善点や違いなどの文書
+                    へのリンクです。
+                </p>
+            </div>
+        </div>
 
-                                <tr data-href = '/ja/data'>
-                                    <th><i class = 'fa fa-list'></i></th>
-                                    <td>
-                                        <p class = 'description ja'>
-                                            <strong>データ構造:</strong>
-                                            {{ site.html.ss }}が生成するデータ構造・項目の一覧
-                                        </p>
-                                    </td>
-                                </tr>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-table'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <br>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed link-index'>
+                        <tbody>
+                            <tr data-href = '/ja/start'>
+                                <th><i class = 'fa fa-play'></i></th>
+                                <td>
+                                    <p class = 'description ja'>
+                                        <strong>導入ガイド:</strong>
+                                        動作環境・インストール方法・簡単な使用例
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr data-href = '/ja/usage'>
+                                <th><i class = 'fa fa-code'></i></th>
+                                <td>
+                                    <p class = 'description ja'>
+                                        <strong>解析方法:</strong>
+                                        標準入力からの読み込み・解析オプション・コールバック
+                                    </p>
+                                </td>
+                            </tr>
 
-                                <tr data-href = '/ja/engine'>
-                                    <th><i class = 'fa fa-cogs'></i></th>
-                                    <td>
-                                        <p class = 'description ja'>
-                                            <strong>モジュール一覧:</strong>
-                                            {{ site.html.ss }}に含まれる解析エンジンモジュールの一覧
-                                        </p>
-                                    </td>
-                                </tr>
+                            <tr data-href = '/ja/reason'>
+                                <th><i class = 'fa fa-exclamation-triangle'></i></th>
+                                <td>
+                                    <p class = 'description ja'>
+                                        <strong>バウンス理由一覧:</strong>
+                                        {{ site.html.ss }}が検出可能なバウンス理由の一覧
+                                    </p>
+                                </td>
+                            </tr>
 
-                                <tr data-href = '/ja/diff'>
-                                    <th><i class = 'fa fa-gavel'></i></th>
-                                    <td>
-                                        <p class = 'description ja'>
-                                            <strong>違いの一覧:</strong>
-                                            {{ site.html.ss }}と{{ site.html.bh }}の違いについて
-                                        </p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <tr data-href = '/ja/data'>
+                                <th><i class = 'fa fa-list'></i></th>
+                                <td>
+                                    <p class = 'description ja'>
+                                        <strong>データ構造:</strong>
+                                        {{ site.html.ss }}が生成するデータ構造・項目の一覧
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr data-href = '/ja/engine'>
+                                <th><i class = 'fa fa-cogs'></i></th>
+                                <td>
+                                    <p class = 'description ja'>
+                                        <strong>モジュール一覧:</strong>
+                                        {{ site.html.ss }}に含まれる解析エンジンモジュールの一覧
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr data-href = '/ja/diff'>
+                                <th><i class = 'fa fa-gavel'></i></th>
+                                <td>
+                                    <p class = 'description ja'>
+                                        <strong>違いの一覧:</strong>
+                                        {{ site.html.ss }}と{{ site.html.bh }}の違いについて
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-</section> <!-- /#index -->
+</section> <!-- /#sisimai -->
 
-<section id = 'architecture' style = 'background-color: #fff;'>
+<section id = 'smtp' class = 'non-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-book'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>電子メール・SMTPに関する文書</h2>
+                <p class = 'description ja'>
+                    以下は、電子メール・SMTP・バウンスメールに関する文書の一覧です。
+                    記事は<strong>bouncehammer.jp/ja/email-topics/</strong>から修正
+                    加筆の上、本サイトへ移植したものとなります。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-table'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <br>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed link-index'>
+                        <tbody>
+                            <tr data-href = '/ja/docs/distinguish-between-the-unknown-and-the-filtered.html'>
+                                <th><i class = 'fa fa-eye'></i></th>
+                                <td>
+                                    <p class = 'description ja'>
+                                        <strong>携帯電話宛バウンスの見分け:</strong>
+                                        携帯宛バウンスメールの「宛先不明」と「ドメイン指定拒否」を見分ける方法
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr data-href = ''>
+                                <th><i class = 'fa fa-pencil'></i></th>
+                                <td>
+                                    <p class = 'description ja'>
+                                        <strong>準備中:</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#smtp -->
+
+<section id = 'architecture' style = 'background-color: #fff;' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'text-center col-sm-12 col-sm-offset-0'>

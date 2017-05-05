@@ -29,6 +29,8 @@ redirect_from:
                 <ul class = 'nav navbar-nav navbar-right'>
                     <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#sisimai'>Sisimai</a></li>
+                    <li class = 'scroll'><a href = '#smtp'>SMTP</a></li>
                     <li class = 'scroll'><a href = '#architecture'>Architecuture</a></li>
                     <li class = 'others'><a href = '/ja/docs'><i class = 'fa fa-language'></i></a></li>
                 </ul>
@@ -46,86 +48,151 @@ redirect_from:
                     <h2>Documentation</h2>
                     <p class = 'description'>
                         The following table shows Documentation list such as installation, structured data,
-                        bounce reasons, and other resources of {{ site.html.ss }}
+                        bounce reasons, and other resources of {{ site.html.ss }}.
                     <p>
                 </div>
             </div> 
         </div>
-        <div class = 'text-center page-index'>
-            <div class = 'row'>
-                <div class = 'col-sm-8 col-sm-offset-2'>
-                    <div class = 'table-responsive'>
-                        <table class = 'table table-hover table-condensed link-index'>
-                            <tbody>
-                                <tr data-href = '/en/start'>
-                                    <th><i class = 'fa fa-play'></i></th>
-                                    <td>
-                                        <p class = 'description'>
-                                            <strong>Get Started:</strong>
-                                            Environment, How To Install, Basic Usage
-                                        </p>
-                                    </td>
-                                </tr>
+    </div>
+</section>
 
-                                <tr data-href = '/en/usage'>
-                                    <th><i class = 'fa fa-code'></i></th>
-                                    <td>
-                                        <p class = 'description'>
-                                            <strong>How To Parse:</strong>
-                                            Reading from STDIN, Parser Options, and Callback.
-                                        </p>
-                                    </td>
-                                </tr>
+<section id = 'sisimai' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-book'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Documents about {{ site.html.ss }}</h2>
+                <p class = 'description'>
+                    The followng table show links to each document about installation, usage, arguments of
+                    methods, structured data, bounce reasons sisimai detect, and differences from bounceHammer.
+                </p>
+            </div>
+        </div>
 
-                                <tr data-href = '/en/reason'>
-                                    <th><i class = 'fa fa-exclamation-triangle'></i></th>
-                                    <td>
-                                        <p class = 'description'>
-                                            <strong>Reasons:</strong>
-                                            Bounce Reason List Sisimai Can Detect
-                                        </p>
-                                    </td>
-                                </tr>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-table'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <br>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed link-index'>
+                        <tbody>
+                            <tr data-href = '/en/start'>
+                                <th><i class = 'fa fa-play'></i></th>
+                                <td>
+                                    <p class = 'description'>
+                                        <strong>Get Started:</strong>
+                                        Environment, How To Install, Basic Usage
+                                    </p>
+                                </td>
+                            </tr>
 
-                                <tr data-href = '/en/data'>
-                                    <th><i class = 'fa fa-list'></i></th>
-                                    <td>
-                                        <p class = 'description'>
-                                            <strong>Data Structure:</strong>
-                                            Structured Data generated from Sisimai::Data object
-                                        </p>
-                                    </td>
-                                </tr>
+                            <tr data-href = '/en/usage'>
+                                <th><i class = 'fa fa-code'></i></th>
+                                <td>
+                                    <p class = 'description'>
+                                        <strong>How To Parse:</strong>
+                                        Reading from STDIN, Parser Options, and Callback.
+                                    </p>
+                                </td>
+                            </tr>
 
-                                <tr data-href = '/en/engine'>
-                                    <th><i class = 'fa fa-cogs'></i></th>
-                                    <td>
-                                        <p class = 'description'>
-                                            <strong>Parse Engines:</strong>
-                                            Parser Engine Modules in Sisimai
-                                        </p>
-                                    </td>
-                                </tr>
+                            <tr data-href = '/en/reason'>
+                                <th><i class = 'fa fa-exclamation-triangle'></i></th>
+                                <td>
+                                    <p class = 'description'>
+                                        <strong>Reasons:</strong>
+                                        Bounce Reason List Sisimai Can Detect
+                                    </p>
+                                </td>
+                            </tr>
 
-                                <tr data-href = '/en/diff'>
-                                    <th><i class = 'fa fa-gavel'></i></th>
-                                    <td>
-                                        <p class = 'description'>
-                                            <strong>Differences:</strong>
-                                            Between Sisimai and bounceHammer
-                                        </p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <tr data-href = '/en/data'>
+                                <th><i class = 'fa fa-list'></i></th>
+                                <td>
+                                    <p class = 'description'>
+                                        <strong>Data Structure:</strong>
+                                        Structured Data generated from Sisimai::Data object
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr data-href = '/en/engine'>
+                                <th><i class = 'fa fa-cogs'></i></th>
+                                <td>
+                                    <p class = 'description'>
+                                        <strong>Parse Engines:</strong>
+                                        Parser Engine Modules in Sisimai
+                                    </p>
+                                </td>
+                            </tr>
+
+                            <tr data-href = '/en/diff'>
+                                <th><i class = 'fa fa-gavel'></i></th>
+                                <td>
+                                    <p class = 'description'>
+                                        <strong>Differences:</strong>
+                                        Between Sisimai and bounceHammer
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#sisimai -->
+
+<section id = 'smtp' class = 'non-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-book'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Documents about SMTP and Email</h2>
+                <p class = 'description'>
+                    The following table show links to each document about email, SMTP, and
+                    bounce messages. These articles have been moved from
+                    <strong>bouncehammer.jp/en/email-topics/</strong> to libsisimai.org.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-table'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <br>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed link-index'>
+                        <tbody>
+                            <tr data-href = ''>
+                                <th><i class = 'fa fa-pencil'></i></th>
+                                <td>
+                                    <p class = 'description'>
+                                        <strong>Coming soon:</strong>
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
 </section> <!-- /#index -->
 
-<section id = 'architecture' style = 'background-color: #fff;'>
+<section id = 'architecture' style = 'background-color: #fff;' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'text-center col-sm-12 col-sm-offset-0'>
