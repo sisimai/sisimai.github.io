@@ -1,0 +1,202 @@
+---
+layout: document
+directory: docs/when-does-email-bounce.html
+title: バウンスが発生する3つのタイミング
+description: バウンスメールはいつ発生するのか
+
+author: azumakuniyuki
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#a'>接続前</a></li>
+                    <li class = 'scroll'><a href = '#b'>接続中</a></li>
+                    <li class = 'scroll'><a href = '#c'>送信後</a></li>
+                    <li class = 'others'><a href = '/ja/docs'>ドキュメント</a></li>
+                    <!--
+                    <li class = 'others'>
+                        <a href = '/en/docs/when-does-email-bounce.html'>
+                            <i class = 'fa fa-language'></i>
+                        </a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>バウンスが発生する3つのタイミング</h2>
+                    <p class = 'description ja'>
+                        送信した電子メールがなんらかのエラーで戻ってくる事を<strong>バウンス</strong>と表現します。
+                    </p>
+                    <p class = 'description ja'>
+                        送信したメールが自分のネットワークにあるメールサーバを通り、
+                        相手側メールサーバに到達し、 宛先メールボックスに配送されるまでの間、
+                        バウンスが発生するタイミングは次の3つに分類できます。
+                    </p>
+                    <hr>
+                    <img src = '/static/images/figure/email-bounces-at.png' width = '100%'>
+                    <div class = 'read-more'>
+                        <a href = '/static/images/figure/email-bounces-at.png' class = 'btn-continue'>大きな画像</a>
+                    </div>
+                    <hr>
+                    <p class = 'description ja'>
+                        初出:
+                        <a href = 'http://bouncehammer.jp/ja/when-does-email-bounce'>
+                            bouncehammer.jp/ja/when-does-email-bounce
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /#index -->
+
+<section id = 'a' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>A</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>A. 接続前</h2>
+                <p class = 'description ja'>
+                    図のAは接続エラーの際にバウンスします。
+                    概ねバウンス全体の5%前後が接続エラーで発生するものです。
+                    接続エラーは主に相手側メールサーバにSMTP接続する以前に起こるもので、
+                    次のような事項が原因です。 
+                </p>
+                <ul>
+                    <li>宛先メールアドレスのホスト部分(@の右側)が存在しないドメイン</li>
+                    <li>宛先メールアドレスのホスト部分がDNSで名前解決できない</li>
+                    <li>名前解決した相手側メールサーバのIPアドレスが不正</li>
+                    <li>相手側メールサーバにSMTP接続できない(応答がない・接続が確立できない)</li>
+                    <li>自分のメールサーバと相手側メールサーバ間のネットワーク障害など</li>
+                </ul>
+
+                <p class = 'description ja'>
+                    接続エラーで発生する実際のバウンスメールは、一定期間内に配送できなかった
+                    (Delivery time expired)という文言が書かれています。
+                </p>
+                <p class = 'description ja'>
+                    このケースで注意すべきなのは、上記のような接続エラーは相手側メールサーバや
+                    宛先の周辺ネットワークの障害・異常だけが原因ではない事です。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-plug'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>DNSで名前解決できない</h3>
+                <p class = 'description ja'>
+                    宛先メールアドレスのドメイン部分(@の右側)の権威あるDNSコンテンツサーバに異常がある、
+                    というのが最も多いのですが、 <strong>自分のメールサーバが参照しているDNSサーバが機能していない</strong>
+                    可能性もあります。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-plug'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>応答無し・ネットワーク障害</h3>
+                <p class = 'description ja'>
+                    多くは相手側メールサーバがダウンしている、相手側ネットワークのFirewallが
+                    SMTP接続を阻んでいる、というケースです。
+                </p>
+                <p class = 'description ja'>
+                しかし<strong>自分のネットワーク側のFirewallが外部へのSMTP接続を阻んでいる</strong>可能性もあります。
+                    接続プロバイダによって行われるOP25B( Outbound Port 25 Blocking)は
+                    自分のネットワーク側が外部へのSMTP接続を制限している為に接続できないケースに該当します。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'b' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>B</div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>接続中</h2>
+                <p class = 'description ja'>
+                    図のBは相手側メールサーバにSMTP接続が確立した後、
+                    SMTPセッション中に発生するエラーによってバウンスします。
+                    バウンス全体の85%前後、つまり<strong>ほとんどのバウンスはこのタイミングで発生する</strong>
+                    ものです。
+                </p>
+                <p class = 'description ja'>
+                    このケースで発生する実際のバウンスメールは、宛先不明(userunknown)、 
+                    メールボックスいっぱい(mailboxfull)、メールが大きすぎる(exceedlimit)など様々です。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'b' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>C</div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>送信後</h2>
+                <p class = 'description ja'>
+                    メールサーバではqmailがデフォルトでこの動作をします。
+                    また日本の携帯電話キャリアではau by KDDI(@ezweb.ne.jp宛)も概ねこの動作をします。
+                </p>
+                <p class = 'description ja'>
+                    送信した自分のメールサーバから見れば、送信のSMTPセッション自体は正常に終了した後、
+                    数秒〜数時間経過してから、<strong>相手側メールサーバからバウンスメールが送られて</strong>
+                    きて、 それを受け取って発信者に送信(差戻)します。
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    あるいは、宛先不明や接続元IPアドレスがブラックリストに載っていたなどの場合のみ、
+                    SMTPセッション中にエラーを発生させ、それ以外は一旦受け取って改めて
+                    バウンスメールを送ってくる場合もあります。
+                </p>
+                <p class = 'description ja'>
+                    多くの場合、バウンスメールはBのように、送信する自分のメールサーバが
+                    生成して発信者に送り返すものですが、Cの場合は相手側メールサーバによって作られ、
+                    そして相手側毎の様々なバウンスメールのフォーマット・文言が存在します。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
