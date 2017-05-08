@@ -6,6 +6,8 @@
 
 <title>{{ page.title }} | Sisimai: Mail Analyzing Interface</title>
 
+{% if page.directory != null %}
 <link rel = 'alternate' hreflang = 'en' href = 'http://{{ site.sisimai.domain }}/en/{{ page.directory }}'>
 <link rel = 'alternate' hreflang = 'ja' href = 'http://{{ site.sisimai.domain }}/ja/{{ page.directory }}'>
+{% endif %}
 
