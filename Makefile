@@ -30,6 +30,9 @@ preview:
 open-the-page:
 	open -a 'Google Chrome' 'http://127.0.0.1:$(PORT)/'
 
+sitemap:
+	open -a 'Google Chrome' 'https://www.xml-sitemaps.com'
+
 start-server:
 	jekyll clean
 	jekyll server --watch -I -P $(PORT) -H 127.0.0.1 --config ./_config.yml
