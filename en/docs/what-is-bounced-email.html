@@ -1,0 +1,170 @@
+---
+layout: document
+directory: docs/distinguish-between-the-unknown-and-the-filtered.html
+title: What is a bounced email?
+description: A returned email which was not delivered
+
+author: azumakuniyuki
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#feature'>Features</a></li>
+                    <li class = 'others'><a href = '/en/docs'>Documents</a></li>
+                    <li class = 'others'>
+                        <a href = '/ja/docs/what-is-bounced-email.html'>
+                            <i class = 'fa fa-language'></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>What is a bounced email ?</h2>
+                    <p class = 'description'>
+                        A bounced email ( simply a bounce ) is a email message from mail server (MTA)
+                        informing the sender of another message about a delivery error.
+                    </p>
+                    <p class = 'description'>
+                        It is also called as <strong>a returned mail, an error email</strong>,
+                        and <strong>an undelivered mail</strong>.
+                        More information about bounced email is described in 
+                        <a href = 'http://en.wikipedia.org/wiki/Bounced_e-mail' target = 'new'>
+                            en.wikipedia.org/wiki/Bounced_e-mail
+                        </a>.
+                    </p>
+                    <hr>
+                    <p class = 'description'>
+                        The first appearance:
+                        <a href = 'http://bouncehammer.jp/en/what-is-bounced-email'>
+                            bouncehammer.jp/en/what-is-bounced-email
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /#index -->
+
+<section id = 'feature' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-envelope-o'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Features of Bounced Email</h2>
+                <p class = 'description'>
+                    A bounced email have the following features.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-pencil'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Subject Header</h3>
+                <p class = 'description'>
+                    A bounced email is created by MTA ( Such as Sendmail, Postfix, and qmail )
+                    automatically when delivery error occurred.
+                    Contents of the subject header of bounced email like followings. 
+                </p>
+
+                <ul>
+                    <li>Returned mail: see transcript for details</li>
+                    <li>Mail System Error - Returned Mail</li>
+                    <li>Non Delivery Notification</li>
+                    <li>DELIVERY FAILURE: ...</li>
+                    <li>Undelivered Mail Returned to Sender</li>
+                    <li>Postmaster notify: see transcript for details</li>
+                    <li>Delivery Status Notification (Failure)</li>
+                    <li>Warning: could not send message for past 4 hour</li>
+                    <li>failure notice</li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-user'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>From Header</h3>
+                <p class = 'description'>
+                    A sender of bounced email is mainly a postmaster or a MAILER-DAEMON.
+                    You will find names like the followings in From: header of bounced email. 
+                </p>
+
+                <ul>
+                    <li>MAILER-DAEMON</li>
+                    <li>MAILER-DAEMON@HOSTNAME OF SENDER'S MAIL SERVER</li>
+                    <li>MAILER-DAEMON@HOSTNAME OF RECIPIENT'S MAIL SERVER</li>
+                    <li>Postmaster</li>
+                    <li>Postmaster@HOSTNAME OF SENDER'S MAIL SERVER</li>
+                    <li>Postmaster@HOSTNAME OF RECIPIENT'S MAIL SERVER</li>
+                    <li>Mail Delivery Subsystem</li>
+                    <li>Mail Delivery System</li>
+                    <li>Mail Administrator</li>
+                </ul>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-file-text-o'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Message Body</h3>
+                <p class = 'description'>
+                    A bounced email is created by mail server program such Sendmail,
+                    and contains delivery report in its message body.
+                    {{ site.html.ss }} reads a bounced email and parse its headers and
+                    its message body, then find details about why the delivery failed.
+                    The following section is particularly important to find details for {{ site.html.ss }}.
+                </p>
+                <ul>
+                    <li><strong>Status: 5.1.1</strong> &lt;- Various error codes</li>
+                    <li><strong>Diagnostic-Code: ...</strong> &lt;- Error message, response of SMTP server, and so on.</li>
+                </ul>
+                
+                <p class = 'description'>
+                    {{ site.html.ss }} is a library which parses a bounced email, finds a reason of bounce.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
