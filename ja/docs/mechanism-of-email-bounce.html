@@ -1,0 +1,387 @@
+---
+layout: document
+directory: docs/mechanism-of-email-bounce.html
+title: 携帯電話宛バウンスの仕組みを推測する
+description: telnetコマンドで携帯電話宛バウンスが発生する仕組みを推測する
+author: azumakuniyuki
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#smtp'>SMTPコマンド</a></li>
+                    <li class = 'scroll'><a href = '#userunknown'>宛先不明の再現</a></li>
+                    <li class = 'scroll'><a href = '#filtered'>ドメイン指定拒否の再現</a></li>
+                    <li class = 'scroll'><a href = '#summary'>まとめ</a></li>
+                    <li class = 'others'><a href = '/ja/docs'>ドキュメント</a></li>
+                    <!--
+                    <li class = 'others'>
+                        <a href = '/en/docs/what-is-bounced-email.html'>
+                            <i class = 'fa fa-language'></i>
+                        </a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>携帯電話宛バウンス発生の仕組みを推測</h2>
+                    <p class = 'description ja'>
+                        <a href = '/ja/docs/distinguish-between-the-unknown-and-the-filtered.html'>
+                            携帯電話宛バウンスの宛先不明とドメイン指定拒否を見分ける
+                        </a>
+                        という文書で、主にNTT docomo宛に送ったメールがバウンスした場合、
+                        それが「宛先不明」なのか「ドメイン指定拒否」なのかを簡易に目視で見分ける方法を
+                        紹介しました。
+                    </p>
+                    <p class = 'description ja'>
+                        この文書は、その原理といいますか、キャリア側メールゲートウェイの仕組みを
+                        推測してみることによって、より汎用的なバウンスの見分けを試みます。
+                    </p>
+                    <hr>
+                    <p class = 'description ja'>
+                        初出:
+                        <a href = 'http://bouncehammer.jp/ja/email-topics/mechanism-of-email-bounce'>
+                            bouncehammer.jp/ja/email-topics/mechanism-of-email-bounce
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /#index -->
+
+<section id = 'smtp' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-server'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>SMTPについて</h2>
+                <p class = 'description ja'>
+                    電子メールは<strong>SMTP</strong> というプロトコルを使用して送信されます。
+                    SMTPは主にMTA(メールサーバ)間での電子メールのやりとりに使用されるプロトコルで、
+                    <strong>TCPの25番ポート</strong>を使用します。
+                </p>
+                <p class = 'description ja'>
+                    25番ポート以外では、OutlookやThunderbirdなどのメールソフトで作ったメールを
+                    プロバイダや会社のメールサーバに送信する時に使用する
+                    <strong>587番(Submission)</strong>があります。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-keyboard-o'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>SMTPコマンド</h3>
+                <p class = 'description ja'>
+                    メールサーバの管理者であれば、telnetコマンドを使用してSMTP通信を行うといった作業は
+                    日常茶飯事でしょう。 SMTPはテキストベースのプロトコルですので、
+                    telnetコマンドを使用してMTA同士が 行っている通信を容易に再現できます。
+                </p>
+                <p class = 'description ja'>
+                    バウンスの仕組みを推測する前に、簡単によく使うSMTPコマンドについて触れておきます。
+                </p>
+
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>HELO</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <hr>
+                <h4>HELO | EHLO</h4>
+                <p class = 'description ja'>
+                    HELOまたはEHLO(ESMTPのHELO)コマンドは、相手側MTAにSMTP接続した際に
+                    最初に使用するコマンドです。
+                    引数には自分のホスト名またはIPアドレスを指定します。
+                    いわゆる<strong>挨拶</strong>です。 
+                </p>
+
+                <ul>
+                    <li>例1) HELO mx.libsisimai.org ←自分のホスト名(<strong>相手のホスト名ではない</strong>)を名乗る</li>
+                    <li>例2) HELO [192.0.2.25] ←自分のIPアドレスを[ ] で囲って名乗る</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>MAIL</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <hr>
+                <h4>MAIL FROM</h4>
+                <p class = 'description ja'>
+                    送信するメールの発信者アドレスを指定します。
+                    ここで指定する発信者アドレスは、<strong>エンベロープFrom</strong>と呼ばれるもので、
+                    メールアドレスのみを指定します。
+                </p>
+                <p class = 'description ja'>
+                    メールソフトの<strong>Fromに表示される差出人とは別物</strong>です。
+                    宛先不明などのバウンスが発生した場合は、 このエンベロープFromで指定した
+                    アドレスにエラーメール(バウンスメール)が送信されます。
+                </p>
+                <ul>
+                    <li>例) MAIL FROM: &lt;neko@example.jp&gt;</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>RCPT</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <hr>
+                <h4>RCPT TO</h4>
+                <p class = 'description ja'>
+                    送信するメールの受信者アドレス(宛先)を指定します。
+                    前述のMAIL FROMと同様、<strong>エンベロープTo</strong>と呼ばれ、
+                    メールアドレスのみを指定します。
+                    メールソフトの<strong>宛先(To:)に表示されるメールアドレスとは別物</strong>です。
+                </p>
+
+                <ul>
+                    <li>例) RCPT TO: &lt;nyan@example.org&gt;</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>DATA</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <hr>
+                <h4>DATA</h4>
+                <p class = 'description ja'>
+                    ヘッダも含めた電子メールの内容を開始するコマンドです。
+                    このコマンド入力直後に、メールヘッダや本文を入力し、全て入力が終えたら、
+                    <strong> . (単一のドット)</strong>を入れてデータ部分の終了となります。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>QUIT</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <hr>
+                <h4>QUIT</h4>
+                <p class = 'description ja'>
+                    SMTPセッションを終了します。このコマンドを入力すると相手側メールサーバとの
+                    SMTP通信が終了し、接続が切断されます。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'userunknown' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-terminal'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>宛先不明をtelnetで再現する</h2>
+                <p class = 'description ja'>
+                    宛先不明であることが確実なメールアドレスに送信する、
+                    というSMTPセッションをtelnetコマンドで再現してみます。
+                </p>
+                <p class = 'description ja'>
+                    <strong class = 'warn'>
+                        必ず自分の管理下にあるメールサーバに対してのみ行ってください。
+                        よそのメールサーバに対して行った場合、攻撃やスパム送信のための
+                        メールアドレス調査と 見なされることがあります。
+                    </strong>
+                    接続元の環境によっては OP25B(Outbound Port 25 Blocking によって接続できない場合があります。
+                </p>
+                <pre class = 'prettyprint'>
+$ <kbd>telnet mx.example.org 25</kbd>
+Trying 192.0.2.1...
+Connected to mx.example.org.
+Escape character is '^]'.
+220 Sendmail ESMTP 8.14.4/8.14.4; Sun, 12 Dec 2010 23:44:43 -0800
+<kbd>HELO [192.0.2.2]</kbd> ←自分のIPアドレスを名乗る
+250 mx.example.org Hello mta.example.jp [192.0.2.2], pleased to meet you
+<kbd>MAIL FROM: &lt;neko@example.jp&gt;</kbd> ←エンベロープFrom
+250 2.1.0 &lt;neko@example.jp&gt;... Sender ok
+<kbd>RCPT TO: &lt;nyan@example.org&gt;</kbd> ←エンベロープTo
+550 5.1.1 &lt;nyan@libsisimai.org&gt;... User Unknown ←宛先不明と言われる
+<kbd>QUIT</kbd> ←SMTPセッションを終了
+221 2.0.0 mx.libsisimai.org closing connection
+Connection closed by foreign host.
+                </pre>
+                <p class = 'description ja'>
+                    上記のように、SMTPのRCPT TOコマンドでエラーを返してきた場合、
+                    RCPT TOで指定した宛先アドレスはほぼ確実に存在しないといえます。
+                    携帯電話宛の場合も同様です。
+                </p>
+                <p class = 'description ja'>
+                    <a href = '/ja/docs/distinguish-between-the-unknown-and-the-filtered.html'>
+                        携帯電話宛バウンスの宛先不明とドメイン指定拒否を見分ける
+                    </a>
+                    の文書で例示しているように、<strong>Unknown user</strong>と書かれている
+                    バウンスメールの本文に<strong>RCPT TOでエラーになったと読み取れた場合</strong>は、
+                    宛先不明(存在しないメールアドレス)という事になります。
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id = 'filtered' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-terminal'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>ドメイン指定拒否をtelnetで再現する</h2>
+                <p class = 'description ja'>
+                    <strong class = 'warn'>
+                        ここでは例示の為に@docomo.ne.jpのメールサーバに接続する記述をしていますが、
+                        安易に行わないでください。
+                    </strong>
+                    <strong class = 'warn'>
+                        通常のメール送信と同様に、ドメイン指定拒否をしているアドレスに対しての過度な送信試行は、
+                        キャリア側から接続を拒否されるだけでなく、接続元のIPアドレスからキャリア側に全く接続
+                        できなくなったりする事があります。 
+                    </strong>
+                    <strong class = 'warn'>
+                        また攻撃やスパム送信のためのメールアドレス調査と見なされる事もあります。
+                        行う場合は自己責任の元、接続元ネットワークの管理者の許可を得て行ってください。
+                    </strong>
+                    以下のコマンドは、弊社の携帯電話にドメイン指定拒否を設定した上で行ったテストです。
+                    一部メールアドレスやIPアドレスは架空のものに差し替えています。
+                </p>
+                <pre class = 'prettyprint'>
+$ <kbd>telnet mfsmax.docomo.ne.jp 25</kbd>
+Trying 203.138.180.112...
+Connected to mfsmax.docomo.ne.jp.
+Escape character is '^]'.
+220 docomo.ne.jp ESMTP Service Ready
+<kbd>HELO [192.0.2.1]</kbd> ←自分のIPアドレスを名乗る
+250 Requested mail action okay, completed
+<kbd>MAIL FROM: &lt;kijitora@example.com&gt;</kbd>
+250 Requested mail action okay, completed
+<kbd>RCPT TO: &lt;*********@docomo.ne.jp&lt;</kbd>
+250 Requested mail action okay, completed ←この応答でRCPT TOで指定したアドレスは存在すると判明
+<kbd>DATA</kbd> ←メールヘッダと本文の開始
+354 Start mail input; end with <CRLF>.<CRLF>
+<kbd>Subject: Nyaaaaaaaan</kbd>
+<kbd>From: Kijitora &lt;kijitora@example.com&gt;</kbd>
+<kbd>To: **********@docomo.ne.jp</kbd>
+<kbd></kbd> ←空白を1行入れてメール本文の開始
+<kbd>Nyaaaaaaan</kbd>
+<kbd>.</kbd> ←単一のドットでメール本文の終了
+550 Unknown user ***********@docomo.ne.jp ←DATAで入力した内容に基づいてエラーが返る
+<kbd>QUIT</kbd> ←SMTPセッションを終了する
+221 docomo.ne.jp Service closing transmission channel
+Connection closed by foreign host.
+                </pre>
+                <p class = 'description ja'>
+                    上記の流れから分かる事は次の通りです
+                </p>
+                <ul>
+                    <li>応答コード250からRCPT TOで指定した宛先は存在する</li>
+                    <li>最後の"."(単一ドット)入力直後にエラー = DATAで入力した内容に基づいてエラーがでた</li>
+                    <li>つまりFrom: ヘッダに入力したメールアドレスが拒否対象であった = ドメイン指定拒否</li>
+                </ul>
+                <p class = 'description ja'>
+                    あくまでtelnetコマンドで再現した結果からの推測ですが、
+                    ドメイン指定拒否はFrom:ヘッダのメールアドレスを見て、
+                    受け取るか否かを決定しているようです。
+                </p>
+                <p class = 'description ja'>
+                    <a href = '/ja/docs/distinguish-between-the-unknown-and-the-filtered.html'>
+                        携帯電話宛バウンスの宛先不明とドメイン指定拒否を見分ける
+                    </a>
+                    の内容と照らし合わせると、<strong>Unknown user</strong>と書かれている
+                    バウンスメールの本文にDATAコマンドでエラーになったと読み取れた場合は、
+                    ドメイン指定拒否という事になります。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'summary' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-exclamation'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2>まとめ</h2>
+                <p class = 'description ja'>
+                    この文書ではSMTP通信をtelnetコマンドによって再現しました。
+                    メールサーバはいくつもの種類があり、また宛先メールサーバの管理方針も多種多様で、
+                    一概には言えませんが、SMTPのRCPT TOコマンドでエラーを返してきた場合は
+                    存在しないメールアドレス、DATAコマンド以降の入力内容でエラーを返してきた場合は、
+                    宛先アドレスは存在するがヘッダまたは本文の内容に基づいてなんらかのフィルターが
+                    働いたと言えるでしょう。
+                </p>
+                <p class = 'description ja'>
+                    携帯電話宛以外においても、どのコマンドでエラーになったかはバウンスの理由を特定する
+                    為に参考になると思います。
+                </p>
+
+                <ul>
+                    <li><strong>RCPT TOでエラー:</strong> 宛先のメールアドレスは存在しない</li>
+                    <li>
+                        <strong>DATA以降の内容でエラー:</strong>
+                        ヘッダの内容で拒否(ドメイン指定拒否など)
+                        あるいは本文の内容で拒否(URLフィルタやスパムチェックのプログラムなど)
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
