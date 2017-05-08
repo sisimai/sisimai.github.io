@@ -1,0 +1,316 @@
+---
+layout: document
+directory: docs/how-much-the-max-size-of-email.html
+title: 宛先サーバの最大受信サイズを調べる
+description: telnetコマンドを使って宛先メールサーバの最大受信メールサイズを調べる方法
+
+author: azumakuniyuki
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#a'>接続前</a></li>
+                    <li class = 'scroll'><a href = '#b'>接続中</a></li>
+                    <li class = 'scroll'><a href = '#c'>送信後</a></li>
+                    <li class = 'others'><a href = '/ja/docs'>ドキュメント</a></li>
+                    <!--
+                    <li class = 'others'>
+                        <a href = '/en/docs/when-does-email-bounce.html'>
+                            <i class = 'fa fa-language'></i>
+                        </a>
+                    </li>
+                    -->
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>telnetで宛先サーバの最大受信サイズを調べる</h2>
+                    <p class = 'description ja'>
+                        添付ファイルを含む電子メールを送信した時に、サイズが大きすぎて宛先サーバから
+                        エラーで戻ってくる(バウンス)ことがあります。
+                    </p>
+                    <p class = 'description ja'>
+                        特に業務で必要なファイルを送信する時には、予めどのくらいの大きさまでのメールが
+                        送信できるのか分かっている方が合理的かもしれません。
+                        この文書ではtelnetコマンドを使って宛先サーバが受信できる最大サイズを調べる方法を説明します。
+                    </p>
+                    <hr>
+                    <p class = 'description ja'>
+                        初出:
+                        <a href = 'http://bouncehammer.jp/ja/email-topics/how-much-the-max-size-of-email'>
+                            bouncehammer.jp/ja/email-topics/how-much-the-max-size-of-email
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /#index -->
+
+<section id = 'dig' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>MX</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>[dig] 宛先メールサーバのホスト名を調べる</h2>
+                <p class = 'description ja'>
+                    例えば<strong>hoge@example.jp</strong>から<strong>user@example.com</strong>
+                    に送信するとします。
+                    まずは<strong>dig</strong>コマンドか<strong>nslookup</strong>コマンドを使って、
+                    user@example.jpのメールを受けとるメールサーバのホスト名を調べる必要があります。
+                </p>
+                <h3>dig</h3>
+                <pre class = 'prettyprint'>
+$ <kbd>dig MX example.com</kbd>
+...
+;; ANSWER SECTION:
+example.com. 3600 IN MX 10 <strong>mx.example.com.</strong>
+...
+                </pre>
+
+                <p class = 'description ja'>
+                    <strong>IN MX</strong>という文字が書いてある行を探してください。
+                    コマンドの実行結果から<strong>example.comのメールサーバは mx.example.comである</strong>
+                    事が分かりました。
+                </p>
+                <hr>
+
+                <h3>nslookup</h3>
+                <p class = 'description ja'>
+                    digコマンドがない場合は<strong>nslookup</strong>を使うとよいでしょう。
+                    メールサーバのホスト名は<strong>mail exchanger =</strong>に続く文字列として表示されます。
+                </p>
+                <pre class = 'prettyprint'>
+$ <kbd>nslookup -q=MX example.com</kbd>
+...
+Non-authoritative answer:
+example.com mail exchanger = 10 <strong>mx.example.com.</strong>
+...
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'telnet' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-terminal'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>[telnet] 宛先メールサーバに接続する</h2>
+                <p class = 'description ja'>
+                    user@example.jpのメールサーバは<strong>mx.example.jp</strong>と分かったので、
+                    ターミナルまたはコマンドプロンプトからtelnetコマンドを使って接続します。
+                </p>
+                <p class = 'description ja'>
+                    接続元の環境によっては OP25 (Outbound Port 25 Blocking) によって接続できない
+                    場合がありますのでご注意下さい。
+                </p>
+
+                <pre class = 'prettyprint'>
+$ <kbd>telnet mx.example.com 25</kbd>
+Trying 192.0.2.1...
+Connected to mx.example.com.
+Escape character is '^]'.
+220 Sendmail ESMTP 8.14.4/8.14.4; Sun, 12 Dec 2010 23:44:43 -0800
+<kbd>EHLO [192.0.2.2]<kbd> ←自分のIPアドレスを名乗る
+250-libsisimai.org Hello [192.0.2.1], pleased to meet you
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-8BITMIME
+250-SIZE 33554432
+250-DSN
+250-ETRN
+250-AUTH LOGIN PLAIN CRAM-MD5 DIGEST-MD5
+250-DELIVERBY
+250 HELP
+<kbd>QUIT</kbd>
+                </pre>
+
+                <p class = 'description ja'>
+                    宛先メールサーバに接続してEHLOコマンドを発行した応答に含まれる
+                    <strong>SIZE</strong>に続く数値が、そのサーバが受け取れるメールの最大サイズです。
+                    上記の応答では<strong>約32MB</strong>ということがわかります。
+                </p>
+                <p class = 'description ja'>
+                    宛先メールサーバによっては、応答内容にSIZEが入っていないものもあります。
+                    その場合は実際にメールを送ってみるしか確認のしようがありませんのでご注意下さい。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-hand-o-up'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>サイズを超過した場合の応答を確認する</h2>
+                <p class = 'description ja'>
+                    相手先メールサーバは最大で<strong>32MBまで</strong>のメールを受けとるという事が、
+                    <strong>EHLOコマンドの応答</strong>からわかりました。
+                </p>
+                <p class = 'description ja'>
+                    では、32MB以上のメールを送信したら相手側メールサーバはどのような応答をするのか? 
+                    これは実際に32MB以上の本文データを用意せずとも確認する方法があります。
+                </p>
+                <pre class = 'prettyprint'>
+$ <kbd>telnet mx.example.com 25<kbd>
+Trying 192.0.2.1...
+Connected to mx.example.com.
+Escape character is '^]'.
+220 Sendmail ESMTP 8.14.4/8.14.4; Sun, 12 Dec 2010 23:44:43 -0800
+<kbd>EHLO [192.0.2.2]<kbd> ←自分のIPアドレスを名乗る
+250-libsisimai.org Hello [192.0.2.1], pleased to meet you
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-8BITMIME
+250-SIZE 33554432
+250-DSN
+250-ETRN
+250-AUTH LOGIN PLAIN CRAM-MD5 DIGEST-MD5
+250-DELIVERBY
+250 HELP
+<kbd>MAIL FROM: <hoge@example.jp> <strong>SIZE=34567890</strong></kbd>
+552 5.2.3 Message size exceeds fixed maximum message size (33554432)
+                </pre>
+                <p class = 'description ja'>
+                    MAIL FROMコマンドの末尾に<strong>送信するメールのサイズをSIZE= に続けて入力</strong>すると、
+                    メールサイズが大きすぎるという応答が恒久エラー(500系のエラーコード)で返ってきました。
+                    このエラーでバウンスした場合、{{ site.html.ss }}は<strong>mesgtoobig</strong>
+                    (メールが大きすぎる) というエラーとして検出します。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'size' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-server'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>携帯電話やWebメールサーバの最大受信サイズ</h2>
+                <p class = 'description ja'>
+                    日本国内の携帯電話や著名なWebメールサービスのメールサーバは、
+                    どのくらいのサイズのメールを受け付けるのか、各SMTPサーバに接続して調べてみました。
+                    ここではEHLOコマンドの応答で返ってきた数値を列挙しています。
+                </p>
+                <hr>
+                <p class = 'description ja'>
+                    2017年5月調べ
+                </p>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed'>
+                        <thead>
+                            <tr>
+                                <th class = 'ctext'>宛先ドメイン</th>
+                                <th class = 'ltext'>SIZE(EHLOの応答)</th>
+                                <th class = 'ctext'>応答</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@docomo.ne.jp</td>
+                                <td class = 'rtext'>15,728,640</td>
+                                <td class = 'rtext'>15MB</td>
+                            </tr>
+                            <tr>
+                                <td>@ezweb.ne.jp</td>
+                                <td class = 'rtext'>3,145,728</td>
+                                <td class = 'rtext'>3MB</td>
+                            </tr>
+                            <tr>
+                                <td>@softbank.ne.jp</td>
+                                <td class = 'rtext'>20,971,520</td>
+                                <td class = 'rtext'>20MB</td>
+                            </tr>
+                            <tr>
+                                <td>@i.softbank.jp (iPhone)</td>
+                                <td class = 'rtext'>4,310,016</td>
+                                <td class = 'rtext'>4MB</td>
+                            </tr>
+                            <tr>
+                                <td>@gmail.com</td>
+                                <td class = 'rtext'>157,286,400</td>
+                                <td class = 'rtext'>150MB</td>
+                            </tr>
+                            <tr>
+                                <td>@yahoo.com</td>
+                                <td class = 'rtext'>41,943,040</td>
+                                <td class = 'rtext'>40MB</td>
+                            </tr>
+                            <tr>
+                                <td>@yahoo.co.jp</td>
+                                <td class = 'rtext'>41,943,040</td>
+                                <td class = 'rtext'>40MB</td>
+                            </tr>
+                            <tr>
+                                <td>@hotmail.com</td>
+                                <td class = 'rtext'>36,909,875</td>
+                                <td class = 'rtext'>35MB</td>
+                            </tr>
+                            <tr>
+                                <td>@outlook.com</td>
+                                <td class = 'rtext'>36,909,875</td>
+                                <td class = 'rtext'>35MB</td>
+                            </tr>
+                            <tr>
+                                <td>@me.com (iCloud)</td>
+                                <td class = 'rtext'>28,311,552</td>
+                                <td class = 'rtext'>27MB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class = 'description ja'>
+                    @docomo.ne.jpも応答は15MBですが、サービスの公式情報によると5MBです。
+                    詳細は確認していませんが、どちらもSMTPのDATAコマンド以降に送信された本文データの容量を測定し、
+                    超過した場合はSMTPセッション中にエラーを返しているのかもしれません。
+                </p>
+            </div>
+
+            
+        </div>
+    </div>
+</section>
