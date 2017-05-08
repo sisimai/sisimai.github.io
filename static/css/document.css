@@ -162,7 +162,7 @@ pre.prettyprint {
 }
 
 .prettyprint kbd:after {
-    content: ' ⏎';
+    content: ' ↩︎';
 }
 
 .parallax .prettyprint strong {
