@@ -337,6 +337,12 @@ p.description + hr {
     transition: background-color 0.2s ease;
 }
 
+.index-label a {
+    background: inherit;
+    text-decoration: inherit;
+    color: #e6b422;
+}
+
 .index-label i.fa {
     font-weight: normal;
     font-size: 16px;
