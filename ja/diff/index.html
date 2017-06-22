@@ -1,8 +1,8 @@
 ---
 layout: document
 directory: diff/
-title: SisimaiとbounceHammerの違い
-description: SisimaiとbounceHammerの機能的・性能的な違い
+title: Sisimaiと{{ site.html.bh }}の違い
+description: Sisimaiと{{ site.html.bh }}の機能的・性能的な違い
 author: azumakuniyuki
 ---
 <a id = 'tohash' href = '#'></a>
@@ -301,6 +301,59 @@ Content-Type: message/rfc822
                 </p>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed'>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class = 'ctext'>p5-Sisimai(Perl)</th>
+                                <th class = 'ctext'>rb-Sisimai(Ruby)</th>
+                                <th class = 'ctext'>{{ site.html.bh }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>動作環境</strong></td>
+                                <td>Ruby 2.1 - 2.4</td>
+                                <td>Perl 5.10 - 5.14</td>
+                                <td>Perl 5.10 - 5.24</td>
+                            </tr>
+                            <tr>
+                                <td><strong>インストール方法</strong></td>
+                                <td>
+                                    cpan,
+                                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'>cpanm</a>
+                                    <a href = 'https://github.com/skaji/cpm' target = 'new'>cpm</a>
+                                </td>
+                                <td>gem</td>
+                                <td>configure; make; make install</td>
+                            </tr>
+                            <tr>
+                                <td><strong>コマンドラインツール</strong></td>
+                                <td>なし</td>
+                                <td>なし</td>
+                                <td>あり</td>
+                            </tr>
+                            <tr>
+                                <td><strong>データベース</strong></td>
+                                <td>なし</td>
+                                <td>なし</td>
+                                <td>あり(MySQL, PostgreSQL, SQLite)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>管理画面</strong></td>
+                                <td>なし</td>
+                                <td>なし</td>
+                                <td>あり(WebUI)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'><i class = 'fa fa-desktop'></i></div>
@@ -316,12 +369,15 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}はPerl 5.10.1以降で動作しますが{{ site.html.bh }}はPerl 5.16以降では
-                    動作しません。ですので、例えば{{ site.html.bh }}をインストールしようとしているサーバー
+                    {{ site.html.ss }}はPerl 5.10.1以降で動作しますが{{ site.html.bh }}は
+                    <strong>Perl 5.16以降では動作しません。</strong>
+                    ですので、例えば{{ site.html.bh }}をインストールしようとしているサーバー
                     のPerlが5.18であれば、古いバージョンのPerlを別途インストールする必要があります。
                 </p>
                 <p class = 'description ja'>
-                    そして、{{ site.html.ss }} v4.14.2からは{{ site.html.ss }}はPerlでもRuby(JRubyを含む)でも動作します。
+                    そして、
+                    <strong>{{ site.html.ss }} v4.14.2からは{{ site.html.ss }}はPerlでもRuby(JRubyを含む)
+                    でも動作</strong>します。
                 </p>
                 <hr>
             </div>
@@ -345,6 +401,8 @@ Content-Type: message/rfc822
                     {{ site.html.bh }}をインストールする作業はやや面倒で、
                     アーカイブのダウンロード・多くの依存モジュールのインストール・
                     configure, make, make test, make installコマンドの実行を経て完了します。
+                </p>
+                <p class = 'description ja'>
                     一方、{{ site.html.ss }}のインストールは<kbd>cpanm</kbd>や<kbd>gem</kbd>コマンドでインストールが
                     出来るので非常に簡単です。
                 </p>
@@ -397,6 +455,61 @@ Content-Type: message/rfc822
         </div>
 
         <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed'>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class = 'ctext'>p5-Sisimai(Perl)</th>
+                                <th class = 'ctext'>rb-Sisimai(Ruby)</th>
+                                <th class = 'ctext'>{{ site.html.bh }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>解析精度(2000通)</strong></td>
+                                <td class = 'rtext'>100%</td>
+                                <td class = 'rtext'>100%</td>
+                                <td class = 'rtext'.>55%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>商用MTAとMSP対応モジュール</strong></td>
+                                <td class = 'ctext'>あり(同梱)</td>
+                                <td class = 'ctext'>あり(同梱)</td>
+                                <td class = 'ctext'>無し</td>
+                            </tr>
+                            <tr>
+                                <td><strong>解析速度(1000通)</strong></td>
+                                <td class = 'rtext'>2.33秒</td>
+                                <td class = 'rtext'>3.30秒</td>
+                                <td class = 'rtext'>4.24秒</td>
+                            </tr>
+                            <tr>
+                                <td><strong>依存モジュール数</strong></td>
+                                <td class = 'rtext'>2</td>
+                                <td class = 'rtext'>2</td>
+                                <td class = 'rtext'>24</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ソースコード行数</strong></td>
+                                <td class = 'rtext'>9,000行</td>
+                                <td class = 'rtext'>12,500行</td>
+                                <td class = 'rtext'>18,200行</td>
+                            </tr>
+                            <tr>
+                                <td><strong>テスト件数</strong></td>
+                                <td class = 'rtext'>19万件</td>
+                                <td class = 'rtext'>11万件</td>
+                                <td class = 'rtext'>2.7万件</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'><i class = 'fa fa-line-chart'></i></div>
             </div>
@@ -444,6 +557,34 @@ Content-Type: message/rfc822
                 </p>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-compress'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>小さく堅牢</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}はバウンスメールの解析のみに特化したライブラリですので、
+                    以下のように小さく堅牢に設計されています。
+                </p>
+                <ul>
+                    <li>{{ site.html.bh }}の半分程度のソースコード行数</li>
+                    <li>{{ site.html.bh }}の5倍程度のテスト件数</li>
+                    <li>依存モジュールは2つだけ</li>
+                </ul>
+            </div>
+        </div>
+
+
     </div>
 </section>
 
@@ -471,8 +612,10 @@ Content-Type: message/rfc822
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>生成されたデータの各項目</h3>
                 <p class = 'description ja'>
+                    {{ site.html.ss }}が生成する解析データは、{{ site.html.bh }}のそれと比べて
+                    より詳細な情報を保持しています。
                     {{ site.html.ss }}が生成する解析結果の全項目は
-                    <a href = '/ja/data'>/ja/data</a>ページをご覧ください。
+                    <a href = '/ja/data'>Sisimai::Dataのデータ構造</a>をご覧ください。
                 </p>
             </div>
         </div>
@@ -495,7 +638,7 @@ Content-Type: message/rfc822
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class = 'ltext'>action</td>
+                                    <td class = 'ltext'><strong>action</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -503,7 +646,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>addresser</td>
+                                    <td class = 'ltext'><strong>addresser</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -511,7 +654,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>alias</td>
+                                    <td class = 'ltext'><strong>alias</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -519,17 +662,17 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>catch</td>
+                                    <td class = 'ltext'><strong>catch</strong></td>
                                     <td>
                                         OK<br /><em class = 'warn'>(>= v4.19.0)</em>
                                     </td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        フックメソッドの戻り値
+                                        <a href = '/ja/usage/#callback'>フックメソッドの戻り値</a>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>deliverystatus</td>
+                                    <td class = 'ltext'><strong>deliverystatus</strong></td>
                                     <td>OK</td>
                                     <td>
                                         OK<br>
@@ -540,7 +683,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>destination</td>
+                                    <td class = 'ltext'><strong>destination</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -548,7 +691,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>diagnosticcode</td>
+                                    <td class = 'ltext'><strong>diagnosticcode</strong></td>
                                     <td>OK</td>
                                     <td>
                                         OK<br>
@@ -559,7 +702,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>diagnostictype</td>
+                                    <td class = 'ltext'><strong>diagnostictype</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -567,7 +710,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>feedbacktype</td>
+                                    <td class = 'ltext'><strong>feedbacktype</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -575,15 +718,16 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>frequency</td>
+                                    <td class = 'ltext'><strong>frequency</strong></td>
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
-                                        バウンスした回数ですが解析済データでは常に"1"です
+                                        バウンスした回数ですが解析済データでは常に"1"です。
+                                        この項目はDB用に存在します。
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>hostgroup</td>
+                                    <td class = 'ltext'><strong>hostgroup</strong></td>
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -591,7 +735,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>lhost</td>
+                                    <td class = 'ltext'><strong>lhost</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -599,7 +743,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>listid</td>
+                                    <td class = 'ltext'><strong>listid</strong></td>
                                     <td>OK</td>
                                     <td>
                                         OK<br>
@@ -610,7 +754,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>messageid</td>
+                                    <td class = 'ltext'><strong>messageid</strong></td>
                                     <td>
                                         OK<br>
                                         <em class = 'warn'>Does not include &gt;,&lt;</em>
@@ -625,7 +769,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>provider</td>
+                                    <td class = 'ltext'><strong>provider</strong></td>
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -633,7 +777,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>reason</td>
+                                    <td class = 'ltext'><strong>reason</strong></td>
                                     <td>OK({{ site.sisimai.spec.reasons }})</td>
                                     <td>OK(19)</td>
                                     <td class = 'ltext'>
@@ -641,7 +785,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>recipient</td>
+                                    <td class = 'ltext'><strong>recipient</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -651,7 +795,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>replycode</td>
+                                    <td class = 'ltext'><strong>replycode</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -659,7 +803,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>rhost</td>
+                                    <td class = 'ltext'><strong>rhost</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -667,7 +811,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>senderdomain</td>
+                                    <td class = 'ltext'><strong>senderdomain</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -675,7 +819,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>smtpagent</td>
+                                    <td class = 'ltext'><strong>smtpagent</strong></td>
                                     <td>OK</td>
                                     <td>
                                         OK<br>
@@ -686,7 +830,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>smtpcommand</td>
+                                    <td class = 'ltext'><strong>smtpcommand</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -694,7 +838,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>softbounce</td>
+                                    <td class = 'ltext'><strong>softbounce</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -702,7 +846,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>subject</td>
+                                    <td class = 'ltext'><strong>subject</strong></td>
                                     <td>OK</td>
                                     <td>
                                         OK<br>
@@ -713,7 +857,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>timestamp</td>
+                                    <td class = 'ltext'><strong>timestamp</strong></td>
                                     <td>OK</td>
                                     <td>
                                         OK<br>
@@ -724,7 +868,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>timezoneoffset</td>
+                                    <td class = 'ltext'><strong>timezoneoffset</strong></td>
                                     <td>OK</td>
                                     <td>
                                         OK<br>
@@ -736,7 +880,7 @@ Content-Type: message/rfc822
                                 </tr>
 
                                 <tr>
-                                    <td class = 'ltext'>token</td>
+                                    <td class = 'ltext'><strong>token</strong></td>
                                     <td>
                                         OK<br>
                                         <em class = 'warn'>including timestamp</em>
@@ -764,8 +908,8 @@ Content-Type: message/rfc822
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>検出可能なバウンス理由</h3>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}が生成する解析結果のバウンス理由一覧は
-                    <a href = '/ja/reason'>/ja/reason</a>ページをご覧ください。
+                    {{ site.html.ss }}が検出可能なエラー理由の一覧と詳細は
+                    <a href = '/ja/reason'>バウンス理由の一覧</a>をご覧ください。
                 </p>
             </div>
         </div>
@@ -788,14 +932,14 @@ Content-Type: message/rfc822
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class = 'ltext'>Blocked</td>
+                                    <td class = 'ltext'><strong>Blocked</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>blocked
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Content Error</td>
+                                    <td class = 'ltext'><strong>Content Error</strong></td>
                                     <td>OK</td>
                                     <td>
                                         OK<br>
@@ -806,7 +950,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Delivered</td>
+                                    <td class = 'ltext'><strong>Delivered</strong></td>
                                     <td>
                                         OK<br>
                                         <em class = 'warn'>(&gt;= v4.16.0)</em>
@@ -818,7 +962,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Exceed Limit</td>
+                                    <td class = 'ltext'><strong>Exceed Limit</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -826,7 +970,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Expired</td>
+                                    <td class = 'ltext'><strong>Expired</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -834,7 +978,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Feedback</td>
+                                    <td class = 'ltext'><strong>Feedback</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -842,7 +986,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Filtered</td>
+                                    <td class = 'ltext'><strong>Filtered</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -850,7 +994,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Has Moved</td>
+                                    <td class = 'ltext'><strong>Has Moved</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -858,7 +1002,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Host Unknown</td>
+                                    <td class = 'ltext'><strong>Host Unknown</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -866,7 +1010,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Mailbox Full</td>
+                                    <td class = 'ltext'><strong>Mailbox Full</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -874,15 +1018,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Mailbox Full</td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        mailboxfull
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'>Mailer Error</td>
+                                    <td class = 'ltext'><strong>Mailer Error</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -890,7 +1026,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Mesg Too Big</td>
+                                    <td class = 'ltext'><strong>Mesg Too Big</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -898,7 +1034,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Network Error</td>
+                                    <td class = 'ltext'><strong>Network Error</strong></td>
                                     <td>
                                         OK<br>
                                         <em class = 'warn'>(&gt;= v4.1.12)</em>
@@ -909,7 +1045,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>No Relaying</td>
+                                    <td class = 'ltext'><strong>No Relaying</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
@@ -917,7 +1053,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Not Accept</td>
+                                    <td class = 'ltext'><strong>Not Accept</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -925,7 +1061,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>On Hold</td>
+                                    <td class = 'ltext'><strong>On Hold</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -933,7 +1069,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Rejected</td>
+                                    <td class = 'ltext'><strong>Rejected</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -941,7 +1077,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Security Error</td>
+                                    <td class = 'ltext'><strong>Security Error</strong></td>
                                     <td>OK</td>
                                     <td>
                                         OK<br>
@@ -952,7 +1088,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Spam Detected</td>
+                                    <td class = 'ltext'><strong>Spam Detected</strong></td>
                                     <td>
                                         OK<br>
                                         <em class = 'warn'>(&gt;= v4.1.25)</em>
@@ -963,7 +1099,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Suspend</td>
+                                    <td class = 'ltext'><strong>Suspend</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -971,7 +1107,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Syntax Error</td>
+                                    <td class = 'ltext'><strong>Syntax Error</strong></td>
                                     <td>
                                         OK<br>
                                         <em class = 'warn'>(&gt;= v4.17.0)</em>
@@ -982,7 +1118,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>System Error</td>
+                                    <td class = 'ltext'><strong>System Error</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -990,7 +1126,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>System Full</td>
+                                    <td class = 'ltext'><strong>System Full</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -998,7 +1134,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Too Many Conn</td>
+                                    <td class = 'ltext'><strong>Too Many Conn</strong></td>
                                     <td>
                                         OK<br>
                                         <em class = 'warn'>(&gt;= v4.1.26)</em>
@@ -1009,7 +1145,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Undefined</td>
+                                    <td class = 'ltext'><strong>Undefined</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -1017,7 +1153,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>User Unknown</td>
+                                    <td class = 'ltext'><strong>User Unknown</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -1025,7 +1161,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Vacation</td>
+                                    <td class = 'ltext'><strong>Vacation</strong></td>
                                     <td>
                                         OK<br>
                                         <em class = 'warn'>(&gt;= v4.1.28)</em>
