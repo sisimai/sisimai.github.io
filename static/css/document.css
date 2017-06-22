@@ -1,22 +1,23 @@
 /* CSS for document layout */
 
 .read-more {
-  display: block;
-  text-align: center;
-  margin-top: 70px;
+    display: block;
+    text-align: center;
+    margin-top: 70px;
 }
 
 .btn-readmore {
-  border: 1px solid #f2f2f2;
-  color: #666666;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 15px 125px;
-  text-transform: uppercase;
+    border: 1px solid #f2f2f2;
+    color: #666666;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 125px;
+    text-transform: uppercase;
 }
 
 .btn-readmore:hover {
-  color:#fff;
+    color:#fff;
+    text-shadow: 0 -1px 0 #16160e;
 }
 
 /*****************************************************************************/
@@ -205,6 +206,29 @@ ul.spec {
     text-align: left;
     list-style-type: disc;
     list-style-position: inside;
+}
+
+dl.faq dt:before { content: 'Q. '; }
+dl.faq dd:before { content: ''; }
+
+dl.faq dt {
+    margin: 24px 0 4px 0;
+}
+
+dl.faq dd {
+    margin: 8px 0 8px 0;
+    padding: 4px 0 4px 18px;
+    border: 1px #adadad solid;
+    border-radius: 2px;
+}
+
+dl.faq a,
+dl.faq a:link,
+dl.faq a:hover,
+dl.faq a:visited {
+    display: block;
+    background: inherit;
+    color: #3f312b;
 }
 
 h3.icon-caption {
