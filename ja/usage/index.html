@@ -319,10 +319,10 @@ end
                     Sisimaiの<kbd>make()</kbd>と<kbd>dump()</kbd>は第二引数に<kbd>input</kbd>
                     を指定することによって、メール以外のバウンス記録を解析することができます。
                     この機能は{{ site.html.ss }} 4.20.0で実装されました。現時点で解析できるものは
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-amazonses-01.json' target = 'new'>
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-amazonses-01.json' target = 'new'>
                         SNSで取得できるAmazon SESのバウンスオブジェクト
                     </a>と、
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-sendgrid-01.json' target = 'new'>
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-sendgrid-01.json' target = 'new'>
                         用意されているWeb APIで取得できるSendGridのバウンスオブジェクト
                     </a>
                     のみです。
@@ -340,10 +340,10 @@ end
                     <img class = 'lhs' src = '/static/images/icon/message-3.png'>
                     メール配信クラウド(Amazon SESとSendGrid)から取得したバウンスオブジェクトのJSONファイルは
                     <a href = 'https://github.com/sisimai/set-of-emails' target = 'new'>github.com/sisimai/set-of-emails</a>
-                    リポジトリの<strong>jsonapi/</strong>ディレクトリに何種類かを用意してあります。
+                    リポジトリの<strong>jsonobj/</strong>ディレクトリに何種類かを用意してあります。
                     ここでは、
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-sendgrid-03.json' target = 'new'>
-                        ced-us-sendgrid-03.json
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-sendgrid-03.json' target = 'new'>
+                        json-sendgrid-03.json
                     </a>(SendGridのバウンスオブジェクト)を解析するコードを紹介します。
                 </p>
             </div>
@@ -489,7 +489,7 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>電子メール: mta-postfix-16.eml</h3>
                 <p class = 'description ja'>
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/mta-postfix-16.eml' target = 'new'>
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
                         mta-postfix-16.eml
                     </a>にある以下の内容をコールバックで実行するコードによって取得する例を示します。
                 </p>
@@ -553,7 +553,7 @@ X-Postfix-Sender: rfc822; shironeko@cat.example.com
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <p class = 'description ja'>
                     フックメソッドには一つの引数が以下のように渡されます。
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/mta-postfix-16.eml' target = 'new'>
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
                         mta-postfix-16.eml
                     </a>のヘッダ部分(ハッシュ化済み)とメッセージ部分(文字列)を構造化したものです。
                     <kbd>undef</kbd>になっている部分は、Rubyでは<kbd>nil</kbd>と読み替えてください。
@@ -621,7 +621,7 @@ Nyaaaan
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
-my $f = './set-of-emails/maildir/bsd/mta-postfix-16.eml';
+my $f = './set-of-emails/maildir/bsd/email-postfix-16.eml';
 my $x = sub {
     my $argv = shift;
     my $data = { 'queue-id' => '', 'received-spf' => '' };
@@ -658,7 +658,7 @@ print $v->[0]->{<strong>'catch'</strong>}->{'queue-id'};      # FFFFFF000000
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-f = './set-of-emails/maildir/bsd/mta-postfix-16.eml'
+f = './set-of-emails/maildir/bsd/email-postfix-16.eml'
 x = lambda do |argv|
   data = { 'queue-id' => '', 'received-spf' => '' }
 
@@ -727,10 +727,10 @@ puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
                 <div class = 'index-label'>Ojbect</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>バウンスオブジェクト: ced-us-amazonses-01.eml</h3>
+                <h3 class = 'in-desc'>バウンスオブジェクト: json-amazonses-01.eml</h3>
                 <p class = 'description ja'>
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-amazonses-01.json' target = 'new'>
-                        ced-us-amazonses-01.json
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-amazonses-01.json' target = 'new'>
+                        json-amazonses-01.json
                     </a>内、SNSで取得できるバウンスオブジェクトから<kbd>mail.sendingAccountId</kbd>の値を、
                     コールバックで実行するコードで取得するサンプルコードで説明します。
                 </p>
@@ -763,8 +763,8 @@ puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <p class = 'description ja'>
                     フックメソッドには一つの引数が以下のように渡されます。
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-amazonses-01.json' target = 'new'>
-                        ced-us-amazonses-01.json
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-amazonses-01.json' target = 'new'>
+                        json-amazonses-01.json
                     </a>のバウンスオブジェクト(JSON)をデコードして構造化したものです。
                     <kbd>undef</kbd>になっている部分は、Rubyでは<kbd>nil</kbd>と読み替えてください。
                 </p>
