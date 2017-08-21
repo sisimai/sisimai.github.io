@@ -506,12 +506,12 @@ end
                 <div class = 'index-label'>email</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>mta-postfix-16.eml</h3>
+                <h3 class = 'in-desc'>email-postfix-16.eml</h3>
                 <p class = 'description'>
                     The following codes show an example for getting the following values
                     from
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/mta-postfix-16.eml' target = 'new'>
-                        mta-postfix-16.eml
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
+                        email-postfix-16.eml
                     </a>
                     using a hook method given as the 2nd argument of <kbd>make()</kbd>
                     method of Sisimai.
@@ -576,8 +576,8 @@ X-Postfix-Sender: rfc822; shironeko@cat.example.com
                     The following is an example of an argument that the hook method you defined
                     receives.
                     The argument have the header part (Hash) and the body part (String) generated from
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/mta-postfix-16.eml' target = 'new'>
-                        mta-postfix-16.eml
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
+                        email-postfix-16.eml
                     </a>.
                 </p>
 
@@ -643,7 +643,7 @@ Nyaaaan
                 </p>
                 <pre class = 'prettyprint'><strong>#! /usr/bin/env perl</strong>
 use Sisimai;
-my $f = './set-of-emails/maildir/bsd/mta-sendmail-24.eml';
+my $f = './set-of-emails/maildir/bsd/email-sendmail-24.eml';
 my $x = sub {
     my $argv = shift;
     my $data = { 'queue-id' => '', 'received-spf' => '' };
@@ -680,7 +680,7 @@ print $v->[0]->{<strong>'catch'</strong>}->{'queue-id'};      # FFFFFF000000
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-f = './set-of-emails/maildir/bsd/mta-postfix-16.eml'
+f = './set-of-emails/maildir/bsd/email-postfix-16.eml'
 x = lambda do |argv|
   data = { 'queue-id' => '', 'received-spf' => '' }
 

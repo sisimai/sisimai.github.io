@@ -487,10 +487,10 @@ end
                 <div class = 'index-label'>email</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>電子メール: mta-postfix-16.eml</h3>
+                <h3 class = 'in-desc'>電子メール: email-postfix-16.eml</h3>
                 <p class = 'description ja'>
                     <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
-                        mta-postfix-16.eml
+                        email-postfix-16.eml
                     </a>にある以下の内容をコールバックで実行するコードによって取得する例を示します。
                 </p>
                 <ul>
@@ -554,7 +554,7 @@ X-Postfix-Sender: rfc822; shironeko@cat.example.com
                 <p class = 'description ja'>
                     フックメソッドには一つの引数が以下のように渡されます。
                     <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
-                        mta-postfix-16.eml
+                        email-postfix-16.eml
                     </a>のヘッダ部分(ハッシュ化済み)とメッセージ部分(文字列)を構造化したものです。
                     <kbd>undef</kbd>になっている部分は、Rubyでは<kbd>nil</kbd>と読み替えてください。
                 </p>
