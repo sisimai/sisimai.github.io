@@ -227,7 +227,19 @@ author: azumakuniyuki
                                     <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
                                     <td class = 'ltext'><strong><a href = '#securityerror'>Security Error</a></strong></td>
                                     <td>No</td>
-                                    <td class = 'ltext'>ウィルスの検出または認証失敗</td>
+                                    <td class = 'ltext'>認証の失敗など</td>
+                                </tr>
+                                <tr data-href = '#policyviolation'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#policyviolation'>Policy Violation</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>セキュリティに関する方針に違反した</td>
+                                </tr>
+                                <tr data-href = '#virusdeteted'>
+                                    <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#virusdetected'>Viurs Detected</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>ウィルスやワーム・マルウェアを検出した</td>
                                 </tr>
                                 <tr data-href = '#spamdetected'>
                                     <td class = 'ltext'><i class = 'fa fa-file-text-o' title = 'メールの内容'></i></td>
@@ -758,10 +770,77 @@ Status: 553 Exceeded maximum inbound message size
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Security Error</h3>
                 <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/lock-1.png'>
+                    宛先メールサーバがセキュリティ上の理由で受け取りを拒否した場合に返ってくるエラーです。
+                    どのようなものをセキュリティ上のエラーとするかは各メールサーバのポリシー次第ですが、
+                    発信者アドレス詐称、認証エラーなどが該当します。
+                </p>
+                <pre class = 'prettyprint'>
+552-5.7.0 This message was blocked because its content presents a potential
+552-5.7.0 security issue. Please visit
+552-5.7.0  https://support.google.com/mail/answer/6590 to review our message
+552 5.7.0 content and attachment content guidelines. p4si4011367igr.94 - gsmtp
+                </pre>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
+                    "5.7.x"のものがこの理由に決定されます。
+
+                    {{ site.html.ss }} 4.22.0で、このバウンス理由から分離する形で
+                    <a href = '#policyviolation'>Policy Violation</a>と<a href = '#virusdetected'>Virus Detected</a>
+                    が実装されました。
+                </p>
+                {% include error-messages/securityerror.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'policyviolation'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#policyviolation'><i class = 'fa fa-file-text-o'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Policy Violation</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/rules-2.png'>
+                    宛先メールサーバにおけるポリシー違反で受け取りを拒否した場合に返ってくるエラーです。
+                    どのようなものをポリシー上のエラーとするかは各メールサーバのポリシー次第ですが、
+                    発信者アドレス詐称、ヘッダの不備や不正な形式などがあります。
+                </p>
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.1 [2401:2500:102:3032:192.0.2.222      13]
+    Messages with multiple 550 5.7.1 addresses in From: header are not
+    accepted. v14si1155795plk.134 - gsmtp
+                </pre>
+                <p class = 'description ja'>
+                    このバウンス理由は{{ site.html.ss }} 4.22.0にて、<a href = '#securityerror'>Security Error</a>
+                    から分離される形で実装されたもので、{{ site.html.bh }}では実装されていないものです。
+                </p>
+                {% include error-messages/policyviolation.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'virusdetected'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#virusdetected'><i class = 'fa fa-file-text-o'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Virus Detected</h3>
+                <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/virus-3.png'>
-                    宛先メールサーバがセキュリティ上の理由やポリシー違反で受け取りを拒否した
-                    場合に返ってくるエラーです。どのようなものをセキュリティ上のエラーとするかは
-                    各メールサーバのポリシー次第ですが、発信者アドレス詐称、ウィルス検査陽性反応等が代表的です。
+                    宛先メールサーバがメール内にウィルスやワーム・マルウェアなど有害なファイルや
+                    プログラムを検出した場合に返ってくるエラーです。
                 </p>
                 <pre class = 'prettyprint'>
 Status: 5.7.0
@@ -769,10 +848,10 @@ Remote-MTA: DNS; gmail-smtp-in.l.google.com
 Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on your message. Please
                 </pre>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.7.x"のものがこの理由に決定されます。
+                    このバウンス理由は{{ site.html.ss }} 4.22.0にて、Security Errorから分離される形で
+                    実装されたもので、{{ site.html.bh }}では実装されていないものです。
                 </p>
-                {% include error-messages/securityerror.html %}
+                {% include error-messages/virusdetected.html %}
                 <hr>
             </div>
         </div>

@@ -286,7 +286,9 @@ sisimai (4.20.0) installed.
                     <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>
                     からダウンロードが可能です。<kbd>cpan</kbd>コマンドでもインストール出来ますが、
                     <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
-                    コマンドを使うとPerlモジュールのインストールが非常に楽です。
+                    コマンドや
+                    <a href = 'https://github.com/skaji/cpm' target = 'new'><kbd>cpm</kbd></a>
+                    を使うとPerlモジュールのインストールが非常に楽です。
                     <br />
                     <br />
                 </p>
@@ -536,7 +538,7 @@ puts Sisimai.dump('~/Maildir/cur')
     "listid": "",
     "reason": "hasmoved",
     "deliverystatus": "5.1.6",
-    "smtpagent": "Sendmail",
+    "smtpagent": "Email::Sendmail",
     "destination": "example.net",
     "timezoneoffset": "+0900",
     "feedbacktype": "",
