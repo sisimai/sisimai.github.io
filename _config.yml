@@ -1,14 +1,14 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.21.1'
+  version: 'v4.22.0'
   release: 
-    en: 'Monday, 29 May, 2017'
-    ja: '平成29年5月29日(月)'
+    en: 'Tuesday, 22 August, 2017'
+    ja: '平成29年8月22日(火)'
 
   spec:
     modules: 55
-    reasons: 27
+    reasons: 29
     license: 'The BSD 2-Clause License'
   repository: 
     project: 'https://github.com/sisimai'
