@@ -373,7 +373,7 @@ my $q = '[{"status": "5.1.1", "created": "2011-10-08 14:05:44", "reason": "550..
 my $j = JSON->new;
 my $v = Sisimai->make($j->decode($q), <strong>'input' => 'json'</strong>);
 for my $e ( @$v ) {
-    print $e->smtpagent;        # CED::US::SendGrid
+    print $e->smtpagent;        # JSON::SendGrid
     print $e->deliverystatus;   # 5.1.1
     print $e->reason;           # userunknown
     print $e->diagnosticcode;   # 550 5.1.1 The email account that you tried to...
@@ -402,7 +402,7 @@ require 'json'
 q = '[{"status": "5.1.1", "created": "2011-10-08 14:05:44", "reason": "550...'
 v = Sisimai.make(JSON.load(q), <strong>input: 'json'</strong>)
 v.each do |e|
-  puts e.smtpagent      # CED::US::SendGrid
+  puts e.smtpagent      # JSON::SendGrid
   puts e.deliverystatus # 5.1.1
   puts e.reason         # userunknown
   puts e.diagnosticcode # 550 5.1.1 The email account that you tried to...
@@ -911,7 +911,7 @@ puts v[0][<strong>'catch'</strong>]['account-id']  # 123456789012
     "softbounce": 0,
     "rhost": "",
     "smtpcommand": "",
-    "smtpagent": "CED::US::AmazonSES",
+    "smtpagent": "JSON::AmazonSES",
     "recipient": "bounce@simulator.amazonses.com",
     "alias": "",
     "diagnostictype": "SMTP",
