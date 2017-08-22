@@ -2,7 +2,7 @@
 layout: document
 directory: engine/
 title: 解析エンジン
-description: Sisimaiに搭載の解析エンジン(MTA/MSPモジュール)の一覧と詳細
+description: Sisimaiに搭載の解析エンジン(MTAモジュール)の一覧と詳細
 author: azumakuniyuki
 ---
 <a id = 'tohash' href = '#'></a>
@@ -47,7 +47,7 @@ author: azumakuniyuki
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
                     <h2>解析エンジン</h2>
                     <p class = 'description ja'>
-                        下記の表は最新版シシマイに含まれる解析エンジンとしてのMTA/MSPモジュール
+                        下記の表は最新版シシマイに含まれる解析エンジンとしてのMTAモジュール
                         一覧です。シシマイにのみ実装されているものもりますので、{{ site.html.bh }}との
                         比較項目も併記しています。
                     </p>
@@ -140,7 +140,7 @@ author: azumakuniyuki
                                 <tr>
                                     <th>
                                         モジュール名<br>
-                                        Sisimai::MTA::
+                                        Sisimai::Bite::Email::
                                     </th>
                                     <th>
                                         bounceHammer<br>
@@ -251,7 +251,7 @@ author: azumakuniyuki
                                 <tr>
                                     <th>
                                         モジュール名<br>
-                                        Sisimai::MTA::
+                                        Sisimai::Bite::Email::
                                     </th>
                                     <th>
                                         bounceHammer
@@ -408,7 +408,7 @@ author: azumakuniyuki
                                 <tr>
                                     <th>
                                         モジュール名<br>
-                                        Sisimai::MSP::
+                                        Sisimai::Bite::Email
                                     </th>
                                     <th>
                                         bounceHammer
@@ -433,7 +433,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>DE::GMX</td>
+                                    <td class = 'ltext'>GMX</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.4</td>
@@ -442,7 +442,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>JP::Biglobe</td>
+                                    <td class = 'ltext'>Biglobe</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.0.0</td>
@@ -451,7 +451,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>JP::EZweb</td>
+                                    <td class = 'ltext'>EZweb</td>
                                     <td>含む</td>
                                     <td>1.00</td>
                                     <td class = 'ltext'>v4.0.0</td>
@@ -460,7 +460,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>JP::KDDI</td>
+                                    <td class = 'ltext'>KDDI</td>
                                     <td>含む</td>
                                     <td>1.00</td>
                                     <td class = 'ltext'>v4.0.0</td>
@@ -469,7 +469,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>RU::MailRu</td>
+                                    <td class = 'ltext'>MailRu</td>
                                     <td>含まない</td>
                                     <td>0.29</td>
                                     <td class = 'ltext'>v4.1.4</td>
@@ -478,7 +478,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>RU::Yandex</td>
+                                    <td class = 'ltext'>Yandex</td>
                                     <td>含まない</td>
                                     <td>0.57</td>
                                     <td class = 'ltext'>v4.1.6</td>
@@ -487,7 +487,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>UK::MessageLabs</td>
+                                    <td class = 'ltext'>MessageLabs</td>
                                     <td>含まない</td>
                                     <td>1.00</td>
                                     <td class = 'ltext'>v4.1.10</td>
@@ -496,7 +496,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::AmazonSES</td>
+                                    <td class = 'ltext'>AmazonSES</td>
                                     <td>含まない</td>
                                     <td>1.00</td>
                                     <td class = 'ltext'>v4.0.2</td>
@@ -505,7 +505,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::AmazonWorkMail</td>
+                                    <td class = 'ltext'>AmazonWorkMail</td>
                                     <td>含まない</td>
                                     <td>0.60</td>
                                     <td class = 'ltext'>v4.15.0</td>
@@ -514,7 +514,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::Aol</td>
+                                    <td class = 'ltext'>Aol</td>
                                     <td>含まない</td>
                                     <td>0.86</td>
                                     <td class = 'ltext'>v4.1.3</td>
@@ -523,7 +523,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::Bigfoot</td>
+                                    <td class = 'ltext'>Bigfoot</td>
                                     <td>含まない</td>
                                     <td>1.00</td>
                                     <td class = 'ltext'>v4.1.10</td>
@@ -532,7 +532,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::Facebook</td>
+                                    <td class = 'ltext'>Facebook</td>
                                     <td>含む</td>
                                     <td>1.00</td>
                                     <td class = 'ltext'>v4.0.0</td>
@@ -541,7 +541,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::Google</td>
+                                    <td class = 'ltext'>Google</td>
                                     <td>含む</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.0.0</td>
@@ -550,7 +550,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::GSuite</td>
+                                    <td class = 'ltext'>GSuite</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.21.0</td>
@@ -559,7 +559,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::Office365</td>
+                                    <td class = 'ltext'>Office365</td>
                                     <td>含まない</td>
                                     <td>0.85</td>
                                     <td class = 'ltext'>v4.15.0</td>
@@ -568,7 +568,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::Outlook</td>
+                                    <td class = 'ltext'>Outlook</td>
                                     <td>含まない</td>
                                     <td>0.83</td>
                                     <td class = 'ltext'>v4.1.3</td>
@@ -577,7 +577,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::ReceivingSES</td>
+                                    <td class = 'ltext'>ReceivingSES</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.29</td>
@@ -586,7 +586,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::SendGrid</td>
+                                    <td class = 'ltext'>SendGrid</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.0.2</td>
@@ -595,7 +595,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::Verizon</td>
+                                    <td class = 'ltext'>Verizon</td>
                                     <td>含む</td>
                                     <td>1.00</td>
                                     <td class = 'ltext'>v4.0.0</td>
@@ -604,7 +604,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::Yahoo</td>
+                                    <td class = 'ltext'>Yahoo</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.3</td>
@@ -613,7 +613,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::Zoho</td>
+                                    <td class = 'ltext'>Zoho</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.7</td>
@@ -637,7 +637,7 @@ author: azumakuniyuki
                                 <tr>
                                     <th>
                                         モジュール名<br>
-                                        Sisimai::CED::
+                                        Sisimai::Bite::JSON::
                                     </th>
                                     <th>
                                         bounceHammer
@@ -653,7 +653,7 @@ author: azumakuniyuki
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class = 'ltext'>US::AmazonSES</td>
+                                    <td class = 'ltext'>AmazonSES</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.20.0</td>
@@ -665,7 +665,7 @@ author: azumakuniyuki
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>US::SendGrid</td>
+                                    <td class = 'ltext'>SendGrid</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.20.0</td>
@@ -747,35 +747,35 @@ author: azumakuniyuki
                                     <td class = 'ltext'>RFC3834の自動応答形式</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>MTA::X1</td>
+                                    <td class = 'ltext'>Bite::Email::X1</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.3</td>
                                     <td class = 'ltext'>Unknown MTA #1</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>MTA::X2</td>
+                                    <td class = 'ltext'>Bite::Email::X2</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.7</td>
                                     <td class = 'ltext'>Unknown MTA #2</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>MTA::X3</td>
+                                    <td class = 'ltext'>Bite::Email::X3</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.9</td>
                                     <td class = 'ltext'>Unknown MTA #3</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>MTA::X4</td>
+                                    <td class = 'ltext'>Bite::Email::X4</td>
                                     <td>含まない</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.23</td>
                                     <td class = 'ltext'>Unknown MTA #4 qmail clones</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>MTA::X5</td>
+                                    <td class = 'ltext'>Bite::Email::X5</td>
                                     <td>含まない</td>
                                     <td>1.00</td>
                                     <td class = 'ltext'>v4.13.0</td>
@@ -807,7 +807,7 @@ author: azumakuniyuki
                 <p class = 'description ja'>
                     {{ site.html.ss }} v4.16.0から<kbd>engine()</kbd>メソッドが<kbd>Sisimai</kbd>クラスで
                     利用可能になりました。下記のサンプルコードのように、
-                    このメソッドは実装されている全てのMTA/MSPモジュールの名前とその説明を一覧として
+                    このメソッドは実装されている全てのMTAモジュールの名前とその説明を一覧として
                     返す機能を提供します。
                 </p>
             </div>
@@ -824,7 +824,7 @@ require Sisimai;
 my $v = Sisimai->engine;
 print keys %$v;         # {{ site.sisimai.spec.modules }}
 for my $e ( keys %$v ) {
-    print $e;           # MTA::Exchange2007
+    print $e;           # Sisimai::Bite::Email::Exchange2007
     print $v->{ $e };   # Microsoft Exchange Server 2007
 }
                 </pre>
@@ -842,7 +842,7 @@ require 'sisimai'
 v = Sisimai.engine
 puts v.keys.size;  # {{ site.sisimai.spec.modules }}
 v.keys.each do |e|
-  puts e    # MTA::Exchange2007
+  puts e    # Sisimai::Bite::Email::Exchange2007
   puts v[e] # Microsoft Exchange Server 2007
 end
                 </pre>

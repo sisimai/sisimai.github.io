@@ -162,7 +162,7 @@ Original-Recipient: rfc822;kijitora@example.org
                     <strong>implemented at Sisimai 4.19.0.</strong>
                 </p>
                 <pre class = 'prettyprint'>#! /usr/bin/env perl
-my $f = './set-of-emails/maildir/bsd/sendmail-24.eml';
+my $f = './set-of-emails/maildir/bsd/email-sendmail-24.eml';
 my $x = sub {
     my $argv = shift;
     my $data = { 'x-mailer' => '' };
@@ -501,7 +501,7 @@ Remote-MTA: DNS; g5.example.net
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/puzzle-1.png'>
                     "smtpagent" is a module name to be used for detecting bounce reason.
-                    For example, when the value is "Sendmail", {{ site.html.ss }} used Sisimai::MTA::Sendmail
+                    For example, when the value is "Email::Sendmail", {{ site.html.ss }} used Sisimai::Bite::Email::Sendmail
                     to get the recipient address and other delivery status information from a bounce message.
                 </p>
                 <hr>

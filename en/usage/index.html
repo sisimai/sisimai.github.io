@@ -325,10 +325,10 @@ end
                     of <kbd>make()</kbd> and <kbd>dump()</kbd> methods.
                     This feature has implemented at Sisimai v.20.0.
                     As of present, only bounce objects retrieved from Amazon SES
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-amazonses-01.json' target = 'new'>
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-amazonses-01.json' target = 'new'>
                         (Bounce object thet can be got from SNS)
                     </a> and SendGrid 
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-sendgrid-01.json' target = 'new'>
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-sendgrid-01.json' target = 'new'>
                         (Bounce object that can be got with Web API)
                     </a>
                     could be parsed
@@ -345,11 +345,11 @@ end
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/message-3.png'>
                     Some JSON files including bounce object retrieved from Cloud Email Delivery Services
-                    (Amazon SES and SendGrid) are available in <strong>jsonapi/</strong> directory of
+                    (Amazon SES and SendGrid) are available in <strong>jsonobj/</strong> directory of
                     <a href = 'https://github.com/sisimai/set-of-emails' target = 'new'>github.com/sisimai/set-of-emails</a>
                     repository. The following codes show a sample for parsing
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-sendgrid-03.json' target = 'new'>
-                        ced-us-sendgrid-03.json
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-sendgrid-03.json' target = 'new'>
+                        json-sendgrid-03.json
                     </a>(Bounce object from SendGrid).
                 </p>
             </div>
@@ -373,7 +373,7 @@ my $q = '[{"status": "5.1.1", "created": "2011-10-08 14:05:44", "reason": "550..
 my $j = JSON->new;
 my $v = Sisimai->make($j->decode($q), <strong>'input' => 'json'</strong>);
 for my $e ( @$v ) {
-    print $e->smtpagent;        # CED::US::SendGrid
+    print $e->smtpagent;        # JSON::SendGrid
     print $e->deliverystatus;   # 5.1.1
     print $e->reason;           # userunknown
     print $e->diagnosticcode;   # 550 5.1.1 The email account that you tried to...
@@ -402,7 +402,7 @@ require 'json'
 q = '[{"status": "5.1.1", "created": "2011-10-08 14:05:44", "reason": "550...'
 v = Sisimai.make(JSON.load(q), <strong>input: 'json'</strong>)
 v.each do |e|
-  puts e.smtpagent      # CED::US::SendGrid
+  puts e.smtpagent      # JSON::SendGrid
   puts e.deliverystatus # 5.1.1
   puts e.reason         # userunknown
   puts e.diagnosticcode # 550 5.1.1 The email account that you tried to...
@@ -506,12 +506,12 @@ end
                 <div class = 'index-label'>email</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>mta-postfix-16.eml</h3>
+                <h3 class = 'in-desc'>email-postfix-16.eml</h3>
                 <p class = 'description'>
                     The following codes show an example for getting the following values
                     from
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/mta-postfix-16.eml' target = 'new'>
-                        mta-postfix-16.eml
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
+                        email-postfix-16.eml
                     </a>
                     using a hook method given as the 2nd argument of <kbd>make()</kbd>
                     method of Sisimai.
@@ -576,8 +576,8 @@ X-Postfix-Sender: rfc822; shironeko@cat.example.com
                     The following is an example of an argument that the hook method you defined
                     receives.
                     The argument have the header part (Hash) and the body part (String) generated from
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/mta-postfix-16.eml' target = 'new'>
-                        mta-postfix-16.eml
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
+                        email-postfix-16.eml
                     </a>.
                 </p>
 
@@ -643,7 +643,7 @@ Nyaaaan
                 </p>
                 <pre class = 'prettyprint'><strong>#! /usr/bin/env perl</strong>
 use Sisimai;
-my $f = './set-of-emails/maildir/bsd/mta-sendmail-24.eml';
+my $f = './set-of-emails/maildir/bsd/email-sendmail-24.eml';
 my $x = sub {
     my $argv = shift;
     my $data = { 'queue-id' => '', 'received-spf' => '' };
@@ -680,7 +680,7 @@ print $v->[0]->{<strong>'catch'</strong>}->{'queue-id'};      # FFFFFF000000
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-f = './set-of-emails/maildir/bsd/mta-postfix-16.eml'
+f = './set-of-emails/maildir/bsd/email-postfix-16.eml'
 x = lambda do |argv|
   data = { 'queue-id' => '', 'received-spf' => '' }
 
@@ -750,12 +750,12 @@ puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
                 <div class = 'index-label'>Ojbect</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Bounce Object: ced-us-amazonses-01.eml</h3>
+                <h3 class = 'in-desc'>Bounce Object: json-amazonses-01.eml</h3>
                 <p class = 'description'>
                     The following codes show an example for getting value of <kbd>mail.sendingAccountId</kbd>
                     from a bounce object (retrieved or notified from AWS SNS)
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-amazonses-01.json' target = 'new'>
-                        ced-us-amazonses-01.json
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-amazonses-01.json' target = 'new'>
+                        json-amazonses-01.json
                     </a> using a hook method given as the 2nd argument of <kbd>make()</kbd> method of Sisimai.
                 </p>
                 <pre class = 'prettyprint'>{
@@ -788,8 +788,8 @@ puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
                 <p class = 'description'>
                     The following is an example of an argument that the hook method you defined receives.
                     The argument have a bounce object (decoded JSON) in "bounces" key decoded from 
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonapi/ced-us-amazonses-01.json' target = 'new'>
-                        ced-us-amazonses-01.json
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-amazonses-01.json' target = 'new'>
+                        json-amazonses-01.json
                     </a>.
                 </p>
 
@@ -911,7 +911,7 @@ puts v[0][<strong>'catch'</strong>]['account-id']  # 123456789012
     "softbounce": 0,
     "rhost": "",
     "smtpcommand": "",
-    "smtpagent": "CED::US::AmazonSES",
+    "smtpagent": "JSON::AmazonSES",
     "recipient": "bounce@simulator.amazonses.com",
     "alias": "",
     "diagnostictype": "SMTP",
