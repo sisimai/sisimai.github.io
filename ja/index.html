@@ -53,15 +53,13 @@ author: azumakuniyuki
                     <div class = 'attention'>
                         <i class = 'fa fa-newspaper-o'></i>
                         現在の安定板最新バージョンは
-                        <a href = 'http://blog.libsisimai.org/post/164478952986/sisimai-4220'
-                           target = 'new'>{{ site.sisimai.release.ja }}</a>にリリースされた
+                        <a href = '{{ site.sisimai.blogurl }}' target = 'new'>{{ site.sisimai.release.ja }}</a>
+                        にリリースされた
                         <a href = '#download'>
                             <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
                         </a>です。
-                        主な変更点は新しいエラー理由として
-                        <a href = '/en/reason/#policyviolation'>Policy Violation</a>と
-                        <a href = '/en/reason/#virusdetected'>Virus Detected</a>の実装、
-                        解析用MTAモジュール名前空間の変更(Sisimai::Bite)です。
+                        主な変更点はメールアドレス解析モジュールSisimai::Addressの大幅な精度向上と
+                        Ruby版Sisimaiにおけるいくつかのバグ修正です。
                     </div>
                 </div>
             </div> 
