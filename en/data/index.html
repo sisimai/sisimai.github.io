@@ -103,11 +103,13 @@ Action: failed
                     Sisimai::Address object has the following accessors:
                 </p>
                 <ul>
-                    <li>user() - the local part of the address</li>
-                    <li>host() - the domain part of the address</li>
-                    <li>address() - email address</li>
-                    <li>verp() - variable envelope return path</li>
-                    <li>alias() - alias of the address</li>
+                    <li>user() - The local part of the address</li>
+                    <li>host() - The domain part of the address</li>
+                    <li>address() - Email address</li>
+                    <li>verp() - Variable envelope return path</li>
+                    <li>alias() - Alias of the address</li>
+                    <li>name() - Display name (v4.22.1 or later)</li>
+                    <li>comment() - Comment (v4.22.1 or later)</li>
                 </ul>
                 <pre class = 'prettyprint'>
 From: "Kijitora Cat" &lt;kijitora@example.org&gt;
@@ -417,6 +419,8 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                     <li>address() - email address</li>
                     <li>verp() - variable envelope return path</li>
                     <li>alias() - alias of the address</li>
+                    <li>name() - Display name (v4.22.1 or later)</li>
+                    <li>comment() - Comment (v4.22.1 or later)</li>
                 </ul>
                 <pre class = 'prettyprint'>
 Final-Recipient: RFC822; shironeko@example.ne.jp
