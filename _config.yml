@@ -6,12 +6,18 @@ sisimai:
   release: 
     en: 'Tuesday, 29 August, 2017'
     ja: '平成29年8月29日(火)'
-
   spec:
     modules: 55
     reasons: 29
     license: 'The BSD 2-Clause License'
-  repository: 
+  lang:
+    perl:
+      min: "5.10.1"
+      max: "5.26.X"
+    ruby:
+      min: "2.1.0"
+      max: "2.4.0"
+  repository:
     project: 'https://github.com/sisimai'
     perl: 'https://github.com/sisimai/p5-Sisimai'
     ruby: 'https://github.com/sisimai/rb-Sisimai'

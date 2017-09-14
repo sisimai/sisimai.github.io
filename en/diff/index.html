@@ -319,9 +319,9 @@ Content-Type: message/rfc822
                         <tbody>
                             <tr>
                                 <td><strong>Works on</strong></td>
-                                <td>Ruby 2.1 - 2.4</td>
-                                <td>Perl 5.10 - 5.14</td>
-                                <td>Perl 5.10 - 5.24</td>
+                                <td>Perl {{ site.sisimai.lang.perl.min }} - {{ site.sisimai.lang.perl.max }}</td>
+                                <td>Ruby {{ site.sisimai.lang.ruby.min }} - {{ site.sisimai.lang.ruby.max }}</td>
+                                <td>Perl {{ site.sisimai.lang.perl.min }} - 5.14</td>
                             </tr>
                             <tr>
                                 <td><strong>Could be installed by</strong></td>
@@ -371,10 +371,10 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} works on Perl 5.10.1 or later, but {{ site.html.bh }} cannot work on 
-                    Perl 5.16.1 or later. Therefore, for example, if the Perl version is 5.18 at a host which
-                    you want to install {{ site.html.bh }}, you should install older version of Perl into
-                    the host.
+                    {{ site.html.ss }} works on Perl {{ site.sisimai.lang.perl.min }} or later,
+                    but {{ site.html.bh }} cannot work on Perl 5.16.1 or later. Therefore, for example,
+                    if the Perl version is 5.18 at a host which you want to install {{ site.html.bh }},
+                    you should install older version of Perl into the host.
                 </p>
                 <p class = 'description'>
                     And then, beginning of {{ site.html.ss }} v4.14.2,

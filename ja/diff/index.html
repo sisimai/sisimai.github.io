@@ -317,9 +317,9 @@ Content-Type: message/rfc822
                         <tbody>
                             <tr>
                                 <td><strong>動作環境</strong></td>
-                                <td>Ruby 2.1 - 2.4</td>
-                                <td>Perl 5.10 - 5.14</td>
-                                <td>Perl 5.10 - 5.24</td>
+                                <td>Perl {{ site.sisimai.lang.perl.min }} - {{ site.sisimai.lang.perl.max }}</td>
+                                <td>Ruby {{ site.sisimai.lang.ruby.min }} - {{ site.sisimai.lang.ruby.max }}</td>
+                                <td>Perl {{ site.sisimai.lang.perl.min }} - 5.14</td>
                             </tr>
                             <tr>
                                 <td><strong>インストール方法</strong></td>
@@ -369,8 +369,8 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}はPerl 5.10.1以降で動作しますが{{ site.html.bh }}は
-                    <strong>Perl 5.16以降では動作しません。</strong>
+                    {{ site.html.ss }}はPerl {{ site.sisimai.lang.perl.min }}以降で動作しますが
+                    {{ site.html.bh }}は<strong>Perl 5.16以降では動作しません。</strong>
                     ですので、例えば{{ site.html.bh }}をインストールしようとしているサーバー
                     のPerlが5.18であれば、古いバージョンのPerlを別途インストールする必要があります。
                 </p>
