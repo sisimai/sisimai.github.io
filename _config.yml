@@ -1,11 +1,11 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.22.1'
-  blogurl: 'http://blog.libsisimai.org/post/164744431606/sisimai-4221'
+  version: 'v4.22.2'
+  blogurl: 'http://blog.libsisimai.org/post/166346240651/sisimai-4222'
   release: 
-    en: 'Tuesday, 29 August, 2017'
-    ja: '平成29年8月29日(火)'
+    en: 'Friday, 13 October, 2017'
+    ja: '平成29年10月13日(金)'
   spec:
     modules: 55
     reasons: 29
