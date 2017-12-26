@@ -1,13 +1,13 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.22.2'
+  version: 'v4.22.3'
   blogurl: 'http://blog.libsisimai.org/post/166346240651/sisimai-4222'
   release: 
-    en: 'Friday, 13 October, 2017'
-    ja: '平成29年10月13日(金)'
+    en: 'Tuesday, 26 December, 2017'
+    ja: '平成29年12月26日(火)'
   spec:
-    modules: 55
+    modules: 56
     reasons: 29
     license: 'The BSD 2-Clause License'
   lang:
