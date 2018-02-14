@@ -481,9 +481,9 @@ Content-Type: message/rfc822
                             </tr>
                             <tr>
                                 <td><strong>解析速度(1000通)</strong></td>
-                                <td class = 'rtext'>2.33秒</td>
-                                <td class = 'rtext'>3.30秒</td>
-                                <td class = 'rtext'>4.24秒</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.parse1k.perl }}秒</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.parse1k.ruby }}秒</td>
+                                <td class = 'rtext'>4.3秒</td>
                             </tr>
                             <tr>
                                 <td><strong>依存モジュール数</strong></td>
@@ -493,15 +493,15 @@ Content-Type: message/rfc822
                             </tr>
                             <tr>
                                 <td><strong>ソースコード行数</strong></td>
-                                <td class = 'rtext'>9,000行</td>
-                                <td class = 'rtext'>12,500行</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.loc.perl }}行</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.loc.ruby }}行</td>
                                 <td class = 'rtext'>18,200行</td>
                             </tr>
                             <tr>
                                 <td><strong>テスト件数</strong></td>
-                                <td class = 'rtext'>19万件</td>
-                                <td class = 'rtext'>11万件</td>
-                                <td class = 'rtext'>2.7万件</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.tests.perl }}件</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.tests.ruby }}件</td>
+                                <td class = 'rtext'>27000件</td>
                             </tr>
                         </tbody>
                     </table>
@@ -550,10 +550,9 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description ja'>
-                    シシマイは{{ site.html.bh }}のbin/mailboxparserコマンドよりも高速にメールを解析し、
-                    構造化されたデータを生成します。
-                    Perl版{{ site.html.ss }}で約1.7倍、
-                    Ruby版{{ site.html.ss }}で約1.1倍高速です。
+                    Perl版シシマイは{{ site.html.bh }}のbin/mailboxparserコマンドよりも
+                    {{ site.sisimai.diff.timesfaster.perl }}倍程度
+                    高速にメールを解析し、構造化されたデータを生成します。
                 </p>
             </div>
         </div>

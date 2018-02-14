@@ -479,9 +479,9 @@ Content-Type: message/rfc822
                             </tr>
                             <tr>
                                 <td><strong>The speed of parsing email(1000 emails)</strong></td>
-                                <td class = 'rtext'>2.33s</td>
-                                <td class = 'rtext'>3.30s</td>
-                                <td class = 'rtext'>4.24s</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.parse1k.perl }}s</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.parse1k.ruby }}s</td>
+                                <td class = 'rtext'>4.3s</td>
                             </tr>
                             <tr>
                                 <td><strong>Dependencies (Except core modules of Perl)</strong></td>
@@ -491,14 +491,14 @@ Content-Type: message/rfc822
                             </tr>
                             <tr>
                                 <td><strong>LOC:Source lines of code</strong></td>
-                                <td class = 'rtext'>9,000 lines</td>
-                                <td class = 'rtext'>12,500 lines</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.loc.perl }} lines</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.loc.ruby }} lines</td>
                                 <td class = 'rtext'>18,200 lines</td>
                             </tr>
                             <tr>
                                 <td><strong>The number of tests </strong></td>
-                                <td class = 'rtext'>190,000</td>
-                                <td class = 'rtext'>110,000</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.tests.perl }}</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.tests.ruby }}</td>
                                 <td class = 'rtext'>27000</td>
                             </tr>
                         </tbody>
@@ -550,8 +550,8 @@ Content-Type: message/rfc822
                 <p class = 'description'>
                     {{ site.html.ss }} can parse bounce mails and generate structured data
                     faster than {{ site.html.bh }} (bin/mailboxparser command).
-                    The Perl version of {{ site.html.ss }} is about 1.7 times faster,
-                    and the Ruby version of {{ site.html.ss }} is about 1.1 times faster.
+                    The Perl version of {{ site.html.ss }} is about {{ site.sisimai.diff.timesfaster.perl }}
+                    times faster.
                 </p>
             </div>
         </div>
