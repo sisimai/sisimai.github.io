@@ -1,178 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="https://www.w3.org/1999/xhtml"
+        xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>http://libsisimai.org/</loc>
+        <loc>https://libsisimai.org/</loc>
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>1.00</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/en/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/" />
+        <loc>https://libsisimai.org/en/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/" />
+        <loc>https://libsisimai.org/ja/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/en/start/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/start/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/start/" />
+        <loc>https://libsisimai.org/en/start/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/start/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/start/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.66</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/en/docs/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/docs/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/docs/" />
+        <loc>https://libsisimai.org/en/docs/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/docs/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/docs/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.50</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/en/docs/what-is-bounced-email.html</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/docs/what-is-bounced-email.html" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/docs/what-is-bounced-email.html" />
+        <loc>https://libsisimai.org/en/docs/what-is-bounced-email.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/docs/what-is-bounced-email.html" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/docs/what-is-bounced-email.html" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.30</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/en/reason/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/reason/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/reason/" />
+        <loc>https://libsisimai.org/en/reason/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/reason/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/reason/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/en/data/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/data/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/data/" />
+        <loc>https://libsisimai.org/en/data/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/data/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/data/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/en/engine/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/engine/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/engine/" />
+        <loc>https://libsisimai.org/en/engine/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/engine/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/engine/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.53</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/en/diff/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/diff/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/diff/" />
+        <loc>https://libsisimai.org/en/diff/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/diff/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/diff/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.55</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/en/usage/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/usage/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/usage/" />
+        <loc>https://libsisimai.org/en/usage/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/usage/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/usage/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.64</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/start/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/start/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/start/" />
+        <loc>https://libsisimai.org/ja/start/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/start/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/start/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.66</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/docs/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/docs/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/docs/" />
+        <loc>https://libsisimai.org/ja/docs/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/docs/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/docs/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.50</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/docs/distinguish-between-the-unknown-and-the-filtered.html</loc>
+        <loc>https://libsisimai.org/ja/docs/distinguish-between-the-unknown-and-the-filtered.html</loc>
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.30</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/docs/how-much-the-max-size-of-email.html</loc>
+        <loc>https://libsisimai.org/ja/docs/how-much-the-max-size-of-email.html</loc>
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.30</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/docs/mechanism-of-email-bounce.html</loc>
+        <loc>https://libsisimai.org/ja/docs/mechanism-of-email-bounce.html</loc>
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.30</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/docs/when-does-email-bounce.html</loc>
+        <loc>https://libsisimai.org/ja/docs/when-does-email-bounce.html</loc>
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.30</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/docs/what-is-bounced-email.html</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/docs/what-is-bounced-email.html" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/docs/what-is-bounced-email.html" />
+        <loc>https://libsisimai.org/ja/docs/what-is-bounced-email.html</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/docs/what-is-bounced-email.html" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/docs/what-is-bounced-email.html" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.30</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/reason/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/reason/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/reason/" />
+        <loc>https://libsisimai.org/ja/reason/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/reason/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/reason/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/data/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/data/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/data/" />
+        <loc>https://libsisimai.org/ja/data/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/data/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/data/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.75</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/engine/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/engine/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/engine/" />
+        <loc>https://libsisimai.org/ja/engine/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/engine/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/engine/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.53</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/diff/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/diff/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/diff/" />
+        <loc>https://libsisimai.org/ja/diff/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/diff/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/diff/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.55</priority>
     </url>
     <url>
-        <loc>http://libsisimai.org/ja/usage/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="http://libsisimai.org/en/usage/" />
-        <xhtml:link rel="alternate" hreflang="ja" href="http://libsisimai.org/ja/usage/" />
+        <loc>https://libsisimai.org/ja/usage/</loc>
+        <xhtml:link rel="alternate" hreflang="en" href="https://libsisimai.org/en/usage/" />
+        <xhtml:link rel="alternate" hreflang="ja" href="https://libsisimai.org/ja/usage/" />
         <lastmod>2017-05-08T05:00:25+00:00</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.64</priority>
