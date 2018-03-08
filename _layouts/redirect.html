@@ -3,7 +3,7 @@
 <head>
     <link rel = 'canonical' href = '{{ page.redirect.to }}' />
     <meta http-equiv = 'content-type' content = 'text/html; charset=utf-8' />
-    <meta http-equiv = 'refresh' content = '100000;url={{ page.redirect.to }}' />
+    <meta http-equiv = 'refresh' content = '2;url={{ page.redirect.to }}' />
     {% include standard-styles.html %}
     {% include webfont-setting.html %}
     <style type = 'text/css'>
@@ -12,13 +12,26 @@
             text-align: center;
         }
         div.L2 { margin: 10px auto; }
+        span.URL {
+            font-family: "Gill Sans", "Arial Black";
+            font-weight: bold;
+            font-size: 24px;
+            margin: 8px 0;
+            display: block;
+        }
+        h2 { font-size: 18px; }
     </style>
 </head>
 <body>
     <div class = 'L1'>
+        {{ page | inspect }}
         <div class = 'L2'>
             <img src = '/static/images/logo/sisimai-logomark-b02.png' width = '32%'>
-            <h2>"{{ page.redirect.from }}" has been moved to "{{ page.redirect.to }}"</h2>
+            <h2>
+                <span class = 'URL'>"{{ page.redirect.from }}"</span>
+                has been moved to
+                <span class = 'URL'>"{{ page.redirect.to }}"</span>
+            </h2>
             <a class = 'btn btn-primary' href = '{{ page.redirect.to }}'>REDIRECT<a>
         </div>
     </div>
