@@ -209,6 +209,7 @@
                 <h2 class = 'in-desc'>{{ site.html.ss }}をインストールする</h2>
                 <p class = 'description'>
                     {{ site.html.ss }}はGitHub, CPAN, RubyGems.orgからそれぞれダウンロード・インストールが可能です。
+                    また、Perl版{{ site.html.ss }}はFreeBSDのportsコレクションからでもインストールすることができます。
                 </p>
             </div>
         </div>
@@ -275,7 +276,8 @@ sisimai (4.20.0) installed.
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>Perl</div>
+                <div class = 'index-label'>CPAN</div>
+                <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>CPANから</h3>
@@ -310,7 +312,8 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.20.0.tar.gz ... OK
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>Ruby</div>
+                <div class = 'index-label'>gem</div>
+                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>RubyGems.orgから</h3>
@@ -334,6 +337,37 @@ Parsing documentation for sisimai-4.20.0
 Installing ri documentation for sisimai-4.20.0
 Done installing documentation for sisimai after 6 seconds
 1 gem installed
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Ports</div>
+                <div class = 'index-text'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Portsコレクションから(FreeBSD)</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/freebsd-daemon-2.png'>
+                    Perl版{{ site.html.ss }}は<a href = 'https://www.freebsd.org/ja/' target = 'new'>FreeBSD</a>
+                    の<a href = 'https://www.freebsd.org/ja/ports/index.html' target = 'new'>Portsコレクション</a>
+                    (<a href = 'https://svnweb.freebsd.org/ports/head/mail/p5-Sisimai/' target = 'new'>mail/p5-Sisimai)</a>
+                    インストールができます。<kbd>make</kbd>コマンド一発でインストールが可能ですが、
+                    Perl版{{ site.html.ss }}がPortsコレクションに取り込まれるタイミングによっては、
+                    最新版ではない{{ site.html.ss }}がインストールされる点に注意してください。
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <pre class = 'prettyprint'>
+# <kbd>cd /usr/ports/mail/p5-Sisimai</kbd>
+# <kbd>make install</kbd>
+===> License BSD2CLAUSE accepted by the user
+===>  p5-Sisimai-4.22.6 depends on file: /usr/local/sbin/pkg - found
+=> Sisimai-v4.22.6.tar.gz doesn't seem to exist in /usr/ports/distfiles/.
+...
                 </pre>
             </div>
         </div>
