@@ -29,6 +29,7 @@
                     <li class = 'scroll'><a href = 'https://libsisimai.org/ja/'><i class = 'fa fa-home'></i></a></li> 
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li> 
                     <li class = 'scroll'><a href = '#stdin'>標準入力</a></li>
+                    <li class = 'scroll'><a href = '#memory'>変数から</a></li>
                     <li class = 'scroll'><a href = '#delivered'>配信成功も</a></li>
                     <li class = 'scroll'><a href = '#othersrc'>メール以外</a></li>
                     <li class = 'scroll'><a href = '#callback'>コールバック</a></li>
@@ -52,8 +53,7 @@
         </div>
         <div class = 'text-center index-table'>
             <div class = 'row'>
-                <div class = 'col-sm-1'></div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-keyboard-o'></i>
                     </div>
@@ -61,51 +61,74 @@
                         <h3>基本的な使い方</h3>
                         <p class = 'description ja'>
                             メールの解析、構造化されたデータやJSON文字列の取得化など、
-                            簡単な使い方を紹介します。
+                            シシマイが使える環境にバウンスメールを用意すれば直ぐに解析結果を得られる
+                            最も簡単で基本的な使い方を紹介します。
                         </p>
                     </div>
                     <a href = '/ja/start/#usage' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-desktop'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>標準入力を読む</h3>
                         <p class = 'description ja'>
-                            標準入力(STDIN)からバウンスメールのデータを読み込み
+                            標準入力(STDIN)からバウンスメールのデータを読み込み、
                             シシマイで解析する方法の記述例です。
+                            PerlやRubyのワンライナーでパイプラインを経由して
+                            読み込む場合に便利な入力方法です。
                         </p>
                     </div>
                     <a href = '#stdin' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-memory'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>変数から読む</h3>
+                        <p class = 'description ja'>
+                            変数からバウンスメールのデータを読み込み
+                            シシマイで解析する方法の記述例です。バウンスメール
+                            をデータベースやジョブキューシステムから読み出して
+                            解析する場合に便利な方法です。
+                        </p>
+                    </div>
+                    <a href = '#memory' class = 'btn btn-continue'>Read</a>
+                </div>
+            </div>
+
+            <div class = 'row'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-truck'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>配信成功も含む</h3>
                         <p class = 'description ja'>
-                            配信が成功したメール(配信通知)も解析結果に含める
+                            シシマイは既定の動作で配信できなかったメールだけを解析結果として
+                            出力しますが、配信が成功したメール(配信通知)も解析結果に含める
                             {{ site.html.ss }}クラスのメソッド使用方法を紹介します。
                         </p>
                     </div>
                     <a href = '#delivered' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-files-o'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>メール以外</h3>
                         <p class = 'description ja'>
-                            メール以外のデータソースでは、メール配信クラウドの
-                            バウンスオブジェクトも解析することができます。
+                            バウンスメール以外のデータソースでは、電子メール配信クラウド
+                            (現在はAmazon SESとSendGrid)で得られるJSON形式のバウンスオブジェクトも
+                            シシマイで解析することができます。
                         </p>
                     </div>
                     <a href = '#othersrc' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-reply-all'></i>
                     </div>
@@ -113,12 +136,12 @@
                         <h3>コールバック</h3>
                         <p class = 'description ja'>
                             コールバック機能を使うとシシマイが解析する前のデータ
-                            に対して、独自の処理を行うことができます。
+                            に対して、特定ヘッダの取得や部分的な書き換えなど、
+                            独自の処理を行い、その結果を解析データに含めることができます。
                         </p>
                     </div>
                     <a href = '#callback' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-1'></div>
             </div>
         </div>
     </div>
@@ -214,7 +237,83 @@ sironeko@example.org
     </div>
 </section> <!-- /#stdin -->
 
-<section id = 'delivered'>
+<section id = 'memory'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-memory'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>変数から読み込む</h2>
+                <p class = 'description ja'>
+                    Sisimaiの<kbd>make()</kbd>と<kbd>dump()</kbd>の第一引数に変数
+                    (Perlではスカラーリファレンス・RubyではStringオブジェクト)を指定することによって、
+                    ファイルとしてのメールや標準入力以外からバウンスメールのデータを読み込むことができます。
+                </p>
+                <p class = 'description ja'>
+                    バウンスメールをデータベースやジョブキューシステムから読み出す場合に有用なこの機能
+                    (Sisimai::Mail::Memory)は{{ site.html.ss }} 4.23.0で実装されました。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>Scalar Reference</h4>
+                <p class = 'description ja'>
+                    <kbd>make()</kbd>と<kbd>dump()</kbd>の第一引数に<strong>スカラーリファレンス</strong>を指定すると、
+                    Sisimai内部ではSisimai::Mail::Memoryが呼び出され、メールのファイルや標準入力から読み込んだ
+                    のと同様、解析結果が得られます。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
+use Sisimai;
+my $f = 'From MAILER-DAEMON Thu Dec 22 17:54:04 2015...';   # バウンスメール全体
+my $v = Sisimai->make(\$f);
+for my $e ( @$v ) {
+    print $e->action;           # delayed
+    print $e->deliverystatus;   # 4.7.0
+    print $e->reason;           # expired
+    print $e->diagnosticcode;   # Envelope expired
+    print $e->softbounce;       # 1
+}
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>String Object</h4>
+                <p class = 'description ja'>
+                    Ruby版{{ site.html.ss }}では<kbd>make()</kbd>と<kbd>dump()</kbd>の第一引数に
+                    <strong>Stringオブジェクト</strong>を指定すると、Sisimai内部でSisimai::Mail::Memoryが呼び出され、
+                    メールのファイルや標準入力から読み込んだのと同様、解析結果が得られます。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
+require 'sisimai'
+f = 'From MAILER-DAEMON Thu Dec 22 17:54:04 2015...'    # バウンスメール全体
+v = Sisimai.make(f)
+v.each do |e|
+  puts e.action         # delayed
+  puts e.deliverystatus # 4.7.0
+  puts e.reason         # expired
+  puts e.diagnosticcode # Envelope expired
+  puts e.softbounce     # 1
+end
+                </pre>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#memory -->
+
+<section id = 'delivered' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -305,7 +404,7 @@ end
     </div>
 </section> <!-- /#delivered -->
 
-<section id = 'othersrc' class = 'parallax'>
+<section id = 'othersrc'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -406,7 +505,7 @@ end
     </div>
 </section> <!-- /#othersrc -->
 
-<section id = 'callback' class = ''>
+<section id = 'callback' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
