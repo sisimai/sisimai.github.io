@@ -29,6 +29,7 @@
                     <li class = 'scroll'><a href = 'https://libsisimai.org/en/'><i class = 'fa fa-home'></i></a></li> 
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li> 
                     <li class = 'scroll'><a href = '#stdin'>STDIN</a></li>
+                    <li class = 'scroll'><a href = '#memory'>Variable</a></li>
                     <li class = 'scroll'><a href = '#delivered'>Delivered</a></li>
                     <li class = 'scroll'><a href = '#othersrc'>Except Mails</a></li>
                     <li class = 'scroll'><a href = '#callback'>Callback</a></li>
@@ -52,73 +53,93 @@
         </div>
         <div class = 'text-center index-table'>
             <div class = 'row'>
-                <div class = 'col-sm-1'></div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-keyboard-o'></i>
+                        <i class = 'fa fa-keyboard'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>Basic Usage</h3>
                         <p class = 'description'>
                             How to parse bounce mails, to get structured data,
-                            and to make parsed data as JSON.
+                            and to make parsed data as JSON. This is the most simple
+                            and easy way to parse using Sisimai.
                         </p>
                     </div>
                     <a href = '/en/start/#usage' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-desktop'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>From STDIN</h3>
                         <p class = 'description'>
-                            Sample codes in Perl and Ruby for reading bounce mail
-                            data from Standard-In.
+                            Sample code in this description shows a way to read bounce mail
+                            data from Standard-In. It is useful for reading bounce mails
+                            from pipeline on one-liner.
                         </p>
                     </div>
                     <a href = '#stdin' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-memory'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>From Memory</h3>
+                        <p class = 'description'>
+                            Sample code in this description shows a way to read
+                            bounce mail data from variable. It is useful for parsing
+                            data stored in a database or job queue system.
+                        </p>
+                    </div>
+                    <a href = '#memory' class = 'btn btn-continue'>Read</a>
+                </div>
+            </div>
+
+            <div class = 'row'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-truck'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>Delivered</h3>
+                        <h3>Include Delivered</h3>
                         <p class = 'description'>
-                            How to include a delivery success (delivery notification)
+                            The default behaviour of Sisimai is parsing a bounce message only,
+                            but Sisimai can also include a delivery success (delivery notification)
                             in the parsed results.
                         </p>
                     </div>
                     <a href = '#delivered' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-files-o'></i>
+                        <i class = 'fa fa-file'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>Except Mails</h3>
                         <p class = 'description'>
                         {{ site.html.ss }} can also parse a bounce object (JSON)
-                        got from Cloud Email Services.
+                        got from Cloud Email Services: As of present, Amazon SES
+                        and SendGrid are supported.
                         </p>
                     </div>
                     <a href = '#othersrc' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-2'>
+                <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-reply-all'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>Callback</h3>
                         <p class = 'description'>
-                            Callback feature allows you to read each bounce message
-                            before being parsed.
+                            Callback feature allows you to read each bounce message,
+                            to pick a specific header field, to set custom values
+                            into the parsed results before being parsed.
                         </p>
                     </div>
                     <a href = '#callback' class = 'btn btn-continue'>Read</a>
                 </div>
-                <div class = 'col-sm-1'></div>
             </div>
         </div>
     </div>
@@ -215,7 +236,88 @@ sironeko@example.org
     </div>
 </section> <!-- /#stdin -->
 
-<section id = 'delivered'>
+<section id = 'memory' class = ''>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-memory'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Read From Memory</h2>
+                <p class = 'description'>
+                    Beginning with {{ site.html.ss }} 4.23.0, <kbd>make()</kbd> and <kbd>dump()</kbd>
+                    methods accept a variable (keeping entire bounce message) as the first argument.
+                    The variable as the first argument should be a scalar reference in Perl, 
+                    a String object in Ruby.
+                </p>
+                <p class = 'description'>
+                    This feature is useful to read bounce messages stored in a database or job queue system.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>Scalar Reference</h4>
+                <p class = 'description'>
+                    When a scalar reference which is holding entire bounce message is specified
+                    as the 1st argument of <kbd>make()</kbd> and <kbd>dump()</kbd> methods,
+                    Sisimai calls Sisimai::Mail::Memory class and return the parsed results.
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
+use Sisimai;
+my $f = 'From MAILER-DAEMON Thu Dec 22 17:54:04 2015...';   # Entire bounce message
+my $v = Sisimai->make(\$f);
+for my $e ( @$v ) {
+    print $e->action;           # delayed
+    print $e->deliverystatus;   # 4.7.0
+    print $e->reason;           # expired
+    print $e->diagnosticcode;   # Envelope expired
+    print $e->softbounce;       # 1
+}
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>String object</h4>
+                <p class = 'description'>
+                    Similarly, In Ruby version of Sisimai, 
+                    When a String object which is holding entire bounce message is specified
+                    as the 1st argument of <kbd>make()</kbd> and <kbd>dump()</kbd> methods,
+                    Sisimai calls Sisimai::Mail::Memory class and return the parsed results.
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
+require 'sisimai'
+f = 'From MAILER-DAEMON Thu Dec 22 17:54:04 2015...'    # Entire bounce message
+v = Sisimai.make(f)
+v.each do |e|
+  puts e.action         # delayed
+  puts e.deliverystatus # 4.7.0
+  puts e.reason         # expired
+  puts e.diagnosticcode # Envelope expired
+  puts e.softbounce     # 1
+end
+                </pre>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#delivered -->
+
+
+
+
+
+<section id = 'delivered' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -310,12 +412,12 @@ end
     </div>
 </section> <!-- /#delivered -->
 
-<section id = 'othersrc' class = 'parallax'>
+<section id = 'othersrc' class = ''>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'post-it'>
-                    <i class = 'fa fa-truck'></i>
+                    <i class = 'fa fa-file'></i>
                 </div>
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
@@ -414,7 +516,7 @@ end
     </div>
 </section> <!-- /#othersrc -->
 
-<section id = 'callback' class = ''>
+<section id = 'callback' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>

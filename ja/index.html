@@ -51,15 +51,15 @@
                         バウンスメールを解析し、JSONなどの構造化されたデータとして出力します。
                     </p>
                     <div class = 'attention'>
-                        <i class = 'fa fa-newspaper-o'></i>
+                        <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは
                         <a href = '{{ site.sisimai.blogurl }}' target = 'new'>{{ site.sisimai.release.ja }}</a>
                         にリリースされた
                         <a href = '#download'>
                             <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
                         </a>です。
-                        主な変更点はOffice 365におけるバウンスメールの解析精度改善、折り返されたMessage-Idヘッダの処理に
-                        おけるバグ修正、その他細かな改善です。
+                        主な変更点はファイルや標準入力以外の変数からメール内容を読み込めるSisimai::Mail::Memoryの実装、
+                        冗長なコードの削除、UTC+13,14でのテスト修正、細かなバグの修正です。
                     </div>
                 </div>
             </div> 
@@ -68,7 +68,7 @@
             <div class = 'row'>
                 <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '100ms'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-envelope-o'></i>
+                        <i class = 'fa fa-torii-gate'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>解析ライブラリ</h3>
@@ -112,7 +112,7 @@
                 </div>
                 <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '400ms'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-gears'></i>
+                        <i class = 'fa fa-cogs'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>{{ site.sisimai.spec.modules }}の解析エンジン</h3>
@@ -135,7 +135,7 @@
             <div class = 'col-sm-6'>
                 <div class = 'versus-info wow fadeInUp' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
                     <h2>
-                        <i class = 'fa fa-legal' style = 'font-size: 85%;'></i>
+                        <i class = 'fa fa-balance-scale' style = 'font-size: 85%;'></i>
                         vs. <span class = 'bh'>bounce<strong>Hammer</strong></span>
                     </h2>
                     <hr>
@@ -175,7 +175,7 @@
                     </div>
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '400ms'>
                         <p class = 'lead'>
-                            <i class = 'fa fa-tachometer'></i>
+                            <i class = 'fa fa-tachometer-alt'></i>
                             解析速度(1000通)
                         </p>
                         <div class = 'progress'>
@@ -225,7 +225,7 @@
                     </div>
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '600ms'>
                         <p class = 'lead'>
-                            <i class = 'fa fa-gears'></i>
+                            <i class = 'fa fa-cogs'></i>
                             解析モジュール数
                         </p>
                         <div class = 'progress'>
@@ -237,7 +237,7 @@
                     </div>
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '700ms'>
                         <p class = 'lead'>
-                            <i class = 'fa fa-file-archive-o'></i>
+                            <i class = 'fa fa-file-archive'></i>
                             依存モジュール数
                         </p>
                         <div class = 'progress'>
@@ -261,7 +261,7 @@
             </div>
             <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
                 <p>実装された</p>
-                <i class = 'fa fa-gears'></i>
+                <i class = 'fa fa-cogs'></i>
                 <h3 class = 'timer'>{{ site.sisimai.spec.modules }}</h3>
                 <p>種類の解析エンジン<br /><br /></p>
             </div> 
@@ -273,7 +273,7 @@
             </div> 
             <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '900ms'>
                 <p>依存するのは</p>
-                <i class = 'fa fa-file-archive-o'></i>
+                <i class = 'fa fa-file-archive'></i>
                 <h3 class = 'timer'>2</h3>
                 <p>個のモジュール</p>
             </div>
@@ -286,7 +286,7 @@
         <div class = 'row'>
             <div class = 'heading col-sm-8 col-sm-offset-2 wow fadeInUp' data-wow-duration = '1200ms' data-wow-delay = '300ms'>
                 <h2>
-                    <i class = 'fa fa-cloud-download' style = 'font-size: 85%;'></i>
+                    <i class = 'fa fa-cloud-download-alt' style = 'font-size: 85%;'></i>
                     ダウンロード
                 </h2>
                 <div class = 'attention'>
