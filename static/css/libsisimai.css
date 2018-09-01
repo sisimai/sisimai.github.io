@@ -401,14 +401,14 @@ p.description + hr {
     width: 36px;
     line-height: 36px;
     display: block;
-    font-size: 35px;
+    font-size: 36px;
     opacity: 0.8;
 }
 
 .social-icons ul li a:hover {
     opacity: 1;
-    -webkit-transform: scale(1.1);
-    transform: scale(1.1);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
     text-shadow: none;
 }
 
