@@ -1,11 +1,11 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.23.0'
-  blogurl: 'http://blog.libsisimai.org/post/177583612026/v4230'
+  version: 'v4.24.0'
+  blogurl: 'http://blog.libsisimai.org/post/179648256446/v4240'
   release: 
-    en: 'Friday, 31 Aug, 2018'
-    ja: '平成30年08月31日(金)'
+    en: 'Thursday, 1 Nov, 2018'
+    ja: '平成30年11月01日(木)'
   spec:
     modules: 56
     reasons: 29
@@ -19,17 +19,17 @@ sisimai:
       max: "2.5.0"
   diff:
     tests:
-      perl: "236,000"
+      perl: "236,600"
       ruby: "218,000"
     loc:
-      perl: "8,500"
+      perl: "8,600"
       ruby: "11,700"
     parse1k:
-      perl: 1.7
-      ruby: 3.8
+      perl: 1.6
+      ruby: 3.2
     timesfaster:
-      perl: 2.5
-      ruby: 1.1
+      perl: 2.65
+      ruby: 1.33
   repository:
     project: 'https://github.com/sisimai'
     perl: 'https://github.com/sisimai/p5-Sisimai'
