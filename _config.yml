@@ -1,13 +1,13 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.24.1'
+  version: 'v4.25.0'
   blogurl: 'http://blog.libsisimai.org/post/180091632231/v4241-bug-fix'
   release: 
-    en: 'Wednesday, 14 Nov, 2018'
-    ja: '平成30年11月14日(水)'
+    en: 'Tuesday, 9 Apr, 2019'
+    ja: '平成31年04月09日(火)'
   spec:
-    modules: 56
+    modules: 57
     reasons: 29
     license: 'The BSD 2-Clause License'
   lang:
@@ -16,20 +16,20 @@ sisimai:
       max: "5.28.X"
     ruby:
       min: "2.1.0"
-      max: "2.5.0"
+      max: "2.6.0"
   diff:
     tests:
-      perl: "236,600"
-      ruby: "218,000"
+      perl: "242,000"
+      ruby: "224,000"
     loc:
-      perl: "8,600"
+      perl: "8,200"
       ruby: "11,700"
     parse1k:
-      perl: 1.6
-      ruby: 3.2
+      perl: 1.5
+      ruby: 2.2
     timesfaster:
-      perl: 2.65
-      ruby: 1.33
+      perl: 2.0
+      ruby: 1.5
   repository:
     project: 'https://github.com/sisimai'
     perl: 'https://github.com/sisimai/p5-Sisimai'
