@@ -1,11 +1,11 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.25.1'
-  blogurl: 'https://blog.libsisimai.org/post/186481857111/v4251'
+  version: 'v4.25.2'
+  blogurl: 'https://blog.libsisimai.org/post/186698215086/v4252-bug-fix'
   release: 
-    en: 'Tuesday, 23 Jul, 2019'
-    ja: '令和元年07月23日(火)'
+    en: 'Tursday, 1 Aug, 2019'
+    ja: '令和元年08月01日(木)'
   spec:
     modules: 57
     reasons: 29
@@ -19,8 +19,8 @@ sisimai:
       max: "2.6.0"
   diff:
     tests:
-      perl: "243,000"
-      ruby: "225,000"
+      perl: "248,000"
+      ruby: "227,000"
     loc:
       perl: "8,300"
       ruby: "11,700"
