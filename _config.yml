@@ -7,7 +7,7 @@ sisimai:
     en: 'Saturday, 7 Sep, 2019'
     ja: '令和元年09月07日(土)'
   spec:
-    modules: 55
+    modules: 60
     reasons: 29
     bhratio: 45
     license: 'The BSD 2-Clause License'
