@@ -11,13 +11,10 @@ sisimai:
     reasons: 29
     bhratio: 45
     license: 'The BSD 2-Clause License'
-  lang:
-    perl:
-      min: "5.10.1"
-      max: "5.30.X"
-    ruby:
-      min: "2.1.0"
-      max: "2.6.0"
+  workson:
+    perl: ["5.10.1", "5.30.X"]
+    ruby: ["2.1.0", "2.6.X"]
+    jruby: ["9.0.4.0", "9.1.17.0"]
   diff:
     tests:
       perl: "250,000"
