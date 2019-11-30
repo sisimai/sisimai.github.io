@@ -38,9 +38,9 @@ sisimai:
     perl: 'https://metacpan.org/pod/Sisimai'
     ruby: 'https://rubygems.org/gems/sisimai'
   socialmedia:
-    weblog: 'http://blog.libsisimai.org/'
+    weblog: 'https://blog.libsisimai.org/'
     twitter: 'https://twitter.com/libsisimai'
-    tumblr: 'http://libsisimai.tumblr.com/'
+    tumblr: 'https://libsisimai.tumblr.com/'
     facebook: 'https://www.facebook.com/libsisimai/'
 html:
   ss: "<span class = 'ss'>Sisimai</span>"
