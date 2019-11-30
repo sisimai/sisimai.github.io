@@ -9,6 +9,7 @@ sisimai:
   spec:
     modules: 55
     reasons: 29
+    bhratio: 45
     license: 'The BSD 2-Clause License'
   lang:
     perl:
