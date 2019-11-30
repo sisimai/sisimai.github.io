@@ -142,7 +142,7 @@
                                 <tr>
                                     <th>
                                         Module Name<br>
-                                        Sisimai::Bite::Email::
+                                        Sisimai::Lhost::
                                     </th>
                                     <th>
                                         Included in<br>bounceHammer
@@ -283,7 +283,7 @@
                                 <tr>
                                     <th>
                                         Module Name<br>
-                                        Sisimai::Bite::Email::
+                                        Sisimai::Lhost::
                                     </th>
                                     <th>
                                         Included in<br>bounceHammer
@@ -434,7 +434,7 @@
                                 <tr>
                                     <th>
                                         Module Name<br>
-                                        Sisimai::Bite::Email::
+                                        Sisimai::Lhost::
                                     </th>
                                     <th>
                                         Included in<br>bounceHammer
@@ -657,6 +657,12 @@
             <div class = 'row'>
                 <div class = 'col-sm-8 col-sm-offset-2'>
                     <div class = 'table-responsive'>
+                        <p class = 'description'>
+                            <strong><em class = 'warn'>
+                                This feature and all the modules in Sisimai::Bite::JSON will be
+                                removed at v4.25.5.
+                            </em></strong>
+                        </p>
                         <table class = 'table table-hover table-condensed'>
                             <thead>
                                 <tr>
@@ -861,35 +867,35 @@
                                     <td class = 'ltext'>Detector for auto replied message</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Bite::Email::X1</td>
+                                    <td class = 'ltext'>Lhost::X1</td>
                                     <td>No</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.3</td>
                                     <td class = 'ltext'>Unknown MTA #1</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Bite::Email::X2</td>
+                                    <td class = 'ltext'>Lhost::X2</td>
                                     <td>No</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.7</td>
                                     <td class = 'ltext'>Unknown MTA #2</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Bite::Email::X3</td>
+                                    <td class = 'ltext'>Lhost::X3</td>
                                     <td>No</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.9</td>
                                     <td class = 'ltext'>Unknown MTA #3</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Bite::Email::X4</td>
+                                    <td class = 'ltext'>Lhost::X4</td>
                                     <td>No</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.1.23</td>
                                     <td class = 'ltext'>Unknown MTA #4 qmail clones</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Bite::Email::X5</td>
+                                    <td class = 'ltext'>Lhost::X5</td>
                                     <td>No</td>
                                     <td>1.00</td>
                                     <td class = 'ltext'>v4.13.0</td>
@@ -938,7 +944,7 @@ require Sisimai;
 my $v = Sisimai->engine;
 print keys %$v;         # {{ site.sisimai.spec.modules }}
 for my $e ( keys %$v ) {
-    print $e;           # Sisimai::Bite::Email::Exchange2007
+    print $e;           # Sisimai::Lhost::Exchange2007
     print $v->{ $e };   # Microsoft Exchange Server 2007
 }
                 </pre>
@@ -956,7 +962,7 @@ require 'sisimai'
 v = Sisimai.engine
 puts v.keys.size;  # {{ site.sisimai.spec.modules }}
 v.keys.each do |e|
-  puts e    # Sisimai::Bite::Email::Exchange2007
+  puts e    # Sisimai::Lhost::Exchange2007
   puts v[e] # Microsoft Exchange Server 2007
 end
                 </pre>
