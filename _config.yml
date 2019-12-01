@@ -1,11 +1,11 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.25.3'
+  version: 'v4.25.4'
   blogurl: 'https://blog.libsisimai.org/post/187549334666/v4253-bug-fix'
   release: 
-    en: 'Saturday, 7 Sep, 2019'
-    ja: '令和元年09月07日(土)'
+    en: 'Tuesday, 3 Dec, 2019'
+    ja: '令和元年12月03日(火)'
   spec:
     modules: 60
     reasons: 29
