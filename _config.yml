@@ -7,7 +7,7 @@ sisimai:
     en: 'Tuesday, 3 Dec, 2019'
     ja: '令和元年12月03日(火)'
   spec:
-    modules: 60
+    modules: 62
     reasons: 29
     bhratio: 45
     license: 'The BSD 2-Clause License'
