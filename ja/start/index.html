@@ -136,7 +136,7 @@
                 <div class = 'col-sm-4 col-sm-offset-2'>
                     <div class = 'spec-icon'>
                         <img src = '/static/images/icon/dinosaur-1.png'>
-                        <h3 class = 'icon-caption'>Perl {{ site.sisimai.lang.perl.min }}以上</h3>
+                        <h3 class = 'icon-caption'>Perl {{ site.sisimai.workson.perl[0] }}以上</h3>
                     </div>
                     <div class = 'index-info'>
                         <ul class = 'spec'>
@@ -169,11 +169,11 @@
                 <div class = 'col-sm-4'>
                     <div class = 'spec-icon'>
                         <img src = '/static/images/icon/ruby-1.png'>
-                        <h3 class = 'icon-caption'>Ruby {{ site.sisimai.lang.ruby.min }}以上</h3>
+                        <h3 class = 'icon-caption'>Ruby {{ site.sisimai.workson.ruby[0] }}以上</h3>
                     </div>
                     <div class = 'index-info'>
                         <ul class = 'spec'>
-                            <li>JRuby 9.0.4.0以上でも可</li>
+                            <li>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}でも可</li>
                             <li>依存ライブラリ(MRI)</li>
                             <ul>
                                 <li>
@@ -245,7 +245,7 @@
 % <kbd>cd ./p5-Sisimai</kbd>
 % <kbd>make install-from-local</kbd>
 --&gt; Working on .
-Configuring Sisimai-4.20.0 ... OK
+Configuring Sisimai-4.25.0 ... OK
 1 distribution installed
                 </pre>
             </div>
@@ -268,7 +268,7 @@ Configuring Sisimai-4.20.0 ... OK
 % <kbd>sudo make depend install-from-local</kbd>
 gem install bundle rake rspec coveralls
 ...
-sisimai 4.20.0 built to pkg/sisimai-4.20.0.gem.
+sisimai 4.20.0 built to pkg/sisimai-4.25.0.gem.
 sisimai (4.20.0) installed.
                 </pre>
             </div>
@@ -301,7 +301,7 @@ sisimai (4.20.0) installed.
                 <pre class = 'prettyprint'>
 % <kbd>cpanm --sudo Sisimai</kbd>
 --&gt; Working on Sisimai
-Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.20.0.tar.gz ... OK
+Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.25.0.tar.gz ... OK
 ...
 1 distribution installed
 % <kbd>perldoc -l Sisimai</kbd>
@@ -331,10 +331,10 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.20.0.tar.gz ... OK
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <pre class = 'prettyprint'>
 % <kbd>sudo gem install sisimai</kbd>
-Fetching: sisimai-4.20.0.gem (100%)
-Successfully installed sisimai-4.20.0
-Parsing documentation for sisimai-4.20.0
-Installing ri documentation for sisimai-4.20.0
+Fetching: sisimai-4.25.0.gem (100%)
+Successfully installed sisimai-4.25.0
+Parsing documentation for sisimai-4.25.0
+Installing ri documentation for sisimai-4.25.0
 Done installing documentation for sisimai after 6 seconds
 1 gem installed
                 </pre>

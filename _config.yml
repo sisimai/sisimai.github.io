@@ -1,22 +1,20 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.25.3'
-  blogurl: 'https://blog.libsisimai.org/post/187549334666/v4253-bug-fix'
+  version: 'v4.25.4'
+  blogurl: 'https://blog.libsisimai.org/post/189445719851/v4254'
   release: 
-    en: 'Saturday, 7 Sep, 2019'
-    ja: '令和元年09月07日(土)'
+    en: 'Tuesday, 3 Dec, 2019'
+    ja: '令和元年12月03日(火)'
   spec:
-    modules: 57
+    modules: 62
     reasons: 29
+    bhratio: 45
     license: 'The BSD 2-Clause License'
-  lang:
-    perl:
-      min: "5.10.1"
-      max: "5.30.X"
-    ruby:
-      min: "2.1.0"
-      max: "2.6.0"
+  workson:
+    perl: ["5.10.1", "5.30.X"]
+    ruby: ["2.1.0", "2.6.X"]
+    jruby: ["9.0.4.0", "9.1.17.0"]
   diff:
     tests:
       perl: "250,000"
@@ -38,9 +36,9 @@ sisimai:
     perl: 'https://metacpan.org/pod/Sisimai'
     ruby: 'https://rubygems.org/gems/sisimai'
   socialmedia:
-    weblog: 'http://blog.libsisimai.org/'
+    weblog: 'https://blog.libsisimai.org/'
     twitter: 'https://twitter.com/libsisimai'
-    tumblr: 'http://libsisimai.tumblr.com/'
+    tumblr: 'https://libsisimai.tumblr.com/'
     facebook: 'https://www.facebook.com/libsisimai/'
 html:
   ss: "<span class = 'ss'>Sisimai</span>"

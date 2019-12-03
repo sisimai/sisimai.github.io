@@ -59,7 +59,9 @@
                         </a>
                         was released on
                         <a href = '{{ site.sisimai.blogurl }}' target = 'new'>{{ site.sisimai.release.en }}.</a>
-                        This release include 5 bug fixes and error message pattern updates for Google, GMX, and I.UA.
+                        This release include large scale changes at Sisimai::Bite name space (Sisimai::Lhost) and
+                        error message pattern updates. After the next release of Sisimai, features for reading and
+                        parsing JSON object retrieved from AmazonSES and SendGrid will not be supported.
                         For further information about all the fixes on this version
                         available at <a href = '{{ site.sisimai.blogurl }}' target = 'new'>blog.libsisimai.org</a>.
                     </div>
@@ -149,7 +151,7 @@
                     <p class = 'description'>
                         As of the present, the Perl version {{ site.html.ss }} is about 2.2 times faster
                         than <span class = 'bh'>bounce<strong>Hammer</strong></span>, have 2.0 times higher of analytical precision,
-                        depends only 2 external modules, and can work on Perl {{ site.sisimai.lang.perl.min }} or later versions of Perl.
+                        depends only 2 external modules, and can work on Perl {{ site.sisimai.workson.perl[0] }} or later versions of Perl.
                         From August 2015, We have started to develop a 
                         <strong>Ruby version of {{ site.html.ss }}</strong>.
                         The software has been released on Feburary 3, 2016.
@@ -166,9 +168,9 @@
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '67'>100%
+                                role = 'progressbar'  aria-valuetransitiongoal = '69'>100%
                             </div>
-                            <p class = 'versus'>49%</p>
+                            <p class = 'versus'>{{ site.sisimai.spec.bhratio }}%</p>
                         </div>
                     </div>
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '400ms'>
@@ -228,7 +230,7 @@
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '77'>{{ site.sisimai.spec.modules }}
+                                role = 'progressbar'  aria-valuetransitiongoal = '78'>{{ site.sisimai.spec.modules }}
                             </div>
                             <p class = 'versus'>15</p>
                         </div>
@@ -312,7 +314,7 @@
                         </div>
                         <ul>
                             <li>Stable version</li>
-                            <li>Perl {{ site.sisimai.lang.perl.min }} - {{ site.sisimai.lang.perl.max }}</li>
+                            <li>Perl {{ site.sisimai.workson.perl[0] }} - {{ site.sisimai.workson.perl[1] }}</li>
                             <li>CPAN</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'
@@ -328,8 +330,8 @@
                         </div>
                         <ul>
                             <li>Stable version</li>
-                            <li>Ruby {{ site.sisimai.lang.ruby.min }} - {{ site.sisimai.lang.ruby.max }}</li>
-                            <li>JRuby 9.0.4.0 -</li>
+                            <li>Ruby {{ site.sisimai.workson.ruby[0] }} - {{ site.sisimai.workson.ruby[1] }}</li>
+                            <li>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Download</a>

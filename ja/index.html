@@ -59,8 +59,9 @@
                             <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
                         </a>です。
                         <br />
-                        主な変更点は5件のバグ修正とGoogleとGMXとI.UAのエラーメッセージパターンの対応です。
-                        変更点の詳細は
+                        主な変更点はSisimai::Biteの名前空間変更とMTAモジュールの統廃合(Sisimai::Lhost)、
+                        エラーメッセージパターンの改善と追加です。次のリリース以降でAmazonSESやSendGridから
+                        取得したJSON形式のバウンスメッセージを読み取る機能と解析する機能は廃止になります。
                         <a href = '{{ site.sisimai.blogurl }}' target = 'new'>blog.libsisimai.org</a>をご覧ください。
                     </div>
                 </div>
@@ -170,9 +171,9 @@
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '67'>100%
+                                role = 'progressbar'  aria-valuetransitiongoal = '69'>100%
                             </div>
-                            <p class = 'versus'>49%</p>
+                            <p class = 'versus'>{{ site.sisimai.spec.bhratio }}%</p>
                         </div>
                     </div>
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '400ms'>
@@ -182,7 +183,7 @@
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                 role = 'progressbar'  aria-valuetransitiongoal = '29'>1.7s
+                                 role = 'progressbar'  aria-valuetransitiongoal = '29'>{{ site.sisimai.diff.parse1k.perl }}s
                             </div>
                             <p class = 'versus'>4.24s</p>
                         </div>
@@ -232,7 +233,7 @@
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '77'>{{ site.sisimai.spec.modules }}
+                                role = 'progressbar'  aria-valuetransitiongoal = '78'>{{ site.sisimai.spec.modules }}
                             </div>
                             <p class = 'versus'>15</p>
                         </div>
@@ -316,7 +317,7 @@
                         </div>
                         <ul>
                             <li>安定版のみ提供</li>
-                            <li>Perl {{ site.sisimai.lang.perl.min }} - {{ site.sisimai.lang.perl.max }}</li>
+                            <li>Perl {{ site.sisimai.workson.perl[0] }} - {{ site.sisimai.workson.perl[1] }}</li>
                             <li>CPAN</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'
@@ -332,8 +333,8 @@
                         </div>
                         <ul>
                             <li>安定版のみ提供</li>
-                            <li>Ruby {{ site.sisimai.lang.ruby.min }} - {{ site.sisimai.lang.ruby.max }}</li>
-                            <li>JRuby 9.0.4.0 -</li>
+                            <li>Ruby {{ site.sisimai.workson.ruby[0] }} - {{ site.sisimai.workson.ruby[1] }}</li>
+                            <li>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Download</a>
