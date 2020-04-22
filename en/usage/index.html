@@ -31,7 +31,6 @@
                     <li class = 'scroll'><a href = '#stdin'>STDIN</a></li>
                     <li class = 'scroll'><a href = '#memory'>Variable</a></li>
                     <li class = 'scroll'><a href = '#delivered'>Delivered</a></li>
-                    <li class = 'scroll'><a href = '#othersrc'>Except Mails</a></li>
                     <li class = 'scroll'><a href = '#callback'>Callback</a></li>
                     <li class = 'others'><a href = '/en/docs/'>Documents</a></li>
                     <li class = 'others'><a href = '/ja/usage/'><i class = 'fa fa-language'></i></a></li>
@@ -111,21 +110,6 @@
                         </p>
                     </div>
                     <a href = '#delivered' class = 'btn btn-continue'>Read</a>
-                </div>
-                <div class = 'col-sm-4'>
-                    <div class = 'index-icon'>
-                        <i class = 'fa fa-file'></i>
-                    </div>
-                    <div class = 'index-info'>
-                        <h3>Except Mails</h3>
-                        <p class = 'description'>
-                        <strong><em class = 'warn'>This feature has been removed at Sisimai 4.25.5.</em></strong><br />
-                        {{ site.html.ss }} can also parse a bounce object (JSON)
-                        got from Cloud Email Services: As of present, Amazon SES
-                        and SendGrid are supported.
-                        </p>
-                    </div>
-                    <a href = '#othersrc' class = 'btn btn-continue'>Read</a>
                 </div>
                 <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
@@ -413,112 +397,7 @@ end
     </div>
 </section> <!-- /#delivered -->
 
-<section id = 'othersrc' class = ''>
-    <div class = 'container'>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'post-it'>
-                    <i class = 'fa fa-file'></i>
-                </div>
-            </div>
-            <div class = 'heading col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>Parse Except Mails</h2>
-                <p class = 'description'>
-                    <strong><em class = 'warn'>This feature has been removed at Sisimai 4.25.5.</em></strong><br />
-                    Sisimai can parse bounce data except emails using <kbd>input</kbd> as the 2nd argument
-                    of <kbd>make()</kbd> and <kbd>dump()</kbd> methods.
-                    This feature has implemented at Sisimai v.20.0.
-                    As of present, only bounce objects retrieved from Amazon SES
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-amazonses-01.json' target = 'new'>
-                        (Bounce object thet can be got from SNS)
-                    </a> and SendGrid 
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-sendgrid-01.json' target = 'new'>
-                        (Bounce object that can be got with Web API)
-                    </a>
-                    could be parsed
-                </p>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>JSON</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Bounce Object(JSON)</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/message-3.png'>
-                    Some JSON files including bounce object retrieved from Cloud Email Delivery Services
-                    (Amazon SES and SendGrid) are available in <strong>jsonobj/</strong> directory of
-                    <a href = 'https://github.com/sisimai/set-of-emails' target = 'new'>github.com/sisimai/set-of-emails</a>
-                    repository. The following code shows a sample for parsing
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-sendgrid-03.json' target = 'new'>
-                        json-sendgrid-03.json
-                    </a>(Bounce object from SendGrid).
-                </p>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>input =&gt; 'json'</h4>
-                <p class = 'description'>
-                    When you set a decoded JSON (bounce object) to the 1st argument of,
-                    set <kbd>input =&gt; 'json'</kbd> to the 2nd argument of
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> method of Sisimai,
-                    you can get the parsed results.
-                </p>
-                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
-use Sisimai;
-use JSON;
-my $q = '[{"status": "5.1.1", "created": "2011-10-08 14:05:44", "reason": "550...';
-my $j = JSON->new;
-my $v = Sisimai->make($j->decode($q), <strong>'input' => 'json'</strong>);
-for my $e ( @$v ) {
-    print $e->smtpagent;        # JSON::SendGrid
-    print $e->deliverystatus;   # 5.1.1
-    print $e->reason;           # userunknown
-    print $e->diagnosticcode;   # 550 5.1.1 The email account that you tried to...
-    print $e->softbounce;       # 0
-}
-                </pre>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>input: 'json'</h4>
-                <p class = 'description'>
-                    Like the perl version,
-                    when you set a decoded JSON (bounce object) to the 1st argument of,
-                    set <kbd>input: 'json'</kbd> to the 2nd argument of
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> method of Sisimai,
-                    you can get the parsed results.
-                </p>
-                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
-require 'sisimai'
-require 'json'
-q = '[{"status": "5.1.1", "created": "2011-10-08 14:05:44", "reason": "550...'
-v = Sisimai.make(JSON.load(q), <strong>input: 'json'</strong>)
-v.each do |e|
-  puts e.smtpagent      # JSON::SendGrid
-  puts e.deliverystatus # 5.1.1
-  puts e.reason         # userunknown
-  puts e.diagnosticcode # 550 5.1.1 The email account that you tried to...
-  puts e.softbounce     # 0
-end
-                </pre>
-            </div>
-        </div>
-    </div>
-</section> <!-- /#othersrc -->
-
-<section id = 'callback' class = 'parallax'>
+<section id = 'callback' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -610,12 +489,12 @@ end
                 <div class = 'index-label'>email</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>email-postfix-16.eml</h3>
+                <h3 class = 'in-desc'>lhost-postfix-16.eml</h3>
                 <p class = 'description'>
                     The following code shows an example for getting the following values
                     from
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
-                        email-postfix-16.eml
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-16.eml' target = 'new'>
+                        lhost-postfix-16.eml
                     </a>
                     using a hook method given as the 2nd argument of <kbd>make()</kbd>
                     method of Sisimai.
@@ -680,8 +559,8 @@ X-Postfix-Sender: rfc822; shironeko@cat.example.com
                     The following is an example of an argument that the hook method you defined
                     receives.
                     The argument have the header part (Hash) and the body part (String) generated from
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/email-postfix-16.eml' target = 'new'>
-                        email-postfix-16.eml
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-16.eml' target = 'new'>
+                        lhost-postfix-16.eml
                     </a>.
                 </p>
 
@@ -734,20 +613,15 @@ Nyaaaan
                 <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Sisimai-&gt;make($f, 'hook' => $x, 'field' => [])</h4>
+                <h4 class = 'in-desc'>Sisimai-&gt;make($f, 'hook' => $x)</h4>
                 <p class = 'description'>
                     <kbd>make()</kbd> and <kbd>dump()</kbd> methods of Sisimai class
                     receive a code reference for being executed as the 2nd argument
                     <kbd>hook</kbd> like the following code:
                 </p>
-                <p class = 'description'>
-                    Argument <kbd>field</kbd> receives an email header list as an array reference
-                    which you want to capture in the hook method.
-                    This argument is implemented at Sisimai 4.20.2.
-                </p>
                 <pre class = 'prettyprint'><strong>#! /usr/bin/env perl</strong>
 use Sisimai;
-my $f = './set-of-emails/maildir/bsd/email-sendmail-24.eml';
+my $f = './set-of-emails/maildir/bsd/lhost-sendmail-24.eml';
 my $x = sub {
     my $argv = shift;
     my $data = { 'queue-id' => '', 'received-spf' => '' };
@@ -758,9 +632,8 @@ my $x = sub {
     }
     return $data;
 };
-my $h = ['Received-SPF'];
-my $j = Sisimai-&gt;dump($f, <strong>'hook' => $x, 'field' => $h</strong>); # JSON文字列を得る
-my $v = Sisimai-&gt;make($f, <strong>'hook' => $x, 'field' => $h</strong>);
+my $j = Sisimai-&gt;dump($f, <strong>'hook' => $x</strong>); # JSON文字列を得る
+my $v = Sisimai-&gt;make($f, <strong>'hook' => $x</strong>);
 print $v->[0]->{<strong>'catch'</strong>}->{'received-spf'};  # pass (example.org:...
 print $v->[0]->{<strong>'catch'</strong>}->{'queue-id'};      # FFFFFF000000
                 </pre>
@@ -771,20 +644,15 @@ print $v->[0]->{<strong>'catch'</strong>}->{'queue-id'};      # FFFFFF000000
                 <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Sisimai.make(f, hook: x, field: h)</h4>
+                <h4 class = 'in-desc'>Sisimai.make(f, hook: x)</h4>
                 <p class = 'description'>
                     <kbd>make()</kbd> and <kbd>dump()</kbd> methods of Sisimai class
                     receive a Proc object for being executed as the 2nd argument
                     <kbd>hook:</kbd> like the following code:
                 </p>
-                <p class = 'description'>
-                    Argument <kbd>field:</kbd> receives an email header list as an array reference
-                    which you want to capture in the hook method.
-                    This argument is implemented at Sisimai 4.20.2.
-                </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-f = './set-of-emails/maildir/bsd/email-postfix-16.eml'
+f = './set-of-emails/maildir/bsd/lhost-postfix-16.eml'
 x = lambda do |argv|
   data = { 'queue-id' => '', 'received-spf' => '' }
 
@@ -795,9 +663,8 @@ x = lambda do |argv|
   return data
 end
 
-h = ['Received-SPF']
-j = Sisimai.dump(f, <strong>hook: x, field: h</strong>)    # JSON文字列を得る
-v = Sisimai.make(f, <strong>hook: x, field: h</strong>)
+j = Sisimai.dump(f, <strong>hook: x</strong>)    # JSON文字列を得る
+v = Sisimai.make(f, <strong>hook: x</strong>)
 puts v[0][<strong>'catch'</strong>]['received-spf'] # pass (example.org: ...
 puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
                 </pre>
@@ -842,186 +709,7 @@ puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
     "alias": "",
     "lhost": "",
     "messageid": "57D03121-12F7-4801-B30F-9E44B15E56DC@example.co.jp"
-  }
-]
-                </pre>
-
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>Ojbect</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Bounce Object: json-amazonses-01.eml</h3>
-                <p class = 'description'>
-                    The following code shows an example for getting value of <kbd>mail.sendingAccountId</kbd>
-                    from a bounce object (retrieved or notified from AWS SNS)
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-amazonses-01.json' target = 'new'>
-                        json-amazonses-01.json
-                    </a> using a hook method given as the 2nd argument of <kbd>make()</kbd> method of Sisimai.
-                </p>
-                <pre class = 'prettyprint'>{
-  "notificationType": "Bounce",
-  "bounce": {
-    "bounceType": "Permanent",
-    "bounceSubType": "General",
-    "bouncedRecipients": [
-      {
-        "emailAddress": "bounce@simulator.amazonses.com",
-        "action": "failed",
-        "status": "5.1.1",
-        "diagnosticCode": "smtp; 550 5.1.1 user unknown"
-      }
-    ],
-    "timestamp": "2016-10-21T00:06:40.502Z",
-    "feedbackId": "01010157e48fa03f-c7e948fe-3c34-403e-b681-02a497797067-000000",
-    "reportingMTA": "dsn; a27-23.smtp-out.us-west-2.amazonses.com"
-  },
-  "mail": {
-    "timestamp": "2016-10-21T00:06:39.000Z",
-    "source": "kijitora@neko.example.org",
-    <strong>"sourceArn": "arn:aws:ses:us-west-2:123456789012:identity/kijitora@neko.example.org",</strong>
-    "sendingAccountId": "123456789012",
-    ...
-                </pre>
-            </div>
-
-            <div class = 'col-sm-8 col-sm-offset-2'>
-                <p class = 'description'>
-                    The following is an example of an argument that the hook method you defined receives.
-                    The argument have a bounce object (decoded JSON) in "bounces" key decoded from 
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/jsonobj/json-amazonses-01.json' target = 'new'>
-                        json-amazonses-01.json
-                    </a>.
-                </p>
-
-                <pre class = 'prettyprint'>{
-    <strong>'datasrc'</strong> => 'json',
-    <strong>'headers'</strong> => undef,
-    <strong>'message'</strong> => undef,
-    <strong>'bounces'</strong> => {
-        'bounce' => {
-            'feedbackId' => '01010157e48fa03f-c7e948fe-3c34-403e-b681-02a497797067-000000',
-            'timestamp' => '2016-10-21T00:06:40.502Z',
-            'reportingMTA' => 'dsn; a27-23.smtp-out.us-west-2.amazonses.com',
-            'bounceType' => 'Permanent',
-        },
-        'mail' => {
-            'source' => 'kijitora@neko.example.org',
-            'sendingAccountId' => '123456789012',
-            'destination' => [
-                'bounce@simulator.amazonses.com'
-            ],
-            'timestamp' => '2016-10-21T00:06:39.000Z',
-            'sourceArn' => 'arn:aws:ses:us-west-2:123456789012:identity/kijitora@neko.example.org',
-            'messageId' => '01010157e48f9b9b-891e9a0e-9c9d-4773-9bfe-608f2ef4756d-000000'
-        },
-        'notificationType' => 'Bounce'
-    }
-}
-                </pre>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Sisimai-&gt;make($f, 'hook' => $x, 'input' => 'json')</h4>
-                <p class = 'description'>
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> methods of Sisimai class receive a code
-                    reference for being executed as the 2nd argument <kbd>hook</kbd> like the following
-                    code:
-                </p>
-                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
-use Sisimai;
-use JSON;
-my $q = '{"notificationType": "Bounce", "bounce": {...';
-my $o = JSON->new;
-my $x = sub {
-    my $argv = shift;
-    my $data = { 'account-id' => '' };
-
-    $data->{'account-id'} = $argv->{'bounces'}->{'mail'}->{'sendingAccountId'};
-    return $data;
-};
-my $j = Sisimai-&gt;dump($o->decode($q), <strong>'hook' => $x</strong>, 'input' => 'json'); # get JSON string
-my $v = Sisimai-&gt;make($o->decode($q), <strong>'hook' => $x</strong>, 'input' => 'json');
-print $v->[0]->{<strong>'catch'</strong>}->{'account-id'};  # 123456789012
-                </pre>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Sisimai.make(f, hook: x, input: 'json')</h4>
-                <p class = 'description'>
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> methods of Sisimai class receive a Proc
-                    object for being executed as the 2nd argument <kbd>hook:</kbd> like the
-                    following code:
-                </p>
-                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
-require 'sisimai'
-require 'json'
-q = '{"notificationType": "Bounce", "bounce": {...'
-o = JSON.load(q)
-x = lambda do |argv|
-  data = { 'acount-id' => nil }
-
-  data['account-id'] = argv['bounces']['mail']['sendingAccountId']
-  return data
-end
-
-j = Sisimai.dump(o, <strong>hook: x</strong>, input: 'json')  # get JSON string
-v = Sisimai.make(o, <strong>hook: x</strong>, input: 'json')
-puts v[0][<strong>'catch'</strong>]['account-id']  # 123456789012
-                </pre>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>JSON</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>JSON string by dump()</h3>
-                <p class = 'description'>
-                    JSON string generated by <kbd>dump()</kbd> method of Sisimai
-                    with a hook method is like the following:
-                </p>
-                <pre class = 'prettyprint'>
-[
-  {
-    "timezoneoffset": "+0900",
-    "reason": "userunknown",
-    "replycode": "550",
-    "messageid": "01010157e48f9b9b-891e9a0e-9c9d-4773-9bfe-608f2ef4756d-000000",
-    "lhost": "a27-23.smtp-out.us-west-2.amazonses.com",
-    "destination": "simulator.amazonses.com",
-    "senderdomain": "neko.example.org",
-    "diagnosticcode": "550 5.1.1 user unknown",
-    "addresser": "kijitora@neko.example.org",
-    <strong>"catch": {
-      "account-id": 123456789012
-    },</strong>
-    "subject": "nyaan",
-    "deliverystatus": "5.1.1",
-    "token": "79f14902d1e4b8f9c40727609d7a752a1700564e",
-    "feedbacktype": "",
-    "softbounce": 0,
-    "rhost": "",
-    "smtpcommand": "",
-    "smtpagent": "JSON::AmazonSES",
-    "recipient": "bounce@simulator.amazonses.com",
-    "alias": "",
-    "diagnostictype": "SMTP",
-    "listid": "",
-    "action": "failed",
-    "timestamp": 1476976000
+    "origin": "/var/spool/bounce/1.eml"
   }
 ]
                 </pre>
