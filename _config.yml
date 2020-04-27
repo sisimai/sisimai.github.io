@@ -30,8 +30,8 @@ sisimai:
       ruby: 1.5
   repository:
     project: 'https://github.com/sisimai'
-    perl: 'https://github.com/sisimai/p5-Sisimai'
-    ruby: 'https://github.com/sisimai/rb-Sisimai'
+    perl: 'https://github.com/sisimai/p5-sisimai'
+    ruby: 'https://github.com/sisimai/rb-sisimai'
   distribution:
     perl: 'https://metacpan.org/pod/Sisimai'
     ruby: 'https://rubygems.org/gems/sisimai'

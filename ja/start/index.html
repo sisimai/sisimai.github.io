@@ -125,7 +125,7 @@
                 <p class = 'description ja'>
                     {{ site.html.ss }}(シシマイ)は*BSDやMac OS XやLinuxのようなPerlまたは
                     Ruby(JRubyを含む)が動作するOSで動きます。また、{{ site.html.ss }} 4.22.5からは、
-                    <a href = 'https://github.com/sisimai/p5-Sisimai/issues/53' target = 'new'>
+                    <a href = 'https://github.com/sisimai/p5-sisimai/issues/53' target = 'new'>
                         Windows上のActivePerlで動作するかもしれません。
                     </a>
                 </p>
@@ -237,12 +237,12 @@
                 <h4 class = 'in-desc'>Perl版{{ site.html.ss }}</h4>
                 <p class = 'description ja'>
                     Perl版{{ site.html.ss }}のリポジトリ名は
-                    <a href = '{{ site.sisimai.repository.perl }}'><strong>sisimai/p5-Sisimai</strong></a>
+                    <a href = '{{ site.sisimai.repository.perl }}'><strong>sisimai/p5-sisimai</strong></a>
                     です。
                 </p>
                 <pre class = 'prettyprint'>
-% <kbd>git clone https://github.com/sisimai/p5-Sisimai.git</kbd>
-% <kbd>cd ./p5-Sisimai</kbd>
+% <kbd>git clone https://github.com/sisimai/p5-sisimai.git</kbd>
+% <kbd>cd ./p5-sisimai</kbd>
 % <kbd>make install-from-local</kbd>
 --&gt; Working on .
 Configuring Sisimai-4.25.0 ... OK
@@ -259,12 +259,12 @@ Configuring Sisimai-4.25.0 ... OK
                 <h4 class = 'in-desc'>Ruby版{{ site.html.ss }}</h4>
                 <p class = 'description ja'>
                     Ruby版{{ site.html.ss }}のリポジトリ名は
-                    <a href = '{{ site.sisimai.repository.ruby }}'><strong>sisimai/rb-Sisimai</strong></a>
+                    <a href = '{{ site.sisimai.repository.ruby }}'><strong>sisimai/rb-sisimai</strong></a>
                     です。
                 </p>
                 <pre class = 'prettyprint'>
-% <kbd>git clone https://github.com/sisimai/rb-Sisimai.git</kbd>
-% <kbd>cd ./rb-Sisimai</kbd>
+% <kbd>git clone https://github.com/sisimai/rb-sisimai.git</kbd>
+% <kbd>cd ./rb-sisimai</kbd>
 % <kbd>sudo make depend install-from-local</kbd>
 gem install bundle rake rspec coveralls
 ...
@@ -352,7 +352,7 @@ Done installing documentation for sisimai after 6 seconds
                     <img class = 'lhs' src = '/static/images/icon/freebsd-daemon-2.png'>
                     Perl版{{ site.html.ss }}は<a href = 'https://www.freebsd.org/ja/' target = 'new'>FreeBSD</a>
                     の<a href = 'https://www.freebsd.org/ja/ports/index.html' target = 'new'>Portsコレクション</a>
-                    (<a href = 'https://svnweb.freebsd.org/ports/head/mail/p5-Sisimai/' target = 'new'>mail/p5-Sisimai)</a>
+                    (<a href = 'https://svnweb.freebsd.org/ports/head/mail/p5-sisimai/' target = 'new'>mail/p5-sisimai)</a>
                     インストールができます。<kbd>make</kbd>コマンド一発でインストールが可能ですが、
                     Perl版{{ site.html.ss }}がPortsコレクションに取り込まれるタイミングによっては、
                     最新版ではない{{ site.html.ss }}がインストールされる点に注意してください。
@@ -362,10 +362,10 @@ Done installing documentation for sisimai after 6 seconds
         <div class = 'row'>
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <pre class = 'prettyprint'>
-# <kbd>cd /usr/ports/mail/p5-Sisimai</kbd>
+# <kbd>cd /usr/ports/mail/p5-sisimai</kbd>
 # <kbd>make install</kbd>
 ===> License BSD2CLAUSE accepted by the user
-===>  p5-Sisimai-4.22.6 depends on file: /usr/local/sbin/pkg - found
+===>  p5-sisimai-4.22.6 depends on file: /usr/local/sbin/pkg - found
 => Sisimai-v4.22.6.tar.gz doesn't seem to exist in /usr/ports/distfiles/.
 ...
                 </pre>
