@@ -446,13 +446,6 @@ end
                         </thead>
                         <tbody>
                             <tr>
-                                <td class = 'ltext'>datasrc</td>
-                                <td>String</td>
-                                <td>Kind of data source to be parsed</td>
-                                <td>Available (email)</td>
-                                <td>Available (json)</td>
-                            </tr>
-                            <tr>
                                 <td class = 'ltext'>headers</td>
                                 <td>Hash</td>
                                 <td>Header part of a bounce mail (as a Hash Data)</td>
@@ -556,7 +549,6 @@ X-Postfix-Sender: rfc822; shironeko@cat.example.com
                 </p>
 
                 <pre class = 'prettyprint'>{
-  <strong>'datasrc'</strong> => 'email',
   <strong>'headers'</strong> => {
      'x-mailer' => undef,
      'return-path' => '<>',

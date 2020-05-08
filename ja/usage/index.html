@@ -432,13 +432,6 @@ end
                         </thead>
                         <tbody>
                             <tr>
-                                <td class = 'ltext'>datasrc</td>
-                                <td>String</td>
-                                <td>解析対象データの種類</td>
-                                <td>○ (email)</td>
-                                <td>○ (json)</td>
-                            </tr>
-                            <tr>
                                 <td class = 'ltext'>headers</td>
                                 <td>Hash</td>
                                 <td>バウンスメールのヘッダ部分(ハッシュ化済み)</td>
@@ -536,7 +529,6 @@ X-Postfix-Sender: rfc822; shironeko@cat.example.com
                 </p>
 
                 <pre class = 'prettyprint'>{
-  <strong>'datasrc'</strong> => 'email',
   <strong>'headers'</strong> => {
      'x-mailer' => undef,
      'return-path' => '<>',
