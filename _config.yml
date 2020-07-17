@@ -7,7 +7,7 @@ sisimai:
     en: 'Friday, 17 Jul, 2020'
     ja: '令和2年07月17日(金)'
   spec:
-    modules: 66
+    modules: 68
     reasons: 29
     bhratio: 59
     license: 'The BSD 2-Clause License'
