@@ -58,13 +58,14 @@
                         <a href = '#download'>
                             <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
                         </a>です。
-                        主な変更点は新しく実装された2つのMTAモジュールとRuby版にのみ存在したバグの修正です。
+                        主な変更点は長い文字列によって動作が極端に遅くなる正規表現の修正とSendmail 8.16.1における
+                        Null MX(RFC7505)の対応(notaccept)です。
                         <strong>
-                            v4.25.8がSisimai 4系の最終リリースですが、リリース日以降に深刻なバグが発見された場合は
-                            v4.25.9がリリースされます。そして夏の終わり頃を目標にSisimai 5とGo言語バージョンのSisimai
-                            が開発中です。
+                            v4.25.9がSisimai 4系の最終リリースですが、リリース日以降に深刻なバグが発見された場合は
+                            v4.25.10がリリースされます。そして次の春までを目標にSisimai 5とGo言語バージョンのSisimai
+                            が<a href = '{{ site.sisimai.repository.go }}' target = 'new'>sisimai/go-sisimai</a>で開発中です。
                         </strong>
-                        v4.25.8における全ての変更点は
+                        v4.25.9における全ての変更点は
                         <a href = '{{ site.sisimai.blogurl }}' target = 'new'>blog.libsisimai.org</a>をご覧ください。
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.25.8'
-  blogurl: 'https://blog.libsisimai.org/post/623859997428924417/4258-release'
+  version: 'v4.25.9'
+  blogurl: 'https://blog.libsisimai.org/post/630960945320148992/v4259-final-release-of-v4'
   release: 
-    en: 'Friday, 17 Jul, 2020'
-    ja: '令和2年07月17日(金)'
+    en: 'Saturday, 3 Oct, 2020'
+    ja: '令和2年10月03日(土)'
   spec:
     modules: 68
     reasons: 29
@@ -32,6 +32,7 @@ sisimai:
     project: 'https://github.com/sisimai'
     perl: 'https://github.com/sisimai/p5-sisimai'
     ruby: 'https://github.com/sisimai/rb-sisimai'
+    go: 'https://github.com/sisimai/go-sisimai'
   distribution:
     perl: 'https://metacpan.org/pod/Sisimai'
     ruby: 'https://rubygems.org/gems/sisimai'
