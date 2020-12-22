@@ -1,11 +1,11 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.25.9'
-  blogurl: 'https://blog.libsisimai.org/post/630960945320148992/v4259-final-release-of-v4'
+  version: 'v4.25.10'
+  blogurl: 'https://blog.libsisimai.org/post/638184417236549632/sisimai-42510-bug-fix-version'
   release: 
-    en: 'Saturday, 3 Oct, 2020'
-    ja: '令和2年10月03日(土)'
+    en: 'Tuesday, 22 Dec, 2020'
+    ja: '令和2年12月22日(火)'
   spec:
     modules: 68
     reasons: 29

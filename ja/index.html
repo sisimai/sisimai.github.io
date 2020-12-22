@@ -58,11 +58,12 @@
                         <a href = '#download'>
                             <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
                         </a>です。
-                        主な変更点は長い文字列によって動作が極端に遅くなる正規表現の修正とSendmail 8.16.1における
-                        Null MX(RFC7505)の対応(notaccept)です。
+                        主な変更点はPerl版Sisimaiにのみ存在する<a href = 'https://github.com/sisimai/p5-sisimai/issues/421'
+                        target = 'new'>バグ(解析結果の<kbd>token</kbd>が無意味な値になる)</a>の修正とDNSに関連したエラーパターン
+                        の細かなアップデートです。
                         <strong>
-                            v4.25.9がSisimai 4系の最終リリースですが、リリース日以降に深刻なバグが発見された場合は
-                            v4.25.10がリリースされます。そして次の春までを目標にSisimai 5とGo言語バージョンのSisimai
+                            v4.25.10がSisimai 4系の最終リリースですが、リリース日以降に深刻なバグが発見された場合は
+                            v4.25.11がリリースされます。そして次の春か夏までを目標にSisimai 5とGo言語バージョンのSisimai
                             が<a href = '{{ site.sisimai.repository.go }}' target = 'new'>sisimai/go-sisimai</a>で開発中です。
                         </strong>
                         v4.25.9における全ての変更点は
