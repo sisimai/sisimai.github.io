@@ -1,11 +1,11 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.25.10'
-  blogurl: 'https://blog.libsisimai.org/post/638184417236549632/sisimai-42510-bug-fix-version'
+  version: 'v4.25.11'
+  blogurl: 'https://blog.libsisimai.org/post/643822941553983488/sisimai-42511'
   release: 
-    en: 'Tuesday, 22 Dec, 2020'
-    ja: '令和2年12月22日(火)'
+    en: 'Monday, 22 Feb, 2021'
+    ja: '令和3年2月22日(月)'
   spec:
     modules: 68
     reasons: 29
@@ -13,7 +13,7 @@ sisimai:
     license: 'The BSD 2-Clause License'
   workson:
     perl: ["5.10.1", "5.30.X"]
-    ruby: ["2.1.0", "2.6.X"]
+    ruby: ["2.1.0", "2.7.X"]
     jruby: ["9.0.4.0", "9.1.17.0"]
   diff:
     tests:
