@@ -1,18 +1,18 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: 'v4.25.15'
-  blogurl: 'https://blog.libsisimai.org/post/704317294051999745/sisimai-42515'
+  version: 'v4.25.16'
+  blogurl: 'https://blog.libsisimai.org/post/717456764036104192/sisimai-42516'
   release: 
-    en: 'Thursday, 22 Dec, 2022'
-    ja: '令和4年12月22日(木)'
+    en: 'Tuesday, 16 May, 2023'
+    ja: '令和5年05月16日(火)'
   spec:
     modules: 68
     reasons: 29
     bhratio: 59
     license: 'The BSD 2-Clause License'
   workson:
-    perl: ["5.10.1", "5.30.X"]
+    perl: ["5.10.1", "5.34.X"]
     ruby: ["2.1.0", "2.7.X"]
     jruby: ["9.0.4.0", "9.1.17.0"]
   diff:
