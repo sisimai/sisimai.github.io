@@ -59,7 +59,7 @@
                         <h3>動作環境</h3>
                         <hr>
                         <p class = 'description ja'>
-                            {{ site.html.ss }}(シシマイ)はPerlまたはRuby (JRubyも含む) が動くOSで動作します。
+                            {{ site.html.ss }}(シシマイ)はPerlまたはRuby (JRubyの一部バージョンも含む) が動くOSで動作します。
                         </p>
                     </div>
                     <a href = '#environment' class = 'btn btn-continue'>Read</a>
@@ -209,7 +209,9 @@
                 <h2 class = 'in-desc'>{{ site.html.ss }}をインストールする</h2>
                 <p class = 'description'>
                     {{ site.html.ss }}はGitHub, CPAN, RubyGems.orgからそれぞれダウンロード・インストールが可能です。
-                    また、Perl版{{ site.html.ss }}はFreeBSDのportsコレクションからでもインストールすることができます。
+                    また、Perl版{{ site.html.ss }}は<a href = 'https://www.freshports.org/mail/p5-Sisimai/' target = 'new'>FreeBSDのportsコレクション</a>
+                    や<a href = 'https://sources.debian.org/src/libsisimai-perl/' target = 'new'>Debianパッケージ</a>
+                    からでもインストールすることができます。
                 </p>
             </div>
         </div>
@@ -226,6 +228,10 @@
                     のmasterブランチからダウンロード出来ます。Perl版・Ruby版ともに
                     このリポジトリにあります。
                 </p>
+                <p class = 'description ja'>
+                    2024年2月2日からリポジトリのデフォルトブランチは<strong>5-stable</strong>に
+                    なりました。
+                </p>
             </div>
         </div>
 
@@ -234,19 +240,44 @@
                 <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Perl版{{ site.html.ss }}</h4>
+                <h4 class = 'in-desc'>Perl版{{ site.html.ss }} (v5)</h4>
                 <p class = 'description ja'>
                     Perl版{{ site.html.ss }}のリポジトリ名は
                     <a href = '{{ site.sisimai.repository.perl }}'><strong>sisimai/p5-sisimai</strong></a>
-                    です。
+                    です。{{ site.html.ss }} 5.0.0から<strong>Perl 5.26以上が必要</strong>になりますので、
+                    インストールの前にシステムに入っているPerlのバージョンを確認してください。
                 </p>
+                <pre class = 'prettyprint'>
+% <kbd>perl -v</kbd>
+
+This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-2level
+
+Copyright 1987-2019, Larry Wall
+...
+                </pre>
                 <pre class = 'prettyprint'>
 % <kbd>git clone https://github.com/sisimai/p5-sisimai.git</kbd>
 % <kbd>cd ./p5-sisimai</kbd>
 % <kbd>make install-from-local</kbd>
+./cpanm --sudo . || ( make cpm &amp;&amp; ./cpm install --sudo -v . )
 --&gt; Working on .
-Configuring Sisimai-4.25.0 ... OK
+Configuring Sisimai-v5.0.0 ... OK
+Building and testing Sisimai-v5.0.0 ... Password: &lt;sudo password here&gt;
+OK
+Successfully installed Sisimai-v5.0.0
 1 distribution installed
+
+% <kbd>perl -MSisimai -lE 'print Sisimai-&gt;version'</kbd>
+5.0.0
+                </pre>
+
+                <h4 class = 'in-desc'>古いバージョン (v4)</h4>
+                <p class = 'description ja'>
+                    2024年2月2日よりリポジトリのデフォルトブランチは<strong>5-stable</strong>になっています。
+                    もし{{ site.html.ss }}を使いたい場合は<strong>4-stable</strong>をブランチ名に指定してください。
+                </p>
+                <pre class = 'prettyprint'>
+% <kbd>git clone -b 4-stable https://github.com/sisimai/p5-sisimai.git</kbd>
                 </pre>
             </div>
         </div>
@@ -260,16 +291,43 @@ Configuring Sisimai-4.25.0 ... OK
                 <p class = 'description ja'>
                     Ruby版{{ site.html.ss }}のリポジトリ名は
                     <a href = '{{ site.sisimai.repository.ruby }}'><strong>sisimai/rb-sisimai</strong></a>
-                    です。
+                    です。{{ site.html.ss }} 5.0.0から<strong>Ruby 2.4以上が必要</strong>になりますので、
+                    インストールの前にシステムに入っているRubyのバージョンを確認してください。
                 </p>
+                <pre class = 'prettyprint'>
+% <kbd>ruby -v</kbd>
+ruby 2.6.4p104 (2019-08-28 revision 67798) [x86_64-darwin18]
+                </pre>
+
                 <pre class = 'prettyprint'>
 % <kbd>git clone https://github.com/sisimai/rb-sisimai.git</kbd>
 % <kbd>cd ./rb-sisimai</kbd>
 % <kbd>sudo make depend install-from-local</kbd>
-gem install bundle rake rspec coveralls
+gem install bundle rake minitest
 ...
-sisimai 4.20.0 built to pkg/sisimai-4.25.0.gem.
-sisimai (4.20.0) installed.
+3 gems installed
+if [ -d "/usr/local/jr" ]; then \
+    PATH="/usr/local/jr/bin:$PATH" /usr/local/jr/bin/gem install bundle rake minitest; \
+fi
+...
+3 gems installed
+/opt/local/bin/rake install
+sisimai 5.0.0 built to pkg/sisimai-5.0.0.gem.
+sisimai (5.0.0) installed.
+if [ -d "/usr/local/jr" ]; then \
+    PATH="/usr/local/jr/bin:$PATH" /usr/local/jr/bin/rake install; \
+fi
+sisimai 5.0.0 built to pkg/sisimai-5.0.0-java.gem.
+sisimai (5.0.0) installed.
+                </pre>
+
+                <h4 class = 'in-desc'>古いバージョン (v4)</h4>
+                <p class = 'description ja'>
+                    2024年2月2日よりリポジトリのデフォルトブランチは<strong>5-stable</strong>になっています。
+                    もし{{ site.html.ss }}を使いたい場合は<strong>4-stable</strong>をブランチ名に指定してください。
+                </p>
+                <pre class = 'prettyprint'>
+% <kbd>git clone -b 4-stable https://github.com/sisimai/rb-sisimai.git</kbd>
                 </pre>
             </div>
         </div>
@@ -301,11 +359,19 @@ sisimai (4.20.0) installed.
                 <pre class = 'prettyprint'>
 % <kbd>cpanm --sudo Sisimai</kbd>
 --&gt; Working on Sisimai
-Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.25.0.tar.gz ... OK
+Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-5.0.0.tar.gz ... OK
 ...
 1 distribution installed
 % <kbd>perldoc -l Sisimai</kbd>
-/usr/local/lib/perl5/site_perl/5.20.0/Sisimai.pm
+/usr/local/lib/perl5/site_perl/5.30.0/Sisimai.pm
+                </pre>
+
+                <p class = 'description ja'>
+                    古いバージョンをインストールしたい場合は、以下のようにURLを指定してください。
+                </p>
+                <pre class = 'prettyprint'>
+% <kbd>cpanm --sudo https://cpan.metacpan.org/authors/id/A/AK/AKXLIX/Sisimai-v4.25.16.tar.gz</kbd>
+% <kbd>sudo cpm install https://cpan.metacpan.org/authors/id/A/AK/AKXLIX/Sisimai-v4.25.16.tar.gz</kbd>
                 </pre>
             </div>
         </div>
@@ -331,12 +397,20 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.25.0.tar.gz ... OK
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <pre class = 'prettyprint'>
 % <kbd>sudo gem install sisimai</kbd>
-Fetching: sisimai-4.25.0.gem (100%)
-Successfully installed sisimai-4.25.0
-Parsing documentation for sisimai-4.25.0
-Installing ri documentation for sisimai-4.25.0
+Fetching: sisimai-5.0.0.gem (100%)
+Successfully installed sisimai-5.0.0
+Parsing documentation for sisimai-5.0.0
+Installing ri documentation for sisimai-5.0.0
 Done installing documentation for sisimai after 6 seconds
 1 gem installed
+                </pre>
+
+                <p class = 'description ja'>
+                    古いバージョンをインストールしたい場合は、以下のように<kbd>-v</kbd>オプションで
+                    任意のバージョンを指定してください。
+                </p>
+                <pre class = 'prettyprint'>
+% <kbd>sudo gem install sisimai -v 4.25.16</kbd>
                 </pre>
             </div>
         </div>
@@ -365,8 +439,8 @@ Done installing documentation for sisimai after 6 seconds
 # <kbd>cd /usr/ports/mail/p5-sisimai</kbd>
 # <kbd>make install</kbd>
 ===> License BSD2CLAUSE accepted by the user
-===>  p5-sisimai-4.22.6 depends on file: /usr/local/sbin/pkg - found
-=> Sisimai-v4.22.6.tar.gz doesn't seem to exist in /usr/ports/distfiles/.
+===>  p5-sisimai-4.25.16 depends on file: /usr/local/sbin/pkg - found
+=> Sisimai-v4.25.16.tar.gz doesn't seem to exist in /usr/ports/distfiles/.
 ...
                 </pre>
             </div>
@@ -391,13 +465,14 @@ Done installing documentation for sisimai after 6 seconds
                 <div class = 'index-label'>make()</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>{{ site.html.ss }}のmake()メソッド</h3>
+                <h3 class = 'in-desc'>{{ site.html.ss }}のrise()メソッド</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/outline-1.png'>
-                    下記のコードは{{ site.html.ss }}の<kbd>make()</kbd>
+                    下記のコードは{{ site.html.ss }}の<kbd>rise()</kbd>
                     メソッドを使ってバウンスメールを解析し解析結果のデータを得る例です。
-                    <kbd>make()</kbd>メソッドに指定できる他の引数については
+                    <kbd>rise()</kbd>メソッドに指定できる他の引数については
                     <a href = '/ja/usage/'>シシマイでの解析方法</a>をご覧ください。
+                    従来の<kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
                 </p>
             </div>
         </div>
@@ -409,16 +484,18 @@ Done installing documentation for sisimai after 6 seconds
                 <h4 class = 'in-desc'>Perl版{{ site.html.ss }}</h4>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
-my $v = Sisimai-&gt;make('/path/to/mbox'); # or Path to Maildir
+my $v = Sisimai-&gt;rise('/path/to/mbox'); # or Path to Maildir
 
 if( defined $v ) {
     for my $e ( @$v ) {
-        print $e-&gt;addresser-&gt;address;   # shironeko@example.org # From
-        print $e-&gt;recipient-&gt;address;   # kijitora@example.jp   # To
-        print $e-&gt;recipient-&gt;host;      # example.jp
-        print $e-&gt;deliverystatus;       # 5.1.1
-        print $e-&gt;replycode;            # 550
-        print $e-&gt;reason;               # userunknown
+        print $e->addresser->address;   # "michitsuna@example.org" # From
+        print $e->recipient->address;   # "kijitora@example.jp"    # To
+        print $e->recipient->host;      # "example.jp"
+        print $e->deliverystatus;       # "5.1.1"
+        print $e->replycode;            # "550"
+        print $e->reason;               # "userunknown"
+        print $e->origin;               # "/var/spool/bounce/new/1740074341.eml"
+        print $e->hardbounce;           # 1
     }
 } else {
     # There is no bounce message in the mailbox
@@ -435,16 +512,22 @@ if( defined $v ) {
                 <h4 class = 'in-desc'>Ruby版{{ site.html.ss }}</h4>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-v = Sisimai.make('/path/to/mbox') # or Path to Maildir
+v = Sisimai.rise('/path/to/mbox') # or Path to Maildir
 
 if v.is_a? Array
   v.each do |e|
-    puts e.addresser.address    # shironeko@example.org # From
-    puts e.recipient.address    # kijitora@example.jp   # To
-    puts e.recipient.host       # example.jp
-    puts e.deliverystatus       # 5.1.1
-    puts e.replycode            # 550
-    puts e.reason               # userunknown
+    puts e.class                # Sisimai::Fact
+    puts e.recipient.class      # Sisimai::Address
+    puts e.timestamp.class      # Sisimai::Time
+
+    puts e.addresser.address    # "michitsuna@example.org" # From
+    puts e.recipient.address    # "kijitora@example.jp"    # To
+    puts e.recipient.host       # "example.jp"
+    puts e.deliverystatus       # "5.1.1"
+    puts e.replycode            # "550"
+    puts e.reason               # "userunknown"
+    puts e.origin               # "/var/spool/bounce/Maildir/new/1740074341.eml"
+    puts e.hardbounce           # true
   end
 else
   # There is no bounce message in the mailbox
@@ -499,16 +582,6 @@ puts Sisimai.dump('~/Maildir/cur')
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Demo</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'><strong>dump</strong>メソッドの使用例</h4>
-                <img src = '/static/images/demo/sisimai-dump-01.gif' width = '100%'>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>jq</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
@@ -531,6 +604,7 @@ puts Sisimai.dump('~/Maildir/cur')
                 <pre class = 'prettyprint'>
 % <kbd>perl -MSisimai -lE 'print Sisimai-&gt;dump(shift)' path/to/mbox | jq .</kbd>
                 </pre>
+                <img src = '/static/images/demo/sisimai-5-cli-dump-p01.gif' width = '100%'>
             </div>
         </div>
 
@@ -543,16 +617,7 @@ puts Sisimai.dump('~/Maildir/cur')
                 <pre class = 'prettyprint'>
 % <kbd>ruby -rsisimai -e 'puts Sisimai.dump($*.shift)' path/to/mbox | jq .</kbd>
                 </pre>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Demo</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'><strong>dump</strong>メソッドと<strong>jq</strong>の使用例</h4>
-                <img src = '/static/images/demo/sisimai-dump-02.gif' width = '100%'>
+                <img src = '/static/images/demo/sisimai-5-cli-dump-r01.gif' width = '100%'>
             </div>
         </div>
 
@@ -563,32 +628,33 @@ puts Sisimai.dump('~/Maildir/cur')
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'><strong>jq</strong>でJSONを見やすくした例</h4>
                 <pre class = 'prettyprint'>
-[
+
   {
+    "destination": "google.example.com",
+    "lhost": "gmail-smtp-in.l.google.com",
+    "hardbounce": 0,
+    "reason": "authfailure",
+    "catch": null,
+    "addresser": "michitsuna@example.jp",
+    "alias": "nekochan@example.co.jp",
+    "smtpagent": "Postfix",
     "smtpcommand": "DATA",
-    "timestamp": 1397054085,
-    "action": "failed",
+    "senderdomain": "example.jp",
     "listid": "",
-    "reason": "hasmoved",
-    "deliverystatus": "5.1.6",
-    "smtpagent": "Email::Sendmail",
-    "destination": "example.net",
-    "timezoneoffset": "+0900",
+    "action": "failed",
     "feedbacktype": "",
+    "messageid": "hwK7pzjzJtz0RF9Y@relay3.example.com",
+    "origin": "./gmail-5.7.26.eml",
+    "recipient": "kijitora@google.example.com",
+    "rhost": "gmail-smtp-in.l.google.com",
+    "subject": "Nyaan",
+    "timezoneoffset": "+0900",
+    "replycode": 550,
+    "token": "84656774898baa90660be3e12fe0526e108d4473",
     "diagnostictype": "SMTP",
-    "senderdomain": "example.co.jp",
-    "rhost": "mx-s.neko.example.jp",
-    "lhost": "localhost",
-    "catch": "",
-    "addresser": "shironeko@example.co.jp",
-    "replycode": "551",
-    "messageid": "0000000011111.fff0000000003@mx.example.co.jp",
-    "token": "cf17945938502bd876603a375f0e9517c921bbab",
-    "recipient": "kijitora@example.net",
-    "alias": "",
-    "diagnosticcode": "551 not our customer",
-    "subject": "Nyaaaan",
-    "softbounce": 0
+    "timestamp": 1650119685,
+    "diagnosticcode": "host gmail-smtp-in.l.google.com[64.233.187.27] said: This mail has been blocked because the sender is unauthenticated. Gmail requires all senders to authenticate with either SPF or DKIM. Authentication results: DKIM = did not pass SPF [relay3.example.com] with ip: [192.0.2.22] = did not pass For instructions on setting up authentication, go to https://support.google.com/mail/answer/81126#authentication c2-202200202020202020222222cat.127 - gsmtp (in reply to end of DATA command)",
+    "deliverystatus": "5.7.26"
   }
 ]
                 </pre>
