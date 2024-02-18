@@ -301,3 +301,12 @@ a[name] {
     border: none;
     background: transparent;
 }
+
+.not-available {
+    color: #a3a3a2; /* Usuzumi-iro */
+}
+
+.deprecated {
+    color: #b7282e; /* Akane-iro */
+}
+
