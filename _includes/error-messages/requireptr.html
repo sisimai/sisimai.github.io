@@ -1,0 +1,28 @@
+<div class = 'diagnosticcode'>
+    <ul>
+        <li>
+            host relay.example.net [192.0.2.222] SMTP error from remote mail server after initial
+            connection: 571 No PTR Record found. Reverse DNS required: 203.0.113.22"
+        </li>
+        <li>
+            host mx1.comcast.net [192.0.2.222] SMTP error from remote mail server after initial connection:
+            554 mta1.comcast.net comcast 203.0.113.2 Comcast requires that all mail servers must have a PTR
+            record with a valid Reverse DNS entry. Currently your mail server does not fill that requirement.
+            For more information, refer to: http://postmaster.comcast.net/smtp-error-codes.php#554
+        </li>
+        <li>
+            host mx2.example.net [192.0.2.222] SMTP error from remote mail server after MAIL FROM:
+            <sironeko-nyaan@neko.example.com> SIZE=1024: 554 5.7.1 Reverse DNS failed.
+        </li>
+        <li>
+            host mx01.mail.com[74.208.5.22] refused to talk to me: mail.com (mxgmxus002) Nemesis
+            ESMTP Service not available No SMTP service Bad DNS PTR resource record. For explanation
+            visit http://postmaster.gmx.com/en/error-messages?ip=192.0.2.22&c=rdns
+        </li>
+        <li>
+            450 4.7.1 Access denied. IP name lookup failed [192.0.2.222] 450 4.7.1 Access denied.
+            IP name lookup failed [192.0.2.222]
+        </li>
+    </ul>
+</div>
+
