@@ -50,7 +50,7 @@
                     <p class = 'description ja'>
                         {{ site.html.ss }}はバウンスメールを解析する事によって、
                         以下の<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>を検出します。
-                        検出したバウンス理由はSisimai::Dataオブジェクトの"reason"アクセサから得る事が出来ます。
+                        検出したバウンス理由は<kbd>Sisimai::Fact</kbd>オブジェクトの"reason"アクセサから得る事が出来ます。
                         <strong>"reason"の値は"userunknown"や"expired"のように、全て小文字で表記されます。</strong>
                     </p>
                 </div>
@@ -192,12 +192,6 @@
                                     <td>No</td>
                                     <td class = 'ltext'>宛先アカウントは一時的に停止中</td>
                                 </tr>
-                                <tr data-href = '#vacation'>
-                                    <td class = 'ltext'><i class = 'fa fa-at' title = 'メールアドレス'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#vacation'>Vacation</a></strong></td>
-                                    <td>No</td>
-                                    <td class = 'ltext'>宛先は現在不在である自動応答メッセージ</td>
-                                </tr>
 
                                 <tr data-href = '#contenterror'>
                                     <td class = 'ltext'><i class = 'fa fa-envelope-open-text' title = 'メールの内容'></i></td>
@@ -223,11 +217,11 @@
                                     <td>No</td>
                                     <td class = 'ltext'>メールが大き過ぎる(5.3.4)</td>
                                 </tr>
-                                <tr data-href = '#securityerror'>
+                                <tr data-href = '#notcompliantrfc'>
                                     <td class = 'ltext'><i class = 'fa fa-envelope-open-text' title = 'メールの内容'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#securityerror'>Security Error</a></strong></td>
+                                    <td class = 'ltext'><strong><a href = '#notcompliantrfc'>Not Compliant RFC</a></strong></td>
                                     <td>No</td>
-                                    <td class = 'ltext'>認証の失敗など</td>
+                                    <td class = 'ltext'>メールのヘッダーがRFC違反である</td>
                                 </tr>
                                 <tr data-href = '#policyviolation'>
                                     <td class = 'ltext'><i class = 'fa fa-envelope-open-text' title = 'メールの内容'></i></td>
@@ -235,11 +229,11 @@
                                     <td>No</td>
                                     <td class = 'ltext'>セキュリティに関する方針に違反した</td>
                                 </tr>
-                                <tr data-href = '#virusdeteted'>
+                                <tr data-href = '#securityerror'>
                                     <td class = 'ltext'><i class = 'fa fa-envelope-open-text' title = 'メールの内容'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#virusdetected'>Viurs Detected</a></strong></td>
+                                    <td class = 'ltext'><strong><a href = '#securityerror'>Security Error</a></strong></td>
                                     <td>No</td>
-                                    <td class = 'ltext'>ウィルスやワーム・マルウェアを検出した</td>
+                                    <td class = 'ltext'>認証の失敗など</td>
                                 </tr>
                                 <tr data-href = '#spamdetected'>
                                     <td class = 'ltext'><i class = 'fa fa-envelope-open-text' title = 'メールの内容'></i></td>
@@ -247,7 +241,25 @@
                                     <td>No</td>
                                     <td class = 'ltext'>メールはスパムとして判定された</td>
                                 </tr>
+                                <tr data-href = '#virusdeteted'>
+                                    <td class = 'ltext'><i class = 'fa fa-envelope-open-text' title = 'メールの内容'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#virusdetected'>Viurs Detected</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>ウィルスやワーム・マルウェアを検出した</td>
+                                </tr>
 
+                                <tr data-href = '#authfailure'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#authfailure'>Auth Failure</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>ドメイン認証(SPF,DKIM,DMARC,ARC)失敗・不備による拒否</td>
+                                </tr>
+                                <tr data-href = '#badreputation'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#badreputation'>Bad Reputation</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>送信元IPアドレスやドメインのレピュテーションが低いことによる拒否</td>
+                                </tr>
                                 <tr data-href = '#blocked'>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
                                     <td class = 'ltext'><strong><a href = '#blocked'>Blocked</a></strong></td>
@@ -284,6 +296,18 @@
                                     <td>No</td>
                                     <td class = 'ltext'>宛先ホストはメールを受けとらない</td>
                                 </tr>
+                                <tr data-href = '#requireptr'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#requireptr'>RequirePTR</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>送信元IPアドレスの逆引き(PTR)が無いまたは不備による拒否</td>
+                                </tr>
+                                <tr data-href = '#speeding'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#speeding'>Speeding</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>単位時間の送信量が多い・送信速度が速すぎることによる拒否</td>
+                                </tr>
                                 <tr data-href = '#systemerror'>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
                                     <td class = 'ltext'><strong><a href = '#systemerror'>System Error</a></strong></td>
@@ -314,6 +338,12 @@
                                     <td class = 'ltext'><strong><a href = '#syntaxerror'>Syntax Error</a></strong></td>
                                     <td>No</td>
                                     <td class = 'ltext'>SMTPの文法エラー</td>
+                                </tr>
+                                <tr data-href = '#vacation'>
+                                    <td class = 'ltext'><i class = 'far fa-question-circle' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#vacation'>Vacation</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>宛先は現在不在である自動応答メッセージ</td>
                                 </tr>
                                 <tr data-href = '#onhold'>
                                     <td class = 'ltext'><i class = 'far fa-question-circle' title = 'その他'></i></td>
@@ -564,31 +594,6 @@ The user(s) account is disabled.
             </div>
         </div>
 
-        <!-- =============================================================== -->
-        <a name = 'vacation'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#vacation'><i class = 'fas fa-at'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Vacation</h3>
-                <p class = 'description ja'>
-                    <img class = 'lhs' src = '/static/images/icon/bento-3.png'>
-                    受信者が休暇を取っている等の理由で、メールを受けとれない状態を示します。
-                    この理由が検出されるバウンスメールは自動応答プログラムによって発信されます。
-                    このバウンス理由は{{ site.html.ss }} 4.1.28で実装されたもので、
-                    {{ site.html.bh }}では実装されていないものです。
-                </p>
-                <pre class = 'prettyprint'>
-I am out of the office until 05/01/2010.
-
-I am of the office returning 5th Jan
-                </pre>
-                {% include error-messages/vacation.html %}
-            </div>
-        </div>
     </div>
 </section> <!-- /#address -->
 
@@ -760,6 +765,72 @@ Status: 553 Exceeded maximum inbound message size
         </div>
 
         <!-- =============================================================== -->
+        <a name = 'notcompliantrfc'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#notcompliantrfc'><i class = 'fas fa-envelope-open-text'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Not Compliant RFC</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/rules-1.png'>
+                    主にRFC5322の仕様に準拠してない、違反しているメールヘッダーがあった場合に返ってくる
+                    エラーです。例えば必須ヘッダーで1個だけであるのが正しいFrom:ヘッダーが無かったり
+                    複数個あったりした場合、Subject:ヘッダーが複数個あるようなメールはRFC違反となります。
+                    このバウンス理由は{{ site.html.ss }} 5.0.0で<a href = '#securityerror'>Security Error</a>
+                    から分離される形で実装されました。
+                </p>
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.1 host aspmx.l.google.com[142.251.170.26] said: This message
+    is not RFC 5322 compliant. There are multiple Subject headers. To reduce the amount of
+    spam sent to Gmail, this message has been blocked.
+    Please visit https://support.google.com/mail/?p=RfcMessageNonCompliant and review RFC 5322
+    specifications for more information. c2-aguiqyuiyuqir5678167856aeu8.22 - 
+    gsmtp (in reply to end of DATA command)"
+                </pre>
+                {% include error-messages/notcompliantrfc.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'policyviolation'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#policyviolation'><i class = 'fas fa-envelope-open-text'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Policy Violation</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/rules-2.png'>
+                    宛先メールサーバにおけるポリシー違反で受け取りを拒否した場合に返ってくるエラーです。
+                    どのようなものをポリシー上のエラーとするかは各メールサーバのポリシー次第ですので、
+                    具体的に何が原因でバウンスしたのかは分からないことが多いです。
+                </p>
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 5.0.0
+Remote-MTA: dns; re2.example.com
+Diagnostic-Code: smtp; 550 Denied by policy
+                </pre>
+                <p class = 'description ja'>
+                    このバウンス理由は{{ site.html.ss }} 4.22.0にて、<a href = '#securityerror'>Security Error</a>
+                    から分離される形で実装されたもので、{{ site.html.bh }}では実装されていないものです。
+                </p>
+                {% include error-messages/policyviolation.html %}
+                <hr>
+            </div>
+        </div>
+
+
+        <!-- =============================================================== -->
         <a name = 'securityerror'></a>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -789,40 +860,13 @@ Status: 553 Exceeded maximum inbound message size
                     <a href = '#policyviolation'>Policy Violation</a>と<a href = '#virusdetected'>Virus Detected</a>
                     が実装されました。
                 </p>
-                {% include error-messages/securityerror.html %}
-                <hr>
-            </div>
-        </div>
+                <p class = 'description ja'>
+                    {{ site.html.ss }} 5.0.0では更にこのバウンス理由から分離する形で
+                    <a href = '#authfailure'>Auth Failure</a>と<a href = '#notcompliantrfc'>Not Compliant RFC</a>と
+                    <a href = '#speeding'>Speeding</a>が実装されました。
 
-        <!-- =============================================================== -->
-        <a name = 'policyviolation'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#policyviolation'><i class = 'fas fa-envelope-open-text'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Policy Violation</h3>
-                <p class = 'description ja'>
-                    <img class = 'lhs' src = '/static/images/icon/rules-2.png'>
-                    宛先メールサーバにおけるポリシー違反で受け取りを拒否した場合に返ってくるエラーです。
-                    どのようなものをポリシー上のエラーとするかは各メールサーバのポリシー次第ですが、
-                    発信者アドレス詐称、ヘッダの不備や不正な形式などがあります。
                 </p>
-                <pre class = 'prettyprint'>
-Action: failed
-Status: 5.7.1
-Remote-MTA: dns; gmail-smtp-in.l.google.com
-Diagnostic-Code: smtp; 550-5.7.1 [2401:2500:102:3032:192.0.2.222      13]
-    Messages with multiple 550 5.7.1 addresses in From: header are not
-    accepted. v14si1155795plk.134 - gsmtp
-                </pre>
-                <p class = 'description ja'>
-                    このバウンス理由は{{ site.html.ss }} 4.22.0にて、<a href = '#securityerror'>Security Error</a>
-                    から分離される形で実装されたもので、{{ site.html.bh }}では実装されていないものです。
-                </p>
-                {% include error-messages/policyviolation.html %}
+                {% include error-messages/securityerror.html %}
                 <hr>
             </div>
         </div>
@@ -841,11 +885,12 @@ Diagnostic-Code: smtp; 550-5.7.1 [2401:2500:102:3032:192.0.2.222      13]
                     <img class = 'lhs' src = '/static/images/icon/virus-3.png'>
                     宛先メールサーバがメール内にウィルスやワーム・マルウェアなど有害なファイルや
                     プログラムを検出した場合に返ってくるエラーです。
+                    <br />
                 </p>
                 <pre class = 'prettyprint'>
 Status: 5.7.0
 Remote-MTA: DNS; gmail-smtp-in.l.google.com
-Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on your message. Please
+Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on your message.
                 </pre>
                 <p class = 'description ja'>
                     このバウンス理由は{{ site.html.ss }} 4.22.0にて、Security Errorから分離される形で
@@ -902,6 +947,78 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                     多くは発信者のIPアドレスやホスト名、宛先サーバの接続数や他バックエンドの状態
                     によるものです。
                 </p>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'authfailure'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#authfailure'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Auth Failure</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/fingerprint-1.png'>
+                    SPFやDKIMおよびDMARCやARCによるドメイン認証が通らなかった場合に返ってくるエラーです。
+                    多くはSPFとDKIMの両方で認証できなかった場合など、複数の要素でドメイン認証が失敗した時に
+                    発生します。
+                    このバウンス理由は{{ site.html.ss }} 5.0.0で実装されたものです。
+                </p>
+
+
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 5.7.26
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp;
+    550-5.7.26 This mail has been blocked because the sender is unauthenticated.
+    550-5.7.26 Gmail requires all senders to authenticate with either SPF or DKIM.
+    550-5.7.26 Authentication results:
+    550-5.7.26  DKIM = did not pass
+    550-5.7.26  SPF [relay3.example.com] with ip: [192.0.2.22] = did not pass
+    550-5.7.26 For instructions on setting up authentication, go to
+    550 5.7.26 https://support.google.com/mail/answer/81126#authentication
+    c2-202200202020202020222222cat.127 - gsmtp
+                </pre>
+                {% include error-messages/authfailure.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'badreputation'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#badreputation'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Bad Reputation</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/sender-score-2.png'>
+                    送信者のIPアドレスまたは送信者のドメインが、相手側ホストにおけるレピュテーション
+                    で低い点数である場合、それを理由に拒否された時に返されるエラーです。
+                    GmailやOutlookなど大きなメールサービスプロバイダ宛で、このエラーを見ることがあるかもしれません。
+
+                    このバウンス理由は{{ site.html.ss }} 5.0.0で実装されたものです。
+                </p>
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.1 [192.0.2.22      18] Our system has
+    detected that this message is 550-5.7.1 likely suspicious due to the very
+    low reputation of the sending IP 550-5.7.1 address. To best protect our
+    users from spam, the message has been 550-5.7.1 blocked. Please visit 550
+    5.7.1  https://support.google.com/mail/answer/188131 for more information.
+    p22nn000202cat.22 - gsmtp
+                </pre>
+                {% include error-messages/badreputation.html %}
+                <hr>
             </div>
         </div>
 
@@ -1055,12 +1172,88 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     <img class = 'lhs' src = '/static/images/icon/firewall-3.png'>
                     相手側メールサーバがメールを受け取れない場合に返ってくるエラーです。
                     宛先メールサーバが過負荷であったりメンテナンス中である状態にこのエラーが発生します。
-                </p>
-                <p class = 'description ja'>
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
                     "5.3.2"のものが、あるいはSMTP応答コードの値が"556"のものが、この理由に決定されます。
+                    また、送信者ドメインがNullMXである場合も、このバウンス理由に分類されます。
                 </p>
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 4.0.0
+Diagnostic-Code: smtp; DNS Error: 80458680 DNS type 'mx' lookup of libsisimai.org responded
+    with code NOERROR The domain libsisimai.org doesn't receive email according to the
+    administrator: returned Null MX https://www.rfc-editor.org/info/rfc7505
+                </pre>
                 {% include error-messages/notaccept.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'requireptr'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#requireptr'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Require PTR</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/pointer-1.png'>
+                    SMTP接続をした接続元IPアドレスに逆引きレコード(PTR Record)が設定されてない、
+                    またはPTRレコードに不備があるような場合に返ってくるエラーです。
+                    一部のメールサービスプロバイダでは逆引きを厳密に確認しているので、少なくとも
+                    何らかの逆引き設定が必要とされています。
+                </p>
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 5.7.25
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.25 [192.0.2.202] The IP address sending this
+    message does not have a 550-5.7.25 PTR record setup, or the corresponding
+    forward DNS entry does not 550-5.7.25 point to the sending IP. As a policy,
+    Gmail does not accept messages 550-5.7.25 from IPs with missing PTR
+    records. For more information, go to 550 5.7.25
+    https://support.google.com/mail/answer/81126#ip-practices
+    neko-1785a7g6767a6agg.2 - gsmtp
+                </pre>
+                <p class = 'description ja'>
+                    このバウンス理由は{{ site.html.ss }} 5.0.0で<a href = '#blocked'>Blocked</a>
+                    から分離される形で実装されました。
+                </p>
+
+                {% include error-messages/requireptr.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'speeding'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#speeding'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Speeding</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/speed-2.png'>
+                    相手側ホストにおいて単位時間の流量制限があり、それを超過した場合に発生するエラーです。
+                    具体的には送信速度が速すぎるということになります。
+                    このバウンス理由は{{ site.html.ss }} 5.0.0で<a href = '#securityerror'>Security Error</a>
+                    または<a href = '#toomanyconn'>Too Many Conn</a>から分離される形で実装されました。
+                </p>
+                <pre class = 'prettyprint'>
+Status: 5.2.1
+Remote-MTA: dns; alt1.gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
+    receiving mail at a rate that 550-5.2.1 prevents additional messages from
+    being delivered. For more 550-5.2.1 information, please visit 550 5.2.1
+    https://support.google.com/mail/?p=ReceivingRatePerm p131si8414989oif.118 -
+    gsmtp
+                </pre>
+                {% include error-messages/speeding.html %}
                 <hr>
             </div>
         </div>
@@ -1201,7 +1394,7 @@ Diagnostic-Code: SMTP; 250 2.1.5 OK
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 my $v = Sisimai->make('/path/to/mbox', 'delivered' => 1);
 my $r = Sisimai->dump('/path/to/mbox', 'delivered' => 1);
-my $d = Sisimai::Data->make('data' => $q, 'delivered' => 1);
+my $d = Sisimai::Fact->make('data' => $q, 'delivered' => 1);
                 </pre>
             </div>
         </div>
@@ -1213,7 +1406,7 @@ my $d = Sisimai::Data->make('data' => $q, 'delivered' => 1);
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 v = Sisimai.make('/path/to/mbox', delivered: true)
 r = Sisimai.dump('/path/to/mbox', delivered: true)
-d = Sisimai::Data.make(data: q, delivered: true)
+d = Sisimai::Fact.make(data: q, delivered: true)
                 </pre>
                 <hr>
             </div>
@@ -1239,6 +1432,36 @@ d = Sisimai::Data.make(data: q, delivered: true)
                 </p>
                 {% include error-messages/syntaxerror.html %}
                 <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'vacation'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#vacation'><i class = 'far fa-question-circle'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Vacation</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/bento-3.png'>
+                    受信者が休暇を取っている等の理由で、メールを受けとれない状態を示します。
+                    この理由が検出されるバウンスメールは自動応答プログラムによって発信されます。
+                    このバウンス理由は{{ site.html.ss }} 4.1.28で実装されたもので、
+                    {{ site.html.bh }}では実装されていないものです。
+                </p>
+                <pre class = 'prettyprint'>
+I am out of the office until 05/01/2010.
+
+I am of the office returning 5th Jan
+                </pre>
+                {% include error-messages/vacation.html %}
+                <p class = 'description ja'>
+                    {{ site.html.ss }} 5.0.0から"vacation"となるバウンスメールはデフォルトで
+                    解析されなくなりました。
+                </p>
             </div>
         </div>
 
