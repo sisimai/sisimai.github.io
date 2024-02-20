@@ -170,7 +170,7 @@ Original-Recipient: rfc822;kijitora@example.org
                     コールバック機能とフックメソッドの設定、<kbd>catch()</kbd>
                     メソッドは<strong>Sisimai 4.19.0で追加</strong>されました。
                 </p>
-                <p class = 'description ja'>
+                <p class = 'description ja cation'>
                     {{ site.html.ss }} 5.0.0でコールバック機能の引数名と引数の型が変更になりました。詳細は
                     <a href = 'https://github.com/sisimai/p5-sisimai/blob/5-stable/README-JA.md#callback-feature' target = 'new'>
                         Callback feature
@@ -319,7 +319,7 @@ User-Agent: SMP-FBL
                     <li><a href = '/ja/reason/#hasmoved'>Has Moved</a></li>
                 </ul>
 
-                <p class = 'description ja'>
+                <p class = 'description ja cation'>
                     同時に<a href = '#s'>"softbounce"</a>は{{ site.html.ss }}5.0.0で廃止となりました。
                 </p>
             </div>
@@ -357,13 +357,13 @@ Reporting-MTA: dns; mx4.smtp.example.co.jp
                 <h3 class = 'in-desc'>listid (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/list-1.png'>
-                    "listid" はバウンスメールに含まれる元メッセージから "List-Id:"
-                    ヘッダの値を撮り出したものを保持します。
-                    元メッセージが無い形式のバウンスメールの場合、この値は空になります。
+                    "listid" はバウンスメールに含まれる元メッセージから "List-Id:"ヘッダの値を
+                    取り出したものを保持します。元メッセージが無い形式のバウンスメールの場合、
+                    この値は空になります。
                     <br><br>
                 </p>
                 <pre class = 'prettyprint'>
-List-Id: Mailman mailing list management users 
+List-Id: General discussion list for Cats &lt;neko-list.example.org&gt;
                 </pre>
             </div>
         </div>
@@ -604,15 +604,15 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>softbounce (Integer) | v5.0.0で廃止</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
-                    <strong>この項目はv5.0.0で廃止になりました。</strong> v5.1.0までは互換性の為、
-                    使用可能ですが、<a href = '#h'>hardbounce</a>を使ってください。
-                </p>
-                <p class = 'description ja'>
                     "softbounce" の値はバウンス理由がソフトバウンス(再試行で送信可能)か
                     ハードバウンスであるかを示します。
                     この項目は<strong>{{ site.html.ss }} 4.1.28で追加</strong>されました。
                     とりうる値は上記の通り、1がソフトバウンス、0がハードバウンス、
                     -1がどちらか判断出来なかった、となります。
+                </p>
+                <p class = 'description ja cation'>
+                    <strong>この項目はv5.0.0で廃止になりました。</strong> v5.1.0までは互換性の為、
+                    使用可能ですが、<a href = '#h'>hardbounce</a>を使ってください。
                 </p>
                 <ul>
                     <li>1 = Soft bounce</li>
@@ -681,6 +681,10 @@ Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
                     <br />
                     <br />
                 </p>
+                <pre class = 'prettyprint'>
+Arrival-Date: Mon, 16 Dec 2019 22:00:18 +0100 (CET)
+Date: Thu, 29 Apr 2018 23:34:45 +0900 (JST)
+                </pre>
                 <hr>
             </div>
         </div>
