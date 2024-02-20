@@ -184,6 +184,13 @@ pre.prettyprint {
     color: #a0d8ef; /* Sora-Iro */
 }
 
+.cation {
+    display: block;
+    padding: 8px;
+    margin: 12px 0;
+    border: 1px red dotted;
+}
+
 div.diagnosticcode {
     width: 100%;
     margin-top: 16px;
