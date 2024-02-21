@@ -454,7 +454,7 @@ end
                 <h3 class = 'in-desc'>不在応答(Vacation)のサンプルメール</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/message-3.png'>
-                    配送が成功したメールは
+                    不在応答のメールは
                     <a href = 'https://github.com/sisimai/set-of-emails' target = 'new'>github.com/sisimai/set-of-emails</a>
                     リポジトリの
                     <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/rfc3834-01.eml' target = 'new'>
@@ -573,11 +573,11 @@ end
                         </thead>
                         <tbody>
                             <tr>
-                                <td class = 'ltext'>[0] (下記の表にある<kbd>$code0</kbd>)</td>
+                                <td class = 'ltext'>[0] (下記コード例にある<kbd>$code0</kbd>)</td>
                                 <td>メールのヘッダー<kbd>headers</kbd>および本文<kbd>message</kbd></td>
                             </tr>
                             <tr>
-                                <td class = 'ltext'>[1] (下記の表にある<kbd>$code1</kbd>)</td>
+                                <td class = 'ltext'>[1] (下記コード例にある<kbd>$code1</kbd>)</td>
                                 <td>元メールのファイルに対して</td>
                             </tr>
                         </tbody>
@@ -685,8 +685,6 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                 </div>
             </div>
         </div>
-
-
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -818,7 +816,6 @@ printf("Return-Path: %s\n", $rv->[0]->{'catch'}->{'return-path'});
                     として渡すことができます。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
-#!/usr/bin/env ruby
 require 'sisimai'
 fn = 'set-of-emails/maildir/bsd/rhost-google-03.eml'
 c0 = lambda do |args|
