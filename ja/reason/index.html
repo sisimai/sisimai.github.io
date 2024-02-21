@@ -340,7 +340,7 @@
                                     <td class = 'ltext'>SMTPの文法エラー</td>
                                 </tr>
                                 <tr data-href = '#vacation'>
-                                    <td class = 'ltext'><i class = 'far fa-question-circle' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><i class = 'far fa-question-circle' title = 'その他'></i></td>
                                     <td class = 'ltext'><strong><a href = '#vacation'>Vacation</a></strong></td>
                                     <td>No</td>
                                     <td class = 'ltext'>宛先は現在不在である自動応答メッセージ</td>
@@ -431,8 +431,7 @@ Your message to the following recipients cannot be delivered:
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.co.jp&gt;: host mx01.example.co.jp[192.0.2.8] said:
-550 5.1.1 Address rejected kijitora@example.co.jp (in reply to
-RCPT TO command)
+  550 5.1.1 Address rejected kijitora@example.co.jp (in reply to RCPT TO command)
                 </pre>
                 <p class = 'description ja'>
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が"5.1.1"のもの、
@@ -576,9 +575,9 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
                 <h3 class = 'in-desc'>Suspend</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/remove-user-3.png'>
-                    au by KDDI宛(***@ezweb.ne.jp)において、ユーザが料金未払いである場合にこのエラーが検出されます。
-                    また、Yahoo!宛のメールでも何らかの理由によってアカウントが一時停止されている場合もこのエラーと
-                    なります。
+                    au by KDDI宛(***@ezweb.ne.jp)において、ユーザが料金未払いである場合にこのエラーが
+                    検出されます。また、Gmail宛やYahoo!宛などのメールでも何らかの理由によってアカウントが
+                    一時停止されている場合もこのエラーとなります。
                     <br>
                     <br>
                 </p>
@@ -886,6 +885,7 @@ Diagnostic-Code: smtp; 550 Denied by policy
                     宛先メールサーバがメール内にウィルスやワーム・マルウェアなど有害なファイルや
                     プログラムを検出した場合に返ってくるエラーです。
                     <br />
+                    <br />
                 </p>
                 <pre class = 'prettyprint'>
 Status: 5.7.0
@@ -968,7 +968,6 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                     このバウンス理由は{{ site.html.ss }} 5.0.0で実装されたものです。
                 </p>
 
-
                 <pre class = 'prettyprint'>
 Action: failed
 Status: 5.7.26
@@ -1034,8 +1033,8 @@ Diagnostic-Code: smtp; 550-5.7.1 [192.0.2.22      18] Our system has
                 <h3 class = 'in-desc'>Blocked</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-3.png'>
-                    宛先ホストに接続した際に、発信元メールサーバのIPアドレスやホスト名、
-                    またはEHLO/EHLOコマンドの値によって接続が拒否されたメールは、
+                    宛先ホストに接続した際に、発信元メールサーバのIPアドレスやホスト名、または
+                    <kbd>EHLO</kbd>/<kbd>EHLO</kbd>コマンドの値によって接続が拒否されたメールは、
                     {{ site.html.ss }}によってこの理由に決定されます。
                     このバウンス理由は{{ site.html.ss }} 4.0.0で実装されたもので
                     {{ site.html.bh }}では実装されていないものです。
@@ -1380,8 +1379,8 @@ Diagnostic-Code: SMTP; 250 2.1.5 OK
                 <p class = 'description ja'>
                     <strong>この理由はデフォルトで解析結果には含まれません。</strong>
                     解析結果に"delivered"となる記録も含めるには、
-                    下記のサンプルコードのように"delivered"オプションをSisimaiのmake(),
-                    dump()メソッドの引数に指定してください。
+                    下記のサンプルコードのように"delivered"オプションを<kbd>Sisimai</kbd>クラスの
+                    <kbd>rise()</kbd>, <kbd>dump()</kbd>メソッドの引数に指定してください。
                 </p>
             </div>
         </div>
@@ -1392,9 +1391,9 @@ Diagnostic-Code: SMTP; 250 2.1.5 OK
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
-my $v = Sisimai->make('/path/to/mbox', 'delivered' => 1);
+my $v = Sisimai->rise('/path/to/mbox', 'delivered' => 1);
 my $r = Sisimai->dump('/path/to/mbox', 'delivered' => 1);
-my $d = Sisimai::Fact->make('data' => $q, 'delivered' => 1);
+my $d = Sisimai::Fact->rise('data' => $q, 'delivered' => 1);
                 </pre>
             </div>
         </div>
@@ -1408,29 +1407,6 @@ v = Sisimai.make('/path/to/mbox', delivered: true)
 r = Sisimai.dump('/path/to/mbox', delivered: true)
 d = Sisimai::Fact.make(data: q, delivered: true)
                 </pre>
-                <hr>
-            </div>
-        </div>
-
-        <!-- =============================================================== -->
-        <a name = 'syntaxerror'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#syntaxerror'><i class = 'far fa-question-circle'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Syntax Error (Beginning with v4.17.0)</h3>
-                <p class = 'description ja'>
-                    <img class = 'lhs' src = '/static/images/icon/command-line-1.png'>
-                    このエラーは宛先メールサーバーが、送信側メールサーバーの送ったSMTPコマンドを認識
-                    出来なかった事を意味します。
-                </p>
-                <p class = 'description ja'>
-                    <strong>このエラー理由は{{ site.html.ss }} v4.17.0で実装されました。</strong>
-                </p>
-                {% include error-messages/syntaxerror.html %}
                 <hr>
             </div>
         </div>
@@ -1462,6 +1438,30 @@ I am of the office returning 5th Jan
                     {{ site.html.ss }} 5.0.0から"vacation"となるバウンスメールはデフォルトで
                     解析されなくなりました。
                 </p>
+            </div>
+        </div>
+
+
+        <!-- =============================================================== -->
+        <a name = 'syntaxerror'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#syntaxerror'><i class = 'far fa-question-circle'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Syntax Error (Beginning with v4.17.0)</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/command-line-1.png'>
+                    このエラーは宛先メールサーバーが、送信側メールサーバーの送ったSMTPコマンドを認識
+                    出来なかった事を意味します。
+                </p>
+                <p class = 'description ja'>
+                    <strong>このエラー理由は{{ site.html.ss }} v4.17.0で実装されました。</strong>
+                </p>
+                {% include error-messages/syntaxerror.html %}
+                <hr>
             </div>
         </div>
 
