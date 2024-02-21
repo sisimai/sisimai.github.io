@@ -266,7 +266,7 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>商用MTAとアプライアンス</h2>
                 <p class = 'description ja'>
-                    Microsoft Exchange ServerやDomino,含まないtesのような商用MTA・商用アプライアンスの
+                    Microsoft Exchange ServerやDominoやBarracudaのような商用MTA・商用アプライアンスの
                     作ったバウンスメールを解析するモジュール一覧です。この表にあるモジュールは
                     {{ site.html.bh }}には実装されていないものですが、極稀に{{ site.html.bh }}
                     のFallbackモジュールでも解析出来るバウンスメールがあります。
@@ -437,10 +437,6 @@
                         また、現在のところGmailからのバウンスメールは
                         {{ site.html.bh }}にあるGmail用モジュールでは解析出来なくなっています。
                     </strong>
-                </p>
-                <p class = 'description ja'>
-                    Sisimai 4.20.0からAmazon SESとSendGridで得られるバウンスオブジェクト(JSON)
-                    も解析できるモジュールが追加されました。
                 </p>
             </div>
         </div>
@@ -713,11 +709,11 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class = 'ltext not-available'>AmazonSES</td>
+                                    <td class = 'not-available ltext'>AmazonSES</td>
                                     <td class = 'not-available'>含まない</td>
                                     <td class = 'not-available'>0.00</td>
-                                    <td class = 'ltext not-available'>v4.20.0</td>
-                                    <td class = 'ltext not-available'>
+                                    <td class = 'not-available ltext'>v4.20.0</td>
+                                    <td class = 'not-available ltext'>
                                         <a href = 'https://docs.aws.amazon.com/ja_jp/ses/latest/DeveloperGuide/notification-contents.html'
                                             target = 'new'>
                                             Amazon SES への Amazon SNS 通知のコンテンツ
@@ -725,11 +721,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext not-available'>SendGrid</td>
+                                    <td class = 'not-available ltext'>SendGrid</td>
                                     <td class = 'not-available'>含まない</td>
                                     <td class = 'not-available'>0.00</td>
-                                    <td class = 'ltext not-available'>v4.20.0</td>
-                                    <td class = 'ltext not-available'>
+                                    <td class = 'not-available ltext'>v4.20.0</td>
+                                    <td class = 'not-available ltext'>
                                         <a href = 'https://sendgrid.kke.co.jp/docs/API_Reference/Web_API/bounces.html' target = 'new'>
                                             SendGrid(バウンスオブジェクト)
                                         </a>
