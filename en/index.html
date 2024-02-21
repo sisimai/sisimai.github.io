@@ -1,8 +1,8 @@
 ---
 "layout": "standard"
 "directory":
-"title": "Sisimai | Library to parse bounce mails"
-"description": "Library to parse bounce mails, Making data structure as JSON from bounce mails"
+"title": "Sisimai | Library to decode bounce mails"
+"description": "Library to decode bounce mails, Making data structure as JSON from bounce mails"
 "author": "azumakuniyuki"
 ---
 <header id = 'home'>
@@ -46,29 +46,25 @@
                     <img src = '/static/images/figure/sisimai-overview-1.png' width = '100%'>
                     <h2>What is {{ site.html.ss }} ?</h2>
                     <p class = 'description'>
-                        {{ site.html.ss }} is the successor of {{ site.html.bh }},
-                        is a Mail Analyzing Interface:
-                        a <strong>Perl module</strong> and a <strong>Ruby Gem</strong>
-                        for parsing RFC5322 bounce emails and
-                        for generating structured data such as JSON.
+                        {{ site.html.ss }} is a library that decodes complex and diverse bounce
+                        emails and outputs the results of the delivery failure, such as the reason
+                        for the bounce and the recipient email address, in structured data.
+                        It is also possible to output in JSON format.
                     </p>
                     <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
+                        The latest stable version is 
                         <a href = '#download'>
                             <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
-                        </a>
-                        was released on
+                        </a>,
+                        released on
                         <a href = '{{ site.sisimai.blogurl }}' target = 'new'>{{ site.sisimai.release.en }}.</a>
-                        This release fixed 2 bugs in each of the Perl and Ruby versions.
-                        <strong>
-                            v4.25.16 may be the final release of the version 4 series. However, if a serious bug is found after today,
-                            we will release v4.25.17. Sisimai 5 and the Go language version of Sisimai are under development on the
-                            <a href = '{{ site.sisimai.repository.go }}' target = 'new'>sisimai/go-sisimai</a> repository
-                            repository and will be released by next summer.
-                        </strong>
-
-                        For further information about all the changes on this version
-                        available at <a href = '{{ site.sisimai.blogurl }}' target = 'new'>blog.libsisimai.org</a>.
+                        It is only available from
+                        <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v5.0.0' target = 'new'>GitHub (Perl version)</a> or
+                        <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v5.0.0' target = 'new'>GitHub (Ruby version)</a>.
+                        Currently, v4.25.16 is available for download from
+                        <a href = '{{ sisimai.distribution.perl }}' target = 'new'>CPAN</a> and
+                        <a href = '{{ sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>.
                     </div>
                 </div>
             </div> 
@@ -80,11 +76,11 @@
                         <i class = 'fa fa-torii-gate'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>Parse Bounce Emails</h3>
+                        <h3>Decode Bounce Emails</h3>
                         <hr>
                         <p class = 'description'>
-                            {{ site.html.ss }} is a library to parse bounce emails in a
-                            <strong>UNIX mbox</strong> file or emails in the <strong>Maildir/</strong> directory.
+                            {{ site.html.ss }} is a library to decode bounce mails for <strong>UNIX mbox</strong>
+                            format files and those in <strong>Maildir/</strong> directories.
                         </p>
                     </div>
                     <a href = '/en/start/' class = 'btn btn-continue'>Get Started</a>
@@ -97,8 +93,8 @@
                         <h3>Detect Bounce Reasons</h3>
                         <hr>
                         <p class = 'description'>
-                            {{ site.html.ss }} can detect <strong>{{ site.sisimai.spec.reasons }} bounce reasons</strong>
-                            such as "blocked", "mailboxfull", "userunknown", and so on.
+                            {{ site.html.ss }} can decode <strong>{{ site.sisimai.spec.reasons }}</strong>
+                            bounce reasons, including common errors such as "userunknown", "mailboxfull", and "rejected".
                         </p>
                     </div>
                     <a href = '/en/reason/' class = 'btn btn-continue'>Details</a>
@@ -111,8 +107,8 @@
                         <h3>Data Structure</h3>
                         <hr>
                         <p class = 'description'>
-                            Parsed results generated by {{ site.html.ss }} are converted to
-                            structured data, and could be converted to <strong>JSON</strong>.
+                            The data of bounce emails decoded by {{ site.html.ss }} is structured and
+                            can also be output in <strong>JSON</strong> format.
                         </p>
                     </div>
                     <a href = '/en/data/' class = 'btn btn-continue'>Details</a>
@@ -122,11 +118,11 @@
                         <i class = 'fa fa-cogs'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>{{ site.sisimai.spec.modules }} Parser Engines</h3>
+                        <h3>{{ site.sisimai.spec.modules }} Decoding Engines</h3>
                         <hr>
                         <p class = 'description'>
-                            {{ site.html.ss }} can parse bounce mails from
-                            open source MTAs, commercial MTAs, and some major MSPs/ESPs.
+                            {{ site.html.ss }} can decode bounce emails from open-source MTAs,
+                            commercial MTAs, email appliances, and well-known email services.
                         </p>
                     </div>
                     <a href = '/en/engine/' class = 'btn btn-continue'>Details</a>
@@ -147,19 +143,21 @@
                     </h2>
                     <hr>
                     <p class = 'description'>
-                        On August 2014, We have started to develop a Perl version of {{ site.html.ss }}
-                        to resolve many fundamental problems of {{ site.html.bh }}
-                        which are related to analytical precision (it could not be detected 2 or more bounces in a single email),
-                        many dependencies of external modules (some modules have not maintained for a long time),
-                        and cannot work on Perl 5.16 or later.
+                        In the summer of 2014, the Perl version of {{ site.html.ss }}(シシマイ, pronounced as 'shi-shi-mai')
+                        was developed to solve several critical problems with the parsing accuracy of {{ site.html.bh }}, including:
+                        Inability to decode multiple bounces in a single email, Large number of dependent modules, some of which are no longer maintained,
+                        Inability to work with Perl 5.16 or later.
                     </p>
                     <p class = 'description'>
-                        As of the present, the Perl version {{ site.html.ss }} is about 2.2 times faster
-                        than <span class = 'bh'>bounce<strong>Hammer</strong></span>, have 2.0 times higher of analytical precision,
-                        depends only 2 external modules, and can work on Perl {{ site.sisimai.workson.perl[0] }} or later versions of Perl.
-                        From August 2015, We have started to develop a 
-                        <strong>Ruby version of {{ site.html.ss }}</strong>.
-                        The software has been released on Feburary 3, 2016.
+                        {{ site.html.ss }} Sisimai is now about 2.2 times faster than {{ site.html.bh }}
+                        and has twice the decoding accuracy. The Ruby version of Sisimai was released
+                        on February 3, 2016.
+                    </p>
+                    <p class = 'description'>
+                        On February 2, 2024, the 10th anniversary of the release of {{ site.html.ss }},
+                        {{ site.html.ss }} v5.0.0 was released. This version can detect modern bounces,
+                        including those caused by domain authentication (SPF, DKIM, DMARC) errors and
+                        reputation issues.
                     </p>
                 </div>
             </div>
@@ -300,9 +298,8 @@
                 </div>
                 <br>
                 <p class = 'description'>
-                    {{ site.html.ss }} can run on the system that Perl or Ruby is available
-                    like the following lists, such as *BSD, Mac OS X, and Linux. 
-                    Beginning of v4.22.5,
+                    {{ site.html.ss }} can run on any OS where Perl or Ruby works, such as *BSD,
+                    macOS, and Linux. {{ site.html.ss }} 4.22.5 and later
                     <a href = 'https://github.com/sisimai/p5-sisimai/issues/261' target = 'new'>
                         {{ site.html.ss }} may run with ActivePerl on Windows.
                     </a>.
@@ -318,8 +315,9 @@
                             <img src = '/static/images/icon/dinosaur-1.png'>
                         </div>
                         <ul>
-                            <li>Stable version</li>
-                            <li>Perl {{ site.sisimai.workson.perl[0] }} - {{ site.sisimai.workson.perl[1] }}</li>
+                            <li>Release version</li>
+                            <li>{{ site.html.ss }} v4: Perl 5.10.1 - <strong>5.24.4</strong></li>
+                            <li>{{ site.html.ss }} v5: <strong>Perl {{ site.sisimai.workson.perl[0] }}</strong> - {{ site.sisimai.workson.perl[1] }}</li>
                             <li>CPAN</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'
@@ -334,8 +332,9 @@
                             <img src = '/static/images/icon/ruby-1.png'>
                         </div>
                         <ul>
-                            <li>Stable version</li>
-                            <li>Ruby {{ site.sisimai.workson.ruby[0] }} - {{ site.sisimai.workson.ruby[1] }}</li>
+                            <li>Release version</li>
+                            <li>{{ site.html.ss }} v4: Ruby 2.1.0 - 3.3.0</li>
+                            <li>{{ site.html.ss }} v5: Ruby <strong>{{ site.sisimai.workson.ruby[0] }}</strong> - {{ site.sisimai.workson.ruby[1] }}</li>
                             <li>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'
@@ -353,6 +352,7 @@
                             <li>Development Version</li>
                             <li>p5-sisimai (Perl)</li>
                             <li>rb-sisimai (Ruby)</li>
+                            <li>4-stable, 5-stable</li>
                         </ul>
                         <a href = '{{ site.sisimai.repository.project }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Fork</a>
@@ -373,13 +373,18 @@
                         Support
                     </h2>
                     <p class = 'description'>
-                        Anyone can use {{ site.html.ss }} because it is an Open Source Software,
-                        however, we, {{ site.html.cr }} Corporation Limited (a development company of {{ site.html.ss }})
-                        is ready to support your installation of {{ site.html.ss }},
-                        development of relevant scripts, data management of parsed bounces on RDBMS,
-                        operations on your system for continuous management of email bounces,
-                        and a migration from {{ site.html.bh }}.
+                        {{ site.html.ss }} is an open-source library licensed under the two-clause
+                        BSD license, so anyone can use it freely.
+                        However, {{ site.html.cr }} Corporation Limited, the developer of {{ site.html.ss }},
+                        offers products and services to support the following:
                     </p>
+                    <ul style = 'text-align: left;'>
+                        <li>Building an environment for bounce mail analysis</li>
+                        <li>Developing scripts around {{ site.html.ss }}</li>
+                        <li>Designing and managing a database for storing analyzed data</li>
+                        <li>Continuous bounce management</li>
+                        <li>Migrating from the bounce mail analysis system {{ site.html.bh }}</li>
+                    </ul>
                     <a href = 'http://cubicroot.jp/en/products/sisimai/' target = 'new' 
                         class = 'btn btn-lg btn-contactus'>Read More About Support</a>
                 </div>
