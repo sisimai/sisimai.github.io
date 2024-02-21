@@ -1,7 +1,7 @@
 ---
 "layout": "document"
 "directory": "usage/"
-"title": "How To Parse using Sisimai"
+"title": "How To Decode using Sisimai"
 "description": "Reading from STDIN, Options, Callback."
 "author": "azumakuniyuki"
 ---
@@ -31,6 +31,7 @@
                     <li class = 'scroll'><a href = '#stdin'>STDIN</a></li>
                     <li class = 'scroll'><a href = '#memory'>Variable</a></li>
                     <li class = 'scroll'><a href = '#delivered'>Delivered</a></li>
+                    <li class = 'scroll'><a href = '#vacation'>Vacation</a></li>
                     <li class = 'scroll'><a href = '#callback'>Callback</a></li>
                     <li class = 'others'><a href = '/en/docs/'>Documents</a></li>
                     <li class = 'others'><a href = '/ja/usage/'><i class = 'fa fa-language'></i></a></li>
@@ -46,7 +47,7 @@
             <div class = 'row'>
                 <div class = 'text-center col-sm-8 col-sm-offset-2'>
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
-                    <h2>How To Parse Using Sisimai</h2>
+                    <h2>How To Decode Using Sisimai</h2>
                 </div>
             </div>
         </div>
@@ -59,9 +60,10 @@
                     <div class = 'index-info'>
                         <h3>Basic Usage</h3>
                         <p class = 'description'>
-                            How to parse bounce mails, to get structured data,
-                            and to make parsed data as JSON. This is the most simple
-                            and easy way to parse using Sisimai.
+                            This section introduces the simplest and most basic way to use {{ site.html.ss }}.
+                            Simply prepare a bounce email in an environment where {{ site.html.ss }}
+                            can be used, and you can immediately obtain the decoded results, such as
+                            email decoding, structured data, and JSON string acquisition.
                         </p>
                     </div>
                     <a href = '/en/start/#usage' class = 'btn btn-continue'>Read</a>
@@ -73,9 +75,10 @@
                     <div class = 'index-info'>
                         <h3>From STDIN</h3>
                         <p class = 'description'>
-                            Sample code in this description shows a way to read bounce mail
-                            data from Standard-In. It is useful for reading bounce mails
-                            from pipeline on one-liner.
+                            This is an example of how to read bounce email data from standard input
+                            (STDIN) and decode it with {{ site.html.ss }}. This is a convenient
+                            input method when reading data using pipelines in one-liners of Perl or
+                            Ruby.
                         </p>
                     </div>
                     <a href = '#stdin' class = 'btn btn-continue'>Read</a>
@@ -87,9 +90,9 @@
                     <div class = 'index-info'>
                         <h3>From Variable</h3>
                         <p class = 'description'>
-                            Sample code in this description shows a way to read
-                            bounce mail data from variable. It is useful for parsing
-                            data stored in a database or job queue system.
+                            This is an example of how to read bounce email data from a variable and
+                            it with {{ site.html.ss }}. This is a convenient method when reading and
+                            decoding bounce emails from databases or job queue systems.
                         </p>
                     </div>
                     <a href = '#memory' class = 'btn btn-continue'>Read</a>
@@ -102,14 +105,30 @@
                         <i class = 'fa fa-truck'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>Include Delivered</h3>
+                        <h3>Include "Delivered"</h3>
                         <p class = 'description'>
-                            The default behaviour of Sisimai is parsing a bounce message only,
-                            but Sisimai can also include a delivery success (delivery notification)
-                            in the parsed results.
+                            By default, {{ site.html.ss }} only outputs the decoded results of emails
+                            that could not be delivered. However, this article introduces how to use
+                            the method of the {{ site.html.ss }} class to include emails that were
+                            delivered successfully (delivery notifications) in the decoded results.
                         </p>
                     </div>
                     <a href = '#delivered' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-plane-departure'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Include "Vacation"</h3>
+                        <p class = 'description'>
+                            By default, {{ site.html.ss }} only outputs the decode results of emails
+                            that could not be delivered. However, this article introduces how to use
+                            the method of the {{ site.html.ss }} class to include emails that are
+                            returned with an out-of-office (vacation) response in the decoded results.
+                        </p>
+                    </div>
+                    <a href = '#vacation' class = 'btn btn-continue'>Read</a>
                 </div>
                 <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
@@ -118,9 +137,10 @@
                     <div class = 'index-info'>
                         <h3>Callback</h3>
                         <p class = 'description'>
-                            Callback feature allows you to read each bounce message,
-                            to pick a specific header field, to set custom values
-                            into the parsed results before being parsed.
+                            The callback feature allows you to perform custom processing on the data
+                            before it is decoded by {{ site.html.ss }}. This includes retrieving specific
+                            headers, partially rewriting the data, and including the results in the
+                            decoded data.
                         </p>
                     </div>
                     <a href = '#callback' class = 'btn btn-continue'>Read</a>
@@ -141,19 +161,19 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Read From STDIN</h2>
                 <hr>
+                <p class = 'description cation'>
+                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
+                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
+                    method instead.
+                </p>
                 <p class = 'description'>
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> methods of {{ site.html.ss }}
-                    accept <kbd>STDIN</kbd> as the first argument for reading bounce mail data
-                    from Standard-In.
-                    This feature had been implemented at earlier version of {{ site.html.ss }}, However, 
-                    sometimes, it did not work properly caused by some bugs.
-                    The bugs have been fixed in the
-                    <a href = 'https://github.com/sisimai/p5-sisimai/issues/194' target = 'new'>
-                    Perl
-                    </a> version and the
-                    <a href = 'https://github.com/sisimai/rb-sisimai/issues/61' target = 'new'>
-                    Ruby
-                    </a> version at Sisimai 4.18.1.
+                    The <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of <kbd>Sisimai</kbd> class
+                    can read bounce email data from standard input (STDIN) in addition to specifying
+                    a filename as an argument. This feature was implemented in early versions of
+                    {{ site.html.ss }}, but there was a bug that sometimes prevented it from working
+                    properly. This bug has been fixed in {{ site.html.ss }} 4.18.1
+                    <a href = 'https://github.com/sisimai/p5-sisimai/issues/194' target = 'new'>Perl version</a> and the
+                    <a href = 'https://github.com/sisimai/rb-sisimai/issues/61' target = 'new'> Ruby version</a>.
                 </p>
             </div>
         </div>
@@ -164,9 +184,9 @@
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>STDIN File Handle</h4>
                 <p class = 'description'>
-                    <kbd>dump()</kbd> and <kbd>make()</kbd> methods of Sisimai class
-                    read bounce mail data from Standard-In when a file handle <kbd>STDIN</kbd>
-                    is specified as the first argument.
+                    The <kbd>dump()</kbd> and <kbd>rise()</kbd> methods of the <kbd>Sisimai</kbd>
+                    class read bounce email data from standard input and return the decoded results
+                    when the first argument is <kbd>STDIN</kbd> as the file handle.
                 </p>
 
                 <pre class = 'prettyprint'>
@@ -178,7 +198,7 @@
     ...
                 </pre>
                 <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | perl -MSisimai -lE 'print $_->recipient->address for @{ Sisimai->make(STDIN) }'</kbd>
+% <kbd>cat ./path/to/email | perl -MSisimai -lE 'print $_->recipient->address for @{ Sisimai->rise(STDIN) }'</kbd>
 kijitora@example.jp
 sironeko@example.org
                 </pre>
@@ -195,10 +215,10 @@ sironeko@example.org
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>STDIN Object</h4>
                 <p class = 'description'>
-                    Similarly, In Ruby version of Sisimai,
-                    <kbd>dump()</kbd> and <kbd>make()</kbd> methods of Sisimai class
-                    read bounce mail data from Standard-In when a <kbd>STDIN</kbd> object
-                    is specified as the first argument.
+                    The Ruby version of {{ site.html.ss }} also works similarly. When the first
+                    argument of the <kbd>dump()</kbd> and <kbd>rise()</kbd> methods of the <kbd>Sisimai</kbd>
+                    class is the <kbd>STDIN</kbd> object, it reads bounce email data from standard
+                    input and returns the decoded results.
                 </p>
                 <pre class = 'prettyprint'>
 % <kbd>cat ./path/to/email | ruby -Ilib -rsisimai -e 'puts Sisimai.dump(STDIN)' | jq</kbd>
@@ -209,8 +229,8 @@ sironeko@example.org
     ...
                 </pre>
                 <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | ruby -rsisimai -e 'p Sisimai.make(STDIN)'</kbd>
-[#&lt;Sisimai::Data:0x007fa1b0993050 @addresser=#&lt;Sisimai::Address:0x007fa1b0990e40 @user="kijitora", ...
+% <kbd>cat ./path/to/email | ruby -rsisimai -e 'p Sisimai.rise(STDIN)'</kbd>
+[#&lt;Sisimai::Fact:0x007fa1b0993050 @addresser=#&lt;Sisimai::Address:0x007fa1b0990e40 @user="kijitora", ...
                 </pre>
             </div>
 
@@ -231,14 +251,18 @@ sironeko@example.org
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Read From Variable</h2>
-                <p class = 'description'>
-                    Beginning with {{ site.html.ss }} 4.23.0, <kbd>make()</kbd> and <kbd>dump()</kbd>
-                    methods accept a variable (keeping entire bounce message) as the first argument.
-                    The variable as the first argument should be a scalar reference in Perl, 
-                    a String object in Ruby.
+                <p class = 'description cation'>
+                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
+                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
+                    method instead.
                 </p>
                 <p class = 'description'>
-                    This feature is useful to read bounce messages stored in a database or job queue system.
+                    The <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd>
+                    class allow you to read bounce email data from sources other than files and
+                    standard input by specifying a variable (a scalar reference in Perl and a <kbd>String</kbd>
+                    object in Ruby) as the first argument. This feature (<kbd>Sisimai::Mail::Memory</kbd>),
+                    which is useful for reading bounce emails from databases and job queue systems,
+                    was implemented in {{ site.html.ss }} 4.23.0.
                 </p>
             </div>
         </div>
@@ -250,20 +274,21 @@ sironeko@example.org
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Scalar Reference</h4>
                 <p class = 'description'>
-                    When a scalar reference which is holding entire bounce message is specified
-                    as the 1st argument of <kbd>make()</kbd> and <kbd>dump()</kbd> methods,
-                    Sisimai calls Sisimai::Mail::Memory class and return the parsed results.
+                    When a scalar reference is specified as the first argument to <kbd>rise()</kbd>
+                    method and <kbd>dump()</kbd> method, <kbd>Sisimai::Mail::Memory</kbd> is called
+                    internally, and the decoded results are obtained in the same way as when reading
+                    from a mail file or standard input.
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
 my $f = 'From MAILER-DAEMON Thu Dec 22 17:54:04 2015...';   # Entire bounce message
-my $v = Sisimai->make(\$f);
+my $v = Sisimai->rise(\$f);
 for my $e ( @$v ) {
-    print $e->action;           # delayed
-    print $e->deliverystatus;   # 4.7.0
-    print $e->reason;           # expired
-    print $e->diagnosticcode;   # Envelope expired
-    print $e->softbounce;       # 1
+    print $e->action;           # "delayed"
+    print $e->deliverystatus;   # "4.7.0"
+    print $e->reason;           # "expired"
+    print $e->diagnosticcode;   # "Envelope expired"
+    print $e->hardbounce;       # 0
 }
                 </pre>
             </div>
@@ -276,31 +301,28 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>String object</h4>
                 <p class = 'description'>
-                    Similarly, In Ruby version of Sisimai, 
-                    When a String object which is holding entire bounce message is specified
-                    as the 1st argument of <kbd>make()</kbd> and <kbd>dump()</kbd> methods,
-                    Sisimai calls Sisimai::Mail::Memory class and return the parsed results.
+                    In the Ruby version of {{ site.html.ss }}, when a <kbd>String</kbd> object is
+                    specified as the first argument to <kbd>rise()</kbd> method and <kbd>dump()</kbd>
+                    method, <kbd>Sisimai::Mail::Memory</kbd> is called internally, and the decoded
+                    results are obtained in the same way as when reading from a mail file or standard
+                    input.
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 f = 'From MAILER-DAEMON Thu Dec 22 17:54:04 2015...'    # Entire bounce message
-v = Sisimai.make(f)
+v = Sisimai.rise(f)
 v.each do |e|
-  puts e.action         # delayed
-  puts e.deliverystatus # 4.7.0
-  puts e.reason         # expired
-  puts e.diagnosticcode # Envelope expired
-  puts e.softbounce     # 1
+  puts e.action         # "delayed"
+  puts e.deliverystatus # "4.7.0"
+  puts e.reason         # "expired"
+  puts e.diagnosticcode # "Envelope expired"
+  puts e.hardbounce     # false
 end
                 </pre>
             </div>
         </div>
     </div>
-</section> <!-- /#delivered -->
-
-
-
-
+</section> <!-- /#memory -->
 
 <section id = 'delivered' class = 'parallax'>
     <div class = 'container'>
@@ -312,10 +334,15 @@ end
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Include Delivery Success</h2>
+                <p class = 'description cation'>
+                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
+                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
+                    method instead.
+                </p>
                 <p class = 'description'>
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> methods return the parsed results
-                    including a delivery success (delivery notification) when
-                    <kbd>delivered</kbd> option is specified as the 2nd argument.
+                    The <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd>
+                    class can include emails that notify you of successful delivery by specifying
+                    <kbd>delivered</kbd> as the second argument.
                 </p>
             </div>
         </div>
@@ -328,13 +355,14 @@ end
                 <h3 class = 'in-desc'>Succeeded Delivery as a Sample</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/message-3.png'>
-                    An email as a sample that has delivered successfully is available as
+                    Emails that were successfully delivered are available as samples in the
+                    <a href = 'https://github.com/sisimai/set-of-emails' target = 'new'>github.com/sisimai/set-of-emails</a>
+                    repository.  Specifically, the 
                     <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/rfc3464-28.eml' target = 'new'>
                         rfc3464-28.eml
-                    </a> at 
-                    <a href = 'https://github.com/sisimai/set-of-emails' target = 'new'>github.com/sisimai/set-of-emails</a>
-                    repository.
-                    The following code shows a sample for parsing the email.
+                    </a>
+                    can be used as an example.
+                    This section provides sample code for analyzing this email.
                 </p>
             </div>
         </div>
@@ -345,22 +373,22 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>delivered =&gt; 1</h4>
                 <p class = 'description'>
-                    When <kbd>delivered =&gt; 1</kbd> is specified as the 2nd argument of
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> methods,
-                    an email that has delivered successfully is included in the parsed results.
-                    If the value of <kbd>delivered</kbd> is <kbd>0</kbd>, <kbd>""</kbd> or <kbd>undef</kbd>,
-                    Sisimai does not generate the parsed results from the succeeded email.
+                    The second argument of <kbd>rise()</kbd> and <kbd>dump()</kbd> takes a <kbd>delivered</kbd>
+                    key-value pair. When set to <kbd>1</kbd>, the decoded results will include emails
+                    that were successfully delivered (delivery notifications). If <kbd>delivered</kbd>
+                    is set to a false value (<kbd>0</kbd>, <kbd>undef</kbd>, or an empty string),
+                    the decoded results will not be generated.
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
 my $f = './set-of-emails/maildir/bsd/rfc3464-28.eml';
-my $v = Sisimai->make($f, <strong>'delivered' => 1</strong>);
+my $v = Sisimai->rise($f, <strong>'delivered' => 1</strong>);
 for my $e ( @$v ) {
-    print $e->action;           # deliverable
-    print $e->deliverystatus;   # 2.1.5
-    print $e->reason;           # delivered
-    print $e->diagnosticcode;   # 250 2.1.5 Ok
-    print $e->softbounce;       # -1
+    print $e->action;           # "delivered"
+    print $e->deliverystatus;   # "2.1.5"
+    print $e->reason;           # "delivered"
+    print $e->diagnosticcode;   # "250 2.1.5 Ok"
+    print $e->hardbounce;       # 0
 }
                 </pre>
             </div>
@@ -373,23 +401,23 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>delivered: true</h4>
                 <p class = 'description'>
-                    Similarly, In Ruby version of Sisimai, 
-                    when <kbd>delivered: true</kbd> is specified as the 2nd argument of
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> methods,
-                    an email that has delivered successfully is included in the parsed results.
-                    If the value of <kbd>delivered</kbd> is <kbd>nil</kbd> or <kbd>false</kbd>,
-                    Sisimai does not generate the parsed results from the succeeded email.
+                    Similarly to the Perl version, in the Ruby version of {{ site.html.ss }},
+                    specifying <kbd>delivered: true</kbd> as the second argument of <kbd>rise()</kbd>
+                    and <kbd>dump()</kbd> will include emails that were successfully delivered
+                    (delivery notifications) in the decoded results. If a false value (<kbd>nil</kbd>
+                    or <kbd>false</kbd>) is specified for delivered, the decoded results will not
+                    be generated.
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 f = './set-of-emails/maildir/bsd/rfc3464-28.eml'
-v = Sisimai.make(f, <strong>delivered: true</strong>)
+v = Sisimai.rise(f, <strong>delivered: true</strong>)
 v.each do |e|
-  puts e.action         # deliverable
-  puts e.deliverystatus # 2.1.5
-  puts e.reason         # delivered
-  puts e.diagnosticcode # 250 2.1.5 Ok
-  puts e.softbounce     # -1
+  puts e.action         # "delivered"
+  puts e.deliverystatus # "2.1.5"
+  puts e.reason         # "delivered"
+  puts e.diagnosticcode # "250 2.1.5 Ok"
+  puts e.hardbounce     # false
 end
                 </pre>
             </div>
@@ -397,7 +425,110 @@ end
     </div>
 </section> <!-- /#delivered -->
 
-<section id = 'callback' class = 'not-parallax'>
+<section id = 'vacation' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-plane-departure'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Include Vacation</h2>
+                <p class = 'description cation'>
+                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
+                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
+                    method instead.
+                </p>
+                <p class = 'description cation'>
+                    Starting with {{ site.html.ss }} 5.0.0, bounce emails with a bounce reason of
+                    "vacation" will no longer be analyzed by default. If you need this functionality,
+                    you must specify the <kbd>vacation</kbd> parameter to the <kbd>rise()</kbd> method.
+                </p>
+                <p class = 'description'>
+                    The <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd>
+                    class can include vacation response emails in the decoded results by specifying
+                    <kbd>vacation</kbd> as the second argument.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>email</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Vacation email as a sample</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/message-3.png'>
+                    A sample of a vacation response email is available in the
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/rfc3834-01.eml' target = 'new'>
+                        rfc3834-01.eml
+                    </a>
+                    in the
+                    <a href = 'https://github.com/sisimai/set-of-emails' target = 'new'>github.com/sisimai/set-of-emails</a>
+                    repository. Here is a sample code that decodes this email.
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>vacation =&gt; 1</h4>
+                <p class = 'description'>
+                    Specifying <kbd>vacation => 1</kbd> as the second argument of <kbd>rise()</kbd>
+                    and <kbd>dump()</kbd> will include vacation response emails in the decoded results.
+                    If a value that evaluates to false for <kbd>vacation</kbd> is specified
+                    (<kbd>0</kbd>, <kbd>undef</kbd>, <kbd>''</kbd>), no decoded results will be generated.
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
+use Sisimai;
+my $f = './set-of-emails/maildir/bsd/rfc3834-01.eml';
+my $v = Sisimai->rise($f, <strong>'vacation' => 1</strong>);
+for my $e ( @$v ) {
+    print $e->action;           # ""
+    print $e->deliverystatus;   # ""
+    print $e->reason;           # "vacation"
+    print $e->diagnosticcode;   # "I am currently away returning to the office on May 5th."
+    print $e->hardbounce;       # 0
+}
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>vacation: true</h4>
+                <p class = 'description'>
+                    Similar to the Perl version, in the Ruby version of {{ site.html.ss }},
+                    specifying <kbd>vacation: true</kbd> as the second argument of <kbd>rise()</kbd>
+                    and <kbd>dump()</kbd> will include vacation notification emails in the decoded
+                    results. If a value that evaluates to false for <kbd>vacation</kbd> is specified
+                    (<kbd>nil</kbd>, <kbd>false</kbd>), no decoded results will be generated.
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
+require 'sisimai'
+f = './set-of-emails/maildir/bsd/rfc3834-01.eml'
+v = Sisimai.rise(f, <strong>vacation: true</strong>)
+v.each do |e|
+  puts e.action         # ""
+  puts e.deliverystatus # ""
+  puts e.reason         # "vacation"
+  puts e.diagnosticcode # "I am currently away returning to the office on May 5th."
+  puts e.hardbounce     # false
+end
+                </pre>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#vacation -->
+
+<section id = 'callback' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -407,32 +538,91 @@ end
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2>Callback Feature</h2>
-                <p class = 'description'>
-                    Beginning with {{ site.html.ss }} 4.19.0, Callback feature has implemented.
-                    This feature allows you to read the header part and the body part of each
-                    bounce mail before being parsed by Sisimai, and receive the results returned from
-                    a hook method you specified via <kbd>catch()</kbd> method of <kbd>Sisimai::Data</kbd>
-                    or <kbd>Sisimai::Message</kbd> object.
+                <p class = 'description cation'>
+                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
+                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
+                    method instead.
+                </p>
+                <p class = 'description cation'>
+                    The callback feature specification (number and type of arguments) has changed in
+                    {{ site.html.ss }} 5.0.0. Due to the incompatible change, please check the
+                    <a href = 'https://github.com/sisimai/p5-sisimai/blob/4-stable/README-JA.md#callback-feature'>GitHub/Callback Feature</a>
+                    of the <kbd>4-stable</kbd> branch for the callback feature in Version 4.
                 </p>
                 <p class = 'description'>
-                    It is useful to get entire text of the original message, 
-                    or the value of a certain header of the original message such as
-                    a delivery ID, X-Mailer, and so on.
+                    The callback feature implemented in {{ site.html.ss }} 4.19.0 allows you to get
+                    the results of your own bounce email processing through the <kbd>catch()</kbd>
+                    method of <kbd>Sisimai::Fact</kbd> class or <kbd>Sisimai::Message</kbd> class.
+                    This feautre is useful for extracting the entire original message that {{ site.html.ss }}
+                    does not include in the decoded results, or specific header values of the original
+                    message (such as the delivery ID).
                 </p>
             </div>
         </div>
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>argv</div>
+                <div class = 'index-label'>c___</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Argument of Hook Method</h3>
+                <h3 class = 'in-desc'>Arguments passed to c___</h3>
                 <p class = 'description'>
-                    A hook method in Perl (sub routine) receives a <strong>Hash reference</strong>,
-                    a hook method in Ruby receives a <strong>Hash object</strong>.
-                    Hash reference and object have the following structure.
+                    The arguments that can be passed to the <kbd>c___</kbd> (<kbd>c</kbd> and three
+                    underscores, looks like a fishing hook) in the <kbd>rise()</kbd> method of the
+                    <kbd>Sisimai</kbd> class are one array reference for Perl hook methods (subroutines)
+                    and one <kbd>Array</kbd> object for Ruby hook methods. The structure of the
+                    arguments is as follows:
                 </p>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-bordered'>
+                        <thead>
+                            <tr>
+                                <th>The indices of the array passed to <kbd>c___</kbd></th>
+                                <th>Target of processing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class = 'ltext'>[0] (<kbd>$code0</kbd>in the following code example)</td>
+                                <td>Email headers <kbd>headers</kbd>and message text <kbd>message</kbd></td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>[1] (<kbd>$code1</kbd>in the following code example)</td>
+                                <td>The original email file</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre class = 'prettyprint'>
+my $code0 = sub {
+    my $args = shift;
+    my $head = $args->{'headers'}; # Email headers
+    my $body = $args->{'message'}; # Message body
+};
+my $code1 = sub {
+    my $args = shift;
+    my $kind = $args->{'kind'}; # (String)  Sisimai::Mail->kind
+    my $mail = $args->{'mail'}; # (*String) Entire email message
+    my $path = $args->{'path'}; # (String)  Sisimai::Mail->path
+    my $fact = $args->{'fact'}; # (*Array)  List of Sisimai::Fact
+};
+my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>c___[0]</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Arguments inside of c___[0]</h3>
+                <p class = 'description'>
+                    The string obtained from the <kbd>message</kbd> is the body of the bounce email.
+                    It does not include the headers of the bounce email itself, so please refer to
+                    the hashed <kbd>headers</kbd>.
+                </p>
+
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-bordered'>
                         <thead>
@@ -440,8 +630,6 @@ end
                                 <th>Key Name</th>
                                 <th>Data Type</th>
                                 <th>Description</th>
-                                <th>Email</th>
-                                <th>JSON</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -449,18 +637,59 @@ end
                                 <td class = 'ltext'>headers</td>
                                 <td>Hash</td>
                                 <td>Header part of a bounce mail (as a Hash Data)</td>
-                                <td>Available</td>
-                                <td>undef, nil</td>
                             </tr>
                             <tr>
                                 <td class = 'ltext'>message</td>
                                 <td>String</td>
                                 <td>
-                                    Body part of a bounce mail including the original 
-                                    message
+                                    Body part of a bounce mail(including no headers of the bounce mail)
                                 </td>
-                                <td>Available</td>
-                                <td>undef, nil</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>c___[1]</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Arguments inside of c___[1]</h3>
+                <p class = 'description'>
+                    The string obtained from the <kbd>mail</kbd> is the entire bounce email,
+                    including the headers of the bounce email itself.
+                </p>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-bordered'>
+                        <thead>
+                            <tr>
+                                <th>Key Name</th>
+                                <th>Type</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class = 'ltext'>kind</td>
+                                <td>String</td>
+                                <td>The kind of the original email file</td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>mail</td>
+                                <td>*String</td>
+                                <td>Entire message of the bounce mail including all headers</td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>path</td>
+                                <td>String</td>
+                                <td>The path to the original email file</td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>fact</td>
+                                <td>Array</td>
+                                <td>The List of <kbd>Sisimai::Fact</kbd>objects</td>
                             </tr>
                         </tbody>
                     </table>
@@ -473,120 +702,63 @@ end
                 <div class = 'index-label'>email</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>lhost-postfix-16.eml</h3>
+                <h3 class = 'in-desc'>Email: rhost-google-03.eml</h3>
                 <p class = 'description'>
-                    The following code shows an example for getting the following values
-                    from
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-16.eml' target = 'new'>
-                        lhost-postfix-16.eml
+                    The following code snippet demonstrates how to operate the original email by
+                    obtaining the contents listed below from 
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/rhost-google-03.eml' target = 'new'>
+                        rhost-google-03.eml
                     </a>
-                    using a hook method given as the 2nd argument of <kbd>make()</kbd>
-                    method of Sisimai.
+                    via a callback.
                 </p>
                 <ul>
-                    <li>The value of <kbd>Received-SPF</kbd> in the header part</li>
-                    <li>The value of <kbd>X-Postfix-Queue-ID</kbd> in the message body</li>
+                    <li>Retrieve the value of <kbd>Return-Path</kbd> in the bounce email header.</li>
+                    <li>Retrieve the value of <kbd>Authentication-Results</kbd> in the bounce email header.</li>
+                    <li>Retrieve the value of <kbd>X-Postfix-Queue-ID</kbd> in the body.</li>
+                    <li>Add a custom header to the original email and save it to a different path.</li>
                 </ul>
 
-                <pre class = 'prettyprint'>Return-Path: &lt;&gt;
-Received: by 192.0.2.22 with SMTP id fffffff000;
-    Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-Received: from mx0.example.jp (mx0.example.jp [192.0.2.9])
-    by mx.example.org with ESMTP id 0000000000000000000000;
-    Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-<strong>Received-SPF: pass (example.org: best guess record for domain of mx0.example.jp designates 192.0.2.9 as permitted sender) client-ip=192.0.2.9;</strong>
-Received: by mx0.example.jp (Postfix)
-    id FFFFFFFFFFFF; Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-Date: Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-From: MAILER-DAEMON@example.jp (Mail Delivery System)
+                <pre class = 'prettyprint'><strong>Return-Path: <></strong>
+Received: from mail4.example.com (mx4.example.com [192.0.2.24])
+	by secure.example.jp (Postfix) with ESMTPS id 4SnNbh0r3mz24sXs
+	for <postmaster@example.jp>; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
+Received: by mail4.example.com (Postfix)
+	id t8WLKlmm99zqL71C; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
+<strong>Authentication-Results: secure.example.jp; spf=fail smtp.helo=mail4.example.com</strong>
+Date: Thu,  9 Apr 2022 23:34:45 +0900 (JST)
+From: MAILER-DAEMON@mail4.example.com (Mail Delivery System)
 Subject: Undelivered Mail Returned to Sender
-To: shironeko@cat.example.com
-Auto-Submitted: auto-replied
-MIME-Version: 1.0
-Content-Type: multipart/report; report-type=delivery-status;
-    boundary="FFFFFFFFFF.00000000/mx0.example.jp"
-Content-Transfer-Encoding: 8bit
-Message-Id: &lt;000000000000000.FFFFFFFFFFFF@mx0.example.jp&gt;
+To: nginx@mail4.example.com
+...
+<kijitora@google.example.com> (expanded from <neko@example.co.jp>): host
+    gmail-smtp-in.l.google.com[64.233.188.26] said: 550-5.7.26 The MAIL FROM
+    domain [mail4.example.com] has an SPF record with a 550-5.7.26 hard fail
+    policy (-all) but it fails to pass SPF checks with the ip: 550-5.7.26
+    [192.0.2.24]. To best protect our users from spam and phishing,
+    550-5.7.26 the message has been blocked. For instructions on setting up
+    550-5.7.26 authentication, go to 550 5.7.26
+    https://support.google.com/mail/answer/81126#authentication
+    2-222222630d46222222b002b2d2neko2cat2222222cat.22 - gsmtp (in reply to end
+    of DATA command)
 
-This is a MIME-encapsulated message.
-
---FFFFFFFFFF.00000000/mx0.example.jp
-Content-Description: Notification
-Content-Type: text/plain; charset=us-ascii
-
-This is the mail system at host mx0.example.jp.
-
-I'm sorry to have to inform you that your message could not
-be delivered to one or more recipients. It's attached below.
-
-For further assistance, please send mail to &lt;postmaster&gt;
-
-If you do so, please include this problem report. You can
-delete your own text from the attached returned message.
-
-                   The mail system
-
-&lt;kijitora@example.go.jp&gt;: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
-    no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
-
---FFFFFFFFFF.00000000/mx0.example.jp
+--Lms5yfCw0Vz5CRp3.1647426971/mail4.example.com
 Content-Description: Delivery report
 Content-Type: message/delivery-status
 
-Reporting-MTA: dns; mx0.example.jp
-<strong>X-Postfix-Queue-ID: FFFFFF000000</strong>
-X-Postfix-Sender: rfc822; shironeko@cat.example.com
-...
-                </pre>
+Reporting-MTA: dns; mail4.example.com
+<strong>X-Postfix-Queue-ID: Lms5yfCw0Vz5CRp3</strong>
+X-Postfix-Sender: rfc822; nginx@mail4.example.com
+Arrival-Date: Thu,  9 Apr 2022 23:34:45 +0900 (JST)
 
-                <p class = 'description'>
-                    The following is an example of an argument that the hook method you defined
-                    receives.
-                    The argument have the header part (Hash) and the body part (String) generated from
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-16.eml' target = 'new'>
-                        lhost-postfix-16.eml
-                    </a>.
-                </p>
-
-                <pre class = 'prettyprint'>{
-  <strong>'headers'</strong> => {
-     'x-mailer' => undef,
-     'return-path' => '<>',
-     'content-type' => 'multipart/report; report-type=delivery-status; boundary="FFFFFFFFFF.00000000/mx0.example.jp"',
-     'subject' => 'Undelivered Mail Returned to Sender',
-     'date' => 'Thu, 20 Jan 2011 23:34:45 +0900 (JST)',
-     'to' => 'shironeko@cat.example.com',
-     'received-spf' => 'pass (example.org: best guess record for domain of mx0.example.jp designates 192.0.2.9 as permitted sender) client-ip=192.0.2.9;',
-     'reply-to' => undef,
-     'message-id' => '<000000000000000.FFFFFFFFFFFF@mx0.example.jp>',
-     'from' => 'MAILER-DAEMON@example.jp (Mail Delivery System)',
-     'content-transfer-encoding' => '8bit',
-     'received' => [
-         'by 192.0.2.22 with SMTP id fffffff000; Thu, 20 Jan 2011 23:34:45 +0900 (JST)',
-         'from mx0.example.jp (mx0.example.jp [192.0.2.9]) by mx.example.org with ESMTP id 0000000000000000000000; Thu, 20 Jan 2011 23:34:45 +0900 (JST)',
-         'by mx0.example.jp (Postfix) id FFFFFFFFFFFF; Thu, 20 Jan 2011 23:34:45 +0900 (JST)'
-       ],
-     'auto-submitted' => 'auto-replied'
-     },
-  <strong>'message'</strong> => 'This is a MIME-encapsulated message.
-...
-Reporting-MTA: dns; mx0.example.jp
-X-Postfix-Queue-ID: FFFFFF000000
-X-Postfix-Sender: rfc822; shironeko@cat.example.com
-Arrival-Date: Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-
-Final-Recipient: rfc822; kijitora@example.go.jp
+Final-Recipient: rfc822; kijitora@google.example.com
+Original-Recipient: rfc822;neko@example.co.jp
 Action: failed
-Status: 5.1.6
+Status: 5.7.26
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.26 The MAIL FROM domain [mail4.example.com] has
 ...
-Subject: Nyaaaaan
-To: Kijitora <kijitora@example.go.jp>
-Message-Id: <0000000000000.FFFFFF000000@mx0.example.jp>
-
-Nyaaaan
-'
-  }
                 </pre>
+
             </div>
         </div>
 
@@ -595,29 +767,56 @@ Nyaaaan
                 <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Sisimai-&gt;make($f, 'hook' => $x)</h4>
+                <h4 class = 'in-desc'>Sisimai-&gt;rise($f, 'c___' => [$c0, $c1])</h4>
                 <p class = 'description'>
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> methods of Sisimai class
-                    receive a code reference for being executed as the 2nd argument
-                    <kbd>hook</kbd> like the following code:
+                    You can pass two code references as the second argument <kbd>c___</kbd> to the
+                    <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd> class.
+                    These code references should contain the code for the subroutine that you want
+                    to execute.
                 </p>
                 <pre class = 'prettyprint'><strong>#! /usr/bin/env perl</strong>
 use Sisimai;
-my $f = './set-of-emails/maildir/bsd/lhost-sendmail-24.eml';
-my $x = sub {
-    my $argv = shift;
-    my $data = { 'queue-id' => '', 'received-spf' => '' };
+my $fn = 'set-of-emails/maildir/bsd/rhost-google-03.eml';
+my $c0 = sub {
+    my $args = shift;
+    my $data = { 'queue-id' => '', 'authentication-results' => '', 'return-path' => '' };
 
-    $data->{'received-spf'} = $argv->{'headers'}->{'received-spf'} || '';
-    if( $argv->{'message'} =~ m/^X-Postfix-Queue-ID:\s*(.+)$/m ) {
+    $data->{'return-path'} = $args->{'headers'}->{'return-path'} || '';
+    $data->{'authentication-results'} = $args->{'headers'}->{'authentication-results'} || '';
+    if( $args->{'message'} =~ m/^X-Postfix-Queue-ID:\s*(.+)$/m ) {
         $data->{'queue-id'} = $1;
     }
     return $data;
 };
-my $j = Sisimai-&gt;dump($f, <strong>'hook' => $x</strong>); # JSON文字列を得る
-my $v = Sisimai-&gt;make($f, <strong>'hook' => $x</strong>);
-print $v->[0]->{<strong>'catch'</strong>}->{'received-spf'};  # pass (example.org:...
-print $v->[0]->{<strong>'catch'</strong>}->{'queue-id'};      # FFFFFF000000
+my $c1 = sub {
+    my $args = shift;
+    my $kind = $args->{'kind'}; # (String)  Sisimai::Mail->kind
+    my $mail = $args->{'mail'}; # (*String) Entire email message
+    my $path = $args->{'path'}; # (String)  Sisimai::Mail->path
+    my $fact = $args->{'fact'}; # (*Array)  List of Sisimai::Fact
+
+    for my $e ( @$fact ) {
+        # Store custom information in the "catch" accessor.
+        $e->{'catch'} ||= {};
+        $e->{'catch'}->{'size'} = length $$mail;
+        $e->{'catch'}->{'kind'} = ucfirst $kind;
+
+        # Save the original email with an additional "X-Sisimai-Parsed:" header to a different PATH.
+        my $a = sprintf("X-Sisimai-Parsed: %d\n", scalar @$fact);
+        my $f = IO::File->new(sprintf("/tmp/sisimai-%s.eml", $e->token), 'w');
+        my $v = $$mail; $v =~ s/^(From:.+)$/$a$1/m;
+        print $f $v; $f->close;
+    }
+
+    # Remove the email file in Maildir/ after decoding
+    unlink $path if $kind eq 'maildir';
+};
+
+my $js = Sisimai->dump($fn, 'c___' => [$c0, $c1]);
+my $rv = Sisimai->rise($fn, 'c___' => [$c0, $c1]);
+printf("Authentication-Results: %s\n", $rv->[0]->{'catch'}->{'authentication-results'});
+printf("X-Postfix-Queue-ID: %s\n", $rv->[0]->{'catch'}->{'queue-id'});
+printf("Return-Path: %s\n", $rv->[0]->{'catch'}->{'return-path'});
                 </pre>
             </div>
         </div>
@@ -626,29 +825,54 @@ print $v->[0]->{<strong>'catch'</strong>}->{'queue-id'};      # FFFFFF000000
                 <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Sisimai.make(f, hook: x)</h4>
+                <h4 class = 'in-desc'>Sisimai.rise(f, c___: [c0, c1])</h4>
                 <p class = 'description'>
-                    <kbd>make()</kbd> and <kbd>dump()</kbd> methods of Sisimai class
-                    receive a Proc object for being executed as the 2nd argument
-                    <kbd>hook:</kbd> like the following code:
+                    You can pass a <kbd>Proc</kbd> object containing the code for the function
+                    that you want to execute to the <kbd>rise()</kbd> and <kbd>dump()</kbd> methods
+                    of the <kbd>Sisimai</kbd> class as the second argument <kbd>c___</kbd>.
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-f = './set-of-emails/maildir/bsd/lhost-postfix-16.eml'
-x = lambda do |argv|
-  data = { 'queue-id' => '', 'received-spf' => '' }
-
-  data['received-spf'] = argv['headers']['received-spf'] || ''
-  if cv = argv['message'].match(/^X-Postfix-Queue-ID:\s*(.+)$/)
+fn = 'set-of-emails/maildir/bsd/rhost-google-03.eml'
+c0 = lambda do |args|
+  data = { 'queue-id' => '', 'authentication-results' => '', 'return-path' => '' }
+  data['return-path'] = args['headers']['return-path'] || ''
+  data['authentication-results'] = args['headers']['authentication-results'] || ''
+  if cv = args['message'].match(/^X-Postfix-Queue-ID:\s*(.+)$/)
     data['queue-id'] = cv[1]
   end
   return data
 end
 
-j = Sisimai.dump(f, <strong>hook: x</strong>)    # JSON文字列を得る
-v = Sisimai.make(f, <strong>hook: x</strong>)
-puts v[0][<strong>'catch'</strong>]['received-spf'] # pass (example.org: ...
-puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
+c1 = lambda do |args|
+  kind = args['kind'] # (String)  Sisimai::Mail.kind
+  mail = args['mail'] # (*String) Entire email message
+  path = args['path'] # (String)  Sisimai::Mail.path
+  fact = args['fact'] # (*Array)  List of Sisimai::Fact
+
+  fact.each do |e|
+    # Store custom information in the "catch" accessor.
+    e.catch ||= {}
+    e.catch['size'] = mail.size
+    e.catch['kind'] = kind
+
+    # Save the original email with an additional "X-Sisimai-Parsed:" header to a different PATH.
+    a = sprintf("X-Sisimai-Parsed: %d", fact.size)
+    b = mail.sub(/^(To:.+$)/,'\1'+ "\n" + a)
+    File.open(sprintf("/tmp/sisimai-%s.eml", e.token), "w") do |f|
+      f.puts(b)
+    end
+
+    # Remove the email file in Maildir/ after decoding
+    File.delete(path) if kind == 'maildir'
+  end
+end
+
+js = Sisimai.dump(fn, c___: [c0, c1]) # JSON文字列を得る
+rv = Sisimai.rise(fn, c___: [c0, c1])
+printf("Authentication-Results: %s\n", rv[0].catch['authentication-results'])
+printf("X-Postfix-Queue-ID: %s\n", rv[0].catch['queue-id'])
+printf("Return-Path: %s\n", rv[0].catch['return-path'])
                 </pre>
             </div>
         </div>
@@ -659,42 +883,47 @@ puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>JSON string by dump()</h3>
                 <p class = 'description'>
-                    JSON string generated by <kbd>dump()</kbd> method of Sisimai with
-                    a hook method is like the following:
+                    The JSON string obtained by passing a hook method to the <kbd>dump()</kbd> method
+                    of the <kbd>Sisimai</kbd> class will have the following contents:
                 </p>
                 <pre class = 'prettyprint'>[
   {
-    "timestamp": 1270043983,
-    "smtpcommand": "RCPT",
-    "subject": "Nyaaan",
-    "recipient": "kijitora@example.jp",
-    "destination": "example.jp",
-    "senderdomain": "example.co.jp",
-    "token": "bb2a5dfb6161f396300b24acd9bf637c1c45a58a",
-    "smtpagent": "qmail",
-    "replycode": "450",
-    "softbounce": 1,
-    <strong>"catch": {
-      "received-spf": "pass (example.org: best guess record for domain of mx0.example.jp designates 192.0.2.9 as permitted sender) client-ip=192.0.2.9;",
-      "queue-id": "FFFFFF000000",
-    },</strong>
-    "rhost": "192.0.2.135",
+    "addresser": "kijitora@google.example.com",
+    "messageid": "vDcsF1hr4zzywp69@mail4.example.com",
+    "recipient": "kijitora@google.example.com",
+    "diagnosticcode": "host gmail-smtp-in.l.google.com[64.233.188.26] said: The MAIL FROM domain [mail4.example.com] has an SPF record with a hard fail policy (-all) but it fails to pass SPF checks with the ip: [192.0.2.24]. To best protect our users from spam and phishing, the message has been blocked. For instructions on setting up authentication, go to https://support.google.com/mail/answer/81126#authentication 2-222222630d46222222b002b2d2neko2cat2222222cat.22 - gsmtp (in reply to end of DATA command)",
+    "smtpagent": "Postfix",
+    "destination": "google.example.com",
+    "alias": "neko@example.co.jp",
+    "reason": "authfailure",
+    "lhost": "gmail-smtp-in.l.google.com",
+    "senderdomain": "google.example.com",
+    "token": "fe75b94dd0489b106fa041c460064dd6afa8196b",
+    "subject": "Nyaan",
+    "deliverystatus": "5.7.26",
     "timezoneoffset": "+0900",
-    "addresser": "shironeko@example.co.jp",
-    "diagnostictype": "SMTP",
-    "action": "failed",
     "listid": "",
+    "origin": "set-of-emails/maildir/bsd/rhost-google-03.eml",
+    "action": "failed",
+    "timestamp": 1649514885,
+    "hardbounce": 0,
+    "rhost": "gmail-smtp-in.l.google.com",
+    "catch": {
+      "size": 4436,
+      "kind": "Mailbox",
+      "authentication-results": "secure.example.jp; spf=fail smtp.helo=mail4.example.com",
+      "return-path": "<>",
+      "queue-id": "Lms5yfCw0Vz5CRp3"
+    },
+    "diagnostictype": "SMTP",
+    "replycode": 550,
     "feedbacktype": "",
-    "diagnosticcode": "192.0.2.135 does not like recipient. Remote host said: 450 4.2.2 <kijitora@example.jp>... Mailbox Full Giving up on 192.0.2.135. I'm not going to try again; this message has been in the queue too long.",
-    "reason": "mailboxfull",
-    "deliverystatus": "4.2.2",
-    "alias": "",
-    "lhost": "",
-    "messageid": "57D03121-12F7-4801-B30F-9E44B15E56DC@example.co.jp"
-    "origin": "/var/spool/bounce/1.eml"
+    "smtpcommand": "DATA"
   }
 ]
                 </pre>
+
+
 
             </div>
         </div>
