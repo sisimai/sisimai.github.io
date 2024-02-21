@@ -49,11 +49,11 @@
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
                     <h2>Bounce Reason List</h2>
                     <p class = 'description'>
-                        {{ site.html.ss }} can detect the following
-                        <strong>{{ site.sisimai.spec.reasons }} bounce reasons</strong>
-                        from the parsed bounce message. 
-                        Detected error reason is set in the value of "reason" accessor of 
-                        Sisimai::Data object in lower case like "userunknown", "expired".
+                        {{ site.html.ss }} can detect <strong>{{ site.sisimai.spec.reasons }}</strong>
+                        types of bounce reasons by decoding bounce emails. You can obtain the detected
+                        bounce reason from the reason accessor of the <kbd>Sisimai::Fact</kbd> object.
+                        <strong>the value of "reason" is always lowercase</strong>, such as "userunknown"
+                        or "expired".
                     </p>
                 </div>
             </div> 
@@ -67,8 +67,8 @@
                     <div class = 'index-info'>
                         <h3>By Address</h3>
                         <p class = 'description'>
-                            The message you sent has rejected due to a sender's email address
-                            or a recipient's email address.
+                            This is a list of bounce reasons that are caused by problems with the
+                            sender's or recipient's email address or mailbox.
                         </p>
                     </div>
                     <a href = '#address' class = 'btn btn-continue'>Read</a>
@@ -80,8 +80,8 @@
                     <div class = 'index-info'>
                         <h3>By Content</h3>
                         <p class = 'description'>
-                            The message you sent has rejected due to a message content:
-                            a part of a message header and a message body.
+                            This is a list of bounce reasons that are caused by problems with the
+                            content of the sent email, including some headers and the body.
                         </p>
                     </div>
                     <a href = '#content' class = 'btn btn-continue'>Read</a>
@@ -93,8 +93,8 @@
                     <div class = 'index-info'>
                         <h3>By Server</h3>
                         <p class = 'description'>
-                            The message you sent rejected due to status on
-                            a local MTA or a remote MTA.
+                            This is a list of bounce reasons that are caused by problems with the
+                            state of the sender's or recipient's server.
                         </p>
                     </div>
                     <a href = '#server' class = 'btn btn-continue'>Read</a>
@@ -106,8 +106,8 @@
                     <div class = 'index-info'>
                         <h3>Others</h3>
                         <p class = 'description'>
-                            Rejected due to other reason or
-                            {{ site.html.ss }} could not detect the reason
+                            This is a list of other bounce reasons, including those that {{ site.html.ss }}
+                            could not identify the cause.
                         </p>
                     </div>
                     <a href = '#others' class = 'btn btn-continue'>Read</a>
@@ -128,13 +128,14 @@
             <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Table of Bounce Reasons</h2>
                 <p class = 'description ja'>
-                    Sisimai can detect <strong>{{ site.sisimai.spec.reasons }} bounce reasons</strong> and
-                    set the reason into the value of "reason" in the parsed results.
-                    <strong>The value of "reason" is written in lower case like "userunknown", "expired".</strong>
+                    {{ site.html.ss }} can detect <strong>{{ site.sisimai.spec.reasons }}</strong>
+                    types of bounce reasons and sets the bounce reason in the <kbd>reason</kbd> field
+                    of the decoded data. The value of <kbd>reason</kbd> is always lowercase, such as
+                    "userunknown" or "expired".
                 </p>
                 <p class = 'description ja'>
-                    <kbd>reason()</kbd> method of <kbd>Sisimai</kbd> class is useful to get
-                    all the bounce reasons Sisimai can detect.
+                    To get a list of all detectable bounce reasons, refer to the return value of the
+                    <kbd>reason()</kbd> method of the <kbd>Sisimai</kbd> class.
                 </p>
             </div>
         </div>
@@ -194,12 +195,6 @@
                                     <td>No</td>
                                     <td class = 'ltext'>Recipient's account is suspended</td>
                                 </tr>
-                                <tr data-href = '#vacation'>
-                                    <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#vacation'>Vacation</a></strong></td>
-                                    <td>No</td>
-                                    <td class = 'ltext'>Auto replied message (recipient is away)</td>
-                                </tr>
 
                                 <tr data-href = '#contenterror'>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
@@ -225,17 +220,23 @@
                                     <td>No</td>
                                     <td class = 'ltext'>Message size is too big(5.3.4)</td>
                                 </tr>
-                                <tr data-href = '#securityerror'>
+                                <tr data-href = '#notcompliantrfc'>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#securityerror'>Security Error</a></strong></td>
+                                    <td class = 'ltext'><strong><a href = '#notcompliantrfc'>Not Compliant RFC</a></strong></td>
                                     <td>No</td>
-                                    <td class = 'ltext'>Authentication error and so on</td>
+                                    <td class = 'ltext'>Email rejected due to non-compliance with RFC</td>
                                 </tr>
                                 <tr data-href = '#policyviolation'>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
                                     <td class = 'ltext'><strong><a href = '#policyviolation'>Policy Violation</a></strong></td>
                                     <td>No</td>
                                     <td class = 'ltext'>Violation of security policies</td>
+                                </tr>
+                                <tr data-href = '#securityerror'>
+                                    <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#securityerror'>Security Error</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Authentication error and so on</td>
                                 </tr>
                                 <tr data-href = '#virusdetected'>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
@@ -250,6 +251,18 @@
                                     <td class = 'ltext'>Detected a message as spam</td>
                                 </tr>
 
+                                <tr data-href = '#authfailure'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#authfailure'>Auth Failure</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Email rejected due to SPF, DKIM, DMARC failure</td>
+                                </tr>
+                                <tr data-href = '#badreputation'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#badreputation'>Bad Reputation</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Email rejected due to an IP address reputation</td>
+                                </tr>
                                 <tr data-href = '#blocked'>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
                                     <td class = 'ltext'><strong><a href = '#blocked'>Blocked</a></strong></td>
@@ -286,6 +299,18 @@
                                     <td>No</td>
                                     <td class = 'ltext'>Destination does not accept any message</td>
                                 </tr>
+                                <tr data-href = '#requireptr'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#requireptr'>Require PTR</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Email rejected due to missing PTR record or having invalid PTR record</td>
+                                </tr>
+                                <tr data-href = '#speeding'>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#speeding'>Speeding</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Rejected due to exceeding a rate limit or sending too fast</td>
+                                </tr>
                                 <tr data-href = '#systemerror'>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
                                     <td class = 'ltext'><strong><a href = '#systemerror'>System Error</a></strong></td>
@@ -316,6 +341,12 @@
                                     <td class = 'ltext'><strong><a href = '#syntaxerror'>Syntax Error</a></strong></td>
                                     <td>No</td>
                                     <td class = 'ltext'>syntax error in SMTP</td>
+                                </tr>
+                                <tr data-href = '#vacation'>
+                                    <td class = 'ltext'><i class = 'fa fa-at' title = 'Others'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#vacation'>Vacation</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Auto replied message (recipient is away)</td>
                                 </tr>
                                 <tr data-href = '#onhold'>
                                     <td class = 'ltext'><i class = 'far fa-question-circle' title = 'Others'></i></td>
@@ -349,9 +380,8 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Rejected By Address</h2>
                 <p class = 'description'>
-                    The following shows the list of reasons that the message you sent has rejected
-                    due to an envelope sender's email address, an envelope recipient's email address,
-                    or a recipient's mailbox status.
+                    This document provides a list of bounce reasons that are caused by problems with
+                    the sender's or recipient's email address, or the state of the recipient's mailbox.
                 </p>
             </div>
         </div>
@@ -368,11 +398,12 @@
                 <h3 class = 'in-desc'>Host Unknown (Hard bounce)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/coffin-1.png'>
-                    This is the error that a domain part (Right hand side of @ sign) of
-                    a recipient's email address does not exist. 
-                    In many cases, the domain part is misspelled, or the domain name has been expired.
-                    {{ site.html.ss }} will set "hostunknown" to the reason
-                    of email bounce if the value of Status: field in a bounce mail is "5.1.2".
+                    This error is returned when the domain part (the string to the right of the "@"
+                    symbol) of the destination email address is an unknown host or a non-existent
+                    domain name. In many cases, this is caused by a typo in the domain name, an invalid
+                    DNS record, or a domain that has been discontinued. In {{ site.html.ss }}'s internal
+                    processing, this reason is also determined when the value of the Status: field
+                    in the bounce email is "5.1.2".
                 </p>
                 <pre class = 'prettyprint'>
 Your message to the following recipients cannot be delivered:
@@ -397,19 +428,22 @@ Your message to the following recipients cannot be delivered:
                 <h3 class = 'in-desc'>User Unknown (Hard bounce)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/headstone-1.png'>
-                    This is the error that a local part (Left hand side of @ sign) of a recipient's
-                    email address does not exist. 
-                    In many cases, a user has changed internet service provider, or has quit the company,
-                    or the local part is misspelled. {{ site.html.ss }} will set "userunknown" 
-                    to the reason of email bounce if the value of Status: field in a bounce email is 
-                    "5.1.1", or connection was refused at SMTP RCPT command, 
-                    or the contents of Diagnostic-Code: field represents that it is unknown user.
+                    This error is returned when the local part (the string to the left of the "@"
+                    symbol) of the destination email address is a non-existent user. This is often
+                    the case for users who have changed their email address (for mobile phones) or
+                    have canceled their provider subscription (for PCs), or for users who have left
+                    a company or organization.
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.co.jp&gt;: host mx01.example.co.jp[192.0.2.8] said:
-550 5.1.1 Address rejected kijitora@example.co.jp (in reply to
-RCPT TO command)
+  550 5.1.1 Address rejected kijitora@example.co.jp (in reply to RCPT TO command)
                 </pre>
+                <p class = 'description'>
+                    In {{ site.html.ss }}'s internal bounce email processing, this reason is determined
+                    when the value of the "Status:" field is "5.1.1", when the connection is rejected
+                    with <kbd>RCPT TO:</kbd> in the SMTP session, or when the "Diagnostic-Code:" header indicates
+                    that the recipient is unknown.
+                </p>
                 {% include error-messages/userunknown.html %}
                 <hr>
             </div>
@@ -427,19 +461,27 @@ RCPT TO command)
                 <h3 class = 'in-desc'>Filtered</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/ghost-1.png'>
-                    This is the error that an email has been rejected by a header content after the SMTP DATA command.
-                    In Japanese cellular phones, the error will incur that a sender's email address or
-                    a domain is rejected by recipient's email configuration. 
-                    {{ site.html.ss }} will set "filtered" to the reason of email bounce if the value of Status: 
-                    field in a bounce email is "5.2.0" or "5.2.1".
+                    This error is returned when the user has configured their email settings to reject
+                    emails, or when the mailbox exists but is not receiving emails. For deliveries
+                    to mobile phones in Japan (3 major carriers), this reason is determined if the
+                    domain is blocked (excluded from domain-specified reception) or if the email is
+                    rejected by a URL filter.
                 </p>
-                <p>This error reason is almost the same as UserUnknown.</p>
+                <p>
+                    This error reason is nearly identical to <a href = '#userunknown'>UserUnknown</a>.
+                </p>
                 <pre class = 'prettyprint'>
 ... while talking to mfsmax.ntt.example.ne.jp.:
 &gt;&gt;&gt; DATA
 &lt;&lt;&lt; 550 Unknown user kijitora@ntt.example.ne.jp
 554 5.0.0 Service unavailable
                 </pre>
+                <p class = 'description'>
+                    In {{ site.html.ss }}'s internal bounce email processing, this reason is also
+                    determined when the value of the "Status:" field is "5.2.0" or "5.2.1", or when
+                    the email is rejected based on the content after the <kbd>DATA</kbd> command in
+                    the SMTP session.
+                </p>
                 {% include error-messages/filtered.html %}
                 <hr>
             </div>
@@ -457,9 +499,10 @@ RCPT TO command)
                 <h3 class = 'in-desc'>Has Moved (Hard bounce)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
-                    This is the error that a user's mailbox has moved (and is not forwarded automatically).
-                    {{ site.html.ss }} will set "hasmoved" to the reason of email
-                    bounce if the value of Status: field in a bounce email is "5.1.6".
+                    This error is returned when the recipient's mailbox has been moved to another
+                    address (and automatic forwarding is not set up). In {{ site.html.ss }}'s internal
+                    bounce email processing, this reason is determined when the value of the "Status:"
+                    field is "5.1.6".
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.go.jp&gt;: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
@@ -482,11 +525,11 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>Rejected</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/private-5.png'>
-                    This is the error that a connection to destination server was rejected by a sender's email address
-                    (envelope from). 
-                    {{ site.html.ss }} set "rejected" to the reason of email bounce
-                    if the value of Status: field in a bounce email is "5.1.8"
-                    or the connection has been rejected due to the argument of the SMTP MAIL command.
+                    This error is returned when the email is rejected by the sender's address
+                    (Envelope From). In {{ site.html.ss }}'s internal bounce email processing, this
+                    reason is determined when the value of the "Status:" field is "5.1.8", or when
+                    the email is rejected based on the content of the <kbd>MAIL FROM:</kbd> command
+                    in the SMTP session.
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.org&gt;:
@@ -510,15 +553,23 @@ Remote host said: 550 5.7.1 &lt;root@nijo.example.jp&gt;... Access denied
                 <h3 class = 'in-desc'>Mailbox Full</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/inbox-3.png'>
-                    This is the error that a recipient's mailbox is full.
-                    {{ site.html.ss }} will set "mailboxfull" to the reason of email bounce
-                    if the value of Status: field in a bounce email is "4.2.2" or "5.2.2".
+                    This error is returned when the recipient's mailbox is full (exceeding the
+                    maximum storage capacity specified by the mail server). This applies to both
+                    mobile phones and PCs, and occurs when the user has not received emails and
+                    left them on the server, or has received emails but has not deleted them from
+                    the server.
                 </p>
                 <pre class = 'prettyprint'>
 Action: failed
 Status: 5.2.2
 Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</code></pre>
                 </pre>
+                <p class = 'description'>
+                    In {{ site.html.ss }}'s internal bounce email processing, this reason is
+                    determined when the value of the "Status:" field is "4.2.2" or "5.2.2".
+                    This error is returned when the email is rejected by the sender's address
+                    (Envelope From).
+                </p>
                 {% include error-messages/mailboxfull.html %}
                 <hr>
             </div>
@@ -536,7 +587,9 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
                 <h3 class = 'in-desc'>Suspend</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/remove-user-3.png'>
-                    This is the error that a recipient account is being suspended due to unpaid or other reasons.
+                    This error is detected when the user has unpaid charges for au by KDDI. This
+                    error may also occur if the account is temporarily suspended for some reason,
+                    even for emails to Gmail or Yahoo!.
                     <br>
                     <br>
                 </p>
@@ -550,31 +603,6 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
             </div>
         </div>
 
-        <!-- =============================================================== -->
-        <a name = 'vacation'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#vacation'><i class = 'fas fa-at'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Vacation</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/bento-3.png'>
-                    This is the reason that the recipient is out of office. 
-                    The bounce message is generated and returned from the auto reponder program. 
-                    This reason has added in {{ site.html.ss }} 4.1.28 and does not exist
-                    in any version of bounceHammer.
-                </p>
-                <pre class = 'prettyprint'>
-I am out of the office until 05/01/2010.
-
-I am of the office returning 5th Jan
-                </pre>
-                {% include error-messages/vacation.html %}
-            </div>
-        </div>
     </div>
 </section> <!-- /#address -->
 
@@ -589,8 +617,9 @@ I am of the office returning 5th Jan
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Rejected By Content</h2>
                 <p class = 'description'>
-                    The following shows the list of reasons that the message you sent has rejected
-                    due to the contents of the message by a spam filter or an MTA program on a remote host.
+                    The following is a list of bounce reasons that were caused by the content of
+                    the email body or some of the headers. Most of them are caused by inspection
+                    by the MTA's program or spam filter.
                 </p>
                 <hr>
             </div>
@@ -608,15 +637,18 @@ I am of the office returning 5th Jan
                 <h3 class = 'in-desc'>Content Error</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/magazine-1.png'>
-                    This is the error that a destination mail server has rejected email
-                    due to header format of the email like the following. 
-                    {{ site.html.ss }} will set "contenterror" to the reason of email bounce
-                    if the value of Status: field in a bounce email is "5.6.*".
+                    This error category includes cases where the format of the sent email cannot be
+                    converted or understood by the destination mail server. In the internal process
+                    of bounce email processing performed by {{ site.html.ss }}, this reason is
+                    determined when the value of the "Status:" field is "5.6.x".
+                </p>
+                <p class = 'description'>
+                    Examples of cases that fall into this category:
                 </p>
                 <ul>
-                    <li>8 bit data in message header</li>
-                    <li>Too many "Received" headers</li>
-                    <li>Invalid MIME headers</li>
+                    <li>The header contains 8-bit data.</li>
+                    <li>There are too many "Received" headers.</li>
+                    <li>The MIME header is invalid.</li>
                 </ul>
                 <pre class = 'prettyprint'>
 ... while talking to g5.example.net.:
@@ -641,12 +673,13 @@ I am of the office returning 5th Jan
                 <h3 class = 'in-desc'>Exceed Limit</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/speed-1.png'>
-                    This is the error that a message was rejected due to an email exceeded the limit.
-                    The value of D.S.N. is "5.2.3". 
-                    This reason is almost the same as "MesgTooBig", we think.
-                    Because when a message is delivered to the local host, the status code will be set as
-                    "5.2.3" in <a href = 'http://www.sendmail.com/sm/open_source/download/' target="new">Sendmail</a>'s
-                    source code: deliver.c.
+                    This error is returned when the amount of email sent to the recipient exceeds
+                    the limit set on the server. Specifically, this occurs when the size of the
+                    sent email is larger than the default value, and is almost the same as
+                    <a href = '#mesgtoobig'>MesgTooBig</a> described later. In
+                    <a href = 'http://www.sendmail.com/sm/open_source/download/' target="new">Sendmail</a>'s
+                    deliver.c, it is implemented as follows to determine whether this reason or
+                    <a href = '#mesgtoobig'>MesgTooBig</a> applies depending on the recipient.
                 </p>
                 <pre class = 'prettyprint'>
 1586: if (bitnset(M_LOCALMAILER, to-&gt;q_mailer-&gt;m_flags))
@@ -660,6 +693,10 @@ I am of the office returning 5th Jan
 &lt;&lt;&lt; 552 5.2.3 Message size exceeds fixed maximum message size (10485760)
 554 5.0.0 Service unavailable
                 </pre>
+                <p class = 'description'>
+                    In the internal process of bounce email processing performed by {{ site.html.ss }},
+                    this reason is determined when the value of the "Status:" field is "4.2.3" or "5.2.3".
+                </p>
                 {% include error-messages/exceedlimit.html %}
                 <hr>
             </div>
@@ -677,10 +714,9 @@ I am of the office returning 5th Jan
                 <h3 class = 'in-desc'>Feedback</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/strike-1.png'>
-                    The message you sent was forwarded to the sender as a complaint message
-                    from your mailbox provider. 
-                    When <span class = 'ss'>Sismai</span> has set "feedback" to the reason,
-                    the value of "feedbacktype" is also set like the following parsed data.
+                    When {{ site.html.ss }} analyzes an ARF-formatted email sent when a recipient
+                    complains to their provider, it determines this reason. The decoded result of
+                    the email that becomes this reason is expressed in JSON format as follows.
                 </p>
                 <pre class = 'prettyprint'>
 [
@@ -727,49 +763,55 @@ I am of the office returning 5th Jan
                 <h3 class = 'in-desc'>Message Too Big (mesgtoobig)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/gorilla-1.png'>
-                    This is the error that a sent email size is too big for a destination mail server.
-                    In many cases, There are many attachment files by email, or the file size is too large.
-                    {{ site.html.ss }} will set "mesgtoobig" to the reason of email
-                    bounce if the value of Status: field in a bounce email is "5.3.4".
+                    This error is returned when the size of the sent email exceeds the allowable
+                    size of the recipient's mail server. In many cases, this error occurs when the
+                    attached file is too large or when the total size exceeds the limit due to
+                    multiple attached files.
                 </p>
                 <pre class = 'prettyprint'>
 Action: failure
 Status: 553 Exceeded maximum inbound message size
                 </pre>
+                <p class = 'description'>
+                    In the internal process of bounce email processing performed by {{ site.html.ss }},
+                    this reason is determined when the value of the "Status:" field is "5.3.4".
+                </p>
                 {% include error-messages/mesgtoobig.html %}
                 <hr>
             </div>
         </div>
 
         <!-- =============================================================== -->
-        <a name = 'securityerror'></a>
+        <a name = 'notcompliantrfc'></a>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>
-                    <a href = '#securityerror'><i class = 'fas fa-envelope-open-text'></i></a>
+                    <a href = '#notcompliantrfc'><i class = 'fas fa-envelope-open-text'></i></a>
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Security Error</h3>
+                <h3 class = 'in-desc'>Not Compliant RFC</h3>
                 <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/lock-1.png'>
-                    This is the error that a security violation was detected on a destination mail server.
-                    Depends on authentication error, and other security issues occurred.
+                    <img class = 'lhs' src = '/static/images/icon/rules-1.png'>
+                    This error is returned when there is an email header that does not comply with
+                    or violates the RFC5322 specification. For example, if the From: header, which
+                    should be a single mandatory header, is missing or there are multiple instances
+                    of it, or if there are multiple "Subject:" headers, the email will be considered
+                    an RFC violation. This bounce reason was implemented in {{ site.html.ss }} 5.0.0
+                    as a separate category from <a href = '#securityerror'>Security Error</a>.
                 </p>
                 <pre class = 'prettyprint'>
-552-5.7.0 This message was blocked because its content presents a potential
-552-5.7.0 security issue. Please visit
-552-5.7.0  https://support.google.com/mail/answer/6590 to review our message
-552 5.7.0 content and attachment content guidelines. p4si4011367igr.94 - gsmtp
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.1 host aspmx.l.google.com[142.251.170.26] said: This message
+    is not RFC 5322 compliant. There are multiple Subject headers. To reduce the amount of
+    spam sent to Gmail, this message has been blocked.
+    Please visit https://support.google.com/mail/?p=RfcMessageNonCompliant and review RFC 5322
+    specifications for more information. c2-aguiqyuiyuqir5678167856aeu8.22 - 
+    gsmtp (in reply to end of DATA command)"
                 </pre>
-                <p class = 'description'>
-                    {{ site.html.ss }} will set "securityerror" to the reason
-                    of email bounce if the value of Status: field in a bounce email is "5.7.*".
-
-                    <a href = '#policyviolation'>Policy Violation</a> and <a href = '#virusdetected'>Virus Detected</a>
-                    have been added (splitted from this reason) at {{ site.html.ss }} 4.22.0.
-                </p>
-                {% include error-messages/securityerror.html %}
+                {% include error-messages/notcompliantrfc.html %}
                 <hr>
             </div>
         </div>
@@ -786,9 +828,10 @@ Status: 553 Exceeded maximum inbound message size
                 <h3 class = 'in-desc'>Policy Violation</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/rules-2.png'>
-                    This is the error that a policy violation was detected on a destination mail server.
-                    Depends on the security policy on the server, invalid format or values are in an email header,
-                    a sender's email address is assumed. 
+                    This error is returned when the recipient's mail server rejects the email due
+                    to a policy violation. The specific types of policy violations vary depending
+                    on the individual mail server's policy, so it is often difficult to determine
+                    the exact cause of the bounce.
                 </p>
                 <pre class = 'prettyprint'>
 Action: failed
@@ -799,10 +842,54 @@ Diagnostic-Code: smtp; 550-5.7.1 [2401:2500:102:3032:192.0.2.222      13]
     accepted. v14si1155795plk.134 - gsmtp
                 </pre>
                 <p class = 'description'>
-                    This error reason has been added (splitted from <a href = '#securityerror'>Security Error</a>)
-                    at {{ site.html.ss }} 4.22.0.
+                    This bounce reason was implemented in {{ site.html.ss }} 4.22.0 as a separate
+                    category from <a href = '#securityerror'>Security Error</a>.
+                    It is not implemented in {{ site.html.bh }}.
                 </p>
                 {% include error-messages/policyviolation.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'securityerror'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#securityerror'><i class = 'fas fa-envelope-open-text'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Security Error</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/lock-1.png'>
+                    This error is returned when the recipient's mail server rejects the email for
+                    security reasons. The specific types of security errors vary depending on the
+                    individual mail server's policy, but may include sender address spoofing and
+                    authentication errors.
+                </p>
+                <pre class = 'prettyprint'>
+552-5.7.0 This message was blocked because its content presents a potential
+552-5.7.0 security issue. Please visit
+552-5.7.0  https://support.google.com/mail/answer/6590 to review our message
+552 5.7.0 content and attachment content guidelines. p4si4011367igr.94 - gsmtp
+                </pre>
+                <p class = 'description'>
+                    In the internal process of bounce email processing performed by {{ site.html.ss }},
+                    this reason is determined when the value of the "Status:" field is "5.7.x".
+                </p>
+                <p class = 'description'>
+                    In {{ site.html.ss }} 4.22.0, <a href = '#policyviolation'>Policy Violation</a>
+                    and <a href = '#virusdetected'>Virus Detected</a> were implemented as separate
+                    categories from this bounce reason.
+                </p>
+                <p class = 'description'>
+                    In {{ site.html.ss }} 5.0.0, <a href = '#authfailure'>Auth Failure</a>,
+                    <a href = '#notcompliantrfc'>Not Compliant RFC</a>, and
+                    <a href = '#speeding'>Speeding</a> were further implemented as separate
+                    categories from this bounce reason.
+                </p>
+                {% include error-messages/securityerror.html %}
                 <hr>
             </div>
         </div>
@@ -819,7 +906,10 @@ Diagnostic-Code: smtp; 550-5.7.1 [2401:2500:102:3032:192.0.2.222      13]
                 <h3 class = 'in-desc'>Virus Detected</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/virus-3.png'>
-                    This is the error that a virus, a worm, or a malware detected on a destination mail server.
+                    This error is returned when the recipient's mail server detects a harmful file
+                    or program, such as a virus, worm, or malware, in the email.
+                    <br />
+                    <br />
                 </p>
                 <pre class = 'prettyprint'>
 Status: 5.7.0
@@ -827,8 +917,9 @@ Remote-MTA: DNS; gmail-smtp-in.l.google.com
 Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on your message. Please
                 </pre>
                 <p class = 'description'>
-                    {{ site.html.ss }} will set "securityerror" to the reason
-                    of email bounce if the value of Status: field in a bounce email is "5.7.*".
+                    This bounce reason was implemented in {{ site.html.ss }} 4.22.0 as a separate
+                    category from <a href = '#securityerror'>Security Error</a>.
+                    It is not implemented in {{ site.html.bh }}.
                 </p>
                 {% include error-messages/virusdetected.html %}
                 <hr>
@@ -847,9 +938,11 @@ Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on yo
                 <h3 class = 'in-desc'>Spam Detected</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/spam-1.png'>
-                    This is the error that the message you sent was rejected by the spam filter running on the remote host.
-                    This reason has added in {{ site.html.ss }} 4.1.25 and
-                    does not exist in any version of {{ site.html.bh }}.
+                    If the sent email is detected as spam, or if the sending host is recognized as
+                    a spam sending host by DNSBL, {{ site.html.ss }} determines the bounce reason
+                    as SpamDetected.
+                    This bounce reason was implemented in Sisimai 4.1.25 and is not implemented in
+                    {{ site.html.bh }}.
                 </p>
                 <pre class = 'prettyprint'>
 Action: failed
@@ -857,6 +950,8 @@ Status: 5.7.1
 Diagnostic-Code: smtp; 550 5.7.1 Message content rejected, UBE, id=00000-00-000
 Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                 </pre>
+                <p class = 'description'>
+                </p>
                 {% include error-messages/spamdetected.html %}
             </div>
         </div>
@@ -874,11 +969,80 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Rejected By Server</h2>
                 <p class = 'description'>
-                    The following shows the list of reasons that the message you sent has rejected
-                    due to things about a local MTA such as a hostname, IP address, and internal status
-                    of a remote MTA such as the number of concurrent connections, resolver, and other
-                    backend systems.
+                    The following is a list of bounce reasons that are caused by the state of the
+                    sending or receiving MTA. Many of these are caused by the sender's IP address,
+                    hostname, the number of connections to the destination server, or the state of
+                    other backends.
                 </p>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'authfailure'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#authfailure'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Auth Failure</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/fingerprint-1.png'>
+                    This error is returned when domain authentication using SPF, DKIM, DMARC, or
+                    ARC fails. It often occurs when domain authentication fails in multiple factors,
+                    such as when it fails in both SPF and DKIM. This bounce reason was implemented
+                    in {{ site.html.ss }} 5.0.0.
+                </p>
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 5.7.26
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp;
+    550-5.7.26 This mail has been blocked because the sender is unauthenticated.
+    550-5.7.26 Gmail requires all senders to authenticate with either SPF or DKIM.
+    550-5.7.26 Authentication results:
+    550-5.7.26  DKIM = did not pass
+    550-5.7.26  SPF [relay3.example.com] with ip: [192.0.2.22] = did not pass
+    550-5.7.26 For instructions on setting up authentication, go to
+    550 5.7.26 https://support.google.com/mail/answer/81126#authentication
+    c2-202200202020202020222222cat.127 - gsmtp
+                </pre>
+                {% include error-messages/authfailure.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'badreputation'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#badreputation'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Bad Reputation</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/sender-score-2.png'>
+                    This error is returned when the sender's IP address or domain has a low reputation
+                    score on the receiving host, and the email is rejected for that reason. You may
+                    see this error when sending to large email service providers such as Gmail or
+                    Outlook. This bounce reason was implemented in {{ site.html.ss }} 5.0.0.
+                </p>
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 5.7.1
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.1 [192.0.2.22      18] Our system has
+    detected that this message is 550-5.7.1 likely suspicious due to the very
+    low reputation of the sending IP 550-5.7.1 address. To best protect our
+    users from spam, the message has been 550-5.7.1 blocked. Please visit 550
+    5.7.1  https://support.google.com/mail/answer/188131 for more information.
+    p22nn000202cat.22 - gsmtp
+                </pre>
+                {% include error-messages/badreputation.html %}
+                <hr>
             </div>
         </div>
 
@@ -894,10 +1058,10 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                 <h3 class = 'in-desc'>Blocked</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-3.png'>
-                    This is the error that SMTP connection was rejected due to a client's IP address
-                    or a hostname, or the parameter of the HELO/EHLO command.
-                    This reason has added in {{ site.html.ss }} 4.0.0 and does not exist in any version of
-                    {{ site.html.bh }}.
+                    This bounce reason is determined by {{ site.html.ss }} when the connection to
+                    the destination host is rejected due to the IP address, hostname, or <kbd>EHLO</kbd>
+                    /<kbd>EHLO</kbd> command value of the sending mail server. This bounce reason
+                    was implemented in {{ site.html.ss }} 4.0.0 and is not implemented in {{ site.html.bh }}.
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.net&gt;: 
@@ -921,10 +1085,10 @@ Remote host said: 501 5.0.0 Invalid domain name
                 <h3 class = 'in-desc'>Expired</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/expired-3.png'>
-                    This is the error that delivery time has expired due to connection failure or 
-                    network error and the message you sent has been in the queue for a long time.
-                    <br>
-                    <br>
+                    This error category includes emails that are bounced back due to delivery
+                    timeouts, such as when the email cannot connect to the destination host.
+                    If the reason for the delivery failure is DNS resolution, the bounce reason
+                    may be <a href = '#networkerror'>NetworkError</a>.
                 </p>
                 <pre class = 'prettyprint'>
 kijitora@example.org
@@ -949,10 +1113,10 @@ tried after this message arrived
                 <h3 class = 'in-desc'>Mailer Error</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/error-4.png'>
-                    This is the error that a mailer program has not exited successfully or
-                    exited unexpectedly on a destination mail server.
-                    <br>
-                    <br>
+                    This error is returned when the program that is supposed to be launched upon
+                    receiving an email fails to terminate normally. This is often caused by a bug
+                    in the program or insufficient exception handling when connecting to a required
+                    backend service (such as a database).
                 </p>
                 <pre class = 'prettyprint'>
 X-Actual-Recipient: X-Unix; |/home/kijitora/mail/catch.php
@@ -975,10 +1139,11 @@ Diagnostic-Code: X-Unix; 255
                 <h3 class = 'in-desc'>Network Error</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/network-cable-1.png'>
-                    This is the error that SMTP connection failed due to DNS lookup failure
-                    or other network problems.
-                    This reason has added in {{ site.html.ss }} 4.1.12 and
-                    does not exist in any version of {{ site.html.bh }}.
+                    This bounce reason is determined by {{ site.html.ss }} when an SMTP connection
+                    cannot be established due to DNS resolution failure or other network-related
+                    errors that prevent the email from being sent. 
+                    This bounce reason was implemented in {{ site.html.ss }} 4.1.12 and is not
+                    implemented in {{ site.html.bh }}.
                 </p>
                 <pre class = 'prettyprint'>
 A message is delayed for more than 10 minutes for the following
@@ -1003,9 +1168,9 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 <h3 class = 'in-desc'>No Relaying</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/disclaimer-2.png'>
-                    This is the error that SMTP connection rejected with error message 
-                    "Relaying Denied". 
-                    This reason does not exist in any version of {{ site.html.bh }}.
+                    This bounce reason is determined by {{ site.html.ss }} when an email is
+                    bounced due to SMTP relay rejection. This bounce reason is not implemented in
+                    {{ site.html.bh }}.
                     <br>
                     <br>
                 </p>
@@ -1032,13 +1197,86 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 <h3 class = 'in-desc'>Not Accept</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/firewall-3.png'>
-                    This is the error that a destination mail server does (can) not accept any email.
-                    In many cases, the server is high load or under the maintenance.
-                    {{ site.html.ss }} will set "notaccept" to the reason
-                    of email bounce if the value of Status: field in a bounce email is 
-                    "5.3.2" or the value of SMTP reply code is "556".
+                    This error is returned when the recipient's mail server cannot receive the
+                    email. This error can occur if the destination mail server is overloaded or
+                    under maintenance. In the internal process of the bounce email processing
+                    performed by {{ site.html.ss }}, this reason is determined for emails with a
+                    "5.3.2" value in the "Status:" field or a "556" value in the SMTP reply code.
+                    Additionally, this bounce reason also includes cases where the sender domain
+                    is a NullMX.
                 </p>
                 {% include error-messages/notaccept.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'requireptr'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#requireptr'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Require PTR</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/pointer-1.png'>
+                    This error is returned when the PTR record (reverse lookup record) is not set
+                    or is incorrect for the source IP address that made the SMTP connection. Some
+                    email service providers strictly verify reverse lookups, so at least some
+                    reverse lookup configuration is required.
+                </p>
+                <pre class = 'prettyprint'>
+Action: failed
+Status: 5.7.25
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.25 [192.0.2.202] The IP address sending this
+    message does not have a 550-5.7.25 PTR record setup, or the corresponding
+    forward DNS entry does not 550-5.7.25 point to the sending IP. As a policy,
+    Gmail does not accept messages 550-5.7.25 from IPs with missing PTR
+    records. For more information, go to 550 5.7.25
+    https://support.google.com/mail/answer/81126#ip-practices
+    neko-1785a7g6767a6agg.2 - gsmtp
+                </pre>
+                <p class = 'description'>
+                    This bounce reason was implemented in {{ site.html.ss }} 5.0.0 as a separate
+                    category from <a href = '#blocked'>Blocked</a>.
+                </p>
+
+                {% include error-messages/requireptr.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'speeding'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#speeding'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Speeding</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/speed-2.png'>
+                    This error occurs when the recipient host has a per-unit-time traffic limit and
+                    that limit has been exceeded. This means that the sender's email sending speed
+                    is too fast. This bounce reason was implemented in {{ site.html.ss }} 5.0.0 as
+                    a separate category from <a href = '#securityerror'>Security Error</a> or
+                    <a href = '#toomanyconn'>Too Many Conn</a>.
+                </p>
+                <pre class = 'prettyprint'>
+Status: 5.2.1
+Remote-MTA: dns; alt1.gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
+    receiving mail at a rate that 550-5.2.1 prevents additional messages from
+    being delivered. For more 550-5.2.1 information, please visit 550 5.2.1
+    https://support.google.com/mail/?p=ReceivingRatePerm p131si8414989oif.118 -
+    gsmtp
+                </pre>
+                {% include error-messages/speeding.html %}
                 <hr>
             </div>
         </div>
@@ -1055,8 +1293,8 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 <h3 class = 'in-desc'>System Error</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/server-1.png'>
-                    This is the error that an email has bounced due to system error on the remote host
-                    such as LDAP connection failure or other internal system error.
+                    This bounce reason is classified when a bounce occurs due to a system error on
+                    the recipient's mail server, such as a connection failure to the LDAP server.
                     <br>
                     <br>
                 </p>
@@ -1082,9 +1320,11 @@ message has been in the queue too long.
                 <h3 class = 'in-desc'>System Full</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/hdd-1.png'>
-                    This is the error that a destination mail server's disk (or spool) is full.
-                    {{ site.html.ss }} will set "systemfull" to the reason of email bounce
-                    if the value of Status: field in a bounce email is "4.3.1" or "5.3.1".
+                    This error is returned when the recipient's mail server's disk is full. This
+                    indicates that the recipient host cannot receive any more emails. In the
+                    internal process of bounce email processing performed by {{ site.html.ss }},
+                    this reason is determined for emails with a "5.3.1" or "4.3.1" value in the
+                    "Status:" field.
                 </p>
                 {% include error-messages/systemfull.html %}
                 <hr>
@@ -1103,10 +1343,9 @@ message has been in the queue too long.
                 <h3 class = 'in-desc'>Too Many Connections (toomanyconn)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/groups-1.png'>
-                    This is the error that SMTP connection was rejected temporarily due to too many
-                    concurrency connections to the remote server.
-                    This reason has added in {{ site.html.ss }} 4.1.26 and 
-                    does not exist in any version of bounceHammer.
+                    When a large number of connections are made to the recipient's SMTP server at
+                    the same time, new SMTP connections may be temporarily rejected. In such cases,
+                    the bounce email returned will be classified into this bounce reason by {{ site.html.ss }}.
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.ne.jp&gt;: host mx02.example.ne.jp[192.0.1.20] said:
@@ -1129,7 +1368,7 @@ message has been in the queue too long.
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Others</h2>
                 <p class = 'description'>
-                    Rejected due to other reason or {{ site.html.ss }} could not detect the reason
+                    This is a list of other reasons, or reasons that Sisimai could not identify.
                 </p>
             </div>
         </div>
@@ -1146,14 +1385,17 @@ message has been in the queue too long.
                 <h3 class = 'in-desc'>Delivered (beginning with v4.16.0)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/cat-4.png'>
-                    This reason is <strong>NOT AN ERROR</strong> and means that an email you sent is successfully
-                    delivered to the recipient. {{ site.html.ss }} will set "delivered" to the reason
-                    of email bounce if the value of Status: field in a bounce mail begins with "2".
+                    This reason <strong>does not indicate an error</strong>, but rather that the
+                    sent email was successfully delivered to the recipient. {{ site.html.ss }} sets
+                    the <kbd>reason</kbd> value to <kbd>delivered</kbd> if the Status field of the
+                    bounce email starts with "2".
                 </p>
                 <p class = 'description'>
-                    This reason <strong>is not included in the parsed results by default</strong>.
-                    To get the parsed results which are including this reason, specify "delivered" option at the argument
-                    of make(), dump() method of Sisimai like following sample code.
+                    This reason <strong>is not included in the decoded results by default</strong>.
+                    To include records with "delivered" in the decoded results, specify the 
+                    <kbd>delivered</kbd> option as an argument to the <kbd>rise()</kbd> and
+                    <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd> class, as shown in the
+                    following sample code.
                 </p>
                 <pre class = 'prettyprint'>
 Final-Recipient: rfc822; kijitora@neko.nyaan.jp
@@ -1169,9 +1411,9 @@ Diagnostic-Code: SMTP; 250 2.1.5 OK
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
-my $v = Sisimai->make('/path/to/mbox', 'delivered' => 1);
+my $v = Sisimai->rise('/path/to/mbox', 'delivered' => 1);
 my $r = Sisimai->dump('/path/to/mbox', 'delivered' => 1);
-my $d = Sisimai::Data->make('data' => $q, 'delivered' => 1);
+my $d = Sisimai::Fact->make('data' => $q, 'delivered' => 1);
                 </pre>
             </div>
         </div>
@@ -1181,11 +1423,39 @@ my $d = Sisimai::Data->make('data' => $q, 'delivered' => 1);
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
-v = Sisimai.make('/path/to/mbox', delivered: true)
+v = Sisimai.rise('/path/to/mbox', delivered: true)
 r = Sisimai.dump('/path/to/mbox', delivered: true)
-d = Sisimai::Data.make(data: q, delivered: true)
+d = Sisimai::Fact.rise(data: q, delivered: true)
                 </pre>
                 <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'vacation'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#vacation'><i class = 'fas fa-at'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Vacation</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/bento-3.png'>
+                    This reason indicates that the recipient is unable to receive emails, possibly
+                    due to being on vacation. Bounce emails with this reason are sent by an
+                    autoresponder program. This bounce reason was implemented in {{ site.html.ss }}
+                    4.1.28 and is not implemented in {{ site.html.bh }}. Additionally, bounce
+                    emails with "vacation" as the reason <strong>are no longer decoded by default
+                    since {{ site.html.ss }} 5.0.0</strong>.
+                </p>
+                <pre class = 'prettyprint'>
+I am out of the office until 05/01/2010.
+
+I am of the office returning 5th Jan
+                </pre>
+                {% include error-messages/vacation.html %}
             </div>
         </div>
 
@@ -1201,10 +1471,11 @@ d = Sisimai::Data.make(data: q, delivered: true)
                 <h3 class = 'in-desc'>Syntax Error (Beginning with v4.17.0)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-1.png'>
-                    This is the error that a destination mail server could not recognize SMTP command
-                    which is sent from a sender's MTA.
+                    This error indicates that the recipient's mail server did not recognize the
+                    SMTP command sent by the sending mail server.
+                    This bounce reason was implemented in {{ site.html.ss }} v4.17.0.
                     <br>
-                    <strong>This reason has been added at {{ site.html.ss }} v4.17.0.</strong>
+                    <br>
                 </p>
                 {% include error-messages/syntaxerror.html %}
                 <hr>
@@ -1223,10 +1494,11 @@ d = Sisimai::Data.make(data: q, delivered: true)
                 <h3 class = 'in-desc'>On Hold</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/question-1.png'>
-                    {{ site.html.ss }} will set "onhold" to the reason of email bounce
-                    if there is no (or less) detailed information about email bounce for judging the reason.
-                    <br>
-                    <br>
+                    When sending emails through some webmail services, and the email encounters an
+                    error, the bounce email may be returned with the error details removed. In such
+                    cases, it is known that some error has occurred, but the information necessary
+                    to identify the reason is missing, so {{ site.html.ss }} will withhold the
+                    determination of the bounce reason.
                 </p>
                 <hr>
             </div>
@@ -1244,9 +1516,9 @@ d = Sisimai::Data.make(data: q, delivered: true)
                 <h3 class = 'in-desc'>Undefined</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/question-1.png'>
-                    {{ site.html.ss }} could not detect the error reason. 
-                    In many cases, the error message is written in non English or there is
-                    no enough error message in a bounce email to decide the reason.
+                    If there are no error messages, response codes, delivery status codes, or any
+                    other information necessary for {{ site.html.ss }} to determine the bounce
+                    reason, the bounce reason will be set to "undefined".
                 </p>
             </div>
         </div>
