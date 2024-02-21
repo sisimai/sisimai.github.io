@@ -1,7 +1,7 @@
 ---
 "layout": "document"
 "directory": "engine/"
-"title": "Parser Engines"
+"title": "Decoding Engines"
 "description": "List of including MTA module names and its description in Sisimai"
 "author": "azumakuniyuki"
 "redirect_from": ["/engine/"]
@@ -46,11 +46,12 @@
             <div class = 'row'>
                 <div class = 'text-center col-sm-8 col-sm-offset-2'>
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
-                    <h2>Parser Engines</h2>
+                    <h2>Decoding Engines</h2>
                     <p class = 'description'>
-                        The following table shows the parser engine modules list of
-                        the latest version of {{ site.html.ss }} including comparison column with {{ site.html.bh }}.
-                        All the engine modules are included in both Perl version and Ruby version of {{ site.html.ss }}.
+                        The following table shows a list of the MTA modules included as decoding
+                        engines in the latest version of {{ site.html.ss }}. Some of these modules
+                        are only implemented in {{ site.html.ss }}, so a comparison column with
+                        {{ site.html.bh }} is also included.
                     <p>
                 </div>
             </div> 
@@ -64,8 +65,8 @@
                     <div class = 'index-info'>
                         <h3>Open Source MTAs</h3>
                         <p class = 'description'>
-                            Such as Sendmail, Postfix, OpenSMTPD, qmail, Exim, Courier MTA,
-                            and other open source MTAs.
+                            This is a list of decoding modules for open source MTAs such as Sendmail,
+                            Postfix, and OpenSMTPD.
                         </p>
                     </div>
                     <a href = '#oss-mta' class = 'btn btn-continue'>Read</a>
@@ -77,8 +78,8 @@
                     <div class = 'index-info'>
                         <h3>Commercial MTAs</h3>
                         <p class = 'description'>
-                            Such as Microsoft Exchange Server, Domino, Notes, and
-                            other commercial MTAs and email appliances.
+                            This is a list of decoding modules for commercial MTAs such as Microsoft
+                            Exchange Server and Domino.
                         </p>
                     </div>
                     <a href = '#com-mta' class = 'btn btn-continue'>Read</a>
@@ -90,8 +91,9 @@
                     <div class = 'index-info'>
                         <h3>MSP or ESPs</h3>
                         <p class = 'description'>
-                            Such as Google Mail, Outlook, Yahoo! Mail, SendGrid, 
-                            Amazon SES, and other major or large mail service providers.
+                            This is a list of decoding modules for email providers such as Gmail,
+                            Outlook, and Yahoo! and for delivery services such as SendGrid and
+                            Amazon SES.
                         </p>
                     </div>
                     <a href = '#msp-esp' class = 'btn btn-continue'>Read</a>
@@ -103,8 +105,8 @@
                     <div class = 'index-info'>
                         <h3>Others</h3>
                         <p class = 'description'>
-                            {{ site.html.ss }} Can parse Feedback loop messages,
-                            bounce emails which are based on RFC3464, and other unknown MTAs.
+                            This is a list of decoding modules for bounce emails in Feedback loop
+                            or RFC3464 compliant format, and for MTAs with unknown names.
                         </p>
                     </div>
                     <a href = '#others' class = 'btn btn-continue'>Read</a>
@@ -125,10 +127,10 @@
             <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Open Source MTAs</h2>
                 <p class = 'description'>
-                    Such as Sendmail, Postfix, OpenSMTPD, qmail, Exim, Courier MTA, 
-                    and other open source MTAs. Almost all the modules in the following table
-                    are also available in {{ site.html.bh }}, however, the analytical precision
-                    ratio of each module is less than {{ site.html.ss }}.
+                    This is a list of decoding modules for widely used open source MTAs such as
+                    Sendmail, Postfix, OpenSMTPD, and qmail. Most of the modules in the table below
+                    have lower decoding accuracy than {{ site.html.ss }}, but they are also
+                    implemented in {{ site.html.bh }}.
                 </p>
             </div>
         </div>
@@ -267,10 +269,11 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Commercial MTAs and Appliances</h2>
                 <p class = 'description'>
-                    Such as Microsoft Exchange Server, Domino, Notes, and other commercial MTAs and
-                    email appliances. All the modules in the following table are not included in
-                    {{ site.html.bh }}, however, sometimes there is a bounce email generated by commercial
-                    MTA which could be parsed Fallback module of bounceHammer.
+                    This is a list of modules for decoding bounce emails created by commercial MTAs
+                    and commercial appliances such as Microsoft Exchange Server, Domino, and Barracuda.
+                    The modules in this table are not implemented in {{ site.html.bh }}, but there
+                    are rare cases where bounce emails can also be decoded by the Fallback module
+                    in {{ site.html.bh }}.
                 </p>
             </div>
         </div>
@@ -430,12 +433,11 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>MSP: Mail Service Providers</h2>
                 <p class = 'description'>
-                    Such as Google Mail, Outlook, Yahoo! Mail, SendGrid, Amazon SES, 
-                    and other major or large mail service providers. Almost all the modules
-                    in the following table are not included in {{ site.html.bh }} and
-                    <strong>
-                        {{ site.html.bh }} can not parse bounce emails from Gmail with the new bounce message format.
-                    </strong>
+                    This is a list of modules for decoding bounce emails created by email services
+                    such as Gmail, Outlook, and Yahoo! Mail and delivery services such as SendGrid
+                    and Amazon SES. Most of the modules are not included in {{ site.html.ss }}.
+                    <strong>Also, currently, bounce emails from Gmail can no longer be decoded by
+                        the Gmail module in {{ site.html.bh }}.</strong>
                 </p>
             </div>
         </div>
@@ -684,36 +686,36 @@
                     <div class = 'table-responsive'>
                         <p class = 'description'>
                             <strong><em class = 'warn'>
-                                This feature and all the modules in Sisimai::Bite::JSON have been
-                                removed at v4.25.5.
+                                This feature and the Sisimai::Bite::JSON:: module have been
+                                deprecated in v4.25.5.
                             </em></strong>
                         </p>
                         <table class = 'table table-hover table-condensed'>
                             <thead>
                                 <tr>
-                                    <th>
+                                    <th class = 'not-available'>
                                         Module Name<br>
                                         Sisimai::Bite::JSON::
                                     </th>
-                                    <th>
+                                    <th class = 'not-available'>
                                         included in<br />
                                         bounceHammer
                                     </th>
-                                    <th>
+                                    <th class = 'not-available'>
                                         Ratio in<br />
                                         bounceHammer
                                     </th>
-                                    <th>Implemented at</th>
-                                    <th>Description</th>
+                                    <th class = 'not-available'>Implemented at</th>
+                                    <th class = 'not-available'>Description</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class = 'ltext'>AmazonSES</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.20.0</td>
-                                    <td class = 'ltext'>
+                                    <td class = 'not-available ltext'>AmazonSES</td>
+                                    <td class = 'not-available'>No</td>
+                                    <td class = 'not-available'>0.00</td>
+                                    <td class = 'not-available ltext'>v4.20.0</td>
+                                    <td class = 'not-available ltext'>
                                         <a href = 'https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notification-contents.html'
                                             target = 'new'>
                                             Amazon SNS Notification Contents for Amazon SES
@@ -721,11 +723,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>SendGrid</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.20.0</td>
-                                    <td class = 'ltext'>
+                                    <td class = 'not-available ltext'>SendGrid</td>
+                                    <td class = 'not-availale'>No</td>
+                                    <td class = 'not-available'>0.00</td>
+                                    <td class = 'not-available ltext'>v4.20.0</td>
+                                    <td class = 'not-available ltext'>
                                         <a href = 'https://sendgrid.com/docs/API_Reference/Web_API/bounces.html' target = 'new'>
                                             Bounces (SendGrid)
                                         </a>
@@ -774,18 +776,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>ExchangeOnline</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.17.2</td>
-                                    <td class = 'ltext'>
-                                        <a href = 'https://products.office.com/en/exchange/exchange-online'
-                                            target = 'new'>
-                                            Microsoft Exchange Online
-                                        </a>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td class = 'ltext'>FrancePTT</td>
                                     <td>No</td>
                                     <td>0.00</td>
@@ -805,12 +795,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>GoogleApps</td>
+                                    <td class = 'ltext'>Google</td>
                                     <td>No</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.0.0</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://gsuite.google.com' target = 'new'>G Suite</a>
+                                        GoogleApps was changed to Google in v5.0.0.
                                     </td>
                                 </tr>
                                 <tr>
@@ -832,6 +823,41 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'>Microsoft</td>
+                                    <td>No</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>v4.17.2</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://products.office.com/en/exchange/exchange-online'
+                                            target = 'new'>
+                                            Microsoft Exchange Online
+                                        </a>
+                                        ExchangeOnline was changed to Microsoft in v5.0.0.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>Mimecast</td>
+                                    <td>Noまない</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>v4.25.15</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://www.mimecast.com/' target = 'new'>
+                                            Email & Collaboration Security | Mimecast
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'>NTTDOCOMO</td>
+                                    <td>Noまない</td>
+                                    <td>0.00</td>
+                                    <td class = 'ltext'>v4.25.15</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://www.docomo.ne.jp/' target = 'new'>
+                                            NTT DOCOMO
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'>Spectrum</td>
                                     <td>No</td>
                                     <td>0.00</td>
@@ -843,12 +869,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>TencentQQ</td>
+                                    <td class = 'ltext'>Tencent</td>
                                     <td>No</td>
                                     <td>0.00</td>
                                     <td class = 'ltext'>v4.25.0</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://mail.qq.com' target = 'new'>Tencent QQ</a>
+                                        TencentQQ was changed to Tencent in v5.0.0.
                                     </td>
                                 </tr>
 
@@ -873,8 +900,8 @@
             <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>FBL and Other Unknown MTAs</h2>
                 <p class = 'description'>
-                    <span class = 'ss'>Sisimai</span> can parse FBL: Feedback loop messages,
-                   bounce emails which are based on RFC3464, and other unknown MTAs.
+                    This is a list of modules for decoding bounce emails that are compliant with
+                    feedback loops or RFC3464, and bounce emails created by unknown MTAs.
                 </p>
             </div>
         </div>
@@ -988,10 +1015,10 @@
         <div class = 'row'>
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <p class = 'description'>
-                    Beginning with {{ site.html.ss }} v4.16.0, <kbd>engine()</kbd> method is available
-                    at <kbd>Sisimai</kbd> class. The method provides a feature that
-                    returns the list of all the MTA module names and its descriptions
-                    like the following example.
+                    The <kbd>engine()</kbd> method has been available in the <kbd>Sisimai</kbd>
+                    class since {{ site.html.ss }} v4.16.0. As shown in the sample code below,
+                    this method provides a function to return a list of the names and descriptions
+                    of all implemented MTA modules.
                 </p>
             </div>
         </div>
