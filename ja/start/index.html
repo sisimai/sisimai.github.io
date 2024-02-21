@@ -123,7 +123,7 @@
                 <h2 class = 'in-desc'>動作環境</h2>
                 <hr>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}(シシマイ)は*BSDやMac OS XやLinuxのようなPerlまたは
+                    {{ site.html.ss }}(シシマイ)は*BSDやmacOSやLinuxのようなPerlまたは
                     Ruby(JRubyを含む)が動作するOSで動きます。また、{{ site.html.ss }} 4.22.5からは、
                     <a href = 'https://github.com/sisimai/p5-sisimai/issues/53' target = 'new'>
                         Windows上のActivePerlで動作するかもしれません。
@@ -208,7 +208,11 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>{{ site.html.ss }}をインストールする</h2>
                 <p class = 'description'>
-                    {{ site.html.ss }}はGitHub, CPAN, RubyGems.orgからそれぞれダウンロード・インストールが可能です。
+                    {{ site.html.ss }}は
+                    <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a>,
+                    <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>, 
+                    <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>
+                    からそれぞれダウンロード・インストールが可能です。
                     また、Perl版{{ site.html.ss }}は<a href = 'https://www.freshports.org/mail/p5-Sisimai/' target = 'new'>FreeBSDのportsコレクション</a>
                     や<a href = 'https://sources.debian.org/src/libsisimai-perl/' target = 'new'>Debianパッケージ</a>
                     からでもインストールすることができます。
@@ -225,8 +229,8 @@
                     <img class = 'lhs' src = '/static/images/icon/github-1.png'>
                     開発版を含む最新バージョンと安定版の{{ site.html.ss }}は
                     <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a>
-                    のmasterブランチからダウンロード出来ます。Perl版・Ruby版ともに
-                    このリポジトリにあります。
+                    の"5-stable"ブランチまたは"4-stable"ブランチからダウンロード出来ます。
+                    Perl版・Ruby版ともにこのリポジトリにあります。
                 </p>
                 <p class = 'description ja'>
                     2024年2月2日からリポジトリのデフォルトブランチは<strong>5-stable</strong>に
@@ -296,7 +300,7 @@ Successfully installed Sisimai-v5.0.0
                 </p>
                 <pre class = 'prettyprint'>
 % <kbd>ruby -v</kbd>
-ruby 2.6.4p104 (2019-08-28 revision 67798) [x86_64-darwin18]
+ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin21]
                 </pre>
 
                 <pre class = 'prettyprint'>
@@ -341,7 +345,7 @@ sisimai (5.0.0) installed.
                 <h3 class = 'in-desc'>CPANから</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
-                    Perl版{{ site.html.ss }}の安定版のみ
+                    Perl版{{ site.html.ss }}のリリース版のみ
                     <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>
                     からダウンロードが可能です。<kbd>cpan</kbd>コマンドでもインストール出来ますが、
                     <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
@@ -385,7 +389,7 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-5.0.0.tar.gz ... OK
                 <h3 class = 'in-desc'>RubyGems.orgから</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
-                    Ruby版{{ site.html.ss }}の安定版のみ
+                    Ruby版{{ site.html.ss }}のリリース版のみ
                     <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>
                     からダウンロードが可能で、<kbd>gem</kbd>コマンドでインストールが出来ます。
                     <br>
@@ -426,7 +430,7 @@ Done installing documentation for sisimai after 6 seconds
                     <img class = 'lhs' src = '/static/images/icon/freebsd-daemon-2.png'>
                     Perl版{{ site.html.ss }}は<a href = 'https://www.freebsd.org/ja/' target = 'new'>FreeBSD</a>
                     の<a href = 'https://www.freebsd.org/ja/ports/index.html' target = 'new'>Portsコレクション</a>
-                    (<a href = 'https://svnweb.freebsd.org/ports/head/mail/p5-sisimai/' target = 'new'>mail/p5-sisimai)</a>
+                    (<a href = 'https://www.freshports.org/mail/p5-Sisimai' target = 'new'>mail/p5-Sisimai)</a>
                     インストールができます。<kbd>make</kbd>コマンド一発でインストールが可能ですが、
                     Perl版{{ site.html.ss }}がPortsコレクションに取り込まれるタイミングによっては、
                     最新版ではない{{ site.html.ss }}がインストールされる点に注意してください。
@@ -560,7 +564,7 @@ end
                 <h4 class = 'in-desc'>Perl版{{ site.html.ss }}</h4>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
-print Sisimai-&gt;dump('~/Maildir/cur');
+print Sisimai-&gt;dump('/home/postmaster/Maildir/cur');
                 </pre>
             </div>
 
@@ -574,7 +578,7 @@ print Sisimai-&gt;dump('~/Maildir/cur');
                 <h4 class = 'in-desc'>Ruby版{{ site.html.ss }}</h4>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-puts Sisimai.dump('~/Maildir/cur')
+puts Sisimai.dump('/home/postmaster/Maildir/cur')
                 </pre>
             </div>
 
