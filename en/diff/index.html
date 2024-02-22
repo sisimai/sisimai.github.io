@@ -103,8 +103,7 @@
                     <div class = 'index-info'>
                         <h3>Data</h3>
                         <p class = 'description'>
-                            Differences of data structure (parsed data fields and
-                            detectable bounce reasons)
+                            Differences of data structure (decoded data fields and detectable bounce reasons)
                             between {{ site.html.ss }} and {{ site.html.bh }}.
                         </p>
                     </div>
@@ -474,7 +473,7 @@ Content-Type: message/rfc822
                                 <td class = 'rtext'>N/A</td>
                             </tr>
                             <tr>
-                                <td><strong>The speed of parsing email(1000 emails)</strong></td>
+                                <td><strong>The speed of decoding email(1000 emails)</strong></td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.parse1k.perl }}s</td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.parse1k.ruby }}s</td>
                                 <td class = 'rtext'>4.3s</td>
@@ -543,7 +542,7 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    The Perl version of {{ site.html.ss }} parses emails and generates structured
+                    The Perl version of {{ site.html.ss }} decode emails and generates structured
                     data about {{ site.sisimai.diff.timesfaster.perl }} times faster than the
                     {{ site.html.bh }} <kbd>bin/mailboxparser</kbd> command.
                 </p>
@@ -600,9 +599,9 @@ Content-Type: message/rfc822
                 <div class = 'index-label'><i class = 'fas fa-list'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Each field of parsed data</h3>
+                <h3 class = 'in-desc'>Each field of decoded data</h3>
                 <p class = 'description'>
-                    All the fields of parsed data in {{ site.html.ss }} are available on
+                    All the fields of decoded data in {{ site.html.ss }} are available on
                     <a href = '/en/data/'>Data Structure of Sisimai::Fact</a>.
                 </p>
             </div>
@@ -710,8 +709,7 @@ Content-Type: message/rfc822
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
-                                        The number of email bounces, however, the value in parsed data
-                                        is always "1"
+                                        The number of email bounces, however, the value in decoded data is always "1"
                                     </td>
                                 </tr>
                                 <td class = 'ltext'><strong>hardbounce</strong></td>
@@ -820,7 +818,7 @@ Content-Type: message/rfc822
                                         <em class = 'warn'>decription/smtpagent</em>
                                     </td>
                                     <td class = 'ltext'>
-                                        MTA/MSP Module name used for parsing
+                                        MTA/MSP Module name used for decoding
                                     </td>
                                 </tr>
                                 <tr>
@@ -903,7 +901,7 @@ Content-Type: message/rfc822
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Detectable bounce reasons</h3>
                 <p class = 'description'>
-                    All the reasons of parsed data in {{ site.html.ss }} are available on
+                    All the reasons of decoded data in {{ site.html.ss }} are available on
                     <a href = '/en/reason/'>Bounce Reason List</a>.
                 </p>
             </div>
@@ -922,7 +920,7 @@ Content-Type: message/rfc822
                                     <th>Reason</th>
                                     <th>{{ site.html.ss }}</th>
                                     <th>{{ site.html.bh }}</th>
-                                    <th>name in parsed data</th>
+                                    <th>reason name in decoded data</th>
                                 </tr>
                             </thead>
                             <tbody>

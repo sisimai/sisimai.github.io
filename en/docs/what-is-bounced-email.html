@@ -150,7 +150,7 @@
                 <p class = 'description'>
                     A bounced email is created by mail server program such Sendmail,
                     and contains delivery report in its message body.
-                    {{ site.html.ss }} reads a bounced email and parse its headers and
+                    {{ site.html.ss }} reads a bounced email and decode its headers and
                     its message body, then find details about why the delivery failed.
                     The following section is particularly important to find details for {{ site.html.ss }}.
                 </p>
@@ -160,7 +160,7 @@
                 </ul>
                 
                 <p class = 'description'>
-                    {{ site.html.ss }} is a library which parses a bounced email, finds a reason of bounce.
+                    {{ site.html.ss }} is a library which decodes a bounced email, finds a reason of bounce.
                 </p>
             </div>
         </div>

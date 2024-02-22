@@ -90,7 +90,7 @@
                         <h3>Basic Usage</h3>
                         <p class = 'description'>
                             This article will introduce you to the basics of using {{ site.html.ss }}.
-                            We will cover how to decode bounce emails, retrieve structured parsed data,
+                            We will cover how to decode bounce emails, retrieve structured decoded data,
                             and convert it to JSON.
                         </p>
                     </div>
@@ -101,10 +101,10 @@
                         <i class = 'fa fa-code'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>How To Parse</h3>
+                        <h3>How To Decode</h3>
                         <p class = 'description'>
                             This article also covers more advanced topics, such as reading from
-                            STDIN, including delivery success in the parsed results,
+                            STDIN, including delivery success in the decoded results,
                             and incorporating custom processing using the callback feature.
                         </p>
                     </div>
@@ -483,7 +483,7 @@ Done installing documentation for sisimai after 6 seconds
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/outline-1.png'>
                     The following code is an example of how to use the <kbd>rise()</kbd> method of
-                    {{ site.html.ss }} to parse bounce emails and obtain data from the parsed results.
+                    {{ site.html.ss }} to decode bounce emails and obtain data from the decoded results.
                     For more information on the other arguments that can be specified for the <kbd>rise()</kbd>
                     method, please see the <a href = '/en/usage/'>How To Decode</a>.
                     The old <kbd>make()</kbd> method was deprecated in {{ site.html.ss }} 5.0.0.
@@ -513,7 +513,7 @@ if( defined $v ) {
     }
 } else {
     # There is no bounce message in the mailbox
-    # or Sisimai could not parse
+    # or Sisimai could not decode
 }
                 </pre>
             </div>
@@ -545,7 +545,7 @@ if v.is_a? Array
   end
 else
   # There is no bounce message in the mailbox
-  # or Sisimai could not parse
+  # or Sisimai could not decode
 end
                 </pre>
             </div>
@@ -560,7 +560,7 @@ end
                 <p>
                     <img class = 'lhs' src = '/static/images/icon/purchase-order-1.png'>
                     The <kbd>dump()</kbd> method introduced in Perl {{ site.html.ss }} v4.1.27 is
-                    useful for obtaining parsed results in JSON format. As shown below, it can be
+                    useful for obtaining decoded results in JSON format. As shown below, it can be
                     done with a simple code that only passes the <kbd>PATH</kbd> of the email you
                     want to decode.
                 </p>
