@@ -46,26 +46,20 @@
                     <img src = '/static/images/figure/sisimai-overview-1.png' width = '100%'>
                     <h2>{{ site.html.ss }}(シシマイ)とは?</h2>
                     <p class = 'description'>
-                        {{ site.html.ss }}は{{ site.html.bh }}の後継となるバウンスメール(エラーメール)解析ライブラリ
-                        (<strong>Perlモジュール</strong>と<strong>Ruby Gem</strong>)であり、RFC5322に準拠した
-                        バウンスメールを解析し、JSONなどの構造化されたデータとして出力します。
+                        {{ site.html.ss }}(シシマイ)は複雑で多種多様なバウンスメールを解析してバウンスした
+                        理由や宛先メールアドレスなど、配信が失敗した結果を構造化データで出力するライブラリで
+                        JSONでの出力も可能です
                     </p>
                     <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
-                        現在の安定版最新バージョンは
-                        <a href = '{{ site.sisimai.blogurl }}' target = 'new'>{{ site.sisimai.release.ja }}</a>
-                        にリリースされた
-                        <a href = '#download'>
-                            <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
-                        </a>です。
-                        このバージョンではPerl版とRuby版でそれぞれ2件のバグを修正しています。
-                        <strong>
-                            v4.25.16がSisimai 4系の最終リリースとなりそうですが、リリース日以降に深刻なバグが発見された場合は
-                            v4.25.17がリリースされます。そして次の夏までを目標にSisimai 5とGo言語バージョンのSisimai
-                            が<a href = '{{ site.sisimai.repository.go }}' target = 'new'>sisimai/go-sisimai</a>で開発中です。
-                        </strong>
-                        {{ site.html.ss }} {{ site.sisimai.version }}における全ての変更点は
-                        <a href = '{{ site.sisimai.blogurl }}' target = 'new'>blog.libsisimai.org</a>をご覧ください。
+                        現在の安定版最新バージョンは2月2日にリリースした<strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>で
+                        <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v5.0.0' target = 'new'>GitHub(Perl版)</a>または
+                        <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v5.0.0' target = 'new'>GitHub(Ruby版)</a>からのみ
+                        入手可能です。
+
+                        現時点で<a href = '{{ sisimai.distribution.perl }}' target = 'new'>CPAN</a>および
+                        <a href = '{{ sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>から
+                        ダウンロードできるのは<strong>v4.25.16</strong>です。
                     </div>
                 </div>
             </div> 
@@ -153,13 +147,13 @@
                         を解決する為に開発されました。
                     </p>
                     <p class = 'description ja'>
-                        {{ site.html.bh }} の特徴的機能のひとつであった、日本国内の携帯電話宛メールで返ってきた
-                        バウンスメールの宛先不明とドメイン指定拒否を識別する機能もそのまま
-                        {{ site.html.ss }} に引き継いでいます。
-                    </p>
-                    <p class = 'description ja'>
                         現在、Perl版{{ site.html.ss }}は{{ site.html.bh }}の{{ site.sisimai.diff.timesfaster.perl }}
                         倍程度高速に動作し、2倍の解析精度を誇ります。そして2016年2月3日にはRuby版{{ site.html.ss }}
+                        をリリースしました。
+                    </p>
+                    <p class = 'description ja'>
+                        そして2024年2月2日、{{ site.html.ss }}公開から10周年の年に、ドメイン認証(SPF,DKIM,DMARC)系エラーや
+                        レピュテーションに起因するエラーなど現代のバウンスも検出可能な{{ site.html.ss }} {{ site.sisimai.version }}
                         をリリースしました。
                     </p>
                 </div>
@@ -319,8 +313,9 @@
                             <img src = '/static/images/icon/dinosaur-1.png'>
                         </div>
                         <ul>
-                            <li>安定版のみ提供</li>
-                            <li>Perl {{ site.sisimai.workson.perl[0] }} - {{ site.sisimai.workson.perl[1] }}</li>
+                            <li>リリース版のみ提供</li>
+                            <li>{{ site.html.ss }} v4: Perl 5.10.1 - <strong>5.24.4</strong></li>
+                            <li>{{ site.html.ss }} v5: <strong>Perl {{ site.sisimai.workson.perl[0] }}</strong> - {{ site.sisimai.workson.perl[1] }}</li>
                             <li>CPAN</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'
@@ -335,8 +330,9 @@
                             <img src = '/static/images/icon/ruby-1.png'>
                         </div>
                         <ul>
-                            <li>安定版のみ提供</li>
-                            <li>Ruby {{ site.sisimai.workson.ruby[0] }} - {{ site.sisimai.workson.ruby[1] }}</li>
+                            <li>リリース版のみ提供</li>
+                            <li>{{ site.html.ss }} v4: Ruby 2.1.0 - 3.3.0</li>
+                            <li>{{ site.html.ss }} v5: Ruby <strong>{{ site.sisimai.workson.ruby[0] }}</strong> - {{ site.sisimai.workson.ruby[1] }}</li>
                             <li>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'
@@ -354,6 +350,7 @@
                             <li>開発版と安定版</li>
                             <li>p5-sisimai (Perl)</li>
                             <li>rb-sisimai (Ruby)</li>
+                            <li>4-stable, 5-stable</li>
                         </ul>
                         <a href = '{{ site.sisimai.repository.project }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Fork</a>

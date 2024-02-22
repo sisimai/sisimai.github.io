@@ -31,6 +31,7 @@
                     <li class = 'scroll'><a href = '#stdin'>標準入力</a></li>
                     <li class = 'scroll'><a href = '#memory'>変数から</a></li>
                     <li class = 'scroll'><a href = '#delivered'>配信成功も</a></li>
+                    <li class = 'scroll'><a href = '#vacation'>不在応答も</a></li>
                     <li class = 'scroll'><a href = '#callback'>コールバック</a></li>
                     <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
                     <li class = 'others'><a href = '/en/usage/'><i class = 'fa fa-language'></i></a></li>
@@ -106,12 +107,26 @@
                     <div class = 'index-info'>
                         <h3>配信成功も含む</h3>
                         <p class = 'description ja'>
-                            シシマイは既定の動作で配信できなかったメールだけを解析結果として
+                            {{ site.html.ss }}は既定の動作で配信できなかったメールだけを解析結果として
                             出力しますが、配信が成功したメール(配信通知)も解析結果に含める
                             {{ site.html.ss }}クラスのメソッド使用方法を紹介します。
                         </p>
                     </div>
                     <a href = '#delivered' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-plane-departure'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>不在応答も含む</h3>
+                        <p class = 'description ja'>
+                            {{ site.html.ss }}は既定の動作で配信できなかったメールだけを解析結果として
+                            出力しますが、不在応答(Vacation)で返ってきたメールも解析結果に含める
+                            {{ site.html.ss }}クラスのメソッド使用方法を紹介します。
+                        </p>
+                    </div>
+                    <a href = '#vacation' class = 'btn btn-continue'>Read</a>
                 </div>
                 <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
@@ -143,8 +158,13 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>標準入力から読む</h2>
                 <hr>
+                <p class = 'description ja cation'>
+                    <kbd>Sisimai</kbd>クラスの
+                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                </p>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}(シシマイ)の<kbd>make()</kbd>や<kbd>dump()</kbd>メソッドは、
+                    {{ site.html.ss }}(シシマイ)の<kbd>rise()</kbd>や<kbd>dump()</kbd>メソッドは、
                     引数にファイル名を指定する以外に、<kbd>STDIN</kbd>を指定することによって、
                     標準入力(STDIN)からバウンスメールのデータを読み込むことができます。
                     この機能は初期の{{ site.html.ss }}から実装されていましたが、バグがあったため、
@@ -166,7 +186,7 @@
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>STDINファイルハンドル</h4>
                 <p class = 'description ja'>
-                    Sisimaiクラスの<kbd>dump()</kbd>と<kbd>make()</kbd>メソッドは、
+                    <kbd>Sisimai</kbd>クラスの<kbd>dump()</kbd>と<kbd>rise()</kbd>メソッドは、
                     第一引数にファイルハンドル<kbd>STDIN</kbd>を指定すると、
                     標準入力からバウンスメールのデータを読み込み、解析結果を返します。
                 </p>
@@ -180,7 +200,7 @@
     ...
                 </pre>
                 <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | perl -MSisimai -lE 'print $_->recipient->address for @{ Sisimai->make(STDIN) }'</kbd>
+% <kbd>cat ./path/to/email | perl -MSisimai -lE 'print $_->recipient->address for @{ Sisimai->rise(STDIN) }'</kbd>
 kijitora@example.jp
 sironeko@example.org
                 </pre>
@@ -197,7 +217,7 @@ sironeko@example.org
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>STDINオブジェクト</h4>
                 <p class = 'description ja'>
-                    Ruby版{{ site.html.ss }}も同様に、Sisimaiクラスの<kbd>dump()</kbd>と<kbd>make()</kbd>メソッドの
+                    Ruby版{{ site.html.ss }}も同様に、<kbd>Sisimai</kbd>クラスの<kbd>dump()</kbd>と<kbd>rise()</kbd>メソッドの
                     第一引数に<kbd>STDIN</kbd>オブジェクトを指定すると、
                     標準入力からバウンスメールのデータを読み込み、解析結果を返します。
                 </p>
@@ -210,7 +230,7 @@ sironeko@example.org
     ...
                 </pre>
                 <pre class = 'prettyprint'>
-% <kbd>cat ./path/to/email | ruby -rsisimai -e 'p Sisimai.make(STDIN)'</kbd>
+% <kbd>cat ./path/to/email | ruby -rsisimai -e 'p Sisimai.rise(STDIN)'</kbd>
 [#&lt;Sisimai::Data:0x007fa1b0993050 @addresser=#&lt;Sisimai::Address:0x007fa1b0990e40 @user="kijitora", ...
                 </pre>
             </div>
@@ -232,14 +252,19 @@ sironeko@example.org
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>変数から読み込む</h2>
+                <p class = 'description ja cation'>
+                    <kbd>Sisimai</kbd>クラスの
+                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                </p>
                 <p class = 'description ja'>
-                    Sisimaiの<kbd>make()</kbd>と<kbd>dump()</kbd>の第一引数に変数
-                    (Perlではスカラーリファレンス・RubyではStringオブジェクト)を指定することによって、
+                <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>の第一引数に変数
+                (Perlではスカラーリファレンス・Rubyでは<kbd>String</kbd>オブジェクト)を指定することによって、
                     ファイルとしてのメールや標準入力以外からバウンスメールのデータを読み込むことができます。
                 </p>
                 <p class = 'description ja'>
                     バウンスメールをデータベースやジョブキューシステムから読み出す場合に有用なこの機能
-                    (Sisimai::Mail::Memory)は{{ site.html.ss }} 4.23.0で実装されました。
+                    (<kbd>Sisimai::Mail::Memory</kbd>)は{{ site.html.ss }} 4.23.0で実装されました。
                 </p>
             </div>
         </div>
@@ -251,20 +276,20 @@ sironeko@example.org
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Scalar Reference</h4>
                 <p class = 'description ja'>
-                    <kbd>make()</kbd>と<kbd>dump()</kbd>の第一引数に<strong>スカラーリファレンス</strong>を指定すると、
-                    Sisimai内部ではSisimai::Mail::Memoryが呼び出され、メールのファイルや標準入力から読み込んだ
+                    <kbd>rise()</kbd>と<kbd>dump()</kbd>の第一引数に<strong>スカラーリファレンス</strong>を指定すると、
+                    {{ site.html.ss }}内部では<kbd>Sisimai::Mail::Memory</kbd>が呼び出され、メールのファイルや標準入力から読み込んだ
                     のと同様、解析結果が得られます。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
 my $f = 'From MAILER-DAEMON Thu Dec 22 17:54:04 2015...';   # バウンスメール全体
-my $v = Sisimai->make(\$f);
+my $v = Sisimai->rise(\$f);
 for my $e ( @$v ) {
-    print $e->action;           # delayed
-    print $e->deliverystatus;   # 4.7.0
-    print $e->reason;           # expired
-    print $e->diagnosticcode;   # Envelope expired
-    print $e->softbounce;       # 1
+    print $e->action;           # "delayed"
+    print $e->deliverystatus;   # "4.7.0"
+    print $e->reason;           # "expired"
+    print $e->diagnosticcode;   # "Envelope expired"
+    print $e->hardbounce;       # 0
 }
                 </pre>
             </div>
@@ -277,20 +302,20 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>String Object</h4>
                 <p class = 'description ja'>
-                    Ruby版{{ site.html.ss }}では<kbd>make()</kbd>と<kbd>dump()</kbd>の第一引数に
-                    <strong>Stringオブジェクト</strong>を指定すると、Sisimai内部でSisimai::Mail::Memoryが呼び出され、
-                    メールのファイルや標準入力から読み込んだのと同様、解析結果が得られます。
+                    Ruby版{{ site.html.ss }}では<kbd>rise()</kbd>と<kbd>dump()</kbd>の第一引数に
+                    <strong>Stringオブジェクト</strong>を指定すると、{{ site.html.ss }}内部で<kbd>Sisimai::Mail::Memory</kbd>
+                    が呼び出され、メールのファイルや標準入力から読み込んだのと同様、解析結果が得られます。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 f = 'From MAILER-DAEMON Thu Dec 22 17:54:04 2015...'    # バウンスメール全体
-v = Sisimai.make(f)
+v = Sisimai.rise(f)
 v.each do |e|
-  puts e.action         # delayed
-  puts e.deliverystatus # 4.7.0
-  puts e.reason         # expired
-  puts e.diagnosticcode # Envelope expired
-  puts e.softbounce     # 1
+  puts e.action         # "delayed"
+  puts e.deliverystatus # "4.7.0"
+  puts e.reason         # "expired"
+  puts e.diagnosticcode # "Envelope expired"
+  puts e.hardbounce     # false
 end
                 </pre>
             </div>
@@ -308,8 +333,13 @@ end
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>配信成功も解析結果に含める</h2>
+                <p class = 'description ja cation'>
+                    <kbd>Sisimai</kbd>クラスの
+                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                </p>
                 <p class = 'description ja'>
-                    Sisimaiの<kbd>make()</kbd>と<kbd>dump()</kbd>は第二引数に<kbd>delivered</kbd>
+                    <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>は第二引数に<kbd>delivered</kbd>
                     を指定することによって、配信が成功した事を通知するメールも解析結果に含めることができます。
                 </p>
             </div>
@@ -341,20 +371,20 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>delivered =&gt; 1</h4>
                 <p class = 'description ja'>
-                    <kbd>make()</kbd>と<kbd>dump()</kbd>の第二引数に<kbd>delivered =&gt; 1</kbd>を指定すると、
+                    <kbd>rise()</kbd>と<kbd>dump()</kbd>の第二引数に<kbd>delivered =&gt; 1</kbd>を指定すると、
                     配信に成功したメール(配信通知)も解析結果に含まれるようになります。<kbd>delivered</kbd>
-                    に偽となる値(0,undef,'')を指定した場合は、解析結果は生成されません。
+                    に偽となる値(<kbd>0</kbd>,<kbd>undef</kbd>,<kbd>''</kbd>)を指定した場合は、解析結果は生成されません。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
 my $f = './set-of-emails/maildir/bsd/rfc3464-28.eml';
-my $v = Sisimai->make($f, <strong>'delivered' => 1</strong>);
+my $v = Sisimai->rise($f, <strong>'delivered' => 1</strong>);
 for my $e ( @$v ) {
-    print $e->action;           # deliverable
-    print $e->deliverystatus;   # 2.1.5
-    print $e->reason;           # delivered
-    print $e->diagnosticcode;   # 250 2.1.5 Ok
-    print $e->softbounce;       # -1
+    print $e->action;           # "delivered"
+    print $e->deliverystatus;   # "2.1.5"
+    print $e->reason;           # "delivered"
+    print $e->diagnosticcode;   # "250 2.1.5 Ok"
+    print $e->hardbounce;       # 0
 }
                 </pre>
             </div>
@@ -367,21 +397,21 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>delivered: true</h4>
                 <p class = 'description ja'>
-                    Perl版と同様に、Ruby版{{ site.html.ss }}でも<kbd>make()</kbd>と<kbd>dump()</kbd>の第二引数に
+                    Perl版と同様に、Ruby版{{ site.html.ss }}でも<kbd>rise()</kbd>と<kbd>dump()</kbd>の第二引数に
                     <kbd>delivered: true</kbd>を指定すると、配信に成功したメール(配信通知)も
                     解析結果に含まれるようになります。<kbd>delivered</kbd>
-                    に偽となる値(nil,false)を指定した場合は、解析結果は生成されません。
+                    に偽となる値(<kbd>nil</kbd>,<kbd>false</kbd>)を指定した場合は、解析結果は生成されません。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 f = './set-of-emails/maildir/bsd/rfc3464-28.eml'
-v = Sisimai.make(f, <strong>delivered: true</strong>)
+v = Sisimai.rise(f, <strong>delivered: true</strong>)
 v.each do |e|
-  puts e.action         # deliverable
-  puts e.deliverystatus # 2.1.5
-  puts e.reason         # delivered
-  puts e.diagnosticcode # 250 2.1.5 Ok
-  puts e.softbounce     # -1
+  puts e.action         # "delivered"
+  puts e.deliverystatus # "2.1.5"
+  puts e.reason         # "delivered"
+  puts e.diagnosticcode # "250 2.1.5 Ok"
+  puts e.hardbounce     # false
 end
                 </pre>
             </div>
@@ -389,7 +419,108 @@ end
     </div>
 </section> <!-- /#delivered -->
 
-<section id = 'callback' class = 'not-parallax'>
+<section id = 'vacation' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-plane-departure'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>不在応答(Vacation)も解析結果に含める</h2>
+                <p class = 'description ja cation'>
+                    <kbd>Sisimai</kbd>クラスの
+                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                </p>
+                <p class = 'description ja cation'>
+                    {{ site.html.ss }} 5.0.0でバウンス理由が<strong>vacation</strong>となる
+                    バウンスメールはデフォルトで解析されなくなりました。必要な場合は
+                    <kbd>vacation</kbd>パラメーターを<kbd>rise()</kbd>メソッドに指定してください。
+                </p>
+                <p class = 'description ja'>
+                    <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>は第二引数に<kbd>vacation</kbd>
+                    を指定することによって、不在応答(Vacation)のメールも解析結果に含めることができます。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>email</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>不在応答(Vacation)のサンプルメール</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/message-3.png'>
+                    不在応答のメールは
+                    <a href = 'https://github.com/sisimai/set-of-emails' target = 'new'>github.com/sisimai/set-of-emails</a>
+                    リポジトリの
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/rfc3834-01.eml' target = 'new'>
+                        rfc3834-01.eml
+                    </a>
+                    がサンプルとして用意してあります。
+                    ここでは、このメールを解析するサンプルコードを紹介します。
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>vacation =&gt; 1</h4>
+                <p class = 'description ja'>
+                    <kbd>rise()</kbd>と<kbd>dump()</kbd>の第二引数に<kbd>vacation=&gt; 1</kbd>を指定すると、
+                    不在応答のメールも解析結果に含まれるようになります。<kbd>vacation</kbd>
+                    に偽となる値(<kbd>0</kbd>,<kbd>undef</kbd>,<kbd>''</kbd>)を指定した場合は、解析結果は生成されません。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
+use Sisimai;
+my $f = './set-of-emails/maildir/bsd/rfc3834-01.eml';
+my $v = Sisimai->rise($f, <strong>'vacation' => 1</strong>);
+for my $e ( @$v ) {
+    print $e->action;           # ""
+    print $e->deliverystatus;   # ""
+    print $e->reason;           # "vacation"
+    print $e->diagnosticcode;   # "I am currently away returning to the office on May 5th."
+    print $e->hardbounce;       # 0
+}
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>vacation: true</h4>
+                <p class = 'description ja'>
+                    Perl版と同様に、Ruby版{{ site.html.ss }}でも<kbd>rise()</kbd>と<kbd>dump()</kbd>の第二引数に
+                    <kbd>vacation: true</kbd>を指定すると、不在通知のメールも
+                    解析結果に含まれるようになります。<kbd>vacation</kbd>
+                    に偽となる値(<kbd>nil</kbd>,<kbd>false</kbd>)を指定した場合は、解析結果は生成されません。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
+require 'sisimai'
+f = './set-of-emails/maildir/bsd/rfc3834-01.eml'
+v = Sisimai.rise(f, <strong>vacation: true</strong>)
+v.each do |e|
+  puts e.action         # ""
+  puts e.deliverystatus # ""
+  puts e.reason         # "vacation"
+  puts e.diagnosticcode # "I am currently away returning to the office on May 5th."
+  puts e.hardbounce     # false
+end
+                </pre>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#delivered -->
+
+<section id = 'callback' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -399,9 +530,20 @@ end
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2>コールバック機能</h2>
+                <p class = 'description ja cation'>
+                    <kbd>Sisimai</kbd>クラスの
+                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                </p>
+                <p class = 'description ja cation'>
+                    {{ site.html.ss }} 5.0.0でコールバック機能の仕様(引数の数・型)が変りました。
+                    非互換の変更につき、Version 4でのコールバック機能は<kbd>4-stable</kbd>ブランチの
+                    <a href = 'https://github.com/sisimai/p5-sisimai/blob/4-stable/README-JA.md#callback-feature'>GitHub/Callback Feature</a>
+                    を確認してください。
+                </p>
                 <p class = 'description ja'>
                     {{ site.html.ss }} 4.19.0から実装されたコールバック機能を使用すると、
-                    <kbd>Sisimai::Data</kbd>または<kbd>Sisimai::Message</kbd>の<kbd>catch()</kbd>
+                    <kbd>Sisimai::Fact</kbd>または<kbd>Sisimai::Message</kbd>の<kbd>catch()</kbd>
                     メソッドを通して、バウンスメールを独自に処理した結果を取得することができます。
                     この機能は{{ site.html.ss }}が解析結果に含めない元メッセージ全体や
                     元メッセージの特定のヘッダの値(例えば配信IDなど)を取り出したりするのに便利です。
@@ -410,15 +552,67 @@ end
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>argv</div>
+                <div class = 'index-label'>c___</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>呼び出されるメソッドの引数</h3>
+                <h3 class = 'in-desc'>c___に渡す引数</h3>
                 <p class = 'description ja'>
-                    Perlのフックメソッド(サブルーチン)には<strong>ハッシュリファレンス1つ</strong>、
-                    Rubyのフックメソッドには<strong>Hashオブジェクト1つ</strong>
-                    が引数として渡されます。引数の構造は以下のようになっています。
+                    <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>メソッドにおける<kbd>c___</kbd>
+                    (<kbd>c</kbd>と<kbd>_</kbd>が三つ、釣り針に見える)
+                    に渡せる引数は、Perlのフックメソッド(サブルーチン)には<strong>配列リファレンス1つ</strong>、
+                    Rubyのフックメソッドには<strong>Arrayオブジェクト1つ</strong>
+                    です。引数の構造は以下のようになっています。
                 </p>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-bordered'>
+                        <thead>
+                            <tr>
+                                <th><kbd>c___</kbd>に渡す配列のインデックス</th>
+                                <th>処理対象</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class = 'ltext'>[0] (下記コード例にある<kbd>$code0</kbd>)</td>
+                                <td>メールのヘッダー<kbd>headers</kbd>および本文<kbd>message</kbd></td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>[1] (下記コード例にある<kbd>$code1</kbd>)</td>
+                                <td>元メールのファイルに対して</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre class = 'prettyprint'>
+my $code0 = sub {
+    my $args = shift;
+    my $head = $args->{'headers'}; # ヘッダー
+    my $body = $args->{'message'}; # 本文
+};
+my $code1 = sub {
+    my $args = shift;
+    my $kind = $args->{'kind'}; # (String)  Sisimai::Mail->kind
+    my $mail = $args->{'mail'}; # (*String) Entire email message
+    my $path = $args->{'path'}; # (String)  Sisimai::Mail->path
+    my $fact = $args->{'fact'}; # (*Array)  List of Sisimai::Fact
+};
+my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
+                </pre>
+
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>c___[0]</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>c___[0]の入力値</h3>
+                <p class = 'description ja'>
+                    <kbd>message</kbd>で得られる文字列はバウンスメールの本文です。バウンスメールそのものの
+                    ヘッダーは含まれていませんので、ハッシュ化された<kbd>headers</kbd>を参照してください。
+                </p>
+
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-bordered'>
                         <thead>
@@ -426,8 +620,6 @@ end
                                 <th>キー名</th>
                                 <th>データ型</th>
                                 <th>説明</th>
-                                <th>メール</th>
-                                <th>JSON</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -435,15 +627,58 @@ end
                                 <td class = 'ltext'>headers</td>
                                 <td>Hash</td>
                                 <td>バウンスメールのヘッダ部分(ハッシュ化済み)</td>
-                                <td>○</td>
-                                <td>undef,nil</td>
                             </tr>
                             <tr>
                                 <td class = 'ltext'>message</td>
                                 <td>String</td>
-                                <td>バウンスメールのメール本文(改行・元メッセージを含む)</td>
-                                <td>○</td>
-                                <td>undef,nil</td>
+                                <td>ヘッダーは含まないバウンスメールのメール本文</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>c___[1]</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>c___[1]の入力値</h3>
+                <p class = 'description ja'>
+                    <kbd>mail</kbd>で得られる文字列は、バウンスメールそのもののヘッダーも含む
+                    バウンスメール全体です。
+                </p>
+
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-bordered'>
+                        <thead>
+                            <tr>
+                                <th>キー名</th>
+                                <th>データ型</th>
+                                <th>説明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class = 'ltext'>kind</td>
+                                <td>String</td>
+                                <td>元メールファイルの種類</td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>mail</td>
+                                <td>*String</td>
+                                <td>ヘッダーも含むバウンスメール全体</td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>path</td>
+                                <td>String</td>
+                                <td>元メールファイルへのPATH</td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>fact</td>
+                                <td>Array</td>
+                                <td>解析結果である<kbd>Sisimai::Fact</kbd>のリスト</td>
                             </tr>
                         </tbody>
                     </table>
@@ -456,116 +691,58 @@ end
                 <div class = 'index-label'>email</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>電子メール: lhost-postfix-16.eml</h3>
+                <h3 class = 'in-desc'>電子メール: rhost-google-03.eml</h3>
                 <p class = 'description ja'>
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-16.eml' target = 'new'>
-                        lhost-postfix-16.eml
-                    </a>にある以下の内容をコールバックで実行するコードによって取得する例を示します。
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/rhost-google-03.eml' target = 'new'>
+                        rhost-google-03.eml
+                    </a>にある以下の内容をコールバックで実行するコードによって取得し、元メールへの操作例を示します。
                 </p>
                 <ul>
-                    <li>ヘッダの<kbd>Received-SPF</kbd>の値</li>
-                    <li>本文の<kbd>X-Postfix-Queue-ID</kbd>の値</li>
+                    <li>バウンスメールのヘッダにある<kbd>Return-Path</kbd>の値を取得</li>
+                    <li>バウンスメールのヘッダにある<kbd>Authentication-Results</kbd>の値を取得</li>
+                    <li>本文の<kbd>X-Postfix-Queue-ID</kbd>の値を取得</li>
+                    <li>元メールに独自ヘッダーを書き加えて別のPATHへ保存する</li>
                 </ul>
 
-                <pre class = 'prettyprint'>Return-Path: &lt;&gt;
-Received: by 192.0.2.22 with SMTP id fffffff000;
-    Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-Received: from mx0.example.jp (mx0.example.jp [192.0.2.9])
-    by mx.example.org with ESMTP id 0000000000000000000000;
-    Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-<strong>Received-SPF: pass (example.org: best guess record for domain of mx0.example.jp designates 192.0.2.9 as permitted sender) client-ip=192.0.2.9;</strong>
-Received: by mx0.example.jp (Postfix)
-    id FFFFFFFFFFFF; Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-Date: Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-From: MAILER-DAEMON@example.jp (Mail Delivery System)
+                <pre class = 'prettyprint'><strong>Return-Path: <></strong>
+Received: from mail4.example.com (mx4.example.com [192.0.2.24])
+	by secure.example.jp (Postfix) with ESMTPS id 4SnNbh0r3mz24sXs
+	for <postmaster@example.jp>; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
+Received: by mail4.example.com (Postfix)
+	id t8WLKlmm99zqL71C; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
+<strong>Authentication-Results: secure.example.jp; spf=fail smtp.helo=mail4.example.com</strong>
+Date: Thu,  9 Apr 2022 23:34:45 +0900 (JST)
+From: MAILER-DAEMON@mail4.example.com (Mail Delivery System)
 Subject: Undelivered Mail Returned to Sender
-To: shironeko@cat.example.com
-Auto-Submitted: auto-replied
-MIME-Version: 1.0
-Content-Type: multipart/report; report-type=delivery-status;
-    boundary="FFFFFFFFFF.00000000/mx0.example.jp"
-Content-Transfer-Encoding: 8bit
-Message-Id: &lt;000000000000000.FFFFFFFFFFFF@mx0.example.jp&gt;
+To: nginx@mail4.example.com
+...
+<kijitora@google.example.com> (expanded from <neko@example.co.jp>): host
+    gmail-smtp-in.l.google.com[64.233.188.26] said: 550-5.7.26 The MAIL FROM
+    domain [mail4.example.com] has an SPF record with a 550-5.7.26 hard fail
+    policy (-all) but it fails to pass SPF checks with the ip: 550-5.7.26
+    [192.0.2.24]. To best protect our users from spam and phishing,
+    550-5.7.26 the message has been blocked. For instructions on setting up
+    550-5.7.26 authentication, go to 550 5.7.26
+    https://support.google.com/mail/answer/81126#authentication
+    2-222222630d46222222b002b2d2neko2cat2222222cat.22 - gsmtp (in reply to end
+    of DATA command)
 
-This is a MIME-encapsulated message.
-
---FFFFFFFFFF.00000000/mx0.example.jp
-Content-Description: Notification
-Content-Type: text/plain; charset=us-ascii
-
-This is the mail system at host mx0.example.jp.
-
-I'm sorry to have to inform you that your message could not
-be delivered to one or more recipients. It's attached below.
-
-For further assistance, please send mail to &lt;postmaster&gt;
-
-If you do so, please include this problem report. You can
-delete your own text from the attached returned message.
-
-                   The mail system
-
-&lt;kijitora@example.go.jp&gt;: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
-    no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
-
---FFFFFFFFFF.00000000/mx0.example.jp
+--Lms5yfCw0Vz5CRp3.1647426971/mail4.example.com
 Content-Description: Delivery report
 Content-Type: message/delivery-status
 
-Reporting-MTA: dns; mx0.example.jp
-<strong>X-Postfix-Queue-ID: FFFFFF000000</strong>
-X-Postfix-Sender: rfc822; shironeko@cat.example.com
-...
-                </pre>
-            </div>
+Reporting-MTA: dns; mail4.example.com
+<strong>X-Postfix-Queue-ID: Lms5yfCw0Vz5CRp3</strong>
+X-Postfix-Sender: rfc822; nginx@mail4.example.com
+Arrival-Date: Thu,  9 Apr 2022 23:34:45 +0900 (JST)
 
-            <div class = 'col-sm-8 col-sm-offset-2'>
-                <p class = 'description ja'>
-                    フックメソッドには一つの引数が以下のように渡されます。
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-16.eml' target = 'new'>
-                        lhost-postfix-16.eml
-                    </a>のヘッダ部分(ハッシュ化済み)とメッセージ部分(文字列)を構造化したものです。
-                    <kbd>undef</kbd>になっている部分は、Rubyでは<kbd>nil</kbd>と読み替えてください。
-                </p>
-
-                <pre class = 'prettyprint'>{
-  <strong>'headers'</strong> => {
-     'x-mailer' => undef,
-     'return-path' => '<>',
-     'content-type' => 'multipart/report; report-type=delivery-status; boundary="FFFFFFFFFF.00000000/mx0.example.jp"',
-     'subject' => 'Undelivered Mail Returned to Sender',
-     'date' => 'Thu, 20 Jan 2011 23:34:45 +0900 (JST)',
-     'to' => 'shironeko@cat.example.com',
-     'received-spf' => 'pass (example.org: best guess record for domain of mx0.example.jp designates 192.0.2.9 as permitted sender) client-ip=192.0.2.9;',
-     'reply-to' => undef,
-     'message-id' => '<000000000000000.FFFFFFFFFFFF@mx0.example.jp>',
-     'from' => 'MAILER-DAEMON@example.jp (Mail Delivery System)',
-     'content-transfer-encoding' => '8bit',
-     'received' => [
-         'by 192.0.2.22 with SMTP id fffffff000; Thu, 20 Jan 2011 23:34:45 +0900 (JST)',
-         'from mx0.example.jp (mx0.example.jp [192.0.2.9]) by mx.example.org with ESMTP id 0000000000000000000000; Thu, 20 Jan 2011 23:34:45 +0900 (JST)',
-         'by mx0.example.jp (Postfix) id FFFFFFFFFFFF; Thu, 20 Jan 2011 23:34:45 +0900 (JST)'
-       ],
-     'auto-submitted' => 'auto-replied'
-     },
-  <strong>'message'</strong> => 'This is a MIME-encapsulated message.
-...
-Reporting-MTA: dns; mx0.example.jp
-X-Postfix-Queue-ID: FFFFFF000000
-X-Postfix-Sender: rfc822; shironeko@cat.example.com
-Arrival-Date: Thu, 20 Jan 2011 23:34:45 +0900 (JST)
-
-Final-Recipient: rfc822; kijitora@example.go.jp
+Final-Recipient: rfc822; kijitora@google.example.com
+Original-Recipient: rfc822;neko@example.co.jp
 Action: failed
-Status: 5.1.6
+Status: 5.7.26
+Remote-MTA: dns; gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.7.26 The MAIL FROM domain [mail4.example.com] has
 ...
-Subject: Nyaaaaan
-To: Kijitora <kijitora@example.go.jp>
-Message-Id: <0000000000000.FFFFFF000000@mx0.example.jp>
-
-Nyaaaan
-'
-  }
                 </pre>
             </div>
         </div>
@@ -575,29 +752,55 @@ Nyaaaan
                 <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Sisimai-&gt;make($f, 'hook' => $x)</h4>
+                <h4 class = 'in-desc'>Sisimai-&gt;rise($f, 'c___' => [$c0, $c1])</h4>
                 <p class = 'description ja'>
-                    Sisimaiクラスの<kbd>make()</kbd>と<kbd>dump()</kbd>メソッドに、
-                    実行したい処理内容を書いたサブルーチンのコードリファレンスを第二引数
-                    <kbd>hook</kbd>として渡すことができます。
+                    Sisimaiクラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>メソッドに、
+                    実行したい処理内容を書いたサブルーチンのコードリファレンス2個を第二引数
+                    <kbd>c___</kbd>として渡すことができます。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
-my $f = './set-of-emails/maildir/bsd/lhost-postfix-16.eml';
-my $x = sub {
-    my $argv = shift;
-    my $data = { 'queue-id' => '', 'received-spf' => '' };
+my $fn = 'set-of-emails/maildir/bsd/rhost-google-03.eml';
+my $c0 = sub {
+    my $args = shift;
+    my $data = { 'queue-id' => '', 'authentication-results' => '', 'return-path' => '' };
 
-    $data->{'received-spf'} = $argv->{'headers'}->{'received-spf'} || '';
-    if( $argv->{'message'} =~ m/^X-Postfix-Queue-ID:\s*(.+)$/m ) {
+    $data->{'return-path'} = $args->{'headers'}->{'return-path'} || '';
+    $data->{'authentication-results'} = $args->{'headers'}->{'authentication-results'} || '';
+    if( $args->{'message'} =~ m/^X-Postfix-Queue-ID:\s*(.+)$/m ) {
         $data->{'queue-id'} = $1;
     }
     return $data;
 };
-my $j = Sisimai-&gt;dump($f, <strong>'hook' => $x</strong>); # JSON文字列を得る
-my $v = Sisimai-&gt;make($f, <strong>'hook' => $x</strong>);
-print $v->[0]->{<strong>'catch'</strong>}->{'received-spf'};  # pass (example.org:...
-print $v->[0]->{<strong>'catch'</strong>}->{'queue-id'};      # FFFFFF000000
+my $c1 = sub {
+    my $args = shift;
+    my $kind = $args->{'kind'}; # (String)  Sisimai::Mail->kind
+    my $mail = $args->{'mail'}; # (*String) Entire email message
+    my $path = $args->{'path'}; # (String)  Sisimai::Mail->path
+    my $fact = $args->{'fact'}; # (*Array)  List of Sisimai::Fact
+
+    for my $e ( @$fact ) {
+        # "catch"アクセサの中に独自の情報を保存する
+        $e->{'catch'} ||= {};
+        $e->{'catch'}->{'size'} = length $$mail;
+        $e->{'catch'}->{'kind'} = ucfirst $kind;
+
+        # "X-Sisimai-Parsed:"ヘッダーを追加して別のPATHに元メールを保存する
+        my $a = sprintf("X-Sisimai-Parsed: %d\n", scalar @$fact);
+        my $f = IO::File->new(sprintf("/tmp/sisimai-%s.eml", $e->token), 'w');
+        my $v = $$mail; $v =~ s/^(From:.+)$/$a$1/m;
+        print $f $v; $f->close;
+    }
+
+    # 解析が終わったらMaildir/にあるファイルを削除する
+    unlink $path if $kind eq 'maildir';
+};
+
+my $js = Sisimai->dump($fn, 'c___' => [$c0, $c1]); # JSON文字列を得る
+my $rv = Sisimai->rise($fn, 'c___' => [$c0, $c1]);
+printf("Authentication-Results: %s\n", $rv->[0]->{'catch'}->{'authentication-results'});
+printf("X-Postfix-Queue-ID: %s\n", $rv->[0]->{'catch'}->{'queue-id'});
+printf("Return-Path: %s\n", $rv->[0]->{'catch'}->{'return-path'});
                 </pre>
             </div>
         </div>
@@ -606,29 +809,54 @@ print $v->[0]->{<strong>'catch'</strong>}->{'queue-id'};      # FFFFFF000000
                 <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Sisimai.make(f, hook: x)</h4>
+                <h4 class = 'in-desc'>Sisimai.rise(f, c___: [c0, c1])</h4>
                 <p class = 'description ja'>
-                    Sisimaiクラスの<kbd>make()</kbd>と<kbd>dump()</kbd>メソッドに、
-                    実行したい処理内容を書いたProcオブジェクトを<kbd>hook:</kbd>
+                <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>メソッドに、
+                    実行したい処理内容を書いた<kbd>Proc</kbd>オブジェクトを<kbd>c___:</kbd>
                     として渡すことができます。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-f = './set-of-emails/maildir/bsd/lhost-postfix-16.eml'
-x = lambda do |argv|
-  data = { 'queue-id' => '', 'received-spf' => '' }
-
-  data['received-spf'] = argv['headers']['received-spf'] || ''
-  if cv = argv['message'].match(/^X-Postfix-Queue-ID:\s*(.+)$/)
+fn = 'set-of-emails/maildir/bsd/rhost-google-03.eml'
+c0 = lambda do |args|
+  data = { 'queue-id' => '', 'authentication-results' => '', 'return-path' => '' }
+  data['return-path'] = args['headers']['return-path'] || ''
+  data['authentication-results'] = args['headers']['authentication-results'] || ''
+  if cv = args['message'].match(/^X-Postfix-Queue-ID:\s*(.+)$/)
     data['queue-id'] = cv[1]
   end
   return data
 end
 
-j = Sisimai.dump(f, <strong>hook: x</strong>)    # JSON文字列を得る
-v = Sisimai.make(f, <strong>hook: x</strong>)
-puts v[0][<strong>'catch'</strong>]['received-spf'] # pass (example.org: ...
-puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
+c1 = lambda do |args|
+  kind = args['kind'] # (String)  Sisimai::Mail.kind
+  mail = args['mail'] # (*String) Entire email message
+  path = args['path'] # (String)  Sisimai::Mail.path
+  fact = args['fact'] # (*Array)  List of Sisimai::Fact
+
+  fact.each do |e|
+    # "catch"アクセサの中に独自の情報を保存する
+    e.catch ||= {}
+    e.catch['size'] = mail.size
+    e.catch['kind'] = kind
+
+    # "X-Sisimai-Parsed:"ヘッダーを追加して別のPATHに元メールを保存する
+    a = sprintf("X-Sisimai-Parsed: %d", fact.size)
+    b = mail.sub(/^(To:.+$)/,'\1'+ "\n" + a)
+    File.open(sprintf("/tmp/sisimai-%s.eml", e.token), "w") do |f|
+      f.puts(b)
+    end
+
+    # 解析が終わったらMaildir/にあるファイルを削除する
+    File.delete(path) if kind == 'maildir'
+  end
+end
+
+js = Sisimai.dump(fn, c___: [c0, c1]) # JSON文字列を得る
+rv = Sisimai.rise(fn, c___: [c0, c1])
+printf("Authentication-Results: %s\n", rv[0].catch['authentication-results'])
+printf("X-Postfix-Queue-ID: %s\n", rv[0].catch['queue-id'])
+printf("Return-Path: %s\n", rv[0].catch['return-path'])
                 </pre>
             </div>
         </div>
@@ -639,39 +867,42 @@ puts v[0][<strong>'catch'</strong>]['queue-id']     # FFFFFF000000
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>dump()で出力したJSON</h3>
                 <p class = 'description ja'>
-                    Sisimaiの<kbd>dump()</kbd>メソッドにフックメソッドを渡して得たJSON文字列は
-                    次のような内容になります。
+                    <kbd>Sisimai</kbd>クラスの<kbd>dump()</kbd>メソッドにフックメソッドを渡して得た
+                    JSON文字列は次のような内容になります。
                 </p>
                 <pre class = 'prettyprint'>[
   {
-    "timestamp": 1270043983,
-    "smtpcommand": "RCPT",
-    "subject": "Nyaaan",
-    "recipient": "kijitora@example.jp",
-    "destination": "example.jp",
-    "senderdomain": "example.co.jp",
-    "token": "bb2a5dfb6161f396300b24acd9bf637c1c45a58a",
-    "smtpagent": "qmail",
-    "replycode": "450",
-    "softbounce": 1,
-    <strong>"catch": {
-      "received-spf": "pass (example.org: best guess record for domain of mx0.example.jp designates 192.0.2.9 as permitted sender) client-ip=192.0.2.9;",
-      "queue-id": "FFFFFF000000",
-    },</strong>
-    "rhost": "192.0.2.135",
+    "addresser": "kijitora@google.example.com",
+    "messageid": "vDcsF1hr4zzywp69@mail4.example.com",
+    "recipient": "kijitora@google.example.com",
+    "diagnosticcode": "host gmail-smtp-in.l.google.com[64.233.188.26] said: The MAIL FROM domain [mail4.example.com] has an SPF record with a hard fail policy (-all) but it fails to pass SPF checks with the ip: [192.0.2.24]. To best protect our users from spam and phishing, the message has been blocked. For instructions on setting up authentication, go to https://support.google.com/mail/answer/81126#authentication 2-222222630d46222222b002b2d2neko2cat2222222cat.22 - gsmtp (in reply to end of DATA command)",
+    "smtpagent": "Postfix",
+    "destination": "google.example.com",
+    "alias": "neko@example.co.jp",
+    "reason": "authfailure",
+    "lhost": "gmail-smtp-in.l.google.com",
+    "senderdomain": "google.example.com",
+    "token": "fe75b94dd0489b106fa041c460064dd6afa8196b",
+    "subject": "Nyaan",
+    "deliverystatus": "5.7.26",
     "timezoneoffset": "+0900",
-    "addresser": "shironeko@example.co.jp",
-    "diagnostictype": "SMTP",
-    "action": "failed",
     "listid": "",
+    "origin": "set-of-emails/maildir/bsd/rhost-google-03.eml",
+    "action": "failed",
+    "timestamp": 1649514885,
+    "hardbounce": 0,
+    "rhost": "gmail-smtp-in.l.google.com",
+    "catch": {
+      "size": 4436,
+      "kind": "Mailbox",
+      "authentication-results": "secure.example.jp; spf=fail smtp.helo=mail4.example.com",
+      "return-path": "<>",
+      "queue-id": "Lms5yfCw0Vz5CRp3"
+    },
+    "diagnostictype": "SMTP",
+    "replycode": 550,
     "feedbacktype": "",
-    "diagnosticcode": "192.0.2.135 does not like recipient. Remote host said: 450 4.2.2 <kijitora@example.jp>... Mailbox Full Giving up on 192.0.2.135. I'm not going to try again; this message has been in the queue too long.",
-    "reason": "mailboxfull",
-    "deliverystatus": "4.2.2",
-    "alias": "",
-    "lhost": "",
-    "messageid": "57D03121-12F7-4801-B30F-9E44B15E56DC@example.co.jp"
-    "origin": "/var/spool/bounce/1.eml"
+    "smtpcommand": "DATA"
   }
 ]
                 </pre>

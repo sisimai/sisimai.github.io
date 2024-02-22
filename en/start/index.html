@@ -59,8 +59,8 @@
                     <div class = 'index-info'>
                         <h3>Environment</h3>
                         <p class = 'description'>
-                            {{ site.html.ss }} works on some operating systems
-                            that Perl or Ruby (including JRuby) is available to execute.
+                            {{ site.html.ss }} works on any OS where Perl or Ruby (including some
+                            versions of JRuby) can run.
                         </p>
                     </div>
                     <a href = '#environment' class = 'btn btn-continue'>Read</a>
@@ -72,8 +72,12 @@
                     <div class = 'index-info'>
                         <h3>How To Install</h3>
                         <p class = 'description'>
-                            {{ site.html.ss }} could be downloaded and installed from CPAN,
-                            RubyGems.org, and GitHub repository.
+                            {{ site.html.ss }} can be downloaded from 
+                            <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>(Perl)
+                            or 
+                            <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems</a>(Ruby).
+                            Both the Perl and Ruby versions are also available for download on
+                            <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a>.
                         </p>
                     </div>
                     <a href = '#install' class = 'btn btn-continue'>Read</a>
@@ -85,8 +89,9 @@
                     <div class = 'index-info'>
                         <h3>Basic Usage</h3>
                         <p class = 'description'>
-                            How to use {{ site.html.ss }} to parse bounce mails,
-                            to get structured data, and for converting parsed data as JSON.
+                            This article will introduce you to the basics of using {{ site.html.ss }}.
+                            We will cover how to decode bounce emails, retrieve structured decoded data,
+                            and convert it to JSON.
                         </p>
                     </div>
                     <a href = '#usage' class = 'btn btn-continue'>Read</a>
@@ -96,10 +101,11 @@
                         <i class = 'fa fa-code'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>How To Parse</h3>
+                        <h3>How To Decode</h3>
                         <p class = 'description'>
-                            How to read bounce mail data from Standard-In, to include a delivery success
-                            in the parsed results, and to use callback feature.
+                            This article also covers more advanced topics, such as reading from
+                            STDIN, including delivery success in the decoded results,
+                            and incorporating custom processing using the callback feature.
                         </p>
                     </div>
                     <a href = '/en/usage/' class = 'btn btn-continue'>Read</a>
@@ -120,11 +126,11 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>System Requirements</h2>
                 <p class = 'description'>
-                    {{ site.html.ss }} can run on the system that Perl or Ruby (Including JRuby)
-                    is available like the following lists, such as *BSD, Mac OS X, and Linux. 
-                    Beginning of v4.22.5,
+                    {{ site.html.ss }} can run on any OS that supports Perl or Ruby (including some
+                    versions of JRuby), such as *BSD, Mac OS X, and Linux. Additionally, {{ site.html.ss }}
+                    4.22.5 and later 
                     <a href = 'https://github.com/sisimai/p5-sisimai/issues/261' target = 'new'>
-                        {{ site.html.ss }} may run with ActivePerl on Windows.
+                        may run with ActivePerl on Windows.
                     </a>.
                 </p>
             </div>
@@ -208,8 +214,13 @@
                     Install {{ site.html.ss }}
                 </h2>
                 <p class = 'description'>
-                    {{ site.html.ss }} could be downloaded and installed from GitHub, CPAN, and RubyGems.org .
-                    In FreeBSD, the Perl version of Sisimai can be installed from Ports collection.
+                    {{ site.html.ss }} can be downloaded and installed from
+                    <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a>,
+                    <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>, and
+                    <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>.
+                    Additionally, the Perl version of Sisimai can be installed from
+                    <a href = 'https://www.freshports.org/mail/p5-Sisimai/' target = 'new'>the FreeBSD ports collection</a> or
+                    <a href = 'https://sources.debian.org/src/libsisimai-perl/' target = 'new'>Debian packages</a>.
                 </p>
             </div>
         </div>
@@ -221,10 +232,14 @@
                 <h3 class = 'in-desc'>From GitHub</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/github-1.png'>
-                    The latest version of {{ site.html.ss }} including development version
-                    and stable version is available to download from the
-                    <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a> master branch.
-                    Both the Perl and the Ruby version are available in the repository.
+                    The latest version and stable version of {{ site.html.ss }}, including development
+                    versions, can be downloaded from the "5-stable" branch or the "4-stable" branch
+                    of the {{ site.html.ss }} <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub repository</a>.
+                    Both the Perl and Ruby versions are available in this repository.
+                </p>
+                <p class = 'description'>
+                    On February 2, 2024, the default branch of the repository was changed to 
+                    <strong>5-stable</strong>.
                 </p>
             </div>
         </div>
@@ -234,18 +249,45 @@
                 <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Perl version of {{ site.html.ss }}</h4>
+                <h4 class = 'in-desc'>Perl version of {{ site.html.ss }}(v5)</h4>
                 <p class = 'description'>
-                    A repository name of the Perl version {{ site.html.ss }} is 
+                    The repository name for the Perl version of {{ site.html.ss }} is
                     <a href = '{{ site.sisimai.repository.perl }}'><strong>sisimai/p5-sisimai</strong></a>.
+                    {{ site.html.ss }} 5.0.0 and later <strong>requires Perl {{ site.sisimai.workson.perl[0] }}
+                    or later</strong>, so please check the version of Perl installed on your system before installing.
                 </p>
+                <pre class = 'prettyprint'>
+% <kbd>perl -v</kbd>
+
+This is perl 5, version 30, subversion 0 (v5.30.0) built for darwin-2level
+
+Copyright 1987-2019, Larry Wall
+...
+                </pre>
                 <pre class = 'prettyprint'>
 % <kbd>git clone https://github.com/sisimai/p5-sisimai.git</kbd>
 % <kbd>cd ./p5-sisimai</kbd>
 % <kbd>make install-from-local</kbd>
+./cpanm --sudo . || ( make cpm &amp;&amp; ./cpm install --sudo -v . )
 --&gt; Working on .
-Configuring Sisimai-4.25.0 ... OK
+Configuring Sisimai-v5.0.0 ... OK
+Building and testing Sisimai-v5.0.0 ... Password: &lt;sudo password here&gt;
+OK
+Successfully installed Sisimai-v5.0.0
 1 distribution installed
+
+% <kbd>perl -MSisimai -lE 'print Sisimai-&gt;version'</kbd>
+5.0.0
+                </pre>
+
+                <h4 class = 'in-desc'>A previous version (v4)</h4>
+                <p class = 'description ja'>
+                    As of February 2, 2024, the default branch of the repository has been changed to
+                    <strong>5-stable</strong>. If you want to use {{ site.html.ss }}, please specify
+                    <strong>4-stable</strong> as the branch name.
+                </p>
+                <pre class = 'prettyprint'>
+% <kbd>git clone -b 4-stable https://github.com/sisimai/p5-sisimai.git</kbd>
                 </pre>
             </div>
         </div>
@@ -257,18 +299,48 @@ Configuring Sisimai-4.25.0 ... OK
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Ruby version of {{ site.html.ss }}</h4>
                 <p class = 'description'>
-                    A repository name of the Ruby version {{ site.html.ss }} is 
+                    The repository name for the Ruby version of {{ site.html.ss }} is
                     <a href = '{{ site.sisimai.repository.ruby }}'><strong>sisimai/rb-sisimai</strong></a>.
+                    {{ site.html.ss }} 5.0.0 and later requires Ruby {{ site.sisimai.workson.ruby[0] }}
+                    or later, so please check the version of Ruby installed on your system before installing.
                 </p>
+                <pre class = 'prettyprint'>
+% <kbd>ruby -v</kbd>
+ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin21]
+                </pre>
+
                 <pre class = 'prettyprint'>
 % <kbd>git clone https://github.com/sisimai/rb-sisimai.git</kbd>
 % <kbd>cd ./rb-sisimai</kbd>
 % <kbd>sudo make depend install-from-local</kbd>
-gem install bundle rake rspec coveralls
+gem install bundle rake minitest
 ...
-sisimai 4.20.0 built to pkg/sisimai-4.25.0.gem.
-sisimai (4.20.0) installed.
+3 gems installed
+if [ -d "/usr/local/jr" ]; then \
+    PATH="/usr/local/jr/bin:$PATH" /usr/local/jr/bin/gem install bundle rake minitest; \
+fi
+...
+3 gems installed
+/opt/local/bin/rake install
+sisimai 5.0.0 built to pkg/sisimai-5.0.0.gem.
+sisimai (5.0.0) installed.
+if [ -d "/usr/local/jr" ]; then \
+    PATH="/usr/local/jr/bin:$PATH" /usr/local/jr/bin/rake install; \
+fi
+sisimai 5.0.0 built to pkg/sisimai-5.0.0-java.gem.
+sisimai (5.0.0) installed.
                 </pre>
+
+                <h4 class = 'in-desc'>A previous version (v4)</h4>
+                <p class = 'description ja'>
+                    As of February 2, 2024, the default branch of the repository has been changed to
+                    <strong>5-stable</strong>. If you want to use {{ site.html.ss }}, please specify
+                    <strong>4-stable</strong> as the branch name.
+                </p>
+                <pre class = 'prettyprint'>
+% <kbd>git clone -b 4-stable https://github.com/sisimai/rb-sisimai.git</kbd>
+                </pre>
+
             </div>
         </div>
 
@@ -281,13 +353,12 @@ sisimai (4.20.0) installed.
                 <h3 class = 'in-desc'>From CPAN</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
-                    Only the stable version of {{ site.html.ss }} is available to download from
+                    The release version of Perl {{ site.html.ss }} can only be downloaded from
                     <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>.
-                    You can install the software using <kbd>cpan</kbd> command, however, 
-                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
-                    command and
+                    It can also be installed using the <kbd>cpan</kbd> command, but using the
+                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a> or
                     <a href = 'https://github.com/skaji/cpm' target = 'new'><kbd>cpm</kbd></a>
-                    are very useful to install the software and other Perl modules.
+                    commands makes installing Perl modules much easier.
                 </p>
             </div>
         </div>
@@ -297,11 +368,19 @@ sisimai (4.20.0) installed.
                 <pre class = 'prettyprint'>
 % <kbd>cpanm --sudo Sisimai</kbd>
 --&gt; Working on Sisimai
-Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.25.0.tar.gz ... OK
+Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-5.0.0.tar.gz ... OK
 ...
 1 distribution installed
 % <kbd>perldoc -l Sisimai</kbd>
-/usr/local/lib/perl5/site_perl/5.20.0/Sisimai.pm
+/usr/local/lib/perl5/site_perl/5.30.0/Sisimai.pm
+                </pre>
+
+                <p class = 'description ja'>
+                    If you want to install an older version, please specify the URL as follows:
+                </p>
+                <pre class = 'prettyprint'>
+% <kbd>cpanm --sudo https://cpan.metacpan.org/authors/id/A/AK/AKXLIX/Sisimai-v4.25.16.tar.gz</kbd>
+% <kbd>sudo cpm install https://cpan.metacpan.org/authors/id/A/AK/AKXLIX/Sisimai-v4.25.16.tar.gz</kbd>
                 </pre>
             </div>
         </div>
@@ -315,9 +394,10 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.25.0.tar.gz ... OK
                 <h3 class = 'in-desc'>From RubyGems.org</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
-                    Only the stable version of {{ site.html.ss }} is available to download from
-                    <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>.
-                    You can install the software using <kbd>gem</kbd> command.
+                    The release version of Ruby {{ site.html.ss }} can only be downloaded from
+                    <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>
+                    and installed with the <kbd>gem</kbd> command.  If you are using JRuby, you can
+                    also install it with <kbd>jgem</kbd>.
                     <br />
                     <br />
                 </p>
@@ -327,13 +407,24 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-4.25.0.tar.gz ... OK
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <pre class = 'prettyprint'>
 % <kbd>sudo gem install sisimai</kbd>
-Fetching: sisimai-4.25.0.gem (100%)
-Successfully installed sisimai-4.25.0
-Parsing documentation for sisimai-4.25.0
-Installing ri documentation for sisimai-4.25.0
+Fetching: sisimai-5.0.0.gem (100%)
+Successfully installed sisimai-5.0.0
+Parsing documentation for sisimai-5.0.0
+Installing ri documentation for sisimai-5.0.0
 Done installing documentation for sisimai after 6 seconds
 1 gem installed
                 </pre>
+
+                <p class = 'description ja'>
+                    If you want to install an older version, please specify the desired version
+                    with the <kbd>-v</kbd> option as follows:
+                </p>
+                <pre class = 'prettyprint'>
+% <kbd>sudo gem install sisimai -v 4.25.16</kbd>
+                </pre>
+
+
+
             </div>
         </div>
 
@@ -346,24 +437,24 @@ Done installing documentation for sisimai after 6 seconds
                 <h3 class = 'in-desc'>From the Ports Collection(FreeBSD)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/freebsd-daemon-2.png'>
-                    The Perl version of {{ site.html.ss }} can be installed from the
-                    <a href = 'https://www.freebsd.org/ports/index.html' target = 'new'>Ports Collection</a>:
-                    <a href = 'https://svnweb.freebsd.org/ports/head/mail/p5-sisimai/' target = 'new'>mail/p5-sisimai</a>
-                    in <a href = 'https://www.freebsd.org/' target = 'new'>FreeBSD</a>.
-
-                    Note that depending on the timing of import,
-                    the mail/p5-sisimai to be installed from the Ports collection is not the latest version of Sisimai.
+                    The Perl version of {{ site.html.ss }} can be installed from
+                    <a href = 'https://www.freebsd.org/ports/index.html' target = 'new'>Ports Collection</a>
+                    <a href = 'https://www.freshports.org/mail/p5-Sisimai' target = 'new'>(mail/p5-Sisimai)</a>
+                    the FreeBSD Ports collection (mail/p5-sisimai).
+                    It can be installed with a single <kbd>make</kbd> command, but please note that
+                    if the timing of the inclusion of Perl {{ site.html.ss }} in the Ports collection
+                    is not the latest version, you may not be installing the latest version of {{ site.html.ss }}.
                 </p>
             </div>
         </div>
         <div class = 'row'>
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <pre class = 'prettyprint'>
-# <kbd>cd /usr/ports/mail/p5-sisimai</kbd>
+# <kbd>cd /usr/ports/mail/p5-Sisimai</kbd>
 # <kbd>make install</kbd>
 ===> License BSD2CLAUSE accepted by the user
-===>  p5-sisimai-4.22.6 depends on file: /usr/local/sbin/pkg - found
-=> Sisimai-v4.22.6.tar.gz doesn't seem to exist in /usr/ports/distfiles/.
+===>  p5-sisimai-4.25.16 depends on file: /usr/local/sbin/pkg - found
+=> Sisimai-v4.25.16.tar.gz doesn't seem to exist in /usr/ports/distfiles/.
 ...
                 </pre>
             </div>
@@ -385,16 +476,17 @@ Done installing documentation for sisimai after 6 seconds
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>make()</div>
+                <div class = 'index-label'>rise()</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>make() method of {{ site.html.ss }}</h3>
+                <h3 class = 'in-desc'>rise() method of {{ site.html.ss }}</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/outline-1.png'>
-                    For example, the following code shows that <kbd>make()</kbd> method of 
-                    {{ site.html.ss }} provides the feature for getting parsed data from bounced email messages.
-                    Other arguments of <kbd>make()</kbd> method are available at
-                    <a href = '/en/usage/'>How To Parse</a> page.
+                    The following code is an example of how to use the <kbd>rise()</kbd> method of
+                    {{ site.html.ss }} to decode bounce emails and obtain data from the decoded results.
+                    For more information on the other arguments that can be specified for the <kbd>rise()</kbd>
+                    method, please see the <a href = '/en/usage/'>How To Decode</a>.
+                    The old <kbd>make()</kbd> method was deprecated in {{ site.html.ss }} 5.0.0.
                 </p>
             </div>
         </div>
@@ -406,20 +498,22 @@ Done installing documentation for sisimai after 6 seconds
                 <h4 class = 'in-desc'>Perl version of {{ site.html.ss }}</h4>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
-my $v = Sisimai-&gt;make('/path/to/mbox'); # or Path to Maildir
+my $v = Sisimai-&gt;rise('/path/to/mbox'); # or Path to Maildir
 
 if( defined $v ) {
     for my $e ( @$v ) {
-        print $e-&gt;addresser-&gt;address;   # shironeko@example.org # From
-        print $e-&gt;recipient-&gt;address;   # kijitora@example.jp   # To
-        print $e-&gt;recipient-&gt;host;      # example.jp
-        print $e-&gt;deliverystatus;       # 5.1.1
-        print $e-&gt;replycode;            # 550
-        print $e-&gt;reason;               # userunknown
+        print $e->addresser->address;   # "michitsuna@example.org" # From
+        print $e->recipient->address;   # "kijitora@example.jp"    # To
+        print $e->recipient->host;      # "example.jp"
+        print $e->deliverystatus;       # "5.1.1"
+        print $e->replycode;            # "550"
+        print $e->reason;               # "userunknown"
+        print $e->origin;               # "/var/spool/bounce/new/1740074341.eml"
+        print $e->hardbounce;           # 1
     }
 } else {
     # There is no bounce message in the mailbox
-    # or Sisimai could not parse
+    # or Sisimai could not decode
 }
                 </pre>
             </div>
@@ -432,20 +526,26 @@ if( defined $v ) {
                 <h4 class = 'in-desc'>Ruby version of {{ site.html.ss }}</h4>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-v = Sisimai.make('/path/to/mbox') # or Path to Maildir
+v = Sisimai.rise('/path/to/mbox') # or Path to Maildir
 
 if v.is_a? Array
   v.each do |e|
-    puts e.addresser.address    # shironeko@example.org # From
-    puts e.recipient.address    # kijitora@example.jp   # To
-    puts e.recipient.host       # example.jp
-    puts e.deliverystatus       # 5.1.1
-    puts e.replycode            # 550
-    puts e.reason               # userunknown
+    puts e.class                # Sisimai::Fact
+    puts e.recipient.class      # Sisimai::Address
+    puts e.timestamp.class      # Sisimai::Time
+
+    puts e.addresser.address    # "michitsuna@example.org" # From
+    puts e.recipient.address    # "kijitora@example.jp"    # To
+    puts e.recipient.host       # "example.jp"
+    puts e.deliverystatus       # "5.1.1"
+    puts e.replycode            # "550"
+    puts e.reason               # "userunknown"
+    puts e.origin               # "/var/spool/bounce/Maildir/new/1740074341.eml"
+    puts e.hardbounce           # true
   end
 else
   # There is no bounce message in the mailbox
-  # or Sisimai could not parse
+  # or Sisimai could not decode
 end
                 </pre>
             </div>
@@ -459,10 +559,10 @@ end
                 <h3 class = 'in-desc'>dump() method of {{ site.html.ss }}</h3>
                 <p>
                     <img class = 'lhs' src = '/static/images/icon/purchase-order-1.png'>
-                    Beginning with the Perl version of {{ site.html.ss }} v4.1.27, 
-                    <kbd>dump()</kbd> method of {{ site.html.ss }} is useful to get the parsed results as JSON.
-                    The following sample code shows that usage of dump() method with a path to
-                    Maildir/ you want to parse at the first argument.
+                    The <kbd>dump()</kbd> method introduced in Perl {{ site.html.ss }} v4.1.27 is
+                    useful for obtaining decoded results in JSON format. As shown below, it can be
+                    done with a simple code that only passes the <kbd>PATH</kbd> of the email you
+                    want to decode.
                 </p>
             </div>
         </div>
@@ -475,7 +575,7 @@ end
                 <h4 class = 'in-desc'>Perl version of <span class = 'ss'>Sisimai</span></h4>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
-print Sisimai-&gt;dump('~/Maildir/cur');
+print Sisimai-&gt;dump('/home/postmaster/Maildir/cur');
                 </pre>
             </div>
         </div>
@@ -488,18 +588,8 @@ print Sisimai-&gt;dump('~/Maildir/cur');
                 <h4 class = 'in-desc'>Ruby version of <span class = 'ss'>Sisimai</span></h4>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
-puts Sisimai.dump('~/Maildir/cur')
+puts Sisimai.dump('/home/postmaster/Maildir/cur')
                 </pre>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Demo</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Demonstration of the <strong>dump</strong> method</h4>
-                <img src = '/static/images/demo/sisimai-dump-01.gif' width = '100%'>
             </div>
         </div>
 
@@ -511,10 +601,10 @@ puts Sisimai.dump('~/Maildir/cur')
                 <h3 class = 'in-desc'>Filter using &quot;jq&quot; utility</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/js-1.png'>
-                    If you would like to make sure of parsed results, you may want to install 
-                    <a href = 'https://stedolan.github.io/jq/' target = 'new'><kbd>jq</kbd></a> utility.
-                    The following command shows that &quot;jq&quot; utility will be easier to read
-                    the parsed data generated by <kbd>dump()</kbd> method.
+                    The <a href = 'https://stedolan.github.io/jq/' target = 'new'><kbd>jq</kbd></a>
+                    command is useful for visually inspecting the JSON data of the decoded results.
+                    As shown below, the output of the <kbd>dump()</kbd> method can be displayed in
+                    an easy-to-read format.
                 </p>
             </div>
         </div>
@@ -528,6 +618,7 @@ puts Sisimai.dump('~/Maildir/cur')
                 <pre class = 'prettyprint'>
 % <kbd>perl -MSisimai -lE 'print Sisimai-&gt;dump(shift)' path/to/mbox | jq .</kbd>
                 </pre>
+                <img src = '/static/images/demo/sisimai-5-cli-dump-p01.gif' width = '100%'>
             </div>
         </div>
 
@@ -540,16 +631,7 @@ puts Sisimai.dump('~/Maildir/cur')
                 <pre class = 'prettyprint'>
 % <kbd>ruby -rsisimai -e 'puts Sisimai.dump($*.shift)' path/to/mbox | jq .</kbd>
                 </pre>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Demo</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>Demonstration of the <strong>dump</strong> method with <strong>jq</strong></h4>
-                <img src = '/static/images/demo/sisimai-dump-02.gif' width = '100%'>
+                <img src = '/static/images/demo/sisimai-5-cli-dump-r01.gif' width = '100%'>
             </div>
         </div>
 
@@ -558,34 +640,34 @@ puts Sisimai.dump('~/Maildir/cur')
                 <div class = 'index-text'>JSON</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>JSON string filtered by <strong>jq</strong> utility</h4>
-                <pre class = 'prettyprint'>
-[
+                <h4 class = 'in-desc'>JSON string filtered by the <strong>jq</strong> utility</h4>
+                <pre class = 'prettyprint'>[
   {
+    "destination": "google.example.com",
+    "lhost": "gmail-smtp-in.l.google.com",
+    "hardbounce": 0,
+    "reason": "authfailure",
+    "catch": null,
+    "addresser": "michitsuna@example.jp",
+    "alias": "nekochan@example.co.jp",
+    "smtpagent": "Postfix",
     "smtpcommand": "DATA",
-    "timestamp": 1397054085,
-    "action": "failed",
+    "senderdomain": "example.jp",
     "listid": "",
-    "reason": "hasmoved",
-    "deliverystatus": "5.1.6",
-    "smtpagent": "Email::Sendmail",
-    "destination": "example.net",
-    "timezoneoffset": "+0900",
+    "action": "failed",
     "feedbacktype": "",
+    "messageid": "hwK7pzjzJtz0RF9Y@relay3.example.com",
+    "origin": "./gmail-5.7.26.eml",
+    "recipient": "kijitora@google.example.com",
+    "rhost": "gmail-smtp-in.l.google.com",
+    "subject": "Nyaan",
+    "timezoneoffset": "+0900",
+    "replycode": 550,
+    "token": "84656774898baa90660be3e12fe0526e108d4473",
     "diagnostictype": "SMTP",
-    "senderdomain": "example.co.jp",
-    "rhost": "mx-s.neko.example.jp",
-    "lhost": "localhost",
-    "catch": "",
-    "addresser": "shironeko@example.co.jp",
-    "replycode": "551",
-    "messageid": "0000000011111.fff0000000003@mx.example.co.jp",
-    "token": "cf17945938502bd876603a375f0e9517c921bbab",
-    "recipient": "kijitora@example.net",
-    "alias": "",
-    "diagnosticcode": "551 not our customer",
-    "subject": "Nyaaaan",
-    "softbounce": 0
+    "timestamp": 1650119685,
+    "diagnosticcode": "host gmail-smtp-in.l.google.com[64.233.187.27] said: This mail has been blocked because the sender is unauthenticated. Gmail requires all senders to authenticate with either SPF or DKIM. Authentication results: DKIM = did not pass SPF [relay3.example.com] with ip: [192.0.2.22] = did not pass For instructions on setting up authentication, go to https://support.google.com/mail/answer/81126#authentication c2-202200202020202020222222cat.127 - gsmtp (in reply to end of DATA command)",
+    "deliverystatus": "5.7.26"
   }
 ]
                 </pre>

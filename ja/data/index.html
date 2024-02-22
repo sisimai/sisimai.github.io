@@ -1,8 +1,8 @@
 ---
 "layout": "document"
 "directory": "data/"
-"title": "Sisimai::Dataのデータ構造"
-"description": "Sisimai::Dataオブジェクトのデータ構造とアクセサの一覧"
+"title": "Sisimai::Factのデータ構造"
+"description": "Sisimai::Factオブジェクトのデータ構造とアクセサの一覧"
 "author": "azumakuniyuki"
 ---
 <a id = 'tohash' href = '#'></a>
@@ -31,6 +31,7 @@
                     <li class = 'scroll'><a href = '#c'>C</a></li>
                     <li class = 'scroll'><a href = '#d'>D</a></li>
                     <li class = 'scroll'><a href = '#f'>F</a></li>
+                    <li class = 'scroll'><a href = '#h'>H</a></li>
                     <li class = 'scroll'><a href = '#l'>L</a></li>
                     <li class = 'scroll'><a href = '#m'>M</a></li>
                     <li class = 'scroll'><a href = '#o'>O</a></li>
@@ -51,10 +52,11 @@
             <div class = 'row'>
                 <div class = 'text-center col-sm-8 col-sm-offset-2'>
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
-                    <h2>Sisimai::Dataのデータ構造</h2>
+                    <h2>Sisimai::Factのデータ構造</h2>
                     <p class = 'description ja'>
-                        {{ site.html.ss }}の<kbd>make()</kbd>メソッドは解析したデータを
-                        Sisimai::Dataオブジェクトを複数個含む配列にして返します。
+                        {{ site.html.ss }}の<kbd>rise()</kbd>メソッドは解析したデータを
+                        <kbd>Sisimai::Fact</kbd>オブジェクトを複数個含む配列にして返します。
+                        {{ site.html.ss }} 5.0.0で従来の<kbd>Sisimai::Data</kbd>オブジェクトは廃止になりました。
                         返ってきたオブジェクトは以下のようなデータ構造になっています。
                     </p>
                 </div>
@@ -78,10 +80,17 @@
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/urgent-message-3.png'>
                     "action" はバウンスメール内のAction:フィールドの値を保持します。
-                    この値は主に "delayed" や "failed" となります。
-                    <br>
-                    <br>
+                    この項目は、解析の過程で表記の揺れ(deliverable, failureなど)は修正され、
+                    次の五つの値となります。
                 </p>
+                <br />
+                <ul class = 'spec'>
+                    <li>dalayed</li>
+                    <li>delivered</li>
+                    <li>expanded</li>
+                    <li>failed</li>
+                    <li>relayed</li>
+                </ul>
                 <pre class = 'prettyprint'>
 Action: failed
                 </pre>
@@ -98,19 +107,19 @@ Action: failed
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-2.png'>
                     "addresser" はバウンスメール内にある元メールの発信者アドレス(From)から作られる
-                    Sisimai::Address オブジェクトです。
-                    Sisimai::Data オブジェクトをJSON形式にダンプした場合はメールアドレス(文字列)を保持します。
+                    <kbd>Sisimai::Address</kbd> オブジェクトです。<kbd>Sisimai::Fact</kbd>オブジェクトを
+                        JSON形式にダンプした場合はメールアドレス(文字列)を保持します。
                     <br />
                     <br />
                 </p>
                 <ul>
-                    <li>user() - メールアドレスの"@"の左側</li>
-                    <li>host() - メールアドレスの"@"の右側</li>
-                    <li>address() - メールアドレス</li>
-                    <li>verp() - VERP形式のReturn-Path</li>
-                    <li>alias() - エイリアス</li>
-                    <li>name() - メールヘッダの表示名(v4.22.1以降)</li>
-                    <li>comment() - コメント(v4.22.1以降)</li>
+                    <li><kbd>user()</kbd> - メールアドレスの"@"の左側</li>
+                    <li><kbd>host()</kbd> - メールアドレスの"@"の右側</li>
+                    <li><kbd>address()</kbd> - メールアドレス</li>
+                    <li><kbd>verp()</kbd> - VERP形式のReturn-Path</li>
+                    <li><kbd>alias()</kbd> - エイリアス</li>
+                    <li><kbd>name()</kbd> - メールヘッダの表示名(v4.22.1以降)</li>
+                    <li><kbd>comment()</kbd> - コメント(v4.22.1以降)</li>
                 </ul>
                 <pre class = 'prettyprint'>
 From: "Kijitora Cat" &lt;kijitora@example.org&gt;
@@ -152,34 +161,22 @@ Original-Recipient: rfc822;kijitora@example.org
                 <div class = 'post-it'>C</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>catch (*) | Beginning with v4.17.0</h3>
+                <h3 class = 'in-desc'>catch (*) | v4.19.0以降</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/cat-2.png'>
-                    "catch" はSisimaiの<kbd>make()</kbd>メソッドに渡したフックメソッドが
+                    "catch" はSisimaiの<kbd>rise()</kbd>メソッドに渡したフックメソッドが
                     返した値を保持します。フックメソッドを渡さなかった場合は、Perlなら
                     <kbd>undef</kbd>、Rubyなら<kbd>nil</kbd>となります。
-                </p>
-                <p class = 'description ja'>
                     コールバック機能とフックメソッドの設定、<kbd>catch()</kbd>
                     メソッドは<strong>Sisimai 4.19.0で追加</strong>されました。
                 </p>
-                <pre class = 'prettyprint'>#! /usr/bin/env perl
-my $f = './set-of-emails/maildir/bsd/lhost-sendmail-24.eml';
-my $x = sub {
-    my $argv = shift;
-    my $data = { 'x-mailer' => '' };
-
-    if( $argv->{'message'} =~ m/^X-Mailer:\s*(.+)$/m ) {
-        $data->{'x-mailer'} = $1;
-    }
-    return $data;   # <strong>この$dataがcatchの中身になる</strong>
-};
-my $v = Sisimai-&gt;make($f, 'hook' => $x);
-for my $e ( @$v ) {
-    print ref $e->catch;            # HASH
-    print $e->catch->{'x-mailer'};  # Apple Mail
-}
-                </pre>
+                <p class = 'description ja cation'>
+                    {{ site.html.ss }} 5.0.0でコールバック機能の引数名と引数の型が変更になりました。詳細は
+                    <a href = 'https://github.com/sisimai/p5-sisimai/blob/5-stable/README-JA.md#callback-feature' target = 'new'>
+                        Callback feature
+                    </a>
+                    をご覧下さい。
+                </p>
             </div>
         </div>
     </div>
@@ -238,7 +235,7 @@ Status: 5.0.0 (permanent failure)
                 <p class = 'description ja'>
                     この値と "diagnostictype", "action", "deliverystatus",
                     "replycode", "smtpcommand" の各値はバウンス理由を決定する為に
-                    Sisimai::Reason クラスから参照されます。
+                    <kbd>Sisimai::Reason</kbd>クラスから参照されます。
                 </p>
                 <pre class = 'prettyprint'>
 Diagnostic-Code: SMTP; 554 5.4.6 Too many hops
@@ -296,7 +293,41 @@ User-Agent: SMP-FBL
     </div>
 </section>
 
-<section id = 'l' class = 'parallax'>
+<section id = 'h' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
+                <div class = 'post-it'>H</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>hardbounce (Boolean) | v5.0.0以降</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
+                    {{ site.html.ss }} 5.0.0で新たに実装された"hardbounce"は、宛先メールアドレスが
+                    二度と配信できない理由でバウンスしたかどうかを示す真偽値
+                    (Perl版は<kbd>0</kbd>か<kbd>1</kbd>, Ruby版は<kbd>true</kbd>か<kbd>false</kbd>)
+                    を返します。
+                </p>
+                <p class = 'description ja'>
+                    具体的には<a href = '#r'>"reason"</a>が次の値である場合に真となります。
+                </p>
+
+                <ul class = 'spec'>
+                    <li><a href = '/ja/reason/#hostunknown'>Host Unknown</a></li>
+                    <li><a href = '/ja/reason/#userunknown'>User Unknown</a></li>
+                    <li><a href = '/ja/reason/#hasmoved'>Has Moved</a></li>
+                </ul>
+
+                <p class = 'description ja cation'>
+                    同時に<a href = '#s'>"softbounce"</a>は{{ site.html.ss }}5.0.0で廃止となりました。
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'l' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -326,20 +357,20 @@ Reporting-MTA: dns; mx4.smtp.example.co.jp
                 <h3 class = 'in-desc'>listid (String)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/list-1.png'>
-                    "listid" はバウンスメールに含まれる元メッセージから "List-Id:"
-                    ヘッダの値を撮り出したものを保持します。
-                    元メッセージが無い形式のバウンスメールの場合、この値は空になります。
+                    "listid" はバウンスメールに含まれる元メッセージから "List-Id:"ヘッダの値を
+                    取り出したものを保持します。元メッセージが無い形式のバウンスメールの場合、
+                    この値は空になります。
                     <br><br>
                 </p>
                 <pre class = 'prettyprint'>
-List-Id: Mailman mailing list management users 
+List-Id: General discussion list for Cats &lt;neko-list.example.org&gt;
                 </pre>
             </div>
         </div>
     </div>
 </section>
 
-<section id = 'm' class = 'not-parallax'>
+<section id = 'm' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -362,7 +393,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
     </div>
 </section>
 
-<section id = 'o' class = 'parallax'>
+<section id = 'o' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -374,7 +405,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/inbox-3.png'>
                     "origin" はバウンスメールに含まれる元メッセージのファイル名(パスを含む)
-                    を保持します。具体的にはSisimaiクラスの<kbd>make()</kbd>メソッドや<kbd>dump()</kbd>
+                    を保持します。具体的には<kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>メソッドや<kbd>dump()</kbd>
                     に渡した第一引数です。Maildir/の場合は第一引数のディレクトリ名に
                     ここのファイル名が結合された文字列が入ります。
 
@@ -390,7 +421,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
     </div>
 </section>
 
-<section id = 'r' class = 'not-parallax'>
+<section id = 'r' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -434,19 +465,18 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <h3 class = 'in-desc'>recipient (Sisimai::Address)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-1.png'>
-                    "recipient" はバウンスメール内にある受信者アドレスから作られる
-                    Sisimai::Address オブジェクトです。
-                    このアドレスがまさに配信出来なかったアドレスとなります。
-                    Sisimai::Data オブジェクトをJSON形式にダンプした場合はメールアドレス(文字列)を保持します。
+                    "recipient" はバウンスメール内にある受信者アドレスから作られる<kbd>Sisimai::Address</kbd>
+                    オブジェクトです。このアドレスがまさに配信出来なかったアドレスとなります。
+                    <kbd>Sisimai::Fact</kbd>オブジェクトをJSON形式にダンプした場合はメールアドレス(文字列)を保持します。
                 </p>
                 <ul>
-                    <li>user() - メールアドレスの"@"の左側</li>
-                    <li>host() - メールアドレスの"@"の右側</li>
-                    <li>address() - メールアドレス</li>
-                    <li>verp() - VERP形式のReturn-Path</li>
-                    <li>alias() - エイリアス</li>
-                    <li>name() - メールヘッダの表示名(v4.22.1以降)</li>
-                    <li>comment() - コメント(v4.22.1以降)</li>
+                    <li><kbd>user()</kbd> - メールアドレスの"@"の左側</li>
+                    <li><kbd>host()</kbd> - メールアドレスの"@"の右側</li>
+                    <li><kbd>address()</kbd> - メールアドレス</li>
+                    <li><kbd>verp()</kbd> - VERP形式のReturn-Path</li>
+                    <li><kbd>alias()</kbd> - エイリアス</li>
+                    <li><kbd>name()</kbd> - メールヘッダの表示名(v4.22.1以降)</li>
+                    <li><kbd>comment()</kbd> - コメント(v4.22.1以降)</li>
                 </ul>
                 <pre class = 'prettyprint'>
 Final-Recipient: RFC822; shironeko@example.ne.jp
@@ -502,7 +532,7 @@ Remote-MTA: DNS; g5.example.net
     </div>
 </section>
 
-<section id = 's' class = 'parallax'>
+<section id = 's' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -531,9 +561,8 @@ Remote-MTA: DNS; g5.example.net
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/puzzle-1.png'>
                     "smtpagent" はバウンス理由を特定したMTAモジュール名を保持します。
-                    例えば値が "Email::Sendmail" であれば Sisimai::Lhost::Sendmail
-                    モジュールがエラーとなった受信者アドレス取得や
-                    バウンス理由特定を行った事を意味します。
+                    例えば値が"Sendmail"であれば<kbd>Sisimai::Lhost::Sendmail</kbd>モジュールが
+                    エラーとなった受信者アドレス取得やバウンス理由特定を行った事を意味します。
                 </p>
                 <hr>
             </div>
@@ -572,7 +601,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>softbounce (Integer)</h3>
+                <h3 class = 'in-desc'>softbounce (Integer) | v5.0.0で廃止</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
                     "softbounce" の値はバウンス理由がソフトバウンス(再試行で送信可能)か
@@ -580,6 +609,10 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                     この項目は<strong>{{ site.html.ss }} 4.1.28で追加</strong>されました。
                     とりうる値は上記の通り、1がソフトバウンス、0がハードバウンス、
                     -1がどちらか判断出来なかった、となります。
+                </p>
+                <p class = 'description ja cation'>
+                    <strong>この項目はv5.0.0で廃止になりました。</strong> v5.1.0までは互換性の為、
+                    使用可能ですが、<a href = '#h'>hardbounce</a>を使ってください。
                 </p>
                 <ul>
                     <li>1 = Soft bounce</li>
@@ -610,7 +643,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
     </div>
 </section>
 
-<section id = 't' class = 'not-parallax'>
+<section id = 't' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -621,10 +654,9 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>timestamp (Sisimai::Time)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/calendar-9.png'>
-                    "timestamp" はバウンスした日時を保持する Sisima::Time 
-                    <em>(PerlではTime::Pieceの子クラス, RubyではDateTimeの子クラス)</em>
-                    オブジェクトです。
-                    Sisimai::Data オブジェクトをJSON形式にダンプした場合、
+                    "timestamp" はバウンスした日時を保持する<kbd>Sisima::Time</kbd>
+                    <em>(Perlでは<kbd>Time::Piece</kbd>の子クラス, Rubyでは<kbd>DateTime</kbd>の子クラス)</em>
+                    オブジェクトです。<kbd>Sisimai::Fact</kbd>オブジェクトをJSON形式にダンプした場合、
                     32ビット整数のマシンタイムに変換されます。
                 </p>
                 <pre class = 'prettyprint'>
@@ -646,9 +678,12 @@ Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
                     のような文字列で保持します。
                     {{ site.html.ss }}がバウンスメール内のタイムスタンプからタイムゾーンの特定に失敗した場合、
                     この値は "+0000" となります。
+                    <br />
+                    <br />
                 </p>
                 <pre class = 'prettyprint'>
-Remote-MTA: DNS; g5.example.net
+Arrival-Date: Mon, 16 Dec 2019 22:00:18 +0100 (CET)
+Date: Thu, 29 Apr 2018 23:34:45 +0900 (JST)
                 </pre>
                 <hr>
             </div>
@@ -664,7 +699,7 @@ Remote-MTA: DNS; g5.example.net
                     <img class = 'lhs' src = '/static/images/icon/hashtag-1.png'>
                     "token" は元メールの発信者アドレス、受信者アドレス、時刻を元に生成される
                     バウンス記録の一意な識別子です。
-                    値はMD5のハッシュ値で Sisimai::String クラスの<kbd>token()</kbd>
+                    値はMD5のハッシュ値で<kbd>Sisimai::String</kbd>クラスの<kbd>token()</kbd>
                     メソッドで生成されます。
                     もしもtokenの値をコマンドラインで得るなら、上記のようなコマンドを実行してください。
                 </p>

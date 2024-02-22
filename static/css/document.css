@@ -184,6 +184,13 @@ pre.prettyprint {
     color: #a0d8ef; /* Sora-Iro */
 }
 
+.cation {
+    display: block;
+    padding: 8px;
+    margin: 12px 0;
+    border: 1px red dotted;
+}
+
 div.diagnosticcode {
     width: 100%;
     margin-top: 16px;
@@ -301,3 +308,12 @@ a[name] {
     border: none;
     background: transparent;
 }
+
+.not-available {
+    color: #a3a3a2; /* Usuzumi-iro */
+}
+
+.deprecated {
+    color: #b7282e; /* Akane-iro */
+}
+

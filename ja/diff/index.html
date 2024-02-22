@@ -143,7 +143,7 @@
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description ja'>
-                    シシマイは下記のような
+                    {{ site.html.ss }}(シシマイ)は下記のような
                     <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-02.eml'
                         target = 'new'>2件以上のバウンス記録を含む単一のメール</a>
                     から全ての受信者アドレスとエラー理由を検出する事が出来ます。
@@ -192,7 +192,7 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description ja'>
-                    シシマイはGmailのメールボックスにあるバウンスメールも解析出来ます。
+                    {{ site.html.ss }}(シシマイ)はGmailのメールボックスにあるバウンスメールも解析出来ます。
                     <em class = 'warn'>
                         {{ site.html.bh }}は古い形式のバウンスメールであればGmailのメールボックスにあるものでも
                         解析出来ますが、現在の形式のものは解析出来ません。
@@ -297,7 +297,7 @@ Content-Type: message/rfc822
                 <h2 class = 'in-desc'>動作環境</h2>
                 <p class = 'description ja'>
                     シシマイ(Perl版とRuby版)の動作環境周りにおける違い
-                    ({{ site.html.bh }}と比較して)
+                    ({{ site.html.bh }}と比較して)は以下の通りです。
                 </p>
             </div>
         </div>
@@ -319,7 +319,7 @@ Content-Type: message/rfc822
                                 <td><strong>動作環境</strong></td>
                                 <td>Perl {{ site.sisimai.workson.perl[0] }} - {{ site.sisimai.workson.perl[1] }}</td>
                                 <td>Ruby {{ site.sisimai.workson.ruby[0] }} - {{ site.sisimai.workson.ruby[1] }}</td>
-                                <td>Perl {{ site.sisimai.workson.perl[0] }} - 5.14</td>
+                                <td>Perl 5.10.1 - 5.14</td>
                             </tr>
                             <tr>
                                 <td><strong>インストール方法</strong></td>
@@ -449,7 +449,7 @@ Content-Type: message/rfc822
                 <h2 class = 'in-desc'>解析性能</h2>
                 <p class = 'description ja'>
                     {{ site.html.bh }}に対する{{ site.html.ss }}
-                    (Perl版とRuby版)の性能における数値的な優位点について
+                    (Perl版とRuby版)の性能における数値的な優位点については以下の通りです。
                 </p>
             </div>
         </div>
@@ -475,9 +475,9 @@ Content-Type: message/rfc822
                             </tr>
                             <tr>
                                 <td><strong>商用MTAとMSP対応モジュール</strong></td>
-                                <td class = 'ctext'>あり(同梱)</td>
-                                <td class = 'ctext'>あり(同梱)</td>
-                                <td class = 'ctext'>無し</td>
+                                <td class = 'rtext'>あり(同梱)</td>
+                                <td class = 'rtext'>あり(同梱)</td>
+                                <td class = 'rtext'>無し</td>
                             </tr>
                             <tr>
                                 <td><strong>解析速度(1000通)</strong></td>
@@ -488,7 +488,7 @@ Content-Type: message/rfc822
                             <tr>
                                 <td><strong>依存モジュール数</strong></td>
                                 <td class = 'rtext'>2</td>
-                                <td class = 'rtext'>2</td>
+                                <td class = 'rtext'>1</td>
                                 <td class = 'rtext'>24</td>
                             </tr>
                             <tr>
@@ -599,7 +599,7 @@ Content-Type: message/rfc822
                 <h2 class = 'in-desc'>データ構造</h2>
                 <p class = 'description ja'>
                     {{ site.html.ss }}と{{ site.html.bh }}でのデータ構造
-                    (解析結果の構造、検出可能なバウンス理由)の違いについて
+                    (解析結果の構造、検出可能なバウンス理由)の違いについては以下の通りです。
                 </p>
             </div>
         </div>
@@ -614,7 +614,7 @@ Content-Type: message/rfc822
                     {{ site.html.ss }}が生成する解析データは、{{ site.html.bh }}のそれと比べて
                     より詳細な情報を保持しています。
                     {{ site.html.ss }}が生成する解析結果の全項目は
-                    <a href = '/ja/data/'>Sisimai::Dataのデータ構造</a>をご覧ください。
+                    <a href = '/ja/data/'>Sisimai::Factのデータ構造</a>をご覧ください。
                 </p>
             </div>
         </div>
@@ -717,7 +717,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'><strong>frequency</strong></td>
+                                    <td class = 'ltext'><strong class = 'not-available'>frequency</strong></td>
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -726,7 +726,16 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'><strong>hostgroup</strong></td>
+                                    <td class = 'ltext'><strong>hardbounce</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        ハードバウンスであるかどうかを示す値です。
+                                        {{ site.html.ss }} 5.0.0で実装されました。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong class = 'not-available'>hostgroup</strong></td>
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -768,7 +777,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'><strong>provider</strong></td>
+                                    <td class = 'ltext'><strong class = 'not-available'>provider</strong></td>
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -788,9 +797,7 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
-                                        Recipient's mail address
-                                        <br>
-                                        受信者のメールアドレス
+                                        受信者(宛先)のメールアドレス
                                     </td>
                                 </tr>
                                 <tr>
@@ -837,11 +844,13 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'><strong>softbounce</strong></td>
+                                    <td class = 'ltext'><strong class = 'deprecated'>softbounce</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        ソフトバウンスかどうかを判別する値
+                                        <strong>
+                                            {{ site.html.ss }} 5.0.0で廃止になりました
+                                        </strong>
                                     </td>
                                 </tr>
                                 <tr>
@@ -930,6 +939,20 @@ Content-Type: message/rfc822
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td class = 'ltext'><strong>Auth Failure</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>authfailure
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Bad Reputation</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>badreputation
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td class = 'ltext'><strong>Blocked</strong></td>
                                     <td>OK</td>
@@ -1060,6 +1083,14 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'><strong>Not Compliant RFC</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        notcompliantrfc
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'><strong>On Hold</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
@@ -1087,6 +1118,14 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'><strong>RequirePTR</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        requireptr
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'><strong>Security Error</strong></td>
                                     <td>OK</td>
                                     <td>
@@ -1106,6 +1145,14 @@ Content-Type: message/rfc822
                                     <td>-</td>
                                     <td class = 'ltext'>
                                         spamdetected
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Speeding</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        speeding
                                     </td>
                                 </tr>
                                 <tr>

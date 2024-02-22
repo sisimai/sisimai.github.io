@@ -103,8 +103,7 @@
                     <div class = 'index-info'>
                         <h3>Data</h3>
                         <p class = 'description'>
-                            Differences of data structure (parsed data fields and
-                            detectable bounce reasons)
+                            Differences of data structure (decoded data fields and detectable bounce reasons)
                             between {{ site.html.ss }} and {{ site.html.bh }}.
                         </p>
                     </div>
@@ -126,9 +125,9 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Resolved Problems</h2>
                 <p class = 'description'>
-                    There are some unresolvable and serious problems related to precision of analysis
-                    of the final version of {{ site.html.bh }}(v2.7.13).
-                    {{ site.html.ss }} has been developed to resolve these problems.
+                    The final version of {{ site.html.bh }} (v2.7.13) had several critical and
+                    difficult-to-solve problems related to analysis accuracy.
+                    {{ site.html.ss }} was developed to address these problems.
                 </p>
             </div>
         </div>
@@ -148,11 +147,10 @@
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can detect all the recipient addresses and error reasons from 
+                    {{ site.html.ss }} can detect all recipient addresses and error reasons from
                     <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-02.eml'
-                       target = 'new'>a single message which include 2 or more bounce records</a>
-                    like the following.
-                    <em class = 'warn'>{{ site.html.bh }} can detect the first recipient address only.</em>
+                       target = 'new'>a single message which include 2 or more bounce records</a>,
+                   such as those listed below. <em class = 'warn'>{{ site.html.bh }} can only detect the first one</em>.
                 </p>
                 <pre class = 'prettyprint ltext'>
 Content-Type: message/delivery-status
@@ -197,8 +195,10 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can parse bounce mails in Gmail mailbox.
-                    <em class = 'warn'>{{ site.html.bh }} parse only old formatted bounce mails in Gmail mailbox.</em>
+                    {{ site.html.ss }} can also decode bounce emails in your Gmail mailbox.
+                    {{ site.html.bh }} can also decode bounce emails in your Gmail mailbox if they
+                    are in an older format, <em class = 'warn'>but it cannot decode bounce emails
+                        in the current format.</em>
                 </p>
                 <hr>
             </div>
@@ -219,15 +219,14 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can parse and decide the reason to "delivered" properly a bounce message which includes
-                    <kbd>Status: 2.1.5</kbd> line in its message body such as
-                    <a href = 'https://github.com/sisimai/p5-sisimai/blob/master/set-of-emails/maildir/bsd/rfc3464-28.eml'>
+                    {{ site.html.ss }} can correctly decode bounce emails
+                    (e.g., <a href = 'https://github.com/sisimai/p5-sisimai/blob/master/set-of-emails/maildir/bsd/rfc3464-28.eml'>
                         rfc3464-28.eml
-                    </a>.
-                </p>
-                <p>
-                    However, <em class = 'warn'>{{ site.html.bh }} decides the reason to "undefined"</em>
-                    when parsed such email like the following.
+                    </a>)
+                    that contain lines like "Status: 2.1.5" and determine the bounce reason as
+                    "delivered." <em class = 'warn'>However, {{ site.html.bh }} can also decode
+                    such emails, but it determines the bounce reason as "undefined," as shown in
+                    the output example below.</em>
                 </p>
                 <pre class = 'prettyprint'>
   {
@@ -271,15 +270,12 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} deals ARF (Abuse Reporting Format) message for Feedback Loop, 
-                    Many Email Service Providers such as
-                    <a href = 'http://postmaster.aol.com/Postmaster.FeedbackLoop.php' target = 'new'>AOL</a>, 
-                    <a href = 'https://help.yahoo.com/kb/complaint-feedback-loop-sln3438.html' target = 'new'>Yahoo!</a>,
-                    as a bounce message and can parse it. 
-                </p>
-                <p class = 'description'>
-                    The FBL feature in {{ site.html.bh }} is just an experimental implementation and
-                    not fully support the ARF message.
+                    {{ site.html.ss }} can also decode emails in the ARF (Abuse Reporting Format)
+                    format, which is used by overseas email services such as
+                    <a href = 'http://postmaster.aol.com/Postmaster.FeedbackLoop.php' target = 'new'>AOL</a> and
+                    <a href = 'https://help.yahoo.com/kb/complaint-feedback-loop-sln3438.html' target = 'new'>Yahoo!</a>.
+                    {{ site.html.bh }}'s FBL support is only an experimental implementation and cannot
+                    fully decode emails in the ARF format.
                 </p>
             </div>
         </div>
@@ -298,8 +294,8 @@ Content-Type: message/rfc822
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Environment</h2>
                 <p class = 'description'>
-                    Differences about environment for running {{ site.html.ss }}
-                    (both of the Perl and the Ruby version) and all the versions of {{ site.html.bh }}.
+                    The following are the differences in the operating environment of {{ site.html.ss }}
+                    (Perl and Ruby versions) compared to {{ site.html.bh }}:
                 </p>
             </div>
         </div>
@@ -320,7 +316,7 @@ Content-Type: message/rfc822
                                 <td><strong>Works on</strong></td>
                                 <td>Perl {{ site.sisimai.workson.perl[0] }} - {{ site.sisimai.workson.perl[1] }}</td>
                                 <td>Ruby {{ site.sisimai.workson.ruby[0] }} - {{ site.sisimai.workson.ruby[1] }}</td>
-                                <td>Perl {{ site.sisimai.workson.perl[0] }} - 5.14</td>
+                                <td>Perl 5.10.1 - 5.14</td>
                             </tr>
                             <tr>
                                 <td><strong>Could be installed by</strong></td>
@@ -370,14 +366,14 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} works on Perl {{ site.sisimai.workson.perl[0] }} or later,
-                    but {{ site.html.bh }} cannot work on Perl 5.16.1 or later. Therefore, for example,
-                    if the Perl version is 5.18 at a host which you want to install {{ site.html.bh }},
-                    you should install older version of Perl into the host.
+                {{ site.html.ss }} works with Perl {{ site.sisimai.workson.perl[0] }} and later,
+                while {{ site.html.bh }} does not work with Perl 5.16 and later. Therefore, if the
+                Perl on the server where you are trying to install {{ site.html.bh }} is 5.18, you
+                will need to install an older version of Perl separately.
                 </p>
                 <p class = 'description'>
-                    And then, beginning of {{ site.html.ss }} v4.14.2,
-                    {{ site.html.ss }} works on both of Perl and Ruby (including JRuby).
+                    And, from {{ site.html.ss }} v4.14.2, {{ site.html.ss }} works on both Perl and
+                    Ruby (including JRuby).
                 </p>
                 <hr>
             </div>
@@ -398,11 +394,11 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    To install {{ site.html.bh }} is troublesome because many tasks such as
-                    downloading archive file, installing many many dependent Perl modules, and running
-                    the configure script, make, make test, make install command before installation has completed.
-                    However, to install {{ site.html.ss }} is very easy because the software could be
-                    installed using <kbd>cpanm</kbd> or <kbd>gem</kbd> command.
+                    Installing {{ site.html.bh }} is a bit of a hassle, and it requires downloading
+                    the archive, installing many dependent modules, and running the <kbd>configure</kbd>,
+                    <kbd>make</kbd>, <kbd>make test</kbd>, and <kbd>make install</kbd> commands.
+                    On the other hand, {{ site.html.ss }} can be installed with the <kbd>cpanm</kbd>
+                    or <kbd>gem</kbd> commands, making it very easy to install.
                 </p>
                 <hr>
             </div>
@@ -423,10 +419,11 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} have neither command-line tools nor DB schema nor WebUI such as 
-                    <kbd>bin/mailboxparser</kbd> in {{ site.html.bh }}. {{ site.html.ss }} is just 
-                    a light-weight and a simple library. Command line tools or these environments you want
-                    are better to be implemented on yourself as you like, we think.
+                    {{ site.html.ss }} does not have command-line tools like {{ site.html.bh }}'s
+                    <kbd>bin/mailboxparser</kbd> and <kbd>bin/databasectl</kbd>, nor does it have a
+                    WebUI or DB schema. It is provided only as a lightweight and simple module.
+                    The idea is that you can implement command-line tools as you like with a few
+                    lines of code, or integrate it into your existing system.
                 </p>
             </div>
         </div>
@@ -445,9 +442,8 @@ Content-Type: message/rfc822
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Performance</h2>
                 <p class = 'description'>
-                    Numerical advantages of performance in {{ site.html.ss }}
-                    (both of the Perl and the Ruby vesrion)
-                    over the final version of {{ site.html.bh }}.
+                    The following are the numerical performance advantages of {{ site.html.ss }}
+                    (Perl and Ruby versions) over {{ site.html.bh }}:
                 </p>
             </div>
         </div>
@@ -468,16 +464,16 @@ Content-Type: message/rfc822
                                 <td><strong>Analytical precision ratio(2000 emails)</strong></td>
                                 <td class = 'rtext'>100%</td>
                                 <td class = 'rtext'>100%</td>
-                                <td class = 'rtext'.>55%</td>
+                                <td class = 'rtext'>55%</td>
                             </tr>
                             <tr>
                                 <td><strong>Modules for Commercial MTAs and MPSs</strong></td>
-                                <td class = 'ctext'>Included</td>
-                                <td class = 'ctext'>Included</td>
-                                <td class = 'ctext'>N/A</td>
+                                <td class = 'rtext'>Included</td>
+                                <td class = 'rtext'>Included</td>
+                                <td class = 'rtext'>N/A</td>
                             </tr>
                             <tr>
-                                <td><strong>The speed of parsing email(1000 emails)</strong></td>
+                                <td><strong>The speed of decoding email(1000 emails)</strong></td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.parse1k.perl }}s</td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.parse1k.ruby }}s</td>
                                 <td class = 'rtext'>4.3s</td>
@@ -485,7 +481,7 @@ Content-Type: message/rfc822
                             <tr>
                                 <td><strong>Dependencies (Except core modules of Perl)</strong></td>
                                 <td class = 'rtext'>2</td>
-                                <td class = 'rtext'>2</td>
+                                <td class = 'rtext'>1</td>
                                 <td class = 'rtext'>24</td>
                             </tr>
                             <tr>
@@ -521,12 +517,11 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    Precision of analysis in {{ site.html.ss }} is 2.0 times higher than
-                    {{ site.html.bh }} because {{ site.html.ss }} have 
-                    <a href = '/en/engine/'>{{ site.sisimai.spec.modules }} MTA/MSP modules</a>.
-                    And then, {{ site.html.ss }} can parse bounce mails via commercial MTA
-                    such as Microsoft Exchange Server, IBM Notes and Domino, 
-                    via Email Service Providers such as Amazon SES, WorkMail, SendGrid.
+                    {{ site.html.ss }} has {{ site.sisimai.spec.modules }} built-in MTA/MSP decoding
+                    modules, giving it about twice the analysis accuracy of {{ site.html.bh }}.
+                    {{ site.html.ss }} can also decode bounce emails from commercial MTAs such as
+                    Microsoft Exchange Server and IBM Notes and Domino, as well as commercial email
+                    services such as Amazon SES, WorkMail, and SendGrid.
                 </p>
                 <hr>
             </div>
@@ -547,10 +542,9 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can parse bounce mails and generate structured data
-                    faster than {{ site.html.bh }} (bin/mailboxparser command).
-                    The Perl version of {{ site.html.ss }} is about {{ site.sisimai.diff.timesfaster.perl }}
-                    times faster.
+                    The Perl version of {{ site.html.ss }} decode emails and generates structured
+                    data about {{ site.sisimai.diff.timesfaster.perl }} times faster than the
+                    {{ site.html.bh }} <kbd>bin/mailboxparser</kbd> command.
                 </p>
             </div>
         </div>
@@ -570,13 +564,13 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} is made for only parsing email bounces, and it is
-                    small and robust.
+                    {{ site.html.ss }} is a library that specializes in decoding bounce emails,
+                    and therefore it is designed to be small and robust, as follows:
                 </p>
                 <ul>
-                    <li>The number of source lines of {{ site.html.bh }} is about half of {{ site.html.bh }}</li>
-                    <li>The number of tests of {{ site.html.ss }} is about 5 times {{ site.html.bh }}</li>
-                    <li>Only 2 modules are required on {{ site.html.ss}}</li>
+                    <li>About half the number of lines of source code as {{ site.html.bh }}</li>
+                    <li>About five times the number of tests as {{ site.html.bh }}</li>
+                    <li>Only two dependent modules</li>
                 </ul>
             </div>
         </div>
@@ -594,9 +588,8 @@ Content-Type: message/rfc822
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Data Structure</h2>
                 <p class = 'description'>
-                    Differences of data structure (parsed data fields and
-                    detectable bounce reasons)
-                    between {{ site.html.ss }} and {{ site.html.bh }}.
+                    The following are the differences in data structure (structure of the decoded
+                    results, detectable bounce reasons) between {{ site.html.ss }} and {{ site.html.bh }}:
                 </p>
             </div>
         </div>
@@ -606,10 +599,10 @@ Content-Type: message/rfc822
                 <div class = 'index-label'><i class = 'fas fa-list'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Each field of parsed data</h3>
+                <h3 class = 'in-desc'>Each field of decoded data</h3>
                 <p class = 'description'>
-                    All the fields of parsed data in {{ site.html.ss }} are available on
-                    <a href = '/en/data/'>Data Structure of Sisimai::Data</a>.
+                    All the fields of decoded data in {{ site.html.ss }} are available on
+                    <a href = '/en/data/'>Data Structure of Sisimai::Fact</a>.
                 </p>
             </div>
         </div>
@@ -712,16 +705,23 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'><strong>frequency</strong></td>
+                                    <td class = 'ltext'><strong class = 'not-available'>frequency</strong></td>
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
-                                        The number of email bounces, however, the value in parsed data
-                                        is always "1"
+                                        The number of email bounces, however, the value in decoded data is always "1"
+                                    </td>
+                                </tr>
+                                <td class = 'ltext'><strong>hardbounce</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        Whether or not it is a hard bounce.
+                                        Implemented in {{ site.html.ss }} 5.0.0
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'><strong>hostgroup</strong></td>
+                                    <td class = 'ltext'><strong class = 'not-available'>hostgroup</strong></td>
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -763,7 +763,7 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'><strong>provider</strong></td>
+                                    <td class = 'ltext'><strong class = 'not-available'>provider</strong></td>
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
@@ -818,7 +818,7 @@ Content-Type: message/rfc822
                                         <em class = 'warn'>decription/smtpagent</em>
                                     </td>
                                     <td class = 'ltext'>
-                                        MTA/MSP Module name used for parsing
+                                        MTA/MSP Module name used for decoding
                                     </td>
                                 </tr>
                                 <tr>
@@ -830,11 +830,12 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'><strong>softbounce</strong></td>
+                                    <td class = 'ltext'><strong class = 'deprecated'>softbounce</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        value for checking whether it is soft bounce or not
+                                        value for checking whether it is soft bounce or not.
+                                        Deprecated in {{ site.htm.ss }} 5.0.0
                                     </td>
                                 </tr>
                                 <tr>
@@ -900,7 +901,7 @@ Content-Type: message/rfc822
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Detectable bounce reasons</h3>
                 <p class = 'description'>
-                    All the reasons of parsed data in {{ site.html.ss }} are available on
+                    All the reasons of decoded data in {{ site.html.ss }} are available on
                     <a href = '/en/reason/'>Bounce Reason List</a>.
                 </p>
             </div>
@@ -919,10 +920,24 @@ Content-Type: message/rfc822
                                     <th>Reason</th>
                                     <th>{{ site.html.ss }}</th>
                                     <th>{{ site.html.bh }}</th>
-                                    <th>name in parsed data</th>
+                                    <th>reason name in decoded data</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <tr>
+                                    <td class = 'ltext'><strong>Auth Failure</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>authfailure
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Bad Reputation</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>badreputation
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td class = 'ltext'><strong>Blocked</strong></td>
                                     <td>OK</td>
@@ -1053,6 +1068,14 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'><strong>Not Compliant RFC</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        notcompliantrfc
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'><strong>On Hold</strong></td>
                                     <td>OK</td>
                                     <td>OK</td>
@@ -1080,6 +1103,14 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'><strong>RequirePTR</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        requireptr
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'><strong>Security Error</strong></td>
                                     <td>OK</td>
                                     <td>
@@ -1099,6 +1130,14 @@ Content-Type: message/rfc822
                                     <td>-</td>
                                     <td class = 'ltext'>
                                         spamdetected
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Speeding</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        speeding
                                     </td>
                                 </tr>
                                 <tr>
