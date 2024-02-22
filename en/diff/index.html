@@ -195,9 +195,9 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can also analyze bounce emails in your Gmail mailbox.
-                    {{ site.html.bh }} can also analyze bounce emails in your Gmail mailbox if they
-                    are in an older format, <em class = 'warn'>but it cannot analyze bounce emails
+                    {{ site.html.ss }} can also decode bounce emails in your Gmail mailbox.
+                    {{ site.html.bh }} can also decode bounce emails in your Gmail mailbox if they
+                    are in an older format, <em class = 'warn'>but it cannot decode bounce emails
                         in the current format.</em>
                 </p>
                 <hr>
@@ -219,12 +219,12 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can correctly analyze bounce emails
+                    {{ site.html.ss }} can correctly decode bounce emails
                     (e.g., <a href = 'https://github.com/sisimai/p5-sisimai/blob/master/set-of-emails/maildir/bsd/rfc3464-28.eml'>
                         rfc3464-28.eml
                     </a>)
                     that contain lines like "Status: 2.1.5" and determine the bounce reason as
-                    "delivered." <em class = 'warn'>However, {{ site.html.bh }} can also analyze
+                    "delivered." <em class = 'warn'>However, {{ site.html.bh }} can also decode
                     such emails, but it determines the bounce reason as "undefined," as shown in
                     the output example below.</em>
                 </p>
@@ -270,12 +270,12 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can also analyze emails in the ARF (Abuse Reporting Format)
+                    {{ site.html.ss }} can also decode emails in the ARF (Abuse Reporting Format)
                     format, which is used by overseas email services such as
                     <a href = 'http://postmaster.aol.com/Postmaster.FeedbackLoop.php' target = 'new'>AOL</a> and
                     <a href = 'https://help.yahoo.com/kb/complaint-feedback-loop-sln3438.html' target = 'new'>Yahoo!</a>.
                     {{ site.html.bh }}'s FBL support is only an experimental implementation and cannot
-                    fully analyze emails in the ARF format.
+                    fully decode emails in the ARF format.
                 </p>
             </div>
         </div>
@@ -517,9 +517,9 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} has {{ site.sisimai.spec.modules }} built-in MTA/MSP analysis
+                    {{ site.html.ss }} has {{ site.sisimai.spec.modules }} built-in MTA/MSP decoding
                     modules, giving it about twice the analysis accuracy of {{ site.html.bh }}.
-                    {{ site.html.ss }} can also analyze bounce emails from commercial MTAs such as
+                    {{ site.html.ss }} can also decode bounce emails from commercial MTAs such as
                     Microsoft Exchange Server and IBM Notes and Domino, as well as commercial email
                     services such as Amazon SES, WorkMail, and SendGrid.
                 </p>
@@ -564,7 +564,7 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} is a library that specializes in analyzing bounce emails,
+                    {{ site.html.ss }} is a library that specializes in decoding bounce emails,
                     and therefore it is designed to be small and robust, as follows:
                 </p>
                 <ul>
@@ -588,7 +588,7 @@ Content-Type: message/rfc822
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Data Structure</h2>
                 <p class = 'description'>
-                    The following are the differences in data structure (structure of the analysis
+                    The following are the differences in data structure (structure of the decoded
                     results, detectable bounce reasons) between {{ site.html.ss }} and {{ site.html.bh }}:
                 </p>
             </div>
