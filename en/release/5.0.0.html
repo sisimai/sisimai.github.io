@@ -1,0 +1,377 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.0.0 RELEASE"
+"description": "Release notes for Sisimai 5.0.0/All the changes"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = 'https://libsisimai.org/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = 'https://libsisimai.org/en/'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'scroll'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>Docs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.0.0.html'><i class = 'fa fa-language'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-snowflake'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.0.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2024/02/02</h3>
+                <p class = 'description'>
+                    Sisimai 5.0.0 has been released! This release includes many changes that are not
+                    compatible with Version 4, so please check the Perl or Ruby version of your
+                    environment before installing or upgrading.  Changes specific to the Perl version
+                    of {{ site.html.ss }} are indicated by <span class = 'lang perl'>Perl</span> at
+                    the beginning of each item, and changes specific to the Ruby version of
+                    {{ site.html.ss }} are indicated by <span class = 'lang ruby'>Ruby</span>.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-skull'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Breaking Changes</h3>
+                <ul class = 'release-notes'>
+                    <li><span class = 'lang perl'>Perl</span>
+                        {{ site.html.ss }} 5 <strong>requires Perl 5.26.0 or later</strong>
+                    </li>
+                    <ul>
+                        <li>
+                            It uses postfix dereference internally.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/446' target = 'new'>#446</a>
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/448' target = 'new'>#448</a>
+                        </li>
+                    </ul>
+                    <li><span class = 'lang ruby'>Ruby</span>
+                        {{ site.html.ss }} 5<strong>requires Ruby 2.4.0 or later</strong>
+                    </li>
+                    <li>
+                        The <kbd>make()</kbd> method of the Sisimai class has been deprecated.
+                        It can still be used with a warning until {{ site.html.ss }} 5.1.0,
+                        but it is recommended to switch to the <kbd>rise()</kbd> method as soon as
+                        possible.
+                    </li>
+                    <li>
+                        Bounce emails with a bounce reason of <kbd>"vacation"</kbd> are no longer
+                        decoded by default.
+                        If necessary, you can specify the <span class = 'lang perl'>Perl</span>
+                        <kbd>vacation =&gt; 1</kbd> or <span class = 'lang ruby'>Ruby</span>
+                        <kbd>vacation: true</kbd> option to the <kbd>rise()</kbd> and <kbd>dump()</kbd>
+                        methods to decode these emails.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/436' target = 'new'>#436</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/437' target = 'new'>#437</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/220' target = 'new'>#220</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/222' target = 'new'>#222</a>
+                    </li>
+                    <li>The <kbd>Sisimai::Data</kbd> class and the <kbd>Sisimai::Fact</kbd>class</li>
+                    <ul>
+                        <li>
+                            The <kbd>Sisimai::Data</kbd> class has been renamed to the <kbd>Sisimai::Fact</kbd> class
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/419' target = 'new'>#419</a>
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/420' target = 'new'>#420</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/208' target = 'new'>#208</a>
+                        </li>
+                        <li>
+                            The <kbd>softbounce()</kbd> method of the <kbd>Sisimai::Data</kbd> class
+                            has been deprecated. It can still be used with a warning until {{ site.html.ss }}
+                            5.1.0, but it is recommended to switch to the new <kbd>hardbounce()</kbd>
+                            method of the <kbd>Sisimai::Fact</kbd> class as soon as possible.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/402' target = 'new'>#402</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/197' target = 'new'>#197</a>
+                        </li>
+                        <li>
+                            The <kbd>"softbounce"</kbd> field in the decoded results has also been
+                            deprecated. Please refer to the <kbd>"hardbounce"</kbd> field instead
+                            from {{ site.html.ss }} 5.0.0 onwards.
+                        </li>
+                    </ul>
+                    <li>
+                        Changes in the <kbd>Sisimai::Message</kbd> class
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/401' target = 'new'>#401</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/198' target = 'new'>#198</a>
+                    </li>
+                    <ul>
+                        <li>
+                            The <kbd>Sisimai::Message</kbd> class no longer creates objects
+                        </li>
+                        <li>
+                            The <kbd>make()</kbd> method of the <kbd>Sisimai::Message</kbd> class
+                            has been renamed to the <kbd>rise()</kbd>.
+                        </li>
+                    </ul>
+                    <li>The Callback Feature
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/399' target = 'new'>#399</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/192' target = 'new'>#191</a>
+                    </li>
+                    <ul>
+                        <li>
+                            The <kbd>hook</kbd> option for the <kbd>rise()</kbd> and <kbd>dump()</kbd>
+                            methods of the <kbd>Sisimai</kbd> class has been deprecated.
+                            Please use the newly implemented <kbd>c___</kbd> option instead.
+                        </li>
+                        <li>
+                            The <kbd>c___</kbd> option takes a single argument, which can be either
+                            <span class = 'lang perl'>Perl</span> an array reference or
+                            <span class = 'lang ruby'>ruby</span> an <kbd>Array</kbd> object.
+                        </li>
+                        <li>
+                            The first element of the array passed to the <kbd>c___</kbd> option is a
+                            <span class = 'lang perl'>Perl</span> code reference or a
+                            <span class = 'lang ruby'>Ruby</span> <kbd>Proc</kbd> object, which is
+                            the same as what was passed to the deprecated <kbd>hook</kbd> option.
+                        </li>
+                        <li>
+                            The second element of the array passed to the <kbd>c___</kbd> option is a
+                            <span class = 'lang perl'>Perl</span> code reference or a
+                            <span class = 'lang ruby'>Ruby</span> <kbd>Proc</kbd> object that
+                            processes the bounce mail files to be decoded.
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Other Changes</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        Five new bounce reasons have been implemented.
+                    </li>
+                    <ul>
+                        <li>
+                            <strong><a href = '/en/reason#authfailure'>Auth Failure</a>:</strong>
+                            A Bounce reason for rejection due to domain authentication, such as SPF, DKIM, and DMARC
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/467' target = 'new'>#467</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/236' target = 'new'>#236</a>
+                        </li>
+                        <li>
+                            <strong><a href = '/en/reason#badreputation'>Bad Reputation</a>:</strong>
+                            A Bounce reason for rejection due to the sender's IP address or domain reputation
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/469' target = 'new'>#469</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/240' target = 'new'>#240</a>
+                        </li>
+                        <li>
+                            <strong><a href = '/en/reason#notcompliantrfc'>Not Compliant RFC</a>:</strong>
+                            A Bounce reason for rejection due to the email header or body being not
+                            compliant with RFC standards
+                        </li>
+                        <li>
+                            <strong><a href = '/en/reason#requireptr'>Require PTR</a>:</strong>
+                            A Bounce reason for rejection due to a missing or misconfigured reverse
+                            DNS record for the sender's IP address
+                        </li>
+                        <li>
+                            <strong><a href = '/en/reason#speeding'>Speeding</a>:</strong>
+                            A Bounce reason for rejection due to rate limiting violations
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/466' target = 'new'>#466</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/239' target = 'new'>#239</a>
+                        </li>
+                    </ul>
+                    <li>
+                        An implementation of <kbd>Sisimai::RFC2045</kbd> ported from the work-in-progress
+                        <a href = 'https://github.com/sisimai/go-sisimai/tree/master/sisimai/rfc2045' target = 'new'>
+                            Go language version Sisimai/rfc2045
+                        </a>, which is an improved version of <kbd>Sisimai::MIME</kbd>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/407' target = 'new'>#407</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/199' target = 'new'>#199</a>
+                    </li>
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span> Changed the test framework from
+                        <a href = 'https://rubygems.org/gems/rspec/' target = 'new'>RSpec</a> to 
+                        <a href = 'https://rubygems.org/gems/minitest/' target = 'new'>minitest</a>
+                    </li>
+                    <li>
+                        The <kbd>rise()</kbd> method of the <kbd>Sisimai::Message</kbd> class
+                        recursively decodes the message body a second time if it encounters a
+                        multipart message with the <kbd>message/rfc822</kbd> content type.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/429' target = 'new'>#429</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/217' target = 'new'>#217</a>
+                    </li>
+                    <li>
+                        Added error messages in European languages to the 
+                        <kbd>Sisimai::Lhost::Office365</kbd> and <kbd>Sisimai::Lhost::Domini</kbd>
+                        clsses
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/431' target = 'new'>#431</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/218' target = 'new'>#218</a>
+                    </li>
+                    <li>
+                        Implemented the <kbd>Sisimai::SMTP::Transcript</kbd> class, which structure
+                        SMTP session logs
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/445' target = 'new'>#445</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/228' target = 'new'>#228</a>
+                    </li>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        Speed up the replacement process using <kbd>for</kbd> loops
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/451' target = 'new'>#451</a>
+                    </li>
+                    <li>
+                        Reduce regular expressions and improve text processing
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/490' target = 'new'>#490</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/254' target = 'new'>#254</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/255' target = 'new'>#255</a>
+                    </li>
+                    <ul>
+                        <li><span class = 'lang perl'>Perl</span> Reduced regular expressions by 82%</li>
+                        <li><span class = 'lang ruby'>Ruby</span> Reduced regular expressions by 78%</li>
+                        <li>Implement the <kbd>test()</kbd> method in the <kbd>Sisimai::SMTP::Command</kbd> class
+                        <li>Implement the <kbd>test()</kbd> method in the <kbd>Sisimai::SMTP::Reply</kbd> class
+                        <li>Implement the <kbd>test()</kbd> method in the <kbd>Sisimai::SMTP::Status</kbd> class
+                        <li>Implement the <kbd>prefer()</kbd> method in the <kbd>Sisimai::SMTP::Status</kbd> class
+                        <li>Implement the <kbd>aligned()</kbd> method in the <kbd>Sisimai::String</kbd> class
+                        <li>Implement the <kbd>ipv4()</kbd> method in the <kbd>Sisimai::String</kbd> class
+                    </ul>
+                    <li>
+                        Classes under the <kbd>Sisimai::Rhost</kbd> class have been renamed
+                    </li>
+                    <ul>
+                        <li>Renamed from <kbd>ExchangeOnline</kbd> to <kbd>Microsoft</kbd></li>
+                        <li>Renamed from <kbd>GoogleApps</kbd> to <kbd>Google</kbd></li>
+                        <li>Renamed froom <kbd>TencentQQ</kbd> to <kbd>Tencent</kbd></li>
+                    </ul>
+                    <li>Add the following bounce mails</li>
+                    <ul>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/lhost-postfix-75.eml' target = 'new'>
+                                lhost-postfix-75.eml
+                            </a>(<kbd>SystemError</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/lhost-postfix-76.eml' target = 'new'>
+                                lhost-postfix-76.eml
+                            </a>(<kbd>UserUnknown</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/lhost-postfix-77.eml' target = 'new'>
+                                lhost-postfix-77.eml
+                            </a>(<kbd>NoRelaying</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/lhost-postfix-78.eml' target = 'new'>
+                                lhost-postfix-78.eml
+                            </a>(<kbd>ContentError</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-nttdocomo-01.eml' target = 'new'>
+                                rhost-nttdocomo-01.eml
+                            </a>(<kbd>Filtered</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-nttdocomo-02.eml' target = 'new'>
+                                rhost-nttdocomo-02.eml
+                            </a>(<kbd>Rejcted</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-nttdocomo-03.eml' target = 'new'>
+                                rhost-nttdocomo-03.eml
+                            </a>(<kbd>Rejcted</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-mimecast-01.eml' target = 'new'>
+                                rhost-mimecast-01.eml
+                            </a>(<kbd>PolicyViolation</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-mimecast-02.eml' target = 'new'>
+                                rhost-mimecast-02.eml
+                            </a>(<kbd>VirusDetected</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/lhost-goglegroups-15.eml' target = 'new'>
+                                lhost-googlegroup-15.eml
+                            </a>(<kbd>Rejected</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rfc3834-05.eml' target = 'new'>
+                                rfc3834-05.eml
+                            </a>(<kbd>Rejected</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-google-03.eml' target = 'new'>
+                                rhost-google-03.eml
+                            </a>(<kbd>AuthFailure</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-google-04.eml' target = 'new'>
+                                rhost-google-04.eml
+                            </a>(<kbd>AuthFailure</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-google-05.eml' target = 'new'>
+                                rhost-google-05.eml
+                            </a>(<kbd>MailboxFull</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-google-06.eml' target = 'new'>
+                                rhost-google-06.eml
+                            </a>(<kbd>RequirePTR</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-google-07.eml' target = 'new'>
+                                rhost-google-07.eml
+                            </a>(<kbd>Suspend</kbd>)
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/sisimai/set-of-emails/maildir/bsd/rhost-google-08.eml' target = 'new'>
+                                rhost-google-08.eml
+                            </a>(<kbd>NotCompliantRFC</kbd>)
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
