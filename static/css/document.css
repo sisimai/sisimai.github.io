@@ -214,6 +214,44 @@ ul.spec {
     list-style-type: disc;
     list-style-position: inside;
 }
+ul.spec li {
+    padding: 0 0 0 4px;
+}
+
+ul.release-notes {
+    text-align: left;
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+ul.release-notes li {
+    padding: 0 0 4px 0;
+    margin: 4px 0;
+    border-width: 0 0 1px 0;
+    border-color: #eae5e3; /* Soshoku */
+    border-style: solid;
+}
+
+ul.release-notes li a:link,
+ul.release-notes li a:active,
+ul.release-notes li a:hover,
+ul.release-notes li a:visited {
+    color: #007bbb; /* Kompeki */
+    background: inherit;
+}
+
+ul.release-notes li kbd {
+    padding: 4px 4px;
+    margin: auto 4px auto 0;
+    border-width: 1px;
+    border-color: #eae5e3; /* Soshoku */
+    border-style: solid;
+    border-radius: 0;
+    color: #281a14; /* Tetsuguro */
+    background: #f3f3f2; /* Shironeri */
+    text-shadow: none;
+}
+
 
 dl.faq dt:before { content: 'Q. '; }
 dl.faq dd:before { content: ''; }
@@ -237,6 +275,30 @@ dl.faq a:visited {
     background: inherit;
     color: #3f312b;
 }
+
+span.lang {
+    padding: auto 4px;
+    margin: auto 4px auto 0;
+    display: inline-block;
+    width: 48px;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+span.perl {
+    background: #2a97c1;
+    color: #ffffef;
+}
+
+span.ruby {
+    background: #cf1516;
+    color: #ffffef;
+}
+
 
 h3.icon-caption {
     font-size: 18px;
