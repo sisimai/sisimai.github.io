@@ -29,9 +29,9 @@
                     <li class = 'scroll'><a href = '#download'><strong>ダウンロード</strong></a></li>
                     <li class = 'others'><a href = '/ja/start/'><strong>導入</strong></a></li>
                     <li class = 'others'><a href = '/ja/docs/'><strong>ドキュメント</strong></a></li>
-                    <li class = 'others'><a href = 'http://blog.libsisimai.org/' target = 'new'>ブログ</a></li>
+                    <li class = 'others'><a href = '/ja/release/'><strong>リリース</strong></a></li>
                     <li class = 'scroll'><a href = '#support'>サポート</a></li>
-                    <li class = 'others'><a href = 'https://libsisimai.org/en/'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = '/en/'><i class = 'fa fa-language'></i></a></li>
                 </ul>
             </div>
         </div>
@@ -53,9 +53,11 @@
                     <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは2月2日にリリースした<strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>で
-                        <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v5.0.0' target = 'new'>GitHub(Perl版)</a>または
-                        <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v5.0.0' target = 'new'>GitHub(Ruby版)</a>からのみ
-                        入手可能です。
+                        <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v{{ site.sisimai.version }}' target = 'new'>GitHub(Perl版)</a>または
+                        <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v{{ site.sisimai.version }}' target = 'new'>GitHub(Ruby版)</a>からのみ
+                        入手可能です。{{ site.html.ss }} {{ site.sisimai.version }}の変更点は
+                        <a href = '/ja/release/{{ site.sisimai.version }}.html'>リリースノート</a>
+                        を見てください。
 
                         現時点で<a href = '{{ sisimai.distribution.perl }}' target = 'new'>CPAN</a>および
                         <a href = '{{ sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>から
