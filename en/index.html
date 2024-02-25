@@ -29,9 +29,9 @@
                     <li class = 'scroll'><a href = '#download'><strong>Download</strong></a></li>
                     <li class = 'others'><a href = '/en/start/'><strong>Start</strong></a></li>
                     <li class = 'others'><a href = '/en/docs/'><strong>Docs</strong></a></li>
-                    <li class = 'others'><a href = 'http://blog.libsisimai.org/' target = 'new'>Blog</a></li>
+                    <li class = 'others'><a href = '/en/release/'><strong>Release</strong></a></li>
                     <li class = 'scroll'><a href = '#support'>Support</a></li>
-                    <li class = 'others'><a href = 'https://libsisimai.org/ja/'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = '/ja/'><i class = 'fa fa-language'></i></a></li>
                 </ul>
             </div>
         </div>
@@ -57,14 +57,20 @@
                         <a href = '#download'>
                             <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
                         </a>,
-                        released on
-                        <a href = '{{ site.sisimai.blogurl }}' target = 'new'>{{ site.sisimai.release.en }}.</a>
+                        released on {{ site.sisimai.release.en }}.
                         It is only available from
-                        <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v5.0.0' target = 'new'>GitHub (Perl version)</a> or
-                        <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v5.0.0' target = 'new'>GitHub (Ruby version)</a>.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v{{ site.sisimai.version }}' target = 'new'>GitHub (Perl version)</a> or
+                        <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v{{ site.sisimai.version }}' target = 'new'>GitHub (Ruby version)</a>.
+                        Details of all changes in the {{ site.html.ss }} {{ site.sisimai.version }}
+                        are available at <a href = '/en/release/{{ site.sisimai.version }}.html'>the release notes</a>.
+                        <br />
+
                         Currently, v4.25.16 is available for download from
                         <a href = '{{ sisimai.distribution.perl }}' target = 'new'>CPAN</a> and
                         <a href = '{{ sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>.
+
+                        <strong>{{ site.html.ss }} 5.0.0 will be released to CPAN and RubyGems in 29th
+                            February 2024.</strong>
                     </div>
                 </div>
             </div> 
