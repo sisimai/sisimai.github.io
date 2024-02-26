@@ -28,7 +28,7 @@ preview:
 	open -a 'Google Chrome' ./index.html
 
 open-the-page:
-	open -a 'Google Chrome' 'http://127.0.0.1:$(PORT)/'
+	open -a 'Google Chrome' 'http://localhost:$(PORT)/'
 
 sitemap:
 	open -a 'Google Chrome' 'https://www.xml-sitemaps.com'
