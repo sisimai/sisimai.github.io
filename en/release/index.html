@@ -52,27 +52,100 @@
                 </div>
             </div> 
         </div>
+        <div class = 'text-center index-table'>
+            <div class = 'row'>
+                <div class = 'col-sm-2'></div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-5'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Latest v5</h3>
+                        <p class = 'description ja'>
+                            The latest version of the current 5 series is
+                            <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>,
+                            released on <strong>{{ site.sisimai.release.en }}.</strong>
+                            It can be downloaded from GitHub, CPAN, and RubyGems.
+                        </p>
+                    </div>
+                    <strong>
+                        <a href = '{{ site.sisimai.version }}.html' class = 'btn btn-continue'>
+                            Read
+                        </a>
+                    </strong>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-4'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>v4 Final</h3>
+                        <p class = 'description ja'>
+                            The final version of the previous 4 series is
+                            <strong>{{ site.html.ss }} {{ site.sisimai.v4final }}.</strong>
+                            The patch level 1 of v4.25.16 and later versions can be downloaded from only GitHub.
+                        </p>
+                    </div>
+                    <a href = '#release-list' class = 'btn btn-continue'>List</a>
+                </div>
+                <div class = 'col-sm-2'></div>
+            </div>
+        </div>
     </div>
 </section> <!-- /#index -->
 
 <section id = 'release-list' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
-            <div class = 'col-sm-8 col-sm-offset-2'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-calendar-days'></i>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>List of Releases</h2>
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-condensed'>
                         <thead>
                             <tr>
-                                <th class = 'ctext'>Release Date</th>
+                                <th class = 'ctext'>Date</th>
                                 <th class = 'ctext'>Version</th>
-                                <th class = 'ctext'>Changes</th>
+                                <th class = 'ctext'>Breaking Changes</th>
+                                <th class = 'ctext'>New Features<br />(Compatible)</th>
+                                <th class = 'ctext'>Tiny Improvement</th>
+                                <th class = 'ctext'>Bug Fixes</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class = 'rtext'>2024/02/02</td>
-                                <td class = 'rtext'>5.0.0</td>
-                                <td class = 'rtext'><a href = '/en/release/5.0.0.html'>/en/release/5.0.0</a>
+                                <td class = 'ltext'>2024/02/02 Fri.</td>
+                                <td class = 'ltext'><a href = '/en/release/5.0.0.html'>v5.0.0</a>
+                                <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'>✓</td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>2024/02/01 Thu.</td>
+                                <td class = 'ltext'>v4.25.16p1
+                                    <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v4.25.16p1' target = 'new'>Perl</a>
+                                    <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v4.25.16p1' target = 'new'>Ruby</a>
+                                </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'> </td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>2023/05/16 Tue.</td>
+                                <td class = 'ltext'>v4.25.16
+                                    <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v4.25.16' target = 'new'>Perl</a>
+                                    <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v4.25.16' target = 'new'>Ruby</a>
+                                </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'>✓</td>
                             </tr>
                         </tbody>
                     </table>

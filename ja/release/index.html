@@ -52,27 +52,99 @@
                 </div>
             </div> 
         </div>
+        <div class = 'text-center index-table'>
+            <div class = 'row'>
+                <div class = 'col-sm-2'></div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-5'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>5系最新版</h3>
+                        <p class = 'description ja'>
+                            現行バージョンである5系の最新版は<strong>{{ site.sisimai.release.ja }}</strong>
+                            にリリースした<strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
+                            です。GitHubとCPANとRubyGemsからダウンロード可能です。
+                        </p>
+                    </div>
+                    <strong>
+                        <a href = '{{ site.sisimai.version }}.html' class = 'btn btn-continue'>
+                            詳しく
+                        </a>
+                    </strong>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-4'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>4系最終版</h3>
+                        <p class = 'description ja'>
+                            旧バージョンである4系の最終版は
+                            <strong>{{ site.html.ss }} {{ site.sisimai.v4final }}</strong>
+                            です。v4.25.16のパッチレベル1以降はGitHubからのみダウンロード可能です。
+                        </p>
+                    </div>
+                    <a href = '#release-list' class = 'btn btn-continue'>詳しく</a>
+                </div>
+                <div class = 'col-sm-2'></div>
+            </div>
+        </div>
     </div>
 </section> <!-- /#index -->
 
 <section id = 'release-list' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
-            <div class = 'col-sm-8 col-sm-offset-2'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-calendar-days'></i>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>リリースの一覧</h2>
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-condensed'>
                         <thead>
                             <tr>
                                 <th class = 'ctext'>リリース日</th>
                                 <th class = 'ctext'>バージョン</th>
-                                <th class = 'ctext'>変更点詳細</th>
+                                <th class = 'ctext'>破壊的な変更</th>
+                                <th class = 'ctext'>新機能(互換)</th>
+                                <th class = 'ctext'>小さな改善</th>
+                                <th class = 'ctext'>バグ修正</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class = 'rtext'>2024/02/02</td>
-                                <td class = 'rtext'>5.0.0</td>
-                                <td class = 'rtext'><a href = '/ja/release/5.0.0.html'>/ja/release/5.0.0</a>
+                                <td class = 'ltext'>令和6年2月2日(金)</td>
+                                <td class = 'ltext'><a href = '/ja/release/5.0.0.html'>v5.0.0</a>
+                                <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'>✓</td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>令和6年2月1日(木)</td>
+                                <td class = 'ltext'>v4.25.16p1
+                                    <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v4.25.16p1' target = 'new'>Perl</a>
+                                    <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v4.25.16p1' target = 'new'>Ruby</a>
+                                </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'> </td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>令和5年5月16日(火)</td>
+                                <td class = 'ltext'>v4.25.16
+                                    <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v4.25.16' target = 'new'>Perl</a>
+                                    <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v4.25.16' target = 'new'>Ruby</a>
+                                </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'>✓</td>
                             </tr>
                         </tbody>
                     </table>
