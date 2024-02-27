@@ -437,12 +437,11 @@ Done installing documentation for sisimai after 6 seconds
                 <h3 class = 'in-desc'>From the Ports Collection(FreeBSD)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/freebsd-daemon-2.png'>
-                    The Perl version of {{ site.html.ss }} can be installed from
+                    The Perl version of {{ site.html.ss }} can be installed from FreeBSD
                     <a href = 'https://www.freebsd.org/ports/index.html' target = 'new'>Ports Collection</a>
-                    <a href = 'https://www.freshports.org/mail/p5-Sisimai' target = 'new'>(mail/p5-Sisimai)</a>
-                    the FreeBSD Ports collection (mail/p5-sisimai).
+                    <a href = 'https://www.freshports.org/mail/p5-Sisimai' target = 'new'>(mail/p5-Sisimai)</a>.
                     It can be installed with a single <kbd>make</kbd> command, but please note that
-                    if the timing of the inclusion of Perl {{ site.html.ss }} in the Ports collection
+                    if the timing of the inclusion of Perl version of {{ site.html.ss }} in the Ports collection
                     is not the latest version, you may not be installing the latest version of {{ site.html.ss }}.
                 </p>
             </div>
@@ -456,6 +455,50 @@ Done installing documentation for sisimai after 6 seconds
 ===>  p5-sisimai-4.25.16 depends on file: /usr/local/sbin/pkg - found
 => Sisimai-v4.25.16.tar.gz doesn't seem to exist in /usr/ports/distfiles/.
 ...
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>apt</div>
+                <div class = 'index-text'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>From Debian package</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/debian-2.png'>
+                    The Perl version of {{ site.html.ss }} can be installed from 
+                    <a href = 'https://www.debian.org/' target = 'new'>Debian</a> or
+                    <a href = 'https://ubuntu.com/' target = 'new'>Ubuntu</a>
+                    <a href = 'https://sources.debian.org/src/libsisimai-perl/' target = 'new'>package</a>
+                    (libsisimai-perl).
+
+                    It can be installed with a single <kbd>apt</kbd> copmmand, but please note that
+                    if the timing of the inclusion Perl version of {{ site.html.ss }} in the Debian/Ubuntu
+                    packages is not the latest version, you may not be installing the latest version
+                    of {{ site.html.ss }}
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <pre class = 'prettyprint'># <kbd>apt install libsisimai-perl</kbd>
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+...
+Need to get 366 kB/563 kB of archives.
+After this operation, 1892 kB of additional disk space will be used.
+Do you want to continue? [Y/n] <kbd>y</kbd>
+Get:1 http://jp.archive.ubuntu.com/ubuntu focal/universe amd64 libclass-accessor-lite-perl all 0.08-1 [8136 B]
+Get:2 http://jp.archive.ubuntu.com/ubuntu focal/universe amd64 libsisimai-perl all 4.25.5-1 [358 kB]
+Fetched 366 kB in 2s (171 kB/s)
+...
+Setting up libjson-perl (4.02000-2) ...
+Setting up libsisimai-perl (4.25.5-1) ...
+Setting up libjson-xs-perl (4.020-1build1) ...
+Processing triggers for man-db (2.9.1-1) ...
                 </pre>
             </div>
         </div>

@@ -431,7 +431,7 @@ Done installing documentation for sisimai after 6 seconds
                     Perl版{{ site.html.ss }}は<a href = 'https://www.freebsd.org/ja/' target = 'new'>FreeBSD</a>
                     の<a href = 'https://www.freebsd.org/ja/ports/index.html' target = 'new'>Portsコレクション</a>
                     (<a href = 'https://www.freshports.org/mail/p5-Sisimai' target = 'new'>mail/p5-Sisimai)</a>
-                    インストールができます。<kbd>make</kbd>コマンド一発でインストールが可能ですが、
+                    からインストールができます。<kbd>make</kbd>コマンド一発でインストールが可能ですが、
                     Perl版{{ site.html.ss }}がPortsコレクションに取り込まれるタイミングによっては、
                     最新版ではない{{ site.html.ss }}がインストールされる点に注意してください。
                 </p>
@@ -446,6 +446,47 @@ Done installing documentation for sisimai after 6 seconds
 ===>  p5-sisimai-4.25.16 depends on file: /usr/local/sbin/pkg - found
 => Sisimai-v4.25.16.tar.gz doesn't seem to exist in /usr/ports/distfiles/.
 ...
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>apt</div>
+                <div class = 'index-text'>Perl</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Debianパッケージから</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/debian-2.png'>
+                    Perl版{{ site.html.ss }}は<a href = 'https://www.debian.or.jp/' target = 'new'>Debian</a>
+                    や<a href = 'https://jp.ubuntu.com/' target = 'new'>Ubuntu</a>の
+                    <a href = 'https://sources.debian.org/src/libsisimai-perl/' target = 'new'>パッケージ</a>
+                    (libsisimai-perl)からインストールができます。
+                    <kbd>apt</kbd>コマンド一発でインストールが可能ですが、Perl版{{ site.html.ss }}
+                    がパッケージに取り込まれるタイミングによっては、最新版ではない{{ site.html.ss }}
+                    がインストールされる点に注意してください。
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <pre class = 'prettyprint'># <kbd>apt install libsisimai-perl</kbd>
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+...
+Need to get 366 kB/563 kB of archives.
+After this operation, 1892 kB of additional disk space will be used.
+Do you want to continue? [Y/n] <kbd>y</kbd>
+Get:1 http://jp.archive.ubuntu.com/ubuntu focal/universe amd64 libclass-accessor-lite-perl all 0.08-1 [8136 B]
+Get:2 http://jp.archive.ubuntu.com/ubuntu focal/universe amd64 libsisimai-perl all 4.25.5-1 [358 kB]
+Fetched 366 kB in 2s (171 kB/s)
+...
+Setting up libjson-perl (4.02000-2) ...
+Setting up libsisimai-perl (4.25.5-1) ...
+Setting up libjson-xs-perl (4.020-1build1) ...
+Processing triggers for man-db (2.9.1-1) ...
                 </pre>
             </div>
         </div>
