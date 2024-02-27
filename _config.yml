@@ -2,6 +2,7 @@ sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
   version: '5.0.0'
+  v4final: '4.25.16p1'
   blogurl: 'https://blog.libsisimai.org/post/717456764036104192/sisimai-42516'
   release: 
     en: 'Friday, 2 Feb, 2024'
