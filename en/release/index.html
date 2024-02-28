@@ -54,14 +54,13 @@
         </div>
         <div class = 'text-center index-table'>
             <div class = 'row'>
-                <div class = 'col-sm-2'></div>
                 <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-5'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>Latest v5</h3>
-                        <p class = 'description ja'>
+                        <p class = 'description'>
                             The latest version of the current 5 series is
                             <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>,
                             released on <strong>{{ site.sisimai.release.en }}.</strong>
@@ -69,9 +68,23 @@
                         </p>
                     </div>
                     <strong>
-                        <a href = '{{ site.sisimai.version }}.html' class = 'btn btn-continue'>
-                            Read
-                        </a>
+                        <a href = '{{ site.sisimai.version }}.html' class = 'btn btn-continue'>Read</a>
+                    </strong>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-book-skull'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Breaking Changes</h3>
+                        <p class = 'description'>
+                            There are many breaking changes in {{ site.html.ss }} 5.
+                            It is important to review the changes before installing version 5 to
+                            ensure a smooth transition and to avoid any potential issues.
+                        </p>
+                    </div>
+                    <strong>
+                        <a href = '/en/diff' class = 'btn btn-continue'>Read</a>
                     </strong>
                 </div>
                 <div class = 'col-sm-4'>
@@ -80,7 +93,7 @@
                     </div>
                     <div class = 'index-info'>
                         <h3>v4 Final</h3>
-                        <p class = 'description ja'>
+                        <p class = 'description'>
                             The final version of the previous 4 series is
                             <strong>{{ site.html.ss }} {{ site.sisimai.v4final }}.</strong>
                             The patch level 1 of v4.25.16 and later versions can be downloaded from only GitHub.

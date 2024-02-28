@@ -54,7 +54,6 @@
         </div>
         <div class = 'text-center index-table'>
             <div class = 'row'>
-                <div class = 'col-sm-2'></div>
                 <div class = 'col-sm-4'>
                     <div class = 'index-icon'>
                         <i class = 'fa fa-5'></i>
@@ -69,6 +68,23 @@
                     </div>
                     <strong>
                         <a href = '{{ site.sisimai.version }}.html' class = 'btn btn-continue'>
+                            詳しく
+                        </a>
+                    </strong>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fas fa-book-skull'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>非互換の変更</h3>
+                        <p class = 'description ja'>
+                            {{ site.html.ss }} 5では4系と互換性のない多くの変更点があります。
+                            Version 5をインストールする前に必ず変更点を確認してください。
+                        </p>
+                    </div>
+                    <strong>
+                        <a href = '/ja/diff' class = 'btn btn-continue'>
                             詳しく
                         </a>
                     </strong>
