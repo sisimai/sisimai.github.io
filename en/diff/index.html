@@ -1,8 +1,8 @@
 ---
 "layout": "document"
 "directory": "diff/"
-"title": "Differences between Sisimai and bounceHammer"
-"description": "Differences between the latest version of Sisimai and bounceHammer"
+"title": "Breaking Changes in Sisimai 5"
+"description": "Differences between version 5 and version 4 in Sisimai"
 "author": "azumakuniyuki"
 "redirect_from": ["/diff/"]
 ---
@@ -28,11 +28,10 @@
                 <ul class = 'nav navbar-nav navbar-right'>
                     <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
-                    <li class = 'scroll'><a href = '#problem'>Problems</a></li>
-                    <li class = 'scroll'><a href = '#environment'>Environment</a></li> 
-                    <li class = 'scroll'><a href = '#performance'>Performance</a></li> 
-                    <li class = 'scroll'><a href = '#data'>Data</a></li> 
-                    <li class = 'others'><a href = '/en/docs/'>Documents</a></li>
+                    <li class = 'scroll'><a href = '#system'>Env. and Feat.</a></li> 
+                    <li class = 'scroll'><a href = '#reason'>Bounce Reasons</a></li>
+                    <li class = 'scroll'><a href = '#decode'>Namespaces</a></li> 
+                    <li class = 'others'><a href = '/en/diff/between-sisimai-and-bouncehammer.html'>with {{ site.html.bh }}</a></li> 
                     <li class = 'others'><a href = '/ja/diff/'><i class = 'fa fa-language'></i></a></li>
                 </ul>
             </div>
@@ -46,10 +45,11 @@
             <div class = 'row'>
                 <div class = 'text-center col-sm-8 col-sm-offset-2'>
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
-                    <h2>Differences</h2>
+                    <h2>Differences with {{ site.html.ss }} 4</h2>
                     <p class = 'description'>
-                        The table on this page shows differences between {{ site.html.ss }}
-                        (both of the Perl and the Ruby version) and {{ site.html.bh }}.
+                        This page describes the changes made in {{ site.html.ss }} (Perl and Ruby
+                        versions) Version 5, including the operating environment, features, module
+                        names, and additional bounce reasons.
                     </p>
                 </div>
             </div> 
@@ -58,86 +58,84 @@
             <div class = 'text-center index-table'>
                 <div class = 'col-sm-3 col-sm-offset-0'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-thumbs-up'></i>
+                        <i class = 'fa fas fa-book-skull'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>Resolved Problems</h3>
+                        <h3>Environment and Features</h3>
                         <p class = 'description'>
-                            Some unresolvable and serious problems ({{ site.html.ss }} resolved these problems)
-                            on the final version (v2.7.13) of {{ site.html.bh }}.
+                            About changes in {{ site.html.ss }} 5.0.0, including the operating environment,
+                            the callback feature, method names, and class and field names of decoded
+                            data.
                         </p>
                     </div>
-                    <a href = '#problem' class = 'btn btn-continue'>Read</a>
+                    <a href = '#system' class = 'btn btn-continue'>Read</a>
                 </div>
                 <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-desktop'></i>
+                        <i class = 'fa fa-envelopes-bulk'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>Environment</h3>
+                        <h3>Bounce Reasons</h3>
                         <p class = 'description'>
-                            Differences about environment for running {{ site.html.ss }}
-                            (both of the Perl and the Ruby version) and all the versions of {{ site.html.bh }}.
+                            About five new bounce reasons including domain authentication and reputation,
+                            added in {{ site.html.ss }} 5.0.0. 
                         </p>
                     </div>
-                    <a href = '#environment' class = 'btn btn-continue'>Read</a>
+                    <a href = '#reason' class = 'btn btn-continue'>Read</a>
                 </div>
                 <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-chart-line'></i>
+                        <i class = 'fa fa-gears'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>Performance</h3>
+                        <h3>Namespaces</h3>
                         <p class = 'description'>
-                            Numerical advantages of performance in {{ site.html.ss }}
-                            (both of the Perl and the Ruby vesrion)
-                            over the final version of {{ site.html.bh }}.
+                            About namespaces of newly added or changed modules/gems in 
+                            {{ site.html.ss }} 5.0.0.
                         </p>
                     </div>
-                    <a href = '#performance' class = 'btn btn-continue'>Read</a>
+                    <a href = '#decode' class = 'btn btn-continue'>Read</a>
                 </div>
                 <div class = 'col-sm-3'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-list'></i>
+                        <i class = 'fa fa-hammer'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>Data</h3>
+                        <h3>with {{ site.html.bh }}</h3>
                         <p class = 'description'>
-                            Differences of data structure (decoded data fields and detectable bounce reasons)
-                            between {{ site.html.ss }} and {{ site.html.bh }}.
+                            About differences between {{ site.html.ss }} 5.0.0 and {{ site.html.bh }}.
                         </p>
                     </div>
-                    <a href = '#data' class = 'btn btn-continue'>Read</a>
+                    <a href = '/en/diff/between-sisimai-and-bouncehammer.html' class = 'btn btn-continue'>Read</a>
                 </div>
             </div>
         </div>
     </div>
 </section> <!-- /#index -->
 
-<section id = 'problem' class = 'parallax'>
+<section id = 'system' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'post-it'>
-                    <i class = 'fas fa-thumbs-up'></i>
+                    <i class = 'fas fa-book-skull'></i>
                 </div>
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>Resolved Problems</h2>
+                <h2 class = 'in-desc'>Environment and the features</h2>
                 <p class = 'description'>
-                    The final version of {{ site.html.bh }} (v2.7.13) had several critical and
-                    difficult-to-solve problems related to analysis accuracy.
-                    {{ site.html.ss }} was developed to address these problems.
+                    This section describes important changes for users in {{ site.html.ss }} 5.0.0,
+                    including changes to the operating environment and features.
                 </p>
             </div>
         </div>
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fa fa-envelope'></i></div>
+                <div class = 'index-label'><i class = 'fas fa-person-running'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>2 or more bounces in a single message</h3>
+                <h3 class = 'in-desc'>Minimum versions of Perl and Ruby</h3>
             </div>
         </div>
         <div class = 'row'>
@@ -147,34 +145,22 @@
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can detect all recipient addresses and error reasons from
-                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-02.eml'
-                       target = 'new'>a single message which include 2 or more bounce records</a>,
-                   such as those listed below. <em class = 'warn'>{{ site.html.bh }} can only detect the first one</em>.
+                    {{ site.html.ss }} 5 requires Perl
+                    <strong>{{ site.sisimai.workson.perl[0] }} or later</strong> and Ruby
+                    <strong>{{ site.sisimai.workson.ruby[0] }} or later</strong> to be installed
+                    on your system. Older versions may not work properly with {{ site.html.ss }} 5.
+                    <strong>
+                    <em class = 'warn'>Be sure to check the version of Perl and Ruby on your system
+                        before installing or upgrading {{ site.html.ss }} 5.</em></strong>
                 </p>
-                <pre class = 'prettyprint ltext'>
-Content-Type: message/delivery-status
+                <pre class = 'prettyprint ltext'>% <kbd>perl -v</kbd>
 
-Reporting-MTA: dns; nijo.example.jp
-Received-From-MTA: DNS; smtp-gateway.kyoto.ocn.ne.jp
-Arrival-Date: Wed, 26 Feb 2014 06:05:47 -0500
+This is perl 5, version 32, subversion 0 (v5.32.0) built for darwin-2level
 
-Final-Recipient: RFC822; userunknown@example.org
-Action: failed
-Status: 5.1.1
-Remote-MTA: DNS; mx.example.org
-Diagnostic-Code: SMTP; 550 5.1.1 <userunknown@example.org>... User Unknown
-Last-Attempt-Date: Wed, 26 Feb 2014 06:05:48 -0500
-
-Final-Recipient: RFC822; filtered@example.com
-Action: failed
-Status: 5.2.1
-Remote-MTA: DNS; mx.example.com
-Diagnostic-Code: SMTP; 550 5.2.1 <filtered@example.com>... User Unknown
-Last-Attempt-Date: Wed, 26 Feb 2014 06:05:48 -0500
-
---s1QB5ma0018057.1393412748/nijo.example.jp
-Content-Type: message/rfc822
+Copyright 1987-2020, Larry Wall
+                </pre>
+                <pre class = 'prettyprint ltext'>% <kbd>ruby -v</kbd>
+ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin21]
                 </pre>
                 <hr>
             </div>
@@ -182,10 +168,10 @@ Content-Type: message/rfc822
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fab fa-google'></i></div>
+                <div class = 'index-label'><i class = 'fas fa-skull'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Bounce mails in Gmail mailbox</h3>
+                <h3 class = 'in-desc'>Deprecation of make() method and introduction of rise() method</h3>
             </div>
         </div>
         <div class = 'row'>
@@ -195,61 +181,20 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can also decode bounce emails in your Gmail mailbox.
-                    {{ site.html.bh }} can also decode bounce emails in your Gmail mailbox if they
-                    are in an older format, <em class = 'warn'>but it cannot decode bounce emails
-                        in the current format.</em>
+                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
+                    in {{ site.html.ss }} 5.0.0. The <kbd>make()</kbd> method will still work until
+                    {{ site.html.ss }} 5.1.0, but it will emit a warning at runtime.
                 </p>
-                <hr>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-truck'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Status: 2.X.X</h3>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can correctly decode bounce emails
-                    (e.g., <a href = 'https://github.com/sisimai/p5-sisimai/blob/master/set-of-emails/maildir/bsd/rfc3464-28.eml'>
-                        rfc3464-28.eml
-                    </a>)
-                    that contain lines like "Status: 2.1.5" and determine the bounce reason as
-                    "delivered." <em class = 'warn'>However, {{ site.html.bh }} can also decode
-                    such emails, but it determines the bounce reason as "undefined," as shown in
-                    the output example below.</em>
+                    Please use the newly implemented <kbd>rise()</kbd> method instead.
                 </p>
-                <pre class = 'prettyprint'>
-  {
-    "token": "0ac0d79df3cc8ef4fc606334af840330",
-    "description": {
-      "timezoneoffset": "+0900",
-      "subject": "Nyaaan",
-      "smtpagent": "",
-      "messageid": "<20151025071802.22CC00222233@neko-222-2222.vs.example.ne.jp>",
-      "listid": "",
-      "diagnosticcode": "smtp; 250 2.1.5 Ok",
-      "deliverystatus": "2.1.5"
-    },
-    "frequency": 1,
-    "bounced": 1430318085,
-    "addresser": "root@neko-222-2222.vs.example.ne.jp",
-    "recipient": "kijitora@neko.example.jp",
-    "senderdomain": "neko-222-2222.vs.example.ne.jp",
-    "destination": "neko.example.jp",
-    <strong>"reason": "undefined",</strong>
-    "hostgroup": "reserved",
-    "provider": "reserved"
-  },
+                <pre class = 'prettyprint ltext'>% <kbd>perl -MSisimai -lE 'print Sisimai->make(shift)' ./test.eml</kbd>
+ ***warning: Sisimai->make will be removed at v5.1.0. Use Sisimai->rise instead
+% <kbd>perl -MSisimai -lE 'my $p = Sisimai->rise(shift)' ./test.eml</kbd>
+                </pre>
+                <pre class = 'prettyprint ltext'>% <kbd>ruby -rsisimai -e 'print Sisimai.make($*.shift)' ./test.eml</kbd>
+ ***warning: Sisimai.make will be removed at v5.1.0. Use Sisimai.rise instead
+% <kbd>ruby -rsisimai -e 'p = Sisimai.rise($*.shift)' ./test.eml</kbd>
                 </pre>
                 <hr>
             </div>
@@ -257,10 +202,10 @@ Content-Type: message/rfc822
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-reply-all'></i></div>
+                <div class = 'index-label'><i class = 'fas fa-skull'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Feedback Loop message</h3>
+                <h3 class = 'in-desc'>Deprecation of "softbounce" and introduction of "hardbounce"</h3>
             </div>
         </div>
         <div class = 'row'>
@@ -270,12 +215,131 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} can also decode emails in the ARF (Abuse Reporting Format)
-                    format, which is used by overseas email services such as
-                    <a href = 'http://postmaster.aol.com/Postmaster.FeedbackLoop.php' target = 'new'>AOL</a> and
-                    <a href = 'https://help.yahoo.com/kb/complaint-feedback-loop-sln3438.html' target = 'new'>Yahoo!</a>.
-                    {{ site.html.bh }}'s FBL support is only an experimental implementation and cannot
-                    fully decode emails in the ARF format.
+                    The <kbd>softbounce()</kbd> method of the <kbd>Sisimai::Data</kbd> class and the
+                    </kbd>"softbounce"</kbd> in the decoded results have been deprecated in {{ site.html.ss }} 5.0.0.
+                    The <kbd>softbounce()</kbd> method will still work until {{ site.html.ss }} 5.1.0,
+                    but it will emit a warning at runtime.
+                </p>
+                <p class = 'description'>
+                    Please use the newly implemented <kbd>hardbounce()</kbd> method and the
+                    <kbd>"hardbounce"</kbd> in the decoded results instead.
+                </p>
+
+                <pre class = 'prettyprint ltext'>% <kbd>perl -MSisimai -lE 'print Sisimai->rise(shift)->[0]->softbounce;' ./test.eml</kbd>
+ ***warning: Sisimai::Fact->softbounce will be removed at v5.1.0.
+            Use Sisimai::Fact->hardbounce instead
+                </pre>
+                <pre class = 'prettyprint ltext'>% <kbd>ruby -rsisimai -e 'print Sisimai.rise($*.shift)[0].softbounce' ./test.eml</kbd>
+ ***warning: Sisimai::Fact.softbounce will be removed at v5.1.0.
+            Use Sisimai::Fact.hardbounce instead
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-skull'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Deprecation of Sisimai::Data class</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    The <kbd>Sisimai::Data</kbd> class, which holds the data structure of the decoded
+                    results, has been changed to <kbd>Sisimai::Fact</kbd> in {{ site.html.ss }} 5.0.0.
+                    Please note if you are referring to the class name of the decoded result object
+                    in Perl or Ruby.
+                </p>
+                <pre class = 'prettyprint ltext'>% <kbd>perl -MSisimai -lE 'print ref Sisimai->rise(shift)' ./test.eml</kbd>
+Sisimai::Fact
+                </pre>
+                <pre class = 'prettyprint ltext'>% <kbd>ruby -rsisimai -e 'print Sisimai.rise($*.shift)[0].class' ./test.eml; echo</kbd>
+Sisimai::Fact
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-plane-departure'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>"vacation" is not decoded</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.0.0 no longer decodes bounce emails with the bounce reason
+                    <kbd>"vacation"</kbd> by default. If you need to decode vacation bounce emails,
+                    you can specify the <kbd>vacation</kbd> option as the second argument to the
+                    <kbd>Sisimai</kbd> class's <kbd>rise()</kbd> method as follows.
+
+                
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
+use Sisimai;
+my $f = './set-of-emails/maildir/bsd/rfc3834-01.eml';
+my $v = Sisimai->rise($f, <strong>'vacation' => 1</strong>);
+for my $e ( @$v ) {
+    print $e->action;           # ""
+    print $e->deliverystatus;   # ""
+    print $e->reason;           # "vacation"
+    print $e->diagnosticcode;   # "I am currently away returning to the office on May 5th."
+    print $e->hardbounce;       # 0
+}
+                </pre>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
+require 'sisimai'
+f = './set-of-emails/maildir/bsd/rfc3834-01.eml'
+v = Sisimai.rise(f, <strong>vacation: true</strong>)
+v.each do |e|
+  puts e.action         # ""
+  puts e.deliverystatus # ""
+  puts e.reason         # "vacation"
+  puts e.diagnosticcode # "I am currently away returning to the office on May 5th."
+  puts e.hardbounce     # false
+end
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-phone-volume'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Arguments of the Callback Feature</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description'>
+                    The callback argument passed to the <kbd>Sisimai</kbd> class's <kbd>rise()</kbd>
+                    method (formerly the <kbd>make()</kbd> method) in {{ site.html.ss }} 5.0.0 has
+                    changed from <kbd>hook</kbd> to <kbd>c___</kbd>.
+                </p>
+                <p class = 'description'>
+                    At the same time, the data passed to the argument has changed to an array
+                    reference or <kbd>Array</kbd> object with two elements. Please check 
+                    <a href = '/en/usage#callback'>the callback feature</a> page for details.
                 </p>
             </div>
         </div>
@@ -283,218 +347,137 @@ Content-Type: message/rfc822
     </div>
 </section>
 
-<section id = 'environment'>
+<section id = 'reason'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'post-it'>
-                    <i class = 'fa fa-desktop'></i>
+                    <i class = 'fa fa-envelopes-bulk'></i>
                 </div>
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>Environment</h2>
+                <h2 class = 'in-desc'>5 New Bounce Reasons</h2>
                 <p class = 'description'>
-                    The following are the differences in the operating environment of {{ site.html.ss }}
-                    (Perl and Ruby versions) compared to {{ site.html.bh }}:
+                    {{ site.html.ss }} 5.0.0 now includes 5 new bounce reasons. These reasons are
+                    primarily returned when an email sender does not meet the requirements outlined
+                    in Gmail's <a href = 'https://support.google.com/a/answer/81126?hl=en' target = 'new'>
+                        Email Sender Guidelines
+                    </a>.
+                </p>
+                <p class = 'description'>
+                    As with the existing bounce reasons, the <kbd>"reason"</kbd> value in the
+                    decoded results will be in all lowercase letters with no spaces, such as
+                    <kbd>"authfailure"</kbd> or <kbd>"notcompliantrfc"</kbd>.
                 </p>
             </div>
         </div>
+
         <div class = 'row'>
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-condensed'>
                         <thead>
                             <tr>
-                                <th></th>
-                                <th class = 'ctext'>p5-sisimai(Perl)</th>
-                                <th class = 'ctext'>rb-sisimai(Ruby)</th>
-                                <th class = 'ctext'>{{ site.html.bh }}</th>
+                                <th class = 'ctext'>Cause of the delivery failure</th>
+                                <th class = 'ctext'>Reason in {{ site.html.ss }} 4</th>
+                                <th class = 'ctext'>Reason in {{ site.html.ss }} 5</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Works on</strong></td>
-                                <td>Perl {{ site.sisimai.workson.perl[0] }} - {{ site.sisimai.workson.perl[1] }}</td>
-                                <td>Ruby {{ site.sisimai.workson.ruby[0] }} - {{ site.sisimai.workson.ruby[1] }}</td>
-                                <td>Perl 5.10.1 - 5.14</td>
+                                <td class = 'ltext'>Domain authentication (SPF, DKIM, DMARC)</td>
+                                <td class = 'ltext'>Security Error</td>
+                                <td class = 'ltext'><strong><a href = '/en/reason#authfailure'>Auth Failure</a></strong></td>
                             </tr>
                             <tr>
-                                <td><strong>Could be installed by</strong></td>
-                                <td>
-                                    cpan,
-                                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'>cpanm</a>
-                                    <a href = 'https://github.com/skaji/cpm' target = 'new'>cpm</a>
-                                </td>
-                                <td>gem</td>
-                                <td>configure; make</td>
+                                <td class = 'ltext'>Poor sender reputation (domain/IP)</td>
+                                <td class = 'ltext'>Blocked</td>
+                                <td class = 'ltext'><strong><a href = '/en/reason#badreputation'>Bad Reputation</a></strong></td>
                             </tr>
                             <tr>
-                                <td><strong>Command-Line tools</strong></td>
-                                <td>N/A</td>
-                                <td>N/A</td>
-                                <td>Available</td>
+                                <td class = 'ltext'>PTR record not set or invalid</td>
+                                <td class = 'ltext'>Blocked</td>
+                                <td class = 'ltext'><strong><a href = '/en/reason#requireptr'>Require PTR</a></strong></td>
                             </tr>
                             <tr>
-                                <td><strong>Database</strong></td>
-                                <td>N/A</td>
-                                <td>N/A</td>
-                                <td>Available(MySQL, PostgreSQL, SQLite)</td>
+                                <td class = 'ltext'>Non-RFC compliant email</td>
+                                <td class = 'ltext'>Security Error</td>
+                                <td class = 'ltext'><strong><a href = '/en/reason#notcompliantrfc'>Not Compliant RFC</a></strong></td>
                             </tr>
                             <tr>
-                                <td><strong>Management Console</strong></td>
-                                <td>N/A</td>
-                                <td>N/A</td>
-                                <td>Available(WebUI)</td>
+                                <td class = 'ltext'>Sending rate exceeding the limit per unit time</td>
+                                <td class = 'ltext'>Security Error</td>
+                                <td class = 'ltext'><strong><a href = '/en/reason#speeding'>Speeding</a></strong></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-desktop'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>{{ site.html.ss }} works on Perl and Ruby</h3>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <p class = 'description'>
-                {{ site.html.ss }} works with Perl {{ site.sisimai.workson.perl[0] }} and later,
-                while {{ site.html.bh }} does not work with Perl 5.16 and later. Therefore, if the
-                Perl on the server where you are trying to install {{ site.html.bh }} is 5.18, you
-                will need to install an older version of Perl separately.
-                </p>
-                <p class = 'description'>
-                    And, from {{ site.html.ss }} v4.14.2, {{ site.html.ss }} works on both Perl and
-                    Ruby (including JRuby).
-                </p>
-                <hr>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-download'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Easy to install</h3>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <p class = 'description'>
-                    Installing {{ site.html.bh }} is a bit of a hassle, and it requires downloading
-                    the archive, installing many dependent modules, and running the <kbd>configure</kbd>,
-                    <kbd>make</kbd>, <kbd>make test</kbd>, and <kbd>make install</kbd> commands.
-                    On the other hand, {{ site.html.ss }} can be installed with the <kbd>cpanm</kbd>
-                    or <kbd>gem</kbd> commands, making it very easy to install.
-                </p>
-                <hr>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-keyboard'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Command Line Tools, DB Schema, WebUI</h3>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <p class = 'description'>
-                    {{ site.html.ss }} does not have command-line tools like {{ site.html.bh }}'s
-                    <kbd>bin/mailboxparser</kbd> and <kbd>bin/databasectl</kbd>, nor does it have a
-                    WebUI or DB schema. It is provided only as a lightweight and simple module.
-                    The idea is that you can implement command-line tools as you like with a few
-                    lines of code, or integrate it into your existing system.
-                </p>
-            </div>
-        </div>
-
     </div>
 </section>
 
-<section id = 'performance' class = 'parallax'>
+<section id = 'decode' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'post-it'>
-                    <i class = 'fa fa-chart-line'></i>
+                    <i class = 'fa fa-gear'></i>
                 </div>
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>Performance</h2>
+                <h2 class = 'in-desc'>Changed Namespaces</h2>
                 <p class = 'description'>
-                    The following are the numerical performance advantages of {{ site.html.ss }}
-                    (Perl and Ruby versions) over {{ site.html.bh }}:
+                    Several internal namespaces have been changed in {{ site.html.ss }} 5.0.0.
+                    If you are only using the <kbd>rise()</kbd> method (formerly the <kbd>make()</kbd>
+                    method) of the <kbd>Sisimai</kbd> class, you will not be affected. However,
+                    if you are dividing the processing inside your own decoding script, please be
+                    aware of the class name changes.
                 </p>
             </div>
         </div>
+
         <div class = 'row'>
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-condensed'>
                         <thead>
                             <tr>
-                                <th></th>
-                                <th class = 'ctext'>p5-sisimai(Perl)</th>
-                                <th class = 'ctext'>rb-sisimai(Ruby)</th>
-                                <th class = 'ctext'>{{ site.html.bh }}</th>
+                                <th class = 'ctext'>Purpose of Processing</th>
+                                <th class = 'ctext'>Name in {{ site.html.ss }} 4</th>
+                                <th class = 'ctext'>Name in {{ site.html.ss }} 5</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Analytical precision ratio(2000 emails)</strong></td>
-                                <td class = 'rtext'>100%</td>
-                                <td class = 'rtext'>100%</td>
-                                <td class = 'rtext'>55%</td>
+                                <td class = 'ltext'>Keeping decoded results</td>
+                                <td class = 'ltext'>Sisimai::Data</td>
+                                <td class = 'ltext'><strong>Sisimai::Fact</strong></td>
                             </tr>
                             <tr>
-                                <td><strong>Modules for Commercial MTAs and MPSs</strong></td>
-                                <td class = 'rtext'>Included</td>
-                                <td class = 'rtext'>Included</td>
-                                <td class = 'rtext'>N/A</td>
+                                <td class = 'ltext'>Class for decoding MIME</td>
+                                <td class = 'ltext'>Sisimai::MIME</td>
+                                <td class = 'ltext'><strong>Sisimai::RFC2045</strong></td>
                             </tr>
                             <tr>
-                                <td><strong>The speed of decoding email(1000 emails)</strong></td>
-                                <td class = 'rtext'>{{ site.sisimai.diff.parse1k.perl }}s</td>
-                                <td class = 'rtext'>{{ site.sisimai.diff.parse1k.ruby }}s</td>
-                                <td class = 'rtext'>4.3s</td>
+                                <td class = 'ltext'>Class for decoding SMTP session log</tt>
+                                <td class = 'ltext'>Not Implemented</td>
+                                <td class = 'ltext'><strong>Sisimai::SMTP::Transcript</strong></td>
                             </tr>
                             <tr>
-                                <td><strong>Dependencies (Except core modules of Perl)</strong></td>
-                                <td class = 'rtext'>2</td>
-                                <td class = 'rtext'>1</td>
-                                <td class = 'rtext'>24</td>
+                                <td class = 'ltext'>Decoding bounces from Microsoft Exchange</td>
+                                <td class = 'ltext'>Sisimai::Rhost::ExchangeOnline</td>
+                                <td class = 'ltext'><strong>Sisimai::Rhost::Microsoft</strong></td>
                             </tr>
                             <tr>
-                                <td><strong>LOC:Source lines of code</strong></td>
-                                <td class = 'rtext'>{{ site.sisimai.diff.loc.perl }} lines</td>
-                                <td class = 'rtext'>{{ site.sisimai.diff.loc.ruby }} lines</td>
-                                <td class = 'rtext'>18,200 lines</td>
+                                <td class = 'ltext'>Decoding bounces from Google Workspace</td>
+                                <td class = 'ltext'>Sisimai::Rhost::GoogleApps</td>
+                                <td class = 'ltext'><strong>Sisimai::Rhost::Google</strong></td>
                             </tr>
                             <tr>
-                                <td><strong>The number of tests </strong></td>
-                                <td class = 'rtext'>{{ site.sisimai.diff.tests.perl }}</td>
-                                <td class = 'rtext'>{{ site.sisimai.diff.tests.ruby }}</td>
-                                <td class = 'rtext'>27000</td>
+                                <td class = 'ltext'>Decoding bounces from Tencent(騰訊)</td>
+                                <td class = 'ltext'>Sisimai::Rhost::TencentQQ</td>
+                                <td class = 'ltext'><strong>Sisimai::Rhost::Tencent</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -502,733 +485,6 @@ Content-Type: message/rfc822
             </div>
         </div>
 
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-chart-line'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>High Precision of Analysis</h3>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <p class = 'description'>
-                    {{ site.html.ss }} has {{ site.sisimai.spec.modules }} built-in MTA/MSP decoding
-                    modules, giving it about twice the analysis accuracy of {{ site.html.bh }}.
-                    {{ site.html.ss }} can also decode bounce emails from commercial MTAs such as
-                    Microsoft Exchange Server and IBM Notes and Domino, as well as commercial email
-                    services such as Amazon SES, WorkMail, and SendGrid.
-                </p>
-                <hr>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-tachometer-alt'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Faster than {{ site.html.bh }}</h3>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <p class = 'description'>
-                    The Perl version of {{ site.html.ss }} decode emails and generates structured
-                    data about {{ site.sisimai.diff.timesfaster.perl }} times faster than the
-                    {{ site.html.bh }} <kbd>bin/mailboxparser</kbd> command.
-                </p>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-compress'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Small and Robust</h3>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <p class = 'description'>
-                    {{ site.html.ss }} is a library that specializes in decoding bounce emails,
-                    and therefore it is designed to be small and robust, as follows:
-                </p>
-                <ul>
-                    <li>About half the number of lines of source code as {{ site.html.bh }}</li>
-                    <li>About five times the number of tests as {{ site.html.bh }}</li>
-                    <li>Only two dependent modules</li>
-                </ul>
-            </div>
-        </div>
     </div>
 </section>
 
-<section id = 'data'>
-    <div class = 'container'>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'post-it'>
-                    <i class = 'fa fa-list'></i>
-                </div>
-            </div>
-            <div class = 'heading col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>Data Structure</h2>
-                <p class = 'description'>
-                    The following are the differences in data structure (structure of the decoded
-                    results, detectable bounce reasons) between {{ site.html.ss }} and {{ site.html.bh }}:
-                </p>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-list'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Each field of decoded data</h3>
-                <p class = 'description'>
-                    All the fields of decoded data in {{ site.html.ss }} are available on
-                    <a href = '/en/data/'>Data Structure of Sisimai::Fact</a>.
-                </p>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <div class = 'text-center'>
-                    <div class = 'table-responsive'>
-                        <table class = 'table table-hover table-bordered'>
-                            <thead>
-                                <tr>
-                                    <th>Field name</th>
-                                    <th>{{ site.html.ss }}</th>
-                                    <th>{{ site.html.bh }}</th>
-                                    <th>Description</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class = 'ltext'><strong>action</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        "failed", "expired", "delivered"
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>addresser</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        Sender's email address
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>alias</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        Alias address of the recipient
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>catch</strong></td>
-                                    <td>
-                                        OK<br /><em class = 'warn'>(>= v4.19.0)</em>
-                                    </td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        <a href = '/en/usage/#callback'>Returned value from a hook method</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>deliverystatus</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>description/deliverystatus</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        D.S.N. Value(ex. 5.1.1)
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>destination</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        Domain part of a recipient address
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>diagnosticcode</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>description/diagnosticcode</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        Diagnostic or error message in a bounce mail
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>diagnostictype</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        Error type string such as "SMTP" or "X-Unix"
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>feedbacktype</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        value of Feedback-Type: field, such as "abuse", "fraud"
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong class = 'not-available'>frequency</strong></td>
-                                    <td>-</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        The number of email bounces, however, the value in decoded data is always "1"
-                                    </td>
-                                </tr>
-                                <td class = 'ltext'><strong>hardbounce</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        Whether or not it is a hard bounce.
-                                        Implemented in {{ site.html.ss }} 5.0.0
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong class = 'not-available'>hostgroup</strong></td>
-                                    <td>-</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        Host group of a recipient domain such as "webmail", "pc"
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>lhost</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        Local MTA name: hostname or IP address
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>listid</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>description/listid<br>(&gt;= v2.7.10)</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        The value of "List-Id" field, Mailling list name.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>messageid</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>Does not include &gt;,&lt;</em>
-                                    </td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>description/messageid<br>(&gt;= v2.7.11)</em><br>
-                                        <em class = 'warn'>Including &gt; and &lt;</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        The value of Message-Id of the original message. 
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong class = 'not-available'>provider</strong></td>
-                                    <td>-</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        Provider name such as "google", "microsoft"
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>reason</strong></td>
-                                    <td>OK({{ site.sisimai.spec.reasons }})</td>
-                                    <td>OK(19)</td>
-                                    <td class = 'ltext'>
-                                        Bounce reason
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>recipient</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        Recipient's mail address
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>replycode</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        SMTP reply code such as "550", "422".
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>rhost</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        Remote MTA name: hostname or IP address
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>senderdomain</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        Domain part of a sender email address
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>smtpagent</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>decription/smtpagent</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        MTA/MSP Module name used for decoding
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>smtpcommand</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        The last SMTP command in failed session
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong class = 'deprecated'>softbounce</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        value for checking whether it is soft bounce or not.
-                                        Deprecated in {{ site.htm.ss }} 5.0.0
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>subject</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>description/subject<br>(&gt;= v2.7.11)</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        Subject of the original message
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>timestamp</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>bounced</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        Date and time of an email bounce
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>timezoneoffset</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>description/timezoneoffset</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        Timezome offset value of bounce date
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td class = 'ltext'><strong>token</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>including timestamp</em>
-                                    </td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>generated from a sender and a recipient only)</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        An identifier of each email-bounce.
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Detectable bounce reasons</h3>
-                <p class = 'description'>
-                    All the reasons of decoded data in {{ site.html.ss }} are available on
-                    <a href = '/en/reason/'>Bounce Reason List</a>.
-                </p>
-            </div>
-        </div>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <div class = 'text-center'>
-                    <div class = 'table-responsive'>
-                        <table class = 'table table-hover table-bordered'>
-                            <thead>
-                                <tr>
-                                    <th>Reason</th>
-                                    <th>{{ site.html.ss }}</th>
-                                    <th>{{ site.html.bh }}</th>
-                                    <th>reason name in decoded data</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class = 'ltext'><strong>Auth Failure</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>authfailure
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Bad Reputation</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>badreputation
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Blocked</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>blocked
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Content Error</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>contenterr</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        contenterror
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Delivered</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>(&gt;= v4.16.0)</em>
-                                    </td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        delivered<br>
-                                        <em class = 'warn'>Option</em>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Exceed Limit</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        exceedlimit
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Expired</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        expired
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Feedback</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        feedback
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Filtered</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        filtered
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Has Moved</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        hasmoved
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Host Unknown</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        hostunknown
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Mailbox Full</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        mailboxfull
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Mailer Error</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        mailererror
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Mesg Too Big</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        mesgtoobig
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Network Error</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>(&gt;= v4.1.12)</em>
-                                    </td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        networkerror
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>No Relaying</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        norelaying
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Not Accept</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        notaccept
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Not Compliant RFC</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        notcompliantrfc
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>On Hold</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        onhold
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Policy Violation</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>(&gt;= v4.22.0)</em>
-                                    </td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        policyviolation
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Rejected</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        rejected
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>RequirePTR</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        requireptr
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Security Error</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>securityerr</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        securityerror
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Spam Detected</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>(&gt;= v4.1.25)</em>
-                                    </td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        spamdetected
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Speeding</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        speeding
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Suspend</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        suspend
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Syntax Error</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>(&gt;= v4.17.0)</em>
-                                    </td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        syntaxerror
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>System Error</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        systemerror
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>System Full</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        systemfull
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Too Many Conn</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>(&gt;= v4.1.26)</em>
-                                    </td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        toomanyconn
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Undefined</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        undefined
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>User Unknown</strong></td>
-                                    <td>OK</td>
-                                    <td>OK</td>
-                                    <td class = 'ltext'>
-                                        userunknown
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Vacation</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>(&gt;= v4.1.28)</em>
-                                    </td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        vacation
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>Virus Detected</strong></td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>(&gt;= v4.22.0)</em>
-                                    </td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        virusdetected
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
