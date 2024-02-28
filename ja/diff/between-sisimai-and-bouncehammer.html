@@ -1,0 +1,1249 @@
+---
+"layout": "document"
+"directory": "diff/"
+"title": "SisimaiとbounceHammerの違い"
+"description": "SisimaiとbounceHammerの機能的・性能的な違い"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#problem'>問題点</a></li>
+                    <li class = 'scroll'><a href = '#environment'>動作環境</a></li> 
+                    <li class = 'scroll'><a href = '#performance'>解析性能</a></li> 
+                    <li class = 'scroll'><a href = '#data'>データ構造</a></li> 
+                    <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
+                    <li class = 'others'><a href = '/en/diff/between-sisimai-and-bouncehammer.html'><i class = 'fa fa-language'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>違いの一覧</h2>
+                    <p class = 'description ja'>
+                        このページの表ではシシマイ(Perl版とRuby版)と{{ site.html.bh }}の違い、
+                        特に{{ site.html.ss }}の優位性を中心に説明しています。
+                    </p>
+                </div>
+            </div> 
+        </div>
+        <div class = 'row'>
+            <div class = 'text-center index-table'>
+                <div class = 'col-sm-3 col-sm-offset-0'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-thumbs-up'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>解決した問題点</h3>
+                        <p class = 'description ja'>
+                            {{ site.html.bh }}に存在する解決困難で深刻な問題点({{ site.html.ss }}にて解決済)について
+                        </p>
+                    </div>
+                    <a href = '#problem' class = 'btn btn-continue'>詳しく</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-desktop'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>動作環境</h3>
+                        <p class = 'description ja'>
+                            シシマイ(Perl版とRuby版)の動作環境周りにおける違い
+                            ({{ site.html.bh }}と比較して)
+                        </p>
+                    </div>
+                    <a href = '#environment' class = 'btn btn-continue'>詳しく</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-chart-line'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>解析性能</h3>
+                        <p class = 'description ja'>
+                            {{ site.html.bh }}に対する{{ site.html.ss }}
+                            (Perl版とRuby版)の性能における数値的な優位点について
+                        </p>
+                    </div>
+                    <a href = '#performance' class = 'btn btn-continue'>詳しく</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-list'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>データ構造</h3>
+                        <p class = 'description ja'>
+                            {{ site.html.ss }}と{{ site.html.bh }}でのデータ構造
+                            (解析結果の構造、検出可能なバウンス理由)の違いについて
+                        </p>
+                    </div>
+                    <a href = '#data' class = 'btn btn-continue'>詳しく</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'problem' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fas fa-thumbs-up'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>解決した問題点</h2>
+                <p class = 'description ja'>
+                    {{ site.html.bh }}の最終版(v2.7.13)には解決困難で深刻な解析精度に関わる問題点が幾つかあり、
+                    それらの問題を解決する為に{{ site.html.ss }}は開発されました。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa fa-envelope'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>一つのメールに2つ以上のバウンスがある場合</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}(シシマイ)は下記のような
+                    <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-02.eml'
+                        target = 'new'>2件以上のバウンス記録を含む単一のメール</a>
+                    から全ての受信者アドレスとエラー理由を検出する事が出来ます。
+                    <em class = 'warn'>{{ site.html.bh }}は最初の一件のみ検出可能です。</em>
+                </p>
+                <pre class = 'prettyprint ltext'>
+Content-Type: message/delivery-status
+
+Reporting-MTA: dns; nijo.example.jp
+Received-From-MTA: DNS; smtp-gateway.kyoto.ocn.ne.jp
+Arrival-Date: Wed, 26 Feb 2014 06:05:47 -0500
+
+Final-Recipient: RFC822; userunknown@example.org
+Action: failed
+Status: 5.1.1
+Remote-MTA: DNS; mx.example.org
+Diagnostic-Code: SMTP; 550 5.1.1 <userunknown@example.org>... User Unknown
+Last-Attempt-Date: Wed, 26 Feb 2014 06:05:48 -0500
+
+Final-Recipient: RFC822; filtered@example.com
+Action: failed
+Status: 5.2.1
+Remote-MTA: DNS; mx.example.com
+Diagnostic-Code: SMTP; 550 5.2.1 <filtered@example.com>... User Unknown
+Last-Attempt-Date: Wed, 26 Feb 2014 06:05:48 -0500
+
+--s1QB5ma0018057.1393412748/nijo.example.jp
+Content-Type: message/rfc822
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fab fa-google'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Gmailのメールボックスにあるバウンスメール</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}(シシマイ)はGmailのメールボックスにあるバウンスメールも解析出来ます。
+                    <em class = 'warn'>
+                        {{ site.html.bh }}は古い形式のバウンスメールであればGmailのメールボックスにあるものでも
+                        解析出来ますが、現在の形式のものは解析出来ません。
+                    </em>
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-truck'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Status: 2.X.X</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}は<kbd>Status: 2.1.5</kbd>のような行を含むバウンスメール(
+                    <a href = 'https://github.com/sisimai/p5-sisimai/blob/master/set-of-emails/maildir/bsd/rfc3464-28.eml'>
+                        rfc3464-28.eml
+                    </a>)
+                    を正しく解析し、バウンス理由を"delivered"として決定します。
+                    しかし、
+                    <em class = 'warn'>
+                        {{ site.html.bh }}はこのようなメールを解析出来るものの、下記の出力例のように、
+                        バウンス理由を"undefined"に決定してしまいます。
+                    </em>
+                </p>
+                <pre class = 'prettyprint'>
+  {
+    "token": "0ac0d79df3cc8ef4fc606334af840330",
+    "description": {
+      "timezoneoffset": "+0900",
+      "subject": "Nyaaan",
+      "smtpagent": "",
+      "messageid": "<20151025071802.22CC00222233@neko-222-2222.vs.example.ne.jp>",
+      "listid": "",
+      "diagnosticcode": "smtp; 250 2.1.5 Ok",
+      "deliverystatus": "2.1.5"
+    },
+    "frequency": 1,
+    "bounced": 1430318085,
+    "addresser": "root@neko-222-2222.vs.example.ne.jp",
+    "recipient": "kijitora@neko.example.jp",
+    "senderdomain": "neko-222-2222.vs.example.ne.jp",
+    "destination": "neko.example.jp",
+    <strong>"reason": "undefined",</strong>
+    "hostgroup": "reserved",
+    "provider": "reserved"
+  },
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-reply-all'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Feedback Loop形式のメッセージ</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    <a href = 'http://postmaster.aol.com/Postmaster.FeedbackLoop.php' target = 'new'>AOL</a>や
+                    <a href = 'https://help.yahoo.com/kb/complaint-feedback-loop-sln3438.html' target = 'new'>Yahoo!</a>
+                    など海外のメールサービスでは導入されているARF(Abuse Reporting Format)形式のメールも
+                    {{ site.html.ss }}では解析可能です。
+                </p>
+                <p class = 'description ja'>
+                    {{ site.html.bh }}のFBL対応はあくまでも実験的実装で、完全にARF形式のメールを解析する事は
+                    できません。
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id = 'environment'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-desktop'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>動作環境</h2>
+                <p class = 'description ja'>
+                    シシマイ(Perl版とRuby版)の動作環境周りにおける違い
+                    ({{ site.html.bh }}と比較して)は以下の通りです。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed'>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class = 'ctext'>p5-sisimai(Perl)</th>
+                                <th class = 'ctext'>rb-sisimai(Ruby)</th>
+                                <th class = 'ctext'>{{ site.html.bh }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>動作環境</strong></td>
+                                <td>Perl {{ site.sisimai.workson.perl[0] }} - {{ site.sisimai.workson.perl[1] }}</td>
+                                <td>Ruby {{ site.sisimai.workson.ruby[0] }} - {{ site.sisimai.workson.ruby[1] }}</td>
+                                <td>Perl 5.10.1 - 5.14</td>
+                            </tr>
+                            <tr>
+                                <td><strong>インストール方法</strong></td>
+                                <td>
+                                    cpan,
+                                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'>cpanm</a>
+                                    <a href = 'https://github.com/skaji/cpm' target = 'new'>cpm</a>
+                                </td>
+                                <td>gem</td>
+                                <td>configure; make; make install</td>
+                            </tr>
+                            <tr>
+                                <td><strong>コマンドラインツール</strong></td>
+                                <td>なし</td>
+                                <td>なし</td>
+                                <td>あり</td>
+                            </tr>
+                            <tr>
+                                <td><strong>データベース</strong></td>
+                                <td>なし</td>
+                                <td>なし</td>
+                                <td>あり(MySQL, PostgreSQL, SQLite)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>管理画面</strong></td>
+                                <td>なし</td>
+                                <td>なし</td>
+                                <td>あり(WebUI)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-desktop'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>{{ site.html.ss }}はPerlとRubyで動きます</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}はPerl {{ site.sisimai.workson.perl[0] }}以降で動作しますが
+                    {{ site.html.bh }}は<strong>Perl 5.16以降では動作しません。</strong>
+                    ですので、例えば{{ site.html.bh }}をインストールしようとしているサーバー
+                    のPerlが5.18であれば、古いバージョンのPerlを別途インストールする必要があります。
+                </p>
+                <p class = 'description ja'>
+                    そして、
+                    <strong>{{ site.html.ss }} v4.14.2からは{{ site.html.ss }}はPerlでもRuby(JRubyを含む)
+                    でも動作</strong>します。
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-download'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>インストールが簡単</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    {{ site.html.bh }}をインストールする作業はやや面倒で、
+                    アーカイブのダウンロード・多くの依存モジュールのインストール・
+                    configure, make, make test, make installコマンドの実行を経て完了します。
+                </p>
+                <p class = 'description ja'>
+                    一方、{{ site.html.ss }}のインストールは<kbd>cpanm</kbd>や<kbd>gem</kbd>コマンドでインストールが
+                    出来るので非常に簡単です。
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-keyboard'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>コマンドラインツール・DBスキーマ・WebUI</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}には{{ site.html.bh }}の<kbd>bin/mailboxparser</kbd>や<kbd>bin/databasectl</kbd>
+                    のようなコマンドラインツールは無く、またWebUIやDBスキーマも持っていません。
+                    あくまでもモジュールのみの軽量でシンプルな提供形態です。
+                    数行のコードで解析できるようになるので、ユーザ側で好きなようにコマンドラインツールを実装してください、
+                    または既存のシステムに組み込んで実装してください、という方針です。
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id = 'performance' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-chart-line'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>解析性能</h2>
+                <p class = 'description ja'>
+                    {{ site.html.bh }}に対する{{ site.html.ss }}
+                    (Perl版とRuby版)の性能における数値的な優位点については以下の通りです。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed'>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th class = 'ctext'>p5-sisimai(Perl)</th>
+                                <th class = 'ctext'>rb-sisimai(Ruby)</th>
+                                <th class = 'ctext'>{{ site.html.bh }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>解析精度(2000通)</strong></td>
+                                <td class = 'rtext'>100%</td>
+                                <td class = 'rtext'>100%</td>
+                                <td class = 'rtext'.>55%</td>
+                            </tr>
+                            <tr>
+                                <td><strong>商用MTAとMSP対応モジュール</strong></td>
+                                <td class = 'rtext'>あり(同梱)</td>
+                                <td class = 'rtext'>あり(同梱)</td>
+                                <td class = 'rtext'>無し</td>
+                            </tr>
+                            <tr>
+                                <td><strong>解析速度(1000通)</strong></td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.parse1k.perl }}秒</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.parse1k.ruby }}秒</td>
+                                <td class = 'rtext'>4.3秒</td>
+                            </tr>
+                            <tr>
+                                <td><strong>依存モジュール数</strong></td>
+                                <td class = 'rtext'>2</td>
+                                <td class = 'rtext'>1</td>
+                                <td class = 'rtext'>24</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ソースコード行数</strong></td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.loc.perl }}行</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.loc.ruby }}行</td>
+                                <td class = 'rtext'>18,200行</td>
+                            </tr>
+                            <tr>
+                                <td><strong>テスト件数</strong></td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.tests.perl }}件</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.tests.ruby }}件</td>
+                                <td class = 'rtext'>27000件</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-chart-line'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>高い解析精度</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}は内部に
+                    <a href = '/ja/engine/'>{{ site.sisimai.spec.modules }}個のMTA/MSP用解析モジュール</a>
+                    を持っているので、その解析精度は{{ site.html.bh }}の約二倍を誇ります。
+                    また、Microsoft Exchange ServerやIBM Notes and Dominoのような商用MTAや
+                    Amazon SESやWorkMail, SendGridのような商用メールサービスからのバウンスメール
+                    であっても{{ site.html.ss }}は解析する事が出来ます。
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-tachometer-alt'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>{{ site.html.bh }}よりも高速</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    Perl版シシマイは{{ site.html.bh }}のbin/mailboxparserコマンドよりも
+                    {{ site.sisimai.diff.timesfaster.perl }}倍程度
+                    高速にメールを解析し、構造化されたデータを生成します。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-compress'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>小さく堅牢</h3>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}はバウンスメールの解析のみに特化したライブラリですので、
+                    以下のように小さく堅牢に設計されています。
+                </p>
+                <ul>
+                    <li>{{ site.html.bh }}の半分程度のソースコード行数</li>
+                    <li>{{ site.html.bh }}の5倍程度のテスト件数</li>
+                    <li>依存モジュールは2つだけ</li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<section id = 'data'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-list'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>データ構造</h2>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}と{{ site.html.bh }}でのデータ構造
+                    (解析結果の構造、検出可能なバウンス理由)の違いについては以下の通りです。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-list'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>生成されたデータの各項目</h3>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}が生成する解析データは、{{ site.html.bh }}のそれと比べて
+                    より詳細な情報を保持しています。
+                    {{ site.html.ss }}が生成する解析結果の全項目は
+                    <a href = '/ja/data/'>Sisimai::Factのデータ構造</a>をご覧ください。
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <div class = 'text-center'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-bordered'>
+                            <thead>
+                                <tr>
+                                    <th>項目名</th>
+                                    <th>{{ site.html.ss }}</th>
+                                    <th>{{ site.html.bh }}</th>
+                                    <th>補足</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = 'ltext'><strong>action</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        "failed", "expired", "delivered"
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>addresser</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        発信者アドレス
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>alias</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        宛先メールアドレスのエイリアス
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>catch</strong></td>
+                                    <td>
+                                        OK<br /><em class = 'warn'>(>= v4.19.0)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        <a href = '/ja/usage/#callback'>フックメソッドの戻り値</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>deliverystatus</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/deliverystatus</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        D.S.Nの値(例:4.4.7)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>destination</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        宛先メールアドレスのドメイン部分
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>diagnosticcode</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/diagnosticcode</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        バウンスメールのエラーメッセージや診断メッセージ
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>diagnostictype</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        エラーの種別(主にSMTPまたはX-Unix)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>feedbacktype</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        Feedback-Typeの値(abuseやfraud等)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong class = 'not-available'>frequency</strong></td>
+                                    <td>-</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        バウンスした回数ですが解析済データでは常に"1"です。
+                                        この項目はDB用に存在します。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>hardbounce</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        ハードバウンスであるかどうかを示す値です。
+                                        {{ site.html.ss }} 5.0.0で実装されました。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong class = 'not-available'>hostgroup</strong></td>
+                                    <td>-</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        宛先メールアドレスのドメインによる大分類項目です
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>lhost</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        発信に使用されたメールサーバ名(ホスト名かIPアドレス)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>listid</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/listid<br>(&gt;= v2.7.10)</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        List-Idの値、メーリングリスト名
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>messageid</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>Does not include &gt;,&lt;</em>
+                                    </td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/messageid<br>(&gt;= v2.7.11)</em><br>
+                                        <em class = 'warn'>Including &gt; and &lt;</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        元メールのMessage-Idヘッダの値です。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong class = 'not-available'>provider</strong></td>
+                                    <td>-</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        宛先メールアドレスの小分類(所属)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>reason</strong></td>
+                                    <td>OK({{ site.sisimai.spec.reasons }})</td>
+                                    <td>OK(19)</td>
+                                    <td class = 'ltext'>
+                                        バウンス理由
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>recipient</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        受信者(宛先)のメールアドレス
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>replycode</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        "503"や"251"のようなSMTP応答コード
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>rhost</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        宛先のメールサーバ名(ホスト名かIPアドレス)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>senderdomain</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        発信者メールアドレスのドメイン部分
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>smtpagent</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>decription/smtpagent</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        解析する為に使用されたMTA/MSPモジュール名
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>smtpcommand</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        バウンスした際のSMTPコマンド名
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong class = 'deprecated'>softbounce</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        <strong>
+                                            {{ site.html.ss }} 5.0.0で廃止になりました
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>subject</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/subject<br>(&gt;= v2.7.11)</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        元メールの件名
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>timestamp</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>bounced</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        バウンスした日時
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>timezoneoffset</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>description/timezoneoffset</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        バウンスした日時のタイムゾーン(時差)
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class = 'ltext'><strong>token</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>including timestamp</em>
+                                    </td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>generated from a sender and a recipient only)</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        バウンス記録を識別する固有文字列
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>検出可能なバウンス理由</h3>
+                <p class = 'description ja'>
+                    {{ site.html.ss }}が検出可能なエラー理由の一覧と詳細は
+                    <a href = '/ja/reason/'>バウンス理由の一覧</a>をご覧ください。
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Perl</div>
+                <div class = 'index-text'>Ruby</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <div class = 'text-center'>
+                    <div class = 'table-responsive'>
+                        <table class = 'table table-hover table-bordered'>
+                            <thead>
+                                <tr>
+                                    <th>バウンス理由</th>
+                                    <th>{{ site.html.ss }}</th>
+                                    <th>{{ site.html.bh }}</th>
+                                    <th>解析結果での値</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class = 'ltext'><strong>Auth Failure</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>authfailure
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Bad Reputation</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>badreputation
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Blocked</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>blocked
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Content Error</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>contenterr</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        contenterror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Delivered</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.16.0)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        delivered<br>
+                                        <em class = 'warn'>Option</em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Exceed Limit</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        exceedlimit
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Expired</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        expired
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Feedback</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        feedback
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Filtered</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        filtered
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Has Moved</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        hasmoved
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Host Unknown</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        hostunknown
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Mailbox Full</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        mailboxfull
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Mailer Error</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        mailererror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Mesg Too Big</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        mesgtoobig
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Network Error</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.1.12)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        networkerror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>No Relaying</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        norelaying
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Not Accept</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        notaccept
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Not Compliant RFC</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        notcompliantrfc
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>On Hold</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        onhold
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Policy Violation</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.22.0)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        policyviolation
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Rejected</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        rejected
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>RequirePTR</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        requireptr
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Security Error</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>securityerr</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        securityerror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Spam Detected</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.1.25)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        spamdetected
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Speeding</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        speeding
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Suspend</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        suspend
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Syntax Error</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.17.0)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        syntaxerror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>System Error</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        systemerror
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>System Full</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        systemfull
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Too Many Conn</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.1.26)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        toomanyconn
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Undefined</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        undefined
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>User Unknown</strong></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td class = 'ltext'>
+                                        userunknown
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Vacation</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.1.28)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        vacation
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Virus Detected</strong></td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>(&gt;= v4.22.0)</em>
+                                    </td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        virusdetected
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
