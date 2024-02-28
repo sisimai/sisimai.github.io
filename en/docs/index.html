@@ -28,8 +28,11 @@
                 <ul class = 'nav navbar-nav navbar-right'>
                     <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
-                    <li class = 'scroll'><a href = '#sisimai'>Sisimai</a></li>
+                    <li class = 'scroll'><a href = '#spec'>Sisimai</a></li>
+                    <!--
                     <li class = 'scroll'><a href = '#smtp'>SMTP</a></li>
+                    -->
+                    <li class = 'scroll'><a href = '#blog'>Blog</a></li>
                     <li class = 'scroll'><a href = '#architecture'>Architecuture</a></li>
                     <li class = 'others'><a href = '/ja/docs/'><i class = 'fa fa-language'></i></a></li>
                 </ul>
@@ -45,17 +48,74 @@
                 <div class = 'text-center col-sm-6 col-sm-offset-3'>
                     <img src = '/static/images/logo/sisimai-x01.png' width = '50%'>
                     <h2>Documentation</h2>
-                    <p class = 'description'>
-                        The following table shows Documentation list such as installation, structured data,
-                        bounce reasons, and other resources of {{ site.html.ss }}.
-                    <p>
                 </div>
             </div> 
         </div>
+
+        <div class = 'text-center index-table'>
+            <div class = 'row'>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-book'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>User Guide</h3>
+                        <p class = 'description'>
+                            This section contains links to information on how to install and use
+                            {{ site.html.ss }}, as well as its internal specifications, including
+                            data structures.
+                        </p>
+                    </div>
+                    <strong>
+                        <a href = '#spec' class = 'btn btn-continue'>Read</a>
+                    </strong>
+                </div>
+                <!--
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-newspaper'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>SMTP Related Docs</h3>
+                        <p class = 'description'>
+                            This section contains links to information on email, SMTP, and bounce
+                            messages.
+                        </p>
+                    </div>
+                    <a href = '#smtp' class = 'btn btn-continue'>Read</a>
+                </div>
+                -->
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-link'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Links to Blog</h3>
+                        <p class = 'description'>
+                            This section contains links to blog article mainly discusses the use
+                            cases of {{ site.html.ss }} and how to handle bounce messages.
+                        </p>
+                    </div>
+                    <a href = '#blog' class = 'btn btn-continue'>Read</a>
+                </div>
+                <div class = 'col-sm-4'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-sitemap'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>Architecture</h3>
+                        <p class = 'description'>
+                            This section contains the internal architecture diagram of the latest
+                            version of {{ site.html.ss }} {{ site.sisimai.version }}.
+                        </p>
+                    </div>
+                    <a href = '#architecture' class = 'btn btn-continue'>Read</a>
+                </div>
+            </div>
     </div>
 </section>
 
-<section id = 'sisimai' class = 'parallax'>
+<section id = 'spec' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -64,11 +124,12 @@
                 </div>
             </div>
             <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>Documents about {{ site.html.ss }}</h2>
+                <h2 class = 'in-desc'>How To Use {{ site.html.ss }} and Specifications</h2>
                 <p class = 'description'>
-                    The followng table show links to each document about installation, usage, arguments of
-                    methods, structured data, bounce reasons sisimai detect, and differences from 
-                    {{ site.html.bh }}.
+                    This secrtion provides links to information on installing and using {{ site.html.ss }},
+                    as well as its internal specifications, including data structures. It also includes
+                    links to information on supported decoding engines (mail servers) and improvements
+                    and differences from {{ site.html.bh }}.
                 </p>
             </div>
         </div>
@@ -82,73 +143,57 @@
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-condensed link-index'>
                         <tbody>
+                            <tr data-href = '/en/release/'>
+                                <th><i class = 'fa fa-star'></i></th>
+                                <td class = 'ltext'><strong>Release Information</strong></td>
+                                <td>Release Notes of {{ site.html.ss }}</td>
+                            </tr>
                             <tr data-href = '/en/start/'>
                                 <th><i class = 'fa fa-play'></i></th>
-                                <td>
-                                    <p class = 'description'>
-                                        <strong>Get Started:</strong>
-                                        Environment, How To Install, Basic Usage
-                                    </p>
-                                </td>
+                                <td class = 'ltext'><strong>Get Started</strong></td>
+                                <td>Environment, How To Install, and Basic Usage</td>
                             </tr>
-
                             <tr data-href = '/en/usage/'>
                                 <th><i class = 'fa fa-code'></i></th>
-                                <td>
-                                    <p class = 'description'>
-                                        <strong>How To Decode:</strong>
-                                        Reading from STDIN, Decoding Options, and Callback.
-                                    </p>
-                                </td>
+                                <td><strong>How To Decode</strong></td>
+                                <td>Reading from STDIN, Decoding Options, and the Callback Feature</td>
                             </tr>
 
                             <tr data-href = '/en/reason/'>
                                 <th><i class = 'fa fa-exclamation-triangle'></i></th>
-                                <td>
-                                    <p class = 'description'>
-                                        <strong>Reasons:</strong>
-                                        Bounce Reason List {{ site.html.ss }} Can Detect
-                                    </p>
-                                </td>
+                                <td><strong>Bounce Reasons</strong></td>
+                                <td>The bounce reason list {{ site.html.ss }} can detect</td>
                             </tr>
 
                             <tr data-href = '/en/data/'>
                                 <th><i class = 'fa fa-list'></i></th>
-                                <td>
-                                    <p class = 'description'>
-                                        <strong>Data Structure:</strong>
-                                        Structured Data generated from Sisimai::Fact object
-                                    </p>
-                                </td>
+                                <td><strong>Data Structure</strong></td>
+                                <td>List of data structures and fields generated by {{ site.html.ss }}</td>
                             </tr>
 
                             <tr data-href = '/en/engine/'>
                                 <th><i class = 'fa fa-cogs'></i></th>
-                                <td>
-                                    <p class = 'description'>
-                                        <strong>Decoding Engines:</strong>
-                                        Decoding Engine Modules in {{ site.html.ss }}
-                                    </p>
-                                </td>
+                                <td><strong>Decoding Engines</strong></td>
+                                <td>List of decoding modules in {{ site.html.ss }}</td>
                             </tr>
 
                             <tr data-href = '/en/diff/'>
                                 <th><i class = 'fa fa-gavel'></i></th>
+                                <td><strong>Differences</strong></td>
                                 <td>
-                                    <p class = 'description'>
-                                        <strong>Differences:</strong>
-                                        Between {{ site.html.ss }} and {{ site.html.bh }}
-                                    </p>
+                                    Differences between {{ site.html.ss }} and {{ site.html.bh }}
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>
     </div>
 </section> <!-- /#sisimai -->
 
+<!--
 <section id = 'smtp' class = 'non-parallax'>
     <div class = 'container'>
         <div class = 'row'>
@@ -199,11 +244,128 @@
             </div>
         </div>
     </div>
-</section> <!-- /#index -->
+</section> --> <!-- /#index -->
+
+<section id = 'blog' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-link'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Related Blogs</h2>
+                <p class = 'description ja'>
+                    Here are links to blog posts that discuss the use of {{ site.html.ss }} for decoding
+                    bounce emails in the field, as well as examples of its use and how to handle bounce
+                    emails. It seems that the Ruby version is more popular in Japan, while the Perl
+                    version is more popular overseas.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-table'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <br>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed link-index'>
+                        <tbody>
+                            <tr data-href = 'https://qiita.com/revsystem/items/52d204bd9dada9cb9bc4'>
+                                <th><i class = 'fa fa-q'></i></th>
+                                <td>2023/05/20</td>
+                                <td>Sisitoとsisimaiでバウンスメールの解析､集計する #sisimai - Qiita</td>
+                            </tr>
+                            <tr data-href = 'https://zenn.dev/itsuo/articles/b810ac28b31ffc'>
+                                <th><i class = 'fa fa-z'></i></th>
+                                <td>2021/12/22</td>
+                                <td>SendGridからbounceメールを取得して、sisimaiで解析してみる</td>
+                            </tr>
+                            <tr data-href = 'https://realsender.com/for-email-broadcasters/bouncehandler-app/'>
+                                <th><i class = 'fa fa-r'></i></th>
+                                <td>2021/10/30</td>
+                                <td>bouncehandler app :: RealSender</td>
+                            </tr>
+                            <tr data-href = 'https://blogs.pcsoft.fr/fr/emailing-application-windev-tache-site-webdev-eviter-passer-liste-noire-voir-envois-rejetes/281474976710985/read.awp'>
+                                <th><i class = 'fa fa-p'></i></th>
+                                <td>2021/07/21</td>
+                                <td>
+                                    Emailing depuis une application WINDEV ou une tâche d'un site WEBDEV,
+                                    comment éviter de passer en liste noire et de voir les envois rejetés ?
+                                    - PC SOFT - Blogs
+                                </td>
+                            </tr>
+                            <tr data-href = 'https://www.mindbaz.com/technologie-email/bounces-email/'>
+                                <th><i class = 'fa fa-m'></i></th>
+                                <td>2021/03/30</td>
+                                <td>Traitement des bounces email - Mindbaz</td>
+                            </tr>
+                            <tr data-href = 'https://blog.hokkai7go.jp/entry/2020/07/14/145454'>
+                                <th><i class = 'fa fa-h'></i></th>
+                                <td>2020/07/14</td>
+                                <td>LambdaでSisimaiを動かしてバウンスメールを解析するテスト - 実はhokkai7go</td>
+                            </tr>
+                            <tr data-href = 'https://heartbeats.jp/hbblog/2017/12/sisimai.html'>
+                                <th><i class = 'fa fa-h'></i></th>
+                                <td>2017/12/19</td>
+                                <td>
+                                    バウンスメール解析ライブラリSisimaiの出力からバウンスメールの集計と通知を行う
+                                    - インフラエンジニアway - Powered by HEARTBEATS
+                                </td>
+                            </tr>
+                            <tr data-href = 'https://techlife.cookpad.com/entry/2017/05/15/000000'>
+                                <th><i class = 'fa fa-c'></i></th>
+                                <td>2017/05/15</td>
+                                <td>Sisimaiを使ったバウンスメールの管理 - クックパッド開発者ブログ</td>
+                            </tr>
+                            <tr data-href = 'https://techblog.raccoon.ne.jp/archives/49496190.html'>
+                                <th><i class = 'fa fa-r'></i></th>
+                                <td>2016/09/21</td>
+                                <td>
+                                    Sisimaiによるバウンスメール解析の自動化 | Raccoon Tech Blog
+                                    [株式会社ラクーンホールディングス 技術戦略部ブログ]
+                                </td>
+                            </tr>
+                            <tr data-href = 'https://blog.ytnobody.net/entry/2016-08-17-00-47-42.html'>
+                                <th><i class = 'fa fa-y'></i></th>
+                                <td>2016/08/17</td>
+                                <td>エラーで帰ってきてしまったメールの解析 | All Your Bugs Are Belong To Ass</td>
+                            </tr>
+                            <tr data-href = 'https://qiita.com/taku1201/items/0afae3dd90507a688e3e'>
+                                <th><i class = 'fa fa-q'></i></th>
+                                <td>2016/03/26</td>
+                                <td>Sisimaiでバウンスメールを解析してみる #Ruby - Qiita</td>
+                            </tr>
+                            <tr data-href = 'https://github.com/sisimai/sisimai.github.io/pulls'>
+                                <th><i class = 'fa fa-github'></i></th>
+                                <td></td>
+                                <td>Please submit a pull request if you known any other blogs.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#blog -->
+
+
+
 
 <section id = 'architecture' style = 'background-color: #fff;' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-sitemap'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>The architecture inside of {{ site.html.ss }}</h2>
+            </div>
             <div class = 'text-center col-sm-12 col-sm-offset-0'>
                 <img src = '/static/images/figure/sisimai-architecture.png' width = '100%'>
             </div>

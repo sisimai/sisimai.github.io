@@ -27,8 +27,9 @@
                 <ul class = 'nav navbar-nav navbar-right'>
                     <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
                     <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
-                    <li class = 'scroll'><a href = '#sisimai'>シシマイ</a></li>
+                    <li class = 'scroll'><a href = '#spec'>シシマイ</a></li>
                     <li class = 'scroll'><a href = '#smtp'>SMTP</a></li>
+                    <li class = 'scroll'><a href = '#blog'>Blog</a></li>
                     <li class = 'scroll'><a href = '#architecture'>内部構造</a></li>
                     <li class = 'others'><a href = '/en/docs/'><i class = 'fa fa-language'></i></a></li>
                 </ul>
@@ -44,17 +45,70 @@
                 <div class = 'text-center col-sm-6 col-sm-offset-3'>
                     <img src = '/static/images/logo/sisimai-x01.png' width = '50%'>
                     <h2>ドキュメント</h2>
-                    <p class = 'description ja'>
-                        下記の表は{{ site.html.ss }}の導入方法やサンプルコード、
-                        解析方法および生成されるデータのついて説明した文書へのリンクです。
-                    <p>
+                </div>
+            </div>
+        </div>
+
+        <div class = 'text-center index-table'>
+            <div class = 'row'>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-book'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>使用方法と仕様</h3>
+                        <p class = 'description ja'>
+                            {{ site.html.ss }}のインストール方法や使い方、データ構造を含む内部仕様
+                            などに関する文書へのリンクです。
+                        </p>
+                    </div>
+                    <strong>
+                        <a href = '#spec' class = 'btn btn-continue'>詳しく</a>
+                    </strong>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-newspaper'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>SMTP関連文書</h3>
+                        <p class = 'description ja'>
+                            電子メールやSMTP、バウンスメールに関する文書へのリンクです。
+                        </p>
+                    </div>
+                    <a href = '#smtp' class = 'btn btn-continue'>詳しく</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-link'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>ブログ記事</h3>
+                        <p class = 'description ja'>
+                            主に{{ site.html.ss }}の使用例やバウンスメールの処理について言及されている
+                            ブログ記事へのリンクです
+                        </p>
+                    </div>
+                    <a href = '#blog' class = 'btn btn-continue'>詳しく</a>
+                </div>
+                <div class = 'col-sm-3'>
+                    <div class = 'index-icon'>
+                        <i class = 'fa fa-sitemap'></i>
+                    </div>
+                    <div class = 'index-info'>
+                        <h3>内部構造図</h3>
+                        <p class = 'description ja'>
+                            最新版である{{ site.html.ss }} {{ site.sisimai.version }}の内部構造図があります。
+                        </p>
+                    </div>
+                    <a href = '#architecture' class = 'btn btn-continue'>詳しく</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section id = 'sisimai' class = 'parallax'>
+<section id = 'spec' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -63,7 +117,7 @@
                 </div>
             </div>
             <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>{{ site.html.ss }}に関する文書</h2>
+                <h2 class = 'in-desc'>{{ site.html.ss }}の使用方法と仕様</h2>
                 <p class = 'description ja'>
                     以下は、{{ site.html.ss }}の導入方法、使い方、引数の説明、解析結果のデータ構造、
                     対応している解析エンジン(メールサーバ)の一覧、{{ site.html.bh }}からの改善点や
@@ -81,62 +135,53 @@
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-condensed link-index'>
                         <tbody>
+                            <tr data-href = '/ja/release/'>
+                                <th><i class = 'fa fa-star'></i></th>
+                                <td class = 'ltext'><strong>リリース情報</strong></td>
+                                <td>{{ site.html.ss }}のリリースノート一覧</td>
+                            </tr>
                             <tr data-href = '/ja/start/'>
                                 <th><i class = 'fa fa-play'></i></th>
+                                <td class = 'ltext'><strong>導入ガイド</strong></td>
                                 <td>
-                                    <p class = 'description ja'>
-                                        <strong>導入ガイド:</strong>
-                                        動作環境・インストール方法・簡単な使用例
-                                    </p>
+                                    動作環境・インストール方法・簡単な使用例
                                 </td>
                             </tr>
                             <tr data-href = '/ja/usage/'>
                                 <th><i class = 'fa fa-code'></i></th>
-                                <td>
-                                    <p class = 'description ja'>
-                                        <strong>解析方法:</strong>
-                                        標準入力からの読み込み・解析オプション・コールバック
-                                    </p>
-                                </td>
+                                <td><strong>解析方法</strong></td>
+                                <td>標準入力からの読み込み・解析オプション・コールバック</td>
                             </tr>
 
                             <tr data-href = '/ja/reason/'>
                                 <th><i class = 'fa fa-exclamation-triangle'></i></th>
+                                <td><strong>バウンス理由一覧</strong></td>
                                 <td>
-                                    <p class = 'description ja'>
-                                        <strong>バウンス理由一覧:</strong>
-                                        {{ site.html.ss }}が検出可能なバウンス理由の一覧
-                                    </p>
+                                    {{ site.html.ss }}が検出可能なバウンス理由の一覧
                                 </td>
                             </tr>
 
                             <tr data-href = '/ja/data/'>
                                 <th><i class = 'fa fa-list'></i></th>
+                                <td><strong>データ構造</strong></td>
                                 <td>
-                                    <p class = 'description ja'>
-                                        <strong>データ構造:</strong>
-                                        {{ site.html.ss }}が生成するデータ構造・項目の一覧
-                                    </p>
+                                    {{ site.html.ss }}が生成するデータ構造・項目の一覧
                                 </td>
                             </tr>
 
                             <tr data-href = '/ja/engine/'>
                                 <th><i class = 'fa fa-cogs'></i></th>
+                                <td><strong>モジュール一覧</strong></td>
                                 <td>
-                                    <p class = 'description ja'>
-                                        <strong>モジュール一覧:</strong>
-                                        {{ site.html.ss }}に含まれる解析エンジンモジュールの一覧
-                                    </p>
+                                    {{ site.html.ss }}に含まれる解析エンジンモジュールの一覧
                                 </td>
                             </tr>
 
                             <tr data-href = '/ja/diff/'>
                                 <th><i class = 'fa fa-gavel'></i></th>
+                                <td><strong>違いの一覧</strong></td>
                                 <td>
-                                    <p class = 'description ja'>
-                                        <strong>違いの一覧:</strong>
-                                        {{ site.html.ss }}と{{ site.html.bh }}の違いについて
-                                    </p>
+                                    {{ site.html.ss }}と{{ site.html.bh }}の違いについて
                                 </td>
                             </tr>
                         </tbody>
@@ -152,7 +197,7 @@
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'post-it'>
-                    <i class = 'fa fa-book'></i>
+                    <i class = 'fa fa-newspaper'></i>
                 </div>
             </div>
             <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
@@ -175,7 +220,7 @@
                     <table class = 'table table-hover table-condensed link-index'>
                         <tbody>
                             <tr data-href = '/ja/docs/what-is-bounced-email.html'>
-                                <th><i class = 'fa fa-reply-all'></i></th>
+                                <th><i class = 'fa fa-link'></i></th>
                                 <td>
                                     <p class = 'description ja'>
                                         <strong>バウンスメールとは何か?:</strong>
@@ -227,9 +272,123 @@
     </div>
 </section> <!-- /#smtp -->
 
-<section id = 'architecture' style = 'background-color: #fff;' class = 'parallax'>
+<section id = 'blog' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-link'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>関連するブログ記事</h2>
+                <p class = 'description ja'>
+                    以下は{{ site.html.ss }}を使って現場でバウンスメールを解析した事例など、
+                    主に{{ site.html.ss }}の使用例やバウンスメールの処理について言及されている
+                    ブログ記事へのリンクです。日本国内ではRuby版を、海外ではPerl版を
+                    選ぶ傾向が強いようです。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-table'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <br>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-condensed link-index'>
+                        <tbody>
+                            <tr data-href = 'https://qiita.com/revsystem/items/52d204bd9dada9cb9bc4'>
+                                <th><i class = 'fa fa-q'></i></th>
+                                <td>2023/05/20</td>
+                                <td>Sisitoとsisimaiでバウンスメールの解析､集計する #sisimai - Qiita</td>
+                            </tr>
+                            <tr data-href = 'https://zenn.dev/itsuo/articles/b810ac28b31ffc'>
+                                <th><i class = 'fa fa-z'></i></th>
+                                <td>2021/12/22</td>
+                                <td>SendGridからbounceメールを取得して、sisimaiで解析してみる</td>
+                            </tr>
+                            <tr data-href = 'https://realsender.com/for-email-broadcasters/bouncehandler-app/'>
+                                <th><i class = 'fa fa-r'></i></th>
+                                <td>2021/10/30</td>
+                                <td>bouncehandler app :: RealSender</td>
+                            </tr>
+                            <tr data-href = 'https://blogs.pcsoft.fr/fr/emailing-application-windev-tache-site-webdev-eviter-passer-liste-noire-voir-envois-rejetes/281474976710985/read.awp'>
+                                <th><i class = 'fa fa-p'></i></th>
+                                <td>2021/07/21</td>
+                                <td>
+                                    Emailing depuis une application WINDEV ou une tâche d'un site WEBDEV,
+                                    comment éviter de passer en liste noire et de voir les envois rejetés ?
+                                    - PC SOFT - Blogs
+                                </td>
+                            </tr>
+                            <tr data-href = 'https://www.mindbaz.com/technologie-email/bounces-email/'>
+                                <th><i class = 'fa fa-m'></i></th>
+                                <td>2021/03/30</td>
+                                <td>Traitement des bounces email - Mindbaz</td>
+                            </tr>
+                            <tr data-href = 'https://blog.hokkai7go.jp/entry/2020/07/14/145454'>
+                                <th><i class = 'fa fa-h'></i></th>
+                                <td>2020/07/14</td>
+                                <td>LambdaでSisimaiを動かしてバウンスメールを解析するテスト - 実はhokkai7go</td>
+                            </tr>
+                            <tr data-href = 'https://heartbeats.jp/hbblog/2017/12/sisimai.html'>
+                                <th><i class = 'fa fa-h'></i></th>
+                                <td>2017/12/19</td>
+                                <td>
+                                    バウンスメール解析ライブラリSisimaiの出力からバウンスメールの集計と通知を行う
+                                    - インフラエンジニアway - Powered by HEARTBEATS
+                                </td>
+                            </tr>
+                            <tr data-href = 'https://techlife.cookpad.com/entry/2017/05/15/000000'>
+                                <th><i class = 'fa fa-c'></i></th>
+                                <td>2017/05/15</td>
+                                <td>Sisimaiを使ったバウンスメールの管理 - クックパッド開発者ブログ</td>
+                            </tr>
+                            <tr data-href = 'https://techblog.raccoon.ne.jp/archives/49496190.html'>
+                                <th><i class = 'fa fa-r'></i></th>
+                                <td>2016/09/21</td>
+                                <td>
+                                    Sisimaiによるバウンスメール解析の自動化 | Raccoon Tech Blog
+                                    [株式会社ラクーンホールディングス 技術戦略部ブログ]
+                                </td>
+                            </tr>
+                            <tr data-href = 'https://blog.ytnobody.net/entry/2016-08-17-00-47-42.html'>
+                                <th><i class = 'fa fa-y'></i></th>
+                                <td>2016/08/17</td>
+                                <td>エラーで帰ってきてしまったメールの解析 | All Your Bugs Are Belong To Ass</td>
+                            </tr>
+                            <tr data-href = 'https://qiita.com/taku1201/items/0afae3dd90507a688e3e'>
+                                <th><i class = 'fa fa-q'></i></th>
+                                <td>2016/03/26</td>
+                                <td>Sisimaiでバウンスメールを解析してみる #Ruby - Qiita</td>
+                            </tr>
+                            <tr data-href = 'https://github.com/sisimai/sisimai.github.io/pulls'>
+                                <th><i class = 'fa fa-github'></i></th>
+                                <td></td>
+                                <td>他にあればPull-Requestを送ってください</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#smtp -->
+
+<section id = 'architecture' style = 'background-color: #fff;' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-sitemap'></i>
+                </div>
+            </div>
+            <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }}の内部構造図</h2>
+            </div>
             <div class = 'text-center col-sm-12 col-sm-offset-0'>
                 <img src = '/static/images/figure/sisimai-architecture.png' width = '100%'>
             </div>
