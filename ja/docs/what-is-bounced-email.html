@@ -53,7 +53,8 @@
                     </p>
                     <p class = 'description ja'>
                         バウンスメールは、<a href = '/ja/reason/'>バウンス理由の一覧</a>に列挙した理由で、
-                        送信者が<strong>MAILER-DAEMON</strong>や<strong>Postmaster</strong>として返ってきます。
+                        送信者が<span class = 'value'><strong>MAILER-DAEMON</strong></span>や
+                        <span class = 'value'><strong>Postmaster</strong></span>として返ってきます。
                     </p>
                 </div>
             </div>
@@ -70,8 +71,8 @@
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>バウンスメールの特徴</h2>
                 <p class = 'description ja'>
-                    バウンスメールは、<strong>Subjectヘッダ(件名)</strong>や
-                    <strong>Fromヘッダ(差出人)</strong>に特徴があり、
+                    バウンスメールは、<strong><span class = 'value'>Subject:</span>ヘッダー(件名)</strong>や
+                    <strong><span class = 'value'>From:</span>ヘッダー(差出人)</strong>に特徴があり、
                     おおまかに言って数種類のうちのどれか、あるいは似たような表記になっています。
                 </p>
             </div>
@@ -85,8 +86,8 @@
                 <h3 class = 'in-desc'>バウンスメールのSubjectヘッダ</h3>
                 <p class = 'description ja'>
                     バウンスメールは送信者のメールサーバまたは宛先のメールサーバのメールサーバソフトウェア
-                    (Sendmail, Postfix, qmail等)が自動で作成するもので、そのメールのSubjectは
-                    次のようなものになっています。 
+                    (Sendmail, Postfix, qmail等)が自動で作成するもので、そのメールの<span class = 'value'>Subject:</span>
+                    は次のようなものになっています。 
                 </p>
 
                 <ul>
@@ -102,10 +103,10 @@
                 </ul>
 
                 <p class = 'description ja'>
-                    バウンスメールのSubjectは、メールサーバソフトウェア毎にいくつかの種類がありますが、
-                    だいたいどれも<strong>配信エラーであることが分かるような内容</strong>になっています。
-                    また、一部の日本語化されたメールサーバソフトウェアが作るバウンスメールを除いて、
-                    バウンスメールはSubjectも本文も英語で書かれています。
+                    バウンスメールの<span class = 'value'>Subject:</span>は、メールサーバソフトウェア毎に
+                    いくつかの種類がありますが、だいたいどれも<strong>配信エラーであることが分かるような内容</strong>
+                    になっています。また、一部の日本語化されたメールサーバソフトウェアが作るバウンスメールを除いて、
+                    バウンスメールは<span class = 'value'>Subject:</span>も本文も英語で書かれています。
                 </p>
                 <hr>
             </div>
@@ -119,8 +120,9 @@
                 <h3 class = 'in-desc'>バウンスメールのFromヘッダ</h3>
                 <p class = 'description ja'>
                     バウンスメールは、送信者の会社・組織・プロバイダのメールサーバ、
-                    または宛先のメールサーバで動くSendmail, Postfix, qmail等のメールサーバソフトウェアが作りますが、
-                    From:ヘッダはどれも共通していて、メールアドレス部分や名前の部分は下記のような名称を名乗っています。 
+                    または宛先のメールサーバで動くSendmail, Postfix, qmail等のメールサーバソフトウェアが
+                    作りますが、<span class = 'value'>From:</span>ヘッダーはどれも共通していて、
+                    メールアドレス部分や名前の部分は下記のような名称を名乗っています。 
                 </p>
 
                 <ul>
@@ -172,8 +174,8 @@
                     下記のヘッダが特に重要になります。
                 </p>
                 <ul>
-                    <li><strong>Status: 5.1.1</strong> ←数字はいろいろ</li>
-                    <li><strong>Diagnostic-Code: ...</strong> ←エラーメッセージ・SMTPサーバの応答など</li>
+                    <li><span class = 'value'><strong>Status: 5.1.1</strong></span> ←数字はいろいろ</li>
+                    <li><span class = 'value'><strong>Diagnostic-Code: ...</strong></span> ←エラーメッセージ・SMTPサーバの応答など</li>
                 </ul>
                 <p class = 'description ja'>
                     {{ site.html.ss }}はバウンスメールの内容を解析し、エラーになった理由・メールアドレス・時刻

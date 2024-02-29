@@ -106,9 +106,9 @@
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>SMTPコマンド</h3>
                 <p class = 'description ja'>
-                    メールサーバの管理者であれば、telnetコマンドを使用してSMTP通信を行うといった作業は
-                    日常茶飯事でしょう。 SMTPはテキストベースのプロトコルですので、
-                    telnetコマンドを使用してMTA同士が 行っている通信を容易に再現できます。
+                    メールサーバの管理者であれば、<kbd>telnet</kbd>コマンドを使用してSMTP通信を行うといった作業は
+                    日常茶飯事でしょう。 SMTPはテキストベースのプロトコルですので、<kbd>telnet</kbd>
+                    コマンドを使用してMTA同士が 行っている通信を容易に再現できます。
                 </p>
                 <p class = 'description ja'>
                     バウンスの仕組みを推測する前に、簡単によく使うSMTPコマンドについて触れておきます。
@@ -125,15 +125,14 @@
                 <hr>
                 <h4>HELO | EHLO</h4>
                 <p class = 'description ja'>
-                    HELOまたはEHLO(ESMTPのHELO)コマンドは、相手側MTAにSMTP接続した際に
-                    最初に使用するコマンドです。
-                    引数には自分のホスト名またはIPアドレスを指定します。
+                    <kbd>HELO</kbd>または<kbd>EHLO</kbd>(ESMTPのHELO)コマンドは、相手側MTAにSMTP接続した際に
+                    最初に使用するコマンドです。引数には自分のホスト名またはIPアドレスを指定します。
                     いわゆる<strong>挨拶</strong>です。 
                 </p>
 
                 <ul>
-                    <li>例1) HELO mx.libsisimai.org ←自分のホスト名(<strong>相手のホスト名ではない</strong>)を名乗る</li>
-                    <li>例2) HELO [192.0.2.25] ←自分のIPアドレスを[ ] で囲って名乗る</li>
+                    <li>例1) <kbd>HELO mx.libsisimai.org</kbd> ←自分のホスト名(<strong>相手のホスト名ではない</strong>)を名乗る</li>
+                    <li>例2) <kbd>HELO [192.0.2.25]</kbd> ←自分のIPアドレスを<kbd>[ ]</kbd>で囲って名乗る</li>
                 </ul>
             </div>
         </div>
@@ -156,7 +155,7 @@
                     アドレスにエラーメール(バウンスメール)が送信されます。
                 </p>
                 <ul>
-                    <li>例) MAIL FROM: &lt;neko@example.jp&gt;</li>
+                    <li>例) <kbd>MAIL FROM: &lt;neko@example.jp&gt;</kbd></li>
                 </ul>
             </div>
         </div>
@@ -170,13 +169,13 @@
                 <h4>RCPT TO</h4>
                 <p class = 'description ja'>
                     送信するメールの受信者アドレス(宛先)を指定します。
-                    前述のMAIL FROMと同様、<strong>エンベロープTo</strong>と呼ばれ、
-                    メールアドレスのみを指定します。
-                    メールソフトの<strong>宛先(To:)に表示されるメールアドレスとは別物</strong>です。
+                    前述の<kbd>MAIL FROM</kbd>と同様、<strong>エンベロープTo</strong>と呼ばれ、
+                    メールアドレスのみを指定します。メールソフトの<strong>宛先(<span class = 'value'>To:</span>)
+                        に表示されるメールアドレスとは別物</strong>です。
                 </p>
 
                 <ul>
-                    <li>例) RCPT TO: &lt;nyan@example.org&gt;</li>
+                    <li>例) <kbd>RCPT TO: &lt;nyan@example.org&gt;</kbd></li>
                 </ul>
             </div>
         </div>
@@ -191,7 +190,7 @@
                 <p class = 'description ja'>
                     ヘッダも含めた電子メールの内容を開始するコマンドです。
                     このコマンド入力直後に、メールヘッダや本文を入力し、全て入力が終えたら、
-                    <strong> . (単一のドット)</strong>を入れてデータ部分の終了となります。
+                    <strong> <kbd>.</kbd>(単一のドット)</strong>を入れてデータ部分の終了となります。
                 </p>
             </div>
         </div>
@@ -223,14 +222,13 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>宛先不明をtelnetで再現する</h2>
                 <p class = 'description ja'>
-                    宛先不明であることが確実なメールアドレスに送信する、
-                    というSMTPセッションをtelnetコマンドで再現してみます。
+                    宛先不明であることが確実なメールアドレスに送信する、というSMTPセッションを
+                    <kbd>telnet</kbd>コマンドで再現してみます。
                 </p>
                 <p class = 'description ja'>
                     <strong class = 'warn'>
-                        必ず自分の管理下にあるメールサーバに対してのみ行ってください。
-                        よそのメールサーバに対して行った場合、攻撃やスパム送信のための
-                        メールアドレス調査と 見なされることがあります。
+                        必ず自分の管理下にあるメールサーバに対してのみ行ってください。よそのメールサーバに
+                        対して行った場合、攻撃やスパム送信のためのメールアドレス調査と見なされることがあります。
                     </strong>
                     接続元の環境によっては OP25B(Outbound Port 25 Blocking によって接続できない場合があります。
                 </p>
@@ -251,17 +249,17 @@ Escape character is '^]'.
 Connection closed by foreign host.
                 </pre>
                 <p class = 'description ja'>
-                    上記のように、SMTPのRCPT TOコマンドでエラーを返してきた場合、
-                    RCPT TOで指定した宛先アドレスはほぼ確実に存在しないといえます。
+                    上記のように、SMTPの<kbd>RCPT TO</kbd>コマンドでエラーを返してきた場合、
+                    <kbd>RCPT TO</kbd>で指定した宛先アドレスはほぼ確実に存在しないといえます。
                     携帯電話宛の場合も同様です。
                 </p>
                 <p class = 'description ja'>
                     <a href = '/ja/docs/distinguish-between-the-unknown-and-the-filtered.html'>
                         携帯電話宛バウンスの宛先不明とドメイン指定拒否を見分ける
                     </a>
-                    の文書で例示しているように、<strong>Unknown user</strong>と書かれている
-                    バウンスメールの本文に<strong>RCPT TOでエラーになったと読み取れた場合</strong>は、
-                    宛先不明(存在しないメールアドレス)という事になります。
+                    の文書で例示しているように、<strong><span class = 'value'>Unknown user</span></strong>と書かれている
+                    バウンスメールの本文に<strong><span class = 'value'>RCPT TO</span>でエラーになったと
+                    読み取れた場合</strong>は、宛先不明(存在しないメールアドレス)という事になります。
                 </p>
             </div>
 
@@ -281,8 +279,8 @@ Connection closed by foreign host.
                 <h2 class = 'in-desc'>ドメイン指定拒否をtelnetで再現する</h2>
                 <p class = 'description ja'>
                     <strong class = 'warn'>
-                        ここでは例示の為に@docomo.ne.jpのメールサーバに接続する記述をしていますが、
-                        安易に行わないでください。
+                        ここでは例示の為に<span class = 'value'>@docomo.ne.jp</span>のメールサーバに
+                        接続する記述をしていますが、安易に行わないでください。
                     </strong>
                     <strong class = 'warn'>
                         通常のメール送信と同様に、ドメイン指定拒否をしているアドレスに対しての過度な送信試行は、
@@ -325,22 +323,22 @@ Connection closed by foreign host.
                     上記の流れから分かる事は次の通りです
                 </p>
                 <ul>
-                    <li>応答コード250からRCPT TOで指定した宛先は存在する</li>
-                    <li>最後の"."(単一ドット)入力直後にエラー = DATAで入力した内容に基づいてエラーがでた</li>
-                    <li>つまりFrom: ヘッダに入力したメールアドレスが拒否対象であった = ドメイン指定拒否</li>
+                    <li>応答コード<span class = 'value'>250</span>から<kbd>RCPT TO</kbd>で指定した宛先は存在する</li>
+                    <li>最後の<kbd>.</kbd>(単一ドット)入力直後にエラー = <kbd>DATA</kbd>で入力した内容に基づいてエラーがでた</li>
+                    <li>つまり<span class = 'value'>From:</span>ヘッダーに入力したメールアドレスが拒否対象であった = ドメイン指定拒否</li>
                 </ul>
                 <p class = 'description ja'>
-                    あくまでtelnetコマンドで再現した結果からの推測ですが、
-                    ドメイン指定拒否はFrom:ヘッダのメールアドレスを見て、
-                    受け取るか否かを決定しているようです。
+                    あくまで<kbd>telnet</kbd>コマンドで再現した結果からの推測ですが、ドメイン指定拒否は
+                    <span class = 'value'>From:</span>ヘッダのメールアドレスを見て、受け取るか否かを
+                    決定しているようです。
                 </p>
                 <p class = 'description ja'>
                     <a href = '/ja/docs/distinguish-between-the-unknown-and-the-filtered.html'>
                         携帯電話宛バウンスの宛先不明とドメイン指定拒否を見分ける
                     </a>
-                    の内容と照らし合わせると、<strong>Unknown user</strong>と書かれている
-                    バウンスメールの本文にDATAコマンドでエラーになったと読み取れた場合は、
-                    ドメイン指定拒否という事になります。
+                    の内容と照らし合わせると、<strong><span class = 'value'>Unknown user</span></strong>
+                    と書かれているバウンスメールの本文に<span class = 'value'>DATA</span>コマンドで
+                    エラーになったと読み取れた場合は、ドメイン指定拒否という事になります。
                 </p>
             </div>
         </div>
@@ -358,10 +356,10 @@ Connection closed by foreign host.
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2>まとめ</h2>
                 <p class = 'description ja'>
-                    この文書ではSMTP通信をtelnetコマンドによって再現しました。
+                    この文書ではSMTP通信を<kbd>telnet</kbd>コマンドによって再現しました。
                     メールサーバはいくつもの種類があり、また宛先メールサーバの管理方針も多種多様で、
-                    一概には言えませんが、SMTPのRCPT TOコマンドでエラーを返してきた場合は
-                    存在しないメールアドレス、DATAコマンド以降の入力内容でエラーを返してきた場合は、
+                    一概には言えませんが、SMTPの<kbd>RCPT TO</kbd>コマンドでエラーを返してきた場合は
+                    存在しないメールアドレス、<kbd>DATA</kbd>コマンド以降の入力内容でエラーを返してきた場合は、
                     宛先アドレスは存在するがヘッダまたは本文の内容に基づいてなんらかのフィルターが
                     働いたと言えるでしょう。
                 </p>

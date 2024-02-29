@@ -217,15 +217,15 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}は<kbd>Status: 2.1.5</kbd>のような行を含むバウンスメール(
+                    {{ site.html.ss }}は<span class = 'value'>Status: 2.1.5</span>のような行を含むバウンスメール(
                     <a href = 'https://github.com/sisimai/p5-sisimai/blob/master/set-of-emails/maildir/bsd/rfc3464-28.eml'>
                         rfc3464-28.eml
                     </a>)
-                    を正しく解析し、バウンス理由を"delivered"として決定します。
+                    を正しく解析し、バウンス理由を<span class = 'value'>"delivered"</span>として決定します。
                     しかし、
                     <em class = 'warn'>
                         {{ site.html.bh }}はこのようなメールを解析出来るものの、下記の出力例のように、
-                        バウンス理由を"undefined"に決定してしまいます。
+                        バウンス理由を<span class = 'value'>"undefined"</span>に決定してしまいます。
                     </em>
                 </p>
                 <pre class = 'prettyprint'>
@@ -296,7 +296,7 @@ Content-Type: message/rfc822
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>動作環境</h2>
                 <p class = 'description ja'>
-                    シシマイ(Perl版とRuby版)の動作環境周りにおける違い
+                    {{ site.htm..ss }}(Perl版とRuby版)の動作環境周りにおける違い
                     ({{ site.html.bh }}と比較して)は以下の通りです。
                 </p>
             </div>
@@ -324,12 +324,12 @@ Content-Type: message/rfc822
                             <tr>
                                 <td><strong>インストール方法</strong></td>
                                 <td>
-                                    cpan,
-                                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'>cpanm</a>
-                                    <a href = 'https://github.com/skaji/cpm' target = 'new'>cpm</a>
+                                    <kbd>cpan</kbd>,
+                                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
+                                    <a href = 'https://github.com/skaji/cpm' target = 'new'><kbd>cpm</kbd></a>
                                 </td>
-                                <td>gem</td>
-                                <td>configure; make; make install</td>
+                                <td><kbd>gem</kbd></td>
+                                <td><kbd>configure; make; make install</kbd></td>
                             </tr>
                             <tr>
                                 <td><strong>コマンドラインツール</strong></td>
@@ -400,7 +400,7 @@ Content-Type: message/rfc822
                 <p class = 'description ja'>
                     {{ site.html.bh }}をインストールする作業はやや面倒で、
                     アーカイブのダウンロード・多くの依存モジュールのインストール・
-                    configure, make, make test, make installコマンドの実行を経て完了します。
+                    <kbd>configure, make, make test, make install</kbd>コマンドの実行を経て完了します。
                 </p>
                 <p class = 'description ja'>
                     一方、{{ site.html.ss }}のインストールは<kbd>cpanm</kbd>や<kbd>gem</kbd>コマンドでインストールが
@@ -474,7 +474,7 @@ Content-Type: message/rfc822
                                 <td class = 'rtext'.>55%</td>
                             </tr>
                             <tr>
-                                <td><strong>商用MTAとMSP対応モジュール</strong></td>
+                                <td><strong>商用MTAとESP対応モジュール</strong></td>
                                 <td class = 'rtext'>あり(同梱)</td>
                                 <td class = 'rtext'>あり(同梱)</td>
                                 <td class = 'rtext'>無し</td>
@@ -550,8 +550,8 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description ja'>
-                    Perl版シシマイは{{ site.html.bh }}のbin/mailboxparserコマンドよりも
-                    {{ site.sisimai.diff.timesfaster.perl }}倍程度
+                    Perl版{{ site.html.ss }}は{{ site.html.bh }}の<kbd>bin/mailboxparser</kbd>
+                    コマンドよりも{{ site.sisimai.diff.timesfaster.perl }}倍程度
                     高速にメールを解析し、構造化されたデータを生成します。
                 </p>
             </div>
@@ -582,8 +582,6 @@ Content-Type: message/rfc822
                 </ul>
             </div>
         </div>
-
-
     </div>
 </section>
 
@@ -641,7 +639,9 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        "failed", "expired", "delivered"
+                                        <span class = 'value'>"failed"</span>,
+                                        <span class = 'value'>"expired"</span>,
+                                        <span class = 'value'>"delivered"</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -678,7 +678,7 @@ Content-Type: message/rfc822
                                         <em class = 'warn'>description/deliverystatus</em>
                                     </td>
                                     <td class = 'ltext'>
-                                        D.S.Nの値(例:4.4.7)
+                                        D.S.Nの値(例:<span class = 'value'>4.4.7</span>)
                                     </td>
                                 </tr>
                                 <tr>
@@ -705,7 +705,8 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        エラーの種別(主にSMTPまたはX-Unix)
+                                        エラーの種別<br />
+                                        主に<span class = 'value'>SMTP</span>または<span class = 'value'>X-Unix</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -713,7 +714,8 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        Feedback-Typeの値(abuseやfraud等)
+                                        <span class = 'value'>Feedback-Type:</span>の値<br />
+                                        <span class = 'value'>abuse</span>や<span class = 'value'>fraud</span>等
                                     </td>
                                 </tr>
                                 <tr>
@@ -721,7 +723,7 @@ Content-Type: message/rfc822
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
-                                        バウンスした回数ですが解析済データでは常に"1"です。
+                                        バウンスした回数ですが解析済データでは常に<span class = 'value'>1</span>です。
                                         この項目はDB用に存在します。
                                     </td>
                                 </tr>
@@ -758,7 +760,7 @@ Content-Type: message/rfc822
                                         <em class = 'warn'>description/listid<br>(&gt;= v2.7.10)</em>
                                     </td>
                                     <td class = 'ltext'>
-                                        List-Idの値、メーリングリスト名
+                                        <span class = 'value'>List-Id</span>の値、メーリングリスト名
                                     </td>
                                 </tr>
                                 <tr>
@@ -773,7 +775,7 @@ Content-Type: message/rfc822
                                         <em class = 'warn'>Including &gt; and &lt;</em>
                                     </td>
                                     <td class = 'ltext'>
-                                        元メールのMessage-Idヘッダの値です。
+                                        元メールの<span class = 'value'>Message-Id:</span>ヘッダーの値です。
                                     </td>
                                 </tr>
                                 <tr>
@@ -805,7 +807,7 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        "503"や"251"のようなSMTP応答コード
+                                        <span class = 'value'>"503"</span>や<span class = 'value'>"251"</span>のようなSMTP応答コード
                                     </td>
                                 </tr>
                                 <tr>
@@ -1226,6 +1228,7 @@ Content-Type: message/rfc822
                                     <td>-</td>
                                     <td class = 'ltext'>
                                         vacation
+                                        <em class = 'warn'>Option</em>
                                     </td>
                                 </tr>
                                 <tr>

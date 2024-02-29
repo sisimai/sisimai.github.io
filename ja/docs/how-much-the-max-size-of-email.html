@@ -53,11 +53,9 @@
                     <p class = 'description ja'>
                         添付ファイルを含む電子メールを送信した時に、サイズが大きすぎて宛先サーバから
                         エラーで戻ってくる(バウンス)ことがあります。
-                    </p>
-                    <p class = 'description ja'>
                         特に業務で必要なファイルを送信する時には、予めどのくらいの大きさまでのメールが
                         送信できるのか分かっている方が合理的かもしれません。
-                        この文書ではtelnetコマンドを使って宛先サーバが受信できる最大サイズを調べる方法を説明します。
+                        この文書では<kbd>telnet</kbd>コマンドを使って宛先サーバが受信できる最大サイズを調べる方法を説明します。
                     </p>
                     <hr>
                     <p class = 'description ja'>
@@ -83,8 +81,8 @@
                 <p class = 'description ja'>
                     例えば<strong>hoge@example.jp</strong>から<strong>user@example.com</strong>
                     に送信するとします。
-                    まずは<strong>dig</strong>コマンドか<strong>nslookup</strong>コマンドを使って、
-                    user@example.jpのメールを受けとるメールサーバのホスト名を調べる必要があります。
+                    まずは<kbd>dig</kbd>コマンドか<kbd>nslookup</kbd>コマンドを使って、
+                    <span class = 'value'>user@example.jp</span>のメールを受けとるメールサーバのホスト名を調べる必要があります。
                 </p>
                 <h3>dig</h3>
                 <pre class = 'prettyprint'>
@@ -96,7 +94,7 @@ example.com. 3600 IN MX 10 <strong>mx.example.com.</strong>
                 </pre>
 
                 <p class = 'description ja'>
-                    <strong>IN MX</strong>という文字が書いてある行を探してください。
+                    <span class = 'value'>IN MX</span>という文字が書いてある行を探してください。
                     コマンドの実行結果から<strong>example.comのメールサーバは mx.example.comである</strong>
                     事が分かりました。
                 </p>
@@ -104,8 +102,8 @@ example.com. 3600 IN MX 10 <strong>mx.example.com.</strong>
 
                 <h3>nslookup</h3>
                 <p class = 'description ja'>
-                    digコマンドがない場合は<strong>nslookup</strong>を使うとよいでしょう。
-                    メールサーバのホスト名は<strong>mail exchanger =</strong>に続く文字列として表示されます。
+                    <kbd>dig</kbd>コマンドがない場合は<kbd>nslookup</kbd>を使うとよいでしょう。
+                    メールサーバのホスト名は<span class = 'value'>mail exchanger =</span>に続く文字列として表示されます。
                 </p>
                 <pre class = 'prettyprint'>
 $ <kbd>nslookup -q=MX example.com</kbd>
@@ -130,8 +128,8 @@ example.com mail exchanger = 10 <strong>mx.example.com.</strong>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>[telnet] 宛先メールサーバに接続する</h2>
                 <p class = 'description ja'>
-                    user@example.jpのメールサーバは<strong>mx.example.jp</strong>と分かったので、
-                    ターミナルまたはコマンドプロンプトからtelnetコマンドを使って接続します。
+                    <span class = 'value'>user@example.jp</span>のメールサーバは<span class = 'value'>mx.example.jp</span>
+                    と分かったので、ターミナルまたはコマンドプロンプトから<kbd>telnet</kbd>コマンドを使って接続します。
                 </p>
                 <p class = 'description ja'>
                     接続元の環境によっては OP25 (Outbound Port 25 Blocking) によって接続できない
@@ -159,12 +157,12 @@ Escape character is '^]'.
                 </pre>
 
                 <p class = 'description ja'>
-                    宛先メールサーバに接続してEHLOコマンドを発行した応答に含まれる
-                    <strong>SIZE</strong>に続く数値が、そのサーバが受け取れるメールの最大サイズです。
+                    宛先メールサーバに接続して<kbd>EHLO</kbd>コマンドを発行した応答に含まれる
+                    <span class = 'value'>SIZE</span>に続く数値が、そのサーバが受け取れるメールの最大サイズです。
                     上記の応答では<strong>約32MB</strong>ということがわかります。
                 </p>
                 <p class = 'description ja'>
-                    宛先メールサーバによっては、応答内容にSIZEが入っていないものもあります。
+                    宛先メールサーバによっては、応答内容に<span class = 'value'>SIZE</span>が入っていないものもあります。
                     その場合は実際にメールを送ってみるしか確認のしようがありませんのでご注意下さい。
                 </p>
             </div>
@@ -180,7 +178,7 @@ Escape character is '^]'.
                 <h2 class = 'in-desc'>サイズを超過した場合の応答を確認する</h2>
                 <p class = 'description ja'>
                     相手先メールサーバは最大で<strong>32MBまで</strong>のメールを受けとるという事が、
-                    <strong>EHLOコマンドの応答</strong>からわかりました。
+                    <strong><span class = 'value'>EHLO</span>コマンドの応答</strong>からわかりました。
                 </p>
                 <p class = 'description ja'>
                     では、32MB以上のメールを送信したら相手側メールサーバはどのような応答をするのか? 
@@ -207,10 +205,11 @@ Escape character is '^]'.
 552 5.2.3 Message size exceeds fixed maximum message size (33554432)
                 </pre>
                 <p class = 'description ja'>
-                    MAIL FROMコマンドの末尾に<strong>送信するメールのサイズをSIZE= に続けて入力</strong>すると、
-                    メールサイズが大きすぎるという応答が恒久エラー(500系のエラーコード)で返ってきました。
-                    このエラーでバウンスした場合、{{ site.html.ss }}は<strong>mesgtoobig</strong>
-                    (メールが大きすぎる) というエラーとして検出します。
+                    <kbd>MAIL FROM</kbd>コマンドの末尾に<strong>送信するメールのサイズを<kbd>SIZE=</kbd>
+                    に続けて入力</strong>すると、メールサイズが大きすぎるという応答が恒久エラー
+                     (500系のエラーコード)で返ってきました。このエラーでバウンスした場合、{{ site.html.ss }}は
+                     <a href = '/ja/reason#mesgtoobig'><span class = 'value'>mesgtoobig</span></a>
+                     (メールが大きすぎる) というエラーとして検出します。
                 </p>
             </div>
         </div>
@@ -230,7 +229,7 @@ Escape character is '^]'.
                 <p class = 'description ja'>
                     日本国内の携帯電話や著名なWebメールサービスのメールサーバは、
                     どのくらいのサイズのメールを受け付けるのか、各SMTPサーバに接続して調べてみました。
-                    ここではEHLOコマンドの応答で返ってきた数値を列挙しています。
+                    ここでは<kbd>EHLO</kbd>コマンドの応答で返ってきた数値を列挙しています。
                 </p>
                 <hr>
                 <p class = 'description ja'>

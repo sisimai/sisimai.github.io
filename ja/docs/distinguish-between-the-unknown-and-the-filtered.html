@@ -55,7 +55,8 @@
                     <p class = 'description ja'>
                         日本の携帯電話、例えばNTT docomo(ドコモ)にメールを送ってバウンスしてくる場合、
                         その多くが宛先不明かドメイン指定拒否によるものです。 
-                        宛先不明もドメイン指定拒否も、どちらのバウンスメールも内容は<strong>Unknown User</strong>
+                        宛先不明もドメイン指定拒否も、どちらのバウンスメールも内容は
+                        <a href = '/ja/reason#userunknown'><strong>Unknown User</strong></a>
                         と書かれていて、一見しただけでは判別しにくいのですが、よく観察すると僅かな違いがあります。
                     </p>
                     <p class = 'description ja'>
@@ -64,9 +65,10 @@
                         {{ site.html.ss }}による解析をお試しください。
                     </p>
                     <p class = 'description ja'>
-                        {{ site.html.ss }}は携帯電話宛バウンスメールの宛先不明を<strong>userunknown</strong>と、
-                        ドメイン指定拒否を<strong>filtered</strong>として自動で区別して検出しますが、
-                        ここでは目視による簡単な判別方法を紹介します。
+                        {{ site.html.ss }}は携帯電話宛バウンスメールの宛先不明を
+                        <strong><span class = 'value'>userunknown</span></strong>と、
+                        ドメイン指定拒否を<strong><span class = 'value'>filtered</span></strong>
+                        として自動で区別して検出しますが、ここでは目視による簡単な判別方法を紹介します。
                     </p>
                     <hr>
                     <p class = 'description ja'>
@@ -92,10 +94,10 @@
             <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Sendmailの場合</h2>
                 <p class = 'description ja'>
-                    送信するメールサーバがSendmailの場合、宛先不明(userunknown)と
-                    ドメイン指定拒否(filtered)を見分ける方法は非常に容易で、
-                    バウンスメールの本文内<strong>Status:</strong>の値を見ます。後述のメールサーバと比べて
-                    最も目視で判別がしやすい構造、文面となっています。
+                    送信するメールサーバがSendmailの場合、宛先不明(<span class = 'value'>userunknown</span>)と
+                    ドメイン指定拒否(<span class = 'value'>filtered</span>)を見分ける方法は非常に容易で、
+                    バウンスメールの本文内<strong><span class = 'value'>Status:</span></strong>の値を見ます。
+                    後述のメールサーバと比べて最も目視で判別がしやすい構造、文面となっています。
                 </p>
             </div>
         </div>
@@ -135,14 +137,15 @@ Last-Attempt-Date: Fri, 2 Apr 2010 01:24:09 +0900
             </div>
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <p class = 'description ja'>
-                    Status:の値が<strong>5.1.1なら宛先不明(userunknown)</strong>です。
-                    一方Status:の値が<strong>5.2.0ならドメイン指定拒否(filtered)</strong>です。
-                    まとめると次のようになります。
+                    <span class = 'value'>Status:</span>の値が<strong><span class = 'value'>5.1.1</span>
+                    なら宛先不明(<span class = 'value'>userunknown</span>)</strong>です。
+                    一方<span class = 'value'>Status:</span>の値が<strong><span class = 'value'>5.2.0</span>
+                    ならドメイン指定拒否(<span class = 'value'>filtered</span>)</strong>です。まとめると次のようになります。
                 </p>
 
                 <ul>
-                    <li><strong>Status: 5.1.1</strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
-                    <li><strong>Status: 5.2.0</strong> = ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
+                    <li><strong><span class = 'value'>Status: 5.1.1</span></strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
+                    <li><strong><span class = 'value'>Status: 5.2.0</span></strong> = ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
                 </ul>
             </div>
         </div>
@@ -161,10 +164,10 @@ Last-Attempt-Date: Fri, 2 Apr 2010 01:24:09 +0900
                 <h2 class = 'in-desc'>Postfixの場合</h2>
                 <p class = 'description ja'>
                     送信するメールサーバがPostfixの場合は、どのエラーであっても前述の
-                    Status:の値は概ね5.0.0となっていて判別ができません。
-                    そこでバウンスメールの本文に書かれている、<strong>エラーの発生したSMTPコマンド</strong>
-                    を読み取って判断します。Sendmailと比べると多少英語で書かれたエラーメッセージの単語を
-                    追いかける必要があります。
+                    <span class = 'value'>Status:</span>の値は概ね<span class = 'value'>5.0.0</span>
+                    となっていて判別ができません。そこでバウンスメールの本文に書かれている、
+                    <strong>エラーの発生したSMTPコマンド</strong>を読み取って判断します。
+                    Sendmailと比べると多少英語で書かれたエラーメッセージの単語を追いかける必要があります。
                 </p>
             </div>
 
@@ -203,17 +206,17 @@ Last-Attempt-Date: Fri, 2 Apr 2010 01:24:09 +0900
 
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <p class = 'description ja'>
-                    Status:の値を見る事に比べて一見しただけでは分かりにくいのですが、
-                    <strong>in reply to RCPT TO Command</strong>と書いていれば
-                    <strong>宛先不明(userunknown)</strong>で、
-                    <strong>in reply to end of DATA Command</strong>と書いていれば
-                    <strong>ドメイン指定拒否(filtered)</strong>という事になります。
-                    纏めると次のようになります。
+                    <span class = 'value'>Status:</span>の値を見る事に比べて一見しただけでは分かりにくいのですが、
+                    <strong><span class = 'value'>in reply to RCPT TO Command</strong>と書いていれば
+                    <strong>宛先不明(<span class = 'value'>userunknown</span>)</strong>で、
+                    <strong><span class = 'value'>in reply to end of DATA Command</span></strong>
+                    と書いていれば<strong>ドメイン指定拒否(<span class = 'value'>filtered</span>)</strong>
+                    という事になります。纏めると次のようになります。
                 </p>
 
                 <ul>
-                    <li><strong>in reply to RCPT TO command</strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
-                    <li><strong>in reply to end of DATA command</strong> =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
+                    <li><strong><span class = 'value'>in reply to RCPT TO command</span></strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
+                    <li><strong><span class = 'value'>in reply to end of DATA command</span></strong> =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
                 </ul>
             </div>
         </div>
@@ -252,7 +255,6 @@ Remote host said: 550 Unknown user ******@docomo.ne.jp
 Giving up on 203.138.180.240.
                 </pre>
             </div>
-
         </div>
 
         <div class = 'row'>
@@ -272,29 +274,30 @@ Remote host said: 550 Unknown user *****@docomo.ne.jp
             <div class = 'col-sm-8 col-sm-offset-2'>
                 <p class = 'description ja'>
                     qmailはエラーメッセージの文面で判別します。
-                    上記のように<strong>does not like recipient</strong>
-                    と書いていれば<strong>宛先不明(userunknown)</strong>であり、
-                    <strong>failed after I sent the message</strong>と書いていれば
-                    <strong>ドメイン指定拒否(filtered)</strong>となります。
+                    上記のように<strong><span class = 'value'>does not like recipient</span></strong>
+                    と書いていれば<strong>宛先不明(<span class = 'value'>userunknown</span>)</strong>であり、
+                    <strong><span class = 'value'>failed after I sent the message</span></strong>と書いていれば
+                    <strong>ドメイン指定拒否(<span class = 'value'>filtered</span>)</strong>となります。
                     纏めると次のようになります。
                 </p>
 
                 <ul>
                     <li>
-                        <strong>does not like recipient</strong>
+                        <strong><span class = 'value'>does not like recipient</span></strong>
                         = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)
                     </li>
                     <li>
-                        <strong>failed after I sent the message</strong>
+                        <strong><span class = 'value'>failed after I sent the message</span></strong>
                         =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)
                     </li>
                 </ul>
 
                 <p class = 'description ja'>
                     非常に見分けにくいのですが、無理やり解釈するならば、
-                    <strong>does not like recipient</strong>は正しい受信者ではない=SMTPのRCPT TOコマンドでエラーが発生した、
-                    <strong>failed after I sent the message</strong>はメッセージ送信後に失敗した=メッセージの送信は
-                    SMTPのDATAコマンドを使う=SMTPのDATAコマンドでエラーが発生した、ということでしょう。
+                    <strong><span class = 'value'>does not like recipient</span></strong>は正しい受信者ではない=SMTPの
+                    RCPT TOコマンドでエラーが発生した、
+                    <strong><span class = 'value'>failed after I sent the message</span></strong>
+                    はメッセージ送信後に失敗した=メッセージの送信はSMTPのDATAコマンドを使う=SMTPのDATAコマンドでエラーが発生した、ということでしょう。
                 </p>
             </div>
         </div>
@@ -354,8 +357,8 @@ Remote host said: 550 Unknown user *****@docomo.ne.jp
                 </p>
 
                 <ul>
-                    <li><strong>after RCPT TO</strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
-                    <li><strong>after end of data</strong> =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
+                    <li><strong><span class = 'value'>after RCPT TO</span></strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
+                    <li><strong><span class = 'value'>after end of data</span></strong> =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
                 </ul>
             </div>
         </div>
@@ -426,8 +429,8 @@ Your message to the following recipients cannot be delivered:
                 </p>
 
                 <ul>
-                    <li><strong>&lt;&lt;&lt; RCPT TO</strong> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
-                    <li><strong>&lt;&lt;&lt; DATA</strong> =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
+                    <li><span class = 'value'><strong>&lt;&lt;&lt; RCPT TO</strong></span> = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)</li>
+                    <li><span class = 'value'><strong>&lt;&lt;&lt; DATA</strong></span> =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)</li>
                 </ul>
             </div>
         </div>
@@ -447,7 +450,8 @@ Your message to the following recipients cannot be delivered:
                 <h2 class = 'in-desc'>シシマイでの解析</h2>
                 <p class = 'description ja'>
                     この文書では一例として、日本の携帯電話宛、特にドコモ宛で発生したバウンスメールの、
-                    宛先不明(userunknown)とドメイン指定拒否(filtered)を見分ける方法を紹介しました。
+                    宛先不明(<span class = 'value'>userunknown</span>)とドメイン指定拒否(<span class = 'value'>filtered</span>)
+                    を見分ける方法を紹介しました。
                 </p>
                 <p class = 'description ja'>
                     {{ site.html.ss }}は、自動でこの区別を行うだけでなく、メールボックスがいっぱい、

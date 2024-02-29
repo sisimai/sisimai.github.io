@@ -223,10 +223,11 @@ Content-Type: message/rfc822
                     (e.g., <a href = 'https://github.com/sisimai/p5-sisimai/blob/master/set-of-emails/maildir/bsd/rfc3464-28.eml'>
                         rfc3464-28.eml
                     </a>)
-                    that contain lines like "Status: 2.1.5" and determine the bounce reason as
-                    "delivered." <em class = 'warn'>However, {{ site.html.bh }} can also decode
-                    such emails, but it determines the bounce reason as "undefined," as shown in
-                    the output example below.</em>
+                    that contain lines like <span class = 'value'>Status: 2.1.5</span> and determine
+                    the bounce reason as <span class = 'value'>"delivered"</span>.
+                    <em class = 'warn'>However, {{ site.html.bh }} can also decode
+                    such emails, but it determines the bounce reason as <span class = 'value'>"undefined"</span>,
+                    as shown in the output example below.</em>
                 </p>
                 <pre class = 'prettyprint'>
   {
@@ -322,11 +323,11 @@ Content-Type: message/rfc822
                                 <td><strong>Could be installed by</strong></td>
                                 <td>
                                     cpan,
-                                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'>cpanm</a>
-                                    <a href = 'https://github.com/skaji/cpm' target = 'new'>cpm</a>
+                                    <a href = 'https://github.com/miyagawa/cpanminus' target = 'new'><kbd>cpanm</kbd></a>
+                                    <a href = 'https://github.com/skaji/cpm' target = 'new'><kbd>cpm</kbd></a>
                                 </td>
-                                <td>gem</td>
-                                <td>configure; make</td>
+                                <td><kbd>gem</kbd></td>
+                                <td><kbd>configure; make</kbd></td>
                             </tr>
                             <tr>
                                 <td><strong>Command-Line tools</strong></td>
@@ -485,7 +486,7 @@ Content-Type: message/rfc822
                                 <td class = 'rtext'>24</td>
                             </tr>
                             <tr>
-                                <td><strong>LOC:Source lines of code</strong></td>
+                                <td><strong>LOC: Source lines of code</strong></td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.loc.perl }} lines</td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.loc.ruby }} lines</td>
                                 <td class = 'rtext'>18,200 lines</td>
@@ -517,7 +518,7 @@ Content-Type: message/rfc822
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
-                    {{ site.html.ss }} has {{ site.sisimai.spec.modules }} built-in MTA/MSP decoding
+                    {{ site.html.ss }} has {{ site.sisimai.spec.modules }} built-in MTA/ESP decoding
                     modules, giving it about twice the analysis accuracy of {{ site.html.bh }}.
                     {{ site.html.ss }} can also decode bounce emails from commercial MTAs such as
                     Microsoft Exchange Server and IBM Notes and Domino, as well as commercial email
@@ -629,7 +630,9 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        "failed", "expired", "delivered"
+                                        <span class = 'value'>"failed"</span>,
+                                        <span class = 'value'>"expired"</span>,
+                                        <span class = 'value'>"delivered"</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -666,7 +669,7 @@ Content-Type: message/rfc822
                                         <em class = 'warn'>description/deliverystatus</em>
                                     </td>
                                     <td class = 'ltext'>
-                                        D.S.N. Value(ex. 5.1.1)
+                                        D.S.N. Value(ex. <span class = 'value'>5.1.1</span>)
                                     </td>
                                 </tr>
                                 <tr>
@@ -693,7 +696,9 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        Error type string such as "SMTP" or "X-Unix"
+                                        Error type string such as <br />
+                                        <span class = 'value'>SMTP</span> or
+                                        <span class = 'value'>X-Unix</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -701,7 +706,8 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        value of Feedback-Type: field, such as "abuse", "fraud"
+                                        value of <span class = 'value'>Feedback-Type:</span> field,
+                                        such as <span class = 'value'>abuse</span>, <span class = 'value'>fraud</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -709,7 +715,8 @@ Content-Type: message/rfc822
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
-                                        The number of email bounces, however, the value in decoded data is always "1"
+                                        The number of email bounces, however, the value in decoded 
+                                        data is always <span class = 'value'>1</span>.
                                     </td>
                                 </tr>
                                 <td class = 'ltext'><strong>hardbounce</strong></td>
@@ -725,7 +732,8 @@ Content-Type: message/rfc822
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
-                                        Host group of a recipient domain such as "webmail", "pc"
+                                        Host group of a recipient domain such as <span class = 'value'>"webmail"</span>,
+                                        <span class = 'value'>"pc"</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -744,7 +752,8 @@ Content-Type: message/rfc822
                                         <em class = 'warn'>description/listid<br>(&gt;= v2.7.10)</em>
                                     </td>
                                     <td class = 'ltext'>
-                                        The value of "List-Id" field, Mailling list name.
+                                        The value of <span class = 'value'>List-Id:</span> field,
+                                        Mailling list name.
                                     </td>
                                 </tr>
                                 <tr>
@@ -759,7 +768,7 @@ Content-Type: message/rfc822
                                         <em class = 'warn'>Including &gt; and &lt;</em>
                                     </td>
                                     <td class = 'ltext'>
-                                        The value of Message-Id of the original message. 
+                                        The value of <span class = 'value'>Message-Id:</span> of the original message. 
                                     </td>
                                 </tr>
                                 <tr>
@@ -767,7 +776,8 @@ Content-Type: message/rfc822
                                     <td>-</td>
                                     <td>OK</td>
                                     <td class = 'ltext'>
-                                        Provider name such as "google", "microsoft"
+                                        Provider name such as <span class = 'value'>"google"</span>,
+                                        <span class = 'value'>"microsoft"</span>.
                                     </td>
                                 </tr>
                                 <tr>
@@ -791,7 +801,8 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td>-</td>
                                     <td class = 'ltext'>
-                                        SMTP reply code such as "550", "422".
+                                        SMTP reply code such as <span class = 'value'>"550"</span>,
+                                        <span class = 'value'>"422"</span>.
                                     </td>
                                 </tr>
                                 <tr>
