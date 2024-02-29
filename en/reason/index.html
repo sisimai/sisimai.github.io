@@ -51,9 +51,10 @@
                     <p class = 'description'>
                         {{ site.html.ss }} can detect <strong>{{ site.sisimai.spec.reasons }}</strong>
                         types of bounce reasons by decoding bounce emails. You can obtain the detected
-                        bounce reason from the reason accessor of the <kbd>Sisimai::Fact</kbd> object.
-                        <strong>the value of "reason" is always lowercase</strong>, such as "userunknown"
-                        or "expired".
+                        bounce reason from the <kbd>reason()</kbd> accessor of the <kbd>Sisimai::Fact</kbd>
+                        object.  <strong>the value of <span class = 'value'>"reason"</span> is always
+                        lowercase</strong>, such as <span class = 'value'>"userunknown"</span> or
+                        <span class = 'value'>"expired"</span>.
                     </p>
                 </div>
             </div> 
@@ -127,13 +128,14 @@
             </div>
             <div class = 'heading text-center col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Table of Bounce Reasons</h2>
-                <p class = 'description ja'>
+                <p class = 'description'>
                     {{ site.html.ss }} can detect <strong>{{ site.sisimai.spec.reasons }}</strong>
-                    types of bounce reasons and sets the bounce reason in the <kbd>reason</kbd> field
-                    of the decoded data. The value of <kbd>reason</kbd> is always lowercase, such as
-                    "userunknown" or "expired".
+                    types of bounce reasons and sets the bounce reason in the <span class = 'value'>"reason"</span>
+                    field of the decoded data. The value of <span class = 'value'>"reason"</span> is
+                    always lowercase, such as <span class = 'value'>"userunknown"</span> or
+                    <span class = 'value'>"expired"</span>.
                 </p>
-                <p class = 'description ja'>
+                <p class = 'description'>
                     To get a list of all detectable bounce reasons, refer to the return value of the
                     <kbd>reason()</kbd> method of the <kbd>Sisimai</kbd> class.
                 </p>
@@ -402,8 +404,8 @@
                     symbol) of the destination email address is an unknown host or a non-existent
                     domain name. In many cases, this is caused by a typo in the domain name, an invalid
                     DNS record, or a domain that has been discontinued. In {{ site.html.ss }}'s internal
-                    processing, this reason is also determined when the value of the Status: field
-                    in the bounce email is "5.1.2".
+                    processing, this reason is also determined when the value of the <span class = 'value'>Status:</span>
+                    field in the bounce email is <span class = 'value'>"5.1.2"</span>.
                 </p>
                 <pre class = 'prettyprint'>
 Your message to the following recipients cannot be delivered:
@@ -440,9 +442,10 @@ Your message to the following recipients cannot be delivered:
                 </pre>
                 <p class = 'description'>
                     In {{ site.html.ss }}'s internal bounce email processing, this reason is determined
-                    when the value of the "Status:" field is "5.1.1", when the connection is rejected
-                    with <kbd>RCPT TO:</kbd> in the SMTP session, or when the "Diagnostic-Code:" header indicates
-                    that the recipient is unknown.
+                    when the value of the <span class = 'value'>"Status:"</span> field is <span class = 'value'>"5.1.1"</span>,
+                    when the connection is rejected with <span class = 'value'>RCPT TO:</span> in the
+                    SMTP session, or when the <span class = 'value'>"Diagnostic-Code:"</span> header
+                    indicates that the recipient is unknown.
                 </p>
                 {% include error-messages/userunknown.html %}
                 <hr>
@@ -478,9 +481,10 @@ Your message to the following recipients cannot be delivered:
                 </pre>
                 <p class = 'description'>
                     In {{ site.html.ss }}'s internal bounce email processing, this reason is also
-                    determined when the value of the "Status:" field is "5.2.0" or "5.2.1", or when
-                    the email is rejected based on the content after the <kbd>DATA</kbd> command in
-                    the SMTP session.
+                    determined when the value of the <span class = 'value'>"Status:"</span> field is
+                    <span class = 'value'>"5.2.0"</span> or <span class = 'value'>"5.2.1"</span>,
+                    or when the email is rejected based on the content after the <span class = 'value'>DATA</span>
+                    command in the SMTP session.
                 </p>
                 {% include error-messages/filtered.html %}
                 <hr>
@@ -501,8 +505,8 @@ Your message to the following recipients cannot be delivered:
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
                     This error is returned when the recipient's mailbox has been moved to another
                     address (and automatic forwarding is not set up). In {{ site.html.ss }}'s internal
-                    bounce email processing, this reason is determined when the value of the "Status:"
-                    field is "5.1.6".
+                    bounce email processing, this reason is determined when the value of the
+                    <span class = 'value'>"Status:"</span> field is <span class = 'value'>"5.1.6"</span>.
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.go.jp&gt;: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
@@ -527,9 +531,10 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                     <img class = 'lhs' src = '/static/images/icon/private-5.png'>
                     This error is returned when the email is rejected by the sender's address
                     (Envelope From). In {{ site.html.ss }}'s internal bounce email processing, this
-                    reason is determined when the value of the "Status:" field is "5.1.8", or when
-                    the email is rejected based on the content of the <kbd>MAIL FROM:</kbd> command
-                    in the SMTP session.
+                    reason is determined when the value of the <span class = 'value'>"Status:"</span>
+                    field is <span class = 'value'>"5.1.8"</span>, or when the email is rejected
+                    based on the content of the <span class = 'value'>MAIL FROM:</span> command in
+                    the SMTP session.
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.org&gt;:
@@ -566,7 +571,8 @@ Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</cod
                 </pre>
                 <p class = 'description'>
                     In {{ site.html.ss }}'s internal bounce email processing, this reason is
-                    determined when the value of the "Status:" field is "4.2.2" or "5.2.2".
+                    determined when the value of the <span class = 'value'>"Status:"</span> field is
+                    <span class = 'value'>"4.2.2"</span> or <span class = 'value'>"5.2.2"</span>.
                     This error is returned when the email is rejected by the sender's address
                     (Envelope From).
                 </p>
@@ -640,14 +646,15 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                     This error category includes cases where the format of the sent email cannot be
                     converted or understood by the destination mail server. In the internal process
                     of bounce email processing performed by {{ site.html.ss }}, this reason is
-                    determined when the value of the "Status:" field is "5.6.x".
+                    determined when the value of the <span class = 'value'>"Status:"</span> field
+                    is <span class = 'value'>"5.6.x"</span>.
                 </p>
                 <p class = 'description'>
                     Examples of cases that fall into this category:
                 </p>
                 <ul>
                     <li>The header contains 8-bit data.</li>
-                    <li>There are too many "Received" headers.</li>
+                    <li>There are too many <span class = 'value'>"Received:"</span> headers.</li>
                     <li>The MIME header is invalid.</li>
                 </ul>
                 <pre class = 'prettyprint'>
@@ -695,7 +702,8 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                 </pre>
                 <p class = 'description'>
                     In the internal process of bounce email processing performed by {{ site.html.ss }},
-                    this reason is determined when the value of the "Status:" field is "4.2.3" or "5.2.3".
+                    this reason is determined when the value of the <span class = 'value'>"Status:"</span>
+                    field is <span class = 'value'>"4.2.3"</span> or <span class = 'value'>"5.2.3"</span>.
                 </p>
                 {% include error-messages/exceedlimit.html %}
                 <hr>
@@ -774,7 +782,8 @@ Status: 553 Exceeded maximum inbound message size
                 </pre>
                 <p class = 'description'>
                     In the internal process of bounce email processing performed by {{ site.html.ss }},
-                    this reason is determined when the value of the "Status:" field is "5.3.4".
+                    this reason is determined when the value of the <span class = 'value'>"Status:"</span>
+                    field is <span class = 'value'>"5.3.4"</span>.
                 </p>
                 {% include error-messages/mesgtoobig.html %}
                 <hr>
@@ -794,11 +803,12 @@ Status: 553 Exceeded maximum inbound message size
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/rules-1.png'>
                     This error is returned when there is an email header that does not comply with
-                    or violates the RFC5322 specification. For example, if the From: header, which
-                    should be a single mandatory header, is missing or there are multiple instances
-                    of it, or if there are multiple "Subject:" headers, the email will be considered
-                    an RFC violation. This bounce reason was implemented in {{ site.html.ss }} 5.0.0
-                    as a separate category from <a href = '#securityerror'>Security Error</a>.
+                    or violates the RFC5322 specification. For example, if the <span class = 'value'>From:</span>
+                    header, which should be a single mandatory header, is missing or there are multiple
+                    instances of it, or if there are multiple <span class = 'value'>"Subject:"</span>
+                    headers, the email will be considered an RFC violation. This bounce reason was
+                    implemented in {{ site.html.ss }} 5.0.0 as a separate category from
+                    <a href = '#securityerror'>Security Error</a>.
                 </p>
                 <pre class = 'prettyprint'>
 Action: failed
@@ -876,7 +886,8 @@ Diagnostic-Code: smtp; 550-5.7.1 [2401:2500:102:3032:192.0.2.222      13]
                 </pre>
                 <p class = 'description'>
                     In the internal process of bounce email processing performed by {{ site.html.ss }},
-                    this reason is determined when the value of the "Status:" field is "5.7.x".
+                    this reason is determined when the value of the <span class = 'value'>"Status:"</span>
+                    field is <span class = 'value'>"5.7.x"</span>.
                 </p>
                 <p class = 'description'>
                     In {{ site.html.ss }} 4.22.0, <a href = '#policyviolation'>Policy Violation</a>
@@ -1059,8 +1070,8 @@ Diagnostic-Code: smtp; 550-5.7.1 [192.0.2.22      18] Our system has
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-3.png'>
                     This bounce reason is determined by {{ site.html.ss }} when the connection to
-                    the destination host is rejected due to the IP address, hostname, or <kbd>EHLO</kbd>
-                    /<kbd>EHLO</kbd> command value of the sending mail server. This bounce reason
+                    the destination host is rejected due to the IP address, hostname, or <span class = 'value'>EHLO</span>,
+                    <span class = 'value'>EHLO</span> command value of the sending mail server. This bounce reason
                     was implemented in {{ site.html.ss }} 4.0.0 and is not implemented in {{ site.html.bh }}.
                 </p>
                 <pre class = 'prettyprint'>
@@ -1088,7 +1099,7 @@ Remote host said: 501 5.0.0 Invalid domain name
                     This error category includes emails that are bounced back due to delivery
                     timeouts, such as when the email cannot connect to the destination host.
                     If the reason for the delivery failure is DNS resolution, the bounce reason
-                    may be <a href = '#networkerror'>NetworkError</a>.
+                    may be <span class = 'value'><a href = '#networkerror'>NetworkError</a></span>.
                 </p>
                 <pre class = 'prettyprint'>
 kijitora@example.org
@@ -1201,7 +1212,8 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     email. This error can occur if the destination mail server is overloaded or
                     under maintenance. In the internal process of the bounce email processing
                     performed by {{ site.html.ss }}, this reason is determined for emails with a
-                    "5.3.2" value in the "Status:" field or a "556" value in the SMTP reply code.
+                    <span class = 'value'>"5.3.2"</span> value in the <span class = 'value'>"Status:"</span>
+                    field or a <span class = 'value'>"556"</span> value in the SMTP reply code.
                     Additionally, this bounce reason also includes cases where the sender domain
                     is a NullMX.
                 </p>
@@ -1323,8 +1335,9 @@ message has been in the queue too long.
                     This error is returned when the recipient's mail server's disk is full. This
                     indicates that the recipient host cannot receive any more emails. In the
                     internal process of bounce email processing performed by {{ site.html.ss }},
-                    this reason is determined for emails with a "5.3.1" or "4.3.1" value in the
-                    "Status:" field.
+                    this reason is determined for emails with a <span class = 'value'>"5.3.1"</span>
+                    or <span class = 'value'>"4.3.1"</span> value in the <span class = 'value'>"Status:"</span>
+                    field.
                 </p>
                 {% include error-messages/systemfull.html %}
                 <hr>
@@ -1387,14 +1400,15 @@ message has been in the queue too long.
                     <img class = 'lhs' src = '/static/images/icon/cat-4.png'>
                     This reason <strong>does not indicate an error</strong>, but rather that the
                     sent email was successfully delivered to the recipient. {{ site.html.ss }} sets
-                    the <kbd>reason</kbd> value to <kbd>delivered</kbd> if the Status field of the
-                    bounce email starts with "2".
+                    the <span class = 'value'>"reason"</span> value to <span class = 'value'>delivered</span>
+                    if the <span class = 'value'>"Status:"</span> field of the bounce email starts
+                    with <span class = 'value'>"2"</span>.
                 </p>
                 <p class = 'description'>
                     This reason <strong>is not included in the decoded results by default</strong>.
-                    To include records with "delivered" in the decoded results, specify the 
-                    <kbd>delivered</kbd> option as an argument to the <kbd>rise()</kbd> and
-                    <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd> class, as shown in the
+                    To include records with <span class = 'value'>"delivered"</span> in the decoded
+                    results, specify the <kbd>delivered</kbd> option as an argument to the <kbd>rise()</kbd>
+                    and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd> class, as shown in the
                     following sample code.
                 </p>
                 <pre class = 'prettyprint'>
@@ -1447,8 +1461,8 @@ d = Sisimai::Fact.rise(data: q, delivered: true)
                     due to being on vacation. Bounce emails with this reason are sent by an
                     autoresponder program. This bounce reason was implemented in {{ site.html.ss }}
                     4.1.28 and is not implemented in {{ site.html.bh }}. Additionally, bounce
-                    emails with "vacation" as the reason <strong>are no longer decoded by default
-                    since {{ site.html.ss }} 5.0.0</strong>.
+                    emails with <span class = 'value'>"vacation"</span> as the reason <strong>are no
+                        longer decoded by default since {{ site.html.ss }} 5.0.0</strong>.
                 </p>
                 <pre class = 'prettyprint'>
 I am out of the office until 05/01/2010.
@@ -1518,7 +1532,7 @@ I am of the office returning 5th Jan
                     <img class = 'lhs' src = '/static/images/icon/question-1.png'>
                     If there are no error messages, response codes, delivery status codes, or any
                     other information necessary for {{ site.html.ss }} to determine the bounce
-                    reason, the bounce reason will be set to "undefined".
+                    reason, the bounce reason will be set to <span class = 'value'>"undefined"</span>.
                 </p>
             </div>
         </div>

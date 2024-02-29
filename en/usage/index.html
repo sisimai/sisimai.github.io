@@ -442,8 +442,9 @@ end
                 </p>
                 <p class = 'description cation'>
                     Starting with {{ site.html.ss }} 5.0.0, bounce emails with a bounce reason of
-                    "vacation" will no longer be decoded by default. If you need this functionality,
-                    you must specify the <kbd>vacation</kbd> parameter to the <kbd>rise()</kbd> method.
+                    <span class = 'value'>"vacation"</span> will no longer be decoded by default.
+                    If you need this functionality, you must specify the <kbd>vacation</kbd> parameter
+                    to the <kbd>rise()</kbd> method.
                 </p>
                 <p class = 'description'>
                     The <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd>
@@ -547,7 +548,7 @@ end
                     The callback feature specification (number and type of arguments) has changed in
                     {{ site.html.ss }} 5.0.0. Due to the incompatible change, please check the
                     <a href = 'https://github.com/sisimai/p5-sisimai/blob/4-stable/README-JA.md#callback-feature'>GitHub/Callback Feature</a>
-                    of the <kbd>4-stable</kbd> branch for the callback feature in Version 4.
+                    of the <span class = 'value'>4-stable</span> branch for the callback feature in Version 4.
                 </p>
                 <p class = 'description'>
                     The callback feature implemented in {{ site.html.ss }} 4.19.0 allows you to get
@@ -584,7 +585,9 @@ end
                         <tbody>
                             <tr>
                                 <td class = 'ltext'>[0] (<kbd>$code0</kbd>in the following code example)</td>
-                                <td>Email headers <kbd>headers</kbd>and message text <kbd>message</kbd></td>
+                                <td>
+                                    Email headers <span class = 'value'>headers</span> and message
+                                    text <span class = 'value'>message</span></td>
                             </tr>
                             <tr>
                                 <td class = 'ltext'>[1] (<kbd>$code1</kbd>in the following code example)</td>
@@ -618,9 +621,9 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Arguments inside of c___[0]</h3>
                 <p class = 'description'>
-                    The string obtained from the <kbd>message</kbd> is the body of the bounce email.
-                    It does not include the headers of the bounce email itself, so please refer to
-                    the hashed <kbd>headers</kbd>.
+                    The string obtained from the <span class = 'value'>message</span> is the body
+                    of the bounce email. It does not include the headers of the bounce email itself,
+                    so please refer to the hashed <span class = 'value'>headers</span>.
                 </p>
 
                 <div class = 'table-responsive'>
@@ -658,8 +661,8 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Arguments inside of c___[1]</h3>
                 <p class = 'description'>
-                    The string obtained from the <kbd>mail</kbd> is the entire bounce email,
-                    including the headers of the bounce email itself.
+                    The string obtained from the <span class = 'value'>mail</span> is the entire
+                    bounce email, including the headers of the bounce email itself.
                 </p>
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-bordered'>
@@ -712,9 +715,9 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                     via a callback.
                 </p>
                 <ul>
-                    <li>Retrieve the value of <kbd>Return-Path</kbd> in the bounce email header.</li>
-                    <li>Retrieve the value of <kbd>Authentication-Results</kbd> in the bounce email header.</li>
-                    <li>Retrieve the value of <kbd>X-Postfix-Queue-ID</kbd> in the body.</li>
+                    <li>Retrieve the value of <span class = 'value'>Return-Path</span> in the bounce email header.</li>
+                    <li>Retrieve the value of <span class = 'value'>Authentication-Results</span> in the bounce email header.</li>
+                    <li>Retrieve the value of <span class = 'value'>X-Postfix-Queue-ID</span> in the body.</li>
                     <li>Add a custom header to the original email and save it to a different path.</li>
                 </ul>
 

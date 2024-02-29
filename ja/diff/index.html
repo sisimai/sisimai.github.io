@@ -101,7 +101,7 @@
                     <div class = 'index-info'>
                         <h3>{{ site.html.bh }}との違い</h3>
                         <p class = 'description ja'>
-                            {{ site.html.ss }} 5.0.0と{{ site.html.bh }}の違いについて
+                            {{ site.html.ss }} 5.0.0と{{ site.html.bh }}の最終バージョンとの違いについて
                         </p>
                     </div>
                     <a href = '/en/diff/between-sisimai-and-bouncehammer.html' class = 'btn btn-continue'>詳しく</a>
@@ -214,12 +214,13 @@ ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin21]
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description ja'>
                     {{ site.html.ss }} 5.0.0で<kbd>Sisimai::Data</kbd>クラスの<kbd>softbounce()</kbd>
-                    メソッドと解析結果の<kbd>"softbounce"</kbd>が廃止になりました。<kbd>softbounce()</kbd>
-                    メソッドは実行時に警告が出ますが{{ site.html.ss }} 5.1.0までは使用可能です。
+                    メソッドと解析結果の<span class = 'value'>"softbounce"</span>が廃止になりました。
+                    <kbd>softbounce()</kbd>メソッドは実行時に警告が出ますが{{ site.html.ss }} 5.1.0
+                    までは使用可能です。
                 </p>
                 <p class = 'description ja'>
                     {{ site.html.ss }} 5.0.0で新しく実装された<kbd>hardbounce()</kbd>メソッドならびに
-                    解析結果の<kbd>"hardbounce"</kbd>を使ってください。
+                    解析結果の<span class = 'value'>"hardbounce"</span>を使ってください。
                 </p>
 
                 <pre class = 'prettyprint ltext'>% <kbd>perl -MSisimai -lE 'print Sisimai->rise(shift)->[0]->softbounce;' ./test.eml</kbd>
@@ -278,10 +279,10 @@ Sisimai::Fact
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description ja'>
-                    {{ site.html.ss }} 5.0.0からバウンス理由が<kbd>"vacation"</kbd>となるバウンスメール
-                    をデフォルトで解析しなくなりました。必要な場合は以下のように<kbd>vacation</kbd>
-                    オプションを<kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>メソッド第二引数に指定
-                    してください。
+                    {{ site.html.ss }} 5.0.0からバウンス理由が<span class = 'vacation'>"vacation"</span>
+                    となるバウンスメールをデフォルトで解析しなくなりました。必要な場合は以下のように
+                    <kbd>vacation</kbd>オプションを<kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>メソッド
+                    第二引数に指定してください。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
@@ -356,8 +357,8 @@ end
                     主にGmailの<a href = 'https://support.google.com/a/answer/81126?hl=ja' target = 'new'>
                         メール送信者のガイドライン</a>にて言及されている要求を満たしていない場合に
                     返ってくるバウンス理由です。既に実装されているバウンス理由と同じく、解析結果の
-                    <kbd>"reason"</kbd>の値は<kbd>"authfailure"</kbd>や<kbd>"notcompliantrfc"</kbd>
-                    のようにスペース無しの全て小文字で表記されます。
+                    <span class = 'value'>"reason"</span>の値は<span class = 'value'>"authfailure"</span>
+                    や<span class = 'value'>"notcompliantrfc"</span>のようにスペース無しの全て小文字で表記されます。
                 </p>
             </div>
         </div>

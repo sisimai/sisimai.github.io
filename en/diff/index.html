@@ -104,7 +104,8 @@
                     <div class = 'index-info'>
                         <h3>with {{ site.html.bh }}</h3>
                         <p class = 'description'>
-                            About differences between {{ site.html.ss }} 5.0.0 and {{ site.html.bh }}.
+                            About differences between {{ site.html.ss }} 5.0.0 and the latest version
+                            of {{ site.html.bh }}.
                         </p>
                     </div>
                     <a href = '/en/diff/between-sisimai-and-bouncehammer.html' class = 'btn btn-continue'>Read</a>
@@ -217,13 +218,13 @@ ruby 3.3.0 (2023-12-25 revision 5124f9ac75) [x86_64-darwin21]
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
                     The <kbd>softbounce()</kbd> method of the <kbd>Sisimai::Data</kbd> class and the
-                    </kbd>"softbounce"</kbd> in the decoded results have been deprecated in {{ site.html.ss }} 5.0.0.
-                    The <kbd>softbounce()</kbd> method will still work until {{ site.html.ss }} 5.1.0,
-                    but it will emit a warning at runtime.
+                    <span class = 'value'>"softbounce"</span> in the decoded results have been deprecated
+                    in {{ site.html.ss }} 5.0.0. The <kbd>softbounce()</kbd> method will still work
+                    until {{ site.html.ss }} 5.1.0, but it will emit a warning at runtime.
                 </p>
                 <p class = 'description'>
                     Please use the newly implemented <kbd>hardbounce()</kbd> method and the
-                    <kbd>"hardbounce"</kbd> in the decoded results instead.
+                    <span class = 'value'>"hardbounce"</span> in the decoded results instead.
                 </p>
 
                 <pre class = 'prettyprint ltext'>% <kbd>perl -MSisimai -lE 'print Sisimai->rise(shift)->[0]->softbounce;' ./test.eml</kbd>
@@ -284,7 +285,7 @@ Sisimai::Fact
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
                     {{ site.html.ss }} 5.0.0 no longer decodes bounce emails with the bounce reason
-                    <kbd>"vacation"</kbd> by default. If you need to decode vacation bounce emails,
+                    <span class = 'value'>"vacation"</span> by default. If you need to decode vacation bounce emails,
                     you can specify the <kbd>vacation</kbd> option as the second argument to the
                     <kbd>Sisimai</kbd> class's <kbd>rise()</kbd> method as follows.
 
@@ -366,9 +367,9 @@ end
                     </a>.
                 </p>
                 <p class = 'description'>
-                    As with the existing bounce reasons, the <kbd>"reason"</kbd> value in the
-                    decoded results will be in all lowercase letters with no spaces, such as
-                    <kbd>"authfailure"</kbd> or <kbd>"notcompliantrfc"</kbd>.
+                    As with the existing bounce reasons, the <span class = 'value'>"reason"</span>
+                    value in the decoded results will be in all lowercase letters with no spaces,
+                    such as <span class = 'value'>"authfailure"</span> or <span class = 'value'>"notcompliantrfc"</span>.
                 </p>
             </div>
         </div>

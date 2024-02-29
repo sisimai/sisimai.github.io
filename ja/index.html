@@ -75,7 +75,7 @@
             <div class = 'row'>
                 <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '100ms'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-torii-gate'></i>
+                        <i class = 'fa fa-envelopes-bulk'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>解析ライブラリ</h3>
@@ -83,14 +83,14 @@
                         <p class = 'description ja'>
                         {{ site.html.ss }}は<strong>UNIX mbox</strong>形式のファイルや
                             <strong>Maildir/</strong>ディレクトリ内にあるような
-                            バウンスメール用解析ライブラリです。
+                            バウンスメール用解析ライブラリです。PerlまたはRubyで動作します。
                         </p>
                     </div>
                     <a href = '/ja/start/' class = 'btn btn-continue'>使ってみる</a>
                 </div>
                 <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '200ms'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-exclamation-triangle'></i>
+                        <i class = 'fa fa-microscope'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>バウンス理由</h3>
@@ -105,14 +105,14 @@
                 </div>
                 <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '300ms'>
                     <div class = 'index-icon'>
-                        <i class = 'fa fa-list'></i>
+                        <i class = 'fa fa-folder-tree'></i>
                     </div>
                     <div class = 'index-info'>
                         <h3>構造化データ</h3>
                         <hr>
                         <p class = 'description ja'>
-                            {{ site.html.ss }}によって解析されたバウンスメールのデータは構造化されていて
-                            <strong>JSON</strong>形式としても出力できます。
+                            {{ site.html.ss }}によって解析されたバウンスメールの内容は構造化された
+                            データとなり<strong>JSON</strong>形式としても出力できます。
                         </p>
                     </div>
                     <a href = '/ja/data/' class = 'btn btn-continue'>詳細を見る</a>
@@ -221,7 +221,7 @@
                     -->
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
                         <p class = 'lead'>
-                            <i class = 'fa fa-exclamation-triangle'></i>
+                            <i class = 'fa fa-microscope'></i>
                             検出可能なバウンス理由数
                         </p>
                         <div class = 'progress'>
@@ -309,6 +309,13 @@
                     <a href = 'https://github.com/sisimai/p5-sisimai/issues/261' target = 'new'>
                         Windows上のActivePerlで動作するかもしれません。
                     </a>
+                </p>
+                <p class = 'description ja'>
+                    <strong>
+                    {{ site.html.ss }} 5.0.0で互換性のない、破壊的な変更がいくつか入っています。
+                    インストールやアップグレードをする前に<a href = '/en/release/5.0.0.html'>リリースノート</a>
+                    と<a href = '/en/diff'>{{ site.html.ss }} 4との違い</a>を確認してください。
+                    </strong>
                 </p>
             </div>
         </div>

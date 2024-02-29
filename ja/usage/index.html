@@ -435,7 +435,7 @@ end
                     新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
                 </p>
                 <p class = 'description ja cation'>
-                    {{ site.html.ss }} 5.0.0でバウンス理由が<strong>vacation</strong>となる
+                    {{ site.html.ss }} 5.0.0でバウンス理由が <span class = 'value'>vacation</span>となる
                     バウンスメールはデフォルトで解析されなくなりました。必要な場合は
                     <kbd>vacation</kbd>パラメーターを<kbd>rise()</kbd>メソッドに指定してください。
                 </p>
@@ -537,7 +537,8 @@ end
                 </p>
                 <p class = 'description ja cation'>
                     {{ site.html.ss }} 5.0.0でコールバック機能の仕様(引数の数・型)が変りました。
-                    非互換の変更につき、Version 4でのコールバック機能は<kbd>4-stable</kbd>ブランチの
+                    非互換の変更につき、Version 4でのコールバック機能は<span class = 'value'>4-stable</span>
+                    ブランチの
                     <a href = 'https://github.com/sisimai/p5-sisimai/blob/4-stable/README-JA.md#callback-feature'>GitHub/Callback Feature</a>
                     を確認してください。
                 </p>
@@ -574,7 +575,10 @@ end
                         <tbody>
                             <tr>
                                 <td class = 'ltext'>[0] (下記コード例にある<kbd>$code0</kbd>)</td>
-                                <td>メールのヘッダー<kbd>headers</kbd>および本文<kbd>message</kbd></td>
+                                <td>
+                                    メールのヘッダー<span class = 'value'>headers</span>および本文
+                                    <span class = 'value'>message</span>
+                                </td>
                             </tr>
                             <tr>
                                 <td class = 'ltext'>[1] (下記コード例にある<kbd>$code1</kbd>)</td>
@@ -609,8 +613,9 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>c___[0]の入力値</h3>
                 <p class = 'description ja'>
-                    <kbd>message</kbd>で得られる文字列はバウンスメールの本文です。バウンスメールそのものの
-                    ヘッダーは含まれていませんので、ハッシュ化された<kbd>headers</kbd>を参照してください。
+                    <span class = 'value'>message</span>で得られる文字列はバウンスメールの本文です。
+                    バウンスメールそのもののヘッダーは含まれていませんので、ハッシュ化された
+                    <span class = 'value'>headers</span>を参照してください。
                 </p>
 
                 <div class = 'table-responsive'>
@@ -646,8 +651,8 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>c___[1]の入力値</h3>
                 <p class = 'description ja'>
-                    <kbd>mail</kbd>で得られる文字列は、バウンスメールそのもののヘッダーも含む
-                    バウンスメール全体です。
+                    <span class = 'value'>mail</span>で得られる文字列は、バウンスメールそのもの
+                    のヘッダーも含むバウンスメール全体です。
                 </p>
 
                 <div class = 'table-responsive'>
@@ -698,9 +703,9 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                     </a>にある以下の内容をコールバックで実行するコードによって取得し、元メールへの操作例を示します。
                 </p>
                 <ul>
-                    <li>バウンスメールのヘッダにある<kbd>Return-Path</kbd>の値を取得</li>
-                    <li>バウンスメールのヘッダにある<kbd>Authentication-Results</kbd>の値を取得</li>
-                    <li>本文の<kbd>X-Postfix-Queue-ID</kbd>の値を取得</li>
+                    <li>バウンスメールのヘッダにある<span class = 'value'>Return-Path</span>の値を取得</li>
+                    <li>バウンスメールのヘッダにある<span class = 'value'>Authentication-Results</span>の値を取得</li>
+                    <li>本文の<span class = 'value'>X-Postfix-Queue-ID</span>の値を取得</li>
                     <li>元メールに独自ヘッダーを書き加えて別のPATHへ保存する</li>
                 </ul>
 

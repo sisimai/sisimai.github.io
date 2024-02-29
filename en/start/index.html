@@ -133,6 +133,14 @@
                         may run with ActivePerl on Windows.
                     </a>.
                 </p>
+                <p class = 'description'>
+                    <strong>
+                    It is important to review <a href = '/en/release/5.0.0.html'>the release notes</a>
+                    and <a href = '/en/diff'>the differences with {{ site.html.ss }} 4</a> page 
+                    before installing or upgrading, as there are several breaking changes in 
+                    {{ site.html.ss }} 5.0.0 that may affect your use of the software.
+                    </strong>
+                </p>
             </div>
         </div>
         <div class = 'text-center index-table'>
@@ -222,6 +230,14 @@
                     <a href = 'https://www.freshports.org/mail/p5-Sisimai/' target = 'new'>the FreeBSD ports collection</a> or
                     <a href = 'https://sources.debian.org/src/libsisimai-perl/' target = 'new'>Debian packages</a>.
                 </p>
+                <p class = 'description'>
+                    <strong>
+                    It is important to review <a href = '/en/release/5.0.0.html'>the release notes</a>
+                    and <a href = '/en/diff'>the differences with {{ site.html.ss }} 4</a> page 
+                    before installing or upgrading, as there are several breaking changes in 
+                    {{ site.html.ss }} 5.0.0 that may affect your use of the software.
+                    </strong>
+                </p>
             </div>
         </div>
         <div class = 'row'>
@@ -233,13 +249,14 @@
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/github-1.png'>
                     The latest version and stable version of {{ site.html.ss }}, including development
-                    versions, can be downloaded from the "5-stable" branch or the "4-stable" branch
-                    of the {{ site.html.ss }} <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub repository</a>.
+                    versions, can be downloaded from the <span class = 'value'>5-stable</span> branch
+                    or the <span class = 'value'>4-stable</span> branch of the {{ site.html.ss }}
+                    <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub repository</a>.
                     Both the Perl and Ruby versions are available in this repository.
                 </p>
                 <p class = 'description'>
                     On February 2, 2024, the default branch of the repository was changed to 
-                    <strong>5-stable</strong>.
+                    <span class = 'value'>5-stable</span>.
                 </p>
             </div>
         </div>
@@ -281,10 +298,10 @@ Successfully installed Sisimai-v5.0.0
                 </pre>
 
                 <h4 class = 'in-desc'>A previous version (v4)</h4>
-                <p class = 'description ja'>
+                <p class = 'description'>
                     As of February 2, 2024, the default branch of the repository has been changed to
-                    <strong>5-stable</strong>. If you want to use {{ site.html.ss }}, please specify
-                    <strong>4-stable</strong> as the branch name.
+                    <span class = 'value'>5-stable</span>. If you want to use {{ site.html.ss }}, 
+                    please specify <span class = 'value'>4-stable</span> as the branch name.
                 </p>
                 <pre class = 'prettyprint'>
 % <kbd>git clone -b 4-stable https://github.com/sisimai/p5-sisimai.git</kbd>
@@ -332,10 +349,10 @@ sisimai (5.0.0) installed.
                 </pre>
 
                 <h4 class = 'in-desc'>A previous version (v4)</h4>
-                <p class = 'description ja'>
+                <p class = 'description'>
                     As of February 2, 2024, the default branch of the repository has been changed to
-                    <strong>5-stable</strong>. If you want to use {{ site.html.ss }}, please specify
-                    <strong>4-stable</strong> as the branch name.
+                    <span class = 'value'>5-stable</span>. If you want to use {{ site.html.ss }},
+                    please specify <span class = 'value'>4-stable</span> as the branch name.
                 </p>
                 <pre class = 'prettyprint'>
 % <kbd>git clone -b 4-stable https://github.com/sisimai/rb-sisimai.git</kbd>
@@ -375,7 +392,7 @@ Fetching http://www.cpan.org/authors/id/A/AK/AKXLIX/Sisimai-5.0.0.tar.gz ... OK
 /usr/local/lib/perl5/site_perl/5.30.0/Sisimai.pm
                 </pre>
 
-                <p class = 'description ja'>
+                <p class = 'description'>
                     If you want to install an older version, please specify the URL as follows:
                 </p>
                 <pre class = 'prettyprint'>
@@ -415,7 +432,7 @@ Done installing documentation for sisimai after 6 seconds
 1 gem installed
                 </pre>
 
-                <p class = 'description ja'>
+                <p class = 'description'>
                     If you want to install an older version, please specify the desired version
                     with the <kbd>-v</kbd> option as follows:
                 </p>
@@ -435,7 +452,7 @@ Done installing documentation for sisimai after 6 seconds
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>From the Ports Collection(FreeBSD)</h3>
-                <p class = 'description ja'>
+                <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/freebsd-daemon-2.png'>
                     The Perl version of {{ site.html.ss }} can be installed from FreeBSD
                     <a href = 'https://www.freebsd.org/ports/index.html' target = 'new'>Ports Collection</a>
@@ -466,7 +483,7 @@ Done installing documentation for sisimai after 6 seconds
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>From Debian package</h3>
-                <p class = 'description ja'>
+                <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/debian-2.png'>
                     The Perl version of {{ site.html.ss }} can be installed from 
                     <a href = 'https://www.debian.org/' target = 'new'>Debian</a> or
@@ -602,7 +619,7 @@ end
                 <h3 class = 'in-desc'>dump() method of {{ site.html.ss }}</h3>
                 <p>
                     <img class = 'lhs' src = '/static/images/icon/purchase-order-1.png'>
-                    The <kbd>dump()</kbd> method introduced in Perl {{ site.html.ss }} v4.1.27 is
+                    The <kbd>dump()</kbd> method introduced in {{ site.html.ss }} v4.1.27 is
                     useful for obtaining decoded results in JSON format. As shown below, it can be
                     done with a simple code that only passes the <kbd>PATH</kbd> of the email you
                     want to decode.

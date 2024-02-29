@@ -80,17 +80,17 @@
                 <h3 class = 'in-desc'>Action (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/urgent-message-3.png'>
-                    The "action" field holds the value of the Action: field in the bounce email.
-                    This field is normalized during the decoding process and can have one of the
-                    following five values:
+                    The <span class = 'value'>"action"</span> field holds the value of the <span class = 'value'>Action:</span>
+                    field in the bounce email.  This field is normalized during the decoding process
+                    and can have one of the following five values:
                 </p>
                 <br>
                 <ul class = 'spec'>
-                    <li>dalayed</li>
-                    <li>delivered</li>
-                    <li>expanded</li>
-                    <li>failed</li>
-                    <li>relayed</li>
+                    <li><span class = 'value'>dalayed</span></li>
+                    <li><span class = 'value'>delivered</span></li>
+                    <li><span class = 'value'>expanded</span></li>
+                    <li><span class = 'value'>failed</span></li>
+                    <li><span class = 'value'>relayed</span></li>
                 </ul>
                 <pre class = 'prettyprint'>
 Action: failed
@@ -107,10 +107,10 @@ Action: failed
                 <h3 class = 'in-desc'>Addresser (Sisimai::Address)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-2.png'>
-                    The "addresser" field is a <kdb>Sisimai::Address</kbd> object created from the
-                    sender address (From) of the original email in the bounce email. If the
-                    <kbd>Sisimai::Fact</kbd> object is dumped to JSON format, it will hold the
-                    email address (String).
+                    The <span class = 'value'>"addresser"</span> field is a <kbd>Sisimai::Address</kbd>
+                    object created from the sender address (From) of the original email in the bounce
+                    email. If the <kbd>Sisimai::Fact</kbd> object is dumped to JSON format, it will
+                    hold the email address (String).
                 </p>
                 <ul>
                     <li><kbd>user()</kbd> - The local part of the address</li>
@@ -136,9 +136,10 @@ From: "Kijitora Cat" &lt;kijitora@example.org&gt;
                 <h3 class = 'in-desc'>alias (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/email-1.png'>
-                    The "alias" field is the alias of the recipient address. If the
-                    Original-Recipient: field or the email address following "expanded from" is
-                    described in the bounce email, the value will be extracted from there.
+                    The <span class = 'value'>"alias"</span> field is the alias of the recipient
+                    address. If the <span class = 'value'>Original-Recipient:</span> field or the
+                    email address following <span class = 'value'>"expanded from"</span> is described
+                    in the bounce email, the value will be extracted from there.
                     <br><br>
                 </p>
                 <pre class = 'prettyprint'>
@@ -162,24 +163,24 @@ Original-Recipient: rfc822;kijitora@example.org
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>catch (*) | Beginning with v4.19.0</h3>
-                <p class = 'description ja'>
+                <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/cat-2.png'>
-                    The "catch" field holds the value returned by the hook method passed to the
-                    <kbd>rise()</kbd> method of <kbd>Sisimai</kbd> class. If no hook method is
-                    passed, it will be <kbd>undef</kbd> in Perl and <kbd>nil</kbd> in Ruby.
+                    The <span class = 'value'>"catch"</span> field holds the value returned by the
+                    hook method passed to the <kbd>rise()</kbd> method of <kbd>Sisimai</kbd> class.
+                    If no hook method is passed, it will be <span class = 'value'>undef</span> in
+                    Perl and <span class = 'value'>nil</span> in Ruby.
                     The callback feature, hook method settings, and <kbd>catch()</kbd> method were
                     added in {{ site.html.ss }} 4.19.0.
                 </p>
-                <p class = 'description ja'>
-                    Callback, hook method, and <kbd>catch()</kbd> method are
-                    implemented at Sisimai 4.19.0.
+                <p class = 'description'>
+                    Callback, hook method, and <kbd>catch()</kbd> method are implemented at {{ site.html.ss }} 4.19.0.
                 </p>
-                <p class = 'description ja cation'>
+                <p class = 'description cation'>
                     The argument names and types of the callback feature were changed in
                     {{ site.html.ss }} 5.0.0. For details, see the 
                     <a href = 'https://github.com/sisimai/p5-sisimai/blob/5-stable/README-JA.md#callback-feature' target = 'new'>
                         Callback feature
-                    </a>page.
+                    </a> page.
                 </p>
             </div>
         </div>
@@ -197,9 +198,12 @@ Original-Recipient: rfc822;kijitora@example.org
                 <h3 class = 'in-desc'>deliverystatus (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
-                    The "deliverystatus" field holds the value of the Status: field in the bounce
-                    email. If there is no Status: field in the bounce email, "5.0.9XX" may be
-                    included. The format of this value is a string like "4.x.x", "5.x.x", or "2.x.x".
+                    The <span class = 'value'>"deliverystatus"</span> field holds the value of the
+                    <span class = 'value'>Status:</span> field in the bounce email. If there is no
+                    <span class = 'value'>Status:</span> field in the bounce email, the internal code 
+                    such as <span class = 'value'>"5.0.9XX"</span> may be included. The format of
+                    this value is a string like <span class = 'value'>"4.x.x"</span>, <span class = 'value'>"5.x.x"</span>,
+                    or <span class = 'value'>"2.x.x"</span>.
                     <br>
                 </p>
                 <pre class = 'prettyprint'>
@@ -217,9 +221,9 @@ Status: 5.0.0 (permanent failure)
                 <h3 class = 'in-desc'>destination (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/contact-card-1.png'>
-                    The "destination" field holds the domain part of the recipient address as its
-                    value. This value is the same as the value returned by the <kbd>host()</kbd>
-                    method of the <kbd>recipient</kbd> accessor.
+                    The <span class = 'value'>"destination"</span> field holds the domain part of the
+                    recipient address as its value. This value is the same as the value returned by
+                    the <kbd>host()</kbd> method of the <kbd>recipient()</kbd> accessor.
                     <br><br>
                 </p>
                 <hr>
@@ -234,10 +238,12 @@ Status: 5.0.0 (permanent failure)
                 <h3 class = 'in-desc'>diagnosticcode (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/system-report-3.png'>
-                    The "diagnosticcode" field holds the error message extracted from the
-                    Diagnostic-Code: field in the bounce email or from the body of the bounce email.
-                    The value of this field and the values of "diagnostictype", "action",
-                    "deliverystatus", "replycode", and "smtpcommand" are referenced by the
+                    The <span class = 'value'>"diagnosticcode"</span> field holds the error message
+                    extracted from the <span class = 'value'>Diagnostic-Code:</span> field in the
+                    bounce email or from the body of the bounce email. The value of this field and
+                    the values of <span class = 'value'>"diagnostictype"</span>, <span class = 'value'>"action"</span>,
+                    <span class = 'value'>"deliverystatus"</span>, <span class = 'value'>"replycode"</span>,
+                    and <span class = 'value'>"smtpcommand"</span> are referenced by the
                     <kbd>Sisimai::Reason</kbd> class to determine the bounce reason.
                 </p>
                 <pre class = 'prettyprint'>
@@ -255,9 +261,11 @@ Diagnostic-Code: SMTP; 554 5.4.6 Too many hops
                 <h3 class = 'in-desc'>diagnostictype (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/system-report-2.png'>
-                    The "diagnostictype" field holds the first part of the Diagnostic-Code: field
-                    in the bounce email, such as "SMTP" or "X-Unix". If there is no Diagnostic-Code:
-                    field, this value will be empty.
+                    The <span class = 'value'>"diagnostictype"</span> field holds the first part of
+                    the <span class = 'value'>Diagnostic-Code:</span> field in the bounce email, such
+                    as <span class = 'value'>SMTP</span> or <span class = 'value'>X-Unix</span>.
+                    If there is no <span class = 'value'>Diagnostic-Code:</span> field, this value
+                    will be empty.
                     <br>
                     <br>
                 </p>
@@ -280,10 +288,12 @@ Diagnostic-Code: X-Unix; 255
                 <h3 class = 'in-desc'>feedbacktype (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/strike-3.png'>
-                    The "feedbacktype" field holds the value of the Feedback-Type: field in the
-                    bounce email, such as "abuse", "fraud", or "opt-out". If the bounce email is
-                    not in ARF format or the "reason" value is not "feedback", this value will be
-                    empty.
+                    The <span class = 'value'>"feedbacktype"</span> field holds the value of the
+                    <span class = 'value'>Feedback-Type:</span> field in the bounce email, such as
+                    <span class = 'value'>abuse</span>, <span class = 'value'>fraud</span>, or
+                    <span class = 'value'>opt-out</span>. If the bounce email is not in ARF format
+                    or the <span class = 'value'>"reason"</span> value is not <span class = 'value'>"feedback"</span>,
+                    this value will be empty.
                     <br>
                     <br>
                 </p>
@@ -309,19 +319,21 @@ User-Agent: SMP-FBL
                 <h3 class = 'in-desc'>hardbounce (Boolean) | v5.0.0 or later</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
-                    The "hardbounce" field, newly implemented in {{ site.html.ss }} 5.0.0, returns
-                    a boolean value (<kbd>0</kbd> or <kbd>1</kbd> in Perl, <kbd>true</kbd> or
-                    <kbd>false</kbd> in Ruby) indicating whether the destination email address bounced
-                    for a reason that it can never be delivered again. Specifically, it returns
-                    true if the <a href = '#r'>"reason"</a> has the following values:
+                    The <span class = 'value'>"hardbounce"</span> field, newly implemented in {{ site.html.ss }}
+                    5.0.0, returns a boolean value (<span class = 'value'>0</span> or <span class = 'value'>1</span>
+                    in Perl, <span class = 'value'>true</span> or <span class = 'value'>false</span> in Ruby)
+                    indicating whether the destination email address bounced for a reason that it can
+                    never be delivered again. Specifically, it returns true if the
+                    <a href = '#r'><span class = 'value'>"reason"</span></a> has the following values:
                 </p>
                 <ul class = 'spec'>
-                    <li><a href = '/en/reason/#hostunknown'>Host Unknown</a></li>
-                    <li><a href = '/en/reason/#userunknown'>User Unknown</a></li>
-                    <li><a href = '/en/reason/#hasmoved'>Has Moved</a></li>
+                    <li><a href = '/en/reason/#hostunknown'><span class = 'value'>"hostunknown"</span></a></li>
+                    <li><a href = '/en/reason/#userunknown'><span class = 'value'>"userunknown"</span></a></li>
+                    <li><a href = '/en/reason/#hasmoved'><span class = 'value'>"hasmoved"</span></a></li>
                 </ul>
                 <p class = 'description cation'>
-                    At the same time, <a href = '#s'>"softbounce"</a> was deprecated in {{ site.html.ss }} 5.0.0.
+                    At the same time, <a href = '#s'><span class = 'value'>"softbounce"</span></a>
+                    was deprecated in {{ site.html.ss }} 5.0.0.
                 </p>
             </div>
         </div>
@@ -339,9 +351,9 @@ User-Agent: SMP-FBL
                 <h3 class = 'in-desc'>lhost (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/server-1.png'>
-                    The "lhost" field holds the hostname or IP address of the MTA used for sending,
-                    extracted from the "Reporting-MTA:" field in the bounce email or from the
-                    "Received" header.
+                    The <span class = 'value'>"lhost"</span> field holds the hostname or IP address
+                    of the MTA used for sending, extracted from the <span class = 'value'>Reporting-MTA:</span>
+                    field in the bounce email or from the <span class = 'value'>Received:</span> header.
                     <br />
                     <br />
                 </p>
@@ -360,9 +372,10 @@ Reporting-MTA: dns; mx4.smtp.example.co.jp
                 <h3 class = 'in-desc'>listid (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/list-1.png'>
-                    The "listid" field holds the value of the "List-Id:" header extracted from the
-                    original message included in the bounce email. If the bounce email is in a
-                    format that does not have an original message, this value will be empty.
+                    The <span class = 'value'>"listid"</span> field holds the value of the
+                    <span class = 'value'>List-Id:</span> header extracted from the original message
+                    included in the bounce email. If the bounce email is in a format that does not
+                    have an original message, this value will be empty.
                 </p>
                 <pre class = 'prettyprint'>
 List-Id: General discussion list for Cats &lt;neko-list.example.org&gt;
@@ -383,9 +396,10 @@ List-Id: General discussion list for Cats &lt;neko-list.example.org&gt;
                 <h3 class = 'in-desc'>messageid (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/message-3.png'>
-                    The "messageid" field holds the value of the "Message-Id:" header of the original
-                    message included in the bounce email. If the bounce email does not have an original
-                    message, this value will be empty.
+                    The <span class = 'value'>"messageid"</span> field holds the value of the
+                    <span class = 'value'>Message-Id:</span> header of the original message included
+                    in the bounce email. If the bounce email does not have an original message, this
+                    value will be empty.
                 </p>
                 <pre class = 'prettyprint'>
 Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
@@ -406,13 +420,13 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <h3 class = 'in-desc'>origin (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/inbox-3.png'>
-                    The "origin" field holds the filename (including path) of the original message
-                    included in the bounce email. Specifically, this is the first argument passed
-                    to the <kbd>rise()</kbd> or </kbd>dump()</kbd> method of the <kbd>Sisimai</kbd>
-                    class. In the case of Maildir/, the value will be a string that combines the
-                    directory name of the first argument and the filename here. If read from standard
-                    input, the value will be <kbd>&lt;STDIN&lt;</kbd>; if read from a variable,
-                    the value will be <kbd>&lt;MEMORY&gt;</kbd>.
+                    The <span class = 'value'>"origin"</span> field holds the filename (including path)
+                    of the original message included in the bounce email. Specifically, this is the
+                    first argument passed to the <kbd>rise()</kbd> or </kbd>dump()</kbd> method of the
+                    <kbd>Sisimai</kbd> class. In the case of Maildir/, the value will be a string that
+                    combines the directory name of the first argument and the filename here. If read
+                    from standard input, the value will be <span class = 'value'>&lt;STDIN&gt;</span>;
+                    if read from a variable, the value will be <span class = 'value'>&lt;MEMORY&gt;</span>.
                 </p>
 
                 <p class = 'description'>
@@ -434,8 +448,9 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <h3 class = 'in-desc'>reason (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/sms-3.png'>
-                    The "reason" field holds the bounce reason (the reason why the email delivery
-                    failed) detected by {{ site.html.ss }}. If the value is "undefined" or "onhold",
+                    The <span class = 'value'>"reason"</span> field holds the bounce reason (the reason
+                    why the email delivery failed) detected by {{ site.html.ss }}. If the value is
+                    <span class = 'value'>"undefined"</span> or <span class = 'value'>"onhold"</span>,
                     it means that {{ site.html.ss }} could not determine the bounce reason.
                     You can check the list of bounce reasons that {{ site.html.ss }} can detect on
                     <a href = '/en/reason/'>Bounce Reason List</a> page.
@@ -464,10 +479,10 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <h3 class = 'in-desc'>recipient (Sisimai::Address)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-1.png'>
-                    The "recipient" field is a <kbd>Sisimai::Address</kbd> object created from the
-                    recipient address in the bounce email. This address is the one that could not
-                    be delivered. If a <kbd>Sisimai::Fact</kbd> object is dumped in JSON format,
-                    it will hold the email address (String).
+                    The <span class = 'value'>"recipient"</span> field is a <kbd>Sisimai::Address</kbd>
+                    object created from the recipient address in the bounce email. This address is
+                    the one that could not be delivered. If a <kbd>Sisimai::Fact</kbd> object is
+                    dumped in JSON format, it will hold the email address (String).
                 </p>
                 <ul>
                     <li><kbd>user()</kbd> - The local part of the address</li>
@@ -496,9 +511,10 @@ X-Failed-Recipients: kijitora@example.ed.jp
                 <h3 class = 'in-desc'>replycode (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/rules-3.png'>
-                    The "replycode" field holds the SMTP response code extracted from the
-                    "Diagnostic-Code:" field or the bounce email body. 
-                    The value range is 2xx, 4xx to 5xx.
+                    The <span class = 'value'>"replycode"</span> field holds the SMTP response code
+                    extracted from the <span class = 'value'>Diagnostic-Code:</span> field or the
+                    bounce email body. The value range is <span class = 'value'>"2xx"</span>,
+                    <span class = 'value'>"4xx"</span> to <span class = 'value'>"5xx"</span>.
                     <br>
                     <br>
                 </p>
@@ -519,9 +535,10 @@ X-Failed-Recipients: kijitora@example.ed.jp
                 <h3 class = 'in-desc'>rhost (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/server-2.png'>
-                    The "rhost" field holds the value of the "Remote-MTA:" field or the hostname
-                    or IP address of the remote MTA extracted from the "Received:" header in the
-                    bounce email.
+                    The <span class = 'value'>"rhost"</span> field holds the value of the
+                    <span class = 'value'>Remote-MTA:</span> field or the hostname or IP address of
+                    the remote MTA extracted from the <span class = 'value'>Received:</span> header
+                    in the bounce email.
                     <br />
                     <br />
                 </p>
@@ -544,9 +561,9 @@ Remote-MTA: DNS; g5.example.net
                 <h3 class = 'in-desc'>senderdomain (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/contact-card-2.png'>
-                    The "senderdomain" field holds the domain part of the sender address of the
-                    original email. This value is the same as the value returned by the <kbd>host()</kbd>
-                    method of the <kbd>addresser</kbd> accessor.
+                    The <span class = 'value'>"senderdomain"</span> field holds the domain part of
+                    the sender address of the original email. This value is the same as the value
+                    returned by the <kbd>host()</kbd> method of the <kbd>addresser()</kbd> accessor.
                     <br>
                     <br>
                 </p>
@@ -562,10 +579,10 @@ Remote-MTA: DNS; g5.example.net
                 <h3 class = 'in-desc'>smtpagent (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/puzzle-1.png'>
-                    The "smtpagent" field holds the name of the MTA module that determined the
-                    bounce reason. For example, if the value is "Sendmail", it means that the
-                    <kbd>Sisimai::Lhost::Sendmail</kbd> module performed the recipient address
-                    acquisition and bounce reason determination that resulted in an error.
+                    The <span class = 'value'>"smtpagent"</span> field holds the name of the MTA
+                    module that determined the bounce reason. For example, if the value is <span class = 'value'>"Sendmail"</span>,
+                    it means that the <kbd>Sisimai::Lhost::Sendmail</kbd> module performed the recipient
+                    address acquisition and bounce reason determination that resulted in an error.
                 </p>
                 <hr>
             </div>
@@ -579,17 +596,18 @@ Remote-MTA: DNS; g5.example.net
                 <h3 class = 'in-desc'>smtpcommand (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
-                    The "smtpcommand" field holds the SMTP command that is thought to have been
-                    issued last in the SMTP session, extracted from the "Diagnostic-Code:" field
-                    or the bounce email body. If there is no record of the SMTP command in the
-                    bounce email, this value will be empty.
+                    The <span class = 'value'>"smtpcommand"</span> field holds the SMTP command that
+                    is thought to have been issued last in the SMTP session, extracted from the
+                    <span class = 'value'>Diagnostic-Code:</span> field or the bounce email body.
+                    If there is no record of the SMTP command in the bounce email, this value will
+                    be empty.
                 </p>
                 <ul>
-                    <li>HELO</li>
-                    <li>EHLO</li>
-                    <li>MAIL</li>
-                    <li>RCPT</li>
-                    <li>DATA</li>
+                    <li><span class = 'value'>HELO</span></li>
+                    <li><span class = 'value'>EHLO</span></li>
+                    <li><span class = 'value'>MAIL</span></li>
+                    <li><span class = 'value'>RCPT</span></li>
+                    <li><span class = 'value'>DATA</span></li>
                 </ul>
                 <pre class = 'prettyprint'>
 <kijitora@example.go.jp>: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
@@ -607,19 +625,21 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>softbounce (Integer)| deprecated in v5.0.0</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
-                        The "softbounce" value indicates whether the bounce reason is a soft bounce
-                        (retryable) or a hard bounce. This field was added in {{ site.html.ss }} 4.1.28.
-                        The possible values are as follows: <kbd>1</kbd> for soft bounce, <kbd>0</kbd>
-                        for hard bounce, and </kbd>-1</kbd> if it cannot be determined.
+                        The <span class = 'value'>"softbounce"</span> value indicates whether the
+                        bounce reason is a soft bounce (retryable) or a hard bounce. This field was
+                        added in {{ site.html.ss }} 4.1.28. The possible values are as follows:
+                        <span class = 'value'>1</span> for soft bounce, <span class = 'value'>0</span>
+                        for hard bounce, and <span class = 'value'>-1</span> if it cannot be determined.
                 </p>
                 <p class = 'description cation'>
-                This field was deprecated in {{ site.html.ss }} v5.0.0. It can still be used for
-                compatibility reasons up to v5.1.0, but please use <a href = '#h'>"hardbounce"</a> instead.
+                    This field was deprecated in {{ site.html.ss }} v5.0.0. It can still be used for
+                    compatibility reasons up to v5.1.0, but please use
+                    <a href = '#h'><span class = 'value'>"hardbounce"</span></a> instead.
                 </p>
                 <ul>
-                    <li>1 = Soft bounce</li>
-                    <li>0 = Hard bounce</li>
-                    <li>-1 = {{ site.html.ss }} could not decide</li>
+                    <li><span class = 'value'>1</span> = Soft bounce</li>
+                    <li><span class = 'value'>0</span> = Hard bounce</li>
+                    <li><span class = 'value'>-1</span> = {{ site.html.ss }} could not decide</li>
                 </ul>
                 <hr>
             </div>
@@ -633,11 +653,12 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>subject (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/topic-1.png'>
-                    The "subject" field holds the value of the "Subject:" header of the original email.
-                    If the bounce email does not include the original message, this value will be empty.
-                    If the Subject of the original message contains multibyte characters encoded in
-                    MIME (such as Japanese or other languages that use non-ASCII characters), 
-                    {{ site.html.ss }} treats it as UTF-8.
+                    The <span class = 'value'>"subject"</span> field holds the value of the
+                    <span class = 'value'>Subject:</span> header of the original email. If the bounce
+                    email does not include the original message, this value will be empty. If the
+                    <span class = 'value'>Subject:</span> of the original message contains multibyte
+                    characters encoded in MIME (such as Japanese or other languages that use non-ASCII
+                    characters), {{ site.html.ss }} treats it as UTF-8.
                 </p>
             </div>
         </div>
@@ -655,9 +676,9 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <h3 class = 'in-desc'>timestamp (Sisimai::Time)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/calendar-9.png'>
-                    The "timestamp" field is a <kbd>Sisimai::Time</kbd> object (a subclass of
-                    <kbd>Time::Piece</kbd> in Perl and a subclass of <kbd>DateTime</kbd> in Ruby)
-                    that holds the date and time of the bounce. When a <kbd>Sisimai::Fact</kbd>
+                    The <span class = 'value'>"timestamp"</span> field is a <kbd>Sisimai::Time</kbd>
+                    object (a subclass of <kbd>Time::Piece</kbd> in Perl and a subclass of <kbd>DateTime</kbd>
+                    in Ruby) that holds the date and time of the bounce. When a <kbd>Sisimai::Fact</kbd>
                     object is dumped to JSON format, it is converted to a 32-bit integer machine time.
                 </p>
                 <pre class = 'prettyprint'>
@@ -675,9 +696,11 @@ Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
                 <h3 class = 'in-desc'>timezoneoffset (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/timezone-1.png'>
-                    The "timezoneoffset" field holds the time zone of the bounced date and time as
-                    a string like "+0900" or "-0200". If {{ site.html.ss }} fails to determine the
-                    time zone from the timestamp in the bounce email, this value will be "+0000".
+                    The <span class = 'value'>"timezoneoffset"</span> field holds the time zone of
+                    the bounced date and time as a string like <span class = 'value'>"+0900"</span>
+                    or <span class = 'value'>"-0200"</span>. If {{ site.html.ss }} failed to determine
+                    the time zone from the timestamp in the bounce email, this value will be
+                    <span class = 'value'>"+0000"</span>.
                 </p>
                 <pre class = 'prettyprint'>
 Arrival-Date: Mon, 16 Dec 2019 22:00:18 +0100 (CET)
@@ -695,11 +718,11 @@ Date: Thu, 29 Apr 2018 23:34:45 +0900 (JST)
                 <h3 class = 'in-desc'>token (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/hashtag-1.png'>
-                    The "token" is a unique identifier for a bounce record that is generated based
-                    on the sender address, recipient address, and time of the original email. The
-                    value is an MD5 hash value generated by the <kbd>token()</kbd> method of the
-                    <kbd>Sisimai::String</kbd> class. To get the token value on the command line,
-                    you can execute a command like the following:
+                    The <span class = 'value'>"token"</span> is a unique identifier for a bounce record
+                    that is generated based on the sender address, recipient address, and time of the
+                    original email. The value is an MD5 hash value generated by the <kbd>token()</kbd>
+                    method of the <kbd>Sisimai::String</kbd> class. To get the token value on the command
+                    line, you can execute a command like the following:
                 </p>
                 <pre class = 'prettyprint'>
 % printf "\x02%s\x1e%s\x1e%d\x03" sender@example.jp recipient@example.org `date '+%s'` | md5

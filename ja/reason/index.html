@@ -50,8 +50,12 @@
                     <p class = 'description ja'>
                         {{ site.html.ss }}はバウンスメールを解析する事によって、
                         以下の<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>を検出します。
-                        検出したバウンス理由は<kbd>Sisimai::Fact</kbd>オブジェクトの"reason"アクセサから得る事が出来ます。
-                        <strong>"reason"の値は"userunknown"や"expired"のように、全て小文字で表記されます。</strong>
+                        検出したバウンス理由は<kbd>Sisimai::Fact</kbd>オブジェクトの<kbd>reason()</kbd>
+                        アクセサから得る事が出来ます。
+                        <br />
+                        <strong><span class = 'value'>"reason"</span>の値は
+                        <span class = 'value'>"userunknown"</span>や<span class = 'value'>"expired"</span>
+                        のように、全て小文字で表記されます。</strong>
                     </p>
                 </div>
             </div>
@@ -127,8 +131,11 @@
                 <h2 class = 'in-desc'>バウンス理由の一覧表</h2>
                 <p class = 'description ja'>
                     Sisimaiは以下の<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>を検出し、
-                    解析済みデータの"reason"にバウンス理由を入れます。
-                    <strong>"reason"の値は"userunknown"や"expired"のように、全て小文字で表記されます。</strong>
+                    解析済みデータの<span class = 'value'>"reason"</span>にバウンス理由を入れます。
+                    <strong>
+                        <span class = 'value'>"reason"</span>の値は<span class = 'value'>"userunknown"</span>や
+                        <span class = 'value'>"expired"</span>のように、全て小文字で表記されます。
+                    </strong>
                 </p>
                 <p class = 'description ja'>
                     検出可能なバウンス理由全てを得るには、<kbd>Sisimai</kbd>クラスの<kbd>reason()</kbd>
@@ -405,8 +412,8 @@ Your message to the following recipients cannot be delivered:
                     不明なホストあるいは存在しないドメイン名の場合に返ってくるエラーです。
                     多くはドメイン部分の綴り間違い、DNSのレコードが無効になっている、
                     ドメインが消滅した、というケースです。
-                    {{ site.html.ss }}の内部処理では、バウンスメールのStatus:フィールドの値が"5.1.2"
-                    の時もこの理由に決定されます。
+                    {{ site.html.ss }}の内部処理では、バウンスメールの<span class = 'value'>Status:</span>
+                    フィールドの値が<span class = 'value'>"5.1.2"</span>の時もこの理由に決定されます。
                 </p>
                 {% include error-messages/hostunknown.html %}
                 <hr>
@@ -434,9 +441,11 @@ Your message to the following recipients cannot be delivered:
   550 5.1.1 Address rejected kijitora@example.co.jp (in reply to RCPT TO command)
                 </pre>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が"5.1.1"のもの、
-                    またはSMTPセッションにおいて、 RCPT TO:で接続が拒否されたもの、ほか
-                    Diagnostic-Code:ヘッダから 宛先不明であると判断した場合に、この理由に決定されます。
+                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、<span class = 'value'>Status:</span>
+                    フィールドの値が<span class = 'value'>"5.1.1"</span>のもの、またはSMTPセッションにおいて、
+                    <span class = 'value'>RCPT TO:</span>で接続が拒否されたもの、ほか
+                    <span class = 'value'>Diagnostic-Code:</span>ヘッダから 宛先不明であると判断した場合に、
+                    この理由に決定されます。
                 </p>
                 {% include error-messages/userunknown.html %}
                 <hr>
@@ -467,9 +476,10 @@ Your message to the following recipients cannot be delivered:
 554 5.0.0 Service unavailable
                 </pre>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.2.0","5.2.1"のもの、SMTPセッションにおいて
-                    DATAコマンド以降の内容によって拒否された場合も、この理由に決定されます。
+                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、<span class = 'value'>Status:</span>
+                    フィールドの値が<span class = 'value'>"5.2.0"</span>や<span class = 'value'>"5.2.1"</span>のもの、
+                    SMTPセッションにおいて<span class = 'value'>DATA</span>コマンド以降の内容によって
+                    拒否された場合も、この理由に決定されます。
                 </p>
                 {% include error-messages/filtered.html %}
                 <hr>
@@ -489,9 +499,9 @@ Your message to the following recipients cannot be delivered:
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
                     宛先のメールボックスは別のアドレスに移動した(そして自動で転送はされない)
-                    場合に返ってくるエラーです。
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.1.6"のものがこの理由に決定されます。
+                    場合に返ってくるエラーです。{{ site.html.ss }}が行うバウンスメール処理の内部過程では、
+                    <span class = 'value'>Status:</span>フィールドの値が<span class = 'value'>"5.1.6"</span>
+                    のものがこの理由に決定されます。
                 </p>
                 <pre class = 'prettyprint'>
 &lt;kijitora@example.go.jp&gt;: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
@@ -515,9 +525,9 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/private-5.png'>
                     送信したメールが発信者アドレス(Envelope From)によって拒否された場合に
-                    返ってくるエラーです。
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.1.8"のもの、SMTPセッションにおいてMAILコマンドの内容に基づいて
+                    返ってくるエラーです。{{ site.html.ss }}が行うバウンスメール処理の内部過程では、
+                    <span class = 'value'>Status:</span>フィールドの値が<span class = 'value'>"5.1.8"</span>のもの、
+                    SMTPセッションにおいて<span class = 'value'>MAIL</span>コマンドの内容に基づいて
                     拒否された場合もこの理由に決定されます。
                 </p>
                 <pre class = 'prettyprint'>
@@ -553,8 +563,9 @@ Status: 5.2.2
 Diagnostic-Code: smtp;550 5.2.2 &lt;kijitora@example.jp&gt;... Mailbox Full</code></pre>
                 </pre>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "4.2.2"か"5.2.2"のものがこの理由に決定されます。
+                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、
+                    <span class = 'value'>Status:</span>フィールドの値が<span class = 'value'>"4.2.2"</span>か
+                    <span class = 'value'>"5.2.2"</span>のものがこの理由に決定されます。
                     送信したメールが発信者アドレス(Envelope From)によって拒否された場合に
                     返ってくるエラーです。
                 </p>
@@ -626,13 +637,13 @@ The user(s) account is disabled.
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/magazine-1.png'>
                     送信したメールの形式が宛先メールサーバで変換できないまたは理解できない形式
-                    である場合、このエラーに分類されます。
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.6.x"のものがこの理由に決定されます。
+                    である場合、このエラーに分類されます。{{ site.html.ss }}が行うバウンスメール処理の
+                    内部過程では、<span class = 'value'>Status:</span>フィールドの値が<span class = 'value'>"5.6.x"</span>
+                    のものがこの理由に決定されます。
                 </p>
                 <ul>
                     <li>ヘッダに8ビットデータが含まれている</li>
-                    <li>"Received"ヘッダが多すぎる</li>
+                    <li><span class = 'value'>Received:</span>ヘッダが多すぎる</li>
                     <li>MIMEヘッダが不正</li>
                 </ul>
                 <pre class = 'prettyprint'>
@@ -659,10 +670,11 @@ The user(s) account is disabled.
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/speed-1.png'>
                     宛先のメール量がサーバで設定された限界値を超えた場合に返ってくるエラーです。
-                    具体的には送信したメールのサイズが既定値よりも大きなケースで、後述の"MesgTooBig"とほぼ同じです。
+                    具体的には送信したメールのサイズが既定値よりも大きなケースで、後述の
+                    <a href = '#mesgtoobig'>MesgTooBig</a>とほぼ同じです。
                     <a href = 'http://www.sendmail.com/sm/open_source/download/' target="new">Sendmail</a>のdeliver.c
-                    では下記のように配送先によってこの理由となるか、あるいはMesgTooBigとなるか、
-                    という実装になっています。
+                    では下記のように配送先によってこの理由となるか、
+                    あるいは<span class = 'value'>MesgTooBig</span>となるか、という実装になっています。
                 </p>
                 <pre class = 'prettyprint'>
 1586: if (bitnset(M_LOCALMAILER, to-&gt;q_mailer-&gt;m_flags))
@@ -677,8 +689,9 @@ The user(s) account is disabled.
 554 5.0.0 Service unavailable
                 </pre>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "4.2.3"か"5.2.3"のものがこの理由に決定されます。
+                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、<span class = 'value'>Status:</span>
+                    フィールドの値が<span class = 'value'>"4.2.3"</span>か<span class = 'value'>"5.2.3"</span>
+                    のものがこの理由に決定されます。
                 </p>
                 {% include error-messages/exceedlimit.html %}
                 <hr>
@@ -755,8 +768,8 @@ Action: failure
 Status: 553 Exceeded maximum inbound message size
                 </pre>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.3.4"のものがこの理由に決定されます。
+                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、<span class = 'value'>Status:</span>
+                    フィールドの値が<span class = 'value'>"5.3.4"</span>のものがこの理由に決定されます。
                 </p>
                 {% include error-messages/mesgtoobig.html %}
                 <hr>
@@ -776,8 +789,9 @@ Status: 553 Exceeded maximum inbound message size
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/rules-1.png'>
                     主にRFC5322の仕様に準拠してない、違反しているメールヘッダーがあった場合に返ってくる
-                    エラーです。例えば必須ヘッダーで1個だけであるのが正しいFrom:ヘッダーが無かったり
-                    複数個あったりした場合、Subject:ヘッダーが複数個あるようなメールはRFC違反となります。
+                    エラーです。例えば必須ヘッダーで1個だけであるのが正しい<span class = 'value'>From:</span>
+                    ヘッダーが無かったり複数個あったりした場合、<span class = 'value'>Subject:</span>
+                    ヘッダーが複数個あるようなメールはRFC違反となります。
                     このバウンス理由は{{ site.html.ss }} 5.0.0で<a href = '#securityerror'>Security Error</a>
                     から分離される形で実装されました。
                 </p>
@@ -852,8 +866,8 @@ Diagnostic-Code: smtp; 550 Denied by policy
 552 5.7.0 content and attachment content guidelines. p4si4011367igr.94 - gsmtp
                 </pre>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.7.x"のものがこの理由に決定されます。
+                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、<span class = 'value'>Status:</span>
+                    フィールドの値が<span class = 'value'>"5.7.x"</span>のものがこの理由に決定されます。
 
                     {{ site.html.ss }} 4.22.0で、このバウンス理由から分離する形で
                     <a href = '#policyviolation'>Policy Violation</a>と<a href = '#virusdetected'>Virus Detected</a>
@@ -914,7 +928,7 @@ Diagnostic-Code: SMTP; 552-5.7.0 Our system detected an illegal attachment on yo
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/spam-1.png'>
                     送信したメールがスパムとして検出された、あるいはDNSBLによってスパム送信ホストとして認識された場合、
-                    {{ site.html.ss }}はバウンス理由をSpamDetectedに決定します。
+                    {{ site.html.ss }}はバウンス理由を<span class = 'value'>SpamDetected</span>に決定します。
                 </p>
                 <pre class = 'prettyprint'>
 Action: failed
@@ -1034,8 +1048,8 @@ Diagnostic-Code: smtp; 550-5.7.1 [192.0.2.22      18] Our system has
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-3.png'>
                     宛先ホストに接続した際に、発信元メールサーバのIPアドレスやホスト名、または
-                    <kbd>EHLO</kbd>/<kbd>EHLO</kbd>コマンドの値によって接続が拒否されたメールは、
-                    {{ site.html.ss }}によってこの理由に決定されます。
+                    <span class = 'value'>EHLO</span>や<span class = 'value'>EHLO</span>コマンドの
+                    値によって接続が拒否されたメールは、{{ site.html.ss }}によってこの理由に決定されます。
                     このバウンス理由は{{ site.html.ss }} 4.0.0で実装されたもので
                     {{ site.html.bh }}では実装されていないものです。
                 </p>
@@ -1063,7 +1077,8 @@ Remote host said: 501 5.0.0 Invalid domain name
                     <img class = 'lhs' src = '/static/images/icon/expired-3.png'>
                     送信したメールが、宛先のホストに繋がらないなどの理由で配送時間切れとなって
                     差し戻された場合にこのエラーに分類されます。送信できなかった理由がDNSの名前解決
-                    であれば、バウンス理由は"NetworkError"となることがあります。
+                    であれば、バウンス理由は<a href = '#networkerror'><span class = 'value'>"NetworkError"</span></a>
+                    となることがあります。
                 </p>
                 <pre class = 'prettyprint'>
 kijitora@example.org
@@ -1171,8 +1186,9 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     <img class = 'lhs' src = '/static/images/icon/firewall-3.png'>
                     相手側メールサーバがメールを受け取れない場合に返ってくるエラーです。
                     宛先メールサーバが過負荷であったりメンテナンス中である状態にこのエラーが発生します。
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.3.2"のものが、あるいはSMTP応答コードの値が"556"のものが、この理由に決定されます。
+                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、<span class = 'value'>Status:</span>
+                    フィールドの値が<span class = 'value'>"5.3.2"</span>のものが、あるいはSMTP
+                    応答コードの値が<span class = 'value'>"556"</span>のものが、この理由に決定されます。
                     また、送信者ドメインがNullMXである場合も、このバウンス理由に分類されます。
                 </p>
                 <pre class = 'prettyprint'>
@@ -1300,8 +1316,9 @@ message has been in the queue too long.
                     宛先のホストがこれ以上メールを受け取れない状態を表しています。
                 </p>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、Status:フィールドの値が
-                    "5.3.1"か"4.3.1"のものがこの理由に決定されます。
+                    {{ site.html.ss }}が行うバウンスメール処理の内部過程では、<span class = 'value'>Status:</span>
+                    フィールドの値が<span class = 'value'>"5.3.1"</span>か<span class = 'value'>"4.3.1"</span>
+                    のものがこの理由に決定されます。
                 </p>
                 {% include error-messages/systemfull.html %}
                 <hr>
@@ -1367,8 +1384,10 @@ message has been in the queue too long.
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/cat-4.png'>
                     この理由は<strong>エラーではなく</strong>送信したメールが受信者に正しく配送された
-                    事を意味します。{{ site.html.ss }}はバウンスメールのStatus:フィールドが"2"で始まっている場合、
-                    "delivered"を"reason"の値に設定します。
+                    事を意味します。{{ site.html.ss }}はバウンスメールのa<span class = 'value'>Status:</span>
+                    フィールドが<span class = 'value'>"2"</span>で始まっている場合、
+                    <span class = 'value'>"delivered"</span>を<span class = 'value'>"reason"</span>
+                    の値に設定します。
                 </p>
                 <pre class = 'prettyprint'>
 Final-Recipient: rfc822; kijitora@neko.nyaan.jp
@@ -1378,8 +1397,8 @@ Diagnostic-Code: SMTP; 250 2.1.5 OK
                 </pre>
                 <p class = 'description ja'>
                     <strong>この理由はデフォルトで解析結果には含まれません。</strong>
-                    解析結果に"delivered"となる記録も含めるには、
-                    下記のサンプルコードのように"delivered"オプションを<kbd>Sisimai</kbd>クラスの
+                    解析結果に<span class = 'value'>"delivered"</span>となる記録も含めるには、
+                    下記のサンプルコードのように<kbd>delivered</kbd>オプションを<kbd>Sisimai</kbd>クラスの
                     <kbd>rise()</kbd>, <kbd>dump()</kbd>メソッドの引数に指定してください。
                 </p>
             </div>
@@ -1435,8 +1454,8 @@ I am of the office returning 5th Jan
                 </pre>
                 {% include error-messages/vacation.html %}
                 <p class = 'description ja'>
-                    {{ site.html.ss }} 5.0.0から"vacation"となるバウンスメールはデフォルトで
-                    解析されなくなりました。
+                    {{ site.html.ss }} 5.0.0から<span class = 'value'>"vacation"</span>となる
+                    バウンスメールはデフォルトで解析されなくなりました。
                 </p>
             </div>
         </div>
@@ -1499,7 +1518,8 @@ I am of the office returning 5th Jan
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/question-1.png'>
                     {{ site.html.ss }}がバウンス理由を決定する為に必要なエラーメッセージや応答コード、
-                    配送状態コード等が一切無く、バウンス理由が決定出来なかった場合は"undefined"となります。
+                    配送状態コード等が一切無く、バウンス理由が決定出来なかった場合は
+                    <span class = 'value'>"undefined"</span>となります。
                 </p>
             </div>
         </div>
