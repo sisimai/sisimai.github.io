@@ -48,6 +48,7 @@ section {
 p.description {
     text-align: left;
     text-shadow: 0 -1px 0 #fff;
+    line-height: 27px;
 }
 
 p.ja {

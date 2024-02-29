@@ -95,9 +95,9 @@ table.link-index tr:hover th i.fa {
 
 /*****************************************************************************/
 kbd {
-    padding: 4px 6px;
+    padding: 2px 6px;
     margin: auto 4px;
-    border-width: 1px;
+    border-width: 0px;
     border-color: #949495; /* Nezumi-iro */
     border-style: solid;
     border-radius: 4px;
@@ -209,6 +209,10 @@ div.diagnosticcode {
     margin: 12px 0 0 0;
 }
 
+ul li {
+    line-height: 27px;
+}
+
 ul.spec {
     text-align: left;
     list-style-type: disc;
@@ -230,6 +234,7 @@ ul.release-notes li {
     border-width: 0 0 1px 0;
     border-color: #eae5e3; /* Soshoku */
     border-style: solid;
+    line-height: 27px;
 }
 
 ul.release-notes li a:link,
@@ -281,7 +286,6 @@ span.lang {
     margin: auto 4px auto 0;
     display: inline-block;
     width: 48px;
-    border: 1px solid #aaaaaa;
     border-radius: 4px;
     text-align: center;
     vertical-align: middle;
@@ -299,6 +303,15 @@ span.ruby {
     color: #ffffef;
 }
 
+span.value {
+    padding: 2px 6px;
+    margin: auto 0;
+    border-width: 1px;
+    border-color: #b55233; /* Renga-iro */
+    border-style: solid;
+    border-radius: 4px;
+    text-shadow: none;
+}
 
 h3.icon-caption {
     font-size: 18px;
