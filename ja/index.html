@@ -38,13 +38,12 @@
     </div><!-- /#main-nav -->
 </header><!-- /#home -->
 
-<section id = 'index'>
+<section id = 'greeting'>
     <div class = 'container'>
         <div class = 'heading wow fadeInUp' data-wow-duration = '500ms' data-wow-delay = '300ms'>
             <div class = 'row'>
                 <div class = 'text-center col-sm-8 col-sm-offset-2'>
                     <img src = '/static/images/figure/sisimai-overview-2.png' width = '100%'>
-                    <h2>{{ site.html.ss }}(シシマイ)とは?</h2>
                     <p class = 'description'>
                         {{ site.html.ss }}(シシマイ)は複雑で多種多様なバウンスメールを解析してバウンスした
                         理由や宛先メールアドレスなど、配信が失敗した結果を構造化データで出力するライブラリで
@@ -65,6 +64,11 @@
                 </div>
             </div> 
         </div>
+    </div>
+</section> <!-- #greeting -->
+
+<section id = 'index'>
+    <div class = 'container'>
         <div class = 'text-center index-table'>
             <div class = 'row'>
                 <div class = 'col-sm-3 wow fadeInDown' data-wow-duration = '500ms' data-wow-delay = '100ms'>
@@ -72,7 +76,7 @@
                         <i class = 'fa fa-envelopes-bulk'></i>
                     </div>
                     <div class = 'index-info'>
-                        <h3>解析ライブラリ</h3>
+                        <h3><strong>使ってみる！</strong></h3>
                         <hr>
                         <p class = 'description ja'>
                         {{ site.html.ss }}は<strong>UNIX mbox</strong>形式のファイルや
@@ -127,6 +131,17 @@
                 </div>
             </div>
         </div>
+
+        <!--
+        <h4 class = 'decoding-in-the-world'>{{ site.html.ss }}は世界で毎日1億通以上のバウンスメールを解析しています</h4>
+        <div id = 'who-are-using' class = 'text-center index-table'>
+            <div class = 'row'>
+                <div class = 'col-sm-12'>
+                    <a href = 'https://192.0.2.25/' target = 'new'><img src = '/path/to/logo.png' /></a>
+                </div>
+            </div>
+        </div>
+        -->
     </div>
 </section> <!-- /#index -->
 
