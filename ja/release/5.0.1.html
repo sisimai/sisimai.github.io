@@ -1,0 +1,124 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.0.1 RELEASE"
+"description": "Sisimai 5.0.1のリリースノート/変更点の一覧"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/ja/release/'>リリース情報</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>古いリリース情報</a></li> 
+                    <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
+                    <li class = 'others'><a href = '/en/release/5.0.1.html'><i class = 'fa fa-language'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-user-graduate'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.0.1</h2>
+                <hr>
+                <h3 class = 'in-desc'>2024/03/03</h3>
+                <p class = 'description ja'>
+                    {{ site.html.ss }} 5.0.1をリリースしました。Perl版{{ site.html.ss }}に特有の変更は
+                    <span class = 'lang perl'>Perl</span>が、Ruby版{{ site.html.ss }}に特有の変更は
+                    <span class = 'lang ruby'>Ruby</span>が、それぞれ冒頭に入っています。
+                    {{ site.html.ss }} 5.0.0で<strong>Version 4系とは<a href = '/ja/diff'>非互換な変更</a>が多く入っていますので、
+                    インストールまたはアップグレードの前に実行環境のPerlやRubyのバージョンを確認してください。
+                    </strong>
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>変更点</h3>
+                <ul class = 'release-notes'>
+                    <li><span class = 'lang perl'>Perl</span>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/blob/5-stable/t/023-mail-stdin.t' target = 'new'>t/023-mail-stdin.t</a>
+                        でテストが落ちるバグを修正
+                        <a href = 'https://github.com/sisimai/p5-sisimai/commit/78465c79970474602be796232bea345909078b9a' target = 'new'>78465c7</a>
+                    </li>
+                    <li><span class = 'lang perl'>Perl</span>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/blob/5-stable/t/500-fact.t' target = 'new'>t/500-fact.t</a>と
+                        <a href = 'https://github.com/sisimai/p5-sisimai/blob/5-stable/t/600-lhost-code.t' target = 'new'>t/600-lhost-code.t</a>
+                        でテストが落ちるバグ(<kbd>use YAML;</kbd>)を修正
+                        (<a href = 'https://github.com/eserte' target = 'new'>@eserte</a>さんからの報告:
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/505' target = 'new'>#505</a>)
+                    </li>
+                    <li>
+                        <a href = 'https://www.iana.org/assignments/smtp-enhanced-status-codes/smtp-enhanced-status-codes.xhtml' target = 'new'>
+                            Simple Mail Transfer Protocol (SMTP) Enhanced Status Codes Registry
+                        </a>で定義される三つのSMTPステータスコード:
+                        <span class = 'value'>5.7.28</span>と<span class = 'value'>5.7.29</span>と<span class = 'value'>5.7.28</span>
+                        を<kbd>Sisimai::SMTP::Status</kbd>クラスに実装
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/501' target = 'new'>#501</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/263' target = 'new'>#263</a>
+                    </li>
+                    <li>
+                        <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-28.eml' target = 'new'>lhost-postfix-28.eml</a>と
+                        <a href = 'https://github.com/sisimai/set-of-emails/blob/master/maildir/bsd/lhost-postfix-29.eml' target = 'new'>lhost-postfix-28.eml</a>の
+                        バウンス理由を<span class = 'value'><a href = '/ja/reason#notcompliantrfc'>NotCompliantRFC</a></span>に修正
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/501' target = 'new'>#502</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/264' target = 'new'>#264</a>
+                    </li>
+                    <li>
+                        Googleの<a href = 'https://support.google.com/a/answer/3726730?hl=en' target = 'new'>Gmail SMTP errors and codes</a>
+                        および<a href = 'https://support.google.com/a/answer/81126?hl=en' target = 'new'>Email sender guidelines</a>
+                        で言及されているSMTPエラーコードを<kbd>Sisimai::Rhost::Google</kbd>クラスに追加実装
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/504' target = 'new'>#504</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/265' target = 'new'>#265</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
