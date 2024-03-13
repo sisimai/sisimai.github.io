@@ -52,11 +52,10 @@
                     <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
-                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>で、主に
-                        Googleの<a href = 'https://support.google.com/a/answer/3726730?hl=en' target = 'new'>Gmail SMTP errors and codes</a>
-                        および<a href = 'https://support.google.com/a/answer/81126?hl=en' target = 'new'>Email sender guidelines</a>
-                        で言及されているエラーコードを追加で実装しています。
-                        {{ site.html.ss }} {{ site.sisimai.version }}の変更点は
+                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>で、主な変更点は
+                        送信したメールがGoogleなどへ転送された際にバウンスしたメールから元の宛先アドレスが
+                        取得できないバグの修正とRuby版におけるJRubyのサポート再開です。
+                        {{ site.html.ss }} {{ site.sisimai.version }}の全ての変更点は
                         <a href = '/ja/release/{{ site.sisimai.version }}.html'>リリースノート</a>
                         を見てください。
 
