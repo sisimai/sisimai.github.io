@@ -221,6 +221,24 @@ p.description + hr {
     background-color: transparent;
 }
 
+.warning {
+    width: 100%;
+    margin: 8px 0 0 0;
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #b7282e; /* Akane-iro */
+    border-radius: 4px;
+    background-color: #f4b3c2; /* Toki-iro */
+    color: #3f312b; /* Akasumi */
+}
+.warning a,
+.warning a:hover {
+    color: #3f312b; /* Akasumi */
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+}
+
 .rtext {
     text-align: right;
 }

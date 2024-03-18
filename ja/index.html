@@ -62,6 +62,15 @@
                         {{ site.html.ss }} 5で入った非互換な変更点は<a href = '/ja/diff'>Sisimai 4との違い</a>を
                         確認してください。
                     </div>
+                    <div class = 'warning'>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        {{ site.html.ss }} 4.25.14p11およびそれ以前のバージョンには
+                        正規表現に関する脆弱性(ReDoS:
+                        <a href = 'https://jvndb.jvn.jp/ja/contents/2022/JVNDB-2022-005663.html' target = 'new'>
+                            CVE-2022-4891
+                        </a>)があります。
+                        お使いの場合はv4.25.14p12以降へアップグレードしてください。
+                    </div>
                 </div>
             </div> 
         </div>
