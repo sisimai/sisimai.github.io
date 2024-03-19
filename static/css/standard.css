@@ -60,6 +60,16 @@ h4.decoding-in-the-world {
     font-weight: bold;
     font-size: 16px;
 }
+div.logo-only-showcase-link {
+    text-align: right;
+}
+div.logo-only-showcase-link a {
+    color: #A3A3A2; /* Usuzumi-iro */
+    font-weight: bold;
+    font-size: 12px;
+    background-color: transparent;
+}
+
 
 /*****************************************************************************/
 #home-slider {
