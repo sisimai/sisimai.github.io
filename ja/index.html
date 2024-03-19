@@ -52,16 +52,24 @@
                     <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
-                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>で、主に
-                        Googleの<a href = 'https://support.google.com/a/answer/3726730?hl=en' target = 'new'>Gmail SMTP errors and codes</a>
-                        および<a href = 'https://support.google.com/a/answer/81126?hl=en' target = 'new'>Email sender guidelines</a>
-                        で言及されているエラーコードを追加で実装しています。
-                        {{ site.html.ss }} {{ site.sisimai.version }}の変更点は
+                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>で、主な変更点は
+                        送信したメールがGoogleなどへ転送された際にバウンスしたメールから元の宛先アドレスが
+                        取得できないバグの修正とRuby版におけるJRubyのサポート再開です。
+                        {{ site.html.ss }} {{ site.sisimai.version }}の全ての変更点は
                         <a href = '/ja/release/{{ site.sisimai.version }}.html'>リリースノート</a>
                         を見てください。
 
                         {{ site.html.ss }} 5で入った非互換な変更点は<a href = '/ja/diff'>Sisimai 4との違い</a>を
                         確認してください。
+                    </div>
+                    <div class = 'warning'>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        {{ site.html.ss }} 4.25.14p11およびそれ以前のバージョンには
+                        正規表現に関する脆弱性(ReDoS:
+                        <a href = 'https://jvndb.jvn.jp/ja/contents/2022/JVNDB-2022-005663.html' target = 'new'>
+                            CVE-2022-4891
+                        </a>)があります。
+                        お使いの場合はv4.25.14p12以降へアップグレードしてください。
                     </div>
                 </div>
             </div> 

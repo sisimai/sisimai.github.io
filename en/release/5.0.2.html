@@ -1,0 +1,155 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.0.2 RELEASE"
+"description": "Release notes for Sisimai 5.0.2/All the changes"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>Docs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.0.2.html'><i class = 'fa fa-language'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-cookie-bite'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.0.2</h2>
+                <hr>
+                <h3 class = 'in-desc'>2024/03/13</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.0.2 has been released! 
+
+                    The main changes in this update are the fix for a bug that prevented the original recipient address
+                    from being retrieved from bounced emails that were forwarded to Google or another provider, and the
+                    resumption of JRuby support in the Ruby version of {{ site.html.ss }}.
+                </p>
+                <p class = 'description'>
+                    Changes specific to the Perl version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang perl'>Perl</span> at the beginning of each item, and changes
+                    specific to the Ruby version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang ruby'>Ruby</span>.
+
+                    And then, {{ site.html.ss }} 5 includes <strong>
+                    <a href = '/en/diff'>many changes that are not compatible with Version 4</a>,
+                    so please check the Perl or Ruby version of your environment before installing
+                    or upgrading.</strong>
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Changes</h3>
+                <ul class = 'release-notes'>
+                    <li><span class = 'lang ruby'>Ruby</span>
+                        {{ site.html.ss }} 5 works on JRuby again. Thanks to 
+                        <a href = 'https://github.com/hiroyuki-sato' target = 'new'>@hiroyuki-sato</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/267' target = 'new'>#267</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/271' target = 'new'>#271</a>
+                    </li>
+                    <ul>
+                        <li>
+                            Implement workarounds at <kbd>Sisimai::Fact</kbd> and some public tests with
+                            <kbd>DateTime</kbd> class to run {{ site.html.ss }} on JRuby, to avoid
+                            failing <kbd>strptime()</kbd>.
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/159' target = 'new'>#159</a>
+                        </li>
+                        <li>
+                            Replace <kbd>Array#append</kbd> with <kbd>Array#push</kbd> at <kbd>Sisimai::RFC5322</kbd>
+                            because <kbd>Array#append</kbd> is only available in Ruby 2.5 and above
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/269' target = 'new'>#269</a>
+                        </li>
+                        <li>We have started testing JRuby 9.2 and 9.4 on GitHub Actions</li>
+                        <li>
+                            Disable 2 tests in 
+                            <a href = 'https://github.com/sisimai/rb-sisimai/blob/5-stable/test/public/mail-test.rb#L135-L147' target = 'new'>
+                                test/public/mail-test.rb
+                            </a>
+                            that fails on GitHub Actions only.
+                        </li>
+                    </ul>
+                    <li><span class = 'lang perl'>Perl</span>
+                        Fixed an issue where constant initialization would fail on Perl 5.26
+                    </li>
+                    <li>
+                        Migrate the CI from TravisCI to GitHub Actions
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/507' target = 'new'>#507</a>
+                    </li>
+                    <li><span class = 'value'>5.7.23</span> returned from Office365 is an error related to SPF vilation (authfailure)</li>
+                    <li>
+                        Fixed an issue that {{ site.html.ss }} could not get the value of <span class = 'value'>alias</span>
+                        address correctly when an email forwarded and bounced.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/508' target = 'new'>#508</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/272' target = 'new'>#272</a>
+                    </li>
+                    <li>
+                        The <kbd>received()</kbd> method of <kbd>Sisimai::RFC5322</kbd> now returns a list including
+                        all the elements except date time and (comments) found in the <span class = 'value'>Received</span> header
+                    </li>
+                    <li>Update the error message patterns in <kbd>Sisimai::Rhost::Mimecast</kbd></li>
+                    <li>Update the error message patterns in the followings:</li>
+                    <ul>
+                        <li><span class = 'value'><a href = '/en/reason#authfailure'>AuthFailure</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#blocked'>Blocked</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#expired'>Expired</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#mailboxfull'>MailboxFull</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#securityerror'>SecurityError</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#spamdetected'>SpamDetected</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#suspend'>Suspend</a></span></li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+

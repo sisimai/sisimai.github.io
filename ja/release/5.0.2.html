@@ -1,0 +1,155 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.0.2 RELEASE"
+"description": "Sisimai 5.0.2のリリースノート/変更点の一覧"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/ja/release/'>リリース情報</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>古いリリース情報</a></li> 
+                    <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
+                    <li class = 'others'><a href = '/en/release/5.0.2.html'><i class = 'fa fa-language'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>リリースノート</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-cookie-bite'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.0.2</h2>
+                <hr>
+                <h3 class = 'in-desc'>2024/03/13</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.0.2をリリースしました！
+
+                    このアップデートにおける主な変更点は、送信されたメールがGoogleなどへ転送された際に
+                    バウンスしたメールから元の宛先アドレスが取得できないバグの修正と、Ruby版におけるJRubyのサポート再開です。
+                </p>
+
+                <p class = 'description ja'>
+                    Perl版{{ site.html.ss }}に特有の変更は
+                    <span class = 'lang perl'>Perl</span>が、Ruby版{{ site.html.ss }}に特有の変更は
+                    <span class = 'lang ruby'>Ruby</span>が、それぞれ冒頭に入っています。
+                    {{ site.html.ss }} 5.0.0で<strong>Version 4系とは<a href = '/ja/diff'>非互換な変更</a>が多く入っていますので、
+                    インストールまたはアップグレードの前に実行環境のPerlやRubyのバージョンを確認してください。
+                    </strong>
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>変更点</h3>
+                <ul class = 'release-notes'>
+                    <li><span class = 'lang ruby'>Ruby</span>
+                        {{ site.html.ss }} 5 でRuby版がJRubyでも再び動くようになりました。 Thanks to
+                        <a href = 'https://github.com/hiroyuki-sato' target = 'new'>@hiroyuki-sato</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/267' target = 'new'>#267</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/271' target = 'new'>#271</a>
+                    </li>
+                    <ul>
+                        <li>
+                            {{ site.html.ss }}をJRubyで動作させる為と<kbd>strptime()</kbd>のエラーを
+                            どうにかするため、<kbd>Sisimai::Fact</kbd>クラスに回避策を実装して、いくつかの
+                            テストで<kbd>DateTime</kbd>を使用するようにしました。
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/159' target = 'new'>#159</a>
+                        </li>
+                        <li>
+                            <kbd>Array#append</kbd>はRuby 2.5以上でないと使えないので <kbd>Sisimai::RFC5322</kbd>
+                            の中で使っていた当該メソッドを<kbd>Array#push</kbd>に置き換えました
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/269' target = 'new'>#269</a>
+                        </li>
+                        <li>GitHub ActionsでJRuby 9.2と9.4もテストするようになりました</li>
+                        <li>
+                            GitHub Actionsでのみ落ちる2件のテスト(
+                            <a href = 'https://github.com/sisimai/rb-sisimai/blob/5-stable/test/public/mail-test.rb#L135-L147' target = 'new'>
+                                test/public/mail-test.rb
+                            </a>
+                            )を無効にしました
+                        </li>
+                    </ul>
+                    <li><span class = 'lang perl'>Perl</span>
+                        Perl 5.26で定数の初期化に失敗する問題を修正しました
+                    </li>
+                    <li>
+                        CIをTravisCIからGitHub Actionsへ移行しました
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/507' target = 'new'>#507</a>
+                    </li>
+                    <li>
+                        Office 365が返してくるエラーコード<span class = 'value'>5.7.23</span>
+                        はSPF関連のエラーとして扱うようにしました(authfailure)
+                    </li>
+                    <li>
+                        配信先で転送された際にバウンスしたメールから元の宛先が<span class = 'value'>alias</span>
+                        に正しく入らない問題を修正しました
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/508' target = 'new'>#508</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/272' target = 'new'>#272</a>
+                    </li>
+                    <li>
+                        <kbd>Sisimai::RFC5322</kbd>クラスの<kbd>received()</kbd>メソッドが日付と(コメント)を除く全ての
+                        <span class = 'value'>Received</span>ヘッダーの要素を配列で返すようになりました
+                    </li>
+                    <li><kbd>Sisimai::Rhost::Mimecast</kbd>のエラーメッセージパターンを更新しました</li>
+                    <li>以下のクラスでエラーメッセージパターンを更新しました</li>
+                    <ul>
+                        <li><span class = 'value'><a href = '/ja/reason#authfailure'>AuthFailure</a></span></li>
+                        <li><span class = 'value'><a href = '/ja/reason#blocked'>Blocked</a></span></li>
+                        <li><span class = 'value'><a href = '/ja/reason#expired'>Expired</a></span></li>
+                        <li><span class = 'value'><a href = '/ja/reason#mailboxfull'>MailboxFull</a></span></li>
+                        <li><span class = 'value'><a href = '/ja/reason#securityerror'>SecurityError</a></span></li>
+                        <li><span class = 'value'><a href = '/ja/reason#spamdetected'>SpamDetected</a></span></li>
+                        <li><span class = 'value'><a href = '/ja/reason#suspend'>Suspend</a></span></li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
