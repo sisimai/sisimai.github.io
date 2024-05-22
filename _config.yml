@@ -1,12 +1,12 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: '5.0.2'
+  version: '5.0.3'
   v4final: '4.25.16p1'
   blogurl: 'https://blog.libsisimai.org/post/717456764036104192/sisimai-42516'
   release: 
-    en: 'Wednesday, 13th March 2024'
-    ja: '令和6年03月13日(水)'
+    en: 'Wednesday, 22nd May 2024'
+    ja: '令和6年05月22日(水)'
   spec:
     modules: 70
     reasons: 34

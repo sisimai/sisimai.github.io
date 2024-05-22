@@ -1,0 +1,192 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.0.3 RELEASE"
+"description": "Release notes for Sisimai 5.0.3/All the changes"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>Docs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.0.3.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-cookie-bite'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.0.3</h2>
+                <hr>
+                <h3 class = 'in-desc'>2024/05/22</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.0.3 has been released! 
+                    The main changes in this release are the following updates of 
+                    <a href = 'https://support.google.com/a/answer/3726730?hl=en' target = 'new'>Gmail SMTP errors and codes</a>
+                    on April 30 and May 10, following SMTP error codes and error messages returned from Exchange Online, and
+                    16 new error message patterns.
+                </p>
+                <p class = 'description'>
+                    Changes specific to the Perl version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang perl'>Perl</span> at the beginning of each item, and changes
+                    specific to the Ruby version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang ruby'>Ruby</span>.
+
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    And then, {{ site.html.ss }} 5 includes
+                    <a href = '/en/diff'>many changes that are not compatible with Version 4</a>,
+                    so please check the Perl or Ruby version of your environment before installing
+                    or upgrading.
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Changes</h3>
+                <ul class = 'release-notes'>
+                    <li><span class = 'lang perl'>Perl</span>
+                        Declare use <span class = 'value'>v5.26;</span> at each file using the postfix dereference
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/511' target = 'new'>#511</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/512' target = 'new'>#512</a>
+                    </li>
+                    <ul>
+                        <li>Thanks to CPAN Testers:
+                            <a href = 'https://www.cpantesters.org/cpan/report/4a49b2fa-e101-11ee-9c91-c03a6e8775ea' target = 'new'>Slaven Rezić</a>,
+                            <a href = 'https://www.cpantesters.org/cpan/report/8345bf54-e192-11ee-bcdd-1845aa8c77b5' target = 'new'>David Cantrell</a>,
+                            <a href = 'https://www.cpantesters.org/cpan/report/3170e9aa-e526-11ee-98b0-b3c3213a625c' target = 'new'>Chris Williams</a>,
+                        and <a href = 'https://www.cpantesters.org/cpan/report/e51d7d7a-e58e-11ee-922b-530cbea18e0e' target = 'new'>Andreas J. König</a>
+                        </li>
+                    </ul>
+                    <li> Remove <kbd>.travis.yml</kbd> from this repository (Migrated to GitHub Actions)</li>
+                    <li>
+                        Follow updates in 
+                        <a href = 'https://support.google.com/a/answer/3726730' target = 'new'>Gmail SMTP errors and codes</a>
+                        on Apr 29 and May 10 at <kbd>Sisimai::Rhost::Google</kbd>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/513' target = 'new'>#513</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/515' target = 'new'>#515</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/519' target = 'new'>#519</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/275' target = 'new'>#275</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/277' target = 'new'>#277</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/283' target = 'new'>#283</a>
+                    </li>
+                    <ul>
+                        <li>
+                            The following SMTP error codes implementd
+                            <span class = 'value'>4.7.23</span>
+                            <span class = 'value'>4.7.30</span>
+                            <span class = 'value'>4.7.32</span>
+                            <span class = 'value'>5.7.29</span>
+                            <span class = 'value'>5.7.30</span>
+                        </li>
+                        <li>Shortened error message patterns to make them more adaptable to minor sentence changes</li>
+                        <li>
+                            <a href = 'https://github.com/azumakuniyuki/feb-2024-no-auth-no-entry/commit/1d6adede'
+                                target = 'new'>github.com/azumakuniyuki/feb-2024-no-auth-no-entry@1d6adede</a>
+                        </li>
+                        <li>
+                            <a href = 'https://github.com/azumakuniyuki/feb-2024-no-auth-no-entry/commit/d477b178'
+                                target = 'new'>github.com/azumakuniyuki/feb-2024-no-auth-no-entry@d477b178</a>
+                        </li>
+                    </ul>
+                    <li>
+                        Multibyte characters in the code and comments have been replaced with ASCII characters
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/514' target = 'new'>#514</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/278' target = 'new'>#278</a>
+                    </li>
+                    <li>
+                        Deal the Apple unsubscribe notification as an ARF message.
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/279' target = 'new'>#279</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/280' target = 'new'>#280</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/516' target = 'new'>#516</a>
+                        Thanks to <a href = 'https://github.com/mnmallea' target = /new'>@mnmallea</a>
+                    </li>
+                    <li>
+                        Add the following error message patterns returned from Exchange Online
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/517' target = 'new'>#517</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/281' target = 'new'>#281</a>
+                        <ul>
+                            <li>
+                                <span class = 'value'>4.4.317</span>
+                                <span class = 'value'>5.4.317</span>: STARTTLS is required to send mail
+                            </li> 
+                            <li>
+                                <span class = 'value'>4.4.318</span>
+                                <span class = 'value'>5.4.318</span>: Connection was closed abruptly (SuspiciousRemoteServerError)</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Added 16 error message patterns into the following reasons:</li>
+                    <ul>
+                        <li><span class = 'value'><a href = '/en/reason#blocked'>Blocked</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#expired'>Expired</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#filtered'>Filtered</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#mailboxfull'>MailboxFull</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#norelaying'>NoRelaying</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#suspend'>Suspend</a></span></li>
+                        <li><span class = 'value'><a href = '/en/reason#userunknown'>UserUnknown</a></span></li>
+                    </ul>
+                    <li>
+                        Use <a href = 'https://app.codecov.io/github/sisimai' target = 'new'>codecov.io</a>
+                        for the coverage
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/320' target = 'new'>#320</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/520' target = 'new'>#520</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/286' target = 'new'>#286</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
+
