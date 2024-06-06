@@ -30,13 +30,11 @@
                     <li class = 'scroll'><a href = '#b'>接続中</a></li>
                     <li class = 'scroll'><a href = '#c'>送信後</a></li>
                     <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
-                    <!--
                     <li class = 'others'>
                         <a href = '/en/docs/when-does-email-bounce.html'>
                             <i class = 'fa fa-language'></i>
                         </a>
                     </li>
-                    -->
                     <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
                 </ul>
             </div>
@@ -115,8 +113,7 @@
                     それぞれバウンス理由が決定されます。
                 </p>
                 <img src = '/static/images/figure/when-does-email-bounce-1.png' width = '100%'>
-                <br />
-                <br />
+                <hr>
                 <p class = 'description ja'>
                     SMTP接続以前の段階で発生したエラーによるバウンスメールは、
                     図の送信サーバーである<span class = 'value'>sender.example.jp</span>が生成します。
@@ -205,6 +202,7 @@
                     なりました。
                 </p>
                 <img src = '/static/images/figure/when-does-email-bounce-2.png' width = '100%'>
+                <hr>
                 <p class = 'description ja'>
                     このケースで発生したバウンスメールを{{ site.html.ss }}が解析すると、
                     <span class = 'value'><a href = '/ja/reason/#userunknown'>UserUnknown</a></span> や、
@@ -224,8 +222,8 @@
                     といったバウンス理由も増えています。
                 </p>
                 <p class = 'description ja'>
-                    SMTPセッション中に発生したエラーによるバウンスメールも1と同様に、
-                    図の送信サーバーである<span class = 'value'>sender.example.jp</span>が生成します。
+                    SMTPセッション中に発生したエラーによるバウンスメールも<a href = '/#1'>1. SMTP接続前</a>
+                    と同様に、図の送信サーバーである<span class = 'value'>sender.example.jp</span>が生成します。
                 </p>
             </div>
         </div>
@@ -258,7 +256,8 @@
                     DKIM署名が検証失敗</strong>したりして、ドメイン認証の失敗によるバウンスとなります。
                 </p>
                 <p class = 'description ja'>
-                    このケースで発生するバウンスメールは、上述の1や2と異なり、<span class = 'value'>mx.example.com</span>
+                    このケースで発生するバウンスメールは、上述の<a href = '/#1'>1. SMTP接続前</a>や
+                    <a href = '/#2'>2. SMTPセッション中</a>と異なり、<span class = 'value'>mx.example.com</span>
                     が生成し、<span class = 'value'>Return-Path:</span>に書かれたメールアドレスに送られます。
                 </p>
                 <img src = '/static/images/figure/when-does-email-bounce-3.png' width = '100%'>
