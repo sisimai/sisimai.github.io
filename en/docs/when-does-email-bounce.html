@@ -1,0 +1,330 @@
+---
+"layout": "document"
+"title": "When does email bounce?"
+"description": "Whendoes email bounce?"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'scroll'><a href = '#a'>Pre-SMTP conn.</a></li>
+                    <li class = 'scroll'><a href = '#b'>During SMTP conn.</a></li>
+                    <li class = 'scroll'><a href = '#c'>During forwaring</a></li>
+                    <li class = 'others'><a href = '/en/docs/'>Documents</a></li>
+                    <li class = 'others'>
+                        <a href = '/ja/docs/when-does-email-bounce.html'>
+                            <i class = 'fa fa-language'></i>
+                        </a>
+                    </li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>When Does Email Bounce?</h2>
+                    <h6 class = 'timestamp'>Last Updated: 6th June, 2024</h6>
+                    <p class = 'description'>
+                        When an email you send is returned due to an error, it is called a <strong>bounce</strong>.
+                        The diagram below illustrates the potential points at which a bounce can occur during the
+                        delivery process of an email from your sender's mailbox to the recipient's mailbox.
+                    </p>
+                    <p class = 'description'>
+                        There are three main stages at which a bounce can occur:<br />
+                        <a href = '#1'>1. Pre-SMTP Connection</a>, <a href = '#2'>2. During SMTP Session</a>,
+                        and <a href = '#3'>3. During Forwarding</a>.
+
+                        In any of these scenarios, a bounce email will be sent to the email address
+                        specified in the <span class = 'value'>Return-Path:</span> header of the original email.
+                        This bounce email will contain information about the error that caused the delivery failure.
+                    </p>
+                    <hr>
+                    <img src = '/static/images/figure/when-does-email-bounce-0.png' width = '100%'>
+                    <div class = 'read-more'>
+                        <a href = '/static/images/figure/when-does-email-bounce-0.png' class = 'btn-continue' target = 'new'>Large Image</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- /#index -->
+
+<section id = '1' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>1</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>1. Pre-SMTP Connection (5%)</h2>
+                <p class = 'description'>
+                    An error <strong>1</strong> in the diagram below illustrates errors that can occur
+                    before an SMTP connection is established.  These errors account for approximately
+                    <strong>5%</strong> of all bounces. The primary causes include:
+                </p>
+                <dl>
+                    <dt>Non-existent Domain in Email Address Host:</dt>
+                    <dd>The domain name specified in the email address's host part (the part after the @ symbol) does not exist.</dd>
+
+                    <dt>Unresolvable Host in Email Address:</dt>
+                    <dd>The host part of the email address cannot be resolved using DNS (neither MX nor A records are found).</dd>
+
+                    <dt>Null MX Record:</dt>
+                    <dd>The host part of the email address has a Null MX record.</dd>
+
+                    <dt>Unreachable Destination Mail Server IP:</dt>
+                    <dd>The IP address of the destination mail server, obtained through DNS resolution, is unreachable.</dd>
+
+                    <dt>Failed SMTP Connection to Destination Mail Server:</dt>
+                    <dd>An SMTP connection to the destination mail server cannot be established (no response or connection is refused).</dd>
+                    
+                    <dt>Network Issues Between Sender's and Recipient's Mail Servers:</dt>
+                    <dd>Network connectivity problems between the sender's and recipient's mail servers.</dd>
+
+                    <dt>Unresponsive Nameserver:</dt>
+                    <dd>The nameserver used by the sender's mail server is not responding.</dd>
+                </dl>
+
+                <p class = 'description'>
+                    When {{ site.html.ss }} decodes bounce emails caused by connection errors, 
+                    it categorizes them based on the specific error and the bounce message.
+                    The following categories and their corresponding bounce reasons are common:
+                </p>
+                <dl>
+                    <dt>Expired:</dt>
+                    <dd>
+                        Emails that could not be delivered within a specified timeframe are categorized as
+                        <span class = 'value'><a href = '/en/reason/#expired'>Expired</a></span>.
+                    </dd>
+                    
+                    <dt>HostUnknown:</dt>
+                    <dd>
+                        Emails that bounce due to an invalid or non-existent domain in the recipient's
+                        email address are categorized as
+                        <span class = 'value'><a href = '/en/reason/#hostunknown'>HostUnknown</a></span>.
+                        This suggests that the domain name specified in the email address does not exist
+                        or is not properly configured in DNS.
+                    </dd>
+
+                    <dt>NotAccept:</dt>
+                    <dd>
+                        Emails that bounce due to a Null MX record for the recipient's domain are categorized as
+                        <span class = 'value'><a href = '/en/reason/#notaccept'>NotAccept</a></span>.
+                        A Null MX record indicates that the recipient's mail server is configured to not accept any email.
+                    </dd>
+                </dl>
+                <img src = '/static/images/figure/when-does-email-bounce-1.png' width = '100%'>
+                <hr>
+                <br />
+                <br />
+                <p class = 'description'>
+                    Bounce emails resulting from errors occurring before the SMTP connection are
+                    generated by the sending server <span class = 'value'>sender.example.jp</span>,
+                    as illustrated in the diagram.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-triangle-exclamation'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>DNS Lookup Failed</h3>
+                <p class = 'description'>
+                    Among the most common causes of pre-SMTP connection error bounces are issues
+                    with the authoritative DNS content server for the recipient's email address domain
+                    (the part after the @ symbol). In some cases, the DNS server referenced by the
+                    sender's mail server may also be malfunctioning. When {{ site.html.ss }} decodes
+                    bounce emails returned due to such reasons, the bounce reason is categorized as
+                    <span class = 'value'><a href = '/en/reason/#networkerror'>NetworkError</a></span>.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-plug'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>No Response or Network Error</h3>
+                <p class = 'description'>
+                    In most cases, these bounces occur due to the recipient's mail server being down or
+                    their network's firewall blocking inbound SMTP connections. 
+                </p>
+                <p class = 'description'>
+                    However, it is also possible that the sender's network firewall is restricting outbound SMTP connections.
+                    In such cases, OP25B (Outbound Port 25 Blocking) implemented by the ISP (Internet Service Provider)
+                    might be preventing the connection. Regardless of the cause, these emails are categorized as
+                    <span class = 'value'><a href = '/en/reason/#expired'>Expired</a></span> by {{ site.html.ss }}'s decoding,
+                    as they are retried until the network recovers and eventually time out.
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-skull'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Non-Existent Domain</h3>
+                <p class = 'description'>
+                    If the recipient's email address domain does not exist or neither A nor MX records are set,
+                    {{ site.html.ss }} will determine the bounce reason as
+                    <span class = 'value'><a href = '/en/reason/#hostunknown'>HostUnknown</a></span>
+                    (Hard Bounce). Therefore, please remove the corresponding email address from the sender list
+                    as soon as possible.
+                </p>
+                <p class = 'description'>
+                    In rare cases, if a third party has registered that domain, and has configured their mail server
+                    to receive all email addresses for that domain, <strong>there is a risk of unintentional matching
+                    with the subscriber names and email addresses listed at the beginning of the email newsletter</strong>,
+                    leading to potential privacy concerns.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = '2' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>2</div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>During SMTP Session (25%)</h2>
+                <p class = 'description'>
+                    An error <strong>2</strong> in the diagram below illustrates bounces that occur due to
+                    errors during the SMTP session after establishing a connection to the recipient's mail server.
+                    <strong>These bounces account for approximately 25% of all bounces.</strong>
+                </p>
+                <p class = 'description'>
+                    In the past, the majority of bounces were caused by errors during the SMTP session.
+                    However, <strong>since the phased implementation of bulk sender guidelines by Gmail
+                    and Yahoo! starting in February 2024, bounces caused by forwarding emails, particularly
+                    those related to domain authentication errors, have become the dominant type.</strong>
+                </p>
+                <img src = '/static/images/figure/when-does-email-bounce-2.png' width = '100%'>
+                <hr>
+                <p class = 'description'>
+                    When {{ site.html.ss }} decodes bounce emails occurred during SMTP session, the bounce
+                    reason is determined to be related to the recipient's email address or mailbox, such as
+                    <span class = 'value'><a href = '/en/reason/#userunknown'>UserUnknown</a></span>,
+                    <span class = 'value'><a href = '/en/reason/#mailboxfull'>MailboxFull</a></span>, or
+                    <span class = 'value'><a href = '/en/reason/#mesgtoobig'>MesgTooBig</a></span>.
+                </p>
+                <p class = 'description'>
+                    In recent years, there has been an increase in bounces due to stricter domain authentication
+                    requirements, resulting in <span class = 'value'><a href = '/en/reason/#authfailure'>AuthFailure</a></span>
+                    bounces. Additionally, bounces related to the reputation of the sender's IP address or domain name
+                    can be categorized as <span class = 'value'><a href = '/en/reason/#badreputation'>BadReputation</a></span>.
+                </p>
+                <p class = 'description'>
+                    Other common bounce reasons include <span class = 'value'><a href = '/en/reason/#requireptr'>RequirePTR</a></span>,
+                    which indicates a requirement for proper reverse DNS lookup of the sender's IP address, and
+                    <span class = 'value'><a href = '/en/reason/#notcompliantrfc'>NotCompliantRFC</a></span>,
+                    which signifies non-compliance with RFC 5322 standards in the email header.
+                </p>
+                <p class = 'description'>
+                    Similar to the bounces described in the previous section(1), bounce emails resulting 
+                    from errors during the SMTP session are generated by the sending server, represented
+                    as <span class = 'value'>sender.example.jp</span> in the diagram.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = '3' class = 'parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>3</div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>During Forwarding (70%)</h2>
+                <p class = 'description'>
+                    In many cases, emails sent to an organization's email address are forwarded to
+                    Gmail or Outlook to receive notification on smartphones. However,
+                    <strong>since the phased implementation of sender guidelines by Gmail and Yahoo!
+                    starting in February 2024, forwarded emails have become a major contributor to bounces,
+                    with a significant increase compared to previous years.</strong>
+                    According to our observations over the past few years, bounces caused by forwarding
+                    errors <strong>have accounted for approximately 70% of all bounces.</strong>
+                </p>
+                <p class = 'description'>
+                    Specifically, when forwarding emails received at <span class = 'value'>mx.example.com</span>
+                    in the diagram, <strong>SPF hard failures or DKIM signature verification failures can occur due to
+                    partial rewriting of the <span class = 'value'>Subject:</span> header or body
+                    (which often happens with mailing lists),</strong> resulting in bounces due to
+                    domain authentication failures.
+                </p>
+                <p class = 'description'>
+                    Unlike bounces described in cases <a href = '#1'>1 (Pre-SMTP connection)</a> and
+                    <a href = '/#2'>2 (During SMTP Session)</a> above, bounces in this case are generated by
+                    <span class = 'value'>mx.example.com</span> in the diagram and sent to the email address
+                    specified in the <span class = 'value'>Return-Path:</span> header.
+                </p>
+                <img src = '/static/images/figure/when-does-email-bounce-3.png' width = '100%'>
+                <hr>
+                <p class = 'description'>
+                    When {{ site.html.ss }} decodes bounce emails caused by domain authentication errors
+                    during email forwarding, the bounce reason is determined to be
+                    <span class = 'value'><a href = '/en/reason/#authfailure'>AuthFailure</a></span>.
+
+                    If the forwarding server (<span class = 'value'>mx.example.com</span> in the diagram above)
+                    supports ARC, ARC-related headers will be added to the email as a technically verifiable
+                    record of the fact that <strong>"SPF, DKIM, and DMARC were all OK when we received it,"</strong>
+                    which may help the forwarding destination accept the email.
+                </p>
+                <p class = 'description'>
+                    Alternatively, if the forwarding server (<span class = 'value'>mx.example.com</span>
+                    in the diagram above) IP address has a low reputation and the connection is refused,
+                    the bounce reason will be determined to be
+                    <span class = 'value'><a href = '/en/reason/#badreputation'>BadReputation</a></span>.
+                </p>
+                <p class = 'description'>
+                    In recent years, domain authentication-related errors, particularly those related to
+                    DMARC and DKIM, have become more prominent. However, bounces caused by nonexistent
+                    recipient email addresses 
+                    (<span class = 'value'><a href = '/en/reason/#userunknown'>UserUnknown</a></span>)
+                    and neglected recipient mailboxes 
+                    (<span class = 'value'><a href = '/en/reason/#mailboxfull'>MailboxFull</a></span>)
+                    are still occurring.
+                </p>
+                <p class = 'description'>
+                    Regardless of the bounce reason, if you are sending a significant volume of emails,
+                    you should consider removing recipient email addresses that generate errors during
+                    email forwarding from your subscribers list.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
