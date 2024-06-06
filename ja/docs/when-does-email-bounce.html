@@ -51,22 +51,27 @@
                 <div class = 'text-center col-sm-8 col-sm-offset-2'>
                     <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
                     <h2>バウンスが発生する3つのタイミング</h2>
+                    <h6 class = 'timestamp'>最終更新: 2024年6月6日</h6>
                     <p class = 'description ja'>
                         送信した電子メールがなんらかのエラーで戻ってくる事を<strong>バウンス</strong>と表現します。
+                        下記の図は、送信した電子メールが受信者のメールボックスに配送されるまでの間で
+                        バウンスが発生しうる可能性のあるタイミングを示すものです。
                     </p>
                     <p class = 'description ja'>
-                        送信したメールが自分のネットワークにあるメールサーバを通り、
-                        相手側メールサーバに到達し、 宛先メールボックスに配送されるまでの間、
-                        バウンスが発生するタイミングは次の3つに分類できます。
+                        バウンスが発生するタイミングは大きく分けて三つ、
+                        <a href = '#1'>1. SMTP接続前</a>と<a href = '#2'>2. SMTPセッション中</a>と
+                        <a href = '#3'>3. 転送時(送信先サーバー以降での)</a>です。これらのいずれかで
+                        エラーが発生すると、送信メールの<span class = 'value'>Return-Path:</span>
+                        ヘッダーにあるメールアドレスにバウンスメールが送られてきます。
                     </p>
                     <hr>
-                    <img src = '/static/images/figure/email-bounces-at.png' width = '100%'>
+                    <img src = '/static/images/figure/when-does-email-bounce-0.png' width = '100%'>
                     <div class = 'read-more'>
-                        <a href = '/static/images/figure/email-bounces-at.png' class = 'btn-continue'>大きな画像</a>
+                        <a href = '/static/images/figure/when-does-email-bounce-0.png' class = 'btn-continue' target = 'new'>大きな画像</a>
                     </div>
                     <hr>
                     <p class = 'description ja'>
-                        初出:
+                        初出: 2010年12月
                         <a href = 'http://bouncehammer.jp/ja/email-topics/when-does-email-bounce'>
                             bouncehammer.jp/ja/when-does-email-bounce
                         </a>
@@ -77,50 +82,60 @@
     </div>
 </section><!-- /#index -->
 
-<section id = 'a' class = 'parallax'>
+<section id = '1' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'post-it'>A</div>
+                <div class = 'post-it'>1</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>A. 接続前</h2>
+                <h2 class = 'in-desc'>1. SMTP接続前(5%)</h2>
                 <p class = 'description ja'>
-                    図のAは接続エラーの際にバウンスします。
-                    概ねバウンス全体の5%前後が接続エラーで発生するものです。
-                    接続エラーは主に相手側メールサーバにSMTP接続する以前に起こるもので、
-                    次のような事項が原因です。 
+                    図の1はSMTP接続以前の段階で発生するエラーです。おおむね<strong>バウンス全体の5%前後</strong>
+                    が、送信先サーバーに接続できないエラーであり、次のような原因が大半を占めます。
                 </p>
                 <ul>
                     <li>宛先メールアドレスのホスト部分(@の右側)が存在しないドメイン</li>
-                    <li>宛先メールアドレスのホスト部分がDNSで名前解決できない</li>
-                    <li>名前解決した相手側メールサーバのIPアドレスが不正</li>
-                    <li>相手側メールサーバにSMTP接続できない(応答がない・接続が確立できない)</li>
-                    <li>自分のメールサーバと相手側メールサーバ間のネットワーク障害など</li>
+                    <li>宛先メールアドレスのホスト部分(@の右側)がDNSで名前解決できない(MXもAもない)</li>
+                    <li>宛先メールアドレスのホスト部分(@の右側)がNullMXである</li>
+                    <li>名前解決した相手側メールサーバのIPアドレスが到達不可能</li>
+                    <li>相手側メールサーバにSMTP接続できない(応答がない・接続が拒否される)</li>
+                    <li>自分のメールサーバと相手側メールサーバ間のネットワーク障害</li>
+                    <li>自分のメールサーバが参照するネームサーバーが応答しない</li>
                 </ul>
 
                 <p class = 'description ja'>
-                    接続エラーで発生する実際のバウンスメールは、一定期間内に配送できなかった
-                    (Delivery time expired)という文言が書かれています。
+                    接続エラーで発生する実際のバウンスメールを {{site.html.ss }}が解析すると、
+                    一定期間内に配送できずに差し戻されたものは
+                    <span class = 'value'><a href = '/ja/reason/#expired'>Expired</a></span> に、
+                    宛先メールアドレスのドメインが存在しない場合は
+                    <span class = 'value'><a href = '/ja/reason/#hostunknown'>HostUnknown</a></span> に、
+                    宛先メールアドレスのドメインがNullMXの場合は
+                    <span class = 'value'><a href = '/ja/reason/#notaccept'>NotAccept</a></span> に、
+                    それぞれバウンス理由が決定されます。
                 </p>
+                <img src = '/static/images/figure/when-does-email-bounce-1.png' width = '100%'>
+                <br />
+                <br />
                 <p class = 'description ja'>
-                    このケースで注意すべきなのは、上記のような接続エラーは相手側メールサーバや
-                    宛先の周辺ネットワークの障害・異常だけが原因ではない事です。
+                    SMTP接続以前の段階で発生したエラーによるバウンスメールは、
+                    図の送信サーバーである<span class = 'value'>sender.example.jp</span>が生成します。
                 </p>
-                <img src = '/static/images/figure/email-bounces-at-a.png' width = '100%'>
             </div>
         </div>
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-plug'></i></div>
+                <div class = 'index-label'><i class = 'fas fa-triangle-exclamation'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>DNSで名前解決できない</h3>
                 <p class = 'description ja'>
                     宛先メールアドレスのドメイン部分(@の右側)の権威あるDNSコンテンツサーバに異常がある、
                     というのが最も多いのですが、 <strong>自分のメールサーバが参照しているDNSサーバが機能していない</strong>
-                    可能性もあります。
+                    可能性もあります。 そのような理由で戻ってきたバウンスメールを{{ site.html.ss }}が解析した場合、
+                    バウンス理由は<span class = 'value'><a href = '/ja/reason/#networkerror'>NetworkError</a></span>
+                    になります。
                 </p>
             </div>
         </div>
@@ -136,67 +151,143 @@
                     SMTP接続を阻んでいる、というケースです。
                 </p>
                 <p class = 'description ja'>
-                しかし<strong>自分のネットワーク側のFirewallが外部へのSMTP接続を阻んでいる</strong>可能性もあります。
-                    接続プロバイダによって行われるOP25B( Outbound Port 25 Blocking)は
+                    しかし<strong>自分のネットワーク側のFirewallが外部へのSMTP接続を阻んでいる</strong>
+                    可能性もあります。接続プロバイダによって行われるOP25B(Outbound Port 25 Blocking)は
                     自分のネットワーク側が外部へのSMTP接続を制限している為に接続できないケースに該当します。
                 </p>
+                <p class = 'description ja'>
+                    いずれにせよネットワークの回復まで再試行され、時間切れで差し戻されたものの
+                    バウンス理由は{{ site.html.ss }}の解析によって
+                    <span class = 'value'><a href = '/ja/reason/#expired'>Expired</a></span>
+                    と判定されます。
+                </p>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-skull'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>ドメインが存在しない場合</h3>
+                <p class = 'description ja'>
+                    送信先メールアドレスのドメインが存在しない場合、またはAもMXも設定されていない場合、
+                    {{ site.html.ss }}はバウンス理由を
+                    <span class = 'value'><a href = '/ja/reason/#hostunknown'>HostUnknown</a></span> (Hard Bounce)
+                    に決定しますので、なるべく早めに当該メールアドレスを送信者リストから除外してください。
+
+                    稀な例としては、第三者がそのドメインを取得して全ての宛先メールアドレスを受け取ってしまうように
+                    メールサーバーを設定していると、<strong>メールマガジン冒頭に書いた購読者の名前とメールアドレスで
+                    意図しない名寄せに加担してしまう危険</strong>があります。
+                </p>
             </div>
         </div>
     </div>
 </section>
 
-<section id = 'b' class = 'not-parallax'>
+<section id = '2' class = 'not-parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'post-it'>B</div>
+                <div class = 'post-it'>2</div>
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>接続中</h2>
+                <h2 class = 'in-desc'>SMTPセッション中(25%)</h2>
                 <p class = 'description ja'>
-                    図のBは相手側メールサーバにSMTP接続が確立した後、
-                    SMTPセッション中に発生するエラーによってバウンスします。
-                    バウンス全体の85%前後、つまり<strong>ほとんどのバウンスはこのタイミングで発生する</strong>
-                    ものです。
+                    図の2は送信先メールサーバにSMTP接続が確立した後のSMTPセッション中に発生するエラーに
+                    よってバウンスします。<strong>割合はバウンス全体の25%前後です</strong>
                 </p>
-                <img src = '/static/images/figure/email-bounces-at-b.png' width = '100%'>
                 <p class = 'description ja'>
-                    このケースで発生する実際のバウンスメールは、宛先不明(userunknown)、 
-                    メールボックスいっぱい(mailboxfull)、メールが大きすぎる(exceedlimit)など様々です。
+                    数年前までは発生するバウンスのほとんどがSMTPセッション中に発生するものでしたが、
+                    <strong>
+                    2024年2月から段階的に開始されたGmailと米国Yahoo!の送信者向けガイドライン準拠要請によって、
+                    ドメイン認証関連のエラーを筆頭に転送メールが引き起こすバウンスが大半を占めるように</strong>
+                    なりました。
+                </p>
+                <img src = '/static/images/figure/when-does-email-bounce-2.png' width = '100%'>
+                <p class = 'description ja'>
+                    このケースで発生したバウンスメールを{{ site.html.ss }}が解析すると、
+                    <span class = 'value'><a href = '/ja/reason/#userunknown'>UserUnknown</a></span> や、
+                    <span class = 'value'><a href = '/ja/reason/#mailboxfull'>MailboxFull</a></span> や、
+                    <span class = 'value'><a href = '/ja/reason/#mesgtoobig'>MesgTooBig</a></span> など
+                    宛先メールアドレスやメールボックスに関連したバウンス理由と判断されます。
+                </p>
+                <p class = 'description ja'>
+                    また近年では徹底したドメイン認証が求められることによる
+                    <span class = 'value'><a href = '/ja/reason/#authfailure'>AuthFailure</a></span> や、
+                    送信元IPアドレスまたは送信元ドメインの評判(レピュテーションと呼ばれる)に起因した
+                    <span class = 'value'><a href = '/ja/reason/#badreputation'>BadReputation</a></span>
+                    に加え、送信元IPアドレスの適切な逆引きを求める
+                    <span class = 'value'><a href = '/ja/reason/#requireptr'>RequirePTR</a></span> や、
+                    メールヘッダーのRFC5322準拠違反があったことを示す
+                    <span class = 'value'><a href = '/ja/reason/#notcompliantrfc'>NotCompliantRFC</a></span>
+                    といったバウンス理由も増えています。
+                </p>
+                <p class = 'description ja'>
+                    SMTPセッション中に発生したエラーによるバウンスメールも1と同様に、
+                    図の送信サーバーである<span class = 'value'>sender.example.jp</span>が生成します。
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-<section id = 'b' class = 'parallax'>
+<section id = '3' class = 'parallax'>
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'post-it'>C</div>
+                <div class = 'post-it'>3</div>
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>送信後</h2>
+                <h2 class = 'in-desc'>転送時(70%)</h2>
                 <p class = 'description ja'>
-                    メールサーバではqmailがデフォルトでこの動作をします。
-                    また日本の携帯電話キャリアではau by KDDI(@ezweb.ne.jp宛)も概ねこの動作をします。
+                    組織のメールアドレス宛に来たメールを、スマートフォンで受信通知を得るために
+                    GmailやOutlookなどに転送しているケースは多くあることでしょう。
+                    <strong>
+                        2024年2月から段階的に開始されたGmailと米国Yahoo!の送信者向けガイドライン準拠要請によって、
+                        転送メールはこれまでよりも多くのバウンスを生む要因となりました。
+                    </strong>
+
+                    ここ数年の観測では、<strong>転送時のエラーによるバウンスの割合は全体の70%程度にまで上昇</strong>
+                    しています。
                 </p>
                 <p class = 'description ja'>
-                    送信した自分のメールサーバから見れば、送信のSMTPセッション自体は正常に終了した後、
-                    数秒〜数時間経過してから、<strong>相手側メールサーバからバウンスメールが送られて</strong>
-                    きて、 それを受け取って発信者に送信(差戻)します。
+                    具体的には、図の<span class = 'value'>mx.example.com</span>で受信したメールを転送する際に、
+                    <strong>SPFがHard Failとなったり</strong>、転送時に<span class = 'value'>Subject:</span>
+                    ヘッダーや本文の<strong>部分的な書き換え(これはメーリングリストで起こることが殆ど)によって
+                    DKIM署名が検証失敗</strong>したりして、ドメイン認証の失敗によるバウンスとなります。
                 </p>
-                <img src = '/static/images/figure/email-bounces-at-c.png' width = '100%'>
+                <p class = 'description ja'>
+                    このケースで発生するバウンスメールは、上述の1や2と異なり、<span class = 'value'>mx.example.com</span>
+                    が生成し、<span class = 'value'>Return-Path:</span>に書かれたメールアドレスに送られます。
+                </p>
+                <img src = '/static/images/figure/when-does-email-bounce-3.png' width = '100%'>
                 <hr>
                 <p class = 'description ja'>
-                    あるいは、宛先不明や接続元IPアドレスがブラックリストに載っていたなどの場合のみ、
-                    SMTPセッション中にエラーを発生させ、それ以外は一旦受け取って改めて
-                    バウンスメールを送ってくる場合もあります。
+                    転送時に発生したドメイン認証エラーによるバウンスメールを{{ site.html.ss }}が解析すると
+                    バウンス理由は <span class = 'value'><a href = '/ja/reason/#authfailure'>AuthFailure</a></span> 
+                    とります。転送元サーバー(<span class = 'value'>mx.example.com</span>)がARCに対応していれば、
+                    <strong>転送前の時点で「うちが受信した段階ではSPFもDKIMもDMARCも全てOKでしたよ」という
+                    技術的に検証可能な事実の記録としてARC関連ヘッダーが追加され</strong>、転送先も受け取ってくれると
+                    期待できるでしょう。
                 </p>
                 <p class = 'description ja'>
-                    多くの場合、バウンスメールはBのように、送信する自分のメールサーバが
-                    生成して発信者に送り返すものですが、Cの場合は相手側メールサーバによって作られ、
-                    そして相手側毎の様々なバウンスメールのフォーマット・文言が存在します。
+                    あるいは、転送元サーバー(<span class = 'value'>mx.example.com</span>)のIPアドレスが
+                    低いレピュテーションであることで接続を拒否された場合、バウンス理由は
+                    <span class = 'value'><a href = '/ja/reason/#badreputation'>BadReputation</a></span> 
+                    に決定されます。
+                </p>
+                <p class = 'description ja'>
+                    近年はDMARCやDKIMを筆頭にドメイン認証関係のエラーが目立つようになってきましたが、
+                    転送先メールアドレスが無くなっていることによる
+                    <span class = 'value'><a href = '/ja/reason/#userunknown'>UserUnknown</a></span>
+                    や、転送先メールボックスを放置していることによる
+                    <span class = 'value'><a href = '/ja/reason/#mailboxfull'>MailboxFull</a></span>
+                    もまだまだ発生しています。
+                </p>
+                <p class = 'description ja'>
+                    いずれのバウンス理由にせよ、ある程度の量を配信しているのであれば、メール転送時
+                    にエラーとなる宛先メールアドレスも、配信対象から除外することを検討すべきでしょう。
                 </p>
             </div>
         </div>

@@ -343,6 +343,12 @@ h4.in-desc {
     clear: left;
 }
 
+h6.timestamp {
+    padding: 4px 10px;
+    background-color: #f3f3f2;
+    text-align: right;
+}
+
 img.lhs {
     float: left;
     margin: 10px 10px 0 0;
