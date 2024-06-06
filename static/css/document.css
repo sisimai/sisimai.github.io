@@ -257,6 +257,15 @@ ul.release-notes li kbd {
     text-shadow: none;
 }
 
+dl dt:before { content: '* '; }
+dl dt {
+    margin: 4px 0 4px 0;
+    font-weight: bold;
+}
+dl dd {
+    margin: 4px 0 8px 24px;
+    line-height: 1.5em;
+}
 
 dl.faq dt:before { content: 'Q. '; }
 dl.faq dd:before { content: ''; }
@@ -311,6 +320,11 @@ span.value {
     border-style: solid;
     border-radius: 4px;
     text-shadow: none;
+}
+
+span.value a {
+    background: none;
+    color: inherit;
 }
 
 h3.icon-caption {
