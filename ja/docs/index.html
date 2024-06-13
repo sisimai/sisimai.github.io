@@ -134,61 +134,81 @@
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-condensed link-index'>
                         <tbody>
-                            <tr data-href = '/ja/release/'>
+                            <tr>
                                 <th><i class = 'fa fa-star'></i></th>
-                                <td class = 'ltext'><strong>リリース情報</strong></td>
+                                <td class = 'ltext'>
+                                    <a href = '/ja/release/' class = 'cell-link'>
+                                        <strong>リリース情報</strong>
+                                    </a>
+                                </td>
                                 <td>{{ site.html.ss }}のリリースノート一覧</td>
                             </tr>
-                            <tr data-href = '/ja/start/'>
+                            <tr>
                                 <th><i class = 'fa fa-play'></i></th>
-                                <td class = 'ltext'><strong>導入ガイド</strong></td>
-                                <td>
-                                    動作環境・インストール方法・簡単な使用例
+                                <td class = 'ltext'>
+                                    <a  href = '/ja/start/' class = 'cell-link'>
+                                        <strong>導入ガイド</strong>
+                                    </a>
                                 </td>
+                                <td>動作環境・インストール方法・簡単な使用例</td>
                             </tr>
-                            <tr data-href = '/ja/usage/'>
+                            <tr>
                                 <th><i class = 'fa fa-code'></i></th>
-                                <td><strong>解析方法</strong></td>
+                                <td>
+                                    <a href = '/ja/usage/' class = 'cell-link'>
+                                        <strong>解析方法</strong>
+                                    </a>
+                                </td>
                                 <td>標準入力からの読み込み・解析オプション・コールバック</td>
                             </tr>
 
-                            <tr data-href = '/ja/reason/'>
+                            <tr>
                                 <th><i class = 'fa fa-exclamation-triangle'></i></th>
-                                <td><strong>バウンス理由一覧</strong></td>
                                 <td>
-                                    {{ site.html.ss }}が検出可能なバウンス理由の一覧
+                                    <a href = '/ja/reason/' class = 'cell-link'>
+                                        <strong>バウンス理由一覧</strong>
+                                    </a>
                                 </td>
+                                <td>{{ site.html.ss }}が検出可能なバウンス理由の一覧</td>
                             </tr>
 
-                            <tr data-href = '/ja/data/'>
+                            <tr>
                                 <th><i class = 'fa fa-list'></i></th>
-                                <td><strong>データ構造</strong></td>
                                 <td>
-                                    {{ site.html.ss }}が生成するデータ構造・項目の一覧
+                                    <a href = '/ja/data/' class = 'cell-link'>
+                                        <strong>データ構造</strong>
+                                    </a>
                                 </td>
+                                <td>{{ site.html.ss }}が生成するデータ構造・項目の一覧</td>
                             </tr>
 
-                            <tr data-href = '/ja/engine/'>
+                            <tr>
                                 <th><i class = 'fa fa-cogs'></i></th>
-                                <td><strong>モジュール一覧</strong></td>
                                 <td>
-                                    {{ site.html.ss }}に含まれる解析エンジンモジュールの一覧
+                                    <a href = '/ja/engine/' class = 'cell-link'>
+                                        <strong>モジュール一覧</strong>
+                                    </a>
                                 </td>
+                                <td>{{ site.html.ss }}に含まれる解析エンジンモジュールの一覧</td>
                             </tr>
 
-                            <tr data-href = '/ja/diff/'>
+                            <tr>
                                 <th><i class = 'fa fa-gavel'></i></th>
-                                <td><strong>{{ site.html.ss }} 4との違い</strong></td>
                                 <td>
-                                    {{ site.html.ss }}のVersion 5とVersion 4の違い
+                                    <a href = '/ja/diff/' class = 'cell-link'>
+                                        <strong>{{ site.html.ss }} 4との違い</strong>
+                                    </a>
                                 </td>
+                                <td>{{ site.html.ss }}のVersion 5とVersion 4の違い</td>
                             </tr>
-                            <tr data-href = '/ja/diff/between-sisimai-and-bouncehammer.html'>
+                            <tr>
                                 <th><i class = 'fa fa-gavel'></i></th>
-                                <td><strong>{{ site.html.bh }}との違い</strong></td>
                                 <td>
-                                    {{ site.html.ss }} と{{ site.html.bh }}の違いについて
+                                    <a href = '/ja/diff/between-sisimai-and-bouncehammer.html' class = 'cell-link'>
+                                        <strong>{{ site.html.bh }}との違い</strong>
+                                    </a>
                                 </td>
+                                <td>{{ site.html.ss }} と{{ site.html.bh }}の違いについて</td>
                             </tr>
                         </tbody>
                     </table>
@@ -225,49 +245,49 @@
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-condensed link-index'>
                         <tbody>
-                            <tr data-href = '/ja/docs/what-is-bounced-email.html'>
+                            <tr>
                                 <th><i class = 'fa fa-link'></i></th>
                                 <td>
-                                    <p class = 'description ja'>
+                                    <a href = '/ja/docs/what-is-bounced-email.html' class = 'cell-block'>
                                         <strong>バウンスメールとは何か?:</strong>
                                         配信できずに戻ってきた「バウンスメール」について
-                                    </p>
+                                    </a>
                                 </td>
                             </tr>
-                            <tr data-href = '/ja/docs/distinguish-between-the-unknown-and-the-filtered.html'>
+                            <tr>
                                 <th><i class = 'fa fa-eye'></i></th>
                                 <td>
-                                    <p class = 'description ja'>
+                                    <a href = '/ja/docs/distinguish-between-the-unknown-and-the-filtered.html' class = 'cell-block'>
                                         <strong>携帯電話宛バウンスの見分け:</strong>
                                         携帯宛バウンスメールの「宛先不明」と「ドメイン指定拒否」を見分ける方法
-                                    </p>
+                                    </a>
                                 </td>
                             </tr>
-                            <tr data-href = '/ja/docs/when-does-email-bounce.html'>
+                            <tr>
                                 <th><i class = 'fa fa-paper-plane'></i></th>
                                 <td>
-                                    <p class = 'description ja'>
+                                    <a href = '/ja/docs/when-does-email-bounce.html' class = 'cell-block'>
                                         <strong>バウンスが発生する3つのタイミング:</strong>
                                         バウンスはいつ発生するのか?
-                                    </p>
+                                    </a>
                                 </td>
                             </tr>
-                            <tr data-href = '/ja/docs/how-much-the-max-size-of-email.html'>
+                            <tr>
                                 <th><i class = 'fa fa-cube'></i></th>
                                 <td>
-                                    <p class = 'description ja'>
-                                    <strong>宛先サーバの最大受信サイズを調べる:</strong>
+                                    <a href = '/ja/docs/how-much-the-max-size-of-email.html' class = 'cell-block'>
+                                        <strong>宛先サーバの最大受信サイズを調べる:</strong>
                                         telnetコマンドでメールの最大サイズを調べる方法
-                                    </p>
+                                    </a>
                                 </td>
                             </tr>
-                            <tr data-href = '/ja/docs/mechanism-of-email-bounce.html'>
+                            <tr>
                                 <th><i class = 'fa fa-mobile'></i></th>
                                 <td>
-                                    <p class = 'description ja'>
-                                    <strong>携帯宛バウンス発生の仕組みを推測:</strong>
+                                    <a href = '/ja/docs/mechanism-of-email-bounce.html' class = 'cell-block'>
+                                        <strong>携帯宛バウンス発生の仕組みを推測:</strong>
                                         telnetコマンドで携帯電話宛バウンスが発生する仕組みを推測する
-                                    </p>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
@@ -306,75 +326,117 @@
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-condensed link-index'>
                         <tbody>
-                            <tr data-href = 'https://qiita.com/revsystem/items/52d204bd9dada9cb9bc4'>
+                            <tr>
                                 <th><i class = 'fa fa-q'></i></th>
                                 <td>2023/05/20</td>
-                                <td>Sisitoとsisimaiでバウンスメールの解析､集計する #sisimai - Qiita</td>
+                                <td>
+                                    <a href = 'https://qiita.com/revsystem/items/52d204bd9dada9cb9bc4' class = 'cell-link' target = 'new'>
+                                        Sisitoとsisimaiでバウンスメールの解析､集計する #sisimai - Qiita
+                                    </a>
+                                </td>
                             </tr>
-                            <tr data-href = 'https://zenn.dev/itsuo/articles/b810ac28b31ffc'>
+                            <tr>
                                 <th><i class = 'fa fa-z'></i></th>
                                 <td>2021/12/22</td>
-                                <td>SendGridからbounceメールを取得して、sisimaiで解析してみる</td>
+                                <td>
+                                    <a href = 'https://zenn.dev/itsuo/articles/b810ac28b31ffc' class = 'cell-link' target = 'new'>
+                                        SendGridからbounceメールを取得して、sisimaiで解析してみる
+                                    </a>
+                                </td>
                             </tr>
-                            <tr data-href = 'https://realsender.com/for-email-broadcasters/bouncehandler-app/'>
+                            <tr>
                                 <th><i class = 'fa fa-r'></i></th>
                                 <td>2021/10/30</td>
-                                <td>bouncehandler app :: RealSender</td>
+                                <td>
+                                    <a href = 'https://realsender.com/for-email-broadcasters/bouncehandler-app/' class = 'cell-link' target = 'new'>
+                                        bouncehandler app :: RealSender
+                                    </a>
+                                </td>
                             </tr>
-                            <tr data-href = 'https://blogs.pcsoft.fr/fr/emailing-application-windev-tache-site-webdev-eviter-passer-liste-noire-voir-envois-rejetes/281474976710985/read.awp'>
+                            <tr>
                                 <th><i class = 'fa fa-p'></i></th>
                                 <td>2021/07/21</td>
                                 <td>
-                                    Emailing depuis une application WINDEV ou une tâche d'un site WEBDEV,
-                                    comment éviter de passer en liste noire et de voir les envois rejetés ?
-                                    - PC SOFT - Blogs
+                                    <a href = 'https://blogs.pcsoft.fr/fr/emailing-application-windev-tache-site-webdev-eviter-passer-liste-noire-voir-envois-rejetes/281474976710985/read.awp' class = 'cell-link' target = 'new'>
+                                        Emailing depuis une application WINDEV ou une tâche d'un site WEBDEV,
+                                        comment éviter de passer en liste noire et de voir les envois rejetés ?
+                                        - PC SOFT - Blogs
+                                    </a>
                                 </td>
                             </tr>
-                            <tr data-href = 'https://www.mindbaz.com/technologie-email/bounces-email/'>
+                            <tr>
                                 <th><i class = 'fa fa-m'></i></th>
                                 <td>2021/03/30</td>
-                                <td>Traitement des bounces email - Mindbaz</td>
+                                <td>
+                                    <a href = 'https://www.mindbaz.com/technologie-email/bounces-email/' class = 'cell-link' target = 'new'>
+                                        Traitement des bounces email - Mindbaz
+                                    </a>
+                                </td>
                             </tr>
-                            <tr data-href = 'https://blog.hokkai7go.jp/entry/2020/07/14/145454'>
+                            <tr>
                                 <th><i class = 'fa fa-h'></i></th>
                                 <td>2020/07/14</td>
-                                <td>LambdaでSisimaiを動かしてバウンスメールを解析するテスト - 実はhokkai7go</td>
+                                <td>
+                                    <a href = 'https://blog.hokkai7go.jp/entry/2020/07/14/145454' class = 'cell-link' target = 'new'>
+                                        LambdaでSisimaiを動かしてバウンスメールを解析するテスト - 実はhokkai7go
+                                    </a>
+                                </td>
                             </tr>
-                            <tr data-href = 'https://heartbeats.jp/hbblog/2017/12/sisimai.html'>
+                            <tr>
                                 <th><i class = 'fa fa-h'></i></th>
                                 <td>2017/12/19</td>
                                 <td>
-                                    バウンスメール解析ライブラリSisimaiの出力からバウンスメールの集計と通知を行う
-                                    - インフラエンジニアway - Powered by HEARTBEATS
+                                    <a href = 'https://heartbeats.jp/hbblog/2017/12/sisimai.html' class = 'cell-link' target = 'new'>
+                                        バウンスメール解析ライブラリSisimaiの出力からバウンスメールの集計と通知を行う
+                                        - インフラエンジニアway - Powered by HEARTBEATS
+                                    </a>
                                 </td>
                             </tr>
-                            <tr data-href = 'https://techlife.cookpad.com/entry/2017/05/15/000000'>
+                            <tr>
                                 <th><i class = 'fa fa-c'></i></th>
                                 <td>2017/05/15</td>
-                                <td>Sisimaiを使ったバウンスメールの管理 - クックパッド開発者ブログ</td>
+                                <td>
+                                    <a href = 'https://techlife.cookpad.com/entry/2017/05/15/000000' class = 'cell-link' target = 'new'>
+                                        Sisimaiを使ったバウンスメールの管理 - クックパッド開発者ブログ
+                                    </a>
+                                </td>
                             </tr>
-                            <tr data-href = 'https://techblog.raccoon.ne.jp/archives/49496190.html'>
+                            <tr>
                                 <th><i class = 'fa fa-r'></i></th>
                                 <td>2016/09/21</td>
                                 <td>
-                                    Sisimaiによるバウンスメール解析の自動化 | Raccoon Tech Blog
-                                    [株式会社ラクーンホールディングス 技術戦略部ブログ]
+                                    <a href = 'https://techblog.raccoon.ne.jp/archives/49496190.html' class = 'cell-link' target = 'new'>
+                                        Sisimaiによるバウンスメール解析の自動化 | Raccoon Tech Blog
+                                        [株式会社ラクーンホールディングス 技術戦略部ブログ]
+                                    </a>
                                 </td>
                             </tr>
-                            <tr data-href = 'https://blog.ytnobody.net/entry/2016-08-17-00-47-42.html'>
+                            <tr>
                                 <th><i class = 'fa fa-y'></i></th>
                                 <td>2016/08/17</td>
-                                <td>エラーで帰ってきてしまったメールの解析 | All Your Bugs Are Belong To Ass</td>
+                                <td>
+                                    <a href = 'https://blog.ytnobody.net/entry/2016-08-17-00-47-42.html' class = 'cell-link' target = 'new'>
+                                        エラーで帰ってきてしまったメールの解析 | All Your Bugs Are Belong To Ass
+                                    </a>
+                                </td>
                             </tr>
-                            <tr data-href = 'https://qiita.com/taku1201/items/0afae3dd90507a688e3e'>
+                            <tr>
                                 <th><i class = 'fa fa-q'></i></th>
                                 <td>2016/03/26</td>
-                                <td>Sisimaiでバウンスメールを解析してみる #Ruby - Qiita</td>
+                                <td>
+                                    <a href = 'https://qiita.com/taku1201/items/0afae3dd90507a688e3e' class = 'cell-link' target = 'new'>
+                                        Sisimaiでバウンスメールを解析してみる #Ruby - Qiita
+                                    </a>
+                                </td>
                             </tr>
-                            <tr data-href = 'https://github.com/sisimai/sisimai.github.io/pulls'>
+                            <tr>
                                 <th><i class = 'fa fa-github'></i></th>
                                 <td></td>
-                                <td>他にあればPull-Requestを送ってください</td>
+                                <td>
+                                    <a href = 'https://github.com/sisimai/sisimai.github.io/pulls' class = 'cell-link' target = 'new'>
+                                        Please submit a pull request if you known any other blogs.
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
