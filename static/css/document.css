@@ -61,10 +61,7 @@ table tr td a:visited {
     color: #8f2e14; /* Akasumi */
 }
 
-table.link-index tr {
-    cursor: pointer;
-}
-
+table.link-index tr {}
 table.link-index tr th, table.link-index tr td {
     text-align: left;
     vertical-align: middle;
@@ -402,6 +399,12 @@ a[name] {
     height: 64px;
     border: none;
     background: transparent;
+}
+
+a.cell-link {
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 .not-available {
