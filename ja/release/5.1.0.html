@@ -1,0 +1,192 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.1.0 RELEASE"
+"description": "Sisimai 5.1.0のリリースノート/変更点の一覧"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/ja/release/'>リリース情報</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>古いリリース情報</a></li> 
+                    <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
+                    <li class = 'others'><a href = '/en/release/5.1.0.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>リリースノート</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-torii-gate'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.1.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2024/07/01</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.1.0をリリースしました。
+
+                    このバージョンにおける主な変更点は、<strong>v4互換機能の完全削除</strong>と
+                    <a href = 'https://github.com/corecode/dma' target = 'new'>DMA: DragonFly Mail Agent</a>
+                    のバウンスメール対応、<a href = 'https://postmaster.yahooinc.com/error-codes' target = 'new'>米国Yahoo!</a>
+                    などのエラーコード追加と整理です。
+                </p>
+
+                <p class = 'description ja'>
+                    Perl版{{ site.html.ss }}に特有の変更は
+                    <span class = 'lang perl'>Perl</span>が、Ruby版{{ site.html.ss }}に特有の変更は
+                    <span class = 'lang ruby'>Ruby</span>が、それぞれ冒頭に入っています。
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    {{ site.html.ss }} 5.0.0でVersion 4系とは<a href = '/ja/diff'>非互換な変更</a>が多く入っていますので、
+                    インストールまたはアップグレードの前に実行環境のPerlやRubyのバージョンを確認してください。
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>変更点</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <strong>{{ site.html.ss }} 4互換で残していた機能を完全に削除しました</strong>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/531' target = 'new'>#531</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/535' target = 'new'>#535</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/297' target = 'new'>#297</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/300' target = 'new'>#300</a>
+                    </li>
+                    <ul>
+                        <li><kbd>Sisimai</kbd>クラスの<kbd>make</kbd>メソッドを削除</li>
+                        <li><kbd>Sisimai::Fact</kbd>クラスの<kbd>softbounce</kbd>メソッドを削除</li>
+                    </ul>
+                    <li>
+                        <a href = 'https://github.com/corecode/dma' target = 'new'>DMA: DragonFly Mail Agent</a>
+                        が作ったバウンスメールを解析する<kbd>Sisimai::Lhost::DragonFly</kbd>を実装
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/478' target = 'new'>#478</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/526' target = 'new'>#526</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/292' target = 'new'>#292</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/293' target = 'new'>#293</a>
+                    </li>
+                    <ul>
+                        <li>30枚のバウンスメールを試験用サンプルとして追加<kbd>lhost-dragonfly-*.eml</kbd>
+                    </ul>
+                    <li>
+                        <kbd>Sisimai::Reason</kbd>以下に散逸しているエラーメッセージを
+                        <kbd>Sisimai::Rhost</kbd>以下に再定義して更新
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/523' target = 'new'>#523</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/288' target = 'new'>#288</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/289' target = 'new'>#289</a>
+                    </li>
+                    <ul>
+                        <li>
+                            <kbd>Sisimai::Rhost::YahooInc</kbd>
+                            (<a href = 'https://senders.yahooinc.com/smtp-error-codes/' target = 'new'>y! Sender Hub</a>)
+                            の更新と3枚のバウンスメールを試験用サンプルとして追加(<kbd>rhost-yahooinc-*.eml</kbd>)
+                        </li>
+                        <li>
+                            <kbd>Sisimai::Rhost::Apple</kbd>(iCloud Mail)の更新と4枚のバウンスメールを
+                            試験用サンプルとして追加(<kbd>rhost-apple-*.eml</kbd>)
+                        </li>
+                    </ul>
+                    <li>
+                        <kbd>Sisimai::Rhost</kbd>クラスの大幅な改善
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/524' target = 'new'>#524</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/525' target = 'new'>#525</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/529' target = 'new'>#529</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/290' target = 'new'>#290</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/291' target = 'new'>#291</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/295' target = 'new'>#295</a>
+                    </li>
+                    <ul>
+                        <li><kbd>Sisimai::Rhost</kbd>以下の各クラスでエラーメッセージを整理・更新</li>
+                        <ul>
+                            <li><kbd>Sisimai::Rhost::Cox</kbd></li>
+                            <li><kbd>Sisimai::Rhost::FrancePTT</kbd></li>
+                            <li><kbd>Sisimai::Rhost::GoDaddy</kbd></li>
+                            <li><kbd>Sisimai::Rhost::Mimecast</kbd></li>
+                            <li><kbd>Sisimai::Rhost::Spectrum</kbd></li>
+                            <li><kbd>Sisimai::Rhost::Tencent</kbd></li>
+                        </ul>
+                        <li>各エラーメッセージの照合は小文字で行うように変更</li>
+                        <li>
+                            <span class = 'value'>AuthFailure</span>や<span class = 'value'>BadReputation</span>など
+                            {{ site.html.ss }} 5で追加されたバウンス理由に関連したエラーメッセージとSMTPエラーコード
+                            の追従と更新
+                        </li>
+                        <li><kbd>Sisimai::Rhost</kbd>クラスの<kbd>match</kbd>メソッドが不要になったので削除</li>
+                    </ul>
+                    <li>
+                        <a href = 'https://www.opensmtpd.org/' target = 'new'>OpenSMTPD</a> 6.8.0p2が生成した
+                        バウンスメール8枚を試験用サンプルとして追加(<kbd>lhost-opensmtpd-1[0-7].eml</kbd>)
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/339' target = 'new'>#339</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/530' target = 'new'>#530</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/296' target = 'new'>#296</a>
+                    </li>
+                    <li>
+                        <a href = 'https://github.com/notqmail/notqmail' target = 'new'>notqmail</a> 1.0.8が生成した
+                        バウンスメール9枚を試験用サンプルとして追加(<kbd>lhost-qmail-1[1-9].eml</kbd>)
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/331' target = 'new'>#331</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/532' target = 'new'>#532</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/298' target = 'new'>#298</a>
+                    </li>
+                    <li>
+                        <a href = 'https://github.com/indimail' target = 'new'>indimail</a> 3.0.7が生成した
+                        バウンスメール6枚を試験用サンプルとして追加(<kbd>lhost-qmail-2[0-5].eml</kbd>)
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/209' target = 'new'>#209</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/220' target = 'new'>#220</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/533' target = 'new'>#533</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/299' target = 'new'>#299</a>
+                    </li>
+                    <li><span class = 'lang perl'>Perl</span>Perl 5.40.0での動作を確認</li>
+                    <li><span class = 'lang ruby'>Ruby</span>Ruby 3.3.3での動作を確認</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+

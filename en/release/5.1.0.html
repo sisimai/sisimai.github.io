@@ -1,0 +1,194 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.1.0 RELEASE"
+"description": "Release notes for Sisimai 5.1.0/All the cahnges"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>Docs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.1.0.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa fa-torii-gate'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.1.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2024/07/01</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.1.0 has been released.
+                    The main changes in this version are the complete <strong>removal of v4 compatibility features</strong>,
+                    <a href = 'https://github.com/corecode/dma' target = 'new'>DMA: DragonFly Mail Agent</a>
+                    bounce email support, and the update of error codes for 
+                    <a href = 'https://postmaster.yahooinc.com/error-codes' target = 'new'>Yahoo Inc.</a> and others.
+                </p>
+
+                <p class = 'description'>
+                    Changes specific to the Perl version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang perl'>Perl</span> at the beginning of each item, and changes
+                    specific to the Ruby version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang ruby'>Ruby</span>.
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    And then, {{ site.html.ss }} 5 includes
+                    <a href = '/en/diff'>many changes that are not compatible with Version 4</a>,
+                    so please check the Perl or Ruby version of your environment before installing
+                    or upgrading.
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Changes</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <strong>Features compatible with {{ site.html.ss }} 4 have been removed completely</strong>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/531' target = 'new'>#531</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/535' target = 'new'>#535</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/297' target = 'new'>#297</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/300' target = 'new'>#300</a>
+                    </li>
+                    <ul>
+                        <li><kbd>make</kbd> method of <kbd>Sisimai</kbd> class has been removed</li>
+                        <li><kbd>softbounce</kbd> method of <kbd>Sisimai::Fact</kbd> class has been removed</li>
+                    </ul>
+                    <li>
+                        Implement <kbd>Sisimai::Lhost::DragonFly</kbd> class for decoding a bounce mail generated by
+                        <a href = 'https://github.com/corecode/dma' target = 'new'>DMA: DragonFly Mail Agent</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/478' target = 'new'>#478</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/526' target = 'new'>#526</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/292' target = 'new'>#292</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/293' target = 'new'>#293</a>
+                    </li>
+                    <ul>
+                        <li>30 bounce mails generated by DMA have been added as a sample <kbd>lhost-dragonfly-*.eml</kbd></li>
+                    </ul>
+                    <li>
+                        Consolidate error messages scattered under <kbd>Sisimai::Reason</kbd> into
+                        <kbd>Sisimai::Rhost</kbd> classes for each email service
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/523' target = 'new'>#523</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/288' target = 'new'>#288</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/289' target = 'new'>#289</a>
+                    </li>
+                    <ul>
+                        <li>
+                            Update error message patterns defined in <kbd>Sisimai::Rhost::YahooInc</kbd> class, and
+                            (<a href = 'https://senders.yahooinc.com/smtp-error-codes/' target = 'new'>y! Sender Hub</a>)
+                            added 3 bounce mails as a sample(<kbd>rhost-yahooinc-*.eml</kbd>)
+                        </li>
+                        <li>
+                            Update error message patterns defined in <kbd>Sisimai::Rhost::Apple</kbd>(iCloud Mail), and
+                            added 4 bounce mails as a sample(<kbd>rhost-apple-*.eml</kbd>)
+                        </li>
+                    </ul>
+                    <li>
+                        <kbd>Sisimai::Rhost</kbd> improvements
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/524' target = 'new'>#524</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/525' target = 'new'>#525</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/529' target = 'new'>#529</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/290' target = 'new'>#290</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/291' target = 'new'>#291</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/295' target = 'new'>#295</a>
+                    </li>
+                    <ul>
+                        <li>Error message patterns defined in the following classes of <li><kbd>Sisimai::Rhost</kbd> updated</li>
+                        <ul>
+                            <li><kbd>Sisimai::Rhost::Cox</kbd></li>
+                            <li><kbd>Sisimai::Rhost::FrancePTT</kbd></li>
+                            <li><kbd>Sisimai::Rhost::GoDaddy</kbd></li>
+                            <li><kbd>Sisimai::Rhost::Mimecast</kbd></li>
+                            <li><kbd>Sisimai::Rhost::Spectrum</kbd></li>
+                            <li><kbd>Sisimai::Rhost::Tencent</kbd></li>
+                        </ul>
+                        <li>Each error message should be compared with the lowercased string</li>
+                        <li>
+                            Follow any updates of the SMTP error code and message list in each email services related to
+                            <span class = 'value'>AuthFailure</span>, <span class = 'value'>BadReputation</span>,
+                            <span class = 'value'>RequirePTR</span>, and other error reasons added at {{ site.html.ss }} 5
+                        </li>
+                        <li>No longer needed method <kbd>match</kbd> of <kbd>Sisimai::Rhost</kbd> class has been removed</li>
+                    </ul>
+                    <li>
+                        Added 8 sample emails (<kbd>lhost-opensmtpd-1[0-7].eml</kbd>) generated by
+                        <a href = 'https://www.opensmtpd.org/' target = 'new'>OpenSMTPD</a> 6.8.0p2
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/339' target = 'new'>#339</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/530' target = 'new'>#530</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/296' target = 'new'>#296</a>
+                    </li>
+                    <li>
+                        Added 9 sample emails (<kbd>lhost-qmail-1[1-9].eml</kbd>) generated by
+                        <a href = 'https://github.com/notqmail/notqmail' target = 'new'>notqmail</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/331' target = 'new'>#331</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/532' target = 'new'>#532</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/298' target = 'new'>#298</a>
+                    </li>
+                    <li>
+                        Added 6 sample emails (<kbd>lhost-qmail-2[0-5].eml</kbd>) generated by
+                        <a href = 'https://github.com/indimail' target = 'new'>indimail</a> 3.0.7
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/209' target = 'new'>#209</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/220' target = 'new'>#220</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/533' target = 'new'>#533</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/299' target = 'new'>#299</a>
+                    </li>
+                    <li><span class = 'lang perl'>Perl</span>{{ site.html.ss }} works on Perl 5.40.0</li>
+                    <li><span class = 'lang ruby'>Ruby</span>{{ site.html.ss }} works on Ruby 3.3.3</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
