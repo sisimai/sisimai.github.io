@@ -49,5 +49,4 @@ html:
 gems:
   - jekyll-sitemap
   - jekyll-redirect-from
-include: [".well-known"]
 
