@@ -53,6 +53,15 @@
                         It is also possible to output in JSON format.
                     </p>
                     <div class = 'attention'>
+                        <i class = 'fa fa-brands fa-golang' style = 'font-size: 320%'></i>
+                        As of February 2025,
+                        <a href = '{{ site.sisimai.repository.golang }}' target = 'new'>the Go language version of Sisimai</a>
+                        is available as a beta release. Before the official release,
+                        the API may undergo significant specification changes, and unexpected behavior
+                        or crashes may occur. 
+                        <strong>The official version v5.2.0 is scheduled to be released by the summer of 2025.</strong>
+                    </div>
+                    <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
                         The latest stable version is 
                         <a href = '#download'>
@@ -341,7 +350,9 @@
                 </h2>
                 <div class = 'attention'>
                     The latest version is <strong>{{ site.sisimai.version }}</strong>,
-                    released on {{ site.sisimai.release.en }}.
+                    released on {{ site.sisimai.release.en }}.  As of February 2025,
+                    <a href = '{{ site.sisimai.repository.golang }}' target = 'new'>the Go language version of Sisimai</a>
+                    is available as a beta release.
                 </div>
                 <br>
                 <p class = 'description'>
@@ -363,7 +374,7 @@
         </div>
         <div class = 'download-table'>
             <div class = 'row'>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
                         <h3>Perl Version</h3>
                         <div class = 'download'>
@@ -380,7 +391,7 @@
                     </div>
                 </div>
 
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
                         <h3>Ruby Version</h3>
                         <div class = 'download'>
@@ -390,17 +401,31 @@
                             <li>Release version</li>
                             <li>v4: Ruby 2.1.0 - 3.3.0</li>
                             <li>v5: Ruby <strong>{{ site.sisimai.workson.ruby[0] }}</strong> - {{ site.sisimai.workson.ruby[1] }}</li>
-                            <li>
-                                <s>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}</s>
-                                <a href = 'https://github.com/sisimai/rb-sisimai/issues/267' target = 'new'>#267</a>
-                            </li>
+                            <li>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Download</a>
                     </div>
                 </div>
 
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
+                    <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
+                        <h3>Go Version</h3>
+                        <div class = 'download'>
+                            <img src = '/static/images/icon/golang-1.png'>
+                        </div>
+                        <ul>
+                            <li>Beta version</li>
+                            <li>{{ site.html.ss }} 5 Only</li>
+                            <li>Go {{ site.sisimai.workson.golang[0] }} -</li>
+                            <li>Coming soon</li>
+                        </ul>
+                        <a href = '{{ site.sisimai.distribution.golang }}' target = 'new'
+                           class = 'btn btn-lg btn-primary'>Download</a>
+                    </div>
+                </div>
+
+                <div class = 'col-sm-3'>
                     <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '800ms'>
                         <h3>Fork on GitHub</h3>
                         <div class = 'download'>

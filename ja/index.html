@@ -51,6 +51,14 @@
                         JSONでの出力も可能です
                     </p>
                     <div class = 'attention'>
+                        <i class = 'fa fa-brands fa-golang' style = 'font-size: 320%'></i>
+                        2025年2月現在、<a href = '{{ site.sisimai.repository.golang }}' target = 'new'>Go言語版Sisimai</a>
+                        はベータ版として公開中です。
+                        リリースまでにAPIに大きな仕様変更が入ったり
+                        予期しない動作やクラッシュの可能性があります。
+                        <strong>正式版のv5.2.0は2025年の夏までにリリース予定です。</strong>
+                    </div>
+                    <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
                         <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>です。
@@ -206,8 +214,7 @@
                     <p class = 'description ja'>
                         そして2024年2月2日、{{ site.html.ss }}公開から10周年の年に、ドメイン認証
                         (SPF, DKIM, DMARC, ARC)系エラーやレピュテーションに起因するエラーなど
-                        現代のバウンスも検出可能な{{ site.html.ss }} {{ site.sisimai.version }}
-                        をリリースしました。
+                        現代のバウンスも検出可能な{{ site.html.ss }} 5.0.0をリリースしました。
                     </p>
                 </div>
             </div>
@@ -344,7 +351,8 @@
                 </h2>
                 <div class = 'attention'>
                     最新版シシマイは{{ site.html.ss }} <strong>{{ site.sisimai.version }}</strong>で
-                    {{ site.sisimai.release.ja }}にリリースされました。
+                    {{ site.sisimai.release.ja }}にリリースされました。またGo言語版シシマイは現在
+                    ベータ版として公開中です。
                 </div>
                 <br>
                 <hr>
@@ -366,7 +374,7 @@
         </div>
         <div class = 'download-table'>
             <div class = 'row'>
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
                         <h3>Perl Version</h3>
                         <div class = 'download'>
@@ -383,7 +391,7 @@
                     </div>
                 </div>
 
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
                     <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
                         <h3>Ruby Version</h3>
                         <div class = 'download'>
@@ -393,17 +401,31 @@
                             <li>リリース版のみ提供</li>
                             <li>v4: Ruby 2.1.0 - 3.3.0</li>
                             <li>v5: Ruby <strong>{{ site.sisimai.workson.ruby[0] }}</strong> - {{ site.sisimai.workson.ruby[1] }}</li>
-                            <li>
-                                <s>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}</s>
-                                <a href = 'https://github.com/sisimai/rb-sisimai/issues/267' target = 'new'>#267</a>
-                            </li>
+                            <li>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}</li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Download</a>
                     </div>
                 </div>
 
-                <div class = 'col-sm-4'>
+                <div class = 'col-sm-3'>
+                    <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '500ms'>
+                        <h3>Go Version</h3>
+                        <div class = 'download'>
+                            <img src = '/static/images/icon/golang-1.png'>
+                        </div>
+                        <ul>
+                            <li>ベータ版のみ提供</li>
+                            <li>{{ site.html.ss }} 5のみ</li>
+                            <li>Go {{ site.sisimai.workson.golang[0] }} - </li>
+                            <li>2025年リリース予定</li>
+                        </ul>
+                        <a href = '{{ site.sisimai.distribution.golang }}' target = 'new'
+                           class = 'btn btn-lg btn-primary'>Download</a>
+                    </div>
+                </div>
+
+                <div class = 'col-sm-3'>
                     <div class = 'single-table wow flipInY' data-wow-duration = '1000ms' data-wow-delay = '800ms'>
                         <h3>Fork on GitHub</h3>
                         <div class = 'download'>
@@ -413,7 +435,7 @@
                             <li>開発版と安定版</li>
                             <li>p5-sisimai (Perl)</li>
                             <li>rb-sisimai (Ruby)</li>
-                            <li>4-stable, 5-stable</li>
+                            <li>go-sisimai (Go)</li>
                         </ul>
                         <a href = '{{ site.sisimai.repository.project }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Fork</a>
