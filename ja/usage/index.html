@@ -505,12 +505,11 @@ end
                     <span class = 'value'>false</span>です。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
-import "os"
 import "fmt"
 import "libsisimai.org/sisimai"
 
 func main() {
-	path := os.Args[1]
+	path := "./set-of-emails/maildir/bsd/rfc3464-28.eml"
 	args := sisimai.Args()
 	<strong>args.Delivered = true</strong>
 
@@ -624,8 +623,37 @@ end
                 </pre>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>args.Vacation = true</h4>
+                <p class = 'description ja'>
+                    Perl版やRuby版と同様にGo版{{ site.html.ss }}でも<span class = 'value'>Rise()</span>と
+                    <span class = 'value'>Dump()</span>の第二引数に
+                    指定する構造体<span class = 'value'>sis.DecodingArgs</span>の<span class = 'value'>Vacation</span>
+                    に<kbd>true</kbd>を指定すると、不在応答のメールも解析結果に含まれるようになります。
+                    <span class = 'value'>Vacation</span>の初期値は<span class = 'value'>false</span>です。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+	path := "./set-of-emails/maildir/bsd/rfc3834-01.eml"
+	args := sisimai.Args()
+	<strong>args.Vacation = true</strong>
+
+	sisi, _ := sisimai.Rise(path, args)
+	if len(*sisi) &gt; 0 { fmt.Printf("Recipient = %s\n", *sisi[0].Recipient.Address }
+}
+                </pre>
+            </div>
+        </div>
     </div>
-</section> <!-- /#delivered -->
+</section> <!-- /#vacation -->
 
 <section id = 'callback' class = 'parallax'>
     <div class = 'container'>
