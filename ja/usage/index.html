@@ -185,7 +185,7 @@
                 <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>STDINファイルハンドル</h4>
+                <h4 class = 'in-desc'>STDINファイルハンドル(Perl)</h4>
                 <p class = 'description ja'>
                     <kbd>Sisimai</kbd>クラスの<kbd>dump()</kbd>と<kbd>rise()</kbd>メソッドは、
                     第一引数にファイルハンドル<kbd>STDIN</kbd>を指定すると、
@@ -216,7 +216,7 @@ sironeko@example.org
                 <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>STDINオブジェクト</h4>
+                <h4 class = 'in-desc'>STDINオブジェクト(Ruby)</h4>
                 <p class = 'description ja'>
                     Ruby版{{ site.html.ss }}も同様に、<kbd>Sisimai</kbd>クラスの<kbd>dump()</kbd>と<kbd>rise()</kbd>メソッドの
                     第一引数に<kbd>STDIN</kbd>オブジェクトを指定すると、
@@ -233,6 +233,42 @@ sironeko@example.org
                 <pre class = 'prettyprint'>
 % <kbd>cat ./path/to/email | ruby -rsisimai -e 'p Sisimai.rise(STDIN)'</kbd>
 [#&lt;Sisimai::Data:0x007fa1b0993050 @addresser=#&lt;Sisimai::Address:0x007fa1b0990e40 @user="kijitora", ...
+                </pre>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-2'>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>文字列"STDIN" (Go)</h4>
+                <p class = 'description ja'>
+                    Go版{{ site.html.ss }}も同様に、<kbd>libsisimai.org/sisimai</kbd>パッケージの
+                    <kbd>Rise()</kbd>と<kbd>Dump()</kbd>関数の
+                    第一引数に文字列<kbd>"STDIN"</kbd>を指定すると、
+                    標準入力からバウンスメールのデータを読み込み、解析結果を返します。
+                </p>
+                <pre class = 'prettyprint'>package main
+import "os"
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+	args := sisimai.Args()
+	json, _ := sisimai.Dump("STDIN", args)
+	if json != nil && *json != "" { fmt.Printf("%s\n", *json) }
+}
+                </pre>
+                <pre class = 'prettyprint'>% <kbd>cat ./path/to/email | go run ./sisid.go | jq</kbd>
+[
+  {
+    "catch": "",
+    "token": "d295b517a3ad6f8748031e1068e07ebd089c0277",
+    ...
                 </pre>
             </div>
 
