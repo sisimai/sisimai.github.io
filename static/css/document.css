@@ -186,6 +186,7 @@ pre.prettyprint {
     padding: 8px;
     margin: 12px 0;
     border: 1px red dotted;
+    background-color: rgba(255, 25, 25, 0.02);
 }
 
 div.diagnosticcode {
