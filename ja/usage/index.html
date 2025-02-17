@@ -252,7 +252,7 @@ sironeko@example.org
                     第一引数に文字列<kbd>"STDIN"</kbd>を指定すると、
                     標準入力からバウンスメールのデータを読み込み、解析結果を返します。
                 </p>
-                <pre class = 'prettyprint'>package main
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "os"
 import "fmt"
 import "libsisimai.org/sisimai"
@@ -296,8 +296,8 @@ func main() {
                 </p>
                 <p class = 'description ja'>
                 <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>の第一引数に変数
-                (Perlではスカラーリファレンス・Rubyでは<kbd>String</kbd>オブジェクト)を指定することによって、
-                    ファイルとしてのメールや標準入力以外からバウンスメールのデータを読み込むことができます。
+                (Perlではスカラーリファレンス・Rubyでは<kbd>String</kbd>オブジェクト・Goでは文字列)
+                を指定することによって、ファイルとしてのメールや標準入力以外からバウンスメールのデータを読み込むことができます。
                 </p>
                 <p class = 'description ja'>
                     バウンスメールをデータベースやジョブキューシステムから読み出す場合に有用なこの機能
@@ -354,6 +354,32 @@ v.each do |e|
   puts e.diagnosticcode # "Envelope expired"
   puts e.hardbounce     # false
 end
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>文字列としてのメール内容</h4>
+                <p class = 'description ja'>
+                    <kbd>Rise()</kbd>と<kbd>Dump()</kbd>の第一引数に<strong>文字列</strong>を指定すると、
+                    {{ site.html.ss }}内部では<kbd>libisismai.org/sisimai/mail/memory</kbd>が呼び出され、
+                    メールのファイルや標準入力から読み込んだのと同様、解析結果が得られます。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "os"
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+	mail := 'From MAILER-DAEMON Fri Feb  2 18:30:22 2018...'    # バウンスメール全体
+	args := sisimai.Args()
+	data, _ := sisimai.Rise(mail, args)
+	if len(data) &gt; 0 { fmt.Printf("%s\n", data[0].Recipient.Address) }
+}
                 </pre>
             </div>
         </div>
