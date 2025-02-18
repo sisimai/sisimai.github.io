@@ -867,7 +867,7 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                                 <th>
                                     <span class = 'value'>sis.DecodingArgs</span>
                                 </th>
-                                <th>引数<span class = 'value'>*sis.CalbackArgs</span></th>
+                                <th>引数</th>
                                 <th>戻り値</th>
                             </tr>
                         </thead>
@@ -876,10 +876,13 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                                 <td class = 'ltext'>Callback0</td>
                                 <td>
                                     <ul>
-                                        <li>Headers <span class = 'value'>map[string][]string</span></li>
-                                        <ul><li>バウンスメールのヘッダー部分</li></ul>
-                                        <li>Payload <span class = 'value'>*string</span></li>
-                                        <ul><li>ヘッダーを<strong>除く</strong>バウンスメールのメール本文</li></ul>
+                                        <li><span class = 'value'>*sis.CallbackArg0</span></li>
+                                        <ul>
+                                            <li>Headers <span class = 'value'>map[string][]string</span></li>
+                                            <ul><li>バウンスメールのヘッダー部分</li></ul>
+                                            <li>Payload <span class = 'value'>*string</span></li>
+                                            <ul><li>ヘッダーを<strong>除く</strong>バウンスメールのメール本文</li></ul>
+                                        </ul>
                                     </ul>
                                 </td>
                                 <td>
@@ -893,21 +896,21 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                                 <td class = 'ltext'>Callback1</td>
                                 <td>
                                     <ul>
-                                        <li>Headers <span class = 'value'>map[string][]string</span></li>
+                                        <li><span class = 'value'>*sis.CallbackArg1</span></li>
                                         <ul>
-                                            <li>"path": 元メールのPath</li>
-                                            <li>"dir":  元メールのディレクトリ名</li>
-                                            <li>"file": 元メールのファイル名</li>
-                                            <li>"kind": 元メールの種類</li>
+                                            <li>Path <span class = 'value'>string</span> 元メールのPath</li>
+                                            <li>Kind <span class = 'value'>string</span> 元メールの種類</li>
                                             <ul>
                                                 <li>"mailbox": UNIX mbox形式</li>
                                                 <li>"maildir": Maildir/形式</li>
                                                 <li>"memory": 変数からの読み込み</li>
                                                 <li>"stdin": STDINからの読み込み</li>
                                             </ul>
+                                            <li>
+                                                Mail <span class = 'value'>*string</span>
+                                                ヘッダーを<strong>含む</strong>バウンスメール全体
+                                            <li>Fact <span class = 'value'>*[]sis.Fact</span> 解析済みデータ</li>
                                         </ul>
-                                        <li>Payload <span class = 'value'>*string</span></li>
-                                        <ul><li>ヘッダーを<strong>含む</strong>バウンスメール全体</li></ul>
                                     </ul>
                                 </td>
                                 <td>
@@ -922,7 +925,7 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                 </div>
                 <pre class = 'prettyprint'>
 args := sisimai.Args()
-args.Callback0 = func(arg *sisimai.CallbackArgs) (map[string]interface{}, error) {
+args.Callback0 = func(arg *sisimai.CallbackArg0) (map[string]interface{}, error) {
     fmt.Printf("Headers = %v\n", (*arg).Headers) // ヘッダー全て
     fmt.Printf("- From: = %s\n", (*arg).Headers["from"][0])
     fmt.Printf("- Subject: = %s\n", (*arg).Headers["subject"][0])
@@ -931,12 +934,11 @@ args.Callback0 = func(arg *sisimai.CallbackArgs) (map[string]interface{}, error)
     data["from"] = (*arg).Headers["from"][0]
     return data, nil
 }
-args.Callback1 = func(arg *sisimai.CallbackArgs) (bool, error) {
-    fmt.Printf("- Path = %s\n", (*arg).Headers["path"][0]) // 元メールファイルのPATH
-    fmt.Printf("- File = %s\n", (*arg).Headers["file"][0]) // 元メールのファイル名
-    fmt.Printf("- Dir  = %s\n", (*arg).Headers["dir"][0])  // 元メールファイルのディレクトリ名
-    fmt.Printf("- Kind = %s\n", (*arg).Headers["kind"][0]) // 元メールファイルの種類
-    fmt.Printf("Body = %s\n", (*arg).Payload)              // 本文
+args.Callback1 = func(arg *sisimai.CallbackArg1) (bool, error) {
+    fmt.Printf("- Path = %s\n", arg.Path)  // 元メールファイルのPATH
+    fmt.Printf("- Kind = %s\n", arg.Kind)  // 元メールファイルの種類
+    fmt.Printf("Body = %s\n", (*arg.Mail)) // 本文
+    fmt.Printf("Fact = %s\n", (*arg.Fact)) // 解析結果
     return true, nil
 }
 
@@ -1124,7 +1126,7 @@ func main() {
     args := sisimai.Args() // sis.DecodingArgs{}
     list := []string{"Return-Path", "From"}
 
-    args.Callback0 = func(arg *sisimai.CallbackArgs) (map[string]interface{}, error) {
+    args.Callback0 = func(arg *sisimai.CallbackArg0) (map[string]interface{}, error) {
         data := make(map[string]interface{})
         data["queue-id"] = ""
 
@@ -1144,8 +1146,8 @@ func main() {
         }
         return data, nil
     }
-    args.Callback1 = func(arg *sisimai.CallbackArgs) (bool, error) {
-        if nyaan := ioutil.WriteFile("/tmp/sisimai-decoded-1.eml", []byte(*arg.Payload), 0600); nyaan != nil {
+    args.Callback1 = func(arg *sisimai.CallbackArg1) (bool, error) {
+        if nyaan := ioutil.WriteFile("/tmp/sisimai-decoded-1.eml", []byte(*arg.Mail), 0600); nyaan != nil {
             return false, nyaan
         }
         return true, nil
