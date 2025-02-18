@@ -60,8 +60,9 @@
                     <div class = 'index-info'>
                         <h3>Environment</h3>
                         <p class = 'description'>
-                            {{ site.html.ss }} works on any OS where Perl or Ruby
-                            <s>(including some versions of JRuby)</s> can run.
+                            {{ site.html.ss }} runs on systems capable of executing binaries compiled with Go:
+                            <kbd>go build</kbd> command,
+                            as well as Perl and Ruby scripts (including some versions of JRuby)."
                         </p>
                     </div>
                     <a href = '#environment' class = 'btn btn-continue'>Read</a>
@@ -73,12 +74,13 @@
                     <div class = 'index-info'>
                         <h3>How To Install</h3>
                         <p class = 'description'>
-                            {{ site.html.ss }} can be downloaded from 
-                            <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>(Perl)
-                            or 
-                            <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems</a>(Ruby).
-                            Both the Perl and Ruby versions are also available for download on
+                            {{ site.html.ss }} can be downloaded from
+                            <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a> (for the Perl version),
+                            <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems</a> (for the Ruby version),
+                            and 
                             <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a>.
+                            (for the Perl, Ruby, and Go versions). The Go version can also be installed
+                            using <kbd>go get</kbd>.
                         </p>
                     </div>
                     <a href = '#install' class = 'btn btn-continue'>Read</a>
@@ -127,12 +129,9 @@
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>System Requirements</h2>
                 <p class = 'description'>
-                    {{ site.html.ss }} can run on any OS that supports Perl or Ruby
-                    <s>(including some versions of JRuby)</s>, such as *BSD, Mac OS X, and Linux. Additionally, {{ site.html.ss }}
-                    4.22.5 and later 
-                    <a href = 'https://github.com/sisimai/p5-sisimai/issues/261' target = 'new'>
-                        may run with ActivePerl on Windows.
-                    </a>.
+                    {{ site.html.ss }} runs on systems capable of executing binaries compiled with Go:
+                    <kbd>go build</kbd> command, as well as Perl and Ruby scripts
+                    (including some versions of JRuby).
                 </p>
                 <p class = 'description'>
                     <strong>
@@ -146,7 +145,7 @@
         </div>
         <div class = 'text-center index-table'>
             <div class = 'row'>
-                <div class = 'col-sm-4 col-sm-offset-2'>
+                <div class = 'col-sm-4'>
                     <div class = 'spec-icon'>
                         <img src = '/static/images/icon/dinosaur-1.png'>
                         <h3 class = 'icon-caption'>Perl {{ site.sisimai.workson.perl[0] }} or later</h3>
@@ -162,18 +161,6 @@
                                 </li>
                                 <li><a href = 'https://metacpan.org/pod/JSON' target = 'new'>JSON</a> module</li>
                             </ul>
-                            <li>Some core modules</li>
-                            <ul>
-                                <li title = 'Core module from Perl 5.9.4'>
-                                    <a href = 'https://metacpan.org/pod/Module::Load' target = 'new'>Module::Load</a>
-                                </li>
-                                <li title = 'Core module from Perl 5.9.5'>
-                                    <a href = 'https://metacpan.org/pod/Time::Piece' target = 'new'>Time::Piece</a>
-                                </li>
-                                <li title = 'Core module from Perl 5'>
-                                    <a href = 'https://metacpan.org/pod/Time::Local' target = 'new'>Time::Local</a>
-                                </li>
-                            </ul>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.perl }}' class = 'btn btn-continue'>Download from CPAN</a>
                     </div>
@@ -182,27 +169,50 @@
                 <div class = 'col-sm-4'>
                     <div class = 'spec-icon'>
                         <img src = '/static/images/icon/ruby-1.png'>
-                        <h3 class = 'icon-caption'>Ruby {{ site.sisimai.workson.ruby[0] }} or later</h3>
+                        <h3 class = 'icon-caption'>
+                            Ruby {{ site.sisimai.workson.ruby[0] }}/
+                            JRuby {{ site.sisimai.workson.jruby[0] }}
+                            or later
+                        </h3>
                     </div>
                     <div class = 'index-info'>
                         <ul class = 'spec'>
-                            <li><s>JRuby {{ site.sisimai.workson.jruby[0] }} - {{ site.sisimai.workson.jruby[1] }}</s></li>
-                            <li>Runtime dependencies in MRI</li>
+                            <li>Each runtime dependency</li>
                             <ul>
                                 <li>
-                                    <a href = 'https://rubygems.org/gems/oj' target = 'new'>Oj</a>
+                                    <a href = 'https://rubygems.org/gems/oj' target = 'new'>Oj</a> (MRI)
                                 </li>
-                                <li></li>
-                            </ul>
-                            <li><s>Runtime dependencies in JRuby</s></li>
-                            <ul>
                                 <li>
-                                    <s><a href = 'https://rubygems.org/gems/jrjackson' target = 'new'>JrJackson</a></s>
+                                    <a href = 'https://rubygems.org/gems/jrjackson' target = 'new'>JrJackson</a> (JRuby)
                                 </li>
-                                <li></li>
                             </ul>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.ruby }}' class = 'btn btn-continue'>Download from RubyGems</a>
+                    </div>
+                </div>
+
+                <div class = 'col-sm-4'>
+                    <div class = 'spec-icon'>
+                        <img src = '/static/images/icon/golang-1.png'>
+                        <h3 class = 'icon-caption'>Go {{ site.sisimai.workson.golang[0] }} or later</h3>
+                    </div>
+                    <div class = 'index-info'>
+                        <ul class = 'spec'>
+                            <li>2 Dependencies</li>
+                            <ul>
+                                <li>
+                                    <a href = 'https://pkg.go.dev/golang.org/x/text/encoding' target = 'new'>
+                                        golang.org/x/text/encoding
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href = 'https://pkg.go.dev/golang.org/x/net/html/charset' target = 'new'>
+                                        golang.org/x/net/html/charset
+                                    </a>
+                                </li>
+                            </ul>
+                        </ul>
+                        <a href = '{{ site.sisimai.distribution.golang }}' class = 'btn btn-continue'>go get</a>
                     </div>
                 </div>
             </div>
@@ -225,8 +235,9 @@
                 <p class = 'description'>
                     {{ site.html.ss }} can be downloaded and installed from
                     <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a>,
-                    <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>, and
-                    <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>.
+                    <a href = '{{ site.sisimai.distribution.perl }}' target = 'new'>CPAN</a>,
+                    <a href = '{{ site.sisimai.distribution.ruby }}' target = 'new'>RubyGems.org</a>, or
+                    <kbd>go get</kbd> command.
                     Additionally, the Perl version of Sisimai can be installed from
                     <a href = 'https://www.freshports.org/mail/p5-Sisimai/' target = 'new'>the FreeBSD ports collection</a> or
                     <a href = 'https://sources.debian.org/src/libsisimai-perl/' target = 'new'>Debian packages</a>.
@@ -269,6 +280,7 @@
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Perl version of {{ site.html.ss }}(v5)</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
                     The repository name for the Perl version of {{ site.html.ss }} is
                     <a href = '{{ site.sisimai.repository.perl }}'><strong>sisimai/p5-sisimai</strong></a>.
                     {{ site.html.ss }} 5.0.0 and later <strong>requires Perl {{ site.sisimai.workson.perl[0] }}
@@ -317,6 +329,7 @@ Successfully installed Sisimai-v5.0.0
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Ruby version of {{ site.html.ss }}</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     The repository name for the Ruby version of {{ site.html.ss }} is
                     <a href = '{{ site.sisimai.repository.ruby }}'><strong>sisimai/rb-sisimai</strong></a>.
                     {{ site.html.ss }} 5.0.0 and later requires Ruby {{ site.sisimai.workson.ruby[0] }}
@@ -359,6 +372,49 @@ sisimai (5.0.0) installed.
 % <kbd>git clone -b 4-stable https://github.com/sisimai/rb-sisimai.git</kbd>
                 </pre>
 
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>go get</div>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Go version of {{ site.html.ss }}</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    The Go version of {{ site.html.ss }} is installed into <span class = 'value'>$GOMODCACHE</span>
+                    directory using the <kbd>go get</kbd> command.
+                    Since <span class = 'value'>libsisimai.org/sisimai</span> package does not contain
+                    a file declaring the <span class = 'value'>main</span> package,
+                    you need to create a directory and import it as a dependency, as shown below.
+                </p>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-8 col-sm-offset-2'>
+                <pre class = 'prettyprint'>$ <kbd>mkdir ./sisimai</kbd>
+$ <kbd>cd ./sisimai</kbd>
+$ <kbd>go mod init example.com/sisimaicli</kbd>
+go: creating new go.mod: module example.com/sisimaicli
+
+$ <kbd> go get -u libsisimai.org/sisimai@latest</kbd>
+go: added golang.org/x/net v0.35.0
+go: added golang.org/x/text v0.22.0
+go: added libsisimai.org/sisimai v0.0.1
+
+$ <kbd>cat ./go.mod</kbd>
+module example.com/sisimaicli
+
+go 1.20
+
+require (
+	golang.org/x/net v0.35.0 // indirect
+	golang.org/x/text v0.22.0 // indirect
+	libsisimai.org/sisimai v0.0.3 // indirect
+)
+                </pre>
             </div>
         </div>
 
@@ -440,9 +496,6 @@ Done installing documentation for sisimai after 6 seconds
                 <pre class = 'prettyprint'>
 % <kbd>sudo gem install sisimai -v 4.25.16</kbd>
                 </pre>
-
-
-
             </div>
         </div>
 
@@ -614,6 +667,67 @@ end
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>Go version of {{ site.html.ss }}</h4>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    The following code is an example of using {{ site.html.ss }}'s <kbd>Rise()</kbd>
+                    function to decode bounced emails and obtain the decoded data.
+                    For other arguments that can be specified for the <kbd>Rise()</kbd> function,
+                    please refer to <a href = '/en/usage'>How To Decode with {{ site.html.ss }}</a>.
+                </p>
+
+                <pre class = 'prettyprint'>$ <kbd>vi ./sisid.go</kbd></pre>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "os"
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+	path := os.Args[1]     // go run ./sisid /path/to/mailbox or maildir/
+	args := sisimai.Args() // sis.DecodingArgs{}
+
+	// sisi is a pointer to []sis.Facti
+	sisi, nyaan := sisimai.Rise(path, args)
+	if len(*sisi) &gt; 0 {
+		for _, e := range *sisi {
+			// e is a sis.Fact struct
+			fmt.Printf("- Sender is %s\n", e.Addresser.Address)
+			fmt.Printf("- Recipient is %s\n", e.Recipient.Address)
+			fmt.Printf("- Recipient host is %s\n", e.Recipient.Host)
+			fmt.Printf("- Delivery status is %s\n", e.DeliveryStatus)
+			fmt.Printf("- SMTP reply code is %s\n", e.ReplyCode)
+			fmt.Printf("- Bounced due to %s\n", e.Reason)
+			fmt.Printf("- Email file is %s\n", e.Origin)
+			fmt.Printf("- Hard bounce is %t\n", e.HardBounce)
+		}
+	}
+	// nyaan is a pointer to []sis.NotDecoded
+	if len(*nyaan) &gt; 0 { fmt.Fprintf(os.Stderr, "%v\n", *nyaan) }
+}
+                </pre>
+
+                <pre class = 'prettyprint'>$ <kbd>CGO_ENABLED=0 go build -o ./sisid ./sisid.go</kbd>
+$ <kbd>./sisid /path/to/mailbox</kbd>
+                </pre>
+
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-code'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2>Dump as JSON</h2>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>dump()</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
@@ -650,6 +764,25 @@ print Sisimai-&gt;dump('/home/postmaster/Maildir/cur');
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
 puts Sisimai.dump('/home/postmaster/Maildir/cur')
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>Go version of {{ site.html.ss }}</h4>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+	args := sisimai.Args()
+	json, _ := sisimai.Dump("/home/postmaster/Maildir/cur", args)
+	if json != nil &amp;&amp; *json != "" { fmt.Printf("%s\n", *json)   }
+}
                 </pre>
             </div>
         </div>
@@ -693,6 +826,18 @@ puts Sisimai.dump('/home/postmaster/Maildir/cur')
 % <kbd>ruby -rsisimai -e 'puts Sisimai.dump($*.shift)' path/to/mbox | jq .</kbd>
                 </pre>
                 <img src = '/static/images/demo/sisimai-5-cli-dump-r01.gif' width = '100%'>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>Go version of {{ site.html.ss }}</h4>
+                <pre class = 'prettyprint'>% <kbd>go build -o sisid ./sisid.go &amp;&amp; ./sisid path/to/mbox | jq .</kbd>
+                </pre>
+                <img src = '/static/images/demo/sisimai-5-cli-dump-g01.gif' width = '100%'>
             </div>
         </div>
 

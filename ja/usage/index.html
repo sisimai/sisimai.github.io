@@ -160,12 +160,12 @@
                 <h2 class = 'in-desc'>標準入力から読む</h2>
                 <hr>
                 <p class = 'description ja cation'>
-                    <kbd>Sisimai</kbd>クラスの
-                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
-                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                    <span class = 'value'>Sisimai</span>クラスの
+                    <span class = 'value'>make()</span>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<span class = 'value'>rise()</span>メソッドをかわりに使ってください。
                 </p>
                 <p class = 'description ja'>
-                    {{ site.html.ss }}(シシマイ)の<kbd>rise()</kbd>や<kbd>dump()</kbd>メソッドは、
+                    {{ site.html.ss }}(シシマイ)の<span class = 'value'>rise()</span>や<span class = 'value'>dump()</span>メソッドは、
                     引数にファイル名を指定する以外に、<kbd>STDIN</kbd>を指定することによって、
                     標準入力(STDIN)からバウンスメールのデータを読み込むことができます。
                     この機能は初期の{{ site.html.ss }}から実装されていましたが、バグがあったため、
@@ -185,10 +185,11 @@
                 <div class = 'index-text'>Perl</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>STDINファイルハンドル</h4>
+                <h4 class = 'in-desc'>STDINファイルハンドル(Perl)</h4>
                 <p class = 'description ja'>
-                    <kbd>Sisimai</kbd>クラスの<kbd>dump()</kbd>と<kbd>rise()</kbd>メソッドは、
-                    第一引数にファイルハンドル<kbd>STDIN</kbd>を指定すると、
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <span class = 'value'>Sisimai</span>クラスの<span class = 'value'>dump()</span>と
+                    <span class = 'value'>rise()</span>メソッドは、第一引数にファイルハンドル<kbd>STDIN</kbd>を指定すると、
                     標準入力からバウンスメールのデータを読み込み、解析結果を返します。
                 </p>
 
@@ -216,9 +217,11 @@ sironeko@example.org
                 <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h4 class = 'in-desc'>STDINオブジェクト</h4>
+                <h4 class = 'in-desc'>STDINオブジェクト(Ruby)</h4>
                 <p class = 'description ja'>
-                    Ruby版{{ site.html.ss }}も同様に、<kbd>Sisimai</kbd>クラスの<kbd>dump()</kbd>と<kbd>rise()</kbd>メソッドの
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
+                    Ruby版{{ site.html.ss }}も同様に、<span class = 'value'>Sisimai</span>クラスの
+                    <span class = 'value'>dump()</span>と<span class = 'value'>rise()</span>メソッドの
                     第一引数に<kbd>STDIN</kbd>オブジェクトを指定すると、
                     標準入力からバウンスメールのデータを読み込み、解析結果を返します。
                 </p>
@@ -240,6 +243,42 @@ sironeko@example.org
             </div>
         </div>
 
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>文字列"STDIN" (Go)</h4>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    Go版{{ site.html.ss }}も同様に、<span class = 'value'>libsisimai.org/sisimai</span>パッケージの
+                    <span class = 'value'>Rise()</span>と<span class = 'value'>Dump()</span>関数の
+                    第一引数に文字列<kbd>"STDIN"</kbd>を指定すると、
+                    標準入力からバウンスメールのデータを読み込み、解析結果を返します。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+    args := sisimai.Args()
+    json, _ := sisimai.Dump("STDIN", args)
+    if json != nil && *json != "" { fmt.Printf("%s\n", *json) }
+}
+                </pre>
+                <pre class = 'prettyprint'>% <kbd>cat ./path/to/email | go run ./sisid.go | jq</kbd>
+[
+  {
+    "catch": "",
+    "token": "d295b517a3ad6f8748031e1068e07ebd089c0277",
+    ...
+                </pre>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-2'>
+            </div>
+        </div>
+
     </div>
 </section> <!-- /#stdin -->
 
@@ -254,18 +293,19 @@ sironeko@example.org
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>変数から読み込む</h2>
                 <p class = 'description ja cation'>
-                    <kbd>Sisimai</kbd>クラスの
-                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
-                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                    <span class = 'value'>Sisimai</span>クラスの
+                    <span class = 'value'>make()</span>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<span class = 'value'>rise()</span>メソッドをかわりに使ってください。
                 </p>
                 <p class = 'description ja'>
-                <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>の第一引数に変数
-                (Perlではスカラーリファレンス・Rubyでは<kbd>String</kbd>オブジェクト)を指定することによって、
-                    ファイルとしてのメールや標準入力以外からバウンスメールのデータを読み込むことができます。
+                <span class = 'value'>Sisimai</span>クラスの<span class = 'value'>rise()</span>と
+                <span class = 'value'>dump()</span>の第一引数に変数
+                (Perlではスカラーリファレンス・Rubyでは<span class = 'value'>String</span>オブジェクト・Goでは文字列)
+                を指定することによって、ファイルとしてのメールや標準入力以外からバウンスメールのデータを読み込むことができます。
                 </p>
                 <p class = 'description ja'>
                     バウンスメールをデータベースやジョブキューシステムから読み出す場合に有用なこの機能
-                    (<kbd>Sisimai::Mail::Memory</kbd>)は{{ site.html.ss }} 4.23.0で実装されました。
+                    (<span class = 'value'>Sisimai::Mail::Memory</span class = 'value'>)は{{ site.html.ss }} 4.23.0で実装されました。
                 </p>
             </div>
         </div>
@@ -277,9 +317,11 @@ sironeko@example.org
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Scalar Reference</h4>
                 <p class = 'description ja'>
-                    <kbd>rise()</kbd>と<kbd>dump()</kbd>の第一引数に<strong>スカラーリファレンス</strong>を指定すると、
-                    {{ site.html.ss }}内部では<kbd>Sisimai::Mail::Memory</kbd>が呼び出され、メールのファイルや標準入力から読み込んだ
-                    のと同様、解析結果が得られます。
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <span class = 'value'>rise()</span>と<span class = 'value'>dump()</span>の第一引数に
+                    <strong>スカラーリファレンス</strong>を指定すると、
+                    {{ site.html.ss }}内部では<span class = 'value'>Sisimai::Mail::Memory</span>が呼び出され、
+                    メールのファイルや標準入力から読み込んだのと同様、解析結果が得られます。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
@@ -303,8 +345,10 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>String Object</h4>
                 <p class = 'description ja'>
-                    Ruby版{{ site.html.ss }}では<kbd>rise()</kbd>と<kbd>dump()</kbd>の第一引数に
-                    <strong>Stringオブジェクト</strong>を指定すると、{{ site.html.ss }}内部で<kbd>Sisimai::Mail::Memory</kbd>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
+                    Ruby版{{ site.html.ss }}では<span class = 'value'>rise()</span>と
+                    <span class = 'value'>dump()</span>の第一引数に<strong>Stringオブジェクト</strong>
+                    を指定すると、{{ site.html.ss }}内部で<span class = 'value'>Sisimai::Mail::Memory</span>
                     が呼び出され、メールのファイルや標準入力から読み込んだのと同様、解析結果が得られます。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
@@ -318,6 +362,33 @@ v.each do |e|
   puts e.diagnosticcode # "Envelope expired"
   puts e.hardbounce     # false
 end
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>文字列としてのメール内容</h4>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    <span class = 'value'>Rise()</span>関数と<span class = 'value'>Dump()</span>関数の第一引数に
+                    バウンスメール全体を含んだ<strong>文字列</strong>を指定すると、{{ site.html.ss }}内部では
+                    <span class = 'value'>libisismai.org/sisimai/mail/memory</span>が呼び出され、
+                    メールのファイルや標準入力から読み込んだのと同様に、解析結果が得られます。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+    mail := 'From MAILER-DAEMON Fri Feb  2 18:30:22 2018...'    // バウンスメール全体
+    args := sisimai.Args()
+    data, _ := sisimai.Rise(mail, args)
+    if len(*data) &gt; 0 { fmt.Printf("%s\n", data[0].Recipient.Address) }
+}
                 </pre>
             </div>
         </div>
@@ -335,12 +406,13 @@ end
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>配信成功も解析結果に含める</h2>
                 <p class = 'description ja cation'>
-                    <kbd>Sisimai</kbd>クラスの
-                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
-                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                    <span class = 'value'>Sisimai</span>クラスの
+                    <span class = 'value'>make()</span>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<span class = 'value'>rise()</span>メソッドをかわりに使ってください。
                 </p>
                 <p class = 'description ja'>
-                    <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>は第二引数に<kbd>delivered</kbd>
+                    <span class = 'value'>Sisimai</span>クラスの<span class = 'value'>rise()</span>と
+                    <span class = 'value'>dump()</span>は第二引数に<kbd>delivered</kbd>
                     を指定することによって、配信が成功した事を通知するメールも解析結果に含めることができます。
                 </p>
             </div>
@@ -372,9 +444,13 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>delivered =&gt; 1</h4>
                 <p class = 'description ja'>
-                    <kbd>rise()</kbd>と<kbd>dump()</kbd>の第二引数に<kbd>delivered =&gt; 1</kbd>を指定すると、
-                    配信に成功したメール(配信通知)も解析結果に含まれるようになります。<kbd>delivered</kbd>
-                    に偽となる値(<kbd>0</kbd>,<kbd>undef</kbd>,<kbd>''</kbd>)を指定した場合は、解析結果は生成されません。
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <span class = 'value'>rise()</span>と<span class = 'value'>dump()</span>の第二引数に
+                    <kbd>delivered =&gt; 1</kbd>を指定すると、
+                    配信に成功したメール(配信通知)も解析結果に含まれるようになります。
+
+                    <span class = 'value'>delivered</span>に偽となる値(<kbd>0</kbd>,<kbd>undef</kbd>,<kbd>''</kbd>)
+                    を指定した場合は、解析結果は生成されません。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
 use Sisimai;
@@ -398,10 +474,12 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>delivered: true</h4>
                 <p class = 'description ja'>
-                    Perl版と同様に、Ruby版{{ site.html.ss }}でも<kbd>rise()</kbd>と<kbd>dump()</kbd>の第二引数に
-                    <kbd>delivered: true</kbd>を指定すると、配信に成功したメール(配信通知)も
-                    解析結果に含まれるようになります。<kbd>delivered</kbd>
-                    に偽となる値(<kbd>nil</kbd>,<kbd>false</kbd>)を指定した場合は、解析結果は生成されません。
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
+                    Perl版と同様に、Ruby版{{ site.html.ss }}でも<span class = 'value'>rise()</span>と
+                    <span class = 'value'>dump()</span>の第二引数に<kbd>delivered: true</kbd>を指定すると、
+                    配信に成功したメール(配信通知)も解析結果に含まれるようになります。
+                    <span class = 'value'>delivered</span>に偽となる値(<kbd>nil</kbd>,<kbd>false</kbd>)を指定した場合は、
+                    解析結果は生成されません。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
@@ -414,6 +492,37 @@ v.each do |e|
   puts e.diagnosticcode # "250 2.1.5 Ok"
   puts e.hardbounce     # false
 end
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>args.Delivered = true</h4>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    Perl版やRuby版と同様にGo版{{ site.html.ss }}でも<span class = 'value'>Rise()</span>と
+                    <span class = 'value'>Dump()</span>の第二引数に
+                    指定する構造体<span class = 'value'>sis.DecodingArgs</span>の<span class = 'value'>Delivered</span>
+                    に<kbd>true</kbd>を指定すると、配信に成功したメール(配信通知)も
+                    解析結果に含まれるようになります。<span class = 'value'>Delivered</span>の初期値は
+                    <span class = 'value'>false</span>です。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+    path := "./set-of-emails/maildir/bsd/rfc3464-28.eml"
+    args := sisimai.Args()
+    <strong>args.Delivered = true</strong>
+
+    sisi, _ := sisimai.Rise(path, args)
+    if len(*sisi) &gt; 0 { fmt.Printf("Recipient = %s\n", *sisi[0].Recipient.Address }
+}
                 </pre>
             </div>
         </div>
@@ -431,17 +540,19 @@ end
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>不在応答(Vacation)も解析結果に含める</h2>
                 <p class = 'description ja cation'>
-                    <kbd>Sisimai</kbd>クラスの
-                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
-                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                    <span class = 'value'>Sisimai</span>クラスの
+                    <span class = 'value'>make()</span>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<span class = 'value'>rise()</span>メソッドをかわりに使ってください。
                 </p>
                 <p class = 'description ja cation'>
                     {{ site.html.ss }} 5.0.0でバウンス理由が <span class = 'value'>vacation</span>となる
                     バウンスメールはデフォルトで解析されなくなりました。必要な場合は
-                    <kbd>vacation</kbd>パラメーターを<kbd>rise()</kbd>メソッドに指定してください。
+                    <span class = 'value'>vacation</span>パラメーターを<span class = 'value'>rise()</span>
+                    メソッドに指定してください。
                 </p>
                 <p class = 'description ja'>
-                    <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>は第二引数に<kbd>vacation</kbd>
+                    <span class = 'value'>Sisimai</span>クラスの<span class = 'value'>rise()</span>と
+                    <span class = 'value'>dump()</span>は第二引数に<kbd>vacation</kbd>
                     を指定することによって、不在応答(Vacation)のメールも解析結果に含めることができます。
                 </p>
             </div>
@@ -473,8 +584,10 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>vacation =&gt; 1</h4>
                 <p class = 'description ja'>
-                    <kbd>rise()</kbd>と<kbd>dump()</kbd>の第二引数に<kbd>vacation=&gt; 1</kbd>を指定すると、
-                    不在応答のメールも解析結果に含まれるようになります。<kbd>vacation</kbd>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <span class = 'value'>rise()</span>と<span class = 'value'>dump()</span>の第二引数に
+                    <kbd>vacation=&gt; 1</kbd>を指定すると、
+                    不在応答のメールも解析結果に含まれるようになります。<span class = 'value'>vacation</span>
                     に偽となる値(<kbd>0</kbd>,<kbd>undef</kbd>,<kbd>''</kbd>)を指定した場合は、解析結果は生成されません。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
@@ -499,9 +612,10 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>vacation: true</h4>
                 <p class = 'description ja'>
-                    Perl版と同様に、Ruby版{{ site.html.ss }}でも<kbd>rise()</kbd>と<kbd>dump()</kbd>の第二引数に
-                    <kbd>vacation: true</kbd>を指定すると、不在通知のメールも
-                    解析結果に含まれるようになります。<kbd>vacation</kbd>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
+                    Perl版と同様に、Ruby版{{ site.html.ss }}でも<span class = 'value'>rise()</span>と
+                    <span class = 'value'>dump()</span>の第二引数に<kbd>vacation: true</kbd>を指定すると、
+                    不在通知のメールも解析結果に含まれるようになります。<span class = 'value'>vacation</span>
                     に偽となる値(<kbd>nil</kbd>,<kbd>false</kbd>)を指定した場合は、解析結果は生成されません。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
@@ -518,8 +632,38 @@ end
                 </pre>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>args.Vacation = true</h4>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    Perl版やRuby版と同様にGo版{{ site.html.ss }}でも<span class = 'value'>Rise()</span>関数と
+                    <span class = 'value'>Dump()</span>関数の第二引数に
+                    指定する構造体<span class = 'value'>sis.DecodingArgs</span>の<span class = 'value'>Vacation</span>
+                    に<kbd>true</kbd>を指定すると、不在応答のメールも解析結果に含まれるようになります。
+                    <span class = 'value'>Vacation</span>の初期値は<span class = 'value'>false</span>です。
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+    path := "./set-of-emails/maildir/bsd/rfc3834-01.eml"
+    args := sisimai.Args()
+    <strong>args.Vacation = true</strong>
+
+    sisi, _ := sisimai.Rise(path, args)
+    if len(*sisi) &gt; 0 { fmt.Printf("Recipient = %s\n", *sisi[0].Recipient.Address }
+}
+                </pre>
+            </div>
+        </div>
     </div>
-</section> <!-- /#delivered -->
+</section> <!-- /#vacation -->
 
 <section id = 'callback' class = 'parallax'>
     <div class = 'container'>
@@ -532,9 +676,9 @@ end
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2>コールバック機能</h2>
                 <p class = 'description ja cation'>
-                    <kbd>Sisimai</kbd>クラスの
-                    <kbd>make()</kbd>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
-                    新たに実装された<kbd>rise()</kbd>メソッドをかわりに使ってください。
+                    <span class = 'value'>Sisimai</span>クラスの
+                    <span class = 'value'>make()</span>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
+                    新たに実装された<span class = 'value'>rise()</span>メソッドをかわりに使ってください。
                 </p>
                 <p class = 'description ja cation'>
                     {{ site.html.ss }} 5.0.0でコールバック機能の仕様(引数の数・型)が変りました。
@@ -545,23 +689,26 @@ end
                 </p>
                 <p class = 'description ja'>
                     {{ site.html.ss }} 4.19.0から実装されたコールバック機能を使用すると、
-                    <kbd>Sisimai::Fact</kbd>または<kbd>Sisimai::Message</kbd>の<kbd>catch()</kbd>
-                    メソッドを通して、バウンスメールを独自に処理した結果を取得することができます。
+                    <span class = 'value'>Sisimai::Fact</span>または<span class = 'value'>Sisimai::Message</span>
+                    の<span class = 'value'>catch()</span>メソッドを通して、バウンスメールを独自に処理した結果を取得することができます。
                     この機能は{{ site.html.ss }}が解析結果に含めない元メッセージ全体や
                     元メッセージの特定のヘッダの値(例えば配信IDなど)を取り出したりするのに便利です。
                 </p>
             </div>
         </div>
+
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>c___</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>c___に渡す引数</h3>
+                <h3 class = 'in-desc'>c___に渡す引数(PerlとRuby)</h3>
                 <p class = 'description ja'>
-                    <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>メソッドにおける<kbd>c___</kbd>
-                    (<kbd>c</kbd>と<kbd>_</kbd>が三つ、釣り針に見える)
-                    に渡せる引数は、Perlのフックメソッド(サブルーチン)には<strong>配列リファレンス1つ</strong>、
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
+                    <span class = 'value'>Sisimai</span>クラスの<span class = 'value'>rise()</span>メソッドにおける
+                    <span class = 'value'>c___</span> (<span class = 'value'>c</span>と<span class = 'value'>_</span>が三つ、
+                    釣り針に見える)に渡せる引数は、Perlのフックメソッド(サブルーチン)には<strong>配列リファレンス1つ</strong>、
                     Rubyのフックメソッドには<strong>Arrayオブジェクト1つ</strong>
                     です。引数の構造は以下のようになっています。
                 </p>
@@ -569,20 +716,20 @@ end
                     <table class = 'table table-hover table-bordered'>
                         <thead>
                             <tr>
-                                <th><kbd>c___</kbd>に渡す配列のインデックス</th>
+                                <th><span class = 'value'>c___</span>に渡す配列のインデックス</th>
                                 <th>処理対象</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class = 'ltext'>[0] (下記コード例にある<kbd>$code0</kbd>)</td>
+                                <td class = 'ltext'>[0] (下記コード例にある<span class = 'value'>$code0</span>)</td>
                                 <td>
                                     メールのヘッダー<span class = 'value'>headers</span>および本文
                                     <span class = 'value'>message</span>
                                 </td>
                             </tr>
                             <tr>
-                                <td class = 'ltext'>[1] (下記コード例にある<kbd>$code1</kbd>)</td>
+                                <td class = 'ltext'>[1] (下記コード例にある<span class = 'value'>$code1</span>)</td>
                                 <td>元メールのファイルに対して</td>
                             </tr>
                         </tbody>
@@ -614,9 +761,12 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>c___[0]の入力値</h3>
                 <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     <span class = 'value'>message</span>で得られる文字列はバウンスメールの本文です。
                     バウンスメールそのもののヘッダーは含まれていませんので、ハッシュ化された
                     <span class = 'value'>headers</span>を参照してください。
+                    <br />
                 </p>
 
                 <div class = 'table-responsive'>
@@ -652,8 +802,13 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>c___[1]の入力値</h3>
                 <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     <span class = 'value'>mail</span>で得られる文字列は、バウンスメールそのもの
                     のヘッダーも含むバウンスメール全体です。
+                    <br />
+                    <br />
+                    <br />
                 </p>
 
                 <div class = 'table-responsive'>
@@ -684,11 +839,110 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                             <tr>
                                 <td class = 'ltext'>fact</td>
                                 <td>Array</td>
-                                <td>解析結果である<kbd>Sisimai::Fact</kbd>のリスト</td>
+                                <td>解析結果である<span class = 'value'>Sisimai::Fact</span>のリスト</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Callback0, Callback1に渡す引数(Go)</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    <span class = 'value'>libsisimai.org/sisimai</span>パッケージの<span class = 'value'>Rise()</span>
+                    関数における
+                    <span class = 'value'>sis.DecodingArgs</span>構造体の<span class = 'value'>Callback0</span>と
+                    <span class = 'value'>Callback1</span>の引数と戻り値はそれぞれ以下のような構造になっています。
+                </p>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-bordered'>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class = 'value'>sis.DecodingArgs</span>
+                                </th>
+                                <th>引数<span class = 'value'>*sis.CalbackArgs</span></th>
+                                <th>戻り値</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class = 'ltext'>Callback0</td>
+                                <td>
+                                    <ul>
+                                        <li>Headers <span class = 'value'>map[string][]string</span></li>
+                                        <ul><li>バウンスメールのヘッダー部分</li></ul>
+                                        <li>Payload <span class = 'value'>*string</span></li>
+                                        <ul><li>ヘッダーを<strong>除く</strong>バウンスメールのメール本文</li></ul>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>map[string]interface{}</li>
+                                        <li>error</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>Callback1</td>
+                                <td>
+                                    <ul>
+                                        <li>Headers <span class = 'value'>map[string][]string</span></li>
+                                        <ul>
+                                            <li>"path": 元メールのPath</li>
+                                            <li>"dir":  元メールのディレクトリ名</li>
+                                            <li>"file": 元メールのファイル名</li>
+                                            <li>"kind": 元メールの種類</li>
+                                            <ul>
+                                                <li>"mailbox": UNIX mbox形式</li>
+                                                <li>"maildir": Maildir/形式</li>
+                                                <li>"memory": 変数からの読み込み</li>
+                                                <li>"stdin": STDINからの読み込み</li>
+                                            </ul>
+                                        </ul>
+                                        <li>Payload <span class = 'value'>*string</span></li>
+                                        <ul><li>ヘッダーを<strong>含む</strong>バウンスメール全体</li></ul>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>bool</li>
+                                        <li>error</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre class = 'prettyprint'>
+args := sisimai.Args()
+args.Callback0 = func(arg *sisimai.CallbackArgs) (map[string]interface{}, error) {
+    fmt.Printf("Headers = %v\n", (*arg).Headers) // ヘッダー全て
+    fmt.Printf("- From: = %s\n", (*arg).Headers["from"][0])
+    fmt.Printf("- Subject: = %s\n", (*arg).Headers["subject"][0])
+    fmt.Printf("Body = %s\n", (*arg).Payload)    // 本文
+    data := make(map[string]interface{})
+    data["from"] = (*arg).Headers["from"][0]
+    return data, nil
+}
+args.Callback1 = func(arg *sisimai.CallbackArgs) (bool, error) {
+    fmt.Printf("- Path = %s\n", (*arg).Headers["path"][0]) // 元メールファイルのPATH
+    fmt.Printf("- File = %s\n", (*arg).Headers["file"][0]) // 元メールのファイル名
+    fmt.Printf("- Dir  = %s\n", (*arg).Headers["dir"][0])  // 元メールファイルのディレクトリ名
+    fmt.Printf("- Kind = %s\n", (*arg).Headers["kind"][0]) // 元メールファイルの種類
+    fmt.Printf("Body = %s\n", (*arg).Payload)              // 本文
+    return true, nil
+}
+
+sisi, nyaan := sisimai.Rise(path, args)
+                </pre>
+
             </div>
         </div>
 
@@ -705,20 +959,20 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                 </p>
                 <ul>
                     <li>バウンスメールのヘッダにある<span class = 'value'>Return-Path</span>の値を取得</li>
-                    <li>バウンスメールのヘッダにある<span class = 'value'>Authentication-Results</span>の値を取得</li>
+                    <li>バウンスメールのヘッダにある<span class = 'value'>From</span>の値を取得</li>
                     <li>本文の<span class = 'value'>X-Postfix-Queue-ID</span>の値を取得</li>
-                    <li>元メールに独自ヘッダーを書き加えて別のPATHへ保存する</li>
+                    <li>STDINからの入力なら元メールを別のPATHへ保存する</li>
                 </ul>
 
                 <pre class = 'prettyprint'><strong>Return-Path: <></strong>
 Received: from mail4.example.com (mx4.example.com [192.0.2.24])
-	by secure.example.jp (Postfix) with ESMTPS id 4SnNbh0r3mz24sXs
-	for <postmaster@example.jp>; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
+    by secure.example.jp (Postfix) with ESMTPS id 4SnNbh0r3mz24sXs
+    for <postmaster@example.jp>; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
 Received: by mail4.example.com (Postfix)
-	id t8WLKlmm99zqL71C; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
-<strong>Authentication-Results: secure.example.jp; spf=fail smtp.helo=mail4.example.com</strong>
+    id t8WLKlmm99zqL71C; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
+Authentication-Results: secure.example.jp; spf=fail smtp.helo=mail4.example.com
 Date: Thu,  9 Apr 2022 23:34:45 +0900 (JST)
-From: MAILER-DAEMON@mail4.example.com (Mail Delivery System)
+<strong>From: MAILER-DAEMON@mail4.example.com (Mail Delivery System)</strong>
 Subject: Undelivered Mail Returned to Sender
 To: nginx@mail4.example.com
 ...
@@ -760,19 +1014,21 @@ Diagnostic-Code: smtp; 550-5.7.26 The MAIL FROM domain [mail4.example.com] has
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Sisimai-&gt;rise($f, 'c___' => [$c0, $c1])</h4>
                 <p class = 'description ja'>
-                    Sisimaiクラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>メソッドに、
-                    実行したい処理内容を書いたサブルーチンのコードリファレンス2個を第二引数
-                    <kbd>c___</kbd>として渡すことができます。
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    Sisimaiクラスの<span class = 'value'>rise()</span>と<span class = 'value'>dump()</span>
+                    メソッドに、実行したい処理内容を書いたサブルーチンのコードリファレンス2個を第二引数
+                    <span class = 'value'>c___</span>として渡すことができます。
                 </p>
+                <pre class = 'prettyprint'>% <kbd>cat set-of-emails/maildir/bsd/rhost-google-03.eml | perl ./sisid.pl</kbd></pre>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
+# sisid.pl
 use Sisimai;
-my $fn = 'set-of-emails/maildir/bsd/rhost-google-03.eml';
 my $c0 = sub {
     my $args = shift;
-    my $data = { 'queue-id' => '', 'authentication-results' => '', 'return-path' => '' };
+    my $data = { 'queue-id' => '', 'from' => '', 'return-path' => '' };
 
     $data->{'return-path'} = $args->{'headers'}->{'return-path'} || '';
-    $data->{'authentication-results'} = $args->{'headers'}->{'authentication-results'} || '';
+    $data->{'from'} = $args->{'headers'}->{'from'} || '';
     if( $args->{'message'} =~ m/^X-Postfix-Queue-ID:\s*(.+)$/m ) {
         $data->{'queue-id'} = $1;
     }
@@ -783,29 +1039,16 @@ my $c1 = sub {
     my $kind = $args->{'kind'}; # (String)  Sisimai::Mail->kind
     my $mail = $args->{'mail'}; # (*String) Entire email message
     my $path = $args->{'path'}; # (String)  Sisimai::Mail->path
-    my $fact = $args->{'fact'}; # (*Array)  List of Sisimai::Fact
 
-    for my $e ( @$fact ) {
-        # "catch"アクセサの中に独自の情報を保存する
-        $e->{'catch'} ||= {};
-        $e->{'catch'}->{'size'} = length $$mail;
-        $e->{'catch'}->{'kind'} = ucfirst $kind;
-
-        # "X-Sisimai-Parsed:"ヘッダーを追加して別のPATHに元メールを保存する
-        my $a = sprintf("X-Sisimai-Parsed: %d\n", scalar @$fact);
-        my $f = IO::File->new(sprintf("/tmp/sisimai-%s.eml", $e->token), 'w');
-        my $v = $$mail; $v =~ s/^(From:.+)$/$a$1/m;
-        print $f $v; $f->close;
+    if $kind eq 'stdin' {
+        my $f = IO::File->new("/tmp/sisimai-decoded-1.eml", 'w');
+        print $f $$mail; $f->close;
     }
-
-    # 解析が終わったらMaildir/にあるファイルを削除する
-    unlink $path if $kind eq 'maildir';
 };
 
-my $js = Sisimai->dump($fn, 'c___' => [$c0, $c1]); # JSON文字列を得る
-my $rv = Sisimai->rise($fn, 'c___' => [$c0, $c1]);
-printf("Authentication-Results: %s\n", $rv->[0]->{'catch'}->{'authentication-results'});
-printf("X-Postfix-Queue-ID: %s\n", $rv->[0]->{'catch'}->{'queue-id'});
+my $rv = Sisimai->rise(STDIN, 'c___' => [$c0, $c1]);
+printf("From: %s\n", $rv->[0]->{'catch'}->{'from'});
+printf("Queue-ID: %s\n", $rv->[0]->{'catch'}->{'queue-id'});
 printf("Return-Path: %s\n", $rv->[0]->{'catch'}->{'return-path'});
                 </pre>
             </div>
@@ -817,17 +1060,20 @@ printf("Return-Path: %s\n", $rv->[0]->{'catch'}->{'return-path'});
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Sisimai.rise(f, c___: [c0, c1])</h4>
                 <p class = 'description ja'>
-                <kbd>Sisimai</kbd>クラスの<kbd>rise()</kbd>と<kbd>dump()</kbd>メソッドに、
-                    実行したい処理内容を書いた<kbd>Proc</kbd>オブジェクトを<kbd>c___:</kbd>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
+                    <span class = 'value'>Sisimai</span>クラスの<span class = 'value'>rise()</span>と
+                    <span class = 'value'>dump()</span>メソッドに、実行したい処理内容を書いた
+                    <span class = 'value'>Proc</span>オブジェクトを<span class = 'value'>c___:</span>
                     として渡すことができます。
                 </p>
+                <pre class = 'prettyprint'>% <kbd>cat set-of-emails/maildir/bsd/rhost-google-03.eml | ruby ./sisid.rb</kbd></pre>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
+# sisid.rb
 require 'sisimai'
-fn = 'set-of-emails/maildir/bsd/rhost-google-03.eml'
 c0 = lambda do |args|
-  data = { 'queue-id' => '', 'authentication-results' => '', 'return-path' => '' }
+  data = { 'queue-id' => '', 'from' => '', 'return-path' => '' }
   data['return-path'] = args['headers']['return-path'] || ''
-  data['authentication-results'] = args['headers']['authentication-results'] || ''
+  data['from'] = args['headers']['from'] || ''
   if cv = args['message'].match(/^X-Postfix-Queue-ID:\s*(.+)$/)
     data['queue-id'] = cv[1]
   end
@@ -838,34 +1084,97 @@ c1 = lambda do |args|
   kind = args['kind'] # (String)  Sisimai::Mail.kind
   mail = args['mail'] # (*String) Entire email message
   path = args['path'] # (String)  Sisimai::Mail.path
-  fact = args['fact'] # (*Array)  List of Sisimai::Fact
 
-  fact.each do |e|
-    # "catch"アクセサの中に独自の情報を保存する
-    e.catch ||= {}
-    e.catch['size'] = mail.size
-    e.catch['kind'] = kind
-
-    # "X-Sisimai-Parsed:"ヘッダーを追加して別のPATHに元メールを保存する
-    a = sprintf("X-Sisimai-Parsed: %d", fact.size)
-    b = mail.sub(/^(To:.+$)/,'\1'+ "\n" + a)
-    File.open(sprintf("/tmp/sisimai-%s.eml", e.token), "w") do |f|
-      f.puts(b)
+  if kind == 'stdin'
+    File.open("/tmp/sisimai-decoded-1.eml", "w") do |f|
+      f.puts(mail)
     end
-
-    # 解析が終わったらMaildir/にあるファイルを削除する
-    File.delete(path) if kind == 'maildir'
   end
 end
 
-js = Sisimai.dump(fn, c___: [c0, c1]) # JSON文字列を得る
 rv = Sisimai.rise(fn, c___: [c0, c1])
-printf("Authentication-Results: %s\n", rv[0].catch['authentication-results'])
+printf("From: %s\n", rv[0].catch['from'])
 printf("X-Postfix-Queue-ID: %s\n", rv[0].catch['queue-id'])
 printf("Return-Path: %s\n", rv[0].catch['return-path'])
                 </pre>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>sisimai.Rise(path, args)</h4>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    <span class = 'value'>libsisimai.org/sisimai</span>パッケージの<span class = 'value'>Rise()</span>関数と
+                    <span class = 'value'>Dump()</span>関数に渡す<span class = 'value'>sis.DecodingArgs</span>構造体の
+                    <span class = 'value'>Callback0</span>と<span class = 'value'>Callback1</span>に
+                    実行したい処理内容を書いた関数を代入して渡すことができます。
+                </p>
+                <pre class = 'prettyprint'>% <kbd>cat set-of-emails/maildir/bsd/rhost-google-03.eml | go run ./sisid.go</kbd></pre>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+// sisid.go
+import "fmt"
+import "strings"
+import "libsisimai.org/sisimai"
+
+func main() {
+    args := sisimai.Args() // sis.DecodingArgs{}
+    list := []string{"Return-Path", "From"}
+
+    args.Callback0 = func(arg *sisimai.CallbackArgs) (map[string]interface{}, error) {
+        data := make(map[string]interface{})
+        data["queue-id"] = ""
+
+        for _, e := range list {
+            ff := strings.ToLower(e)
+            if len((*arg).Headers[ff]) == 0 || (*arg).Headers[ff][0] == "" { continue }
+            data[ff] = (*arg).Headers[ff][0]
+        }
+
+        if arg.Payload != nil && len(*arg.Payload) > 0 {
+            name := "X-Postfix-Queue-ID"
+            mesg := *arg.Payload
+            p0 := strings.Index(mesg, "\n" + name + ": "); if p0 < 0 { return data, nil }
+            p1 := p0 + len(name) + 3
+            p2 := strings.Index(mesg[p1:], "\n");          if p2 < 0 { return data, nil }
+            data["queue-id"] = mesg[p1:p1 + p2]
+        }
+        return data, nil
+    }
+    args.Callback1 = func(arg *sisimai.CallbackArgs) (bool, error) {
+        if nyaan := ioutil.WriteFile("/tmp/sisimai-decoded-1.eml", []byte(*arg.Payload), 0600); nyaan != nil {
+            return false, nyaan
+        }
+        return true, nil
+    }
+
+    // sisi is a pointer to []sis.Facti
+    sisi, nyaan := sisimai.Rise("STDIN", args)
+    if len(*sisi) > 0 {
+        list = append(list, "Queue-ID")
+        for _, e := range *sisi {
+            // e is a sis.Fact struct
+            fmt.Printf("Recipient = %s\n", e.Recipient.Address)
+            re, as := e.Catch.(map[string]interface{})
+            if as == false { continue }
+            for _, f := range list {
+                ff := strings.ToLower(f)
+                if ca, ok := re[ff].(string); ok {
+                    fmt.Printf("- Catch[%s] = %s\n", f, ca)
+                }
+            }
+        }
+    }
+    // nyaan is a pointer to []sis.NotDecoded
+    if len(*nyaan) > 0 { fmt.Fprintf(os.Stderr, "%v\n", *nyaan) }
+}
+                </pre>
+            </div>
+        </div>
+
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>JSON</div>
@@ -873,8 +1182,8 @@ printf("Return-Path: %s\n", rv[0].catch['return-path'])
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>dump()で出力したJSON</h3>
                 <p class = 'description ja'>
-                    <kbd>Sisimai</kbd>クラスの<kbd>dump()</kbd>メソッドにフックメソッドを渡して得た
-                    JSON文字列は次のような内容になります。
+                    <span class = 'value'>Sisimai</span>クラスの<span class = 'value'>dump()</span>
+                    メソッドにフックメソッドを渡して得たJSON文字列は次のような内容になります。
                 </p>
                 <pre class = 'prettyprint'>[
   {
@@ -901,9 +1210,9 @@ printf("Return-Path: %s\n", rv[0].catch['return-path'])
     "catch": {
       "size": 4436,
       "kind": "Mailbox",
-      "authentication-results": "secure.example.jp; spf=fail smtp.helo=mail4.example.com",
+      "from": "MAILER-DAEMON@mail4.example.com (Mail Delivery System)",
       "return-path": "<>",
-      "queue-id": "Lms5yfCw0Vz5CRp3"
+      "queue-id": "Lms5yfCw0Vz5CRp3",
     },
     "diagnostictype": "SMTP",
     "replycode": 550,
