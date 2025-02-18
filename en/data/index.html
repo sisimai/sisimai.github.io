@@ -59,7 +59,12 @@
                         The <kbd>rise()</kbd> method of <kbd>Sisimai</kbd> class returns an array of
                         <kbd>Sisimai::Fact</kbd> objects containing the decoded data. The legacy
                         <kbd>Sisimai::Data</kbd> object has been deprecated in {{ site.html.ss }} 5.0.0.
-                        The returned objects have the following data structure:
+                    </p>
+                    <p class = 'description'>
+                        In the Go version of {{ site.html.ss }}, the <span class = 'value'>Rise()</span>
+                        function in the <span class = 'value'>libsisimai.org/sisimai</span> package 
+                        returns a pointer to a slice containing multiple <span class = 'value'>sis.Fact</span> 
+                        structs. The returned object/struct has the following data structure:
                     </p>
                 </div>
             </div> 
@@ -134,7 +139,7 @@ From: "Kijitora Cat" &lt;kijitora@example.org&gt;
                 <div class = 'index-label'><i class = 'fas fa-at'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>alias (String)</h3>
+                <h3 class = 'in-desc'>Alias (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/email-1.png'>
                     The <span class = 'value'>"alias"</span> field is the alias of the recipient
@@ -163,7 +168,7 @@ Original-Recipient: rfc822;kijitora@example.org
                 <div class = 'post-it'>C</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>catch (*) | Beginning with v4.19.0</h3>
+                <h3 class = 'in-desc'>Catch (*) | Beginning with v4.19.0</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/cat-2.png'>
                     The <span class = 'value'>"catch"</span> field holds the value returned by the
@@ -196,7 +201,7 @@ Original-Recipient: rfc822;kijitora@example.org
                 <div class = 'post-it'>D</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>deliverystatus (String)</h3>
+                <h3 class = 'in-desc'>DeliveryStatus (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
                     The <span class = 'value'>"deliverystatus"</span> field holds the value of the
@@ -219,7 +224,7 @@ Status: 5.0.0 (permanent failure)
                 <div class = 'index-label'><i class = 'fas fa-at'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>destination (String)</h3>
+                <h3 class = 'in-desc'>Destination (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/contact-card-1.png'>
                     The <span class = 'value'>"destination"</span> field holds the domain part of the
@@ -236,7 +241,7 @@ Status: 5.0.0 (permanent failure)
                 <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>diagnosticcode (String)</h3>
+                <h3 class = 'in-desc'>DiagnosticCode (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/system-report-3.png'>
                     The <span class = 'value'>"diagnosticcode"</span> field holds the error message
@@ -259,7 +264,7 @@ Diagnostic-Code: SMTP; 554 5.4.6 Too many hops
                 <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>diagnostictype (String)</h3>
+                <h3 class = 'in-desc'>DiagnosticType (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/system-report-2.png'>
                     The <span class = 'value'>"diagnostictype"</span> field holds the first part of
@@ -286,7 +291,7 @@ Diagnostic-Code: X-Unix; 255
                 <div class = 'post-it'>F</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>feedbacktype (String)</h3>
+                <h3 class = 'in-desc'>FeedbackType (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/strike-3.png'>
                     The <span class = 'value'>"feedbacktype"</span> field holds the value of the
@@ -317,7 +322,7 @@ User-Agent: SMP-FBL
                 <div class = 'post-it'>F</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>hardbounce (Boolean) | v5.0.0 or later</h3>
+                <h3 class = 'in-desc'>HardBounce (Boolean) | v5.0.0 or later</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
                     The <span class = 'value'>"hardbounce"</span> field, newly implemented in {{ site.html.ss }}
@@ -349,7 +354,7 @@ User-Agent: SMP-FBL
                 <div class = 'post-it'>L</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>lhost (String)</h3>
+                <h3 class = 'in-desc'>Lhost (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/server-1.png'>
                     The <span class = 'value'>"lhost"</span> field holds the hostname or IP address
@@ -370,7 +375,7 @@ Reporting-MTA: dns; mx4.smtp.example.co.jp
                 <div class = 'index-label'><i class = 'fas fa-server'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>listid (String)</h3>
+                <h3 class = 'in-desc'>ListID (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/list-1.png'>
                     The <span class = 'value'>"listid"</span> field holds the value of the
@@ -394,7 +399,7 @@ List-Id: General discussion list for Cats &lt;neko-list.example.org&gt;
                 <div class = 'post-it'>M</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>messageid (String)</h3>
+                <h3 class = 'in-desc'>MessageID (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/message-3.png'>
                     The <span class = 'value'>"messageid"</span> field holds the value of the
@@ -418,7 +423,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <div class = 'post-it'>O</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>origin (String)</h3>
+                <h3 class = 'in-desc'>Origin (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/inbox-3.png'>
                     The <span class = 'value'>"origin"</span> field holds the filename (including path)
@@ -446,7 +451,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <div class = 'post-it'>R</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>reason (String)</h3>
+                <h3 class = 'in-desc'>Reason (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/sms-3.png'>
                     The <span class = 'value'>"reason"</span> field holds the bounce reason (the reason
@@ -477,7 +482,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <div class = 'index-label'><i class = 'fas fa-at'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>recipient (Sisimai::Address)</h3>
+                <h3 class = 'in-desc'>Recipient (Sisimai::Address)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-1.png'>
                     The <span class = 'value'>"recipient"</span> field is a <kbd>Sisimai::Address</kbd>
@@ -509,7 +514,7 @@ X-Failed-Recipients: kijitora@example.ed.jp
                 <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>replycode (String)</h3>
+                <h3 class = 'in-desc'>ReplyCode (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/rules-3.png'>
                     The <span class = 'value'>"replycode"</span> field holds the SMTP response code
@@ -533,7 +538,7 @@ X-Failed-Recipients: kijitora@example.ed.jp
                 <div class = 'index-label'><i class = 'fas fa-server'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>rhost (String)</h3>
+                <h3 class = 'in-desc'>Rhost (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/server-2.png'>
                     The <span class = 'value'>"rhost"</span> field holds the value of the
@@ -559,7 +564,7 @@ Remote-MTA: DNS; g5.example.net
                 <div class = 'post-it'>S</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>senderdomain (String)</h3>
+                <h3 class = 'in-desc'>SenderDomain (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/contact-card-2.png'>
                     The <span class = 'value'>"senderdomain"</span> field holds the domain part of
@@ -651,7 +656,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <div class = 'index-label'><i class = 'fas fa-envelope'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>subject (String)</h3>
+                <h3 class = 'in-desc'>Subject (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/topic-1.png'>
                     The <span class = 'value'>"subject"</span> field holds the value of the
@@ -674,7 +679,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <div class = 'post-it'>T</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>timestamp (Sisimai::Time)</h3>
+                <h3 class = 'in-desc'>Timestamp (Sisimai::Time)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/calendar-9.png'>
                     The <span class = 'value'>"timestamp"</span> field is a <kbd>Sisimai::Time</kbd>
@@ -694,7 +699,7 @@ Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
                 <div class = 'index-label'><i class = 'fas fa-clock'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>timezoneoffset (String)</h3>
+                <h3 class = 'in-desc'>TimezoneOffset (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/timezone-1.png'>
                     The <span class = 'value'>"timezoneoffset"</span> field holds the time zone of
@@ -716,7 +721,7 @@ Date: Thu, 29 Apr 2018 23:34:45 +0900 (JST)
             </div>
 
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>token (String)</h3>
+                <h3 class = 'in-desc'>Token (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/hashtag-1.png'>
                     The <span class = 'value'>"token"</span> is a unique identifier for a bounce record
