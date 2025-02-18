@@ -179,6 +179,7 @@
                 </p>
             </div>
         </div>
+
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-text'>Perl</div>
@@ -186,6 +187,7 @@
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>STDIN File Handle</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
                     The <span class = 'value'>dump()</span> and <span class = 'value'>rise()</span> methods of the
                     <span class = 'value'>Sisimai</span> class read bounce email data from standard input and return
                     the decoded results when the first argument is <kbd>STDIN</kbd> as the file handle.
@@ -217,6 +219,7 @@ sironeko@example.org
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>STDIN Object</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     The Ruby version of {{ site.html.ss }} also works similarly. When the first
                     argument of the <span class = 'value'>dump()</span> and <span class = 'value'>rise()</span> methods of the
                     <span class = 'value'>Sisimai</span> class is the <kbd>STDIN</kbd> object, it reads bounce email data from
@@ -233,6 +236,41 @@ sironeko@example.org
                 <pre class = 'prettyprint'>
 % <kbd>cat ./path/to/email | ruby -rsisimai -e 'p Sisimai.rise(STDIN)'</kbd>
 [#&lt;Sisimai::Fact:0x007fa1b0993050 @addresser=#&lt;Sisimai::Address:0x007fa1b0990e40 @user="kijitora", ...
+                </pre>
+            </div>
+
+            <div class = 'col-sm-8 col-sm-offset-2'>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>string "STDIN"</h4>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    The <span class = 'value'>Dump()</span> and <span class = 'value'>Rise()</span> functions of the
+                    <span class = 'value'>libsisimai.org/sisimai</span> package read bounce email data from standard
+                    input and return the decoded results when the first argument is <kbd>STDIN</kbd> as a string.
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+    args := sisimai.Args()
+    json, _ := sisimai.Dump("STDIN", args)
+    if json != nil && *json != "" { fmt.Printf("%s\n", *json) }
+}
+                </pre>
+                <pre class = 'prettyprint'>% <kbd>cat ./path/to/email | go run ./sisid.go | jq</kbd>
+[
+  {
+    "catch": "",
+    "token": "d295b517a3ad6f8748031e1068e07ebd089c0277",
+    ...
                 </pre>
             </div>
 
@@ -276,6 +314,7 @@ sironeko@example.org
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Scalar Reference</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
                     When a scalar reference is specified as the first argument to <span class = 'value'>rise()</span>
                     method and <span class = 'value'>dump()</span> method, <span class = 'value'>Sisimai::Mail::Memory</span>
                     is called internally, and the decoded results are obtained in the same way as when reading
@@ -303,6 +342,7 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>String object</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     In the Ruby version of {{ site.html.ss }}, when a <span class = 'value'>String</span>
                     object is specified as the first argument to <span class = 'value'>rise()</span>
                     method and <span class = 'value'>dump()</span> method, <span class = 'value'>Sisimai::Mail::Memory</span>
@@ -323,6 +363,36 @@ end
                 </pre>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>Email message as a string</h4>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    If you specify a string containing the entire bounce email as the first argument to the
+                    <span class = 'value'>Rise()</span> and <span class = 'value'>Dump()</span> functions,
+                    {{ site.html.ss }} internally calls <span class = 'value'>libisismai.org/sisimai/mail/memory</span>,
+                    and the decoded results are obtained in the same way as when reading from a mail file or standard input.
+                </p>
+
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+    mail := 'From MAILER-DAEMON Fri Feb  2 18:30:22 2018...'    // Entire bounce message
+    args := sisimai.Args()
+    data, _ := sisimai.Rise(mail, args)
+    if len(*data) &gt; 0 { fmt.Printf("%s\n", data[0].Recipient.Address) }
+}
+                </pre>
+
+            </div>
+        </div>
+
     </div>
 </section> <!-- /#memory -->
 
@@ -369,6 +439,7 @@ end
                 </p>
             </div>
         </div>
+
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-text'>Perl</div>
@@ -376,6 +447,7 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>delivered =&gt; 1</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
                     The second argument of <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span>
                     takes a <kbd>delivered</kbd> key-value pair. When set to <kbd>1</kbd>, the decoded results will include emails
                     that were successfully delivered (delivery notifications). If <kbd>delivered</kbd>
@@ -404,6 +476,7 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>delivered: true</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     Similarly to the Perl version, in the Ruby version of {{ site.html.ss }},
                     specifying <kbd>delivered: true</kbd> as the second argument of <span class = 'value'>rise()</span>
                     and <span class = 'value'>dump()</span> will include emails that were successfully delivered
@@ -422,6 +495,37 @@ v.each do |e|
   puts e.diagnosticcode # "250 2.1.5 Ok"
   puts e.hardbounce     # false
 end
+                </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>args.Delivered = true</h4>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    In the Go version of {{ site.html.ss }}, as with the Perl and Ruby versions, 
+                    if you specify <kbd>true</kbd> for <span class = 'value'>Delivered</span> in the
+                    <span class = 'value'>sis.DecodingArgs</span> struct, which is specified as the
+                    second argument to <span class = 'value'>Rise()</span> and <span class = 'value'>Dump()</span>,
+                    the decoded results will include successfully delivered emails (delivery notifications).
+                    The initial value of Delivered is <kbd>false</kbd>.
+                </p>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+    path := "./set-of-emails/maildir/bsd/rfc3464-28.eml"
+    args := sisimai.Args()
+    <strong>args.Delivered = true</strong>
+
+    sisi, _ := sisimai.Rise(path, args)
+    if len(*sisi) &gt; 0 { fmt.Printf("Recipient = %s\n", *sisi[0].Recipient.Address }
+}
                 </pre>
             </div>
         </div>
@@ -483,6 +587,7 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>vacation =&gt; 1</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
                     Specifying <kbd>vacation => 1</kbd> as the second argument of <span class = 'value'>rise()</span>
                     and <span class = 'value'>dump()</span> will include vacation response emails in the decoded results.
                     If a value that evaluates to false for <kbd>vacation</kbd> is specified
@@ -510,6 +615,7 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>vacation: true</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     Similar to the Perl version, in the Ruby version of {{ site.html.ss }},
                     specifying <kbd>vacation: true</kbd> as the second argument of <span class = 'value'>rise()</span>
                     and <span class = 'value'>dump()</span> will include vacation notification emails in the decoded
@@ -528,6 +634,39 @@ v.each do |e|
   puts e.hardbounce     # false
 end
                 </pre>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>args.Vacation = true</h4>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    In the Go version of {{ site.html.ss }}, as with the Perl and Ruby versions,
+                    if you specify <kbd>true</kbd> for <span class = 'value'>Vacation</span> in the
+                    <span class = 'value'>sis.DecodingArgs</span> struct, which is specified as the
+                    second argument to the <span class = 'value'>Rise()</span> and <span class = 'value'>Dump()</span>
+                    functions, the decoded results will include vacation reply emails.
+                    The initial value of <span class = 'value'>Vacation</span> is <kbd>false</kbd>.
+                </p>
+
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+import "fmt"
+import "libsisimai.org/sisimai"
+
+func main() {
+    path := "./set-of-emails/maildir/bsd/rfc3834-01.eml"
+    args := sisimai.Args()
+    <strong>args.Vacation = true</strong>
+
+    sisi, _ := sisimai.Rise(path, args)
+    if len(*sisi) &gt; 0 { fmt.Printf("Recipient = %s\n", *sisi[0].Recipient.Address }
+}
+                </pre>
+
             </div>
         </div>
     </div>
@@ -570,8 +709,10 @@ end
                 <div class = 'index-label'>c___</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Arguments passed to c___</h3>
+                <h3 class = 'in-desc'>Arguments passed to c___ (Perl and Ruby)</h3>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     The arguments that can be passed to the <span class = 'value'>c___</span> (<span class = 'value'>c</span>
                     and three underscores, looks like a fishing hook) in the <span class = 'value'>rise()</span> method of the
                     <span class = 'value'>Sisimai</span> class are one array reference for Perl hook methods (subroutines)
@@ -625,6 +766,8 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Arguments inside of c___[0]</h3>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     The string obtained from the <span class = 'value'>message</span> is the body
                     of the bounce email. It does not include the headers of the bounce email itself,
                     so please refer to the hashed <span class = 'value'>headers</span>.
@@ -665,6 +808,8 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Arguments inside of c___[1]</h3>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     The string obtained from the <span class = 'value'>mail</span> is the entire
                     bounce email, including the headers of the bounce email itself.
                 </p>
@@ -706,6 +851,105 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Arguments for Callback0, Callback1 (Go)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    The arguments and return values of <span class = 'value'>Callback0</span> and
+                    <span class = 'value'>Callback1</span> in the <span class = 'value'>sis.DecodingArgs</span>
+                    struct in the <span class = 'value'>libsisimai.org/sisimai</span> package's
+                    <span class = 'value'>Rise()</span> function have the following structure:
+                </p>
+                <div class = 'table-responsive'>
+                    <table class = 'table table-hover table-bordered'>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <span class = 'value'>sis.DecodingArgs</span>
+                                </th>
+                                <th>Argument of <span class = 'value'>*sis.CalbackArgs</span></th>
+                                <th>Return values</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class = 'ltext'>Callback0</td>
+                                <td>
+                                    <ul>
+                                        <li>Headers <span class = 'value'>map[string][]string</span></li>
+                                        <ul><li>The headers of the bounce message</li></ul>
+                                        <li>Payload <span class = 'value'>*string</span></li>
+                                        <ul><li>Entire bounce mail message <strong>except</strong> headers</li></ul>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>map[string]interface{}</li>
+                                        <li>error</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>Callback1</td>
+                                <td>
+                                    <ul>
+                                        <li>Headers <span class = 'value'>map[string][]string</span></li>
+                                        <ul>
+                                            <li>"path": Path to the original email</li>
+                                            <li>"dir":  Directory name of the email</li>
+                                            <li>"file": File name of the email</li>
+                                            <li>"kind": Kind of the email</li>
+                                            <ul>
+                                                <li>"mailbox": UNIX mbox format</li>
+                                                <li>"maildir": Maildir/ format</li>
+                                                <li>"memory": read from a variable</li>
+                                                <li>"stdin": read from STDIN</li>
+                                            </ul>
+                                        </ul>
+                                        <li>Payload <span class = 'value'>*string</span></li>
+                                        <ul><li>Entire bounce mail message <strong>including</strong> headers</li></ul>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>bool</li>
+                                        <li>error</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <pre class = 'prettyprint'>
+args := sisimai.Args()
+args.Callback0 = func(arg *sisimai.CallbackArgs) (map[string]interface{}, error) {
+    fmt.Printf("Headers = %v\n", (*arg).Headers) // All the headers
+    fmt.Printf("- From: = %s\n", (*arg).Headers["from"][0])
+    fmt.Printf("- Subject: = %s\n", (*arg).Headers["subject"][0])
+    fmt.Printf("Body = %s\n", (*arg).Payload)    // Message body
+    data := make(map[string]interface{})
+    data["from"] = (*arg).Headers["from"][0]
+    return data, nil
+}
+args.Callback1 = func(arg *sisimai.CallbackArgs) (bool, error) {
+    fmt.Printf("- Path = %s\n", (*arg).Headers["path"][0]) // Path to the bounce mail file
+    fmt.Printf("- File = %s\n", (*arg).Headers["file"][0]) // File name of the email
+    fmt.Printf("- Dir  = %s\n", (*arg).Headers["dir"][0])  // Directory name of the email
+    fmt.Printf("- Kind = %s\n", (*arg).Headers["kind"][0]) // Kind of the email
+    fmt.Printf("Body = %s\n", (*arg).Payload)              // Message body
+    return true, nil
+}
+
+sisi, nyaan := sisimai.Rise(path, args)
+                </pre>
+
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>email</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
@@ -720,9 +964,9 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                 </p>
                 <ul>
                     <li>Retrieve the value of <span class = 'value'>Return-Path</span> in the bounce email header.</li>
-                    <li>Retrieve the value of <span class = 'value'>Authentication-Results</span> in the bounce email header.</li>
+                    <li>Retrieve the value of <span class = 'value'>From</span> in the bounce email header.</li>
                     <li>Retrieve the value of <span class = 'value'>X-Postfix-Queue-ID</span> in the body.</li>
-                    <li>Add a custom header to the original email and save it to a different path.</li>
+                    <li>Save the original email to a different path when it input from STDIN.</li>
                 </ul>
 
                 <pre class = 'prettyprint'><strong>Return-Path: <></strong>
@@ -731,9 +975,9 @@ Received: from mail4.example.com (mx4.example.com [192.0.2.24])
 	for <postmaster@example.jp>; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
 Received: by mail4.example.com (Postfix)
 	id t8WLKlmm99zqL71C; Thu,  9 Apr 2022 23:34:45 +0900 (JST)
-<strong>Authentication-Results: secure.example.jp; spf=fail smtp.helo=mail4.example.com</strong>
+Authentication-Results: secure.example.jp; spf=fail smtp.helo=mail4.example.com
 Date: Thu,  9 Apr 2022 23:34:45 +0900 (JST)
-From: MAILER-DAEMON@mail4.example.com (Mail Delivery System)
+<strong>From: MAILER-DAEMON@mail4.example.com (Mail Delivery System)</strong>
 Subject: Undelivered Mail Returned to Sender
 To: nginx@mail4.example.com
 ...
@@ -776,21 +1020,23 @@ Diagnostic-Code: smtp; 550-5.7.26 The MAIL FROM domain [mail4.example.com] has
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Sisimai-&gt;rise($f, 'c___' => [$c0, $c1])</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/dinosaur-1.png'>
                     You can pass two code references as the second argument <span class = 'value'>c___</span>
                     to the <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span> methods
                     of the <span class = 'value'>Sisimai</span> class.
                     These code references should contain the code for the subroutine that you want
                     to execute.
                 </p>
-                <pre class = 'prettyprint'><strong>#! /usr/bin/env perl</strong>
+                <pre class = 'prettyprint'>% <kbd>cat set-of-emails/maildir/bsd/rhost-google-03.eml | perl ./sisid.pl</kbd></pre>
+                <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
+# sisid.pl
 use Sisimai;
-my $fn = 'set-of-emails/maildir/bsd/rhost-google-03.eml';
 my $c0 = sub {
     my $args = shift;
-    my $data = { 'queue-id' => '', 'authentication-results' => '', 'return-path' => '' };
+    my $data = { 'queue-id' => '', 'from' => '', 'return-path' => '' };
 
     $data->{'return-path'} = $args->{'headers'}->{'return-path'} || '';
-    $data->{'authentication-results'} = $args->{'headers'}->{'authentication-results'} || '';
+    $data->{'from'} = $args->{'headers'}->{'from'} || '';
     if( $args->{'message'} =~ m/^X-Postfix-Queue-ID:\s*(.+)$/m ) {
         $data->{'queue-id'} = $1;
     }
@@ -801,29 +1047,16 @@ my $c1 = sub {
     my $kind = $args->{'kind'}; # (String)  Sisimai::Mail->kind
     my $mail = $args->{'mail'}; # (*String) Entire email message
     my $path = $args->{'path'}; # (String)  Sisimai::Mail->path
-    my $fact = $args->{'fact'}; # (*Array)  List of Sisimai::Fact
 
-    for my $e ( @$fact ) {
-        # Store custom information in the "catch" accessor.
-        $e->{'catch'} ||= {};
-        $e->{'catch'}->{'size'} = length $$mail;
-        $e->{'catch'}->{'kind'} = ucfirst $kind;
-
-        # Save the original email with an additional "X-Sisimai-Parsed:" header to a different PATH.
-        my $a = sprintf("X-Sisimai-Parsed: %d\n", scalar @$fact);
-        my $f = IO::File->new(sprintf("/tmp/sisimai-%s.eml", $e->token), 'w');
-        my $v = $$mail; $v =~ s/^(From:.+)$/$a$1/m;
-        print $f $v; $f->close;
+    if $kind eq 'stdin' {
+        my $f = IO::File->new("/tmp/sisimai-decoded-1.eml", 'w');
+        print $f $$mail; $f->close;
     }
-
-    # Remove the email file in Maildir/ after decoding
-    unlink $path if $kind eq 'maildir';
 };
 
-my $js = Sisimai->dump($fn, 'c___' => [$c0, $c1]);
-my $rv = Sisimai->rise($fn, 'c___' => [$c0, $c1]);
-printf("Authentication-Results: %s\n", $rv->[0]->{'catch'}->{'authentication-results'});
-printf("X-Postfix-Queue-ID: %s\n", $rv->[0]->{'catch'}->{'queue-id'});
+my $rv = Sisimai->rise(STDIN, 'c___' => [$c0, $c1]);
+printf("From: %s\n", $rv->[0]->{'catch'}->{'from'});
+printf("Queue-ID: %s\n", $rv->[0]->{'catch'}->{'queue-id'});
 printf("Return-Path: %s\n", $rv->[0]->{'catch'}->{'return-path'});
                 </pre>
             </div>
@@ -835,18 +1068,20 @@ printf("Return-Path: %s\n", $rv->[0]->{'catch'}->{'return-path'});
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Sisimai.rise(f, c___: [c0, c1])</h4>
                 <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/ruby-1.png'>
                     You can pass a <span class = 'value'>Proc</span> object containing the code for
                     the function that you want to execute to the <span class = 'value'>rise()</span>
                     and <span class = 'value'>dump()</span> methods of the <span class = 'value'>Sisimai</span>
                     class as the second argument <span class = 'value'>c___</span>.
                 </p>
+                <pre class = 'prettyprint'>% <kbd>cat set-of-emails/maildir/bsd/rhost-google-03.eml | ruby ./sisid.rb</kbd></pre>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
+# sisid.rb
 require 'sisimai'
-fn = 'set-of-emails/maildir/bsd/rhost-google-03.eml'
 c0 = lambda do |args|
-  data = { 'queue-id' => '', 'authentication-results' => '', 'return-path' => '' }
+  data = { 'queue-id' => '', 'from' => '', 'return-path' => '' }
   data['return-path'] = args['headers']['return-path'] || ''
-  data['authentication-results'] = args['headers']['authentication-results'] || ''
+  data['from'] = args['headers']['from'] || ''
   if cv = args['message'].match(/^X-Postfix-Queue-ID:\s*(.+)$/)
     data['queue-id'] = cv[1]
   end
@@ -857,34 +1092,98 @@ c1 = lambda do |args|
   kind = args['kind'] # (String)  Sisimai::Mail.kind
   mail = args['mail'] # (*String) Entire email message
   path = args['path'] # (String)  Sisimai::Mail.path
-  fact = args['fact'] # (*Array)  List of Sisimai::Fact
 
-  fact.each do |e|
-    # Store custom information in the "catch" accessor.
-    e.catch ||= {}
-    e.catch['size'] = mail.size
-    e.catch['kind'] = kind
-
-    # Save the original email with an additional "X-Sisimai-Parsed:" header to a different PATH.
-    a = sprintf("X-Sisimai-Parsed: %d", fact.size)
-    b = mail.sub(/^(To:.+$)/,'\1'+ "\n" + a)
-    File.open(sprintf("/tmp/sisimai-%s.eml", e.token), "w") do |f|
-      f.puts(b)
+  if kind == 'stdin'
+    File.open("/tmp/sisimai-decoded-1.eml", "w") do |f|
+      f.puts(mail)
     end
-
-    # Remove the email file in Maildir/ after decoding
-    File.delete(path) if kind == 'maildir'
   end
 end
 
-js = Sisimai.dump(fn, c___: [c0, c1]) # JSON文字列を得る
-rv = Sisimai.rise(fn, c___: [c0, c1])
-printf("Authentication-Results: %s\n", rv[0].catch['authentication-results'])
+rv = Sisimai.rise(STDIN, c___: [c0, c1])
+printf("From: %s\n", rv[0].catch['from'])
 printf("X-Postfix-Queue-ID: %s\n", rv[0].catch['queue-id'])
 printf("Return-Path: %s\n", rv[0].catch['return-path'])
                 </pre>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-text'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h4 class = 'in-desc'>sisimai.Rise(path, args)</h4>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
+                    You can assign and pass functions containing the processing you want to execute to
+                    <span class = 'value'>Callback0</span> and <span class = 'value'>Callback1</span>
+                    of the <span class = 'value'>sis.DecodingArgs</span> struct, which is passed to the
+                    <span class = 'value'>Rise()</span> and <span class = 'value'>Dump()</span> functions
+                    of the <span class = 'value'>libsisimai.org/sisimai</span> package.
+                </p>
+                <pre class = 'prettyprint'>% <kbd>cat set-of-emails/maildir/bsd/rhost-google-03.eml | go run ./sisid.go</kbd></pre>
+                <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
+// sisid.go
+import "fmt"
+import "strings"
+import "libsisimai.org/sisimai"
+
+func main() {
+    args := sisimai.Args() // sis.DecodingArgs{}
+    list := []string{"Return-Path", "From"}
+
+    args.Callback0 = func(arg *sisimai.CallbackArgs) (map[string]interface{}, error) {
+        data := make(map[string]interface{})
+        data["queue-id"] = ""
+
+        for _, e := range list {
+            ff := strings.ToLower(e)
+            if len((*arg).Headers[ff]) == 0 || (*arg).Headers[ff][0] == "" { continue }
+            data[ff] = (*arg).Headers[ff][0]
+        }
+
+        if arg.Payload != nil && len(*arg.Payload) > 0 {
+            name := "X-Postfix-Queue-ID"
+            mesg := *arg.Payload
+            p0 := strings.Index(mesg, "\n" + name + ": "); if p0 < 0 { return data, nil }
+            p1 := p0 + len(name) + 3
+            p2 := strings.Index(mesg[p1:], "\n");          if p2 < 0 { return data, nil }
+            data["queue-id"] = mesg[p1:p1 + p2]
+        }
+        return data, nil
+    }
+    args.Callback1 = func(arg *sisimai.CallbackArgs) (bool, error) {
+        if nyaan := ioutil.WriteFile("/tmp/sisimai-decoded-1.eml", []byte(*arg.Payload), 0600); nyaan != nil {
+            return false, nyaan
+        }
+        return true, nil
+    }
+
+    // sisi is a pointer to []sis.Facti
+    sisi, nyaan := sisimai.Rise("STDIN", args)
+    if len(*sisi) > 0 {
+        list = append(list, "Queue-ID")
+        for _, e := range *sisi {
+            // e is a sis.Fact struct
+            fmt.Printf("Recipient = %s\n", e.Recipient.Address)
+            re, as := e.Catch.(map[string]interface{})
+            if as == false { continue }
+            for _, f := range list {
+                ff := strings.ToLower(f)
+                if ca, ok := re[ff].(string); ok {
+                    fmt.Printf("- Catch[%s] = %s\n", f, ca)
+                }
+            }
+        }
+    }
+    // nyaan is a pointer to []sis.NotDecoded
+    if len(*nyaan) > 0 { fmt.Fprintf(os.Stderr, "%v\n", *nyaan) }
+}
+                </pre>
+            </div>
+        </div>
+
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>JSON</div>
