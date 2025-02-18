@@ -163,14 +163,15 @@
                 <h2 class = 'in-desc'>Read From STDIN</h2>
                 <hr>
                 <p class = 'description cation'>
-                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
-                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
+                    The <span class = 'value'>make()</span> method of the <span class = 'value'>Sisimai</span>
+                    class has been deprecated in {{ site.html.ss }} 5.0.0. Please use the newly implemented
+                    <span class = 'value'>rise()</span>
                     method instead.
                 </p>
                 <p class = 'description'>
-                    The <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of <kbd>Sisimai</kbd> class
-                    can read bounce email data from standard input (STDIN) in addition to specifying
-                    a filename as an argument. This feature was implemented in early versions of
+                    The <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span> methods of
+                    <span class = 'value'>Sisimai</span> class can read bounce email data from standard input (STDIN)
+                    in addition to specifying a filename as an argument. This feature was implemented in early versions of
                     {{ site.html.ss }}, but there was a bug that sometimes prevented it from working
                     properly. This bug has been fixed in {{ site.html.ss }} 4.18.1
                     <a href = 'https://github.com/sisimai/p5-sisimai/issues/194' target = 'new'>Perl version</a> and the
@@ -185,9 +186,9 @@
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>STDIN File Handle</h4>
                 <p class = 'description'>
-                    The <kbd>dump()</kbd> and <kbd>rise()</kbd> methods of the <kbd>Sisimai</kbd>
-                    class read bounce email data from standard input and return the decoded results
-                    when the first argument is <kbd>STDIN</kbd> as the file handle.
+                    The <span class = 'value'>dump()</span> and <span class = 'value'>rise()</span> methods of the
+                    <span class = 'value'>Sisimai</span> class read bounce email data from standard input and return
+                    the decoded results when the first argument is <kbd>STDIN</kbd> as the file handle.
                 </p>
 
                 <pre class = 'prettyprint'>
@@ -217,9 +218,9 @@ sironeko@example.org
                 <h4 class = 'in-desc'>STDIN Object</h4>
                 <p class = 'description'>
                     The Ruby version of {{ site.html.ss }} also works similarly. When the first
-                    argument of the <kbd>dump()</kbd> and <kbd>rise()</kbd> methods of the <kbd>Sisimai</kbd>
-                    class is the <kbd>STDIN</kbd> object, it reads bounce email data from standard
-                    input and returns the decoded results.
+                    argument of the <span class = 'value'>dump()</span> and <span class = 'value'>rise()</span> methods of the
+                    <span class = 'value'>Sisimai</span> class is the <kbd>STDIN</kbd> object, it reads bounce email data from
+                    standard input and returns the decoded results.
                 </p>
                 <pre class = 'prettyprint'>
 % <kbd>cat ./path/to/email | ruby -Ilib -rsisimai -e 'puts Sisimai.dump(STDIN)' | jq</kbd>
@@ -253,15 +254,15 @@ sironeko@example.org
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Read From Variable</h2>
                 <p class = 'description cation'>
-                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
-                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
-                    method instead.
+                    The <span class = 'value'>make()</span> method of the <span class = 'value'>Sisimai</span>
+                    class has been deprecated in {{ site.html.ss }} 5.0.0. Please use the newly implemented
+                    <span class = 'value'>rise()</span> method instead.
                 </p>
                 <p class = 'description'>
-                    The <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd>
-                    class allow you to read bounce email data from sources other than files and
-                    standard input by specifying a variable (a scalar reference in Perl and a <kbd>String</kbd>
-                    object in Ruby) as the first argument. This feature (<kbd>Sisimai::Mail::Memory</kbd>),
+                    The <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span> methods of the
+                    <span class = 'value'>Sisimai</span> class allow you to read bounce email data from sources other than files and
+                    standard input by specifying a variable (a scalar reference in Perl and a <span class = 'value'>String</span>
+                    object in Ruby) as the first argument. This feature (<span class = 'value'>Sisimai::Mail::Memory</span>),
                     which is useful for reading bounce emails from databases and job queue systems,
                     was implemented in {{ site.html.ss }} 4.23.0.
                 </p>
@@ -275,9 +276,9 @@ sironeko@example.org
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Scalar Reference</h4>
                 <p class = 'description'>
-                    When a scalar reference is specified as the first argument to <kbd>rise()</kbd>
-                    method and <kbd>dump()</kbd> method, <kbd>Sisimai::Mail::Memory</kbd> is called
-                    internally, and the decoded results are obtained in the same way as when reading
+                    When a scalar reference is specified as the first argument to <span class = 'value'>rise()</span>
+                    method and <span class = 'value'>dump()</span> method, <span class = 'value'>Sisimai::Mail::Memory</span>
+                    is called internally, and the decoded results are obtained in the same way as when reading
                     from a mail file or standard input.
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env perl</span>
@@ -302,10 +303,10 @@ for my $e ( @$v ) {
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>String object</h4>
                 <p class = 'description'>
-                    In the Ruby version of {{ site.html.ss }}, when a <kbd>String</kbd> object is
-                    specified as the first argument to <kbd>rise()</kbd> method and <kbd>dump()</kbd>
-                    method, <kbd>Sisimai::Mail::Memory</kbd> is called internally, and the decoded
-                    results are obtained in the same way as when reading from a mail file or standard
+                    In the Ruby version of {{ site.html.ss }}, when a <span class = 'value'>String</span>
+                    object is specified as the first argument to <span class = 'value'>rise()</span>
+                    method and <span class = 'value'>dump()</span> method, <span class = 'value'>Sisimai::Mail::Memory</span>
+                    is called internally, and the decoded results are obtained in the same way as when reading from a mail file or standard
                     input.
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
@@ -336,14 +337,15 @@ end
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Include Delivery Success</h2>
                 <p class = 'description cation'>
-                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
-                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
+                    The <span class = 'value'>make()</span> method of the <span class = 'value'>Sisimai</span>
+                    class has been deprecated in {{ site.html.ss }} 5.0.0. Please use the newly implemented
+                    <span class = 'value'>rise()</span>
                     method instead.
                 </p>
                 <p class = 'description'>
-                    The <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd>
-                    class can include emails that notify you of successful delivery by specifying
-                    <kbd>delivered</kbd> as the second argument.
+                    The <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span> methods of the
+                    <span class = 'value'>Sisimai</span> class can include emails that notify you of successful delivery
+                    by specifying <kbd>delivered</kbd> as the second argument.
                 </p>
             </div>
         </div>
@@ -374,8 +376,8 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>delivered =&gt; 1</h4>
                 <p class = 'description'>
-                    The second argument of <kbd>rise()</kbd> and <kbd>dump()</kbd> takes a <kbd>delivered</kbd>
-                    key-value pair. When set to <kbd>1</kbd>, the decoded results will include emails
+                    The second argument of <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span>
+                    takes a <kbd>delivered</kbd> key-value pair. When set to <kbd>1</kbd>, the decoded results will include emails
                     that were successfully delivered (delivery notifications). If <kbd>delivered</kbd>
                     is set to a false value (<kbd>0</kbd>, <kbd>undef</kbd>, or an empty string),
                     the decoded results will not be generated.
@@ -403,8 +405,8 @@ for my $e ( @$v ) {
                 <h4 class = 'in-desc'>delivered: true</h4>
                 <p class = 'description'>
                     Similarly to the Perl version, in the Ruby version of {{ site.html.ss }},
-                    specifying <kbd>delivered: true</kbd> as the second argument of <kbd>rise()</kbd>
-                    and <kbd>dump()</kbd> will include emails that were successfully delivered
+                    specifying <kbd>delivered: true</kbd> as the second argument of <span class = 'value'>rise()</span>
+                    and <span class = 'value'>dump()</span> will include emails that were successfully delivered
                     (delivery notifications) in the decoded results. If a false value (<kbd>nil</kbd>
                     or <kbd>false</kbd>) is specified for delivered, the decoded results will not
                     be generated.
@@ -437,18 +439,19 @@ end
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Include Vacation</h2>
                 <p class = 'description cation'>
-                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
-                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
-                    method instead.
+                    The <span class = 'value'>make()</span> method of the <span class = 'value'>Sisimai</span>
+                    class has been deprecated in {{ site.html.ss }} 5.0.0. Please use the newly implemented
+                    <span class = 'value'>rise()</span> method instead.
                 </p>
                 <p class = 'description cation'>
                     Starting with {{ site.html.ss }} 5.0.0, bounce emails with a bounce reason of
                     <span class = 'value'>"vacation"</span> will no longer be decoded by default.
                     If you need this functionality, you must specify the <kbd>vacation</kbd> parameter
-                    to the <kbd>rise()</kbd> method.
+                    to the <span class = 'value'>rise()</span> method.
                 </p>
                 <p class = 'description'>
-                    The <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd>
+                    The <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span>
+                    methods of the <span class = 'value'>Sisimai</span>
                     class can include vacation response emails in the decoded results by specifying
                     <kbd>vacation</kbd> as the second argument.
                 </p>
@@ -480,8 +483,8 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>vacation =&gt; 1</h4>
                 <p class = 'description'>
-                    Specifying <kbd>vacation => 1</kbd> as the second argument of <kbd>rise()</kbd>
-                    and <kbd>dump()</kbd> will include vacation response emails in the decoded results.
+                    Specifying <kbd>vacation => 1</kbd> as the second argument of <span class = 'value'>rise()</span>
+                    and <span class = 'value'>dump()</span> will include vacation response emails in the decoded results.
                     If a value that evaluates to false for <kbd>vacation</kbd> is specified
                     (<kbd>0</kbd>, <kbd>undef</kbd>, <kbd>''</kbd>), no decoded results will be generated.
                 </p>
@@ -508,8 +511,8 @@ for my $e ( @$v ) {
                 <h4 class = 'in-desc'>vacation: true</h4>
                 <p class = 'description'>
                     Similar to the Perl version, in the Ruby version of {{ site.html.ss }},
-                    specifying <kbd>vacation: true</kbd> as the second argument of <kbd>rise()</kbd>
-                    and <kbd>dump()</kbd> will include vacation notification emails in the decoded
+                    specifying <kbd>vacation: true</kbd> as the second argument of <span class = 'value'>rise()</span>
+                    and <span class = 'value'>dump()</span> will include vacation notification emails in the decoded
                     results. If a value that evaluates to false for <kbd>vacation</kbd> is specified
                     (<kbd>nil</kbd>, <kbd>false</kbd>), no decoded results will be generated.
                 </p>
@@ -541,9 +544,9 @@ end
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2>Callback Feature</h2>
                 <p class = 'description cation'>
-                    The <kbd>make()</kbd> method of the <kbd>Sisimai</kbd> class has been deprecated
-                    in {{ site.html.ss }} 5.0.0. Please use the newly implemented <kbd>rise()</kbd>
-                    method instead.
+                    The <span class = 'value'>make()</span> method of the <span class = 'value'>Sisimai</span>
+                    class has been deprecated in {{ site.html.ss }} 5.0.0. Please use the newly implemented
+                    <span class = 'value'>rise()</span> method instead.
                 </p>
                 <p class = 'description cation'>
                     The callback feature specification (number and type of arguments) has changed in
@@ -553,8 +556,8 @@ end
                 </p>
                 <p class = 'description'>
                     The callback feature implemented in {{ site.html.ss }} 4.19.0 allows you to get
-                    the results of your own bounce email processing through the <kbd>catch()</kbd>
-                    method of <kbd>Sisimai::Fact</kbd> class or <kbd>Sisimai::Message</kbd> class.
+                    the results of your own bounce email processing through the <span class = 'value'>catch()</span>
+                    method of <span class = 'value'>Sisimai::Fact</span> class or <span class = 'value'>Sisimai::Message</span> class.
                     This feautre is useful for extracting the entire original message that {{ site.html.ss }}
                     does not include in the decoded results, or specific header values of the original
                     message (such as the delivery ID).
@@ -569,17 +572,17 @@ end
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Arguments passed to c___</h3>
                 <p class = 'description'>
-                    The arguments that can be passed to the <kbd>c___</kbd> (<kbd>c</kbd> and three
-                    underscores, looks like a fishing hook) in the <kbd>rise()</kbd> method of the
-                    <kbd>Sisimai</kbd> class are one array reference for Perl hook methods (subroutines)
-                    and one <kbd>Array</kbd> object for Ruby hook methods. The structure of the
+                    The arguments that can be passed to the <span class = 'value'>c___</span> (<span class = 'value'>c</span>
+                    and three underscores, looks like a fishing hook) in the <span class = 'value'>rise()</span> method of the
+                    <span class = 'value'>Sisimai</span> class are one array reference for Perl hook methods (subroutines)
+                    and one <span class = 'value'>Array</span> object for Ruby hook methods. The structure of the
                     arguments is as follows:
                 </p>
                 <div class = 'table-responsive'>
                     <table class = 'table table-hover table-bordered'>
                         <thead>
                             <tr>
-                                <th>The indices of the array passed to <kbd>c___</kbd></th>
+                                <th>The indices of the array passed to <span class = 'value'>c___</span></th>
                                 <th>Target of processing</th>
                             </tr>
                         </thead>
@@ -693,7 +696,7 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                             <tr>
                                 <td class = 'ltext'>fact</td>
                                 <td>Array</td>
-                                <td>The List of <kbd>Sisimai::Fact</kbd>objects</td>
+                                <td>The List of <span class = 'value'>Sisimai::Fact</span>objects</td>
                             </tr>
                         </tbody>
                     </table>
@@ -773,8 +776,9 @@ Diagnostic-Code: smtp; 550-5.7.26 The MAIL FROM domain [mail4.example.com] has
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Sisimai-&gt;rise($f, 'c___' => [$c0, $c1])</h4>
                 <p class = 'description'>
-                    You can pass two code references as the second argument <kbd>c___</kbd> to the
-                    <kbd>rise()</kbd> and <kbd>dump()</kbd> methods of the <kbd>Sisimai</kbd> class.
+                    You can pass two code references as the second argument <span class = 'value'>c___</span>
+                    to the <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span> methods
+                    of the <span class = 'value'>Sisimai</span> class.
                     These code references should contain the code for the subroutine that you want
                     to execute.
                 </p>
@@ -831,9 +835,10 @@ printf("Return-Path: %s\n", $rv->[0]->{'catch'}->{'return-path'});
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Sisimai.rise(f, c___: [c0, c1])</h4>
                 <p class = 'description'>
-                    You can pass a <kbd>Proc</kbd> object containing the code for the function
-                    that you want to execute to the <kbd>rise()</kbd> and <kbd>dump()</kbd> methods
-                    of the <kbd>Sisimai</kbd> class as the second argument <kbd>c___</kbd>.
+                    You can pass a <span class = 'value'>Proc</span> object containing the code for
+                    the function that you want to execute to the <span class = 'value'>rise()</span>
+                    and <span class = 'value'>dump()</span> methods of the <span class = 'value'>Sisimai</span>
+                    class as the second argument <span class = 'value'>c___</span>.
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 require 'sisimai'
@@ -887,8 +892,8 @@ printf("Return-Path: %s\n", rv[0].catch['return-path'])
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>JSON string by dump()</h3>
                 <p class = 'description'>
-                    The JSON string obtained by passing a hook method to the <kbd>dump()</kbd> method
-                    of the <kbd>Sisimai</kbd> class will have the following contents:
+                    The JSON string obtained by passing a hook method to the <span class = 'value'>dump()</span>
+                    method of the <span class = 'value'>Sisimai</span> class will have the following contents:
                 </p>
                 <pre class = 'prettyprint'>[
   {
