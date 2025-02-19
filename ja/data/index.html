@@ -120,8 +120,14 @@ Action: failed
                     発信者アドレス(From)から作られる<kbd>Sisimai::Address</kbd> オブジェクトです。
                     <kbd>Sisimai::Fact</kbd>オブジェクトをJSON形式にダンプした場合はメールアドレス
                     (文字列)を保持します。
-                    <br />
-                    <br />
+                </p>
+                <p class = 'description ja'>
+                    Go版{{ site.html.ss }}では
+                    <span class = 'value'>
+                        <a href = 'https://github.com/sisimai/go-sisimai/blob/5-stable/sis/email-address.go' target = 'new'>sis.EmailAddress</a>
+                    </span>
+                    構造体で、それぞれのフィールド名は大文字から始まりますが、JSON形式に変換した場合は
+                    全て小文字のフィールド名になります。
                 </p>
                 <ul>
                     <li><kbd>user()</kbd> - メールアドレスの"@"の左側</li>
@@ -491,6 +497,14 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                     作られる<kbd>Sisimai::Address</kbd>オブジェクトです。このアドレスがまさに配信出来なかった
                     アドレスとなります。<kbd>Sisimai::Fact</kbd>オブジェクトをJSON形式にダンプした場合は
                     メールアドレス(文字列)を保持します。
+                </p>
+                <p class = 'description ja'>
+                    Go版{{ site.html.ss }}では
+                    <span class = 'value'>
+                        <a href = 'https://github.com/sisimai/go-sisimai/blob/5-stable/sis/email-address.go' target = 'new'>sis.EmailAddress</a>
+                    </span>
+                    構造体で、それぞれのフィールド名は大文字から始まりますが、JSON形式に変換した場合は
+                    全て小文字のフィールド名になります。
                 </p>
                 <ul>
                     <li><kbd>user()</kbd> - メールアドレスの"@"の左側</li>

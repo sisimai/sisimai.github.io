@@ -118,6 +118,16 @@ Action: failed
                     email. If the <kbd>Sisimai::Fact</kbd> object is dumped to JSON format, it will
                     hold the email address (String).
                 </p>
+                <p class = 'description'>
+                    In the Go version of {{ site.html.ss }}, the
+                    <span class = 'value'>
+                        <a href = 'https://github.com/sisimai/go-sisimai/blob/5-stable/sis/email-address.go' target = 'new'>
+                            sis.EmailAddress
+                        </a>
+                    </span>
+                    struct has field names that start with a capital letter. However, when converted to JSON format,
+                    all field names become lowercase.
+                </p>
                 <ul>
                     <li><kbd>user()</kbd> - The local part of the address</li>
                     <li><kbd>host()</kbd> - The domain part of the address</li>
@@ -489,6 +499,16 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                     object created from the recipient address in the bounce email. This address is
                     the one that could not be delivered. If a <kbd>Sisimai::Fact</kbd> object is
                     dumped in JSON format, it will hold the email address (String).
+                </p>
+                <p class = 'description'>
+                    In the Go version of {{ site.html.ss }}, the
+                    <span class = 'value'>
+                        <a href = 'https://github.com/sisimai/go-sisimai/blob/5-stable/sis/email-address.go' target = 'new'>
+                            sis.EmailAddress
+                        </a>
+                    </span>
+                    struct has field names that start with a capital letter. However, when converted to JSON format,
+                    all field names become lowercase.
                 </p>
                 <ul>
                     <li><kbd>user()</kbd> - The local part of the address</li>
