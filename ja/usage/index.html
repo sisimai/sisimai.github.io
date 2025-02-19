@@ -506,7 +506,11 @@ end
                     <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
                     Perl版やRuby版と同様にGo版{{ site.html.ss }}でも<span class = 'value'>Rise()</span>と
                     <span class = 'value'>Dump()</span>の第二引数に
-                    指定する構造体<span class = 'value'>sis.DecodingArgs</span>の<span class = 'value'>Delivered</span>
+                    指定する<span class = 'value'>
+                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/decoding-args.go' target = 'new'>
+                            sis.DecodingArgs
+                        </a>
+                    </span> 構造体の<span class = 'value'>Delivered</span>
                     に<kbd>true</kbd>を指定すると、配信に成功したメール(配信通知)も
                     解析結果に含まれるようになります。<span class = 'value'>Delivered</span>の初期値は
                     <span class = 'value'>false</span>です。
@@ -642,9 +646,14 @@ end
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
                     Perl版やRuby版と同様にGo版{{ site.html.ss }}でも<span class = 'value'>Rise()</span>関数と
-                    <span class = 'value'>Dump()</span>関数の第二引数に
-                    指定する構造体<span class = 'value'>sis.DecodingArgs</span>の<span class = 'value'>Vacation</span>
-                    に<kbd>true</kbd>を指定すると、不在応答のメールも解析結果に含まれるようになります。
+                    <span class = 'value'>Dump()</span>関数の第二引数に指定する構造体
+                    <span class = 'value'>
+                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/decoding-args.go' target = 'new'>
+                            sis.DecodingArgs
+                        </a>
+                    </span> の
+                    <span class = 'value'>Vacation</span>に<kbd>true</kbd>を指定すると、
+                    不在応答のメールも解析結果に含まれるようになります。
                     <span class = 'value'>Vacation</span>の初期値は<span class = 'value'>false</span>です。
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
@@ -857,7 +866,12 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                     <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
                     <span class = 'value'>libsisimai.org/sisimai</span>パッケージの<span class = 'value'>Rise()</span>
                     関数における
-                    <span class = 'value'>sis.DecodingArgs</span>構造体の<span class = 'value'>Callback0</span>と
+                    <span class = 'value'>
+                    <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/decoding-args.go' target = 'new'>
+                        sis.DecodingArgs
+                    </a>
+                    </span>
+                    構造体の<span class = 'value'>Callback0</span>と
                     <span class = 'value'>Callback1</span>の引数と戻り値はそれぞれ以下のような構造になっています。
                 </p>
                 <div class = 'table-responsive'>
@@ -1111,7 +1125,10 @@ printf("Return-Path: %s\n", rv[0].catch['return-path'])
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
                     <span class = 'value'>libsisimai.org/sisimai</span>パッケージの<span class = 'value'>Rise()</span>関数と
-                    <span class = 'value'>Dump()</span>関数に渡す<span class = 'value'>sis.DecodingArgs</span>構造体の
+                    <span class = 'value'>Dump()</span>関数に渡す
+                    <span class = 'value'>
+                        <a href = 'https://github.com/sisimai/go-sisimai/blob/5-stable/sis/decoding-args.go' target = 'new'>sis.DecodingArgs</a>
+                    </span>構造体の
                     <span class = 'value'>Callback0</span>と<span class = 'value'>Callback1</span>に
                     実行したい処理内容を書いた関数を代入して渡すことができます。
                 </p>
