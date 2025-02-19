@@ -889,7 +889,13 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                             <tr>
                                 <td class = 'ltext'>Callback0</td>
                                 <td>
-                                    <span class = 'value'>*sis.CallbackArg0</span><br /><br />
+                                    <span class = 'value'>
+                                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/callback-args.go' target = 'new'>
+                                            *sis.CallbackArg0
+                                        </a>
+                                    </span>
+                                    <br />
+                                    <br />
                                     <ul>
                                         <li>Headers <span class = 'value'>map[string][]string</span></li>
                                         <ul><li>バウンスメールのヘッダー部分</li></ul>
@@ -907,7 +913,13 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                             <tr>
                                 <td class = 'ltext'>Callback1</td>
                                 <td>
-                                    <span class = 'value'>*sis.CallbackArg0</span><br /><br />
+                                    <span class = 'value'>
+                                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/callback-args.go' target = 'new'>
+                                            *sis.CallbackArg1
+                                        </a>
+                                    </span>
+                                    <br />
+                                    <br />
                                     <ul>
                                         <li>Path <span class = 'value'>string</span> 元メールのPath</li>
                                         <li>Kind <span class = 'value'>string</span> 元メールの種類</li>
