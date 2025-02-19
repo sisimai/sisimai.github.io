@@ -310,6 +310,11 @@ span.ruby {
     color: #ffffef;
 }
 
+span.golang {
+    background: #cfb698;
+    color: #3f312b;
+}
+
 span.value {
     padding: 2px 6px;
     margin: auto 2px;
