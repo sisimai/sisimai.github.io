@@ -93,7 +93,8 @@
                     <img class = 'lhs' src = '/static/images/icon/urgent-message-3.png'>
                     <span class = 'value'>"action"</span> はバウンスメール内の<span class = 'value'>Action:</span>
                     フィールドの値を保持します。この項目は、解析の過程で表記の揺れ(deliverable, failureなど)は修正され、
-                    次の五つの値となります。
+                    次の五つの値となります。ただしバウンス理由<span class = 'value'>Reason</span>が
+                    <span class = 'value'>Feedback</span>の場合、この値は空になります。
                 </p>
                 <br />
                 <ul class = 'spec'>
@@ -115,7 +116,7 @@ Action: failed
                 <div class = 'index-label'><i class = 'fas fa-at'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Addresser (Sisimai::Address)</h3>
+                <h3 class = 'in-desc'>Addresser (Sisimai::Address | sis.EmailAddress)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-2.png'>
                     <span class = 'value'>"addresser"</span> はバウンスメール内にある元メールの
@@ -201,17 +202,76 @@ Original-Recipient: rfc822;kijitora@example.org
                     Go版{{ site.html.ss }}の場合は<span class = 'value'>interface{}</span>型で返しますので
                     適切な型アサーションを経て参照してください。
                 </p>
+                <hr>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Command (String)</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
+                    <span class = 'value'>"command"</span> はバウンスメールの<span class = 'value'>Diagnostic-Code:</span>
+                    フィールドまたはバウンスメール本文から取り出した、SMTPセッションで最後に発行したと
+                    思われるSMTPコマンドを保持します。
+                    バウンスメール内にSMTPコマンドの記録が無い場合、この値は空になります。
+                </p>
+                <p class = 'description ja cation'>
+                    この項目は{{ site.html.ss }} 5.2.0で従来の<span class = 'value'>"smtpcommand"</span>
+                    から変更になりました。{{ site.html.ss }} 5.4.*までは<kbd>smtpcommand()</kbd>アクセサで
+                    参照可能ですがv5.5.0で削除されます。また<span class = 'value'>dump()</span>で得た
+                    JSON文字列では<span class = 'value'>command</span>で参照してください。
+                </p>
+                <ul>
+                    <li><span class = 'value'>HELO</span></li>
+                    <li><span class = 'value'>EHLO</span></li>
+                    <li><span class = 'value'>MAIL</span></li>
+                    <li><span class = 'value'>RCPT</span></li>
+                    <li><span class = 'value'>DATA</span></li>
+                </ul>
+                <pre class = 'prettyprint'>
+<kijitora@example.go.jp>: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
+no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)                        
+                </pre>
+                <hr>
+            </div>
+        </div>
+
     </div>
 </section>
 
 <section id = 'd' class = 'parallax'>
     <div class = 'container'>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-server'></i></div>
+                <div class = 'post-it'>D</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>DecodedBy (String)</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/puzzle-1.png'>
+                    <span class = 'value'>"decodedby"</span>はバウンス理由を特定したMTAモジュール名を保持します。
+                    例えば値が<span class = 'value'>"Sendmail"</span>であれば<kbd>Sisimai::Lhost::Sendmail</kbd>モジュールが
+                    エラーとなった受信者アドレス取得やバウンス理由特定を行った事を意味します。
+                </p>
+                <p class = 'description ja cation'>
+                    この項目は{{ site.html.ss }} 5.2.0で従来の<span class = 'value'>"smtpagent"</span>
+                    から変更になりました。{{ site.html.ss }} 5.4.*までは<kbd>smtpagent()</kbd>アクセサで
+                    参照可能ですがv5.5.0で削除されます。また<span class = 'value'>dump()</span>で得た
+                    JSON文字列では<span class = 'value'>decodedby</span>で参照してください。
+                </p>
+                <hr>
+            </div>
+        </div>
+
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
-                <div class = 'post-it'>D</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>DeliveryStatus (String)</h3>
@@ -300,6 +360,28 @@ Diagnostic-Code: X-Unix; 255
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
                 <div class = 'post-it'>F</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>FeedbackID (String)</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/strike-5.png'>
+                    <span class = 'value'>"feedbackid"</span> は元メール内の<span class = 'value'>Feedback-Id:</span>
+                    ヘッダーの値で、バウンスメールの中に元メールが含まれていた場合、この値が取り出されます。
+                    バウンスメールがARFフォーマットではない、または<span class = 'value'>"reason"</span>
+                    の値が <span class = 'value'>"feedback"</span>ではない場合でも、元メールに
+                    <span class = 'value'>Feedback-Id:</span>ヘッダーがあれば、この項目に代入されます。
+                    この項目は{{ site.html.ss }} 5.2.0で実装されました。
+                </p>
+                <pre class = 'prettyprint'>
+Feedback-ID: 1.us-west-2.HX6/J9OVlHTadQhEu1+wdF9DBj6n6Pa9sW5Y/0pSOi8=:AmazonSES
+Feedback-Id: 1335:380
+                </pre>
+                <hr />
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>FeedbackType (String)</h3>
@@ -496,7 +578,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <div class = 'index-label'><i class = 'fas fa-at'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Recipient (Sisimai::Address)</h3>
+                <h3 class = 'in-desc'>Recipient (Sisimai::Address | sis.EmailAddress)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-1.png'>
                     <span class = 'value'>"recipient"</span>はバウンスメール内にある受信者アドレスから
@@ -598,49 +680,6 @@ Remote-MTA: DNS; g5.example.net
             </div>
         </div>
 
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-server'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>smtpagent (String)</h3>
-                <p class = 'description ja'>
-                    <img class = 'lhs' src = '/static/images/icon/puzzle-1.png'>
-                    <span class = 'value'>"smtpagent"</span>はバウンス理由を特定したMTAモジュール名を保持します。
-                    例えば値が<span class = 'value'>"Sendmail"</span>であれば<kbd>Sisimai::Lhost::Sendmail</kbd>モジュールが
-                    エラーとなった受信者アドレス取得やバウンス理由特定を行った事を意味します。
-                </p>
-                <hr>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>smtpcommand (String)</h3>
-                <p class = 'description ja'>
-                    <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
-                    <span class = 'value'>"smtpcommand"</span> はバウンスメールの<span class = 'value'>Diagnostic-Code:</span>
-                    フィールドまたはバウンスメール本文から取り出した、SMTPセッションで最後に発行したと
-                    思われるSMTPコマンドを保持します。
-                    バウンスメール内にSMTPコマンドの記録が無い場合、この値は空になります。
-                </p>
-                <ul>
-                    <li><span class = 'value'>HELO</span></li>
-                    <li><span class = 'value'>EHLO</span></li>
-                    <li><span class = 'value'>MAIL</span></li>
-                    <li><span class = 'value'>RCPT</span></li>
-                    <li><span class = 'value'>DATA</span></li>
-                </ul>
-                <pre class = 'prettyprint'>
-<kijitora@example.go.jp>: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
-no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)                        
-                </pre>
-                <hr>
-            </div>
-        </div>
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -698,13 +737,18 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <div class = 'post-it'>T</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Timestamp (Sisimai::Time)</h3>
+                <h3 class = 'in-desc'>Timestamp (Sisimai::Time | time.Time)</h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/calendar-9.png'>
                     <span class = 'value'>"timestamp"</span>はバウンスした日時を保持する<kbd>Sisima::Time</kbd>
                     <em>(Perlでは<kbd>Time::Piece</kbd>の子クラス, Rubyでは<kbd>DateTime</kbd>の子クラス)</em>
-                    オブジェクトです。<kbd>Sisimai::Fact</kbd>オブジェクトをJSON形式にダンプした場合、
-                    32ビット整数のマシンタイムに変換されます。
+                    オブジェクトです。
+
+                    Go版{{ site.html.ss }}では<span class = 'value'>time</span>パッケージの
+                    <span class = 'value'><a href = 'https://pkg.go.dev/time#Time' target = 'new'>Time</a></span>
+                    構造体です。
+
+                    <span class = 'value'>Timestamp</span>をJSON形式にダンプした場合、32ビット整数のマシンタイムに変換されます。
                 </p>
                 <pre class = 'prettyprint'>
 Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
