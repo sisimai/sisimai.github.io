@@ -889,14 +889,12 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                             <tr>
                                 <td class = 'ltext'>Callback0</td>
                                 <td>
+                                    <span class = 'value'>*sis.CallbackArg0</span><br /><br />
                                     <ul>
-                                        <li><span class = 'value'>*sis.CallbackArg0</span></li>
-                                        <ul>
-                                            <li>Headers <span class = 'value'>map[string][]string</span></li>
-                                            <ul><li>バウンスメールのヘッダー部分</li></ul>
-                                            <li>Payload <span class = 'value'>*string</span></li>
-                                            <ul><li>ヘッダーを<strong>除く</strong>バウンスメールのメール本文</li></ul>
-                                        </ul>
+                                        <li>Headers <span class = 'value'>map[string][]string</span></li>
+                                        <ul><li>バウンスメールのヘッダー部分</li></ul>
+                                        <li>Payload <span class = 'value'>*string</span></li>
+                                        <ul><li>ヘッダーを<strong>除く</strong>バウンスメールのメール本文</li></ul>
                                     </ul>
                                 </td>
                                 <td>
@@ -909,22 +907,20 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                             <tr>
                                 <td class = 'ltext'>Callback1</td>
                                 <td>
+                                    <span class = 'value'>*sis.CallbackArg0</span><br /><br />
                                     <ul>
-                                        <li><span class = 'value'>*sis.CallbackArg1</span></li>
+                                        <li>Path <span class = 'value'>string</span> 元メールのPath</li>
+                                        <li>Kind <span class = 'value'>string</span> 元メールの種類</li>
                                         <ul>
-                                            <li>Path <span class = 'value'>string</span> 元メールのPath</li>
-                                            <li>Kind <span class = 'value'>string</span> 元メールの種類</li>
-                                            <ul>
-                                                <li>"mailbox": UNIX mbox形式</li>
-                                                <li>"maildir": Maildir/形式</li>
-                                                <li>"memory": 変数からの読み込み</li>
-                                                <li>"stdin": STDINからの読み込み</li>
-                                            </ul>
-                                            <li>
-                                                Mail <span class = 'value'>*string</span>
-                                                ヘッダーを<strong>含む</strong>バウンスメール全体
-                                            <li>Fact <span class = 'value'>*[]sis.Fact</span> 解析済みデータ</li>
+                                            <li>"mailbox": UNIX mbox形式</li>
+                                            <li>"maildir": Maildir/形式</li>
+                                            <li>"memory": 変数からの読み込み</li>
+                                            <li>"stdin": STDINからの読み込み</li>
                                         </ul>
+                                        <li>
+                                            Mail <span class = 'value'>*string</span>
+                                            ヘッダーを<strong>含む</strong>バウンスメール全体
+                                        <li>Fact <span class = 'value'>*[]sis.Fact</span> 解析済みデータ</li>
                                     </ul>
                                 </td>
                                 <td>
