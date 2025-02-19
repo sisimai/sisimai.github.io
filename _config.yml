@@ -8,8 +8,8 @@ sisimai:
     en: 'Monday, 1st July 2024'
     ja: '令和6年07月01日(月)'
   spec:
-    modules: 73
-    reasons: 34
+    modules: 58
+    reasons: 36
     bhratio: 59
     license: 'The BSD 2-Clause License'
   workson:
