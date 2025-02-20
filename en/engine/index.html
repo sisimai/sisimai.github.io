@@ -133,6 +133,14 @@
                     have lower decoding accuracy than {{ site.html.ss }}, but they are also
                     implemented in {{ site.html.bh }}.
                 </p>
+                <p class = 'description'>
+                    In {{ site.html.ss }} 5.2.0, several MTA modules were integrated into
+                    <span class = 'value'>Sisimai::RFC3464</span>,
+                    <span class = 'value'>Sisimai::Lhost::Exim</span>, or
+                    <span class = 'value'>Sisimai::Lhost::qmail</span> for improved maintainability.
+                    In addition, some modules have moved their error code list and matching process to
+                    <span class = 'value'>Sisimai::Rhost<span>.
+                </p>
             </div>
         </div>
 
@@ -160,12 +168,14 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class = 'ltext'>Amavis</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.25.0</td>
+                                    <td class = 'disabled ltext'>Amavis</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.00</td>
+                                    <td class = 'disabled ltext'>v4.25.0</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.amavis.org' target = 'new'>amavisd-new</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
                                     </td>
                                 </tr>
                                 <tr>
@@ -280,10 +290,18 @@
                 <h2 class = 'in-desc'>Commercial MTAs and Appliances</h2>
                 <p class = 'description'>
                     This is a list of modules for decoding bounce emails created by commercial MTAs
-                    and commercial appliances such as Microsoft Exchange Server, Domino, and Barracuda.
+                    and commercial appliances such as Microsoft Exchange Server, and Domino.
                     The modules in this table are not implemented in {{ site.html.bh }}, but there
                     are rare cases where bounce emails can also be decoded by the Fallback module
                     in {{ site.html.bh }}.
+                </p>
+                <p class = 'description'>
+                    In {{ site.html.ss }} 5.2.0, several MTA modules were integrated into
+                    <span class = 'value'>Sisimai::RFC3464</span>,
+                    <span class = 'value'>Sisimai::Lhost::Exim</span>, or
+                    <span class = 'value'>Sisimai::Lhost::qmail</span> for improved maintainability.
+                    In addition, some modules have moved their error code list and matching process to
+                    <span class = 'value'>Sisimai::Rhost<span>.
                 </p>
             </div>
         </div>
@@ -318,11 +336,15 @@
                                     <td class = 'ltext'>TransWARE Active!hunter</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Barracuda</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.25.6</td>
-                                    <td class = 'ltext'>Barracuda</td>
+                                    <td class = 'disabled ltext'>Barracuda</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.00</td>
+                                    <td class = 'disabled ltext'>v4.25.6</td>
+                                    <td class = 'ltext'>
+                                        Barracuda
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>Domino</td>
@@ -360,11 +382,15 @@
                                     <td class = 'ltext'>Trend Micro InterScan Messaging Security Suite</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>MXLogic</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.1.1</td>
-                                    <td class = 'ltext'>McAfee SaaS</td>
+                                    <td class = 'disabled ltext'>MXLogic</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.00</td>
+                                    <td class = 'disabled ltext'>v4.1.1</td>
+                                    <td class = 'ltext'>
+                                        McAfee SaaS
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::Lhost::Exim</span>)
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>MailFoundry</td>
@@ -381,11 +407,15 @@
                                     <td class = 'ltext'>Trustwave Secure Email Gateway</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>McAfee</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.1.1</td>
-                                    <td class = 'ltext'>McAfee Email Appliance</td>
+                                    <td class = 'disabled ltext'>McAfee</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.00</td>
+                                    <td class = 'disabled ltext'>v4.1.1</td>
+                                    <td class = 'ltext'>
+                                        McAfee Email Appliance
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>MessagingServer</td>
@@ -409,18 +439,26 @@
                                     <td class = 'ltext'>Lotus Notes</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>PowerMTA</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.25.6</td>
-                                    <td class = 'ltext'>PowerMTA</td>
+                                    <td class = 'disabled ltext'>PowerMTA</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.00</td>
+                                    <td class = 'disabled ltext'>v4.25.6</td>
+                                    <td class = 'ltext'>
+                                        PowerMTA
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>SurfControl</td>
-                                    <td>No</td>
-                                    <td>0.75</td>
-                                    <td class = 'ltext'>v4.1.2</td>
-                                    <td class = 'ltext'>WebSense SurfControl</td>
+                                    <td class = 'disabled ltext'>SurfControl</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.75</td>
+                                    <td class = 'disabled ltext'>v4.1.2</td>
+                                    <td class = 'ltext'>
+                                        WebSense SurfControl
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -448,6 +486,14 @@
                     and Amazon SES. Most of the modules are not included in {{ site.html.ss }}.
                     <strong>Also, currently, bounce emails from Gmail can no longer be decoded by
                         the Gmail module in {{ site.html.bh }}.</strong>
+                </p>
+                <p class = 'description'>
+                    In {{ site.html.ss }} 5.2.0, several MTA modules were integrated into
+                    <span class = 'value'>Sisimai::RFC3464</span>,
+                    <span class = 'value'>Sisimai::Lhost::Exim</span>, or
+                    <span class = 'value'>Sisimai::Lhost::qmail</span> for improved maintainability.
+                    In addition, some modules have moved their error code list and matching process to
+                    <span class = 'value'>Sisimai::Rhost<span>.
                 </p>
             </div>
         </div>
@@ -484,30 +530,36 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>AmazonWorkMail</td>
-                                    <td>No</td>
-                                    <td>0.60</td>
-                                    <td class = 'ltext'>v4.15.0</td>
+                                    <td class = 'disabled ltext'>AmazonWorkMail</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.60</td>
+                                    <td class = 'disabled ltext'>v4.15.0</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://aws.amazon.com/workmail/' target = 'new'>Amazon WorkMail</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Aol</td>
-                                    <td>No</td>
-                                    <td>0.86</td>
-                                    <td class = 'ltext'>v4.1.3</td>
+                                    <td class = 'disabled ltext'>Aol</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.86</td>
+                                    <td class = 'disabled ltext'>v4.1.3</td>
                                     <td class = 'ltext'>
                                         <a href = 'http://www.aol.com' target = 'new'>Aol Mail</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Bigfoot</td>
-                                    <td>No</td>
-                                    <td>1.00</td>
-                                    <td class = 'ltext'>v4.1.10</td>
+                                    <td class = 'disabled ltext'>Bigfoot</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>1.00</td>
+                                    <td class = 'disabled ltext'>v4.1.10</td>
                                     <td class = 'ltext'>
                                         <a href = 'http://www.bigfoot.com' target = 'new'>Bigfoot</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
                                     </td>
                                 </tr>
                                 <tr>
@@ -538,12 +590,14 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Facebook</td>
-                                    <td>Yes</td>
-                                    <td>1.00</td>
-                                    <td class = 'ltext'>v4.0.0</td>
+                                    <td class = 'disabled ltext'>Facebook</td>
+                                    <td class = 'disabled'>Yes</td>
+                                    <td class = 'disabled'>1.00</td>
+                                    <td class = 'disabled ltext'>v4.0.0</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.facebook.com' target = 'new'>Facebook</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
                                     </td>
                                 </tr>
                                 <tr>
@@ -594,57 +648,69 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>MessageLabs</td>
-                                    <td>No</td>
-                                    <td>1.00</td>
-                                    <td class = 'ltext'>v4.1.10</td>
-                                    <td class = 'ltext'>
-                                        <a href = 'http://www.messagelabs.com' target = 'new'>Symantec.cloud</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'>Office365</td>
-                                    <td>No</td>
-                                    <td>0.85</td>
-                                    <td class = 'ltext'>v4.15.0</td>
-                                    <td class = 'ltext'>
-                                        <a href = 'http://office.microsoft.com/' target = 'new'>Microsoft Office 365</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'>Outlook</td>
-                                    <td>No</td>
-                                    <td>0.83</td>
-                                    <td class = 'ltext'>v4.1.3</td>
-                                    <td class = 'ltext'>
-                                        <a href = 'https://www.outlook.com/' target = 'new'>Microsoft Outlook.com</a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'>MailRu</td>
-                                    <td>No</td>
-                                    <td>0.29</td>
-                                    <td class = 'ltext'>v4.1.4</td>
+                                    <td class = 'disabled ltext'>MailRu</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.29</td>
+                                    <td class = 'disabled ltext'>v4.1.4</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://mail.ru' target = 'new'>@mail.ru</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::Lhost::Exim</span>)
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>ReceivingSES</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.1.29</td>
+                                    <td class = 'disabled ltext'>MessageLabs</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>1.00</td>
+                                    <td class = 'disabled ltext'>v4.1.10</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'http://www.messagelabs.com' target = 'new'>Symantec.cloud</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'disabled ltext'>Office365</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.85</td>
+                                    <td class = 'disabled ltext'>v4.15.0</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'http://office.microsoft.com/' target = 'new'>Microsoft Office 365</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::Lhost::Exchange2007</span>)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'disabled ltext'>Outlook</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.83</td>
+                                    <td class = 'disabled ltext'>v4.1.3</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://www.outlook.com/' target = 'new'>Microsoft Outlook.com</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'disabled ltext'>ReceivingSES</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.00</td>
+                                    <td class = 'disabled ltext'>v4.1.29</td>
                                     <td class = 'ltext'>
                                         <a href = 'http://aws.amazon.com/ses/' target = 'new'>Amazon SES(Receiving)</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>SendGrid</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.0.2</td>
+                                    <td class = 'disabled ltext'>SendGrid</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.00</td>
+                                    <td class = 'disabled ltext'>v4.0.2</td>
                                     <td class = 'ltext'>
                                         <a href = 'http://sendgrid.com/' target = 'new'>SendGrid</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
                                     </td>
                                 </tr>
                                 <tr>
@@ -657,21 +723,25 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Yahoo</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.1.3</td>
+                                    <td class = 'disabled ltext'>Yahoo</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.00</td>
+                                    <td class = 'disabled ltext'>v4.1.3</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.yahoo.com' target = 'new'>Yahoo! MAIL</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::Lhost::qmail</span>)
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>Yandex</td>
-                                    <td>No</td>
-                                    <td>0.57</td>
-                                    <td class = 'ltext'>v4.1.6</td>
-                                    <td class = 'ltext'>
+                                    <td class = 'disabled ltext'>Yandex</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.57</td>
+                                    <td class = 'disabled ltext'>v4.1.6</td>
+                                    <td class = 'disabled ltext'>
                                         <a href = 'http://www.yandex.ru' target = 'new'>Yandex.Mail</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
                                     </td>
                                 </tr>
                                 <tr>
@@ -754,6 +824,11 @@
             <div class = 'row'>
                 <div class = 'col-sm-8 col-sm-offset-2'>
                     <div class = 'table-responsive'>
+                        <p class = 'description'>
+                            In {{ site.html.ss }} 5.2.0, some modules in <span class = 'value'>Sisimai::Lhost</span>
+                            have moved their error code list and matching process to
+                            <span class = 'value'>Sisimai::Rhost<span> for improved maintainability.
+                        </p>
                         <table class = 'table table-hover table-condensed'>
                             <thead>
                                 <tr>
@@ -761,23 +836,24 @@
                                         Module Name<br>
                                         Sisimai::Rhost::
                                     </th>
-                                    <th>
-                                        included in<br />
-                                        bounceHammer
-                                    </th>
-                                    <th>
-                                        Ratio in<br />
-                                        bounceHammer
-                                    </th>
                                     <th>Implemented at</th>
                                     <th>Description</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td class = 'ltext'>Aol</td>
+                                    <td class = 'ltext'>v5.2.0</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://www.aol.com' target = 'new'>
+                                            Aol Mail
+                                        </a>
+                                        (In {{ site.html.ss }} 5.2.0, this module have moved from 
+                                        <span class = 'value'>Sisimai::Lhost</span>)
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'>Apple</td>
-                                    <td>含まない</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v5.1.0</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.icloud.com/mail' target = 'new'>
@@ -787,8 +863,6 @@
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>Cox</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.25.8</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://cox.com/' target = 'new'>
@@ -797,9 +871,18 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'>Facebook</td>
+                                    <td class = 'ltext'>v5.2.0</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://www.facebook.com/' target = 'new'>
+                                            Facebook
+                                        </a>
+                                        (In {{ site.html.ss }} 5.2.0, this module have moved from 
+                                        <span class = 'value'>Sisimai::Lhost</span>)
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'>FrancePTT</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.22.3</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.laposte.fr' target = 'new'>La Poste</a> and
@@ -808,8 +891,6 @@
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>GoDaddy</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.22.2</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.godaddy.com' target = 'new'>GoDaddy</a>
@@ -817,8 +898,6 @@
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>Google</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.0.0</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://gsuite.google.com' target = 'new'>G Suite</a>
@@ -826,9 +905,16 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'>GSuite</td>
+                                    <td class = 'ltext'>v5.2.0</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://gsuite.google.com' target = 'new'>G Suite</a><br />
+                                        (In {{ site.html.ss }} 5.2.0, this module have moved from 
+                                        <span class = 'value'>Sisimai::Lhost</span>)
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'>IUA</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.25.4</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.i.ua' target = 'new'>I.UA - твоя почта</a>
@@ -836,17 +922,22 @@
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>KDDI</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.22.6</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.au.com' target = 'new'>au(EZweb)</a>
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'>MessageLabs</td>
+                                    <td class = 'ltext'>v5.2.0</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'http://www.messagelabs.com' target = 'new'>Symantec.cloud</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module have moved from 
+                                        <span class = 'value'>Sisimai::Lhost</span>)
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'>Microsoft</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.17.2</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://products.office.com/en/exchange/exchange-online'
@@ -858,8 +949,6 @@
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>Mimecast</td>
-                                    <td>Noまない</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.25.15</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.mimecast.com/' target = 'new'>
@@ -869,8 +958,6 @@
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>NTTDOCOMO</td>
-                                    <td>Noまない</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.25.15</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.docomo.ne.jp/' target = 'new'>
@@ -879,9 +966,16 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'>Outlook</td>
+                                    <td class = 'ltext'>v5.2.0</td>
+                                    <td class = 'ltext'>
+                                        <a href = 'https://www.outlook.com/' target = 'new'>Microsoft Outlook.com</a>
+                                        (In {{ site.html.ss }} 5.2.0, this module have moved from 
+                                        <span class = 'value'>Sisimai::Lhost</span>)
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'>Spectrum</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.25.8</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://www.spectrum.com/' target = 'new'>
@@ -891,8 +985,6 @@
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>Tencent</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v4.25.0</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://mail.qq.com' target = 'new'>Tencent QQ</a>
@@ -901,8 +993,6 @@
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>YahooInc</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
                                     <td class = 'ltext'>v5.1.0</td>
                                     <td class = 'ltext'>
                                         <a href = 'https://mail.yahoo.com/' target = 'new'>
@@ -934,6 +1024,12 @@
                 <p class = 'description'>
                     This is a list of modules for decoding bounce emails that are compliant with
                     feedback loops or RFC3464, and bounce emails created by unknown MTAs.
+                </p>
+                <p class = 'description'>
+                    In {{ site.html.ss }} 5.2.0, several MTA modules were integrated into
+                    <span class = 'value'>Sisimai::RFC3464</span>,
+                    <span class = 'value'>Sisimai::Lhost::Exim</span>, or
+                    <span class = 'value'>Sisimai::Lhost::qmail</span> for improved maintainability.
                 </p>
             </div>
         </div>
@@ -1003,18 +1099,26 @@
                                     <td class = 'ltext'>Unknown MTA #3</td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>X4</td>
-                                    <td>No</td>
-                                    <td>0.00</td>
-                                    <td class = 'ltext'>v4.1.23</td>
-                                    <td class = 'ltext'>Unknown MTA #4 qmail clones</td>
+                                    <td class = 'disabled ltext'>X4</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>0.00</td>
+                                    <td class = 'disabled ltext'>v4.1.23</td>
+                                    <td class = 'ltext'>
+                                        Unknown MTA #4 qmail clones
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::Lhost::qmail</span>)
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'>X5</td>
-                                    <td>No</td>
-                                    <td>1.00</td>
-                                    <td class = 'ltext'>v4.13.0</td>
-                                    <td class = 'ltext'>Unknown MTA #5</td>
+                                    <td class = 'disabled ltext'>X5</td>
+                                    <td class = 'disabled'>No</td>
+                                    <td class = 'disabled'>1.00</td>
+                                    <td class = 'disabled ltext'>v4.13.0</td>
+                                    <td class = 'ltext'>
+                                        Unknown MTA #5
+                                        (In {{ site.html.ss }} 5.2.0, this module was integrated into
+                                        <span class = 'value'>Sisimai::RFC3464</span>)
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'>X6</td>
@@ -1051,6 +1155,9 @@
                     class since {{ site.html.ss }} v4.16.0. As shown in the sample code below,
                     this method provides a function to return a list of the names and descriptions
                     of all implemented MTA modules.
+                </p>
+                <p class = 'description caution'>
+                    This function is not implemented in the Go version of {{ site.html.ss }}.
                 </p>
             </div>
         </div>

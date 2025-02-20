@@ -50,7 +50,7 @@
                     <h2>Differences</h2>
                     <p class = 'description'>
                         The table on this page shows differences between {{ site.html.ss }}
-                        (both of the Perl and the Ruby version) and {{ site.html.bh }}.
+                        (the Perl, Ruby and Go versions) and {{ site.html.bh }}.
                     </p>
                 </div>
             </div> 
@@ -78,7 +78,7 @@
                         <h3>Environment</h3>
                         <p class = 'description'>
                             Differences about environment for running {{ site.html.ss }}
-                            (both of the Perl and the Ruby version) and all the versions of {{ site.html.bh }}.
+                            (the Perl, Ruby, and Go versions) and all the versions of {{ site.html.bh }}.
                         </p>
                     </div>
                     <a href = '#environment' class = 'btn btn-continue'>Read</a>
@@ -91,7 +91,7 @@
                         <h3>Performance</h3>
                         <p class = 'description'>
                             Numerical advantages of performance in {{ site.html.ss }}
-                            (both of the Perl and the Ruby vesrion)
+                            (the Perl, Ruby,  and Go vesrions)
                             over the final version of {{ site.html.bh }}.
                         </p>
                     </div>
@@ -143,8 +143,6 @@
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
@@ -191,8 +189,6 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
@@ -215,8 +211,6 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
@@ -267,8 +261,6 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
@@ -297,7 +289,7 @@ Content-Type: message/rfc822
                 <h2 class = 'in-desc'>Environment</h2>
                 <p class = 'description'>
                     The following are the differences in the operating environment of {{ site.html.ss }}
-                    (Perl and Ruby versions) compared to {{ site.html.bh }}:
+                    (the Perl, Ruby, and Go versions) compared to {{ site.html.bh }}:
                 </p>
             </div>
         </div>
@@ -308,16 +300,18 @@ Content-Type: message/rfc822
                         <thead>
                             <tr>
                                 <th></th>
-                                <th class = 'ctext'>p5-sisimai(Perl)</th>
-                                <th class = 'ctext'>rb-sisimai(Ruby)</th>
+                                <th class = 'ctext'>p5-sisimai</th>
+                                <th class = 'ctext'>rb-sisimai</th>
+                                <th class = 'ctext'>go-sisimai</th>
                                 <th class = 'ctext'>{{ site.html.bh }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><strong>Works on</strong></td>
-                                <td>Perl {{ site.sisimai.workson.perl[0] }} - {{ site.sisimai.workson.perl[1] }}</td>
-                                <td>Ruby {{ site.sisimai.workson.ruby[0] }} - {{ site.sisimai.workson.ruby[1] }}</td>
+                                <td>Perl {{ site.sisimai.workson.perl[0] }} -</td>
+                                <td>Ruby {{ site.sisimai.workson.ruby[0] }} -</td>
+                                <td>Go {{ site.sisimai.workson.golang[0] }} -</td>
                                 <td>Perl 5.10.1 - 5.14</td>
                             </tr>
                             <tr>
@@ -328,10 +322,12 @@ Content-Type: message/rfc822
                                     <a href = 'https://github.com/skaji/cpm' target = 'new'><kbd>cpm</kbd></a>
                                 </td>
                                 <td><kbd>gem</kbd></td>
+                                <td><kbd>go get</kbd></td>
                                 <td><kbd>configure; make</kbd></td>
                             </tr>
                             <tr>
                                 <td><strong>Command-Line tools</strong></td>
+                                <td>N/A</td>
                                 <td>N/A</td>
                                 <td>N/A</td>
                                 <td>Available</td>
@@ -340,10 +336,12 @@ Content-Type: message/rfc822
                                 <td><strong>Database</strong></td>
                                 <td>N/A</td>
                                 <td>N/A</td>
+                                <td>N/A</td>
                                 <td>Available(MySQL, PostgreSQL, SQLite)</td>
                             </tr>
                             <tr>
                                 <td><strong>Management Console</strong></td>
+                                <td>N/A</td>
                                 <td>N/A</td>
                                 <td>N/A</td>
                                 <td>Available(WebUI)</td>
@@ -358,13 +356,11 @@ Content-Type: message/rfc822
                 <div class = 'index-label'><i class = 'fas fa-desktop'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>{{ site.html.ss }} works on Perl and Ruby</h3>
+                <h3 class = 'in-desc'>{{ site.html.ss }} works on Perl, Ruby, and Go</h3>
             </div>
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
@@ -374,8 +370,8 @@ Content-Type: message/rfc822
                 will need to install an older version of Perl separately.
                 </p>
                 <p class = 'description'>
-                    And, from {{ site.html.ss }} v4.14.2, {{ site.html.ss }} works on both Perl and
-                    Ruby <s>(including JRuby)</s>.
+                    And, from {{ site.html.ss }} v4.14.2, {{ site.html.ss }} works on the Perl, Ruby
+                    (including JRuby), and from {{ site.html.ss }} v5.2.0, also works on the Go.
                 </p>
                 <hr>
             </div>
@@ -391,8 +387,6 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
@@ -400,7 +394,7 @@ Content-Type: message/rfc822
                     the archive, installing many dependent modules, and running the <kbd>configure</kbd>,
                     <kbd>make</kbd>, <kbd>make test</kbd>, and <kbd>make install</kbd> commands.
                     On the other hand, {{ site.html.ss }} can be installed with the <kbd>cpanm</kbd>
-                    or <kbd>gem</kbd> commands, making it very easy to install.
+                    or <kbd>gem</kbd> or <kbd>go get</kbd> commands, making it very easy to install.
                 </p>
                 <hr>
             </div>
@@ -416,8 +410,6 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
@@ -445,7 +437,7 @@ Content-Type: message/rfc822
                 <h2 class = 'in-desc'>Performance</h2>
                 <p class = 'description'>
                     The following are the numerical performance advantages of {{ site.html.ss }}
-                    (Perl and Ruby versions) over {{ site.html.bh }}:
+                    (the Perl, Ruby, and Go versions) over {{ site.html.bh }}:
                 </p>
             </div>
         </div>
@@ -456,8 +448,9 @@ Content-Type: message/rfc822
                         <thead>
                             <tr>
                                 <th></th>
-                                <th class = 'ctext'>p5-sisimai(Perl)</th>
-                                <th class = 'ctext'>rb-sisimai(Ruby)</th>
+                                <th class = 'ctext'>p5-sisimai</th>
+                                <th class = 'ctext'>rb-sisimai</th>
+                                <th class = 'ctext'>go-sisimai</th>
                                 <th class = 'ctext'>{{ site.html.bh }}</th>
                             </tr>
                         </thead>
@@ -466,10 +459,12 @@ Content-Type: message/rfc822
                                 <td><strong>Analytical precision ratio(2000 emails)</strong></td>
                                 <td class = 'rtext'>100%</td>
                                 <td class = 'rtext'>100%</td>
+                                <td class = 'rtext'>100%</td>
                                 <td class = 'rtext'>55%</td>
                             </tr>
                             <tr>
                                 <td><strong>Modules for Commercial MTAs and MPSs</strong></td>
+                                <td class = 'rtext'>Included</td>
                                 <td class = 'rtext'>Included</td>
                                 <td class = 'rtext'>Included</td>
                                 <td class = 'rtext'>N/A</td>
@@ -478,24 +473,28 @@ Content-Type: message/rfc822
                                 <td><strong>The speed of decoding email(1000 emails)</strong></td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.parse1k.perl }}s</td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.parse1k.ruby }}s</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.parse1k.golang }}s</td>
                                 <td class = 'rtext'>4.3s</td>
                             </tr>
                             <tr>
-                                <td><strong>Dependencies (Except core modules of Perl)</strong></td>
+                                <td><strong>Dependencies (Except core modules)</strong></td>
                                 <td class = 'rtext'>2</td>
                                 <td class = 'rtext'>1</td>
+                                <td class = 'rtext'>2</td>
                                 <td class = 'rtext'>24</td>
                             </tr>
                             <tr>
                                 <td><strong>LOC: Source lines of code</strong></td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.loc.perl }} lines</td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.loc.ruby }} lines</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.loc.golang }} lines</td>
                                 <td class = 'rtext'>18,200 lines</td>
                             </tr>
                             <tr>
                                 <td><strong>The number of tests </strong></td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.tests.perl }}</td>
                                 <td class = 'rtext'>{{ site.sisimai.diff.tests.ruby }}</td>
+                                <td class = 'rtext'>{{ site.sisimai.diff.tests.golang }}</td>
                                 <td class = 'rtext'>27000</td>
                             </tr>
                         </tbody>
@@ -514,8 +513,6 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
@@ -539,14 +536,13 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
                     The Perl version of {{ site.html.ss }} decode emails and generates structured
-                    data about {{ site.sisimai.diff.timesfaster.perl }} times faster than the
-                    {{ site.html.bh }} <kbd>bin/mailboxparser</kbd> command.
+                    data about {{ site.sisimai.diff.timesfaster.perl }} times faster, about
+                    {{ site.sisimai.diff.timesfaster.golang }} at the Go version of {{ site.html.ss }}
+                    than the {{ site.html.bh }} <kbd>bin/mailboxparser</kbd> command.
                 </p>
             </div>
         </div>
@@ -561,8 +557,6 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <p class = 'description'>
@@ -610,8 +604,6 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <div class = 'text-center'>
@@ -663,6 +655,25 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td class = 'ltext'><strong>command</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        The last SMTP command in failed session
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>decodedby</strong></td>
+                                    <td>OK</td>
+                                    <td>
+                                        OK<br>
+                                        <em class = 'warn'>decription/smtpagent</em>
+                                    </td>
+                                    <td class = 'ltext'>
+                                        MTA/ESP Module name used for decoding
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td class = 'ltext'><strong>deliverystatus</strong></td>
                                     <td>OK</td>
                                     <td>
@@ -700,6 +711,15 @@ Content-Type: message/rfc822
                                         Error type string such as <br />
                                         <span class = 'value'>SMTP</span> or
                                         <span class = 'value'>X-Unix</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>feedbackid</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        value of <span class = 'value'>Feedback-ID:</span> field of
+                                        the original email
                                     </td>
                                 </tr>
                                 <tr>
@@ -823,25 +843,6 @@ Content-Type: message/rfc822
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class = 'ltext'><strong>smtpagent</strong></td>
-                                    <td>OK</td>
-                                    <td>
-                                        OK<br>
-                                        <em class = 'warn'>decription/smtpagent</em>
-                                    </td>
-                                    <td class = 'ltext'>
-                                        MTA/ESP Module name used for decoding
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><strong>smtpcommand</strong></td>
-                                    <td>OK</td>
-                                    <td>-</td>
-                                    <td class = 'ltext'>
-                                        The last SMTP command in failed session
-                                    </td>
-                                </tr>
-                                <tr>
                                     <td class = 'ltext'><strong class = 'deprecated'>softbounce</strong></td>
                                     <td>OK</td>
                                     <td>-</td>
@@ -920,8 +921,6 @@ Content-Type: message/rfc822
         </div>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-text'>Perl</div>
-                <div class = 'index-text'>Ruby</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <div class = 'text-center'>
@@ -1002,6 +1001,14 @@ Content-Type: message/rfc822
                                     <td>-</td>
                                     <td class = 'ltext'>
                                         feedback
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Failed STARTTLS</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        failedstarttls
                                     </td>
                                 </tr>
                                 <tr>
@@ -1158,6 +1165,14 @@ Content-Type: message/rfc822
                                     <td>OK</td>
                                     <td class = 'ltext'>
                                         suspend
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><strong>Suppressed</strong></td>
+                                    <td>OK</td>
+                                    <td>-</td>
+                                    <td class = 'ltext'>
+                                        suppressed
                                     </td>
                                 </tr>
                                 <tr>

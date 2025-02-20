@@ -195,7 +195,7 @@ Original-Recipient: rfc822;kijitora@example.org
                 <p class = 'description'>
                     Callback, hook method, and <kbd>catch()</kbd> method are implemented at {{ site.html.ss }} 4.19.0.
                 </p>
-                <p class = 'description cation'>
+                <p class = 'description caution'>
                     The argument names and types of the callback feature were changed in
                     {{ site.html.ss }} 5.0.0. For details, see the 
                     <a href = 'https://github.com/sisimai/p5-sisimai/blob/5-stable/README-JA.md#callback-feature' target = 'new'>
@@ -224,7 +224,7 @@ Original-Recipient: rfc822;kijitora@example.org
                     If there is no record of the SMTP command in the bounce email, this value will
                     be empty.
                 </p>
-                <p class = 'description cation'>
+                <p class = 'description caution'>
                     This field has been changed from the previous <span class = 'value'>"smtpcommand"</span> in
                     {{ site.html.ss }} 5.2.0. It can be referenced with the <kbd>smtpcommand()</kbd> accessor until
                     {{ site.html.ss }} 5.4.*, but it will be removed in v5.5.0.
@@ -263,7 +263,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                     it means that the <kbd>Sisimai::Lhost::Sendmail</kbd> module performed the recipient
                     address acquisition and bounce reason determination that resulted in an error.
                 </p>
-                <p class = 'description cation'>
+                <p class = 'description caution'>
                     This field has been changed from the previous <span class = 'value'>"smtpagent"</span> in
                     {{ site.html.ss }} 5.2.0. It can be referenced with the <kbd>smtpagent()</kbd> accessor until
                     {{ site.html.ss }} 5.4.*, but it will be removed in v5.5.0.
@@ -426,7 +426,7 @@ User-Agent: SMP-FBL
                     <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
                     The <span class = 'value'>"hardbounce"</span> field, newly implemented in {{ site.html.ss }}
                     5.0.0, returns a boolean value (<span class = 'value'>0</span> or <span class = 'value'>1</span>
-                    in Perl, <span class = 'value'>true</span> or <span class = 'value'>false</span> in Ruby)
+                    in Perl, <span class = 'value'>true</span> or <span class = 'value'>false</span> in Ruby and Go)
                     indicating whether the destination email address bounced for a reason that it can
                     never be delivered again. Specifically, it returns true if the
                     <a href = '#r'><span class = 'value'>"reason"</span></a> has the following values:
@@ -436,7 +436,7 @@ User-Agent: SMP-FBL
                     <li><a href = '/en/reason/#userunknown'><span class = 'value'>"userunknown"</span></a></li>
                     <li><a href = '/en/reason/#hasmoved'><span class = 'value'>"hasmoved"</span></a></li>
                 </ul>
-                <p class = 'description cation'>
+                <p class = 'description caution'>
                     At the same time, <a href = '#s'><span class = 'value'>"softbounce"</span></a>
                     was deprecated in {{ site.html.ss }} 5.0.0.
                 </p>
@@ -698,7 +698,7 @@ Remote-MTA: DNS; g5.example.net
                         <span class = 'value'>1</span> for soft bounce, <span class = 'value'>0</span>
                         for hard bounce, and <span class = 'value'>-1</span> if it cannot be determined.
                 </p>
-                <p class = 'description cation'>
+                <p class = 'description caution'>
                     This field was deprecated in {{ site.html.ss }} v5.0.0. It can still be used for
                     compatibility reasons up to v5.1.0, but please use
                     <a href = '#h'><span class = 'value'>"hardbounce"</span></a> instead.
