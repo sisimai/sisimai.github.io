@@ -221,9 +221,8 @@ Original-Recipient: rfc822;kijitora@example.org
                 </p>
                 <p class = 'description ja caution'>
                     この項目は{{ site.html.ss }} 5.2.0で従来の<span class = 'value'>"smtpcommand"</span>
-                    から変更になりました。{{ site.html.ss }} 5.4.*までは<kbd>smtpcommand()</kbd>アクセサで
-                    参照可能ですがv5.5.0で削除されます。また<span class = 'value'>dump()</span>で得た
-                    JSON文字列では<span class = 'value'>command</span>で参照してください。
+                    から変更になりました。{{ site.html.ss }} 5.5.0で削除されるまでは<kbd>smtpcommand()</kbd>
+                    アクセサおよびJSON文字列の<span class = 'value'>"command"</span>で参照も可能です。
                 </p>
                 <ul>
                     <li><span class = 'value'>HELO</span></li>
@@ -260,9 +259,8 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 </p>
                 <p class = 'description ja caution'>
                     この項目は{{ site.html.ss }} 5.2.0で従来の<span class = 'value'>"smtpagent"</span>
-                    から変更になりました。{{ site.html.ss }} 5.4.*までは<kbd>smtpagent()</kbd>アクセサで
-                    参照可能ですがv5.5.0で削除されます。また<span class = 'value'>dump()</span>で得た
-                    JSON文字列では<span class = 'value'>decodedby</span>で参照してください。
+                    から変更になりました。{{ site.html.ss }} 5.5.0で削除されるまでは<kbd>smtpagent()</kbd>
+                    アクセサおよびJSON文字列で<span class = 'value'>"smtpagent"</span>での参照も可能です。
                 </p>
                 <hr>
             </div>
