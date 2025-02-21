@@ -191,7 +191,7 @@ Original-Recipient: rfc822;kijitora@example.org
                     コールバック機能とフックメソッドの設定、<kbd>catch()</kbd>
                     メソッドは<strong>Sisimai 4.19.0で追加</strong>されました。
                 </p>
-                <p class = 'description ja cation'>
+                <p class = 'description ja caution'>
                     {{ site.html.ss }} 5.0.0でコールバック機能の引数名と引数の型が変更になりました。詳細は
                     <a href = 'https://github.com/sisimai/p5-sisimai/blob/5-stable/README-JA.md#callback-feature' target = 'new'>
                         Callback feature
@@ -219,7 +219,7 @@ Original-Recipient: rfc822;kijitora@example.org
                     思われるSMTPコマンドを保持します。
                     バウンスメール内にSMTPコマンドの記録が無い場合、この値は空になります。
                 </p>
-                <p class = 'description ja cation'>
+                <p class = 'description ja caution'>
                     この項目は{{ site.html.ss }} 5.2.0で従来の<span class = 'value'>"smtpcommand"</span>
                     から変更になりました。{{ site.html.ss }} 5.4.*までは<kbd>smtpcommand()</kbd>アクセサで
                     参照可能ですがv5.5.0で削除されます。また<span class = 'value'>dump()</span>で得た
@@ -258,7 +258,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                     例えば値が<span class = 'value'>"Sendmail"</span>であれば<kbd>Sisimai::Lhost::Sendmail</kbd>モジュールが
                     エラーとなった受信者アドレス取得やバウンス理由特定を行った事を意味します。
                 </p>
-                <p class = 'description ja cation'>
+                <p class = 'description ja caution'>
                     この項目は{{ site.html.ss }} 5.2.0で従来の<span class = 'value'>"smtpagent"</span>
                     から変更になりました。{{ site.html.ss }} 5.4.*までは<kbd>smtpagent()</kbd>アクセサで
                     参照可能ですがv5.5.0で削除されます。また<span class = 'value'>dump()</span>で得た
@@ -417,7 +417,7 @@ User-Agent: SMP-FBL
                     {{ site.html.ss }} 5.0.0で新たに実装された<span class = 'value'>"hardbounce"</span>は、
                     宛先メールアドレスが二度と配信できない理由でバウンスしたかどうかを示す真偽値
                     (Perl版は<span class = 'value'>0</span>か<span class = 'value'>1</span>,
-                    Ruby版は<span class = 'value'>true</span>か<span class = 'value'>false</span>)
+                    Ruby版とGo版は<span class = 'value'>true</span>か<span class = 'value'>false</span>)
                     を返します。
                 </p>
                 <p class = 'description ja'>
@@ -431,7 +431,7 @@ User-Agent: SMP-FBL
                     <li><a href = '/ja/reason/#hasmoved'><span class = 'value'>"hasmoved"</span></a></li>
                 </ul>
 
-                <p class = 'description ja cation'>
+                <p class = 'description ja caution'>
                     同時に<a href = '#s'><span class = 'value'>"softbounce"</span></a>は{{ site.html.ss }}
                     5.0.0で廃止となりました。
                 </p>
@@ -694,7 +694,7 @@ Remote-MTA: DNS; g5.example.net
                     <span class = 'value'>0</span>がハードバウンス、<span class = 'value'>-1</span>
                     がどちらか判断出来なかった、となります。
                 </p>
-                <p class = 'description ja cation'>
+                <p class = 'description ja caution'>
                     <strong>この項目はv5.0.0で廃止になりました。</strong> v5.1.0までは互換性の為、
                     使用可能ですが、<a href = '#h'><span class = 'value'>"hardbounce"</span></a>を使ってください。
                 </p>
