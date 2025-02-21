@@ -215,8 +215,8 @@ Original-Recipient: rfc822;kijitora@example.org
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
                     <span class = 'value'>"command"</span> はバウンスメールの<span class = 'value'>Diagnostic-Code:</span>
-                    フィールドまたはバウンスメール本文から取り出した、SMTPセッションで最後に発行したと
-                    思われるSMTPコマンドを保持します。
+                    フィールドまたはバウンスメール本文から取り出した、SMTPセッションで最後に発行したと思われる
+                    <a href = 'https://github.com/sisimai/go-sisimai/blob/5-stable/smtp/command/lib.go' target = 'new'>SMTPコマンド</a>を保持します。
                     バウンスメール内にSMTPコマンドの記録が無い場合、この値は空になります。
                 </p>
                 <p class = 'description ja caution'>
@@ -224,13 +224,6 @@ Original-Recipient: rfc822;kijitora@example.org
                     から変更になりました。{{ site.html.ss }} 5.5.0で削除されるまでは<kbd>smtpcommand()</kbd>
                     アクセサおよびJSON文字列の<span class = 'value'>"command"</span>で参照も可能です。
                 </p>
-                <ul>
-                    <li><span class = 'value'>HELO</span></li>
-                    <li><span class = 'value'>EHLO</span></li>
-                    <li><span class = 'value'>MAIL</span></li>
-                    <li><span class = 'value'>RCPT</span></li>
-                    <li><span class = 'value'>DATA</span></li>
-                </ul>
                 <pre class = 'prettyprint'>
 <kijitora@example.go.jp>: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
 no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)                        

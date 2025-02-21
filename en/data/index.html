@@ -218,8 +218,9 @@ Original-Recipient: rfc822;kijitora@example.org
                 <h3 class = 'in-desc'>Command (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
-                    The <span class = 'value'>"command"</span> field holds the SMTP command that
-                    is thought to have been issued last in the SMTP session, extracted from the
+                    The <span class = 'value'>"command"</span> field holds
+                    <a href = 'https://github.com/sisimai/go-sisimai/blob/5-stable/smtp/command/lib.go' target = 'new'>the SMTP command</a>
+                    that is thought to have been issued last in the SMTP session, extracted from the
                     <span class = 'value'>Diagnostic-Code:</span> field or the bounce email body.
                     If there is no record of the SMTP command in the bounce email, this value will
                     be empty.
@@ -230,13 +231,6 @@ Original-Recipient: rfc822;kijitora@example.org
                     and <span class = 'value'>"smtpcommand"</span> key in the JSON string until 
                     {{ site.html.ss }} 5.4.*, but it will be removed in v5.5.0.
                 </p>
-                <ul>
-                    <li><span class = 'value'>HELO</span></li>
-                    <li><span class = 'value'>EHLO</span></li>
-                    <li><span class = 'value'>MAIL</span></li>
-                    <li><span class = 'value'>RCPT</span></li>
-                    <li><span class = 'value'>DATA</span></li>
-                </ul>
                 <pre class = 'prettyprint'>
 <kijitora@example.go.jp>: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
 no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)                        
