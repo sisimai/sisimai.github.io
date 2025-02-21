@@ -51,29 +51,25 @@
                         JSONでの出力も可能です
                     </p>
                     <div class = 'attention'>
+                        <!-- <i class = 'fa fa-bullhorn'></i> -->
                         <i class = 'fa fa-brands fa-golang' style = 'font-size: 320%'></i>
-                        2025年2月現在、<a href = '{{ site.sisimai.repository.golang }}' target = 'new'>Go言語版Sisimai</a>
-                        はベータ版として公開中です。
-                        リリースまでにAPIに大きな仕様変更が入ったり
-                        予期しない動作やクラッシュの可能性があります。
-                        <strong>正式版のv5.2.0は2025年の夏までにリリース予定です。</strong>
-                    </div>
-                    <div class = 'attention'>
-                        <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
                         <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>です。
+                        <strong>このバージョンからGo版{{ site.html.ss }}も利用可能</strong>です。
 
-                        このバージョンにおける主な変更点は、<strong>v4互換機能の完全削除</strong>と
-                        <a href = 'https://github.com/corecode/dma' target = 'new'>DMA: DragonFly Mail Agent</a>
-                        のバウンスメール対応、<a href = 'https://postmaster.yahooinc.com/error-codes' target = 'new'>米国Yahoo!</a>
-                        などのエラーコード追加と整理です。
+                        <br />
+
+                        Perl版とRuby版においてはGo版との互換性維持に伴う解析済みデータの項目名
+                        ("smtpagent"と"smtpcommand")変更と新たなデータ項目("feedbackid"))の追加、
+                        バウンス理由二件("FailedSTARTTLS"と"Suppressed")の新設、その他の内部APIの変更などです。
 
                         {{ site.html.ss }} {{ site.sisimai.version }}の全ての変更点は
                         <a href = '/ja/release/{{ site.sisimai.version }}.html'>リリースノート</a>
                         を見てください。
-
-                        {{ site.html.ss }} 5で入った非互換な変更点は<a href = '/ja/diff'>Sisimai 4との違い</a>を
-                        確認してください。
+                    </div>
+                    <div class = 'warning'>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        {{ site.html.ss }} 5で入った非互換な変更点は<a href = '/ja/diff'>Sisimai 4との違い</a>を確認してください。
                     </div>
                     <div class = 'warning'>
                         <i class = 'fa fa-triangle-exclamation'></i>

@@ -53,30 +53,25 @@
                         It is also possible to output in JSON format.
                     </p>
                     <div class = 'attention'>
+                        <!-- <i class = 'fa fa-bullhorn'></i> -->
                         <i class = 'fa fa-brands fa-golang' style = 'font-size: 320%'></i>
-                        As of February 2025,
-                        <a href = '{{ site.sisimai.repository.golang }}' target = 'new'>the Go language version of Sisimai</a>
-                        is available as a beta release. Before the official release,
-                        the API may undergo significant specification changes, and unexpected behavior
-                        or crashes may occur. 
-                        <strong>The official version v5.2.0 is scheduled to be released by the summer of 2025.</strong>
-                    </div>
-                    <div class = 'attention'>
-                        <i class = 'fa fa-bullhorn'></i>
                         The latest stable version is 
                         <a href = '#download'>
                             <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
                         </a>,
                         released on {{ site.sisimai.release.en }}.
-                        The main changes in this version are the complete <strong>removal of v4 compatibility features</strong>,
-                        <a href = 'https://github.com/corecode/dma' target = 'new'>DMA: DragonFly Mail Agent</a>
-                        bounce email support, and the update of error codes for 
-                        <a href = 'https://postmaster.yahooinc.com/error-codes' target = 'new'>Yahoo Inc.</a> and others.
+                        <strong>The Go version of {{ site.html.ss }} is also available from this version.</strong>
 
-                        <br />
+                        <br>
+                        For the Perl and Ruby versions, the changes include renaming the item names
+                        ("smtpagent" and "smtpcommand") of the parsed data due to maintaining compatibility
+                        with the Go version, adding a new data item ("feedbackid"), creating two new bounce reasons
+                        ("FailedSTARTTLS" and "Suppressed"), and changing other internal APIs.
+
                         For details on the all changes in Sisimai {{ site.sisimai.version }}, please see
                         <a href = '/en/release/{{ site.sisimai.version }}.html'>the release notes</a>.
-
+                    </div>
+                    <div class = 'warning'>
                         Please check <a href = '/en/diff'>Differences with {{ site.html.ss }} 4</a>
                         page for the breaking changes in {{ site.html.ss }} 5.
                     </div>
