@@ -194,26 +194,32 @@
                     </h2>
                     <hr>
                     <p class = 'description'>
-                        In the summer of 2014, the Perl version of {{ site.html.ss }}(pronounced as 'shi-shi-mai')
-                        was developed to solve several critical problems with the decoding accuracy of {{ site.html.bh }}, including:
-                        Inability to decode multiple bounces in a single email, Large number of dependent modules, some of which are no longer maintained,
-                        Inability to work with Perl 5.16 or later.
+                        In the summer of 2014, Perl version {{ site.html.ss }} was developed to solve numerous critical issues
+                        related to the parsing accuracy of {{ site.html.bh }}.
+                        Two years later, on February 3, 2016, the Ruby version of {{ site.html.ss }} was also released.
                     </p>
                     <p class = 'description'>
-                        {{ site.html.ss }} is now about 2.2 times faster than {{ site.html.bh }}
-                        and has twice the decoding accuracy. The Ruby version of Sisimai was released
-                        on February 3, 2016.
+                        Both the Perl and Ruby versions of {{ site.html.ss }} continue to parse 110 million bounce emails
+                        worldwide every month (according to our research).
+
+                        On February 2, 2024, {{ site.html.ss }} 5.0.0 was released, capable of detecting modern bounces,
+                        including domain authentication (SPF, DKIM, DMARC, ARC) errors and reputation-related errors.
+
+                        On August 16 of the same year, it celebrated its 10th anniversary since its release.
                     </p>
                     <p class = 'description'>
-                        And on February 2, 2024, the 10th anniversary of the release of {{ site.html.ss }},
-                        we released {{ site.html.ss }} 5.0.0, which can detect modern bounces such
-                        as those related to domain authentication (SPF, DKIM, DMARC, ARC) and
-                        reputation-based errors.
+                        And on February 25, 2025, Go version {{ site.html.ss }}, an implementation in a non-scripting language,
+                        was released as the third {{ site.html.ss }}. Go version {{ site.html.ss }}, like the Perl and Ruby versions,
+                        minimizes dependencies and is characterized by the ease of deployment and execution speed (
+                        {{ site.sisimai.diff.timesfaster.golang }} times faster than bounceHammer,
+                        {{ site.sisimai.diff.fasterthan4.golang }} times faster than Perl version {{ site.html.ss }} v5
+                        ), which are advantages of compiled binaries.
                     </p>
                 </div>
             </div>
 
             <div class = 'col-sm-6'>
+                <div style = 'margin-bottom: 14%;'></div>
                 <div class = 'our-skills wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
                         <p class = 'lead'>
@@ -234,7 +240,7 @@
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                 role = 'progressbar'  aria-valuetransitiongoal = '29'>{{ site.sisimai.diff.parse1k.perl }}s
+                                 role = 'progressbar'  aria-valuetransitiongoal = '29'>{{ site.sisimai.diff.parse1k.golang }}s
                             </div>
                             <p class = 'versus'>4.24s</p>
                         </div>
@@ -346,16 +352,12 @@
                 <div class = 'attention'>
                     The latest version is <strong>{{ site.sisimai.version }}</strong>,
                     released on {{ site.sisimai.release.en }}.  As of February 2025,
-                    <a href = '{{ site.sisimai.repository.golang }}' target = 'new'>the Go language version of Sisimai</a>
-                    is available as a beta release.
+                    <strong>the Go version of Sisimai is available from this version.</strong>
                 </div>
                 <br>
                 <p class = 'description'>
                     {{ site.html.ss }} can run on any OS where Perl or Ruby works, such as *BSD,
-                    macOS, and Linux. {{ site.html.ss }} 4.22.5 and later
-                    <a href = 'https://github.com/sisimai/p5-sisimai/issues/261' target = 'new'>
-                        may run with ActivePerl on Windows.
-                    </a>.
+                    macOS, and Linux.
                 </p>
                 <p class = 'description'>
                     <strong>
@@ -410,10 +412,10 @@
                             <img src = '/static/images/icon/golang-1.png'>
                         </div>
                         <ul>
-                            <li>Beta version</li>
+                            <li>Release version</li>
                             <li>{{ site.html.ss }} 5 Only</li>
                             <li>Go {{ site.sisimai.workson.golang[0] }} -</li>
-                            <li>Coming soon</li>
+                            <li></li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.golang }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Download</a>
