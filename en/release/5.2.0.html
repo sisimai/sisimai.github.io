@@ -1,0 +1,403 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.2.0 RELEASE"
+"description": "Release notes for Sisimai 5.2.0/All the cahnges"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>DOcs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.2.0.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-snowplow'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.2.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2025/02/25</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.2.0 has been released. The main changes in this version include:
+                    <strong>
+                        renaming the field names of decoded data
+                        (<span class = 'value'>smtpagent</span> and <span class = 'value'>smtpcommand</span>)
+                    </strong>,
+                    <strong>
+                        adding new field name of decoded data (<span class = 'value'>feedbackid</span>),
+                        adding two new bounce reasons
+                        (<span class = 'value'>FailedSTARTTLS</span> and <span class = 'value'>Suppressed</span>),
+                    </strong>
+                    and changes to other internal APIs to <strong>maintain compatibility with the Go version of {{ site.html.ss }}.</strong>
+                </p>
+                <p class = 'description'>
+                    Changes specific to the Perl version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang perl'>Perl</span> at the beginning of each item,
+                    changes specific to the Ruby version of {{ site.html.ss }} are indicated by <span class = 'lang ruby'>Ruby</span>,
+                    and changes specific to the Go version of {{ site.html.ss }} are indicated by <span class = 'lang golang'>Go</span>.
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    And then, {{ site.html.ss }} 5 includes
+                    <a href = '/en/diff'>many changes that are not compatible with Version 4</a>,
+                    so please check the Perl or Ruby version of your environment before installing
+                    or upgrading.
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Changes</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <a href = 'https://github.com/sisimai/go-sisimai/' target = 'new'>The Go version of {{ site.html.ss }}</a>
+                        is available in v5.2.0. It can be built with Go {{ site.sisimai.workson.golang[0] }} or later.
+                    </li>
+                    <li>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        <strong>
+                            BREAKING CHANGES were made to maintain compatibility with the Go version of {{ site.html.ss }}.
+                        </strong>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/547' target = 'new'>#547</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/558' target = 'new'>#558</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/567' target = 'new'>#567</a>
+
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/311' target = 'new'>#311</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/318' target = 'new'>#318</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/327' target = 'new'>#327</a>
+                    </li>
+                    <ul>
+                        <li>
+                            <i class = 'fa fa-triangle-exclamation'></i>
+                            <strong>
+                                The <span class = 'value'>"smtpcommand"</span>field of the <kbd>Sisimai::Fact</kbd>
+                                instance that holds the decoded result has been changed to <span class = 'value'>"command"</span>.
+                            </strong>
+                            The item name output in JSON has also been changed to <span class = 'value'>"command"</span>,
+                            but it can still be referenced by <span class = 'value'>"smtpcommand"</span> in JSON and the
+                            <kbd>smtpcommand()</kbd> method until it is removed in {{ site.html.ss }} 5.5.0.
+
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/548' target = 'new'>#548</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/323' target = 'new'>#323</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/8' target = 'new'>#8</a>
+                        </li>
+                        <li>
+                            <i class = 'fa fa-triangle-exclamation'></i>
+                            <strong>
+                                The <span class = 'value'>"smtpagent"</span>field of the <kbd>Sisimai::Fact</kbd>
+                                instance that holds the decoded result has been changed to <span class = 'value'>"decodedby"</span>.
+                            </strong>
+                            The item name output in JSON has also been changed to <span class = 'value'>"decodedby"</span>,
+                            but it can still be referenced by <span class = 'value'>"smtpagent"</span> in JSON and the
+                            <kbd>smtpagent()</kbd> method until it is removed in {{ site.html.ss }} 5.5.0.
+
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/548' target = 'new'>#548</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/323' target = 'new'>#323</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/8' target = 'new'>#8</a>
+                        </li>
+                    </ul>
+                    <li>
+                        <strong>
+                            BREAKING CHANGES were made to the internal API to maintain compatibility with the Go version of {{ site.html.ss }}
+                        </strong>
+                    </li>
+                    <ul>
+                        <li>
+                            The <kbd>load()</kbd> method of the <kbd>Sisimai::Message</kbd> class has been deprecated.
+                            It will be completely removed in v5.3.0.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/537' target = 'new'>#537</a>
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/538' target = 'new'>#538</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/302' target = 'new'>#302</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/303' target = 'new'>#303</a>
+                        </li>
+                        <li>
+                            The <kbd>default()</kbd> method of the <kbd>Sisimai::Order</kbd> class,
+                            which was not used anywhere, has been removed.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/539' target = 'new'>#539</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/304' target = 'new'>#304</a>
+                        </li>
+                        <li>
+                            A <span class = 'value'>"feedbackid"</span> field has been added to the
+                            <kbd>Sisimai::Fact</kbd> instance that holds the decoded result.
+                            It extracts and stores the value of the <span class = 'value'>Feedback-ID:</span>
+                            header from the original email.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/568' target = 'new'>#568</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/328' target = 'new'>#328</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/36' target = 'new'>#36</a>
+                        </li>
+                        <li>
+                            Two new bounce reasons have been added to reflect the current state of email delivery.
+                            These are <span class = 'value'><a href = '/en/reason/#failedstarttls'>Failed STARTTLS</a></span>,
+                            for delivery failures due to STARTTLS-related errors, and
+                            <span class = 'value'><a href = '/en/reason/#suppressed'>Suppressed</a></span>,
+                            for delivery failures due to a match with the delivery service's suppression list.
+                            <strong><a href = '/ja/reason/#suppressed'>Suppressed</a></strong>です。
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/562' target = 'new'>#562</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/322' target = 'new'>#322</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/35' target = 'new'>#35</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/18' target = 'new'>#18</a>
+                        </li>
+                        <li>
+                            The <kbd>Sisimai::SMTP::Error</kbd> class has been renamed to <kbd>Sisimai::SMTP::Failure</kbd>.
+                            At the same time, the <kbd>is_temporary()</kbd>, <kbd>is_hardbounce()</kbd>, and <kbd>is_softbounce()</kbd>
+                            methods were implemented, and the <kbd>soft_or_hard()</kbd> method was removed.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/542' target = 'new'>#542</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/309' target = 'new'>#309</a>
+                        </li>
+                        <li>
+                            The <kbd>get()</kbd> method of the <kbd>Sisimai::Rhost</kbd> class has been renamed to
+                            <kbd>find()</kbd>
+                        </li>
+                        <li>
+                            A <kbd>name()</kbd> method has been implemented in the <kbd>Sisimai::Rhost</kbd> class
+                        </li>
+                        <li>
+                            The <kbd>hardbounce</kbd> attribute has been removed from <kbd>Sisimai::Lhost</kbd> class.
+                            This is because this item should be set in subsequent processing and is not necessary in the
+                            initial stage of the decodeing process.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/555' target = 'new'>#555</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/313' target = 'new'>#313</a>
+                        </li>
+                        <li>
+                            A <kbd>Sisimai::RFC3464::ThirdParty</kbd> class has been implemented
+                        </li>
+                        <li>
+                            The following MTA modules have been removed from under <kbd>Sisimai::Lhost</kbd>.
+                            They have been integrated into <kbd>Sisimai::RFC3464</kbd> for code maintainability.
+                            In addition, some modules have moved only their error code list and matching process
+                            to under <kbd>Sisimai::Rhost</kbd>.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/551' target = 'new'>#551</a>
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/557' target = 'new'>#557</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/315' target = 'new'>#315</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/317' target = 'new'>#317</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/7' target = 'new'>#7</a>
+                        </li>
+                        <ul>
+                            <li>Amavis</li>
+                            <li>AmazonWorkMail</li>
+                            <li>
+                                Aol
+                                <a href = 'https://github.com/sisimai/p5-sisimai/issues/555' target = 'new'>#559</a>
+                                <a href = 'https://github.com/sisimai/rb-sisimai/issues/313' target = 'new'>#318</a>
+                            </li>
+                            <li>Barracuda</li>
+                            <li>Bigfoot</li>
+                            <li>
+                                Facebook
+                                <a href = 'https://github.com/sisimai/p5-sisimai/issues/555' target = 'new'>#545</a>
+                                <a href = 'https://github.com/sisimai/p5-sisimai/issues/555' target = 'new'>#559</a>
+                                <a href = 'https://github.com/sisimai/rb-sisimai/issues/313' target = 'new'>#318</a>
+                            </li>
+                            <li>McAfee</li>
+                            <li>
+                                MessageLabs
+                                <a href = 'https://github.com/sisimai/p5-sisimai/issues/555' target = 'new'>#559</a>
+                                <a href = 'https://github.com/sisimai/rb-sisimai/issues/313' target = 'new'>#318</a>
+                            </li>
+                            <li>
+                                Outlook
+                                <a href = 'https://github.com/sisimai/p5-sisimai/issues/555' target = 'new'>#559</a>
+                                <a href = 'https://github.com/sisimai/rb-sisimai/issues/313' target = 'new'>#318</a>
+                            </li>
+                            <li>PowerMTA</li>
+                            <li>ReceivingSES</li>
+                            <li>SendGrid</li>
+                            <li>SurfControl</li>
+                            <li>X5</li>
+                            <li>Yandex</li>
+                        </ul>
+                        <li>
+                            The following MTA modules have been removed from under <kbd>Sisimai::Lhost</kbd>.
+                            They have been integrated into <kbd>Sisimai::Lhost::Exim</kbd> for code maintainability.
+                        </li>
+                        <ul>
+                            <li>MailRu</li>
+                            <li>MXLogic</li>
+                        </ul>
+                        <li>
+                            The following MTA modules have been removed from under <kbd>Sisimai::Lhost</kbd>.
+                            They have been integrated into <kbd>Sisimai::Lhost::qmail</kbd> for code maintainability.
+                        </li>
+                        <ul>
+                            <li>X4</li>
+                            <li>Yahoo</li>
+                        </ul>
+                        <li>
+                            The MTA module <kbd>Sisimai::Lhost::Office365</kbd>have been removed from under <kbd>Sisimai::Lhost</kbd>.
+                            It have been integrated into <kbd>Sisimai::Lhost::Exchange2007</kbd> for code maintainability.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/553' target = 'new'>#553</a>
+                        </li>
+                        <li>
+                            <kbd>Sisimai::Lhost::GSuite</kbd> has been renamed to
+                            <kbd>Sisimai::Lhost::GoogleWorkspace</kbd>
+                        </li>
+                        <li>
+                            <kbd>Sisimai::Lhost::AmazonSES</kbd> decodes only bounce emails containing JSON notifications from Amazon SNS.
+                            Bounce emails without JSON strings are parsed by <kbd>Sisimai::RFC3464</kbd>.
+                        </li>
+                        <li>
+                            <kbd>Sisimai::MDA</kbd> has been renamed to <kbd>Sisimai::LDA</kbd>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/32' target = 'new'>#32</a>
+                        </li>
+                        <li>
+                            The <kbd>Sisimai::RFC791</kbd> class has been newly created to handle primarily
+                            IPv4 address-related processing. At the same time, the <kbd>ipv4()</kbd> method of the
+                            <kbd>Sisimai::String</kbd> class has been moved to the <kbd>find()</kbd> method of
+                            <kbd>Sisimai::RFC791</kbd>.
+
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/560' target = 'new'>#560</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/319' target = 'new'>#319</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/34' target = 'new'>#34</a>
+                        </li>
+                        <li>
+                            The <kbd>is_validhostname()</kbd> method of the <kbd>Sisimai::RFC1123</kbd>
+                            class has been renamed to <kbd>is_internethost()</kbd>. In addition, the <kbd>find()</kbd>
+                            method has been implemented in the same class.
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/16' target = 'new'>#16</a>
+                        </li>
+                        <li>
+                            The <kbd>find()</kbd> method of the <kbd>Sisimai::RFC1894</kbd> class can now extract comments,
+                            and the return value is an array containing five elements.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/552' target = 'new'>#552</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/312' target = 'new'>#312</a>
+                        </li>
+                    </ul>
+                    <li><strong>Minor improvements and bug fixes for compatibility</strong></li>
+                    <ul>
+                        <li>
+                            Bug fixes in the <kbd>tidy()</kbd> method of the <kbd>Sisimai::Message</kbd> class
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/540' target = 'new'>#540</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/305' target = 'new'>#305</a>
+                        </li>
+                        <li>
+                            <span class = 'lang perl'>Perl</span>
+                            Significant code improvements and a bug fix for handling multi-line <span class = 'value'>Diagnostic-Code:</span>
+                            headers in the <kbd>tidy()</kbd> method of the </kbd>Sisimai::Message</kbd> class.
+                        </li>
+                        <li>
+                            <kbd>Reporting-MTA</kbd> of the <kbd>Sisimai::RFC1894</kbd> class indicates <span class = 'value'>lhost</span>
+                        </li>
+                        <li>
+                            <span class = 'lang perl'>Perl</span>
+                            A typo in <span class = 'value'>X-Actual-Recipient</span> has been corrected in the
+                            <kbd>Sisimai::RFC1894</kbd> class.
+                        </li>
+                        <li>Tiny code improvements in <kbd>Sisimai::RFC5322</kbd> class</li>
+                        <li>Code improvements and the following bug fixes in <kbd>Sisimai::Lhost</kbd></li>
+                        <ul>
+                            <li>Code improvements and bug fixes in <kbd>Exim</kbd></li>
+                            <li>Remove unnecessary conditional statements </li>
+                            <li>Refactor the code for retrieving SMTP response codes and status codes</li>
+                            <li>Implement <span class = 'value'>sv-SE</span> (Swedish language) patterns in <kbd>Exchange2007</kbd></li>
+                            <li>Significant code improvements in <kbd>V5sendmail</kbd></li>
+                        </ul>
+                        <li>Code improvements and bug fixes in <kbd>Sisimai::Rhost</kbd> class</li>
+                        <ul>
+                            <li>Fix bugs in the code that processes the domain part of an email address as a remote hostname.</li>
+                            <li>
+                                Add <q>hosted tenant which has no mail-enabled subscriptionsspan</q> and
+                                <q>4.7.652 has exceeded the maximum number of connections</q>
+                                as new error message patterns in <kbd>Microsoft</kbd>
+                            </li>
+                            <li>Bug fixes in <kbd>Facebook</kbd></li>
+                        </ul>
+                        <li>Tiny code improvements in <kbd>Sisimai::ARF</kbd> class</li>
+                        <li>
+                            Resolved an issue in the <kbd>Sisimai::SMTP::Reply</kbd> class where the valid
+                            response code range was incorrect, updating the minimum to <span class = 'value'>221</span>
+                            and the maximum to <span class = 'value'>557</span>.
+                        </li>
+                        <li>
+                            <span class = 'lang perl'>Perl</span>
+                            Resolved a problem in the <kbd>Sisimai::Reason::VirusDetected</kbd> class where
+                            <span class = 'value'>HELO</span> was being duplicated.
+                        </li>
+                        <li>
+                            Add new error message patterns in the following subclasses of <kbd>Sisimai::Reason</kbd> class
+                            <span class = 'value'>BadReputation</span>
+                            <span class = 'value'>Blocked</span>
+                            <span class = 'value'>Filtered</span>
+                            <span class = 'value'>MailboxFull</span>
+                            <span class = 'value'>MesgTooBig</span>
+                            <span class = 'value'>RequirePTR</span>
+                            <span class = 'value'>SpanDetected</span>
+                            <span class = 'value'>SystemError</span>
+                        </li>
+                        <li>
+                            Remove all the regular expressions from the following classes of <kbd>Sisimai::Reason</kbd> class
+                            <span class = 'value'>Blocked</span>
+                            <span class = 'value'>MailerError</span>
+                            <span class = 'value'>SpamDetected</span>
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/543' target = 'new'>#543</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/308' target = 'new'>#308</a>
+                        </li>
+                        <li>
+                            Fix a typo in <kbd>Sisimai::Rhost::YahooInc</kbd> class.
+                            <a href = 'https://github.com/sisimai/p5-sisimai/issues/546' target = 'new'>#546</a>
+                            <a href = 'https://github.com/sisimai/rb-sisimai/issues/310' target = 'new'>#310</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/11' target = 'new'>#11</a>
+                            Thanks to <a href = 'https://github.com/bohwaz' target = 'new'>@bohwaz</a>
+                        </li>
+                        <li>
+                            Fixed a bug in the <kbd>Sisimai::Rhost</kbd> class where matching conditions were unstable
+                            (due to random key reordering in a hash), such as when bounce emails were sent from Microsoft to AOL.
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
