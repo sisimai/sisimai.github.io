@@ -19,9 +19,9 @@ sisimai:
     golang: ["1.17", "1.24"]
   diff:
     tests:
-      perl: "319,000"
+      perl: "320,000"
       ruby: "410,000"
-      golang: "134,000"
+      golang: "139,500"
     loc:
       perl: "9,900"
       ruby: "9,800"
@@ -34,6 +34,10 @@ sisimai:
       perl: 2.0
       ruby: 1.5
       golang: 5.5
+    fasterthan4:
+      perl: 1.33
+      ruby: 1.15
+      golang: 3.20
   repository:
     project: 'https://github.com/sisimai'
     perl: 'https://github.com/sisimai/p5-sisimai'
