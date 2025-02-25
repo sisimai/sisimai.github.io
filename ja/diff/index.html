@@ -51,6 +51,9 @@
                         このページでは{{ site.html.ss }}(Perl版とRuby版)のVersion 5で変更になった内容を、
                         動作環境や機能、モジュール名や追加されたバウンス理由などについて説明しています。
                     </p>
+                    <p class = 'description ja'>
+                        なお、Go版{{ site.html.ss }}はv5のみですので本ページでは言及していません。
+                    </p>
                 </div>
             </div> 
         </div>
@@ -76,8 +79,8 @@
                     <div class = 'index-info'>
                         <h3>バウンス理由</h3>
                         <p class = 'description ja'>
-                            {{ site.html.ss }} 5.0.0で追加された5つの新しいバウンス理由
-                            (ドメイン認証関係やレピュテーションなど)について
+                            {{ site.html.ss }} 5.0.0で追加された五つの、5.2.0で追加された二つの
+                            新しいバウンス理由(ドメイン認証関係やレピュテーションなど)について
                         </p>
                     </div>
                     <a href = '#reason' class = 'btn btn-continue'>詳しく</a>
@@ -354,7 +357,7 @@ end
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>バウンス理由の追加</h2>
                 <p class = 'description ja'>
-                    {{ site.html.ss }} 5.0.0で新たに5つのバウンス理由が実装されました。
+                    {{ site.html.ss }} 5.0.0で新たに五つの、5.2.0で二つのバウンス理由が実装されました。
                     主にGmailの<a href = 'https://support.google.com/a/answer/81126?hl=ja' target = 'new'>
                         メール送信者のガイドライン</a>にて言及されている要求を満たしていない場合に
                     返ってくるバウンス理由です。既に実装されているバウンス理由と同じく、解析結果の
@@ -392,6 +395,11 @@ end
                                 <td class = 'ltext'><strong><a href = '/ja/reason#requireptr'>Require PTR</a></strong></td>
                             </tr>
                             <tr>
+                                <td class = 'ltext'>SMTP接続時におけるSTARTTLSに関するエラー</td>
+                                <td class = 'ltext'>Security Error</td>
+                                <td class = 'ltext'><strong><a href = '/ja/reason#failedstarttls'>Failed STARTTLS</a></strong></td>
+                            </tr>
+                            <tr>
                                 <td class = 'ltext'>RFCに準拠していないメール</td>
                                 <td class = 'ltext'>Security Error</td>
                                 <td class = 'ltext'><strong><a href = '/ja/reason#notcompliantrfc'>Not Compliant RFC</a></strong></td>
@@ -400,6 +408,11 @@ end
                                 <td class = 'ltext'>単位時間の流量制限・送信速度が速すぎる</td>
                                 <td class = 'ltext'>Security Error</td>
                                 <td class = 'ltext'><strong><a href = '/ja/reason#speeding'>Speeding</a></strong></td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>配信サービスにおけるサプレッションリストに一致</td>
+                                <td class = 'ltext'>On Hold</td>
+                                <td class = 'ltext'><strong><a href = '/ja/reason#suppressed'>Suppressed</a></strong></td>
                             </tr>
                         </tbody>
                     </table>

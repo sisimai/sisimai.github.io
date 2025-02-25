@@ -51,29 +51,25 @@
                         JSONでの出力も可能です
                     </p>
                     <div class = 'attention'>
+                        <!-- <i class = 'fa fa-bullhorn'></i> -->
                         <i class = 'fa fa-brands fa-golang' style = 'font-size: 320%'></i>
-                        2025年2月現在、<a href = '{{ site.sisimai.repository.golang }}' target = 'new'>Go言語版Sisimai</a>
-                        はベータ版として公開中です。
-                        リリースまでにAPIに大きな仕様変更が入ったり
-                        予期しない動作やクラッシュの可能性があります。
-                        <strong>正式版のv5.2.0は2025年の夏までにリリース予定です。</strong>
-                    </div>
-                    <div class = 'attention'>
-                        <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
                         <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>です。
+                        <strong>このバージョンからGo版{{ site.html.ss }}も利用可能</strong>です。
 
-                        このバージョンにおける主な変更点は、<strong>v4互換機能の完全削除</strong>と
-                        <a href = 'https://github.com/corecode/dma' target = 'new'>DMA: DragonFly Mail Agent</a>
-                        のバウンスメール対応、<a href = 'https://postmaster.yahooinc.com/error-codes' target = 'new'>米国Yahoo!</a>
-                        などのエラーコード追加と整理です。
+                        <br />
+
+                        Perl版とRuby版においてはGo版との互換性維持に伴う解析済みデータの項目名
+                        ("smtpagent"と"smtpcommand")変更と新たなデータ項目("feedbackid"))の追加、
+                        バウンス理由二件("FailedSTARTTLS"と"Suppressed")の新設、その他の内部APIの変更などです。
 
                         {{ site.html.ss }} {{ site.sisimai.version }}の全ての変更点は
                         <a href = '/ja/release/{{ site.sisimai.version }}.html'>リリースノート</a>
                         を見てください。
-
-                        {{ site.html.ss }} 5で入った非互換な変更点は<a href = '/ja/diff'>Sisimai 4との違い</a>を
-                        確認してください。
+                    </div>
+                    <div class = 'warning'>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        {{ site.html.ss }} 5で入った非互換な変更点は<a href = '/ja/diff'>Sisimai 4との違い</a>を確認してください。
                     </div>
                     <div class = 'warning'>
                         <i class = 'fa fa-triangle-exclamation'></i>
@@ -201,25 +197,27 @@
                     <hr>
                     <p class = 'description ja'>
                         2014年夏、Perl版{{ site.html.ss }}(シシマイ)は
-                        {{ site.html.bh }}が抱える解析精度に関わる致命的な問題の数々
-                        (一通のメールに複数件のバウンスがある場合に一件目しか解析出来ない、依存モジュールが多く、
-                        うち幾つかは既にメンテナンスされていない、Perl 5.16以降で動作しない等)
-                        を解決する為に開発されました。
+                        {{ site.html.bh }}が抱える解析精度に関わる致命的な問題の数々を解決する為に開発されました。
+                        その二年後、2016年2月3日にはRuby版{{ site.html.ss }}もリリースされました。
                     </p>
                     <p class = 'description ja'>
-                        現在、Perl版{{ site.html.ss }}は{{ site.html.bh }}の{{ site.sisimai.diff.timesfaster.perl }}
-                        倍程度高速に動作し、2倍の解析精度を誇ります。そして2016年2月3日にはRuby版{{ site.html.ss }}
-                        をリリースしました。
+                        Perl版とRuby版の両{{ site.html.ss }}は世界で毎月1.1億通(弊社調べ)のバウンスメールを解析し続け、
+                        2024年2月2日にはドメイン認証(SPF, DKIM, DMARC, ARC)系エラーやレピュテーションに起因するエラーなど
+                        現代のバウンスも検出可能な{{ site.html.ss }} 5.0.0をリリースし、
+                        同年8月16日にはリリースから10周年を迎えました。
                     </p>
                     <p class = 'description ja'>
-                        そして2024年2月2日、{{ site.html.ss }}公開から10周年の年に、ドメイン認証
-                        (SPF, DKIM, DMARC, ARC)系エラーやレピュテーションに起因するエラーなど
-                        現代のバウンスも検出可能な{{ site.html.ss }} 5.0.0をリリースしました。
+                        そして2025年2月25日、第三のシシマイとしてスクリプト言語ではない実装であるGo版{{ site.html.ss }}
+                        がリリースされました。Go版{{ site.html.ss }}はPerl版やRuby版と同様に依存も最小限に抑えられ、
+                        コンパイル済みバイナリの利点であるデプロイの容易さや実行速度
+                        ({{ site.html.bh }}の{{ site.sisimai.diff.timesfaster.golang }}倍、Perl版{{ site.html.ss }} v5
+                        の{{ site.sisimai.diff.fasterthan4.golang }}倍)が特徴的です。
                     </p>
                 </div>
             </div>
 
             <div class = 'col-sm-6'>
+                <div style = 'margin-bottom: 11%;'></div>
                 <div class = 'our-skills wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '300ms'>
                         <p class = 'lead'>
@@ -240,7 +238,7 @@
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                 role = 'progressbar'  aria-valuetransitiongoal = '29'>{{ site.sisimai.diff.parse1k.perl }}s
+                                 role = 'progressbar'  aria-valuetransitiongoal = '29'>{{ site.sisimai.diff.parse1k.golang }}s
                             </div>
                             <p class = 'versus'>4.24s</p>
                         </div>
@@ -351,8 +349,8 @@
                 </h2>
                 <div class = 'attention'>
                     最新版シシマイは{{ site.html.ss }} <strong>{{ site.sisimai.version }}</strong>で
-                    {{ site.sisimai.release.ja }}にリリースされました。またGo言語版シシマイは現在
-                    ベータ版として公開中です。
+                    {{ site.sisimai.release.ja }}にリリースされました。
+                    <strong>このバージョンからGo版シシマイも提供を開始しています。</strong>
                 </div>
                 <br>
                 <hr>
@@ -415,10 +413,10 @@
                             <img src = '/static/images/icon/golang-1.png'>
                         </div>
                         <ul>
-                            <li>ベータ版のみ提供</li>
+                            <li>リリース版</li>
                             <li>{{ site.html.ss }} 5のみ</li>
                             <li>Go {{ site.sisimai.workson.golang[0] }} - </li>
-                            <li>2025年リリース予定</li>
+                            <li></li>
                         </ul>
                         <a href = '{{ site.sisimai.distribution.golang }}' target = 'new'
                            class = 'btn btn-lg btn-primary'>Download</a>

@@ -53,7 +53,15 @@
                         以下の<strong>{{ site.sisimai.spec.reasons }}種類のバウンス理由</strong>を検出します。
                         検出したバウンス理由は<kbd>Sisimai::Fact</kbd>オブジェクトの<kbd>reason()</kbd>
                         アクセサから得る事が出来ます。
-                        <br />
+                        Go版{{ site.html.ss }}では
+                        <span class = 'value'>
+                            <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/fact.go' target = 'new'>
+                                sis.Fact
+                            </a>
+                        </span>
+                        構造体の<span class = 'value'>Reason</span>フィールドから得られます。
+                    </p>
+                    <p class = 'description ja'>
                         <strong><span class = 'value'>"reason"</span>の値は
                         <span class = 'value'>"userunknown"</span>や<span class = 'value'>"expired"</span>
                         のように、全て小文字で表記されます。</strong>
@@ -200,6 +208,12 @@
                                     <td>No</td>
                                     <td class = 'ltext'>宛先アカウントは一時的に停止中</td>
                                 </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa fa-at' title = 'メールアドレス'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#suppressed' class = 'cell-link'>Suppressed</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>宛先アドレスは配信抑制対象</td>
+                                </tr>
 
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-envelope-open-text' title = 'メールの内容'></i></td>
@@ -333,6 +347,12 @@
                                     <td class = 'ltext'><strong><a href = '#toomanyconn' class = 'cell-link'>Too Many Conn</a></strong></td>
                                     <td>No</td>
                                     <td class = 'ltext'>接続制限数を超過した</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#failedstarttls' class = 'cell-link'>Failed STARTTLS</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>STARTTLSでの接続に失敗した</td>
                                 </tr>
 
                                 <tr>
@@ -605,6 +625,26 @@ The user(s) account is disabled.
             </div>
         </div>
 
+        <!-- =============================================================== -->
+        <a name = 'suppressed'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#suppressed'><i class = 'fas fa-at'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Suppressed</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/downloading-1.png'>
+                    配信サービスにおいて同じ宛先に対する複数回のバウンスを避けるため、一般的に
+                    Suppression Listと呼ばれる配信抑制対象となっているメールアドレス宛の配信が
+                    行われなかった場合のエラー理由です。
+                    <br>
+                    このバウンス理由は{{ site.html.ss }} 5.2.0で実装されたものです。
+                    <br>
+                </p>
+            </div>
     </div>
 </section> <!-- /#address -->
 
@@ -1351,6 +1391,30 @@ message has been in the queue too long.
                     実装されていないものです。
                 </p>
                 {% include error-messages/toomanyconn.html %}
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'failedstarttls'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#failedstarttls'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Failed STARTTLS</h3>
+                <p class = 'description ja'>
+                    <img class = 'lhs' src = '/static/images/icon/key-6.png'>
+                    宛先サーバーがSTARTTLSを必須としている場合、SMTP接続時にSTARTTLSが開始できずに
+                    エラーとなった場合、あるいは宛先ホストが正しくTLSをサポートしていないことで
+                    送信できずにエラーとなった場合など、TLS関連でのバウンスはこのエラー理由に分類されます。
+                </p>
+                <p class = 'description ja'>
+                    このバウンス理由は{{ site.html.ss }} 5.2.0で<a href = '#securityerror'>Security Error</a>
+                    から分離される形で実装されました。
+                </p>
+                {% include error-messages/failedstarttls.html %}
             </div>
         </div>
     </div>

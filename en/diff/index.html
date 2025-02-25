@@ -53,6 +53,10 @@
                         versions) Version 5, including the operating environment, features, module
                         names, and additional bounce reasons.
                     </p>
+                    <p class = 'description'>
+                        Note that this page does not cover the Go version of {{ site.html.ss }},
+                        as it is only v5.
+                    </p>
                 </div>
             </div> 
         </div>
@@ -79,8 +83,8 @@
                     <div class = 'index-info'>
                         <h3>Bounce Reasons</h3>
                         <p class = 'description'>
-                            About five new bounce reasons including domain authentication and reputation,
-                            added in {{ site.html.ss }} 5.0.0. 
+                            About seven new bounce reasons including domain authentication and reputation,
+                            added in {{ site.html.ss }} 5.0.0 and later. 
                         </p>
                     </div>
                     <a href = '#reason' class = 'btn btn-continue'>Read</a>
@@ -359,10 +363,11 @@ end
                 </div>
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
-                <h2 class = 'in-desc'>5 New Bounce Reasons</h2>
+                <h2 class = 'in-desc'>5 + 2 New Bounce Reasons</h2>
                 <p class = 'description'>
-                    {{ site.html.ss }} 5.0.0 now includes 5 new bounce reasons. These reasons are
-                    primarily returned when an email sender does not meet the requirements outlined
+                    Five new bounce reasons were implemented in {{ site.html.ss }} 5.0.0,
+                    and two more were added in 5.2.0.  These reasons are primarily returned when
+                    an email sender does not meet the requirements outlined
                     in Gmail's <a href = 'https://support.google.com/a/answer/81126?hl=en' target = 'new'>
                         Email Sender Guidelines
                     </a>.
@@ -398,6 +403,11 @@ end
                                 <td class = 'ltext'><strong><a href = '/en/reason#badreputation'>Bad Reputation</a></strong></td>
                             </tr>
                             <tr>
+                                <td class = 'ltext'>STARTTLS failure on SMTP connection</td>
+                                <td class = 'ltext'>Security Error</td>
+                                <td class = 'ltext'><strong><a href = '/en/reason#failedstrttls'>Failed STARTTLS</a></strong></td>
+                            </tr>
+                            <tr>
                                 <td class = 'ltext'>PTR record not set or invalid</td>
                                 <td class = 'ltext'>Blocked</td>
                                 <td class = 'ltext'><strong><a href = '/en/reason#requireptr'>Require PTR</a></strong></td>
@@ -411,6 +421,11 @@ end
                                 <td class = 'ltext'>Sending rate exceeding the limit per unit time</td>
                                 <td class = 'ltext'>Security Error</td>
                                 <td class = 'ltext'><strong><a href = '/en/reason#speeding'>Speeding</a></strong></td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>Recipient address is in Suppression List</td>
+                                <td class = 'ltext'>On Hold</td>
+                                <td class = 'ltext'><strong><a href = '/en/reason#suppressed'>Suppressed</a></strong></td>
                             </tr>
                         </tbody>
                     </table>

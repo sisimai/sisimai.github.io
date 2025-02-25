@@ -181,7 +181,7 @@ pre.prettyprint {
     color: #a0d8ef; /* Sora-Iro */
 }
 
-.cation {
+.caution {
     display: block;
     padding: 8px;
     margin: 12px 0;
@@ -236,11 +236,28 @@ ul.release-notes li {
 }
 
 ul.release-notes li a:link,
-ul.release-notes li a:active,
 ul.release-notes li a:hover,
+ul.release-notes li a:active,
 ul.release-notes li a:visited {
+    color: #3f312b;
+    background: inherit;
+    text-decoration: underline;
+}
+
+ul.release-notes li a[href*="/p5-sisimai"] {
     color: #007bbb; /* Kompeki */
     background: inherit;
+    text-decoration: none;
+}
+ul.release-notes li a[href*="/rb-sisimai"] {
+    color: #cf1516;
+    background: inherit;
+    text-decoration: none;
+}
+ul.release-notes li a[href*="/go-sisimai"] {
+    color: #916132;
+    background: inherit;
+    text-decoration: none;
 }
 
 ul.release-notes li kbd {
@@ -289,8 +306,8 @@ dl.faq a:visited {
 }
 
 span.lang {
-    padding: auto 4px;
-    margin: auto 4px auto 0;
+    padding: auto 2px;
+    margin: auto 4px auto 4px;
     display: inline-block;
     width: 48px;
     border-radius: 4px;
@@ -298,6 +315,7 @@ span.lang {
     vertical-align: middle;
     font-weight: bold;
     font-size: 12px;
+    text-shadow: none;
 }
 
 span.perl {

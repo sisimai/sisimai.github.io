@@ -53,7 +53,19 @@
                         {{ site.html.ss }} can detect <strong>{{ site.sisimai.spec.reasons }}</strong>
                         types of bounce reasons by decoding bounce emails. You can obtain the detected
                         bounce reason from the <kbd>reason()</kbd> accessor of the <kbd>Sisimai::Fact</kbd>
-                        object.  <strong>the value of <span class = 'value'>"reason"</span> is always
+                        object.
+                        In the Go version of {{ site.html.ss }},
+                        you can get the bounce reason as a string from the <span class = 'value'>Reason</span>
+                        field of the
+                        <span class = 'value'>
+                            <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/fact.go' target = 'new'>
+                                sis.Fact
+                            </a>
+                        </span>
+                        struct.
+                    </p>
+                    <p class = 'description'>
+                        <strong>the value of <span class = 'value'>"reason"</span> is always
                         lowercase</strong>, such as <span class = 'value'>"userunknown"</span> or
                         <span class = 'value'>"expired"</span>.
                     </p>
@@ -198,6 +210,12 @@
                                     <td>No</td>
                                     <td class = 'ltext'>Recipient's account is suspended</td>
                                 </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#suppressed' class = 'cell-link'>Suppressed</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>The recipient address is on the suppression list</td>
+                                </tr>
 
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
@@ -331,6 +349,12 @@
                                     <td class = 'ltext'><strong><a href = '#toomanyconn' class = 'cell-link'>Too Many Conn</a></strong></td>
                                     <td>No</td>
                                     <td class = 'ltext'>Connection rate limit exceeded</td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Serverホスト'></i></td>
+                                    <td class = 'ltext'><strong><a href = '#failedstarttls' class = 'cell-link'>Failed STARTTLS</a></strong></td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>Failed to connect with STARTTLS</td>
                                 </tr>
 
                                 <tr>
@@ -607,6 +631,26 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                 </pre>
                 {% include error-messages/suspend.html %}
                 <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'suppressed'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#suppressed'><i class = 'fas fa-at'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Suppressed</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/downloading-1.png'>
+                    This error reason indicates that the delivery to the recipient email address was
+                    skipped because it is on the suppression list, which is commonly used in email
+                    delivery services to avoid multiple bounces to the same address.
+                    This bounce reason was implemented in {{ site.html.ss }} 5.2.0.
+                </p>
             </div>
         </div>
 
@@ -1366,6 +1410,28 @@ message has been in the queue too long.
 452 4.3.2 Connection rate limit exceeded. (in reply to MAIL FROM command)</code></pre>
                 </pre>
                 {% include error-messages/toomanyconn.html %}
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'failedstarttls'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#failedstarttls'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Failed STARTTLS</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/key-6.png'>
+                    This error reason covers TLS-related bounces, such as when STARTTLS cannot be
+                    initiated during the SMTP connection because the destination server requires it, 
+                    or when sending fails due to the destination host not properly supporting TLS.
+                    This bounce reason was implemented in {{ site.html.ss }} 5.2.0, separated from
+                    <a href = '#securityerror'>Security Error</a>.
+                </p>
+                {% include error-messages/failedstarttls.html %}
             </div>
         </div>
     </div>

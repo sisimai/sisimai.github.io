@@ -104,6 +104,9 @@
                 <pre class = 'prettyprint'>
 Action: failed
                 </pre>
+                <p class = 'description'>
+                    However, this value is empty when the value of <span class = 'value'>Reason</span>
+                    is <span class = 'value'>Feedback</span>.
                 <hr>
             </div>
         </div>
@@ -113,7 +116,7 @@ Action: failed
                 <div class = 'index-label'><i class = 'fas fa-at'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Addresser (Sisimai::Address)</h3>
+                <h3 class = 'in-desc'>Addresser (Sisimai::Address | sis.EmailAddress)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-2.png'>
                     The <span class = 'value'>"addresser"</span> field is a <kbd>Sisimai::Address</kbd>
@@ -192,7 +195,7 @@ Original-Recipient: rfc822;kijitora@example.org
                 <p class = 'description'>
                     Callback, hook method, and <kbd>catch()</kbd> method are implemented at {{ site.html.ss }} 4.19.0.
                 </p>
-                <p class = 'description cation'>
+                <p class = 'description caution'>
                     The argument names and types of the callback feature were changed in
                     {{ site.html.ss }} 5.0.0. For details, see the 
                     <a href = 'https://github.com/sisimai/p5-sisimai/blob/5-stable/README-JA.md#callback-feature' target = 'new'>
@@ -203,8 +206,38 @@ Original-Recipient: rfc822;kijitora@example.org
                     In the Go version of {{ site.html.ss }}, it returns an <span class = 'value'>interface{}</span> type,
                     so please refer to it after appropriate type assertion.
                 </p>
+                <hr>
             </div>
         </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Command (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
+                    The <span class = 'value'>"command"</span> field holds
+                    <a href = 'https://github.com/sisimai/go-sisimai/blob/5-stable/smtp/command/lib.go' target = 'new'>the SMTP command</a>
+                    that is thought to have been issued last in the SMTP session, extracted from the
+                    <span class = 'value'>Diagnostic-Code:</span> field or the bounce email body.
+                    If there is no record of the SMTP command in the bounce email, this value will
+                    be empty.
+                </p>
+                <p class = 'description caution'>
+                    This field has been changed from the previous <span class = 'value'>"smtpcommand"</span> in
+                    {{ site.html.ss }} 5.2.0. It can be referenced with the <kbd>smtpcommand()</kbd> accessor
+                    and <span class = 'value'>"smtpcommand"</span> key in the JSON string until 
+                    {{ site.html.ss }} 5.4.*, but it will be removed in v5.5.0.
+                </p>
+                <pre class = 'prettyprint'>
+<kijitora@example.go.jp>: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
+no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)                        
+                </pre>
+            </div>
+        </div>
+
     </div>
 </section>
 
@@ -212,8 +245,31 @@ Original-Recipient: rfc822;kijitora@example.org
     <div class = 'container'>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
+                <div class = 'index-label'><i class = 'fas fa-server'></i></div>
                 <div class = 'post-it'>D</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>DecodedBy (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/puzzle-1.png'>
+                    The <span class = 'value'>"decodedby"</span> field holds the name of the MTA
+                    module that determined the bounce reason. For example, if the value is <span class = 'value'>"Sendmail"</span>,
+                    it means that the <kbd>Sisimai::Lhost::Sendmail</kbd> module performed the recipient
+                    address acquisition and bounce reason determination that resulted in an error.
+                </p>
+                <p class = 'description caution'>
+                    This field has been changed from the previous <span class = 'value'>"smtpagent"</span> in
+                    {{ site.html.ss }} 5.2.0. It can be referenced with the <kbd>smtpagent()</kbd> accessor
+                    and <span class = 'value'>"smtpagent"</span> key in the JSON string until 
+                    {{ site.html.ss }} 5.4.*, but it will be removed in v5.5.0.
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>DeliveryStatus (String)</h3>
@@ -306,6 +362,28 @@ Diagnostic-Code: X-Unix; 255
                 <div class = 'post-it'>F</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>FeedbackID (String)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/strike-5.png'>
+                    The <span class = 'value'>"feedbackid"</span> is the value of the <span class = 'value'>Feedback-Id:</span>
+                    header in the original email. This value is extracted if the original email is 
+                    included in the bounce email. Even if the bounce email is not in ARF format, 
+                    or if the value of <span class = 'value'>"reason"</span> is not <span class = 'value'>"feedback"</span>,
+                    this item is assigned if the original email has the <span class = 'value'>Feedback-Id:</span> header.
+                    This item was implemented in {{ site.html.ss }} 5.2.0.
+                </p>
+                <pre class = 'prettyprint'>
+Feedback-ID: 1.us-west-2.HX6/J9OVlHTadQhEu1+wdF9DBj6n6Pa9sW5Y/0pSOi8=:AmazonSES
+Feedback-Id: 1335:380
+                </pre>
+                <hr />
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>FeedbackType (String)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/strike-3.png'>
@@ -334,7 +412,7 @@ User-Agent: SMP-FBL
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
-                <div class = 'post-it'>F</div>
+                <div class = 'post-it'>H</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>HardBounce (Boolean) | v5.0.0 or later</h3>
@@ -342,7 +420,7 @@ User-Agent: SMP-FBL
                     <img class = 'lhs' src = '/static/images/icon/roadblock-4.png'>
                     The <span class = 'value'>"hardbounce"</span> field, newly implemented in {{ site.html.ss }}
                     5.0.0, returns a boolean value (<span class = 'value'>0</span> or <span class = 'value'>1</span>
-                    in Perl, <span class = 'value'>true</span> or <span class = 'value'>false</span> in Ruby)
+                    in Perl, <span class = 'value'>true</span> or <span class = 'value'>false</span> in Ruby and Go)
                     indicating whether the destination email address bounced for a reason that it can
                     never be delivered again. Specifically, it returns true if the
                     <a href = '#r'><span class = 'value'>"reason"</span></a> has the following values:
@@ -352,7 +430,7 @@ User-Agent: SMP-FBL
                     <li><a href = '/en/reason/#userunknown'><span class = 'value'>"userunknown"</span></a></li>
                     <li><a href = '/en/reason/#hasmoved'><span class = 'value'>"hasmoved"</span></a></li>
                 </ul>
-                <p class = 'description cation'>
+                <p class = 'description caution'>
                     At the same time, <a href = '#s'><span class = 'value'>"softbounce"</span></a>
                     was deprecated in {{ site.html.ss }} 5.0.0.
                 </p>
@@ -497,7 +575,7 @@ Message-Id: <201310160515.r9G5FZh9018575@smtpgw.example.jp>
                 <div class = 'index-label'><i class = 'fas fa-at'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Recipient (Sisimai::Address)</h3>
+                <h3 class = 'in-desc'>Recipient (Sisimai::Address | sis.EmailAddress)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/business-contact-1.png'>
                     The <span class = 'value'>"recipient"</span> field is a <kbd>Sisimai::Address</kbd>
@@ -602,52 +680,6 @@ Remote-MTA: DNS; g5.example.net
 
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-server'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>smtpagent (String)</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/puzzle-1.png'>
-                    The <span class = 'value'>"smtpagent"</span> field holds the name of the MTA
-                    module that determined the bounce reason. For example, if the value is <span class = 'value'>"Sendmail"</span>,
-                    it means that the <kbd>Sisimai::Lhost::Sendmail</kbd> module performed the recipient
-                    address acquisition and bounce reason determination that resulted in an error.
-                </p>
-                <hr>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>smtpcommand (String)</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/command-line-2.png'>
-                    The <span class = 'value'>"smtpcommand"</span> field holds the SMTP command that
-                    is thought to have been issued last in the SMTP session, extracted from the
-                    <span class = 'value'>Diagnostic-Code:</span> field or the bounce email body.
-                    If there is no record of the SMTP command in the bounce email, this value will
-                    be empty.
-                </p>
-                <ul>
-                    <li><span class = 'value'>HELO</span></li>
-                    <li><span class = 'value'>EHLO</span></li>
-                    <li><span class = 'value'>MAIL</span></li>
-                    <li><span class = 'value'>RCPT</span></li>
-                    <li><span class = 'value'>DATA</span></li>
-                </ul>
-                <pre class = 'prettyprint'>
-<kijitora@example.go.jp>: host mx1.example.go.jp[192.0.2.127] said: 550 5.1.6 recipient
-no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)                        
-                </pre>
-                <hr>
-            </div>
-        </div>
-
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'><i class = 'fas fa-exclamation-triangle'></i></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
@@ -660,7 +692,7 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                         <span class = 'value'>1</span> for soft bounce, <span class = 'value'>0</span>
                         for hard bounce, and <span class = 'value'>-1</span> if it cannot be determined.
                 </p>
-                <p class = 'description cation'>
+                <p class = 'description caution'>
                     This field was deprecated in {{ site.html.ss }} v5.0.0. It can still be used for
                     compatibility reasons up to v5.1.0, but please use
                     <a href = '#h'><span class = 'value'>"hardbounce"</span></a> instead.
@@ -702,13 +734,18 @@ no longer on server: kijitora@example.go.jp (in reply to RCPT TO command)
                 <div class = 'post-it'>T</div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Timestamp (Sisimai::Time)</h3>
+                <h3 class = 'in-desc'>Timestamp (Sisimai::Time | time.Time)</h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/calendar-9.png'>
                     The <span class = 'value'>"timestamp"</span> field is a <kbd>Sisimai::Time</kbd>
                     object (a subclass of <kbd>Time::Piece</kbd> in Perl and a subclass of <kbd>DateTime</kbd>
-                    in Ruby) that holds the date and time of the bounce. When a <kbd>Sisimai::Fact</kbd>
-                    object is dumped to JSON format, it is converted to a 32-bit integer machine time.
+                    in Ruby) that holds the date and time of the bounce. 
+
+                    In the Go version of {{ site.html.ss }}, <span class = 'value'>Timestamp</span> is a
+                    <span class = 'value'><a href = 'https://pkg.go.dev/time#Time' target = 'new'>Time</a></span>
+                    struct in the <span class = 'value'>time</span> package.
+
+                    When a <span class = 'value'>Timestamp</span> is dumped to JSON format, it is converted to a 32-bit integer machine time.
                 </p>
                 <pre class = 'prettyprint'>
 Arrival-Date: Thu, 29 Apr 2009 23:45:33 +0900
