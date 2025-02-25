@@ -21,7 +21,7 @@ sisimai:
     tests:
       perl: "320,000"
       ruby: "410,000"
-      golang: "139,500"
+      golang: "143,400"
     loc:
       perl: "9,900"
       ruby: "9,800"
