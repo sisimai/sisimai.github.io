@@ -71,6 +71,24 @@
                         ドメイン指定拒否を<strong><span class = 'value'>filtered</span></strong>
                         として自動で区別して検出しますが、ここでは目視による簡単な判別方法を紹介します。
                     </p>
+                    <p class = 'description ja caution'>
+                        2025年2月13日にNTTドコモで<strong>迷惑メールフォルダ</strong>が導入され、
+                        3月12日までの間に順次適用されます。これによってドメイン指定拒否や指定受信の
+                        設定によるSMTP接続の段階での拒否はなくなりました。詳細はNTTドコモの公式発表
+                        資料(PDF)で確認してください。
+                        <br />
+                        <br />
+                        <a href = 'https://www.docomo.ne.jp/binary/pdf/info/news_release/topics_250213_00.pdf' target = 'new'>
+                            ドコモメールに「迷惑メールフォルダ」を追加～準拠する「DMARC」ポリシーも拡充し、さらにあんしん・安全、便利なメールサービスへ～
+                        </a>
+                        <br />
+                        <br />
+
+                        つまり<strong>@docomo.ne.jp</strong>宛で<span class = 'value'>Unknown user</span>
+                        と書かれたバウンスメールが返ってくるのは、宛先不明である場合のみとなります。
+
+                        よって、2025年3月12日以降は本ページに記載の方法では識別できなくなります。
+                    </p>
                     <hr>
                     <p class = 'description ja'>
                         初出:
@@ -453,6 +471,24 @@ Your message to the following recipients cannot be delivered:
                     この文書では一例として、日本の携帯電話宛、特にドコモ宛で発生したバウンスメールの、
                     宛先不明(<span class = 'value'>userunknown</span>)とドメイン指定拒否(<span class = 'value'>filtered</span>)
                     を見分ける方法を紹介しました。
+                </p>
+                <p class = 'description ja caution'>
+                    2025年2月13日にNTTドコモで<strong>迷惑メールフォルダ</strong>が導入され、
+                    3月12日までの間に順次適用されます。これによってドメイン指定拒否や指定受信の
+                    設定によるSMTP接続の段階での拒否はなくなりました。詳細はNTTドコモの公式発表
+                    資料(PDF)で確認してください。
+                    <br />
+                    <br />
+                    <a href = 'https://www.docomo.ne.jp/binary/pdf/info/news_release/topics_250213_00.pdf' target = 'new'>
+                        ドコモメールに「迷惑メールフォルダ」を追加～準拠する「DMARC」ポリシーも拡充し、さらにあんしん・安全、便利なメールサービスへ～
+                    </a>
+                    <br />
+                    <br />
+
+                    つまり<strong>@docomo.ne.jp</strong>宛で<span class = 'value'>Unknown user</span>
+                    と書かれたバウンスメールが返ってくるのは、宛先不明である場合のみとなります。
+
+                    よって、2025年3月12日以降は本ページに記載の方法では識別できなくなります。
                 </p>
                 <p class = 'description ja'>
                     {{ site.html.ss }}は、自動でこの区別を行うだけでなく、メールボックスがいっぱい、
