@@ -1,14 +1,14 @@
 sisimai:
   domain: 'libsisimai.org'
   author: 'azumakuniyuki'
-  version: '5.2.0'
-  v4final: '4.25.16p1'
+  version: '5.2.1'
+  v4final: '4.25.17'
   blogurl: 'https://blog.libsisimai.org/post/717456764036104192/sisimai-42516'
   release: 
-    en: 'Tuesday, 25th February 2025'
-    ja: '令和7年02月25日(火)'
+    en: 'Wednesday, 12th March 2025'
+    ja: '令和7年03月12日(水)'
   spec:
-    modules: 58
+    modules: 59
     reasons: 36
     bhratio: 59
     license: 'The BSD 2-Clause License'
@@ -25,7 +25,7 @@ sisimai:
     loc:
       perl: "9,900"
       ruby: "9,800"
-      golang: "9,400"
+      golang: "9,300"
     parse1k:
       perl: 2.2
       ruby: 2.9
