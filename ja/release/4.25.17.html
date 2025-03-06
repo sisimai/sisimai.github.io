@@ -1,0 +1,111 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 4.25.17 RELEASE"
+"description": "Sisimai 4.25.17のリリースノート/変更点の一覧"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/ja/release/'>リリース情報</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>古いリリース情報</a></li> 
+                    <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
+                    <li class = 'others'><a href = '/en/release/4.25.17.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>リリースノート</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-seedling'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 4.25.17</h2>
+                <hr>
+                <h3 class = 'in-desc'>2025/03/12</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 4.25.17をリリースしました。
+
+                    このバージョンにおける変更点は、
+                    <a href = 'https://www.docomo.ne.jp/binary/pdf/info/news_release/topics_250213_00.pdf' target = 'new'>
+                        3月13日以降でNTTドコモ宛のメールでドメインして拒否や
+                        指定受信によるバウンスメールが返ってこなくなる(迷惑メールフォルダに入る)変更
+                    </a>への対応のみです。
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    {{ site.html.ss }} 4系は全体がクラッシュするような致命的バグの修正と
+                    影響の大きなサービスの変更に対応するのみの状態になっていますので、ドメイン認証やレピュテーションなど、
+                    現代の配信エラーに対応した{{ site.html.ss }} 5系へのアップグレードをおすすめします。
+                    <br />
+                    <br />
+
+                    {{ site.html.ss }} 5.0.0でVersion 4系とは<a href = '/ja/diff'>非互換な変更</a>が多く入っていますので、
+                    インストールまたはアップグレードの前に実行環境のPerlやRubyのバージョンを確認してください。
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>変更点</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        NTTドコモから返ってきたバウンスメールのエラーメッセージに
+                        <span class = 'value'>550 Unknown user</span>
+                        と書いている場合、検出されるバウンス理由は
+                        <span class = 'value'><a href = '/ja/reason/#userunknown'>User Unknown</a></span>
+                        のみになります。
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/577' target = 'new'>#577</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/335' target = 'new'>#335</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
