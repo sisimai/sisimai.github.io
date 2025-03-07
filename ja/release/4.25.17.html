@@ -66,11 +66,11 @@
                 <p class = 'description'>
                     {{ site.html.ss }} 4.25.17をリリースしました。
 
-                    このバージョンにおける変更点は、
+                    このバージョンにおける主な変更点は、
                     <a href = 'https://www.docomo.ne.jp/binary/pdf/info/news_release/topics_250213_00.pdf' target = 'new'>
                         3月13日以降でNTTドコモ宛のメールでドメインして拒否や
                         指定受信によるバウンスメールが返ってこなくなる(迷惑メールフォルダに入る)変更
-                    </a>への対応のみです。
+                    </a>への対応です。
                 </p>
                 <div class = 'warning'>
                     <i class = 'fa fa-triangle-exclamation'></i>
@@ -101,6 +101,19 @@
                         のみになります。
                         <a href = 'https://github.com/sisimai/p5-sisimai/issues/577' target = 'new'>#577</a>
                         <a href = 'https://github.com/sisimai/rb-sisimai/issues/335' target = 'new'>#335</a>
+                    </li>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        極僅かに異なるバウンスメールを解析できるように<kbd>Sisimai::Lhost::EinsUndEins</kbd>
+                        で小さい改善をしました。
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/497' target = 'new'>#497</a>
+                    </li>
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span>
+                        EWS Serverが返してくるバウンスメールに対応するため<kbd>Sisimai::Message</kbd>クラス
+                        で<span class = 'value'>CR</span>の処理を改善しました。
+                        (Thanks to <a href = 'https://github.com/nick4tech' target = 'new'>@nick4tech</a>)
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/260' target = 'new'>#260</a>
                     </li>
                 </ul>
             </div>
