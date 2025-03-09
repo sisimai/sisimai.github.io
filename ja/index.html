@@ -54,18 +54,22 @@
                         <!-- <i class = 'fa fa-bullhorn'></i> -->
                         <i class = 'fa fa-brands fa-golang' style = 'font-size: 320%'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
-                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>です。
-                        <strong>このバージョンからGo版{{ site.html.ss }}も利用可能</strong>です。
+                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>と
+                        <strong>{{ site.sisimai.v4final }}</strong>です。
+                        <strong>一つ前のバージョン5.2.0からGo版{{ site.html.ss }}も利用可能</strong>です。
 
-                        <br />
+                        変更点は極僅かですが、
+                        <a href = 'https://www.docomo.ne.jp/binary/pdf/info/news_release/topics_250213_00.pdf' target = 'new'>
+                            3月13日以降でNTTドコモ宛のメールでドメインして拒否や
+                            指定受信によるバウンスメールが返ってこなくなる(迷惑メールフォルダに入る)変更
+                        </a>への対応です。日本においては影響範囲が小さくないと思われますので、
+                        4系も同時にリリースしています。
 
-                        Perl版とRuby版においてはGo版との互換性維持に伴う解析済みデータの項目名
-                        ("smtpagent"と"smtpcommand")変更と新たなデータ項目("feedbackid"))の追加、
-                        バウンス理由二件("FailedSTARTTLS"と"Suppressed")の新設、その他の内部APIの変更などです。
-
-                        {{ site.html.ss }} {{ site.sisimai.version }}の全ての変更点は
-                        <a href = '/ja/release/{{ site.sisimai.version }}.html'>リリースノート</a>
-                        を見てください。
+                        他の変更点は各リリースノート(
+                        <a href = '/ja/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }}</a>
+                        または
+                        <a href = '/ja/release/{{ site.sisimai.v4final }}.html'>v{{ site.sisimai.v4final }}</a>
+                        )を見てください。
                     </div>
                     <div class = 'warning'>
                         <i class = 'fa fa-triangle-exclamation'></i>
