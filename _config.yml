@@ -25,7 +25,7 @@ sisimai:
     loc:
       perl: "9,900"
       ruby: "9,800"
-      golang: "9,200"
+      golang: "9,100"
     parse1k:
       perl: 2.2
       ruby: 2.9
