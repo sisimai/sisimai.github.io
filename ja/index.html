@@ -51,8 +51,7 @@
                         JSONでの出力も可能です
                     </p>
                     <div class = 'attention'>
-                        <!-- <i class = 'fa fa-bullhorn'></i> -->
-                        <i class = 'fa fa-brands fa-golang' style = 'font-size: 320%'></i>
+                        <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
                         <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>と
                         <strong>{{ site.sisimai.v4final }}</strong>です。
@@ -238,7 +237,7 @@
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '400ms'>
                         <p class = 'lead'>
                             <i class = 'fa fa-tachometer-alt'></i>
-                            解析速度(1000通)
+                            解析速度(1000通/Go版)
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
@@ -300,11 +299,11 @@
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '700ms'>
                         <p class = 'lead'>
                             <i class = 'fa fa-file-archive'></i>
-                            依存モジュール数
+                            依存モジュール数(Go版)
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '8'>2
+                                role = 'progressbar'  aria-valuetransitiongoal = '8'>0
                             </div>
                             <p class = 'versus'>24</p>
                         </div>
@@ -336,7 +335,7 @@
             <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '900ms'>
                 <p>依存するのは</p>
                 <i class = 'fa fa-file-zipper'></i>
-                <h3 class = 'timer'>2</h3>
+                <h3 class = 'timer'>0</h3>
                 <p>個のモジュール</p>
             </div>
         </div>
@@ -354,20 +353,15 @@
                 <div class = 'attention'>
                     最新版シシマイは{{ site.html.ss }} <strong>{{ site.sisimai.version }}</strong>で
                     {{ site.sisimai.release.ja }}にリリースされました。
-                    <strong>このバージョンからGo版シシマイも提供を開始しています。</strong>
+                    <strong>v5.2.0からGo版シシマイも提供を開始しています。</strong>
                 </div>
                 <br>
                 <hr>
                 <p class = 'decription ja'>
                     {{ site.html.ss }}(シシマイ)は*BSDやMac OS XやLinuxのようなPerlまたは
-                    Rubyが動作するOSで動きます。また、{{ site.html.ss }} 4.22.5からは、
-                    <a href = 'https://github.com/sisimai/p5-sisimai/issues/261' target = 'new'>
-                        Windows上のActivePerlで動作するかもしれません。
-                    </a>
-                </p>
-                <p class = 'description ja'>
+                    Rubyが動作するOSで動きます。
                     <strong>
-                    {{ site.html.ss }} 5.0.0で互換性のない、破壊的な変更がいくつか入っています。
+                    {{ site.html.ss }} 5.0.0で4系とは互換性のない、破壊的な変更がいくつか入っています。
                     インストールやアップグレードをする前に<a href = '/en/release/5.0.0.html'>リリースノート</a>
                     と<a href = '/en/diff'>{{ site.html.ss }} 4との違い</a>を確認してください。
                     </strong>
