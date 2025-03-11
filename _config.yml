@@ -25,19 +25,19 @@ sisimai:
     loc:
       perl: "9,900"
       ruby: "9,800"
-      golang: "9,100"
+      golang: "9,000"
     parse1k:
       perl: 2.2
-      ruby: 2.9
+      ruby: 2.6
       golang: 0.8
     timesfaster:
-      perl: 2.0
-      ruby: 1.5
-      golang: 5.5
+      perl: 1.9
+      ruby: 1.6
+      golang: 5.3
     fasterthan4:
       perl: 1.33
       ruby: 1.15
-      golang: 3.20
+      golang: 3.65
   repository:
     project: 'https://github.com/sisimai'
     perl: 'https://github.com/sisimai/p5-sisimai'
