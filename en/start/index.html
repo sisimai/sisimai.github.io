@@ -198,16 +198,16 @@
                     </div>
                     <div class = 'index-info'>
                         <ul class = 'spec'>
-                            <li>2 Dependencies</li>
+                            <li>No Dependencies from v5.2.1</li>
                             <ul>
                                 <li>
                                     <a href = 'https://pkg.go.dev/golang.org/x/text/encoding' target = 'new'>
-                                        golang.org/x/text/encoding
+                                        <s>golang.org/x/text/encoding</s>
                                     </a>
                                 </li>
                                 <li>
                                     <a href = 'https://pkg.go.dev/golang.org/x/net/html/charset' target = 'new'>
-                                        golang.org/x/net/html/charset
+                                        <s>golang.org/x/net/html/charset</s>
                                     </a>
                                 </li>
                             </ul>
@@ -400,9 +400,7 @@ $ <kbd>go mod init example.com/sisimaicli</kbd>
 go: creating new go.mod: module example.com/sisimaicli
 
 $ <kbd> go get -u libsisimai.org/sisimai@latest</kbd>
-go: added golang.org/x/net v0.35.0
-go: added golang.org/x/text v0.22.0
-go: added libsisimai.org/sisimai v0.0.1
+go: added libsisimai.org/sisimai v5.2.1
 
 $ <kbd>cat ./go.mod</kbd>
 module example.com/sisimaicli
@@ -410,9 +408,7 @@ module example.com/sisimaicli
 go 1.20
 
 require (
-	golang.org/x/net v0.35.0 // indirect
-	golang.org/x/text v0.22.0 // indirect
-	libsisimai.org/sisimai v0.0.3 // indirect
+	libsisimai.org/sisimai v5.2.1 // indirect
 )
                 </pre>
             </div>

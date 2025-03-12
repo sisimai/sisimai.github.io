@@ -53,23 +53,22 @@
                         It is also possible to output in JSON format.
                     </p>
                     <div class = 'attention'>
-                        <!-- <i class = 'fa fa-bullhorn'></i> -->
-                        <i class = 'fa fa-brands fa-golang' style = 'font-size: 320%'></i>
-                        The latest stable version is 
-                        <a href = '#download'>
-                            <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>
-                        </a>,
-                        released on {{ site.sisimai.release.en }}.
-                        <strong>The Go version of {{ site.html.ss }} is also available from this version.</strong>
+                        <i class = 'fa fa-bullhorn'></i>
+                        The latest stable versions of {{ site.html.ss }} {{ site.sisimai.version }} and
+                        {{ site.sisimai.v4final }}, released on {{ site.sisimai.release.en }}.
+                        The Go version of Sisimai is available since {{ site.html.ss }} 5.2.0.
 
-                        <br>
-                        For the Perl and Ruby versions, the changes include renaming the item names
-                        ("smtpagent" and "smtpcommand") of the parsed data due to maintaining compatibility
-                        with the Go version, adding a new data item ("feedbackid"), creating two new bounce reasons
-                        ("FailedSTARTTLS" and "Suppressed"), and changing other internal APIs.
+                        The changes in this release are minimal, updates for that NTT DOCOMO (Major Japanese mobile carrier) no longer
+                        returns a bounce mail due to domain rejection or similar email settings, but instead were being delivered
+                        to the spam folder after March 13th.
 
-                        For details on the all changes in Sisimai {{ site.sisimai.version }}, please see
-                        <a href = '/en/release/{{ site.sisimai.version }}.html'>the release notes</a>.
+                        This change is considered to have a significant impact in Japan,
+                        hence the simultaneous release of the 4 series.
+
+                        For details on other changes, please refer to the respective release notes
+                        (<a href = '/ja/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }}</a>
+                        or 
+                        <a href = '/ja/release/{{ site.sisimai.v4final }}.html'>v{{ site.sisimai.v4final }}</a>)
                     </div>
                     <div class = 'warning'>
                         Please check <a href = '/en/diff'>Differences with {{ site.html.ss }} 4</a>
@@ -236,7 +235,7 @@
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '400ms'>
                         <p class = 'lead'>
                             <i class = 'fa fa-tachometer-alt'></i>
-                            The Speed Of Decoding 1000 Emails
+                            The Speed Of Decoding 1000 Emails (Go version)
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
@@ -298,11 +297,11 @@
                     <div class = 'single-skill wow fadeInDown' data-wow-duration = '1000ms' data-wow-delay = '700ms'>
                         <p class = 'lead'>
                             <i class = 'fa fa-file-archive'></i>
-                            Dependent External Modules
+                            Dependent External Modules (Go version)
                         </p>
                         <div class = 'progress'>
                             <div class = 'progress-bar progress-bar-primary six-sec-ease-in-out'
-                                role = 'progressbar'  aria-valuetransitiongoal = '8'>2
+                                role = 'progressbar'  aria-valuetransitiongoal = '8'>0
                             </div>
                             <p class = 'versus'>24</p>
                         </div>
@@ -334,7 +333,7 @@
             <div class = 'col-sm-3 col-xs-6 wow fadeInLeft' data-wow-duration = '1000ms' data-wow-delay = '900ms'>
                 <p>Only</p>
                 <i class = 'fa fa-file-zipper'></i>                    
-                <h3 class = 'timer'>2</h3>
+                <h3 class = 'timer'>0</h3>
                 <p>External Modules Required</p>
             </div>                 
         </div>
@@ -351,15 +350,13 @@
                 </h2>
                 <div class = 'attention'>
                     The latest version is <strong>{{ site.sisimai.version }}</strong>,
-                    released on {{ site.sisimai.release.en }}.  As of February 2025,
-                    <strong>the Go version of Sisimai is available from this version.</strong>
+                    released on {{ site.sisimai.release.en }}. As of February 2025,
+                    <strong>the Go version of Sisimai is available from v5.2.0.</strong>
                 </div>
                 <br>
                 <p class = 'description'>
                     {{ site.html.ss }} can run on any OS where Perl or Ruby works, such as *BSD,
                     macOS, and Linux.
-                </p>
-                <p class = 'description'>
                     <strong>
                     It is important to review <a href = '/en/release/5.0.0.html'>the release notes</a>
                     and <a href = '/en/diff'>the differences with {{ site.html.ss }} 4</a> page 
