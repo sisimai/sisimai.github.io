@@ -386,8 +386,8 @@ $ <kbd>cd ./sisimai</kbd>
 $ <kbd>go mod init example.com/sisimaicli</kbd>
 go: creating new go.mod: module example.com/sisimaicli
 
-$ <kbd> go get -u libsisimai.org/sisimai@latest</kbd>
-go: added libsisimai.org/sisimai v5.2.1
+$ <kbd> go get -u libsisimai.org/sisimai/v5@latest</kbd>
+go: added libsisimai.org/sisimai/v5 v5.3.0
 
 $ <kbd>cat ./go.mod</kbd>
 module example.com/sisimaicli
@@ -395,7 +395,7 @@ module example.com/sisimaicli
 go 1.20
 
 require (
-	libsisimai.org/sisimai v5.2.1 // indirect
+	libsisimai.org/sisimai/v5 v5.3.0 // indirect
 )
                 </pre>
             </div>
@@ -666,7 +666,7 @@ end
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "os"
 import "fmt"
-import "libsisimai.org/sisimai"
+import "libsisimai.org/sisimai/v5"
 
 func main() {
 	path := os.Args[1]     // go run ./sisid /path/to/mailbox or maildir/
@@ -758,7 +758,7 @@ puts Sisimai.dump('/home/postmaster/Maildir/cur')
                 <h4 class = 'in-desc'>Go版{{ site.html.ss }}</h4>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "fmt"
-import "libsisimai.org/sisimai"
+import "libsisimai.org/sisimai/v5"
 
 func main() {
 	args := sisimai.Args()

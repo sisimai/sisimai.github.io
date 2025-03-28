@@ -258,7 +258,7 @@ sironeko@example.org
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "fmt"
-import "libsisimai.org/sisimai"
+import "libsisimai.org/sisimai/v5"
 
 func main() {
     args := sisimai.Args()
@@ -381,7 +381,7 @@ end
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "fmt"
-import "libsisimai.org/sisimai"
+import "libsisimai.org/sisimai/v5"
 
 func main() {
     mail := 'From MAILER-DAEMON Fri Feb  2 18:30:22 2018...'    // バウンスメール全体
@@ -517,7 +517,7 @@ end
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "fmt"
-import "libsisimai.org/sisimai"
+import "libsisimai.org/sisimai/v5"
 
 func main() {
     path := "./set-of-emails/maildir/bsd/rfc3464-28.eml"
@@ -658,7 +658,7 @@ end
                 </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "fmt"
-import "libsisimai.org/sisimai"
+import "libsisimai.org/sisimai/v5"
 
 func main() {
     path := "./set-of-emails/maildir/bsd/rfc3834-01.eml"
@@ -1145,7 +1145,7 @@ printf("Return-Path: %s\n", rv[0].catch['return-path'])
 // sisid.go
 import "fmt"
 import "strings"
-import "libsisimai.org/sisimai"
+import "libsisimai.org/sisimai/v5"
 
 func main() {
     args := sisimai.Args() // sis.DecodingArgs{}
