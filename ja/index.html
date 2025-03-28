@@ -53,21 +53,14 @@
                     <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
-                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>と
-                        <strong>{{ site.sisimai.v4final }}</strong>です。
-                        <strong>一つ前のバージョン5.2.0からGo版{{ site.html.ss }}も利用可能</strong>です。
+                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>です。
+                        <strong>二つ前のバージョン5.2.0からGo版{{ site.html.ss }}も利用可能</strong>です。
 
-                        変更点は極僅かですが、
-                        <a href = 'https://www.docomo.ne.jp/binary/pdf/info/news_release/topics_250213_00.pdf' target = 'new'>
-                            3月13日以降でNTTドコモ宛のメールでドメインして拒否や
-                            指定受信によるバウンスメールが返ってこなくなる(迷惑メールフォルダに入る)変更
-                        </a>への対応です。日本においては影響範囲が小さくないと思われますので、
-                        4系も同時にリリースしています。
+                        主な変更点はGo版{{ site.html.ss }}で発見されたモジュールPATHが壊れていて<kbd>go get</kbd>
+                        でインストールできない問題の修正とモジュールPATHの変更です。
 
-                        他の変更点は各リリースノート(
+                        他の変更点はリリースノート(
                         <a href = '/ja/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }}</a>
-                        または
-                        <a href = '/ja/release/{{ site.sisimai.v4final }}.html'>v{{ site.sisimai.v4final }}</a>
                         )を見てください。
                     </div>
                     <div class = 'warning'>
