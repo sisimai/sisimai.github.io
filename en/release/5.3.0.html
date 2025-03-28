@@ -1,0 +1,172 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.3.0 RELEASE"
+"description": "Release notes for Sisimai 5.3.0/All the cahnges"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>DOcs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.3.0.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-bug'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.3.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2025/03/29</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.3.0 has been released. The main changes in this version include:
+                    <strong>
+                        fixes the completely and utterly broken module path,
+                    </strong>
+                    memory allocation improvements, updates in functions and methods related to SMTP reply codes.
+                </p>
+                <p class = 'description'>
+                    Changes specific to the Perl version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang perl'>Perl</span> at the beginning of each item,
+                    changes specific to the Ruby version of {{ site.html.ss }} are indicated by <span class = 'lang ruby'>Ruby</span>,
+                    and changes specific to the Go version of {{ site.html.ss }} are indicated by <span class = 'lang golang'>Go</span>.
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    And then, {{ site.html.ss }} 5 includes
+                    <a href = '/en/diff'>many changes that are not compatible with Version 4</a>,
+                    so please check the Perl or Ruby version of your environment before installing
+                    or upgrading.
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Changes</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        <strong>Corrected the completely and utterly broken module path.</strong>
+                        The module path has been replaced with <kbd>libsisimai.org/sisimai/v5</kbd>.
+                        Thanks to <a href = 'https://github.com/inboxsphere' target = 'new'>@inboxsphere</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/96' target = 'new'>#96</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/98' target = 'new'>#98</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        {{ site.html.ss }} can be built with Go 1.24
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Performance has improved by approximately 1.7x compared to v5.2.1.
+                    </li>
+                    <ul>
+                        <li>
+                            Reduce struct and string copies, and the return types of several functions
+                            have been modified to return pointers to strings and structs.
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/76' target = 'new'>#76</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/80' target = 'new'>#80</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/83' target = 'new'>#83</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/84' target = 'new'>#84</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/85' target = 'new'>#85</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/86' target = 'new'>#86</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/87' target = 'new'>#87</a>
+                        </li>
+                        <li>
+                            <kbd>fmt.Sprintf()</kbd> usage has been decreased to improve performance.
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/78' target = 'new'>#78</a>
+                        </li>
+                        <li>
+                            Optimize the order of MTA modules.
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/88' target = 'new'>#88</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/89' target = 'new'>#89</a>
+                        </li>
+                    </ul>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Refactor comments for all the functions, follow the godoc as possible.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/75' target = 'new'>#75</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Fix bug at the argument of <kbd>fmt.Sprintf()</kbd> in <kbd>rfc3834.Inquire()</kbd> function.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/79' target = 'new'>#79</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>sis.Beforefact.Empty()</kbd> has been renamed to <kbd>IsEmpty()</kbd>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/82' target = 'new'>#82</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        SMTP reply code improvements
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/90' target = 'new'>#90</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/92' target = 'new'>#92</a>
+                        <ul>
+                            <li>Update the list of SMTP status codes in <kbd>smtp/reply</kbd>.</li>
+                            <li>Implement <kbd>AssosiatedWith()</kbd> function in <kbd>smtp/reply</kbd>.</li>
+                            <li>Implement <kbd>IsExplicit()</kbd> function in <kbd>smtp/status</kbd>.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Sisimai works on Ruby 3.4.
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+

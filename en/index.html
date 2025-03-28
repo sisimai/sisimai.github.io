@@ -54,21 +54,15 @@
                     </p>
                     <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
-                        The latest stable versions of {{ site.html.ss }} {{ site.sisimai.version }} and
-                        {{ site.sisimai.v4final }}, released on {{ site.sisimai.release.en }}.
+                        The latest stable versions of {{ site.html.ss }} {{ site.sisimai.version }}
+                        released on {{ site.sisimai.release.en }}.
                         The Go version of Sisimai is available since {{ site.html.ss }} 5.2.0.
 
-                        The changes in this release are minimal, updates for that NTT DOCOMO (Major Japanese mobile carrier) no longer
-                        returns a bounce mail due to domain rejection or similar email settings, but instead were being delivered
-                        to the spam folder after March 13th.
-
-                        This change is considered to have a significant impact in Japan,
-                        hence the simultaneous release of the 4 series.
-
-                        For details on other changes, please refer to the respective release notes
-                        (<a href = '/ja/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }}</a>
-                        or 
-                        <a href = '/ja/release/{{ site.sisimai.v4final }}.html'>v{{ site.sisimai.v4final }}</a>)
+                        Key changes include fixing a broken module path in the Go version of {{ site.html.ss }},
+                        which caused <kbd>go get</kbd> installation failures, and updating the module path.
+                        Please refer to the 
+                        <a href = '/en/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }} release notes</a>
+                        for a complete list of changes.
                     </div>
                     <div class = 'warning'>
                         Please check <a href = '/en/diff'>Differences with {{ site.html.ss }} 4</a>
