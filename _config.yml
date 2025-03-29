@@ -46,7 +46,7 @@ sisimai:
   distribution:
     perl: 'https://metacpan.org/pod/Sisimai'
     ruby: 'https://rubygems.org/gems/sisimai'
-    golang: 'https://libsisimai.org/sisimai/v5'
+    golang: 'https://pkg.go.dev/libsisimai.org/sisimai/v5'
   socialmedia:
     weblog: 'https://blog.libsisimai.org/'
     twitter: 'https://twitter.com/libsisimai'
