@@ -38,6 +38,7 @@ sisimai:
       perl: 1.00
       ruby: 1.00
       golang: 4.40
+  pronounced: '/ɕi.ɕi.ma.i/'
   repository:
     project: 'https://github.com/sisimai'
     perl: 'https://github.com/sisimai/p5-sisimai'
