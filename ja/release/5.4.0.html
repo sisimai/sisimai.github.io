@@ -1,0 +1,246 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.4.0 RELEASE"
+"description": "Sisimai 5.4.0のリリースノート/変更点の一覧"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/ja/release/'>リリース情報</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>古いリリース情報</a></li> 
+                    <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
+                    <li class = 'others'><a href = '/en/release/5.4.0.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>リリースノート</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-torii-gate'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.4.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2025/07/01</h3>
+                <p class = 'description ja'>
+                    {{ site.html.ss }} 5.4.0をリリースしました。
+
+                    このバージョンにおける主な変更点は、MicrosoftとGoogleの新しいエラーコードの実装、
+                    Rubyのチルド文字列(frozen string literals)対応、Go版における破壊的な変更
+                    (Go 1.24以上が必要・<kbd>sisimai.Rise()</kbd>関数がポインターではなくスライスを返す)
+                    です。
+
+                    Perl版{{ site.html.ss }}に特有の変更は<span class = 'lang perl'>Perl</span>が、
+                    Ruby版{{ site.html.ss }}に特有の変更は<span class = 'lang ruby'>Ruby</span>が、
+                    Go版{{ site.html.ss }}に特有の変更は<span class = 'lang golang'>Go</span>が、
+                    それぞれ冒頭に入っています。
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    {{ site.html.ss }} 5.0.0でVersion 4系とは<a href = '/ja/diff'>非互換な変更</a>が多く入っていますので、
+                    インストールまたはアップグレードの前に実行環境のPerlやRubyのバージョンを確認してください。
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>変更点</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        <strong>
+                            <kbd>sisimai.Rise()</kbd>関数はポインターではなくスライス
+                            (<kbd>[]sis.Fact</kbd>と<kbd>[]sis.NotDecoded</kbd>)を返すようになりました。
+                        </strong>
+                        Thanks to <a href = 'https://github.com/corny' target = 'new'>@corny</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/119' target = 'new'>#119</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/145' target = 'new'>#145</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/148' target = 'new'>#148</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        ビルドに必要なGoのバージョンは<strong>1.24</strong>以上になりました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/112' target = 'new'>#112</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/127' target = 'new'>#127</a>
+                    </li>
+                    <ul>
+                        <li>
+                            <kbd>min()</kbd>関数を使って
+                            <kbd>Email.Entity.setNewLine()</kbd>で発生する<span class = 'value'>out of bounds</span>
+                            エラーを回避するように修正しました。
+                            Thanks to <a href = 'https://github.com/VolkerLieber' target = 'new'>@VolkerLieber</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/110' target = 'new'>#110</a>
+                        </li>
+                        <li>
+                            <kbd>strings.SplitN(v,s,2)</kbd>と<kbd>v[n:strings.Index(v,s)]</kbd>の代わりに
+                            <kbd>strings.Cut()</kbd>を使うようになりました。
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/116' target = 'new'>#116</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/117' target = 'new'>#117</a>
+                        </li>
+                        <li>
+                            <kbd>moji.EqualsAny()</kbd>の代わりに<kbd>slices.Contains()</kbd>を使うようになりました。
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/118' target = 'new'>#118</a>
+                        </li>
+                        <li>
+                            <kbd>strings.Split(v, "\n")</kbd>の代わりに<kbd>strings.Lines()</kbd>を使うようになりました。
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/123' target = 'new'>#123</a>
+                            <a href = 'https://github.com/sisimai/go-sisimai/issues/128' target = 'new'>#128</a>
+                        </li>
+                    </ul>
+                    <li>
+                        マイクロソフトの新しいエラーコード:<span class = 'value'>5.7.515</span>を
+                        <span class = 'value'>AuthFailure</span>として、<span class = 'value'>4.4.</span>から
+                        始まる一部のエラーコードを<span class = 'value'>SystemError</span>として実装しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/107' target = 'new'>#107</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/108' target = 'new'>#108</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/149' target = 'new'>#149</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/150' target = 'new'>#150</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/151' target = 'new'>#151</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/588' target = 'new'>#588</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/589' target = 'new'>#589</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/342' target = 'new'>#342</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/345' target = 'new'>#345</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/348' target = 'new'>#348</a>
+                    </li>
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Rubyのチルド文字列(frozen string literals)に対応しました。
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/347' target = 'new'>#347</a>
+                    </li>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <kbd>undef</kbd>(Perl)および<kbd>nil</kbd>(Ruby)を返していた関数において、
+                        Goのゼロ値に従った戻り値(文字列・数値・真偽値など)を返すようになりました。
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/586' target = 'new'>#586</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/587' target = 'new'>#587</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/343' target = 'new'>#343</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/346' target = 'new'>#346</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        いくつかのドキュメントでスペルミスを修正しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/109' target = 'new'>#109</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/115' target = 'new'>#115</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>sisimai.Rise()</kbd>関数の第二引数が<kbd>nil</kbd>の時は
+                        <kbd>sis.DecodingArgs</kbd>へのポインターを代入するようになりました。
+                        Thanks to <a href = 'https://github.com/VolkerLieber' target = 'new'>@VolkerLieber</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/111' target = 'new'>#111</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/113' target = 'new'>#113</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        最小限のLinterでgolangci-lintを使うようになりました。
+                        Thanks to <a href = 'https://github.com/corny' target = 'new'>@corny</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/120' target = 'new'>#120</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/121' target = 'new'>#121</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>moji.Squeeze()</kbd>と<kbd>mail.setNewLine()</kbd>は値を返さなくなりました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/124' target = 'new'>#124</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/125' target = 'new'>#125</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>lhost.DeliveryStatus</kbd>はHash Mapの代わりにiotaを使うようになりました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/131' target = 'new'>#131</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/132' target = 'new'>#132</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        条件無しの<kbd>for</kbd>ループと<kbd>if</kbd>文を<kbd>switch</kbd>文に置き換えました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/133' target = 'new'>#133</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/134' target = 'new'>#134</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        いくつかのループで<kbd>string.Contains()</kbd>の代わりに<kbd>moji.IsContained()</kbd>
+                        を使うようになりました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/135' target = 'new'>#135</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>moji.AlignedAny()</kbd>関数を<kbd>moji/any.go</kbd>に実装しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/136' target = 'new'>#136</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/137' target = 'new'>#137</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Hash Mapの<kbd>reason.GetRetried</kbd>は<kbd>reason.ShouldBeRetried()</kbd>関数に書き換えられました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/139' target = 'new'>#139</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/141' target = 'new'>#141</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>reason.IsExplicit()</kbd>関数で細い改善をしました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/140' target = 'new'>#140</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        メモリ割当を改善する為に構造体のメンバーを宣言する順序を変更しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/142' target = 'new'>#142</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/143' target = 'new'>#143</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        スライスへのポインターを返していた関数の全てで直接スライスを返すようにしました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/146' target = 'new'>#146</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/147' target = 'new'>#147</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
