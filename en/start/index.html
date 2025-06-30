@@ -382,7 +382,7 @@ sisimai (5.0.0) installed.
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Go version of {{ site.html.ss }}</h3>
-                <p class = 'description ja'>
+                <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
                     The Go version of {{ site.html.ss }} is installed into <span class = 'value'>$GOMODCACHE</span>
                     directory using the <kbd>go get</kbd> command.
@@ -400,15 +400,15 @@ $ <kbd>go mod init example.com/sisimaicli</kbd>
 go: creating new go.mod: module example.com/sisimaicli
 
 $ <kbd> go get -u libsisimai.org/sisimai/v5@latest</kbd>
-go: added libsisimai.org/sisimai/v5 v5.3.0
+go: added libsisimai.org/sisimai/v5 v5.4.0
 
 $ <kbd>cat ./go.mod</kbd>
 module example.com/sisimaicli
 
-go 1.20
+go 1.24
 
 require (
-	libsisimai.org/sisimai/v5 v5.3.0 // indirect
+	libsisimai.org/sisimai/v5 v5.4.0 // indirect
 )
                 </pre>
             </div>
@@ -667,12 +667,17 @@ end
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h4 class = 'in-desc'>Go version of {{ site.html.ss }}</h4>
-                <p class = 'description ja'>
+                <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
                     The following code is an example of using {{ site.html.ss }}'s <kbd>Rise()</kbd>
                     function to decode bounced emails and obtain the decoded data.
                     For other arguments that can be specified for the <kbd>Rise()</kbd> function,
                     please refer to <a href = '/en/usage'>How To Decode with {{ site.html.ss }}</a>.
+                </p>
+
+                <p class = 'description caution'>
+                    Since {{ site.html.ss }} 5.4.0, <kbd>Rise()</kbd> function return slices instead of
+                    pointers
                 </p>
 
                 <pre class = 'prettyprint'>$ <kbd>vi ./sisid.go</kbd></pre>
@@ -687,8 +692,8 @@ func main() {
 
 	// sisi is a pointer to []sis.Facti
 	sisi, nyaan := sisimai.Rise(path, args)
-	if len(*sisi) &gt; 0 {
-		for _, e := range *sisi {
+	if len(sisi) &gt; 0 {
+		for _, e := range sisi {
 			// e is a sis.Fact struct
 			fmt.Printf("- Sender is %s\n", e.Addresser.Address)
 			fmt.Printf("- Recipient is %s\n", e.Recipient.Address)
@@ -701,7 +706,7 @@ func main() {
 		}
 	}
 	// nyaan is a pointer to []sis.NotDecoded
-	if len(*nyaan) &gt; 0 { fmt.Fprintf(os.Stderr, "%v\n", *nyaan) }
+	if len(nyaan) &gt; 0 { fmt.Fprintf(os.Stderr, "%v\n", nyaan) }
 }
                 </pre>
 
@@ -852,7 +857,7 @@ func main() {
     "catch": null,
     "addresser": "michitsuna@example.jp",
     "alias": "nekochan@example.co.jp",
-    "smtpagent": "Postfix",
+    "decodedby": "Postfix",
     "smtpcommand": "DATA",
     "senderdomain": "example.jp",
     "listid": "",

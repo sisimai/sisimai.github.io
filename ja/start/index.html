@@ -387,15 +387,15 @@ $ <kbd>go mod init example.com/sisimaicli</kbd>
 go: creating new go.mod: module example.com/sisimaicli
 
 $ <kbd> go get -u libsisimai.org/sisimai/v5@latest</kbd>
-go: added libsisimai.org/sisimai/v5 v5.3.0
+go: added libsisimai.org/sisimai/v5 v5.4.0
 
 $ <kbd>cat ./go.mod</kbd>
 module example.com/sisimaicli
 
-go 1.20
+go 1.24
 
 require (
-	libsisimai.org/sisimai/v5 v5.3.0 // indirect
+	libsisimai.org/sisimai/v5 v5.4.0 // indirect
 )
                 </pre>
             </div>
@@ -661,6 +661,10 @@ end
                     <kbd>Rise()</kbd>関数に指定できる他の引数については
                     <a href = '/ja/usage/'>シシマイでの解析方法</a>をご覧ください。
                 </p>
+                <p class = 'description ja caution'>
+                    {{ site.html.ss }} 5.4.0から<kbd>Rise()</kbd>関数はポインターではなく
+                    スライスを返すようになりました。
+                </p>
 
                 <pre class = 'prettyprint'>$ <kbd>vi ./sisid.go</kbd></pre>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
@@ -674,8 +678,8 @@ func main() {
 
 	// sisi is a pointer to []sis.Facti
 	sisi, nyaan := sisimai.Rise(path, args)
-	if len(*sisi) &gt; 0 {
-		for _, e := range *sisi {
+	if len(sisi) &gt; 0 {
+		for _, e := range sisi {
 			// e is a sis.Fact struct
 			fmt.Printf("- Sender is %s\n", e.Addresser.Address)
 			fmt.Printf("- Recipient is %s\n", e.Recipient.Address)
@@ -688,7 +692,7 @@ func main() {
 		}
 	}
 	// nyaan is a pointer to []sis.NotDecoded
-	if len(*nyaan) &gt; 0 { fmt.Fprintf(os.Stderr, "%v\n", *nyaan) }
+	if len(nyaan) &gt; 0 { fmt.Fprintf(os.Stderr, "%v\n", nyaan) }
 }
                 </pre>
 
@@ -837,7 +841,7 @@ func main() {
     "catch": null,
     "addresser": "michitsuna@example.jp",
     "alias": "nekochan@example.co.jp",
-    "smtpagent": "Postfix",
+    "decodedby": "Postfix",
     "smtpcommand": "DATA",
     "senderdomain": "example.jp",
     "listid": "",
