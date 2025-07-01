@@ -56,10 +56,14 @@
                         <i class = 'fa fa-bullhorn'></i>
                         The latest stable versions of {{ site.html.ss }} {{ site.sisimai.version }}
                         released on {{ site.sisimai.release.en }}.
-                        The Go version of Sisimai is available since {{ site.html.ss }} 5.2.0.
 
-                        Key changes include fixing a broken module path in the Go version of {{ site.html.ss }},
-                        which caused <kbd>go get</kbd> installation failures, and updating the module path.
+                        Key changes include the implementation of new Microsoft error code <strong>5.7.515</strong>
+                        and new Google error codes <strong>5.7.32</strong> and <strong>4.7.40</strong>.
+                        The Ruby version of {{ site.html.ss }} now supports <strong>frozen string literals</strong>.
+                        The Go version of {{ site.html.ss }} includes <strong>breaking changes</strong>,
+                        requiring <strong>Go 1.24 or later</strong> and with <kbd>sisimai.Rise()</kbd>
+                        now returning <strong>slices</strong> instead of pointers.
+
                         Please refer to the 
                         <a href = '/en/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }} release notes</a>
                         for a complete list of changes.

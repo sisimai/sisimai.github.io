@@ -379,6 +379,11 @@ end
                     <span class = 'value'>libisismai.org/sisimai/mail/memory</span>が呼び出され、
                     メールのファイルや標準入力から読み込んだのと同様に、解析結果が得られます。
                 </p>
+                <p class = 'description ja caution'>
+                    {{ site.html.ss }} 5.4.0から<kbd>Rise()</kbd>関数はポインターではなく
+                    スライスを返すようになりました。
+                </p>
+
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "fmt"
 import "libsisimai.org/sisimai/v5"
@@ -387,7 +392,7 @@ func main() {
     mail := 'From MAILER-DAEMON Fri Feb  2 18:30:22 2018...'    // バウンスメール全体
     args := sisimai.Args()
     data, _ := sisimai.Rise(mail, args)
-    if len(*data) &gt; 0 { fmt.Printf("%s\n", data[0].Recipient.Address) }
+    if len(data) &gt; 0 { fmt.Printf("%s\n", data[0].Recipient.Address) }
 }
                 </pre>
             </div>
@@ -515,6 +520,10 @@ end
                     解析結果に含まれるようになります。<span class = 'value'>Delivered</span>の初期値は
                     <span class = 'value'>false</span>です。
                 </p>
+                <p class = 'description ja caution'>
+                    {{ site.html.ss }} 5.4.0から<kbd>Rise()</kbd>関数はポインターではなく
+                    スライスを返すようになりました。
+                </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "fmt"
 import "libsisimai.org/sisimai/v5"
@@ -525,7 +534,7 @@ func main() {
     <strong>args.Delivered = true</strong>
 
     sisi, _ := sisimai.Rise(path, args)
-    if len(*sisi) &gt; 0 { fmt.Printf("Recipient = %s\n", *sisi[0].Recipient.Address }
+    if len(sisi) &gt; 0 { fmt.Printf("Recipient = %s\n", sisi[0].Recipient.Address }
 }
                 </pre>
             </div>
@@ -656,6 +665,10 @@ end
                     不在応答のメールも解析結果に含まれるようになります。
                     <span class = 'value'>Vacation</span>の初期値は<span class = 'value'>false</span>です。
                 </p>
+                <p class = 'description ja caution'>
+                    {{ site.html.ss }} 5.4.0から<kbd>Rise()</kbd>関数はポインターではなく
+                    スライスを返すようになりました。
+                </p>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 import "fmt"
 import "libsisimai.org/sisimai/v5"
@@ -666,7 +679,7 @@ func main() {
     <strong>args.Vacation = true</strong>
 
     sisi, _ := sisimai.Rise(path, args)
-    if len(*sisi) &gt; 0 { fmt.Printf("Recipient = %s\n", *sisi[0].Recipient.Address }
+    if len(sisi) &gt; 0 { fmt.Printf("Recipient = %s\n", sisi[0].Recipient.Address }
 }
                 </pre>
             </div>
@@ -1090,6 +1103,7 @@ printf("Return-Path: %s\n", $rv->[0]->{'catch'}->{'return-path'});
                     <span class = 'value'>Proc</span>オブジェクトを<span class = 'value'>c___:</span>
                     として渡すことができます。
                 </p>
+
                 <pre class = 'prettyprint'>% <kbd>cat set-of-emails/maildir/bsd/rhost-google-03.eml | ruby ./sisid.rb</kbd></pre>
                 <pre class = 'prettyprint'><span class = 'shebang'>#! /usr/bin/env ruby</span>
 # sisid.rb
@@ -1140,6 +1154,10 @@ printf("Return-Path: %s\n", rv[0].catch['return-path'])
                     <span class = 'value'>Callback0</span>と<span class = 'value'>Callback1</span>に
                     実行したい処理内容を書いた関数を代入して渡すことができます。
                 </p>
+                <p class = 'description ja caution'>
+                    {{ site.html.ss }} 5.4.0から<kbd>Rise()</kbd>関数はポインターではなく
+                    スライスを返すようになりました。
+                </p>
                 <pre class = 'prettyprint'>% <kbd>cat set-of-emails/maildir/bsd/rhost-google-03.eml | go run ./sisid.go</kbd></pre>
                 <pre class = 'prettyprint'><span class = 'shebang'>package main</span>
 // sisid.go
@@ -1178,11 +1196,10 @@ func main() {
         return true, nil
     }
 
-    // sisi is a pointer to []sis.Facti
     sisi, nyaan := sisimai.Rise("STDIN", args)
-    if len(*sisi) > 0 {
+    if len(sisi) > 0 {
         list = append(list, "Queue-ID")
-        for _, e := range *sisi {
+        for _, e := range sisi {
             // e is a sis.Fact struct
             fmt.Printf("Recipient = %s\n", e.Recipient.Address)
             re, as := e.Catch.(map[string]interface{})
@@ -1195,8 +1212,7 @@ func main() {
             }
         }
     }
-    // nyaan is a pointer to []sis.NotDecoded
-    if len(*nyaan) > 0 { fmt.Fprintf(os.Stderr, "%v\n", *nyaan) }
+    if len(nyaan) > 0 { fmt.Fprintf(os.Stderr, "%v\n", nyaan) }
 }
                 </pre>
             </div>
@@ -1218,7 +1234,7 @@ func main() {
     "messageid": "vDcsF1hr4zzywp69@mail4.example.com",
     "recipient": "kijitora@google.example.com",
     "diagnosticcode": "host gmail-smtp-in.l.google.com[64.233.188.26] said: The MAIL FROM domain [mail4.example.com] has an SPF record with a hard fail policy (-all) but it fails to pass SPF checks with the ip: [192.0.2.24]. To best protect our users from spam and phishing, the message has been blocked. For instructions on setting up authentication, go to https://support.google.com/mail/answer/81126#authentication 2-222222630d46222222b002b2d2neko2cat2222222cat.22 - gsmtp (in reply to end of DATA command)",
-    "smtpagent": "Postfix",
+    "decodedby": "Postfix",
     "destination": "google.example.com",
     "alias": "neko@example.co.jp",
     "reason": "authfailure",

@@ -54,12 +54,17 @@
                         <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
                         <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>です。
-                        <strong>二つ前のバージョン5.2.0からGo版{{ site.html.ss }}も利用可能</strong>です。
 
-                        主な変更点はGo版{{ site.html.ss }}で発見されたモジュールPATHが壊れていて<kbd>go get</kbd>
-                        でインストールできない問題の修正とモジュールPATHの変更です。
+                        主な変更点はMicrosoftの新しいエラーコード<strong>5.7.515</strong>の実装と、
+                        Googleの新しいエラーコード<strong>5.7.32</strong>と<strong>4.7.40</strong>の
+                        実装です。
 
-                        他の変更点はリリースノート(
+                        Ruby版{{ site.html.ss }}ではチルド文字列(frozen string literal)への対応が入りました。
+
+                        Go版{{ site.html.ss }}では非互換な変更(<strong>Go 1.24以上</strong>が必要・
+                        <kbd>sisimai.Rise()</kbd>がポインターではなく<strong>スライス</strong>を返す)が入っています。
+
+                        変更点の詳細はリリースノート(
                         <a href = '/ja/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }}</a>
                         )を見てください。
                     </div>
