@@ -1,0 +1,134 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.4.1 RELEASE"
+"description": "Release notes for Sisimai 5.4.1/All the changes"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>Docs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.4.1.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-sun-plant-wilt'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.4.1</h2>
+                <hr>
+                <h3 class = 'in-desc'>2025/08/31</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.4.1 is now available. 
+                    The main changes in this version are a fix for a nasty bug in the Ruby version caused by
+                    an incorrect data type and support for changed error codes in Gmail.
+
+                    Changes specific to the Perl version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang perl'>Perl</span> at the beginning of each item,
+                    changes specific to the Ruby version of {{ site.html.ss }} are indicated by <span class = 'lang ruby'>Ruby</span>,
+                    and changes specific to the Go version of {{ site.html.ss }} are indicated by <span class = 'lang golang'>Go</span>.
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    And then, {{ site.html.ss }} 5 includes
+                    <a href = '/en/diff'>many changes that are not compatible with Version 4</a>,
+                    so please check the Perl or Ruby version of your environment before installing
+                    or upgrading.
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Changes</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span>
+                        A critical bug in the <kbd>Sisimai::Rhost::Microsoft</kbd> class has been fixed,
+                        which was caused by defining a value as a string instead of its intended integer type.
+                        Thanks to <a href = 'https://github.com/kawai-markerise' target = 'new'>@kawai-markerise</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/354' target = 'new'>#354</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/355' target = 'new'>#355</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Sisimai could be built with Go 1.25.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/163' target = 'new'>#163</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/164' target = 'new'>#164</a>
+                    </li>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        Sisimai works on Perl 5.42.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/592' target = 'new'>#592</a>
+                    </li>
+                    <li>
+                        Sisimai now support some of 
+                        <a href = 'https://support.google.com/a/answer/3726730' target = 'new'>the error codes</a>
+                        of Gmail
+                        <a href = 'https://github.com/azumakuniyuki/feb-2024-no-auth-no-entry/commit/364214227' target = 'new'>changed in August</a>.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/595' target = 'new'>#595</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/352' target = 'new'>#352</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/158' target = 'new'>#158</a>
+                    </li>
+                    <li>
+                        Added an implementation to treat <span class = 'value'>privaterelay.appleid.com</span>,
+                        used by Apple's Hide My Email, as an Apple domain.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/596' target = 'new'>#596</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/353' target = 'new'>#354</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/155' target = 'new'>#155</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
