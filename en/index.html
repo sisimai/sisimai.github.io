@@ -54,15 +54,11 @@
                     </p>
                     <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
-                        The latest stable versions of {{ site.html.ss }} {{ site.sisimai.version }}
+                        The latest stable version {{ site.html.ss }} {{ site.sisimai.version }} has been
                         released on {{ site.sisimai.release.en }}.
 
-                        Key changes include the implementation of new Microsoft error code <strong>5.7.515</strong>
-                        and new Google error codes <strong>5.7.32</strong> and <strong>4.7.40</strong>.
-                        The Ruby version of {{ site.html.ss }} now supports <strong>frozen string literals</strong>.
-                        The Go version of {{ site.html.ss }} includes <strong>breaking changes</strong>,
-                        requiring <strong>Go 1.24 or later</strong> and with <kbd>sisimai.Rise()</kbd>
-                        now returning <strong>slices</strong> instead of pointers.
+                        The main changes in this version are a fix for a nasty bug in the Ruby version
+                        caused by an incorrect data type and support for changed error codes in Gmail.
 
                         Please refer to the 
                         <a href = '/en/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }} release notes</a>
