@@ -234,6 +234,9 @@ ul.release-notes li {
     border-style: solid;
     line-height: 27px;
 }
+ul.release-notes li:last-child {
+    border-width: 0;
+}
 
 ul.release-notes li a:link,
 ul.release-notes li a:hover,
