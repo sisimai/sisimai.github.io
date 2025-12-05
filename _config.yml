@@ -19,13 +19,13 @@ sisimai:
     golang: ["1.24.0", "1.25.4"]
   diff:
     tests:
-      perl: "330,000"
-      ruby: "410,000"
-      golang: "253,000"
+      perl: "340,000"
+      ruby: "240,000"
+      golang: "255,000"
     loc:
-      perl: "9,900"
-      ruby: "9,900"
-      golang: "9,100"
+      perl: "9,990"
+      ruby: "9,970"
+      golang: "9,200"
     parse1k:
       perl: 1.37
       ruby: 1.95
