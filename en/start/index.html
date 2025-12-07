@@ -688,13 +688,13 @@ import "libsisimai.org/sisimai/v5"
 
 func main() {
 	path := os.Args[1]     // go run ./sisid /path/to/mailbox or maildir/
-	args := sisimai.Args() // sis.DecodingArgs{}
+	args := sisimai.Args() // siba.DecodingArgs{}
 
-	// sisi is a pointer to []sis.Facti
+	// sisi is a pointer to []siba.Fact
 	sisi, nyaan := sisimai.Rise(path, args)
 	if len(sisi) &gt; 0 {
 		for _, e := range sisi {
-			// e is a sis.Fact struct
+			// e is a siba.Fact struct
 			fmt.Printf("- Sender is %s\n", e.Addresser.Address)
 			fmt.Printf("- Recipient is %s\n", e.Recipient.Address)
 			fmt.Printf("- Recipient host is %s\n", e.Recipient.Host)
@@ -705,7 +705,7 @@ func main() {
 			fmt.Printf("- Hard bounce is %t\n", e.HardBounce)
 		}
 	}
-	// nyaan is a pointer to []sis.NotDecoded
+	// nyaan is a pointer to []siba.NotDecoded
 	if len(nyaan) &gt; 0 { fmt.Fprintf(os.Stderr, "%v\n", nyaan) }
 }
                 </pre>

@@ -514,8 +514,8 @@ end
                     In the Go version of {{ site.html.ss }}, as with the Perl and Ruby versions, 
                     if you specify <kbd>true</kbd> for <span class = 'value'>Delivered</span> in the
                     <span class = 'value'>
-                    <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/decoding-args.go' target = 'new'>
-                        sis.DecodingArgs
+                    <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/siba/decoding-args.go' target = 'new'>
+                        siba.DecodingArgs
                     </a>
                     </span> struct, which is specified as the
                     second argument to <span class = 'value'>Rise()</span> and <span class = 'value'>Dump()</span>,
@@ -660,8 +660,8 @@ end
                     In the Go version of {{ site.html.ss }}, as with the Perl and Ruby versions,
                     if you specify <kbd>true</kbd> for <span class = 'value'>Vacation</span> in the
                     <span class = 'value'>
-                    <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/decoding-args.go' target = 'new'>
-                        sis.DecodingArgs
+                    <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/siba/decoding-args.go' target = 'new'>
+                        siba.DecodingArgs
                     </a>
                     </span> struct, which is specified as the
                     second argument to the <span class = 'value'>Rise()</span> and <span class = 'value'>Dump()</span>
@@ -878,8 +878,8 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                     <img class = 'lhs' src = '/static/images/icon/golang-1.png' width = '80'>
                     The arguments and return values of <span class = 'value'>Callback0</span> and
                     <span class = 'value'>Callback1</span> in the <span class = 'value'>
-                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/decoding-args.go' target = 'new'>
-                            sis.DecodingArgs
+                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/siba/decoding-args.go' target = 'new'>
+                            siba.DecodingArgs
                         </a>
                     </span>
                     struct in the <span class = 'value'>libsisimai.org/sisimai</span> package's
@@ -890,7 +890,7 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                         <thead>
                             <tr>
                                 <th>
-                                    <span class = 'value'>sis.DecodingArgs</span>
+                                    <span class = 'value'>siba.DecodingArgs</span>
                                 </th>
                                 <th>Argument</th>
                                 <th>Return values</th>
@@ -901,8 +901,8 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                                 <td class = 'ltext'>Callback0</td>
                                 <td>
                                     <span class = 'value'>
-                                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/callback-args.go' target = 'new'>
-                                            *sis.CallbackArg0
+                                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/siba/callback-args.go' target = 'new'>
+                                            *siba.CallbackArg0
                                         </a>
                                     </span>
                                     <br />
@@ -926,8 +926,8 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                                 <td class = 'ltext'>Callback1</td>
                                 <td>
                                     <span class = 'value'>
-                                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/callback-args.go' target = 'new'>
-                                            *sis.CallbackArg1
+                                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/siba/callback-args.go' target = 'new'>
+                                            *siba.CallbackArg1
                                         </a>
                                     </span>
                                     <br />
@@ -946,7 +946,7 @@ my $list = Sisimai->rise('/path/to/mbox', 'c___' => [$code0, $code1]);
                                         Mail <span class = 'value'>*string</span>
                                         Entire bounce mail message <strong>including</strong> headers
                                     </li>
-                                    <li>Fact <span class = 'value'>*[]sis.Fact</span> Decoded results</li>
+                                    <li>Fact <span class = 'value'>*[]siba.Fact</span> Decoded results</li>
                                 </td>
                                 <td>
                                     <ul>
@@ -1154,8 +1154,8 @@ printf("Return-Path: %s\n", rv[0].catch['return-path'])
                     You can assign and pass functions containing the processing you want to execute to
                     <span class = 'value'>Callback0</span> and <span class = 'value'>Callback1</span>
                     of the <span class = 'value'>
-                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/sis/decoding-args.go' target = 'new'>
-                            sis.DecodingArgs
+                        <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/siba/decoding-args.go' target = 'new'>
+                            siba.DecodingArgs
                         </a>
                     </span> struct, which is passed to the
                     <span class = 'value'>Rise()</span> and <span class = 'value'>Dump()</span> functions
@@ -1173,7 +1173,7 @@ import "strings"
 import "libsisimai.org/sisimai/v5"
 
 func main() {
-    args := sisimai.Args() // sis.DecodingArgs{}
+    args := sisimai.Args() // siba.DecodingArgs{}
     list := []string{"Return-Path", "From"}
 
     args.Callback0 = func(arg *sisimai.CallbackArg0) (map[string]interface{}, error) {
@@ -1207,7 +1207,7 @@ func main() {
     if len(sisi) > 0 {
         list = append(list, "Queue-ID")
         for _, e := range sisi {
-            // e is a sis.Fact struct
+            // e is a siba.Fact struct
             fmt.Printf("Recipient = %s\n", e.Recipient.Address)
             re, as := e.Catch.(map[string]interface{})
             if as == false { continue }
