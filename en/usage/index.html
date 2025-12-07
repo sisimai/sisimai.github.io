@@ -198,7 +198,7 @@
 [
   {
     "listid": "",
-    "smtpagent": "Sendmail",
+    "agent": "Sendmail",
     ...
                 </pre>
                 <pre class = 'prettyprint'>
@@ -1235,41 +1235,43 @@ func main() {
                     The JSON string obtained by passing a hook method to the <span class = 'value'>dump()</span>
                     method of the <span class = 'value'>Sisimai</span> class will have the following contents:
                 </p>
-                <pre class = 'prettyprint'>[
-  {
-    "addresser": "kijitora@google.example.com",
-    "messageid": "vDcsF1hr4zzywp69@mail4.example.com",
-    "recipient": "kijitora@google.example.com",
-    "diagnosticcode": "host gmail-smtp-in.l.google.com[64.233.188.26] said: The MAIL FROM domain [mail4.example.com] has an SPF record with a hard fail policy (-all) but it fails to pass SPF checks with the ip: [192.0.2.24]. To best protect our users from spam and phishing, the message has been blocked. For instructions on setting up authentication, go to https://support.google.com/mail/answer/81126#authentication 2-222222630d46222222b002b2d2neko2cat2222222cat.22 - gsmtp (in reply to end of DATA command)",
-    "decodedby": "Postfix",
-    "destination": "google.example.com",
-    "alias": "neko@example.co.jp",
-    "reason": "authfailure",
-    "lhost": "gmail-smtp-in.l.google.com",
-    "senderdomain": "google.example.com",
-    "token": "fe75b94dd0489b106fa041c460064dd6afa8196b",
-    "subject": "Nyaan",
-    "deliverystatus": "5.7.26",
-    "timezoneoffset": "+0900",
-    "listid": "",
-    "origin": "set-of-emails/maildir/bsd/rhost-google-03.eml",
-    "action": "failed",
-    "timestamp": 1649514885,
-    "hardbounce": 0,
-    "rhost": "gmail-smtp-in.l.google.com",
-    "catch": {
-      "size": 4436,
-      "kind": "Mailbox",
-      "authentication-results": "secure.example.jp; spf=fail smtp.helo=mail4.example.com",
-      "return-path": "<>",
-      "queue-id": "Lms5yfCw0Vz5CRp3"
-    },
-    "diagnostictype": "SMTP",
-    "replycode": 550,
-    "feedbacktype": "",
-    "smtpcommand": "DATA"
-  }
-]
+                <pre class = 'prettyprint'>
+{
+  "addresser": "michitsuna@example.jp",
+  "recipient": "kijitora@google.example.com",
+  "timestamp": 1650119685,
+  "action": "failed",
+  "alias": "nekochan@example.co.jp",
+  "catch": {
+    "nekochan": [
+      "Lui",
+      "Michitsuna"
+    ],
+    "return-path": "<httpd@relay3.example.com>",
+    "x-mailer": ""
+  },
+  "command": "DATA",
+  "decodedby": "Postfix",
+  "deliverystatus": "5.7.26",
+  "destination": "google.example.com",
+  "diagnosticcode": "host gmail-smtp-in.l.google.com[64.233.187.27] said: This mail has been blocked because the sender is unauthenticated. Gmail requires all senders to authenticate with either SPF or DKIM. Authentication results: DKIM = did not pass SPF [relay3.example.com] with ip: [192.0.2.22] = did not pass For instructions on setting up authentication, go to https://support.google.com/mail/answer/81126#authentication c2-202200202020202020222222cat.127 - gsmtp (in reply to end of DATA command)",
+  "diagnostictype": "SMTP",
+  "feedbackid": "",
+  "feedbacktype": "",
+  "hardbounce": false,
+  "lhost": "relay3.example.com",
+  "listid": "",
+  "messageid": "hwk7pzjzjtz0rf9y@relay3.example.com",
+  "origin": "./gmail-5.7.26.eml",
+  "reason": "authfailure",
+  "rhost": "gmail-smtp-in.l.google.com",
+  "replycode": "550",
+  "senderdomain": "example.jp",
+  "subject": "nyaan",
+  "timezoneoffset": "+0900",
+  "token": "84656774898baa90660be3e12fe0526e108d4473",
+  "toxic": false
+}
                 </pre>
 
 
