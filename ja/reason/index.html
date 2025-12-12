@@ -315,7 +315,7 @@
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = '発信元ホスト・宛先ホスト'></i></td>
                                     <td class = 'ltext'><strong><a href = '#notaccept' class = 'cell-link'>Not Accept</a></strong></td>
-                                    <td>No</td>
+                                    <td>Yes/No</td>
                                     <td class = 'ltext'>宛先ホストはメールを受けとらない</td>
                                 </tr>
                                 <tr>
@@ -1231,6 +1231,10 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     フィールドの値が<span class = 'value'>"5.3.2"</span>のものが、あるいはSMTP
                     応答コードの値が<span class = 'value'>"556"</span>のものが、この理由に決定されます。
                     また、送信者ドメインがNullMXである場合も、このバウンス理由に分類されます。
+                </p>
+                <p class = 'description ja'>
+                    SMTP応答コードまたは拡張ステータスコードが5系の場合に限り、このバウンス理由は
+                    ハードバウンスとして扱われます。
                 </p>
                 <pre class = 'prettyprint'>
 Action: failed

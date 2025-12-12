@@ -317,7 +317,7 @@
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
                                     <td class = 'ltext'><strong><a href = '#notaccept' class = 'cell-link'>Not Accept</a></strong></td>
-                                    <td>No</td>
+                                    <td>Yes/No</td>
                                     <td class = 'ltext'>Destination does not accept any message</td>
                                 </tr>
                                 <tr>
@@ -1261,6 +1261,10 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     field or a <span class = 'value'>"556"</span> value in the SMTP reply code.
                     Additionally, this bounce reason also includes cases where the sender domain
                     is a NullMX.
+                </p>
+                <p class = 'description'>
+                    This bounce reason is treated as a Hard Bounce only when the SMTP response code
+                    or the extended status code is in the 5xx range.
                 </p>
                 {% include error-messages/notaccept.html %}
                 <hr>
