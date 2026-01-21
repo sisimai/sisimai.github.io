@@ -1366,8 +1366,12 @@ Diagnostic-Code: smtp; DNS Error: 80458680 DNS type 'mx' lookup of libsisimai.or
                     <img class = 'lhs' src = '/static/images/icon/speed-2.png'>
                     相手側ホストにおいて単位時間の流量制限や同時接続数、
                     SMTPセッションあたりの最大受信者数など制限値を超過したことで拒否されるエラーです。
+                </p>
+                <p class = 'description ja'>
+                    <strong>
                     このバウンス理由は{{ site.html.ss }} 5.6.0で<a href = '#speeding'>Speeding</a>と
                     <a href = '#toomanyconn'>Too Many Conn</a>を統合して実装されました。
+                    </strong>
                 </p>
                 <pre class = 'prettyprint'>
 Status: 5.2.1
@@ -1434,7 +1438,9 @@ Diagnostic-Code: smtp; 550-5.7.25 [192.0.2.202] The IP address sending this
                 <h3 class = 'in-desc'><s>Speeding</s></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    <strong>
                     このバウンス理由はv5.6.0で<a href = '#ratelimited'>Rate Limited</a>に統合されました。
+                    </strong>
                 </p>
                 <p class = 'description ja'>
                     相手側ホストにおいて単位時間の流量制限があり、それを超過した場合に発生するエラーです。
@@ -1519,7 +1525,9 @@ message has been in the queue too long.
                 <h3 class = 'in-desc'><s>Too Many Connections (toomanyconn)</s></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    <strong>
                     このバウンス理由はv5.6.0で<a href = '#ratelimited'>Rate Limited</a>に統合されました。
+                    </strong>
                 </p>
                 <p class = 'description ja'>
                     相手側SMTPサーバに対して同時に多数の接続を行った場合、
