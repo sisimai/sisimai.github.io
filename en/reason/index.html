@@ -244,10 +244,15 @@
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
                                     <td class = 'ltext'>
-                                        <strong><a href = '#exceedlimit' class = 'cell-link'>Exceed Limit</a></strong>
+                                        <strong><a href = '#emailtoolarge' class = 'cell-link'>Email Too Large</a></strong>
                                     </td>
                                     <td>No</td>
-                                    <td class = 'ltext'>Message size exceeded the limit(5.2.3)</td>
+                                    <td class = 'ltext'>
+                                        Message size is too large for the remote system.<br />
+                                        This reason is a consolidation of
+                                        <a href = '#exceedlimit'>Exceed Limit</a> and
+                                        <a href = '#mesgtoobig'>Mesg Too Big</a> as of v5.6.0.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
@@ -256,14 +261,6 @@
                                     </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Bounced for a complaint of the message(FBL)</td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'>
-                                        <strong><a href = '#mesgtoobig' class = 'cell-link'>Mesg Too Big</a></strong>
-                                    </td>
-                                    <td>No</td>
-                                    <td class = 'ltext'>Message size is too big(5.3.4)</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
@@ -369,6 +366,19 @@
                                     </td>
                                     <td>Yes/No</td>
                                     <td class = 'ltext'>Destination does not accept any message</td>
+j                               </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#ratelimited' class = 'cell-link'>Rate Limited</a></strong>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        Rejected due to exceeding a rate limit or sending too fast.<br />
+                                        This reason is a consolidation of
+                                        <a href = '#speeding'>Speeding</a> and
+                                        <a href = '#toomanyconn'>Too Many Conn</a> as of v5.6.0.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
@@ -377,14 +387,6 @@
                                     </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Email rejected due to missing PTR record or having invalid PTR record</td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'>
-                                        <strong><a href = '#speeding' class = 'cell-link'>Speeding</a></strong>
-                                    </td>
-                                    <td>No</td>
-                                    <td class = 'ltext'>Rejected due to exceeding a rate limit or sending too fast</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
@@ -401,14 +403,6 @@
                                     </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Disk full on the destination host</td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'>
-                                        <strong><a href = '#toomanyconn' class = 'cell-link'>Too Many Conn</a></strong>
-                                    </td>
-                                    <td>No</td>
-                                    <td class = 'ltext'>Connection rate limit exceeded</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
@@ -458,6 +452,59 @@
                                     </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Could not decide an error reason</td>
+                                </tr>
+
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa-solid fa-xmark' title = 'By Content'></i></td>
+                                    <td class = 'ltext'>
+                                        <s><a href = '#exceedlimit' class = 'cell-link'>Exceed Limit</a></s>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        <strong>
+                                        This bounce reason has been consolidated into
+                                        <a href = '#emailtoolarge'>EmailTooLarge</a> as of v5.6.0.
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa-solid fa-xmark' title = 'By Content'></i></td>
+                                    <td class = 'ltext'>
+                                        <s><a href = '#mesgtoobig' class = 'cell-link'>Mesg Too Big</a></s>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        <strong>
+                                        This bounce reason has been consolidated into
+                                        <a href = '#emailtoolarge'>EmailTooLarge</a> as of v5.6.0.
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa-solid fa-xmark' title = 'By Server'></i></td>
+                                    <td class = 'ltext'>
+                                        <s><a href = '#speeding' class = 'cell-link'>Speeding</a></s>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        <strong>
+                                        This bounce reason has been consolidated into
+                                        <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa-solid fa-xmark' title = 'By Server'></i></td>
+                                    <td class = 'ltext'>
+                                        <s><a href = '#toomanyconn' class = 'cell-link'>Too Many Conn</a></s>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        <strong>
+                                        This bounce reason has been consolidated into
+                                        <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                                        </strong>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
