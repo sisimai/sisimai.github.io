@@ -366,7 +366,7 @@
                                     </td>
                                     <td>Yes/No</td>
                                     <td class = 'ltext'>Destination does not accept any message</td>
-j                               </tr>
+                                </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
                                     <td class = 'ltext'>
@@ -541,7 +541,7 @@ j                               </tr>
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Host Unknown (Hard bounce)</h3>
+                <h3 class = 'in-desc'>Host Unknown <small>(Hard bounce)</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/coffin-1.png'>
                     This error is returned when the domain part (the string to the right of the "@"
@@ -571,7 +571,7 @@ Your message to the following recipients cannot be delivered:
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>User Unknown (Hard bounce)</h3>
+                <h3 class = 'in-desc'>User Unknown <small>(Hard bounce)</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/headstone-1.png'>
                     This error is returned when the local part (the string to the left of the "@"
@@ -644,7 +644,7 @@ Your message to the following recipients cannot be delivered:
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Has Moved (Hard bounce)</h3>
+                <h3 class = 'in-desc'>Has Moved <small>(Hard bounce)</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
                     This error is returned when the recipient's mailbox has been moved to another
@@ -762,7 +762,7 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Suppressed</h3>
+                <h3 class = 'in-desc'>Suppressed <small>Since v5.2.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/downloading-1.png'>
                     This error reason indicates that the delivery to the recipient email address was
@@ -841,7 +841,7 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Email Too Large</h3>
+                <h3 class = 'in-desc'>Email Too Large <small>Since v5.6.0</small></h3>
                 <p class = 'description'>
                     <strong>
                     This reason is a consolidation of
@@ -931,7 +931,7 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Not Compliant RFC</h3>
+                <h3 class = 'in-desc'>Not Compliant RFC <small>Since v5.0.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/rules-1.png'>
                     This error is returned when there is an email header that does not comply with
@@ -967,7 +967,7 @@ Diagnostic-Code: smtp; 550-5.7.1 host aspmx.l.google.com[142.251.170.26] said: T
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Policy Violation</h3>
+                <h3 class = 'in-desc'>Policy Violation <small>Since v4.22.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/rules-2.png'>
                     This error is returned when the recipient's mail server rejects the email due
@@ -1046,7 +1046,7 @@ Diagnostic-Code: smtp; 550-5.7.1 [2401:2500:102:3032:192.0.2.222      13]
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Virus Detected</h3>
+                <h3 class = 'in-desc'>Virus Detected <small>Since v4.22.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/virus-3.png'>
                     This error is returned when the recipient's mail server detects a harmful file
@@ -1129,7 +1129,7 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Auth Failure</h3>
+                <h3 class = 'in-desc'>Auth Failure <small>Since v5.0.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/fingerprint-1.png'>
                     This error is returned when domain authentication using SPF, DKIM, DMARC, or
@@ -1165,7 +1165,7 @@ Diagnostic-Code: smtp;
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Bad Reputation</h3>
+                <h3 class = 'in-desc'>Bad Reputation <small>Since v5.5.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/sender-score-2.png'>
                     This error is returned when the sender's IP address or domain has a low reputation
@@ -1367,7 +1367,7 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Rate Limited</h3>
+                <h3 class = 'in-desc'>Rate Limited <small>Since v5.6.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/speed-2.png'>
                     <strong>
@@ -1495,7 +1495,7 @@ message has been in the queue too long.
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Failed STARTTLS</h3>
+                <h3 class = 'in-desc'>Failed STARTTLS <small>Since v5.2.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/key-6.png'>
                     This error reason covers TLS-related bounces, such as when STARTTLS cannot be
@@ -1535,7 +1535,7 @@ message has been in the queue too long.
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Delivered (beginning with v4.16.0)</h3>
+                <h3 class = 'in-desc'>Delivered <small>Since v4.16.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/cat-4.png'>
                     This reason <strong>does not indicate an error</strong>, but rather that the
@@ -1622,7 +1622,7 @@ I am of the office returning 5th Jan
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Syntax Error (Beginning with v4.17.0)</h3>
+                <h3 class = 'in-desc'>Syntax Error <small>Since v4.17.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-1.png'>
                     This error indicates that the recipient's mail server did not recognize the
@@ -1704,15 +1704,15 @@ I am of the office returning 5th Jan
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Exceed Limit</h3>
+                <h3 class = 'in-desc'>Exceed Limit <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    This reason has been consolidated into
+                    <a href = '#emailtoolarge'>Email Too Large</a> as of v5.6.0.
+                </div>
+                <br />
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
-                    <strong>
-                        This reason has been consolidated into
-                        <a href = '#emailtoolarge'>Email Too Large</a> as of v5.6.0.
-                    </strong>
-                </p>
-                <p class = 'description'>
                     This error is returned when the amount of email sent to the recipient exceeds
                     the limit set on the server. Specifically, this occurs when the size of the
                     sent email is larger than the default value, and is almost the same as
@@ -1751,15 +1751,15 @@ I am of the office returning 5th Jan
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Message Too Big (mesgtoobig)</h3>
+                <h3 class = 'in-desc'>Message Too Big (mesgtoobig) <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    This reason has been consolidated into
+                    <a href = '#emailtoolarge'>Email Too Large</a> as of v5.6.0.
+                </div>
+                <br />
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
-                    <strong>
-                        This reason has been consolidated into
-                        <a href = '#emailtoolarge'>Email Too Large</a> as of v5.6.0.
-                    </strong>
-                </p>
-                <p class = 'description'>
                     This error is returned when the size of the sent email exceeds the allowable
                     size of the recipient's mail server. In many cases, this error occurs when the
                     attached file is too large or when the total size exceeds the limit due to
@@ -1787,15 +1787,15 @@ Status: 553 Exceeded maximum inbound message size
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Speeding</h3>
+                <h3 class = 'in-desc'>Speeding <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    This reason has been consolidated into
+                    <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                </div>
+                <br />
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
-                    <strong>
-                        This reason has been consolidated into
-                        <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
-                    </strong>
-                </p>
-                <p class = 'description'>
                     This error occurs when the recipient host has a per-unit-time traffic limit and
                     that limit has been exceeded. This means that the sender's email sending speed
                     is too fast. This bounce reason was implemented in {{ site.html.ss }} 5.0.0 as
@@ -1824,15 +1824,15 @@ Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Too Many Connections (toomanyconn)</h3>
+                <h3 class = 'in-desc'>Too Many Connections (TooManyConn) <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    This reason has been consolidated into
+                    <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                </div>
+                <br />
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
-                    <strong>
-                        This reason has been consolidated into
-                        <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
-                    </strong>
-                </p>
-                <p class = 'description'>
                     When a large number of connections are made to the recipient's SMTP server at
                     the same time, new SMTP connections may be temporarily rejected. In such cases,
                     the bounce email returned will be classified into this bounce reason by {{ site.html.ss }}.
