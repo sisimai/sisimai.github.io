@@ -526,7 +526,7 @@
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Host Unknown (Hard bounce)</h3>
+                <h3 class = 'in-desc'>Host Unknown <small>(Hard bounce)</small></h3>
                 <pre class = 'prettyprint'>
 Your message to the following recipients cannot be delivered:
 
@@ -555,7 +555,7 @@ Your message to the following recipients cannot be delivered:
                     <a href = '#userunknown'><i class = 'fas fa-at'></i></a></div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>User Unknown (Hard bounce)</h3>
+                <h3 class = 'in-desc'>User Unknown <small>(Hard bounce)</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/headstone-1.png'>
                     宛先メールアドレスのローカルパート(@よりも左側の文字列)が
@@ -622,7 +622,7 @@ Your message to the following recipients cannot be delivered:
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Has Moved (Hard bounce)</h3>
+                <h3 class = 'in-desc'>Has Moved <small>(Hard bounce)</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
                     宛先のメールボックスは別のアドレスに移動した(そして自動で転送はされない)
@@ -1672,14 +1672,13 @@ I am of the office returning 5th Jan
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Exceed Limit <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    このバウンス理由はv5.6.0で<a href = '#emailtoolarge'>Email Too Large</a>に統合されました。
+                </div>
+                <br />
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
-                    <strong>
-                    このバウンス理由はv5.6.0にて<a href = '#emailtoolarge'>Email Too Large</a>に
-                    統合されました。
-                    </strong>
-                </p>
-                <p class = 'description ja'>
                     宛先のメール量がサーバで設定された限界値を超えた場合に返ってくるエラーです。
                     具体的には送信したメールのサイズが既定値よりも大きなケースで、後述の
                     <a href = '#mesgtoobig'>Message Too Big (MesgTooBig)</a>とほぼ同じです。
@@ -1718,14 +1717,13 @@ I am of the office returning 5th Jan
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Message Too Big (MesgTooBig) <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    このバウンス理由はv5.6.0で<a href = '#emailtoolarge'>Email Too Large</a>に統合されました。
+                </div>
+                <br />
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
-                    <strong>
-                    このバウンス理由はv5.6.0にて<a href = '#emailtoolarge'>Email Too Large</a>に
-                    統合されました。
-                    </strong>
-                </p>
-                <p class = 'description ja'>
                     送信したメールの容量(メールサイズ)が、相手側メールサーバの許容する大きさを超えた
                     場合に返ってくるエラーです。多くの場合、添付ファイルが大きすぎた、
                     沢山の添付ファイルによって容量超過した時に、このエラーと遭遇します。
@@ -1752,13 +1750,13 @@ Status: 553 Exceeded maximum inbound message size
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Speeding <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    このバウンス理由はv5.6.0で<a href = '#ratelimited'>Rate Limited</a>に統合されました。
+                </div>
+                <br />
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
-                    <strong>
-                    このバウンス理由はv5.6.0で<a href = '#ratelimited'>Rate Limited</a>に統合されました。
-                    </strong>
-                </p>
-                <p class = 'description ja'>
                     相手側ホストにおいて単位時間の流量制限があり、それを超過した場合に発生するエラーです。
                     具体的には送信速度が速すぎるということになります。
                     このバウンス理由は{{ site.html.ss }} 5.0.0で<a href = '#securityerror'>Security Error</a>
@@ -1787,13 +1785,13 @@ Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Too Many Connections (TooManyConn) <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    このバウンス理由はv5.6.0で<a href = '#ratelimited'>Rate Limited</a>に統合されました。
+                </div>
+                <br />
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
-                    <strong>
-                    このバウンス理由はv5.6.0で<a href = '#ratelimited'>Rate Limited</a>に統合されました。
-                    </strong>
-                </p>
-                <p class = 'description ja'>
                     相手側SMTPサーバに対して同時に多数の接続を行った場合、
                     新たなSMTP接続が一時的に拒否される事があります。
                     そのような場合に返ってきたバウンスメールは{{ site.html.ss }}によってこのバウンス理由に決定されます。
