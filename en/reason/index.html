@@ -833,31 +833,29 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
         </div>
 
         <!-- =============================================================== -->
-        <a name = 'exceedlimit'></a>
+        <a name = 'emailtoolarge'></a>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>
-                    <a href = '#exceedlimit'><i class = 'fas fa-envelope-open-text'></i></a>
+                    <a href = '#emailtoolarge'><i class = 'fas fa-envelope-open-text'></i></a>
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Exceed Limit</h3>
+                <h3 class = 'in-desc'>Email Too Large</h3>
                 <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/speed-1.png'>
-                    This error is returned when the amount of email sent to the recipient exceeds
-                    the limit set on the server. Specifically, this occurs when the size of the
-                    sent email is larger than the default value, and is almost the same as
-                    <a href = '#mesgtoobig'>MesgTooBig</a> described later. In
-                    <a href = 'https://www.sendmail.com/sm/open_source/download/' target="new">Sendmail</a>'s
-                    deliver.c, it is implemented as follows to determine whether this reason or
-                    <a href = '#mesgtoobig'>MesgTooBig</a> applies depending on the recipient.
+                    <strong>
+                    This reason is a consolidation of
+                    <a href = '#exceedlimit'>Exceed Limit</a> and
+                    <a href = '#mesgtoobig'>Message Too Big(MesgTooBig)</a> as of v5.6.0
+                    </strong>
                 </p>
-                <pre class = 'prettyprint'>
-1586: if (bitnset(M_LOCALMAILER, to-&gt;q_mailer-&gt;m_flags))
-1587:     to-&gt;q_status = "5.2.3";
-1588: else
-1589:     to-&gt;q_status = "5.3.4";
-                </pre>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/gorilla-1.png'>
+                    This error is returned when the size of the sent email exceeds the allowable size
+                    of the recipient's mail server. In many cases, this error occurs when the attached file
+                    is too large or when the total size exceeds the limit due to multiple attached files.
+                </p>
+
                 <pre class = 'prettyprint'>
 ... while talking to mx.example.org.:
 &gt;&gt;&gt; MAIL From:&lt;kijitora@example.co.jp&gt; SIZE=16600348
@@ -867,9 +865,10 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                 <p class = 'description'>
                     In the internal process of bounce email processing performed by {{ site.html.ss }},
                     this reason is determined when the value of the <span class = 'value'>"Status:"</span>
-                    field is <span class = 'value'>"4.2.3"</span> or <span class = 'value'>"5.2.3"</span>.
+                    field is <span class = 'value'>"4.2.3"</span>, <span class = 'value'>"5.2.3"</span>, or
+                    <span class = 'value'>5.3.4</span>.
                 </p>
-                {% include error-messages/exceedlimit.html %}
+                {% include error-messages/emailtoolarge.html %}
                 <hr>
             </div>
         </div>
@@ -919,37 +918,6 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
 ]
                 </pre>
                 {% include error-messages/feedback.html %}
-                <hr>
-            </div>
-        </div>
-
-        <!-- =============================================================== -->
-        <a name = 'mesgtoobig'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#mesgtoobig'><i class = 'fas fa-envelope-open-text'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Message Too Big (mesgtoobig)</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/gorilla-1.png'>
-                    This error is returned when the size of the sent email exceeds the allowable
-                    size of the recipient's mail server. In many cases, this error occurs when the
-                    attached file is too large or when the total size exceeds the limit due to
-                    multiple attached files.
-                </p>
-                <pre class = 'prettyprint'>
-Action: failure
-Status: 553 Exceeded maximum inbound message size
-                </pre>
-                <p class = 'description'>
-                    In the internal process of bounce email processing performed by {{ site.html.ss }},
-                    this reason is determined when the value of the <span class = 'value'>"Status:"</span>
-                    field is <span class = 'value'>"5.3.4"</span>.
-                </p>
-                {% include error-messages/mesgtoobig.html %}
                 <hr>
             </div>
         </div>
@@ -1391,6 +1359,44 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
         </div>
 
         <!-- =============================================================== -->
+        <a name = 'ratelimited'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#ratelimited'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Rate Limited</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/speed-2.png'>
+                    <strong>
+                        This reason is a consolidation of 
+                        <a href = '#speeding'>Speeding</a> and
+                        <a href = '#toomanyconn'>Too Many Connections(TooManyConn)</a> 
+                        as of v5.6.0
+                    </strong>
+                </p>
+                <p class = 'description'>
+                    This error occurs when the remote host rejects the message because it has exceeded specific limits,
+                    such as the rate limit per unit of time, the maximum number of concurrent connections,
+                    or the maximum number of recipients per SMTP session.
+                </p>
+                <pre class = 'prettyprint'>
+Status: 5.2.1
+Remote-MTA: dns; alt1.gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
+    receiving mail at a rate that 550-5.2.1 prevents additional messages from
+    being delivered. For more 550-5.2.1 information, please visit 550 5.2.1
+    https://support.google.com/mail/?p=ReceivingRatePerm p131si8414989oif.118 -
+    gsmtp
+                </pre>
+                {% include error-messages/ratelimited.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
         <a name = 'requireptr'></a>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -1425,38 +1431,6 @@ Diagnostic-Code: smtp; 550-5.7.25 [192.0.2.202] The IP address sending this
                 </p>
 
                 {% include error-messages/requireptr.html %}
-                <hr>
-            </div>
-        </div>
-
-        <!-- =============================================================== -->
-        <a name = 'speeding'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#speeding'><i class = 'fas fa-server'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Speeding</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/speed-2.png'>
-                    This error occurs when the recipient host has a per-unit-time traffic limit and
-                    that limit has been exceeded. This means that the sender's email sending speed
-                    is too fast. This bounce reason was implemented in {{ site.html.ss }} 5.0.0 as
-                    a separate category from <a href = '#securityerror'>Security Error</a> or
-                    <a href = '#toomanyconn'>Too Many Conn</a>.
-                </p>
-                <pre class = 'prettyprint'>
-Status: 5.2.1
-Remote-MTA: dns; alt1.gmail-smtp-in.l.google.com
-Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
-    receiving mail at a rate that 550-5.2.1 prevents additional messages from
-    being delivered. For more 550-5.2.1 information, please visit 550 5.2.1
-    https://support.google.com/mail/?p=ReceivingRatePerm p131si8414989oif.118 -
-    gsmtp
-                </pre>
-                {% include error-messages/speeding.html %}
                 <hr>
             </div>
         </div>
@@ -1509,30 +1483,6 @@ message has been in the queue too long.
                 </p>
                 {% include error-messages/systemfull.html %}
                 <hr>
-            </div>
-        </div>
-
-        <!-- =============================================================== -->
-        <a name = 'toomanyconn'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#toomanyconn'><i class = 'fas fa-server'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Too Many Connections (toomanyconn)</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/groups-1.png'>
-                    When a large number of connections are made to the recipient's SMTP server at
-                    the same time, new SMTP connections may be temporarily rejected. In such cases,
-                    the bounce email returned will be classified into this bounce reason by {{ site.html.ss }}.
-                </p>
-                <pre class = 'prettyprint'>
-&lt;kijitora@example.ne.jp&gt;: host mx02.example.ne.jp[192.0.1.20] said:
-452 4.3.2 Connection rate limit exceeded. (in reply to MAIL FROM command)</code></pre>
-                </pre>
-                {% include error-messages/toomanyconn.html %}
             </div>
         </div>
 
@@ -1724,6 +1674,173 @@ I am of the office returning 5th Jan
                     other information necessary for {{ site.html.ss }} to determine the bounce
                     reason, the bounce reason will be set to <span class = 'value'>"undefined"</span>.
                 </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'others' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-xmark'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Deprecated</h2>
+                <p class = 'description'>
+                    This is a list of deprecated or consolidated reasons.
+                </p>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'exceedlimit'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#exceedlimit'><i class = 'fas fa-envelope-open-text'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Exceed Limit</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    <strong>
+                        This reason has been consolidated into
+                        <a href = '#emailtoolarge'>Email Too Large</a> as of v5.6.0.
+                    </strong>
+                </p>
+                <p class = 'description'>
+                    This error is returned when the amount of email sent to the recipient exceeds
+                    the limit set on the server. Specifically, this occurs when the size of the
+                    sent email is larger than the default value, and is almost the same as
+                    <a href = '#mesgtoobig'>MesgTooBig</a> described later. In
+                    <a href = 'https://www.sendmail.com/sm/open_source/download/' target="new">Sendmail</a>'s
+                    deliver.c, it is implemented as follows to determine whether this reason or
+                    <a href = '#mesgtoobig'>MesgTooBig</a> applies depending on the recipient.
+                </p>
+                <pre class = 'prettyprint'>
+1586: if (bitnset(M_LOCALMAILER, to-&gt;q_mailer-&gt;m_flags))
+1587:     to-&gt;q_status = "5.2.3";
+1588: else
+1589:     to-&gt;q_status = "5.3.4";
+                </pre>
+                <pre class = 'prettyprint'>
+... while talking to mx.example.org.:
+&gt;&gt;&gt; MAIL From:&lt;kijitora@example.co.jp&gt; SIZE=16600348
+&lt;&lt;&lt; 552 5.2.3 Message size exceeds fixed maximum message size (10485760)
+554 5.0.0 Service unavailable
+                </pre>
+                <p class = 'description'>
+                    In the internal process of bounce email processing performed by {{ site.html.ss }},
+                    this reason is determined when the value of the <span class = 'value'>"Status:"</span>
+                    field is <span class = 'value'>"4.2.3"</span> or <span class = 'value'>"5.2.3"</span>.
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'mesgtoobig'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#mesgtoobig'><i class = 'fas fa-envelope-open-text'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Message Too Big (mesgtoobig)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    <strong>
+                        This reason has been consolidated into
+                        <a href = '#emailtoolarge'>Email Too Large</a> as of v5.6.0.
+                    </strong>
+                </p>
+                <p class = 'description'>
+                    This error is returned when the size of the sent email exceeds the allowable
+                    size of the recipient's mail server. In many cases, this error occurs when the
+                    attached file is too large or when the total size exceeds the limit due to
+                    multiple attached files.
+                </p>
+                <pre class = 'prettyprint'>
+Action: failure
+Status: 553 Exceeded maximum inbound message size
+                </pre>
+                <p class = 'description'>
+                    In the internal process of bounce email processing performed by {{ site.html.ss }},
+                    this reason is determined when the value of the <span class = 'value'>"Status:"</span>
+                    field is <span class = 'value'>"5.3.4"</span>.
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'speeding'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#speeding'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Speeding</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    <strong>
+                        This reason has been consolidated into
+                        <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                    </strong>
+                </p>
+                <p class = 'description'>
+                    This error occurs when the recipient host has a per-unit-time traffic limit and
+                    that limit has been exceeded. This means that the sender's email sending speed
+                    is too fast. This bounce reason was implemented in {{ site.html.ss }} 5.0.0 as
+                    a separate category from <a href = '#securityerror'>Security Error</a> or
+                    <a href = '#toomanyconn'>Too Many Conn</a>.
+                </p>
+                <pre class = 'prettyprint'>
+Status: 5.2.1
+Remote-MTA: dns; alt1.gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
+    receiving mail at a rate that 550-5.2.1 prevents additional messages from
+    being delivered. For more 550-5.2.1 information, please visit 550 5.2.1
+    https://support.google.com/mail/?p=ReceivingRatePerm p131si8414989oif.118 -
+    gsmtp
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'toomanyconn'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#toomanyconn'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Too Many Connections (toomanyconn)</h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    <strong>
+                        This reason has been consolidated into
+                        <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                    </strong>
+                </p>
+                <p class = 'description'>
+                    When a large number of connections are made to the recipient's SMTP server at
+                    the same time, new SMTP connections may be temporarily rejected. In such cases,
+                    the bounce email returned will be classified into this bounce reason by {{ site.html.ss }}.
+                </p>
+                <pre class = 'prettyprint'>
+&lt;kijitora@example.ne.jp&gt;: host mx02.example.ne.jp[192.0.1.20] said:
+452 4.3.2 Connection rate limit exceeded. (in reply to MAIL FROM command)</code></pre>
+                </pre>
             </div>
         </div>
     </div>
