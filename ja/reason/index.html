@@ -740,7 +740,7 @@ The user(s) account is disabled.
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Suppressed</h3>
+                <h3 class = 'in-desc'>Suppressed <small>Since v5.2.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/downloading-1.png'>
                     配信サービスにおいて同じ宛先に対する複数回のバウンスを避けるため、一般的に
@@ -813,7 +813,7 @@ The user(s) account is disabled.
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Email Too Large</h3>
+                <h3 class = 'in-desc'>Email Too Large <small>Since v5.6.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/gorilla-1.png'>
                     <strong>
@@ -901,7 +901,7 @@ The user(s) account is disabled.
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Not Compliant RFC</h3>
+                <h3 class = 'in-desc'>Not Compliant RFC <small>Since v5.0.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/rules-1.png'>
                     主にRFC5322の仕様に準拠してない、違反しているメールヘッダーがあった場合に返ってくる
@@ -936,7 +936,7 @@ Diagnostic-Code: smtp; 550-5.7.1 host aspmx.l.google.com[142.251.170.26] said: T
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Policy Violation</h3>
+                <h3 class = 'in-desc'>Policy Violation <small>Since v4.22.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/rules-2.png'>
                     宛先メールサーバにおけるポリシー違反で受け取りを拒否した場合に返ってくるエラーです。
@@ -1009,7 +1009,7 @@ Diagnostic-Code: smtp; 550 Denied by policy
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Virus Detected</h3>
+                <h3 class = 'in-desc'>Virus Detected <small>Since v4.22.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/virus-3.png'>
                     宛先メールサーバがメール内にウィルスやワーム・マルウェアなど有害なファイルや
@@ -1089,7 +1089,7 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Auth Failure</h3>
+                <h3 class = 'in-desc'>Auth Failure <small>Since v5.0.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/fingerprint-1.png'>
                     SPFやDKIMおよびDMARCやARCによるドメイン認証が通らなかった場合に返ってくるエラーです。
@@ -1126,7 +1126,7 @@ Diagnostic-Code: smtp;
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Bad Reputation</h3>
+                <h3 class = 'in-desc'>Bad Reputation <small>Since v5.0.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/sender-score-2.png'>
                     送信者のIPアドレスまたは送信者のドメインが、相手側ホストにおけるレピュテーション
@@ -1332,7 +1332,7 @@ Diagnostic-Code: smtp; DNS Error: 80458680 DNS type 'mx' lookup of libsisimai.or
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Rate Limited</h3>
+                <h3 class = 'in-desc'>Rate Limited <small>Since v5.6.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/speed-2.png'>
                     相手側ホストにおいて単位時間の流量制限や同時接続数、
@@ -1367,7 +1367,7 @@ Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Require PTR</h3>
+                <h3 class = 'in-desc'>Require PTR <small>Since v5.0.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/pointer-1.png'>
                     SMTP接続をした接続元IPアドレスに逆引きレコード(PTR Record)が設定されてない、
@@ -1458,7 +1458,7 @@ message has been in the queue too long.
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Failed STARTTLS</h3>
+                <h3 class = 'in-desc'>Failed STARTTLS <small>Since v5.2.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/key-6.png'>
                     宛先サーバーがSTARTTLSを必須としている場合、SMTP接続時にSTARTTLSが開始できずに
@@ -1500,7 +1500,7 @@ message has been in the queue too long.
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Delivered (beginning with v4.16.0)</h3>
+                <h3 class = 'in-desc'>Delivered <small>Since v4.16.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/cat-4.png'>
                     この理由は<strong>エラーではなく</strong>送信したメールが受信者に正しく配送された
@@ -1590,14 +1590,14 @@ I am of the office returning 5th Jan
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Syntax Error (Beginning with v4.17.0)</h3>
+                <h3 class = 'in-desc'>Syntax Error <small>Since v4.17.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-1.png'>
-                    このエラーは宛先メールサーバーが、送信側メールサーバーの送ったSMTPコマンドを認識
-                    出来なかった事を意味します。
+                    <strong>このバウンス理由は{{ site.html.ss }} v4.17.0で実装されました。</strong>
                 </p>
                 <p class = 'description ja'>
-                    <strong>このエラー理由は{{ site.html.ss }} v4.17.0で実装されました。</strong>
+                    このエラーは宛先メールサーバーが、送信側メールサーバーの送ったSMTPコマンドを認識
+                    出来なかった事を意味します。
                 </p>
                 {% include error-messages/syntaxerror.html %}
                 <hr>
@@ -1671,7 +1671,7 @@ I am of the office returning 5th Jan
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Exceed Limit</h3>
+                <h3 class = 'in-desc'>Exceed Limit <small>Until v5.5.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
                     <strong>
@@ -1717,7 +1717,7 @@ I am of the office returning 5th Jan
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Message Too Big (MesgTooBig)</h3>
+                <h3 class = 'in-desc'>Message Too Big (MesgTooBig) <small>Until v5.5.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
                     <strong>
@@ -1751,7 +1751,7 @@ Status: 553 Exceeded maximum inbound message size
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Speeding</h3>
+                <h3 class = 'in-desc'>Speeding <small>Until v5.5.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
                     <strong>
@@ -1786,7 +1786,7 @@ Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Too Many Connections (TooManyConn)</h3>
+                <h3 class = 'in-desc'>Too Many Connections (TooManyConn) <small>Until v5.5.0</small></h3>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
                     <strong>
