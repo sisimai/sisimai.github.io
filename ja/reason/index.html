@@ -828,12 +828,6 @@ The user(s) account is disabled.
                     具体的には送信したメールのサイズが既定値よりも大きなケースです。
                 </p>
                 <pre class = 'prettyprint'>
-1586: if (bitnset(M_LOCALMAILER, to-&gt;q_mailer-&gt;m_flags))
-1587:     to-&gt;q_status = "5.2.3";
-1588: else
-1589:     to-&gt;q_status = "5.3.4";
-                </pre>
-                <pre class = 'prettyprint'>
 ... while talking to mx.example.org.:
 &gt;&gt;&gt; MAIL From:&lt;kijitora@example.co.jp&gt; SIZE=16600348
 &lt;&lt;&lt; 552 5.2.3 Message size exceeds fixed maximum message size (10485760)
