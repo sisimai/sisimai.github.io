@@ -193,7 +193,7 @@
                                         <strong><a href = '#filtered' class = 'cell-link'>Filtered</a></strong>
                                     </td>
                                     <td>No</td>
-                                    <td class = 'ltext'>DATAコマンド以降で拒否された</td>
+                                    <td class = 'ltext'>DATAコマンド以降で宛先不明のメッセージと共に拒否された</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'メールアドレス'></i></td>
@@ -611,7 +611,8 @@ Your message to the following recipients cannot be delivered:
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、<span class = 'value'>Status:</span>
                     フィールドの値が<span class = 'value'>"5.2.0"</span>や<span class = 'value'>"5.2.1"</span>のもの、
                     SMTPセッションにおいて<span class = 'value'>DATA</span>コマンド以降の内容によって
-                    拒否された場合も、この理由に決定されます。
+                    <span class = 'value'>User unknown</span>など宛先不明を示すエラーメッセージで拒否された場合も、
+                    この理由に決定されます。
                 </p>
                 {% include error-messages/filtered.html %}
                 <hr>

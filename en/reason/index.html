@@ -195,7 +195,9 @@
                                         <strong><a href = '#filtered' class = 'cell-link'>Filtered</a></strong>
                                     </td>
                                     <td>No</td>
-                                    <td class = 'ltext'>Rejected after DATA command</td>
+                                    <td class = 'ltext'>
+                                        Rejected with an error message like "User unknown" after DATA command
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
@@ -629,11 +631,11 @@ Your message to the following recipients cannot be delivered:
 554 5.0.0 Service unavailable
                 </pre>
                 <p class = 'description'>
-                    In {{ site.html.ss }}'s internal bounce email processing, this reason is also
-                    determined when the value of the <span class = 'value'>"Status:"</span> field is
-                    <span class = 'value'>"5.2.0"</span> or <span class = 'value'>"5.2.1"</span>,
-                    or when the email is rejected based on the content after the <span class = 'value'>DATA</span>
-                    command in the SMTP session.
+                    In {{ site.html.ss }}'s internal bounce processing, this reason is assigned if the
+                    <span class = 'value'>Status:</span> field is <span class = 'value'>5.2.0</span> or
+                    <span class = 'value'>5.2.1</span>, or if the message is rejected after the
+                    <span class = 'value'>DATA</span> command in the SMTP session with an error
+                    indicating an unknown recipient, such as "User unknown".
                 </p>
                 {% include error-messages/filtered.html %}
                 <hr>
