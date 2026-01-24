@@ -897,32 +897,34 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                     the email that becomes this reason is expressed in JSON format as follows.
                 </p>
                 <pre class = 'prettyprint'>
-[
-    {
-        "token": "491f2fd0f90ee3017f2ab2eb67a1239b78a84321",
-        "deliverystatus": "",
-        "destination": "yahoo.com",
-        "timezoneoffset": "-0800",
-        "command": "",
-        "listid": "",
-        "replycode": "",
-        "subject": "Nyaaaaaaaan",
-        "diagnostictype": "SMTP",
-        "diagnosticcode": "This is an email abuse report for an email message received from mx8.example.com  on Thu, 29 Apr 2013 23:45:00 PST",
-        "senderdomain": "example.com",
-        <strong>"feedbacktype": "abuse",</strong>
-        "alias": "",
-        <strong>"reason": "feedback",</strong>
-        "addresser": "shironeko@example.com",
-        "lhost": "smtp-gw83.example.com",
-        "decodedby": "Yahoo!-Mail-Feedback/1.0",
-        "rhost": "uid",
-        "messageid": "000000000000000000000000.smtp@example.com",
-        "action": "failed",
-        "recipient": "this-local-part-does-not-exist-on-yahoo@yahoo.com",
-        "timestamp": 1367307950
-    }
-]
+{
+  "addresser": "sironeko@example.net",
+  "recipient": "kijitora@example.org",
+  "timestamp": 1430350485,
+  "action": "",
+  "alias": "",
+  "catch": null,
+  "command": "",
+  "decodedby": "ARF",
+  "deliverystatus": "",
+  "destination": "example.org",
+  "diagnosticcode": "This is a Example email abuse report for an email message received from IP 198.51.100.224 on Thu, 29 Apr 2015 23:34:45 +0000: User-Agent: returnpathfbl/1.0, Original-Mail-From: sironeko@example.net",
+  "diagnostictype": "",
+  "feedbackid": "",
+  "feedbacktype": "abuse",
+  "hardbounce": false,
+  "lhost": "fbl-001.returnpath.example.net",
+  "listid": "",
+  "messageid": "00000000000000000000000022222222@example.net",
+  "origin": "set-of-emails/maildir/bsd/arf-21.eml",
+  "reason": "feedback",
+  "rhost": "198.51.100.224",
+  "replycode": "",
+  "senderdomain": "example.net",
+  "subject": "nyaan",
+  "timezoneoffset": "+0900",
+  "token": "29c997067d46141e22266c0866bf788cf416b967"
+}
                 </pre>
                 {% include error-messages/feedback.html %}
                 <hr>
