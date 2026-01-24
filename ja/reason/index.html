@@ -1313,7 +1313,10 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     {{ site.html.ss }}が行うバウンスメール処理の内部過程では、<span class = 'value'>Status:</span>
                     フィールドの値が<span class = 'value'>"5.3.2"</span>のものが、あるいはSMTP
                     応答コードの値が<span class = 'value'>"556"</span>のものが、この理由に決定されます。
-                    また、送信者ドメインがNullMXである場合も、このバウンス理由に分類されます。
+                    また、送信者ドメインが
+                    <a href = 'https://datatracker.ietf.org/doc/html/rfc7505' target = 'new'>Null MX</a>
+                    である場合も、このバウンス理由に分類されます。
+
                 </p>
                 <p class = 'description ja'>
                     SMTP応答コードまたは拡張ステータスコードが5系の場合に限り、このバウンス理由は
