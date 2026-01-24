@@ -1590,6 +1590,23 @@ v = Sisimai.rise('/path/to/mbox', delivered: true)
 r = Sisimai.dump('/path/to/mbox', delivered: true)
 d = Sisimai::Fact.rise(data: q, delivered: true)
                 </pre>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <pre class = 'prettyprint'>package main
+import "os"
+import "libsisimai.org/sisimai/v5"
+func main() {
+    path := os.Args[1]     // go run ./sisid /path/to/mailbox or maildir/
+    args := sisimai.Args() // siba.DecodingArgs{}
+    args.Delivered = true
+    sisi, _ := sisimai.Rise(path, args)
+}
+                </pre>
                 <hr>
             </div>
         </div>
@@ -1604,6 +1621,10 @@ d = Sisimai::Fact.rise(data: q, delivered: true)
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Vacation</h3>
+                <div class = 'warning'>
+                    Bounce emails with <span class = 'value'>vacation</span> as the reason
+                    <strong>are no longer decoded by default since v5.0.0</strong>.
+                </div>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/bento-3.png'>
                     This reason indicates that the recipient is unable to receive emails, possibly
@@ -1616,10 +1637,6 @@ I am out of the office until 05/01/2010.
 
 I am of the office returning 5th Jan
                 </pre>
-                <div class = 'warning'>
-                    Bounce emails with <span class = 'value'>vacation</span> as the reason
-                    <strong>are no longer decoded by default since v5.0.0</strong>.
-                </div>
                 {% include error-messages/vacation.html %}
             </div>
         </div>

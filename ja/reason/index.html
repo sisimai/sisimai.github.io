@@ -1557,6 +1557,23 @@ v = Sisimai.make('/path/to/mbox', delivered: true)
 r = Sisimai.dump('/path/to/mbox', delivered: true)
 d = Sisimai::Fact.make(data: q, delivered: true)
                 </pre>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <pre class = 'prettyprint'>package main
+import "os"
+import "libsisimai.org/sisimai/v5"
+func main() {
+    path := os.Args[1]     // go run ./sisid /path/to/mailbox or maildir/
+    args := sisimai.Args() // siba.DecodingArgs{}
+    args.Delivered = true
+    sisi, _ := sisimai.Rise(path, args)
+}
+                </pre>
                 <hr>
             </div>
         </div>
@@ -1571,6 +1588,10 @@ d = Sisimai::Fact.make(data: q, delivered: true)
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Vacation</h3>
+                <div class = 'warning'>
+                    {{ site.html.ss }} 5.0.0から<span class = 'value'>vacation</span>となる
+                    バウンスメールはデフォルトで解析されなくなりました。
+                </div>
                 <p class = 'description ja'>
                     <img class = 'lhs' src = '/static/images/icon/bento-3.png'>
                     受信者が休暇を取っている等の理由で、メールを受けとれない状態を示します。
@@ -1584,10 +1605,6 @@ I am out of the office until 05/01/2010.
 I am of the office returning 5th Jan
                 </pre>
                 {% include error-messages/vacation.html %}
-                <div class = 'warning'>
-                    {{ site.html.ss }} 5.0.0から<span class = 'value'>vacation</span>となる
-                    バウンスメールはデフォルトで解析されなくなりました。
-                </div>
             </div>
         </div>
 
