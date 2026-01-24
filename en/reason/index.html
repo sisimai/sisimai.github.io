@@ -1609,15 +1609,17 @@ d = Sisimai::Fact.rise(data: q, delivered: true)
                     This reason indicates that the recipient is unable to receive emails, possibly
                     due to being on vacation. Bounce emails with this reason are sent by an
                     autoresponder program. This bounce reason was implemented in {{ site.html.ss }}
-                    4.1.28 and is not implemented in {{ site.html.bh }}. Additionally, bounce
-                    emails with <span class = 'value'>"vacation"</span> as the reason <strong>are no
-                        longer decoded by default since {{ site.html.ss }} 5.0.0</strong>.
+                    4.1.28 and is not implemented in {{ site.html.bh }}.
                 </p>
                 <pre class = 'prettyprint'>
 I am out of the office until 05/01/2010.
 
 I am of the office returning 5th Jan
                 </pre>
+                <div class = 'warning'>
+                    Bounce emails with <span class = 'value'>vacation</span> as the reason
+                    <strong>are no longer decoded by default since v5.0.0</strong>.
+                </div>
                 {% include error-messages/vacation.html %}
             </div>
         </div>
