@@ -150,7 +150,12 @@
                 </p>
                 <p class = 'description'>
                     To get a list of all detectable bounce reasons, refer to the return value of the
-                    <kbd>reason()</kbd> method of the <kbd>Sisimai</kbd> class.
+                    <kbd>reason()</kbd> method of the <kbd>Sisimai</kbd> class
+                    or the return value <span class = 'value'>map[string]string</span>
+                    of the <kbd>Reason()</kbd> function in the
+                    <a href = '{{ site.sisimai.repository.golang }}/blob/5-stable/interfaces.go#L15' target = 'new'>
+                        Go version of {{ site.html.ss }}.
+                    </a>
                 </p>
             </div>
         </div>
@@ -170,222 +175,343 @@
                             <tbody>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#hostunknown' class = 'cell-link'>Host Unknown</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#hostunknown' class = 'cell-link'>Host Unknown</a></strong>
+                                    </td>
                                     <td><strong>Yes</strong></td>
                                     <td class = 'ltext'>Destination host name does not exist</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#userunknown' class = 'cell-link'>User Unknown</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#userunknown' class = 'cell-link'>User Unknown</a></strong>
+                                    </td>
                                     <td><strong>Yes</strong></td>
                                     <td class = 'ltext'>Recipient's address does not exist</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#filtered' class = 'cell-link'>Filtered</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#filtered' class = 'cell-link'>Filtered</a></strong>
+                                    </td>
                                     <td>No</td>
-                                    <td class = 'ltext'>Rejected after DATA command</td>
+                                    <td class = 'ltext'>
+                                        Rejected with an error message like "User unknown" after DATA command
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#hasmoved' class = 'cell-link'>Has Moved</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#hasmoved' class = 'cell-link'>Has Moved</a></strong>
+                                    </td>
                                     <td><strong>Yes</strong></td>
                                     <td class = 'ltext'>Destination mail addrees has moved</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#rejected' class = 'cell-link'>Rejected</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#rejected' class = 'cell-link'>Rejected</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Rejected due to envelope from address</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#mailboxfull' class = 'cell-link'>Mailbox Full</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#mailboxfull' class = 'cell-link'>Mailbox Full</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Recipient's mailbox is full</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#suspend' class = 'cell-link'>Suspend</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#suspend' class = 'cell-link'>Suspend</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Recipient's account is suspended</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'By Address'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#suppressed' class = 'cell-link'>Suppressed</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#suppressed' class = 'cell-link'>Suppressed</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>The recipient address is on the suppression list</td>
                                 </tr>
 
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#contenterror' class = 'cell-link'>Content Error</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#contenterror' class = 'cell-link'>Content Error</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Email body or header is invalid format</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#exceedlimit' class = 'cell-link'>Exceed Limit</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#emailtoolarge' class = 'cell-link'>Email Too Large</a></strong>
+                                    </td>
                                     <td>No</td>
-                                    <td class = 'ltext'>Message size exceeded the limit(5.2.3)</td>
+                                    <td class = 'ltext'>
+                                        Message size is too large for the remote system.<br />
+                                        This reason is a consolidation of
+                                        <a href = '#exceedlimit'>Exceed Limit</a> and
+                                        <a href = '#mesgtoobig'>Mesg Too Big</a> as of v5.6.0.
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#feedback' class = 'cell-link'>Feedback</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#feedback' class = 'cell-link'>Feedback</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Bounced for a complaint of the message(FBL)</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#mesgtoobig' class = 'cell-link'>Mesg Too Big</a></strong></td>
-                                    <td>No</td>
-                                    <td class = 'ltext'>Message size is too big(5.3.4)</td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#notcompliantrfc' class = 'cell-link'>Not Compliant RFC</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#notcompliantrfc' class = 'cell-link'>Not Compliant RFC</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Email rejected due to non-compliance with RFC</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#policyviolation' class = 'cell-link'>Policy Violation</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#policyviolation' class = 'cell-link'>Policy Violation</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Violation of security policies</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#securityerror' class = 'cell-link'>Security Error</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#securityerror' class = 'cell-link'>Security Error</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Authentication error and so on</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#virusdetected' class = 'cell-link'>Virus Detected</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#virusdetected' class = 'cell-link'>Virus Detected</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Virus, worm or malware detected</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fas fa-envelope-open-text' title = 'By Content'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#spamdetected' class = 'cell-link'>Spam Detected</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#spamdetected' class = 'cell-link'>Spam Detected</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Detected a message as spam</td>
                                 </tr>
 
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#authfailure' class = 'cell-link'>Auth Failure</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#authfailure' class = 'cell-link'>Auth Failure</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Email rejected due to SPF, DKIM, DMARC failure</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#badreputation' class = 'cell-link'>Bad Reputation</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#badreputation' class = 'cell-link'>Bad Reputation</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Email rejected due to an IP address reputation</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#blocked' class = 'cell-link'>Blocked</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#blocked' class = 'cell-link'>Blocked</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Blocked due to client IP address or hostname</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#expired' class = 'cell-link'>Expired</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#expired' class = 'cell-link'>Expired</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Delivery time expired</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#mailererror' class = 'cell-link'>Mailer Error</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#mailererror' class = 'cell-link'>Mailer Error</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Mailer program error on remote host</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#networkerror' class = 'cell-link'>Network Error</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#networkerror' class = 'cell-link'>Network Error</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Network error: DNS or routing</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#norelaying' class = 'cell-link'>No Relaying</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#norelaying' class = 'cell-link'>No Relaying</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Relay access denied</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#notaccept' class = 'cell-link'>Not Accept</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#notaccept' class = 'cell-link'>Not Accept</a></strong>
+                                    </td>
                                     <td>Yes/No</td>
                                     <td class = 'ltext'>Destination does not accept any message</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#requireptr' class = 'cell-link'>Require PTR</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#ratelimited' class = 'cell-link'>Rate Limited</a></strong>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        Rejected due to exceeding a rate limit or sending too fast.<br />
+                                        This reason is a consolidation of
+                                        <a href = '#speeding'>Speeding</a> and
+                                        <a href = '#toomanyconn'>Too Many Conn</a> as of v5.6.0.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#requireptr' class = 'cell-link'>Require PTR</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Email rejected due to missing PTR record or having invalid PTR record</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#speeding' class = 'cell-link'>Speeding</a></strong></td>
-                                    <td>No</td>
-                                    <td class = 'ltext'>Rejected due to exceeding a rate limit or sending too fast</td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#systemerror' class = 'cell-link'>System Error</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#systemerror' class = 'cell-link'>System Error</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Some error on the destination host</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#systemfull' class = 'cell-link'>System Full</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#systemfull' class = 'cell-link'>System Full</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Disk full on the destination host</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#toomanyconn' class = 'cell-link'>Too Many Conn</a></strong></td>
-                                    <td>No</td>
-                                    <td class = 'ltext'>Connection rate limit exceeded</td>
-                                </tr>
-                                <tr>
-                                    <td class = 'ltext'><i class = 'fa fa-server' title = 'By Server'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#failedstarttls' class = 'cell-link'>Failed STARTTLS</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#failedstarttls' class = 'cell-link'>Failed STARTTLS</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Failed to connect with STARTTLS</td>
                                 </tr>
 
                                 <tr>
                                     <td class = 'ltext'><i class = 'far fa-question-circle' title = 'Others'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#delivered' class = 'cell-link'>Delivered</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#delivered' class = 'cell-link'>Delivered</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Successfully delivered</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'far fa-question-circle' title = 'Others'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#syntaxerror' class = 'cell-link'>Syntax Error</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#syntaxerror' class = 'cell-link'>Syntax Error</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>syntax error in SMTP</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'fa fa-at' title = 'Others'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#vacation' class = 'cell-link'>Vacation</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#vacation' class = 'cell-link'>Vacation</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Auto replied message (recipient is away)</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'far fa-question-circle' title = 'Others'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#onhold' class = 'cell-link'>On Hold</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#onhold' class = 'cell-link'>On Hold</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Deciding the bounce reason is on hold</td>
                                 </tr>
                                 <tr>
                                     <td class = 'ltext'><i class = 'far fa-question-circle' title = 'Others'></i></td>
-                                    <td class = 'ltext'><strong><a href = '#undefined' class = 'cell-link'>Undefined</a></strong></td>
+                                    <td class = 'ltext'>
+                                        <strong><a href = '#undefined' class = 'cell-link'>Undefined</a></strong>
+                                    </td>
                                     <td>No</td>
                                     <td class = 'ltext'>Could not decide an error reason</td>
+                                </tr>
+
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa-solid fa-xmark' title = 'By Content'></i></td>
+                                    <td class = 'ltext'>
+                                        <s><a href = '#exceedlimit' class = 'cell-link'>Exceed Limit</a></s>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        <strong>
+                                        This bounce reason has been consolidated into
+                                        <a href = '#emailtoolarge'>EmailTooLarge</a> as of v5.6.0.
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa-solid fa-xmark' title = 'By Content'></i></td>
+                                    <td class = 'ltext'>
+                                        <s><a href = '#mesgtoobig' class = 'cell-link'>Mesg Too Big</a></s>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        <strong>
+                                        This bounce reason has been consolidated into
+                                        <a href = '#emailtoolarge'>EmailTooLarge</a> as of v5.6.0.
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa-solid fa-xmark' title = 'By Server'></i></td>
+                                    <td class = 'ltext'>
+                                        <s><a href = '#speeding' class = 'cell-link'>Speeding</a></s>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        <strong>
+                                        This bounce reason has been consolidated into
+                                        <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                                        </strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class = 'ltext'><i class = 'fa-solid fa-xmark' title = 'By Server'></i></td>
+                                    <td class = 'ltext'>
+                                        <s><a href = '#toomanyconn' class = 'cell-link'>Too Many Conn</a></s>
+                                    </td>
+                                    <td>No</td>
+                                    <td class = 'ltext'>
+                                        <strong>
+                                        This bounce reason has been consolidated into
+                                        <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                                        </strong>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -422,7 +548,7 @@
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Host Unknown (Hard bounce)</h3>
+                <h3 class = 'in-desc'>Host Unknown <small>(Hard bounce)</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/coffin-1.png'>
                     This error is returned when the domain part (the string to the right of the "@"
@@ -452,7 +578,7 @@ Your message to the following recipients cannot be delivered:
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>User Unknown (Hard bounce)</h3>
+                <h3 class = 'in-desc'>User Unknown <small>(Hard bounce)</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/headstone-1.png'>
                     This error is returned when the local part (the string to the left of the "@"
@@ -505,11 +631,11 @@ Your message to the following recipients cannot be delivered:
 554 5.0.0 Service unavailable
                 </pre>
                 <p class = 'description'>
-                    In {{ site.html.ss }}'s internal bounce email processing, this reason is also
-                    determined when the value of the <span class = 'value'>"Status:"</span> field is
-                    <span class = 'value'>"5.2.0"</span> or <span class = 'value'>"5.2.1"</span>,
-                    or when the email is rejected based on the content after the <span class = 'value'>DATA</span>
-                    command in the SMTP session.
+                    In {{ site.html.ss }}'s internal bounce processing, this reason is assigned if the
+                    <span class = 'value'>Status:</span> field is <span class = 'value'>5.2.0</span> or
+                    <span class = 'value'>5.2.1</span>, or if the message is rejected after the
+                    <span class = 'value'>DATA</span> command in the SMTP session with an error
+                    indicating an unknown recipient, such as "User unknown".
                 </p>
                 {% include error-messages/filtered.html %}
                 <hr>
@@ -525,7 +651,7 @@ Your message to the following recipients cannot be delivered:
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Has Moved (Hard bounce)</h3>
+                <h3 class = 'in-desc'>Has Moved <small>(Hard bounce)</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/truck-1.png'>
                     This error is returned when the recipient's mailbox has been moved to another
@@ -643,7 +769,7 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Suppressed</h3>
+                <h3 class = 'in-desc'>Suppressed <small>Since v5.2.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/downloading-1.png'>
                     This error reason indicates that the delivery to the recipient email address was
@@ -714,31 +840,29 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
         </div>
 
         <!-- =============================================================== -->
-        <a name = 'exceedlimit'></a>
+        <a name = 'emailtoolarge'></a>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
                 <div class = 'index-label'>
-                    <a href = '#exceedlimit'><i class = 'fas fa-envelope-open-text'></i></a>
+                    <a href = '#emailtoolarge'><i class = 'fas fa-envelope-open-text'></i></a>
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Exceed Limit</h3>
+                <h3 class = 'in-desc'>Email Too Large <small>Since v5.6.0</small></h3>
                 <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/speed-1.png'>
-                    This error is returned when the amount of email sent to the recipient exceeds
-                    the limit set on the server. Specifically, this occurs when the size of the
-                    sent email is larger than the default value, and is almost the same as
-                    <a href = '#mesgtoobig'>MesgTooBig</a> described later. In
-                    <a href = 'https://www.sendmail.com/sm/open_source/download/' target="new">Sendmail</a>'s
-                    deliver.c, it is implemented as follows to determine whether this reason or
-                    <a href = '#mesgtoobig'>MesgTooBig</a> applies depending on the recipient.
+                    <strong>
+                    This reason is a consolidation of
+                    <a href = '#exceedlimit'>Exceed Limit</a> and
+                    <a href = '#mesgtoobig'>Message Too Big(MesgTooBig)</a> as of v5.6.0
+                    </strong>
                 </p>
-                <pre class = 'prettyprint'>
-1586: if (bitnset(M_LOCALMAILER, to-&gt;q_mailer-&gt;m_flags))
-1587:     to-&gt;q_status = "5.2.3";
-1588: else
-1589:     to-&gt;q_status = "5.3.4";
-                </pre>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/gorilla-1.png'>
+                    This error is returned when the size of the sent email exceeds the allowable size
+                    of the recipient's mail server. In many cases, this error occurs when the attached file
+                    is too large or when the total size exceeds the limit due to multiple attached files.
+                </p>
+
                 <pre class = 'prettyprint'>
 ... while talking to mx.example.org.:
 &gt;&gt;&gt; MAIL From:&lt;kijitora@example.co.jp&gt; SIZE=16600348
@@ -748,9 +872,10 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                 <p class = 'description'>
                     In the internal process of bounce email processing performed by {{ site.html.ss }},
                     this reason is determined when the value of the <span class = 'value'>"Status:"</span>
-                    field is <span class = 'value'>"4.2.3"</span> or <span class = 'value'>"5.2.3"</span>.
+                    field is <span class = 'value'>"4.2.3"</span>, <span class = 'value'>"5.2.3"</span>, or
+                    <span class = 'value'>5.3.4</span>.
                 </p>
-                {% include error-messages/exceedlimit.html %}
+                {% include error-messages/emailtoolarge.html %}
                 <hr>
             </div>
         </div>
@@ -772,65 +897,36 @@ This account has been disabled or discontinued [#102]. - mta497.mail.mud.yahoo.c
                     the email that becomes this reason is expressed in JSON format as follows.
                 </p>
                 <pre class = 'prettyprint'>
-[
-    {
-        "token": "491f2fd0f90ee3017f2ab2eb67a1239b78a84321",
-        "deliverystatus": "",
-        "destination": "yahoo.com",
-        "timezoneoffset": "-0800",
-        "command": "",
-        "listid": "",
-        "replycode": "",
-        "subject": "Nyaaaaaaaan",
-        "diagnostictype": "SMTP",
-        "diagnosticcode": "This is an email abuse report for an email message received from mx8.example.com  on Thu, 29 Apr 2013 23:45:00 PST",
-        "senderdomain": "example.com",
-        <strong>"feedbacktype": "abuse",</strong>
-        "alias": "",
-        <strong>"reason": "feedback",</strong>
-        "addresser": "shironeko@example.com",
-        "lhost": "smtp-gw83.example.com",
-        "decodedby": "Yahoo!-Mail-Feedback/1.0",
-        "rhost": "uid",
-        "messageid": "000000000000000000000000.smtp@example.com",
-        "action": "failed",
-        "recipient": "this-local-part-does-not-exist-on-yahoo@yahoo.com",
-        "timestamp": 1367307950
-    }
-]
+{
+  "addresser": "sironeko@example.net",
+  "recipient": "kijitora@example.org",
+  "timestamp": 1430350485,
+  "action": "",
+  "alias": "",
+  "catch": null,
+  "command": "",
+  "decodedby": "ARF",
+  "deliverystatus": "",
+  "destination": "example.org",
+  "diagnosticcode": "This is a Example email abuse report for an email message received from IP 198.51.100.224 on Thu, 29 Apr 2015 23:34:45 +0000: User-Agent: returnpathfbl/1.0, Original-Mail-From: sironeko@example.net",
+  "diagnostictype": "",
+  "feedbackid": "",
+  "feedbacktype": "abuse",
+  "hardbounce": false,
+  "lhost": "fbl-001.returnpath.example.net",
+  "listid": "",
+  "messageid": "00000000000000000000000022222222@example.net",
+  "origin": "set-of-emails/maildir/bsd/arf-21.eml",
+  "reason": "feedback",
+  "rhost": "198.51.100.224",
+  "replycode": "",
+  "senderdomain": "example.net",
+  "subject": "nyaan",
+  "timezoneoffset": "+0900",
+  "token": "29c997067d46141e22266c0866bf788cf416b967"
+}
                 </pre>
                 {% include error-messages/feedback.html %}
-                <hr>
-            </div>
-        </div>
-
-        <!-- =============================================================== -->
-        <a name = 'mesgtoobig'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#mesgtoobig'><i class = 'fas fa-envelope-open-text'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Message Too Big (mesgtoobig)</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/gorilla-1.png'>
-                    This error is returned when the size of the sent email exceeds the allowable
-                    size of the recipient's mail server. In many cases, this error occurs when the
-                    attached file is too large or when the total size exceeds the limit due to
-                    multiple attached files.
-                </p>
-                <pre class = 'prettyprint'>
-Action: failure
-Status: 553 Exceeded maximum inbound message size
-                </pre>
-                <p class = 'description'>
-                    In the internal process of bounce email processing performed by {{ site.html.ss }},
-                    this reason is determined when the value of the <span class = 'value'>"Status:"</span>
-                    field is <span class = 'value'>"5.3.4"</span>.
-                </p>
-                {% include error-messages/mesgtoobig.html %}
                 <hr>
             </div>
         </div>
@@ -844,7 +940,7 @@ Status: 553 Exceeded maximum inbound message size
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Not Compliant RFC</h3>
+                <h3 class = 'in-desc'>Not Compliant RFC <small>Since v5.0.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/rules-1.png'>
                     This error is returned when there is an email header that does not comply with
@@ -880,7 +976,7 @@ Diagnostic-Code: smtp; 550-5.7.1 host aspmx.l.google.com[142.251.170.26] said: T
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Policy Violation</h3>
+                <h3 class = 'in-desc'>Policy Violation <small>Since v4.22.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/rules-2.png'>
                     This error is returned when the recipient's mail server rejects the email due
@@ -959,7 +1055,7 @@ Diagnostic-Code: smtp; 550-5.7.1 [2401:2500:102:3032:192.0.2.222      13]
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Virus Detected</h3>
+                <h3 class = 'in-desc'>Virus Detected <small>Since v4.22.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/virus-3.png'>
                     This error is returned when the recipient's mail server detects a harmful file
@@ -1042,7 +1138,7 @@ Last-Attempt-Date: Thu, 9 Apr 2008 23:34:45 +0900 (JST)
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Auth Failure</h3>
+                <h3 class = 'in-desc'>Auth Failure <small>Since v5.0.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/fingerprint-1.png'>
                     This error is returned when domain authentication using SPF, DKIM, DMARC, or
@@ -1078,7 +1174,7 @@ Diagnostic-Code: smtp;
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Bad Reputation</h3>
+                <h3 class = 'in-desc'>Bad Reputation <small>Since v5.5.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/sender-score-2.png'>
                     This error is returned when the sender's IP address or domain has a low reputation
@@ -1260,13 +1356,51 @@ kijitora@neko.example.jp: Network error on destination MXs</code></pre>
                     <span class = 'value'>"5.3.2"</span> value in the <span class = 'value'>"Status:"</span>
                     field or a <span class = 'value'>"556"</span> value in the SMTP reply code.
                     Additionally, this bounce reason also includes cases where the sender domain
-                    is a NullMX.
+                    is a <a href = 'https://datatracker.ietf.org/doc/html/rfc7505' target = 'new'>Null MX</a>.
                 </p>
                 <p class = 'description'>
                     This bounce reason is treated as a Hard Bounce only when the SMTP response code
                     or the extended status code is in the 5xx range.
                 </p>
                 {% include error-messages/notaccept.html %}
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'ratelimited'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#ratelimited'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Rate Limited <small>Since v5.6.0</small></h3>
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/speed-2.png'>
+                    <strong>
+                        This reason is a consolidation of 
+                        <a href = '#speeding'>Speeding</a> and
+                        <a href = '#toomanyconn'>Too Many Connections(TooManyConn)</a> 
+                        as of v5.6.0
+                    </strong>
+                </p>
+                <p class = 'description'>
+                    This error occurs when the remote host rejects the message because it has exceeded specific limits,
+                    such as the rate limit per unit of time, the maximum number of concurrent connections,
+                    or the maximum number of recipients per SMTP session.
+                </p>
+                <pre class = 'prettyprint'>
+Status: 5.2.1
+Remote-MTA: dns; alt1.gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
+    receiving mail at a rate that 550-5.2.1 prevents additional messages from
+    being delivered. For more 550-5.2.1 information, please visit 550 5.2.1
+    https://support.google.com/mail/?p=ReceivingRatePerm p131si8414989oif.118 -
+    gsmtp
+                </pre>
+                {% include error-messages/ratelimited.html %}
                 <hr>
             </div>
         </div>
@@ -1306,38 +1440,6 @@ Diagnostic-Code: smtp; 550-5.7.25 [192.0.2.202] The IP address sending this
                 </p>
 
                 {% include error-messages/requireptr.html %}
-                <hr>
-            </div>
-        </div>
-
-        <!-- =============================================================== -->
-        <a name = 'speeding'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#speeding'><i class = 'fas fa-server'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Speeding</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/speed-2.png'>
-                    This error occurs when the recipient host has a per-unit-time traffic limit and
-                    that limit has been exceeded. This means that the sender's email sending speed
-                    is too fast. This bounce reason was implemented in {{ site.html.ss }} 5.0.0 as
-                    a separate category from <a href = '#securityerror'>Security Error</a> or
-                    <a href = '#toomanyconn'>Too Many Conn</a>.
-                </p>
-                <pre class = 'prettyprint'>
-Status: 5.2.1
-Remote-MTA: dns; alt1.gmail-smtp-in.l.google.com
-Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
-    receiving mail at a rate that 550-5.2.1 prevents additional messages from
-    being delivered. For more 550-5.2.1 information, please visit 550 5.2.1
-    https://support.google.com/mail/?p=ReceivingRatePerm p131si8414989oif.118 -
-    gsmtp
-                </pre>
-                {% include error-messages/speeding.html %}
                 <hr>
             </div>
         </div>
@@ -1394,30 +1496,6 @@ message has been in the queue too long.
         </div>
 
         <!-- =============================================================== -->
-        <a name = 'toomanyconn'></a>
-        <div class = 'row'>
-            <div class = 'col-sm-1 col-sm-offset-1'>
-                <div class = 'index-label'>
-                    <a href = '#toomanyconn'><i class = 'fas fa-server'></i></a>
-                </div>
-            </div>
-            <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Too Many Connections (toomanyconn)</h3>
-                <p class = 'description'>
-                    <img class = 'lhs' src = '/static/images/icon/groups-1.png'>
-                    When a large number of connections are made to the recipient's SMTP server at
-                    the same time, new SMTP connections may be temporarily rejected. In such cases,
-                    the bounce email returned will be classified into this bounce reason by {{ site.html.ss }}.
-                </p>
-                <pre class = 'prettyprint'>
-&lt;kijitora@example.ne.jp&gt;: host mx02.example.ne.jp[192.0.1.20] said:
-452 4.3.2 Connection rate limit exceeded. (in reply to MAIL FROM command)</code></pre>
-                </pre>
-                {% include error-messages/toomanyconn.html %}
-            </div>
-        </div>
-
-        <!-- =============================================================== -->
         <a name = 'failedstarttls'></a>
         <div class = 'row'>
             <div class = 'col-sm-1 col-sm-offset-1'>
@@ -1426,7 +1504,7 @@ message has been in the queue too long.
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Failed STARTTLS</h3>
+                <h3 class = 'in-desc'>Failed STARTTLS <small>Since v5.2.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/key-6.png'>
                     This error reason covers TLS-related bounces, such as when STARTTLS cannot be
@@ -1466,7 +1544,7 @@ message has been in the queue too long.
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Delivered (beginning with v4.16.0)</h3>
+                <h3 class = 'in-desc'>Delivered <small>Since v4.16.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/cat-4.png'>
                     This reason <strong>does not indicate an error</strong>, but rather that the
@@ -1512,6 +1590,23 @@ v = Sisimai.rise('/path/to/mbox', delivered: true)
 r = Sisimai.dump('/path/to/mbox', delivered: true)
 d = Sisimai::Fact.rise(data: q, delivered: true)
                 </pre>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>Go</div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <pre class = 'prettyprint'>package main
+import "os"
+import "libsisimai.org/sisimai/v5"
+func main() {
+    path := os.Args[1]     // go run ./sisid /path/to/mailbox or maildir/
+    args := sisimai.Args() // siba.DecodingArgs{}
+    args.Delivered = true
+    sisi, _ := sisimai.Rise(path, args)
+}
+                </pre>
                 <hr>
             </div>
         </div>
@@ -1526,14 +1621,16 @@ d = Sisimai::Fact.rise(data: q, delivered: true)
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
                 <h3 class = 'in-desc'>Vacation</h3>
+                <div class = 'warning'>
+                    Bounce emails with <span class = 'value'>vacation</span> as the reason
+                    <strong>are no longer decoded by default since v5.0.0</strong>.
+                </div>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/bento-3.png'>
                     This reason indicates that the recipient is unable to receive emails, possibly
                     due to being on vacation. Bounce emails with this reason are sent by an
                     autoresponder program. This bounce reason was implemented in {{ site.html.ss }}
-                    4.1.28 and is not implemented in {{ site.html.bh }}. Additionally, bounce
-                    emails with <span class = 'value'>"vacation"</span> as the reason <strong>are no
-                        longer decoded by default since {{ site.html.ss }} 5.0.0</strong>.
+                    4.1.28 and is not implemented in {{ site.html.bh }}.
                 </p>
                 <pre class = 'prettyprint'>
 I am out of the office until 05/01/2010.
@@ -1541,6 +1638,7 @@ I am out of the office until 05/01/2010.
 I am of the office returning 5th Jan
                 </pre>
                 {% include error-messages/vacation.html %}
+                <hr>
             </div>
         </div>
 
@@ -1553,7 +1651,7 @@ I am of the office returning 5th Jan
                 </div>
             </div>
             <div class = 'col-sm-8 col-sm-offset-0'>
-                <h3 class = 'in-desc'>Syntax Error (Beginning with v4.17.0)</h3>
+                <h3 class = 'in-desc'>Syntax Error <small>Since v4.17.0</small></h3>
                 <p class = 'description'>
                     <img class = 'lhs' src = '/static/images/icon/command-line-1.png'>
                     This error indicates that the recipient's mail server did not recognize the
@@ -1605,6 +1703,173 @@ I am of the office returning 5th Jan
                     other information necessary for {{ site.html.ss }} to determine the bounce
                     reason, the bounce reason will be set to <span class = 'value'>"undefined"</span>.
                 </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id = 'others' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-xmark'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>Deprecated</h2>
+                <p class = 'description'>
+                    This is a list of deprecated or consolidated reasons.
+                </p>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'exceedlimit'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#exceedlimit'><i class = 'fas fa-envelope-open-text'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Exceed Limit <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    This reason has been consolidated into
+                    <a href = '#emailtoolarge'>Email Too Large</a> as of v5.6.0.
+                </div>
+                <br />
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    This error is returned when the amount of email sent to the recipient exceeds
+                    the limit set on the server. Specifically, this occurs when the size of the
+                    sent email is larger than the default value, and is almost the same as
+                    <a href = '#mesgtoobig'>MesgTooBig</a> described later. In
+                    <a href = 'https://www.sendmail.com/sm/open_source/download/' target="new">Sendmail</a>'s
+                    deliver.c, it is implemented as follows to determine whether this reason or
+                    <a href = '#mesgtoobig'>MesgTooBig</a> applies depending on the recipient.
+                </p>
+                <pre class = 'prettyprint'>
+1586: if (bitnset(M_LOCALMAILER, to-&gt;q_mailer-&gt;m_flags))
+1587:     to-&gt;q_status = "5.2.3";
+1588: else
+1589:     to-&gt;q_status = "5.3.4";
+                </pre>
+                <pre class = 'prettyprint'>
+... while talking to mx.example.org.:
+&gt;&gt;&gt; MAIL From:&lt;kijitora@example.co.jp&gt; SIZE=16600348
+&lt;&lt;&lt; 552 5.2.3 Message size exceeds fixed maximum message size (10485760)
+554 5.0.0 Service unavailable
+                </pre>
+                <p class = 'description'>
+                    In the internal process of bounce email processing performed by {{ site.html.ss }},
+                    this reason is determined when the value of the <span class = 'value'>"Status:"</span>
+                    field is <span class = 'value'>"4.2.3"</span> or <span class = 'value'>"5.2.3"</span>.
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'mesgtoobig'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#mesgtoobig'><i class = 'fas fa-envelope-open-text'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Message Too Big (mesgtoobig) <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    This reason has been consolidated into
+                    <a href = '#emailtoolarge'>Email Too Large</a> as of v5.6.0.
+                </div>
+                <br />
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    This error is returned when the size of the sent email exceeds the allowable
+                    size of the recipient's mail server. In many cases, this error occurs when the
+                    attached file is too large or when the total size exceeds the limit due to
+                    multiple attached files.
+                </p>
+                <pre class = 'prettyprint'>
+Action: failure
+Status: 553 Exceeded maximum inbound message size
+                </pre>
+                <p class = 'description'>
+                    In the internal process of bounce email processing performed by {{ site.html.ss }},
+                    this reason is determined when the value of the <span class = 'value'>"Status:"</span>
+                    field is <span class = 'value'>"5.3.4"</span>.
+                </p>
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'speeding'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#speeding'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Speeding <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    This reason has been consolidated into
+                    <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                </div>
+                <br />
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    This error occurs when the recipient host has a per-unit-time traffic limit and
+                    that limit has been exceeded. This means that the sender's email sending speed
+                    is too fast. This bounce reason was implemented in {{ site.html.ss }} 5.0.0 as
+                    a separate category from <a href = '#securityerror'>Security Error</a> or
+                    <a href = '#toomanyconn'>Too Many Conn</a>.
+                </p>
+                <pre class = 'prettyprint'>
+Status: 5.2.1
+Remote-MTA: dns; alt1.gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 550-5.2.1 The user you are trying to contact is
+    receiving mail at a rate that 550-5.2.1 prevents additional messages from
+    being delivered. For more 550-5.2.1 information, please visit 550 5.2.1
+    https://support.google.com/mail/?p=ReceivingRatePerm p131si8414989oif.118 -
+    gsmtp
+                </pre>
+                <hr>
+            </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <a name = 'toomanyconn'></a>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <a href = '#toomanyconn'><i class = 'fas fa-server'></i></a>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Too Many Connections (TooManyConn) <small>Until v5.5.0</small></h3>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    This reason has been consolidated into
+                    <a href = '#ratelimited'>Rate Limited</a> as of v5.6.0.
+                </div>
+                <br />
+                <p class = 'description'>
+                    <img class = 'lhs' src = '/static/images/icon/attention-1.png'>
+                    When a large number of connections are made to the recipient's SMTP server at
+                    the same time, new SMTP connections may be temporarily rejected. In such cases,
+                    the bounce email returned will be classified into this bounce reason by {{ site.html.ss }}.
+                </p>
+                <pre class = 'prettyprint'>
+&lt;kijitora@example.ne.jp&gt;: host mx02.example.ne.jp[192.0.1.20] said:
+452 4.3.2 Connection rate limit exceeded. (in reply to MAIL FROM command)</code></pre>
+                </pre>
             </div>
         </div>
     </div>

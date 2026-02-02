@@ -230,6 +230,7 @@ p.description + hr {
     margin: 8px 0 0 0;
     padding: 8px;
     text-align: left;
+    text-shadow: none !important;
     border: 1px solid #b7282e; /* Akane-iro */
     border-radius: 4px;
     background-color: #f4b3c2; /* Toki-iro */
