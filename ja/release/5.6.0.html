@@ -1,0 +1,206 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.6.0 RELEASE"
+"description": "Sisimai 5.6.0のリリースノート/変更点の一覧"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/ja/release/'>リリース情報</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>古いリリース情報</a></li> 
+                    <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
+                    <li class = 'others'><a href = '/en/release/5.6.0.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>リリースノート</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-cat'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.6.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2026/02/02</h3>
+                <p class = 'description ja'>
+                    {{ site.html.ss }} 5.6.0をリリースしました。
+
+                    このバージョンにおける主な変更点は、四つのバウンス理由を二つへ統合と
+                    バウンス理由を決定するエラーメッセージパターンの整理改善と
+                    内部で割り当てるステータスコード体系の再編です。
+
+                    Perl版{{ site.html.ss }}で入った変更内容には<span class = 'lang perl'>Perl</span>が、
+                    Ruby版{{ site.html.ss }}では<span class = 'lang ruby'>Ruby</span>が、
+                    Go版{{ site.html.ss }}では<span class = 'lang golang'>Go</span>が、
+                    それぞれ冒頭に入っています。
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    {{ site.html.ss }} 5.0.0でVersion 4系とは<a href = '/ja/diff'>非互換な変更</a>が多く入っていますので、
+                    インストールまたはアップグレードの前に実行環境のPerlやRubyのバージョンを確認してください。
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-link-slash'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>非互換な内部データとバウンス理由の変更</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        以下の似通った二つのバウンス理由をそれぞれ一つ統合しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/307' target = 'new'>#307</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/634' target = 'new'>#634</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/399' target = 'new'>#399</a>
+                        <ul>
+                            <li>
+                                <a href = '/ja/reason#exceedlimit'><span class = 'value'>ExceedLimit</span></a>と
+                                <a href = '/ja/reason#mesgtoobig'><span class = 'value'>MesgToobig</span></a>を
+                                <a href = '/ja/reason#emailtoolarge'><span class = 'value'>
+                                        <strong>EmailTooLarge</strong>
+                                </span></a>に統合しました。
+                            </li>
+                            <li>
+                                <a href = '/ja/reason#speeding'><span class = 'value'>Speeding</span></a>と
+                                <a href = '/ja/reason#toomanyconn'><span class = 'value'>TooManyConn</span></a>を
+                                <a href = '/ja/reason#ratelimited'><span class = 'value'>
+                                        <strong>RateLimited</strong>
+                                </span></a>に統合しました。
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        バウンスメールからDSNの値が得られない場合に内部で割り当てるステータスコード体系を再編しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/322' target = 'new'>#322</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/638' target = 'new'>#638</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/403' target = 'new'>#403</a>
+                        <ul>
+                            <li>一時エラーの<span class = 'value'>4.0.9**</span>は<span class = 'value'>4.9.***</span>に変更</li>
+                            <li>恒久エラーの<span class = 'value'>5.0.9**</span>は<span class = 'value'>5.9.***</span>に変更</li>
+                        </ul>
+                    </li>
+                <ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>細い改善</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <kbd>Sisimai::Rhost</kbd>以下のバウンス理由割当を更新しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/327' target = 'new'>#327</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/640' target = 'new'>#640</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/406' target = 'new'>#406</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <kbd>Sisimai::SMTP::Status</kbd>以下のバウンス理由割当を更新しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/303' target = 'new'>#303</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        内部で保持するバウンス理由名の定数を変更しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/325' target = 'new'>#325</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        似通ったエラーメッセージパターンの統合と曖昧な文言のエラーメッセージパターンの削除をし、
+                        添付ファイル関連のエラーを
+                        <span class = 'value'>
+                            <a href = '/ja/reason#policyviolation'>PolicyViolation</a>
+                        </span>から
+                        <span class = 'value'>
+                            <a href = '/ja/reason#contenterror'>ContentError</a>
+                        </span>へ移動しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/329' target = 'new'>#329</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/333' target = 'new'>#333</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/642' target = 'new'>#642</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/408' target = 'new'>#408</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>moji.Token()</kbd>関数を<kbd>fact/lib.go</kbd>へ移動しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/319' target = 'new'>#319</a>
+                    </li>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        <kbd>Sisimai::String->token()</kbd>メソッドを<kbd>Sisimai::Fact->maketoken()</kbd>へ移動しました。
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/636' target = 'new'>#636</a>
+                    </li>
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <kbd>Sisimai::String.token()</kbd>メソッドを<kbd>Sisimai::Fact.maketoken()</kbd>へ移動しました。
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/401' target = 'new'>#401</a>
+                    </li>
+                    <li>
+                        二月二日は{{ site.html.ss }}開発者が路上を彷徨っているネコを保護した日で
+                        飼い猫となった今は仮のお誕生日です🐈
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+

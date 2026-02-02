@@ -1,0 +1,216 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.6.0 RELEASE"
+"description": "Release notes for Sisimai 5.6.0/All the changes"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>Docs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.6.0.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-cat'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.6.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2026/02/02</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.6.0 has been released. The main changes in this version include:
+                    the consolidation of four bounce reasons into two, 
+                    refining error message patterns for better bounce classification,
+                    and restructuring the internal status code system.
+                </p>
+                <p class = 'description'>
+                    Changes in the Perl version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang perl'>Perl</span> at the beginning of each item,
+                    changes in the Ruby version of {{ site.html.ss }} are indicated by <span class = 'lang ruby'>Ruby</span>,
+                    and changes in the Go version of {{ site.html.ss }} are indicated by <span class = 'lang golang'>Go</span>.
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    And then, {{ site.html.ss }} 5 includes
+                    <a href = '/en/diff'>many changes that are not compatible with Version 4</a>,
+                    so please check the Perl or Ruby version of your environment before installing
+                    or upgrading.
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-link-slash'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Incompatible Changes in the Internal Data</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        Consolidate four bounce reasons into two:
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/307' target = 'new'>#307</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/634' target = 'new'>#634</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/399' target = 'new'>#399</a>
+                        <ul>
+                            <li>
+                                Merge 
+                                <a href = '/en/reason#exceedlimit'><span class = 'value'>ExceedLimit</span></a> and
+                                <a href = '/en/reason#mesgtoobig'><span class = 'value'>MesgToobig</span></a> into
+                                <a href = '/en/reason#emailtoolarge'><span class = 'value'>
+                                        <strong>EmailTooLarge</strong>
+                                </span></a>.
+                            </li>
+                            <li>
+                                Merge
+                                <a href = '/en/reason#speeding'><span class = 'value'>Speeding</span></a> and
+                                <a href = '/en/reason#toomanyconn'><span class = 'value'>TooManyConn</span></a> into
+                                <a href = '/en/reason#ratelimited'><span class = 'value'>
+                                        <strong>RateLimited</strong>
+                                </span></a>.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <i class = 'fa fa-triangle-exclamation'></i>
+                        Reorganize the internal status code for assigning codes when no DSN value is available in a bounce email.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/322' target = 'new'>#322</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/638' target = 'new'>#638</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/403' target = 'new'>#403</a>
+                        <ul>
+                            <li>
+                                Temporary error <span class = 'value'>4.0.9**</span> has been changed to
+                                <span class = 'value'>4.9.***</span>.
+                            </li>
+                            <li>
+                                Permanent error <span class = 'value'>5.0.9**</span> has been changed to
+                                <span class = 'value'>5.9.***</span>.
+                            </li>
+                        </ul>
+                    </li>
+                <ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Tiny Improvements</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Update assigned bounce reasons in <kbd>Sisimai::Rhost</kbd>.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/327' target = 'new'>#327</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/640' target = 'new'>#640</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/406' target = 'new'>#406</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Update bounce status mappings in <kbd>Sisimai::SMTP::Status</kbd>.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/303' target = 'new'>#303</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Update the internal constant name for some bounce reason names.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/325' target = 'new'>#325</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Merge similar error message patterns and remove ambiguous ones, and 
+                        Attachment-related errors have been moved from
+                        <span class = 'value'>
+                            <a href = '/en/reason#policyviolation'>PolicyViolation</a>
+                        </span> to 
+                        <span class = 'value'>
+                            <a href = '/en/reason#contenterror'>ContentError</a>
+                        </span>.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/329' target = 'new'>#329</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/333' target = 'new'>#333</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/642' target = 'new'>#642</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/408' target = 'new'>#408</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>moji.Token()</kbd> function has been moved to <kbd>fact/lib.go</kbd>.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/319' target = 'new'>#319</a>
+                    </li>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        <kbd>Sisimai::String->token()</kbd>method has been moved to <kbd>Sisimai::Fact->maketoken()</kbd>.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/636' target = 'new'>#636</a>
+                    </li>
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <kbd>Sisimai::String.token()</kbd>method has been moved to <kbd>Sisimai::Fact.maketoken()</kbd>.
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/401' target = 'new'>#401</a>
+                    </li>
+                    <li>
+                        Happy Birthday to Suzu (formerly known as "Neko-dono" Michitsuna)🐈.
+                        It has been 8 years since we met on the street on February 2, 2018.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section> <!-- /#release-notes -->
+
