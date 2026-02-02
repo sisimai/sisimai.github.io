@@ -217,7 +217,7 @@ p.description + hr {
 .attention a:hover {
     color: #fff;
     font-weight: bold;
-    text-decoration: none;
+    text-decoration: underline;
     background-color: transparent;
 }
 
