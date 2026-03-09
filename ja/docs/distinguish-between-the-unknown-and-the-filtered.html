@@ -303,21 +303,57 @@ Remote host said: 550 Unknown user *****@docomo.ne.jp
                 <ul>
                     <li>
                         <strong><span class = 'value'>does not like recipient</span></strong>
-                        = 宛先不明(SMTPのRCPT TO:コマンドでエラーが出た)
+                        = 宛先不明(SMTPの<kbd>RCPT TO</kbd>コマンドでエラーが出た)
                     </li>
                     <li>
                         <strong><span class = 'value'>failed after I sent the message</span></strong>
-                        =ドメイン指定拒否(SMTPのDATAコマンド以降でエラーが出た)
+                        =ドメイン指定拒否(SMTPの<kbd>DATA</kbd>コマンド以降でエラーが出た)
                     </li>
                 </ul>
+            </div>
+        </div>
 
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-user-times'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>qmailの実装で確認できる根拠</h3>
                 <p class = 'description ja'>
-                    非常に見分けにくいのですが、無理やり解釈するならば、
-                    <strong><span class = 'value'>does not like recipient</span></strong>は正しい受信者ではない=SMTPの
-                    RCPT TOコマンドでエラーが発生した、
+                    非常に見分けにくいのですが、qmail 1.03のソースコードでは
+                    <strong><span class = 'value'>does not like recipient</span></strong>は
+                    SMTPの<kbd>RCPT</kbd>コマンドに対する応答の評価部分に、
+
                     <strong><span class = 'value'>failed after I sent the message</span></strong>
-                    はメッセージ送信後に失敗した=メッセージの送信はSMTPのDATAコマンドを使う=SMTPのDATAコマンドでエラーが発生した、ということでしょう。
+                    はSMTPの<kbd>DATA</kbd>コマンドに対する応答の評価部分にそれぞれ実装されています。
+
+                    よって、<kbd>RCPT</kbd>コマンドでエラーが返ってきた場合はメールアドレスそのものが存在しない、
+                    <kbd>DATA</kbd>コマンドでエラーが返ってきた場合はメールアドレスは存在するが、ヘッダーなどの
+                    情報を含めた総合的な評価で拒否された、という解釈になります。
                 </p>
+
+                <pre class = 'prettyprint'> // qmail-remote.cより抜粋
+  for (i = 0;i < reciplist.len;++i) {
+    <strong>substdio_puts(&smtpto,"RCPT TO:<");</strong>
+    substdio_put(&smtpto,reciplist.sa[i].s,reciplist.sa[i].len);
+    substdio_puts(&smtpto,">\r\n");
+    substdio_flush(&smtpto);
+    code = smtpcode();
+    if (code >= 500) {
+      <strong>out("h"); outhost(); out(" does not like recipient.\n");</strong>
+      outsmtptext(); zero();
+    }
+    ...
+  <strong>substdio_putsflush(&smtpto,"DATA\r\n");</strong>
+  code = smtpcode();
+  if (code >= 500) quit("D"," failed on DATA command");
+  if (code >= 400) quit("Z"," failed on DATA command");
+ 
+  blast();
+  code = smtpcode();
+  flagcritical = 0;
+  <strong>if (code >= 500) quit("D"," failed after I sent the message");</strong>
+                </pre>
             </div>
         </div>
     </div>
