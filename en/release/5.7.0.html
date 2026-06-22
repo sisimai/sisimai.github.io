@@ -1,0 +1,350 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.7.0 RELEASE"
+"description": "Release notes for Sisimai 5.7.0/All the changes"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>Docs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.7.0.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-cloud-showers-heavy'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.7.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2026/06/22</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.7.0 has been released.  Main changes in this version include
+                    bug fixes, a new MTA module for Deutsche Telekom, and many improvements in code
+                    and error message patterns.
+                    Changes in the Perl version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang perl'>Perl</span> at the beginning of each item,
+                    changes in the Ruby version of {{ site.html.ss }} are indicated by <span class = 'lang ruby'>Ruby</span>,
+                    and changes in the Go version of {{ site.html.ss }} are indicated by <span class = 'lang golang'>Go</span>.
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    And then, {{ site.html.ss }} 5 includes
+                    <a href = '/en/diff'>many changes that are not compatible with Version 4</a>,
+                    so please check the Perl or Ruby version of your environment before installing
+                    or upgrading.
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-bug-slash'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Bug Fixes</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        The value of <span class = 'value'>Command</span> should be <kbd>RCPT</kbd>
+                        when <span class = 'value'>RCPT first</span> in the error message.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/337' target = 'new'>#337</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/649' target = 'new'>#649</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/414' target = 'new'>#414</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Fix typo in the sample code at README files.
+                        Thanks to <a href = 'https://github.com/jcbf' target = 'new'>@jcbf</a>.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/372' target = 'new'>#372</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Fix bug in the boolean logic for lines starting with space or tab.
+                        Thanks to <a href = 'https://github.com/jcbf' target = 'new'>@jcbf</a>.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/374' target = 'new'>#374</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Fix many typos.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/410' target = 'new'>#410</a>
+                    </li>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        Check <kbd>$lowerchunk</kbd> is undefined or not to avoid an infinite loop in
+                        <kbd>Sisimai::RFC2045->haircut</kbd> method.
+                        Thanks to <a href = 'https://github.com/c-schmitz' target = 'new'>@c-schmitz</a>.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/664' target = 'new'>#664</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/665' target = 'new'>#665</a>
+                    </li>
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Check whether <kbd>lowerchunk</kbd> is <span class = 'value'>nil</span> or not to avoid
+                        <span class = 'value'>NoMethodError</span> and <span class = 'value'>SystemStackError</span>
+                        in <kbd>Sisimai::RFC2045.haircut</kbd> method.
+                        Thanks to <a href = 'https://github.com/SAY-5' target = 'new'>@SAY-5</a>.
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/433' target = 'new'>#433</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/434' target = 'new'>#434</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/436' target = 'new'>#436</a>
+                    </li>
+                <ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-bolt'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Performance Improvements</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>rfc791.FindIPv4Address()</kbd> is 3x faster.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/388' target = 'new'>#388</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd>rfc791.IsIPv4Address()</kbd> is 6x faster.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/390' target = 'new'>#390</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Memory allocations reduced by approximately 17%.
+                        <ul>
+                            <li>
+                                string improvement: Replace <kbd>moji.Sweep</kbd> and
+                                <kbd>moji.Squeeze</kbd> with <kbd>strings.Fields</kbd>.
+                                <a href = 'https://github.com/sisimai/go-sisimai/issues/395' target = 'new'>#395</a>
+                                <a href = 'https://github.com/sisimai/go-sisimai/issues/411' target = 'new'>#411</a>
+                            </li>
+                            <li>
+                                Use functions in <kbd>slices</kbd> package instead of <kbd>append</kbd>.
+                                <a href = 'https://github.com/sisimai/go-sisimai/issues/403' target = 'new'>#403</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-scroll'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>MTA modules and Error message patterns</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Improvement in error message patterns
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/336' target = 'new'>#336</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/346' target = 'new'>#346</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/645' target = 'new'>#645</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/647' target = 'new'>#647</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/410' target = 'new'>#410</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/412' target = 'new'>#412</a>
+                    </li>
+                    <ul>
+                        <li>
+                            Update error message patterns in 
+                            <span class = 'value'>AuthFailure</span>,
+                            <span class = 'value'>ContentError</span>,
+                            <span class = 'value'>NoRelaying</span>,
+                            <span class = 'value'>Rejected</span>,
+                            <span class = 'value'>UserUnknown</span>,
+                            <span class = 'value'>SystemError</span>,
+                            <span class = 'value'>Suspend</span>, and
+                            <kbd>rhost/microsoft</kbd> or <kbd>Sisimai::Rhost::Microsoft</kbd>.
+                        </li>
+                        <li>
+                            Remove error message patterns already defined in <kbd>reason</kbd> package or
+                            <kbd>Sisimai::Reason</kbd> from some MTA moudles of <kbd>lhost</kbd> package or
+                            <kbd>Sisimai::Lhost</kbd>.
+                        </li>
+                        <li>
+                            Move error message patterns from some MTA modules of <kbd>lhost</kbd> package or
+                            <kbd>Sisimai::Lhost</kbd> to <kbd>reason</kbd> package or <kbd>Sisimai::Reason</kbd>.
+                        </li>
+                    </ul>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Update the order of <kbd>classorder</kbd> in </kbd>reason/lib.go</kbd> or
+                        <kbd>Sisimai::Reason</kbd> class.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/347' target = 'new'>#347</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        List all the Zoho domains at <kbd>rhost/lib.go</kbd> or <kbd>Sisimai::Rhost</kbd> class.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/355' target = 'new'>#355</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/648' target = 'new'>#648</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/413' target = 'new'>#413</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                         Code improvement for detecting bounce messages returned from Google Groups.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/367' target = 'new'>#367</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/653' target = 'new'>#653</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/421' target = 'new'>#421</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Implement a new MTA module <kbd>Sisimai::Lhost::DeutscheTelekom</kbd> to decode bounce messages
+                        generated by Smail 3 or Deutsche Telekom reported at 
+                        <a href = 'https://github.com/sisimai/set-of-emails/issues/30' target = 'new'>sisimai/set-of-emails#30</a>.
+                        Thanks to <a href = 'https://github.com/dmke' target = 'new'>@dmke</a>.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/415' target = 'new'>#415</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/666' target = 'new'>#666</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/437' target = 'new'>#437</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Code Improvements and Environment</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <strong>Sisimai does not support Ruby 4.0.0 until the end of 2027.</strong>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/430' target = 'new'>#430</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Use a <kbd>switch</kbd> statement instead of if-else for better readability.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/350' target = 'new'>#350</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/417' target = 'new'>#417</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Tiny code improvements around <kbd>append</kbd>, <kbd>strings.Trim</kbd> functions.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/358' target = 'new'>#358</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/360' target = 'new'>#360</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/365' target = 'new'>#365</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Sisimai can be built with Go 1.26.0.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/361' target = 'new'>#361</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Fix and update comments in <kbd>smtp/status/lib.go</kbd> or <kbd>Sisimai::SMTP::Status</kbd>.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/369' target = 'new'>#369</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/370' target = 'new'>#370</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/656' target = 'new'>#656</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/423' target = 'new'>#423</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Remove useless code blocks.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/396' target = 'new'>#396</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/661' target = 'new'>#661</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/428' target = 'new'>#428</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-flask'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>EXPERIMENTAL FEATURES</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Change the data type of <kbd>Toxic</kbd> field implemented at v5.5.0 from Boolean to Integer
+                        with <span class = 'value'>-1</span> as the default value to allow score-based evaluation of
+                        recipient address toxicity.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/311' target = 'new'>#311</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/357' target = 'new'>#357</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/657' target = 'new'>#657</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/658' target = 'new'>#658</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/424' target = 'new'>#424</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/425' target = 'new'>#425</a>
+                    </li>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Implement <kbd>Bogus</kbd> field as an Integer with <span class = 'value'>-1</span>
+                        as the default value to record the unreliability score of a bounce message.
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/376' target = 'new'>#376</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/380' target = 'new'>#380</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/659' target = 'new'>#659</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/660' target = 'new'>#660</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/426' target = 'new'>#426</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/427' target = 'new'>#427</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#release-notes -->
+
