@@ -1,0 +1,147 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.7.1 RELEASE"
+"description": "Sisimai 5.7.1のリリースノート/変更点の一覧"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/ja/release/'>リリース情報</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>古いリリース情報</a></li> 
+                    <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
+                    <li class = 'others'><a href = '/en/release/5.7.1.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>リリースノート</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-torii-gate'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.7.1</h2>
+                <hr>
+                <h3 class = 'in-desc'>2026/07/17</h3>
+                <p class = 'description ja'>
+                    {{ site.html.ss }} 5.7.1をリリースしました。
+
+                    このバージョンにおける主な変更点は再帰処理に対する防御的な制限の追加と小さなバグの修正です。
+
+                    Perl版{{ site.html.ss }}で入った変更内容には<span class = 'lang perl'>Perl</span>が、
+                    Ruby版{{ site.html.ss }}では<span class = 'lang ruby'>Ruby</span>が、
+                    Go版{{ site.html.ss }}では<span class = 'lang golang'>Go</span>が、
+                    それぞれ冒頭に入っています。
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    {{ site.html.ss }} 5.0.0でVersion 4系とは<a href = '/ja/diff'>非互換な変更</a>が多く入っていますので、
+                    インストールまたはアップグレードの前に実行環境のPerlやRubyのバージョンを確認してください。
+                </div>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-bug-slash'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>バグ修正</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        読み込むメールボックスの最大サイズ制限値が2TBになっていたのを2GBに修正。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/421' target = 'new'>#421</a>
+                    </li>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <span class = 'lang golang'>Go</span>
+                        SMTPコマンドを検出するためのリストで<span class = 'value'>HELO</span>コマンドが重複していたバグを修正。
+                    </li>
+                <ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa-solid fa-shield-cat'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>攻撃耐性の向上</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <span class = 'lang golang'>Go</span>
+                        深くネストしたMIME構造を処理する最大階層を64に制限するようにしました。
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/670' target = 'new'>#670</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/441' target = 'new'>#441</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/423' target = 'new'>#423</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>コードの改善</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        コード内で参照するバウンス理由とSMTPコマンドと<span class = 'value'>Action:</span>
+                        の値をそれぞれ定数化しました。
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/672' target = 'new'>#672</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/676' target = 'new'>#676</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/677' target = 'new'>#677</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/443' target = 'new'>#443</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/447' target = 'new'>#447</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/448' target = 'new'>#448</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#release-notes -->
+
