@@ -1,0 +1,150 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.7.1 RELEASE"
+"description": "Release notes for Sisimai 5.7.1/All the changes"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/en'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/en/release/'>Releases</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>Old Releases</a></li> 
+                    <li class = 'others'><a href = '/en/docs/'>Docs</a></li>
+                    <li class = 'others'><a href = '/ja/release/5.7.1.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>Release Notes</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class = 'fa-solid fa-torii-gate'></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.7.1</h2>
+                <hr>
+                <h3 class = 'in-desc'>2026/07/17</h3>
+                <p class = 'description'>
+                    {{ site.html.ss }} 5.7.1 has been released.
+                    Changes in this version are the implementation of defensive limits on recursive processing and tiny bug fixes.
+
+                    Changes in the Perl version of {{ site.html.ss }} are indicated by
+                    <span class = 'lang perl'>Perl</span> at the beginning of each item,
+                    changes in the Ruby version of {{ site.html.ss }} are indicated by <span class = 'lang ruby'>Ruby</span>,
+                    and changes in the Go version of {{ site.html.ss }} are indicated by <span class = 'lang golang'>Go</span>.
+                </p>
+                <div class = 'warning'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    And then, {{ site.html.ss }} 5 includes
+                    <a href = '/en/diff'>many changes that are not compatible with Version 4</a>,
+                    so please check the Perl or Ruby version of your environment before installing
+                    or upgrading.
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-bug-slash'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Bug Fixes</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Fix the maximum mailbox size limit from 2TB to 2GB
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/421' target = 'new'>#421</a>
+                    </li>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <span class = 'lang golang'>Go</span>
+                        Fix a bug where the <span class = 'value'>HELO</span> command was duplicated
+                        in the SMTP command detection list.
+                    </li>
+                <ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa-solid fa-shield-cat'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Attack Mitigation Updates</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <span class = 'lang golang'>Go</span>
+                        Restricted the maximum MIME nesting level to 64 to handle deeply nested parts safely.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/670' target = 'new'>#670</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/441' target = 'new'>#441</a>
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/423' target = 'new'>#423</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>Code Improvements</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Refactor internal definitions to use constants for bounce reasons,
+                        SMTP commands, and <span class = 'value'>Action:</span> values.
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/672' target = 'new'>#672</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/676' target = 'new'>#676</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/677' target = 'new'>#677</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/443' target = 'new'>#443</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/447' target = 'new'>#447</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/448' target = 'new'>#448</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#release-notes -->
+
