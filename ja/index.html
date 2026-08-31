@@ -53,12 +53,13 @@
                     <div class = 'attention'>
                         <i class = 'fa fa-bullhorn'></i>
                         現在の安定版最新バージョンは{{ site.sisimai.release.ja }}にリリースした
-                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>です。
-
-                        このバージョンにおける主な変更点は再帰処理に対する防御的な制限の追加と小さなバグの修正です。
+                        <strong>{{ site.html.ss }} {{ site.sisimai.version }}</strong>と
+                        <strong>{{ site.html.ss }} {{ site.sisimai.v4final }}</strong>です。
+                        このバージョンにおける主な変更点はPerl版とRuby版における脆弱性(ReDoS)の修正と Go版のバグ修正です。
 
                         変更点の詳細はリリースノート(
-                        <a href = '/ja/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }}</a>
+                        <a href = '/ja/release/{{ site.sisimai.version }}.html'>v{{ site.sisimai.version }}</a>または
+                        <a href = '/ja/release/{{ site.sisimai.v4final }}.html'>v{{ site.sisimai.v4final }}</a>
                         )をご覧ください。
                     </div>
                     <div class = 'warning'>
@@ -67,12 +68,12 @@
                     </div>
                     <div class = 'warning'>
                         <i class = 'fa fa-triangle-exclamation'></i>
-                        {{ site.html.ss }} 4.25.14p11およびそれ以前のバージョンには
+                        Perl版とRuby版の{{ site.html.ss }} 5.7.1以前および4.25.17以前のバージョンには
                         正規表現に関する脆弱性(ReDoS:
                         <a href = 'https://jvndb.jvn.jp/ja/contents/2022/JVNDB-2022-005663.html' target = 'new'>
                             CVE-2022-4891
-                        </a>)があります。
-                        お使いの場合はv4.25.14p12以降へアップグレードしてください。
+                        </a>とCVE番号未割当)があります。
+                        お使いの場合はv5.7.2またはv4.25.18へアップグレードしてください。
                     </div>
                 </div>
             </div> 
