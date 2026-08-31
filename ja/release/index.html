@@ -100,7 +100,7 @@
                         <p class = 'description ja'>
                             旧バージョンである4系の最終版は
                             <strong>{{ site.html.ss }} {{ site.sisimai.v4final }}</strong>
-                            です。v{{ site.sisimai.v4final }}のパッチレベル1以降は
+                            です。v4.25.16p1以降は
                             <a href = '{{ site.sisimai.repository.project }}' target = 'new'>GitHub</a>
                             からのみダウンロード可能です。
                         </p>
@@ -133,16 +133,30 @@
                                 <th class = 'ctext'>バージョン</th>
                                 <th class = 'ctext'>破壊的な変更</th>
                                 <th class = 'ctext'>新機能(互換)</th>
+                                <th class = 'ctext'>セキュリティ</th>
                                 <th class = 'ctext'>コードの改善</th>
                                 <th class = 'ctext'>バグ修正</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class = 'ltext'><strong>令和8年7月17日(金)</strong></td>
-                                <td class = 'ltext'><a href = '/ja/release/5.7.1.html'><strong>v5.7.1</strong></a>
+                                <td class = 'ltext'>令和8年8月31日(月)</td>
+                                <td class = 'ltext'>
+                                    <a href = '/ja/release/5.7.2.html'>v5.7.2</a><br />
+                                    <a href = '/ja/release/4.25.18.html'>v4.25.18</a>
+                                </a>
+                                <td class = 'ctext'></td>
+                                <td class = 'ctext'></td>
+                                <td class = 'ctext'>✓ (Perl,Ruby)</td>
+                                <td class = 'ctext'>✓ (Ruby)</td>
+                                <td class = 'ctext'>✓ (Go)</td>
+                            </tr>
+                            <tr>
+                                <td class = 'ltext'>令和8年7月17日(金)</td>
+                                <td class = 'ltext'><a href = '/ja/release/5.7.1.html'>v5.7.1</a>
                                 <td class = 'ctext'><strong></strong></td>
-                                <td class = 'ctext'> </td>
+                                <td class = 'ctext'></td>
+                                <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
                             </tr>
@@ -151,6 +165,7 @@
                                 <td class = 'ltext'><a href = '/ja/release/5.7.0.html'><strong>v5.7.0</strong></a>
                                 <td class = 'ctext'><strong></strong></td>
                                 <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
                             </tr>
@@ -158,6 +173,7 @@
                                 <td class = 'ltext'><strong>令和8年2月2日(月)</strong></td>
                                 <td class = 'ltext'><a href = '/ja/release/5.6.0.html'><strong>v5.6.0</strong></a>
                                 <td class = 'ctext'><strong>✓</strong></td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'> </td>
@@ -167,6 +183,7 @@
                                 <td class = 'ltext'><a href = '/ja/release/5.5.0.html'><strong>v5.5.0</strong></a>
                                 <td class = 'ctext'><strong>✓ (Perl, Ruby)</strong></td>
                                 <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
                             </tr>
@@ -175,6 +192,7 @@
                                 <td class = 'ltext'><a href = '/ja/release/5.4.1.html'>v5.4.1</a>
                                 <td class = 'ctext'></td>
                                 <td class = 'ctext'></td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
                             </tr>
@@ -183,6 +201,7 @@
                                 <td class = 'ltext'><a href = '/ja/release/5.4.0.html'><strong>v5.4.0</strong></a>
                                 <td class = 'ctext'><strong>✓ (Go)</strong></td>
                                 <td class = 'ctext'> </td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
                             </tr>
@@ -190,6 +209,7 @@
                                 <td class = 'ltext'><strong>令和7年3月29日(土)</strong></td>
                                 <td class = 'ltext'><a href = '/ja/release/5.3.0.html'><strong>v5.3.0</strong></a>
                                 <td class = 'ctext'><strong>?</strong></td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
@@ -203,6 +223,7 @@
                                 </td>
                                 <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
                             </tr>
@@ -211,6 +232,7 @@
                                 <td class = 'ltext'><a href = '/ja/release/5.2.0.html'><strong>v5.2.0</strong></a>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
                             </tr>
@@ -219,12 +241,14 @@
                                 <td class = 'ltext'><a href = '/ja/release/5.1.0.html'><strong>v5.1.0</strong></a>
                                 <td class = 'ctext'></td>
                                 <td class = 'ctext'>✓</td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'></td>
                             </tr>
                             <tr>
                                 <td class = 'ltext'>令和6年5月22日(水)</td>
                                 <td class = 'ltext'><a href = '/ja/release/5.0.3.html'>v5.0.3</a>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'> </td>
                                 <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
@@ -235,12 +259,14 @@
                                 <td class = 'ltext'><a href = '/ja/release/5.0.2.html'>v5.0.2</a>
                                 <td class = 'ctext'> </td>
                                 <td class = 'ctext'> </td>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
                             </tr>
                             <tr>
                                 <td class = 'ltext'>令和6年3月3日(日)</td>
                                 <td class = 'ltext'><a href = '/ja/release/5.0.1.html'>v5.0.1</a>
+                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'> </td>
                                 <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
@@ -251,29 +277,8 @@
                                 <td class = 'ltext'><a href = '/ja/release/5.0.0.html'><strong>v5.0.0</strong></a>
                                 <td class = 'ctext'>✓</td>
                                 <td class = 'ctext'>✓</td>
-                                <td class = 'ctext'>✓</td>
-                                <td class = 'ctext'>✓</td>
-                            </tr>
-                            <tr>
-                                <td class = 'ltext'><strong>令和6年2月1日(木)</strong></td>
-                                <td class = 'ltext'>v4.25.16p1
-                                    <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v4.25.16p1' target = 'new'>Perl</a>
-                                    <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v4.25.16p1' target = 'new'>Ruby</a>
-                                </td>
-                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
-                                <td class = 'ctext'> </td>
-                            </tr>
-                            <tr>
-                                <td class = 'ltext'>令和5年5月16日(火)</td>
-                                <td class = 'ltext'>v4.25.16
-                                    <a href = 'https://github.com/sisimai/p5-sisimai/releases/tag/v4.25.16' target = 'new'>Perl</a>
-                                    <a href = 'https://github.com/sisimai/rb-sisimai/releases/tag/v4.25.16' target = 'new'>Ruby</a>
-                                </td>
-                                <td class = 'ctext'> </td>
-                                <td class = 'ctext'> </td>
-                                <td class = 'ctext'> </td>
                                 <td class = 'ctext'>✓</td>
                             </tr>
                         </tbody>
