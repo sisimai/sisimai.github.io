@@ -1,0 +1,234 @@
+---
+"layout": "document"
+"directory": "release/"
+"title": "Sisimai 5.8.0 RELEASE"
+"description": "Sisimai 5.8.0のリリースノート/変更点の一覧"
+"author": "azumakuniyuki"
+---
+<a id = 'tohash' href = '#'></a>
+<header id = 'home'>
+    <div class = 'main-nav'>
+        <div class = 'container'>
+            <div class = 'navbar-header'>
+                <button type = 'button' class = 'navbar-toggle' data-toggle = 'collapse' data-target = '.navbar-collapse'>
+                    <span class = 'sr-only'>Toggle navigation</span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                    <span class = 'icon-bar'></span>
+                </button>
+                <a class = 'navbar-brand' href = '/'>
+                    <h1>
+                        <img class = 'img-responsive' src = '/static/images/logo/sisimai-logotype-w11.png' 
+                            width = '144' alt = 'Sisimai: Mail Analyzing Interface'>
+                    </h1>
+                </a>
+            </div>
+            <div class = 'collapse navbar-collapse'>
+                <ul class = 'nav navbar-nav navbar-right'>
+                    <li class = 'others'><a href = '/ja'><i class = 'fa fa-home'></i></a></li>
+                    <li class = 'scroll active'><a href = '#index'><i class = 'fa fa-arrow-circle-up'></i></a></li>
+                    <li class = 'others'><a href = '/ja/release/'>リリース情報</a></li> 
+                    <li class = 'others'><a href = 'https://blog.libsisimai.org/' target = 'new'>古いリリース情報</a></li> 
+                    <li class = 'others'><a href = '/ja/docs/'>ドキュメント</a></li>
+                    <li class = 'others'><a href = '/en/release/5.8.0.html'><i class = 'fa fa-language'></i></a></li>
+                    <li class = 'others'><a href = 'https://github.com/sisimai' target = 'new'><i class = 'fa fa-github'></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- /#main-nav -->
+</header> <!-- /#home -->
+
+<section id = 'index'>
+    <div class = 'container'>
+        <div class = 'heading'>
+            <div class = 'row'>
+                <div class = 'text-center col-sm-8 col-sm-offset-2'>
+                    <img src = '/static/images/logo/sisimai-x01.png' width = '20%'>
+                    <h2>リリースノート</h2>
+                </div>
+            </div> 
+        </div>
+    </div>
+</section> <!-- /#index -->
+
+<section id = 'release-notes' class = 'not-parallax'>
+    <div class = 'container'>
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'post-it'>
+                    <i class="fa-brands fa-canadian-maple-leaf"></i>
+                </div>
+            </div>
+            <div class = 'heading col-sm-8 col-sm-offset-0'>
+                <h2 class = 'in-desc'>{{ site.html.ss }} 5.8.0</h2>
+                <hr>
+                <h3 class = 'in-desc'>2026/11/11</h3>
+                <p class = 'description ja'>
+                    {{ site.html.ss }} 5.8.0をリリースしました。
+
+                    このバージョンにおける主な変更点ははメモリ保護と安全性の確保を目的とした入力データ
+                    (メール)の最大容量制限(全体で2GB・メール毎に64MB)です。
+
+                    Perl版{{ site.html.ss }}で入った変更内容には<span class = 'lang perl'>Perl</span>が、
+                    Ruby版{{ site.html.ss }}では<span class = 'lang ruby'>Ruby</span>が、
+                    Go版{{ site.html.ss }}では<span class = 'lang golang'>Go</span>が、
+                    それぞれ冒頭に入っています。
+                </p>
+                <div class = 'note'>
+                    <i class = 'fa fa-triangle-exclamation'></i>
+                    {{ site.html.ss }} 5.0.0でVersion 4系とは<a href = '/ja/diff'>非互換な変更</a>が多く入っていますので、
+                    インストールまたはアップグレードの前に実行環境のPerlやRubyのバージョンを確認してください。
+                </div>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'>
+                    <i class="fa-solid fa-weight-hanging"></i>
+                </div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>入力データ(メール)の最大値制限</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        メモリ保護を目的として入力されるメールのデータにおける最大容量を以下のとおり
+                        制限するようになりました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/487' target = 'new'>#487</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/699' target = 'new'>#699</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/472' target = 'new'>#472</a>
+                        <ul>
+                            <li>メール全体(UNIX mbox, 変数からの入力, STDIN)で<strong>2GB</strong></li>
+                            <li>Maildir/の各ファイルを筆頭に個々のメール一通あたり<strong>64MB</strong></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fa-solid fa-shield-cat'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>セキュリティ関係の修正</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        Makefileでソースコード内の不可視文字を検査するようになりました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/439' target = 'new'>#439</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/687' target = 'new'>#687</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/458' target = 'new'>#458</a>
+                    </li>
+
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <kbd>rfc5322.Part()</kbd>関数の戻り値を厳密に検査するようになりました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/450' target = 'new'>#450</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/691' target = 'new'>#691</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/463' target = 'new'>#463</a>
+                    </li>
+
+                    <li>
+                        <span class = 'lang ruby'>Ruby</span>
+                        バウンスメール本文が空の場合に<kbd>Sisimai::RFC3464</kbd>がクラッシュするバグを
+                        修正しました。
+                        Thanks to <a href = 'https://github.com/azranel' target = 'new'>@azranel</a>.
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/462' target = 'new'>#462</a>
+                    </li>
+
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        異常な長さの行を処理する際に<kbd>mail.readMailbox()</kbd>関数が無限ループになる
+                        バグを修正しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/469' target = 'new'>#469</a>
+                    </li>
+
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        Maildir/内の各要素を検査する<kbd>mail.listMaildir()</kbd>関数の条件分岐が
+                        間違っているバグを修正しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/470' target = 'new'>#470</a>
+                    </li>
+
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        STDINから入力されたメールデータの分割関数にあったバグを修正しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/484' target = 'new'>#484</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-star'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>細い改善</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <a href = 'https://aws.amazon.com/jp/ses/' target = 'new'>Amazon SES</a>
+                        の<span class = 'value'>feedbackId</span>の値が解析結果の
+                        <span class = 'value'>FeedbackID</span>に入るようになりました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/427' target = 'new'>#427</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/694' target = 'new'>#694</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/467' target = 'new'>#467</a>
+                    </li>
+
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <kbd><a href = 'https://pkg.go.dev/fmt' target = 'new'>fmt</a></kbd>
+                        パッケージへの依存が無くなりました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/458' target = 'new'>#458</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class = 'row'>
+            <div class = 'col-sm-1 col-sm-offset-1'>
+                <div class = 'index-label'><i class = 'fas fa-scroll'></i></div>
+            </div>
+            <div class = 'col-sm-8 col-sm-offset-0'>
+                <h3 class = 'in-desc'>MTAモジュールとエラーメッセージパターン</h3>
+                <ul class = 'release-notes'>
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        <a href = 'https://www.xfinity.com/national/' target = 'new'>comcast.net</a>の
+                        エラーメッセージパターンを更新しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/448' target = 'new'>#448</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/689' target = 'new'>#689</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/460' target = 'new'>#460</a>
+                    </li>
+
+                    <li>
+                        <span class = 'lang golang'>Go</span>
+                        <span class = 'lang perl'>Perl</span>
+                        <span class = 'lang ruby'>Ruby</span>
+                        2026年10月15日に<a href = 'https://github.com/azumakuniyuki/feb-2024-no-auth-no-entry/commit/cc80c7a618e221cb6231f741fd08fb82baa9f76b' target = 'new'>更新</a>された
+                        <a href = 'https://support.google.com/a/answer/3726730' target = 'new'>Google</a>
+                        のエラーコード<span class = 'value'>454 4.7.0</span>と<span class = 'value'>554 5.4.6</span>
+                        に対応しました。
+                        <a href = 'https://github.com/sisimai/go-sisimai/issues/465' target = 'new'>#465</a>
+                        <a href = 'https://github.com/sisimai/p5-sisimai/issues/695' target = 'new'>#695</a>
+                        <a href = 'https://github.com/sisimai/rb-sisimai/issues/468' target = 'new'>#468</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section> <!-- /#release-notes -->
+
