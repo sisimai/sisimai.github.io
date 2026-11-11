@@ -225,6 +225,25 @@ p.description + hr {
     background-color: #2f5d50; /* Biroudo */
 }
 
+.note {
+    width: 100%;
+    margin: 8px 0 0 0;
+    padding: 8px;
+    text-align: left;
+    text-shadow: none !important;
+    border: 1px solid #877858; /* Higosusutake */
+    border-radius: 4px;
+    background-color: #fdfcf5; /* Shirayuri-iro */
+    color: #3f312b; /* Akasumi */
+}
+.note a,
+.note a:hover {
+    color: #3f312b; /* Akasumi */
+    font-weight: bold;
+    text-decoration: none;
+    background-color: transparent;
+}
+
 .warning {
     width: 100%;
     margin: 8px 0 0 0;
