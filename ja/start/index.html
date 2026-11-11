@@ -569,6 +569,11 @@ Processing triggers for man-db (2.9.1-1) ...
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2>基本的な使い方</h2>
+                <p class = 'description ja caution'>
+                    {{ site.html.ss }} 5.8.0よりUNIX mboxから読み込むデータの最大値は<strong>2GB</strong>
+                    に制限されるようになりました。また、読み込んだデータのうちUNIX mboxおよびMaildir/
+                    内のメール一通あたりは<strong>64MB</strong>までに制限されます。
+                </p>
             </div>
         </div>
         <div class = 'row'>
