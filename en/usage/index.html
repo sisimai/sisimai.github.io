@@ -163,11 +163,18 @@
                 <h2 class = 'in-desc'>Read From STDIN</h2>
                 <hr>
                 <p class = 'description caution'>
+                    Starting with v5.8.0, {{ site.html.ss }} limits the total size of input data from
+                    STDIN to <strong>2GB</strong>, and caps the maximum size of each individual email
+                    <strong>64MB</strong>.
+                </p>
+
+                <p class = 'description note'>
                     The <span class = 'value'>make()</span> method of the <span class = 'value'>Sisimai</span>
                     class has been deprecated in {{ site.html.ss }} 5.0.0. Please use the newly implemented
                     <span class = 'value'>rise()</span>
                     method instead.
                 </p>
+                <br />
                 <p class = 'description'>
                     The <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span> methods of
                     <span class = 'value'>Sisimai</span> class can read bounce email data from standard input (STDIN)
@@ -291,11 +298,18 @@ func main() {
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>Read From Variable</h2>
+                <hr>
                 <p class = 'description caution'>
+                    Starting with v5.8.0, {{ site.html.ss }} limits the total size of input data from
+                    a variable to <strong>2GB</strong>, and caps the maximum size of each individual
+                    email <strong>64MB</strong>.
+                </p>
+                <p class = 'description note'>
                     The <span class = 'value'>make()</span> method of the <span class = 'value'>Sisimai</span>
                     class has been deprecated in {{ site.html.ss }} 5.0.0. Please use the newly implemented
                     <span class = 'value'>rise()</span> method instead.
                 </p>
+                <br />
                 <p class = 'description'>
                     The <span class = 'value'>rise()</span> and <span class = 'value'>dump()</span> methods of the
                     <span class = 'value'>Sisimai</span> class allow you to read bounce email data from sources other than files and

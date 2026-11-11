@@ -160,6 +160,11 @@
                 <h2 class = 'in-desc'>標準入力から読む</h2>
                 <hr>
                 <p class = 'description ja caution'>
+                    {{ site.html.ss }} 5.8.0より標準入力から読み込むデータの最大値は<strong>2GB</strong>
+                    に制限されるようになりました。また、読み込んだデータのうちメール一通あたりは
+                    <strong>64MB</strong>までに制限されます。
+                </p>
+                <p class = 'description ja note'>
                     <span class = 'value'>Sisimai</span>クラスの
                     <span class = 'value'>make()</span>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
                     新たに実装された<span class = 'value'>rise()</span>メソッドをかわりに使ってください。
@@ -292,11 +297,19 @@ func main() {
             </div>
             <div class = 'heading col-sm-8 col-sm-offset-0'>
                 <h2 class = 'in-desc'>変数から読み込む</h2>
+                <hr>
                 <p class = 'description ja caution'>
+                    {{ site.html.ss }} 5.8.0より変数から読み込むデータの最大値は<strong>2GB</strong>
+                    に制限されるようになりました。また、読み込んだデータのうちメール一通あたりは
+                    <strong>64MB</strong>までに制限されます。
+                </p>
+                <p class = 'description ja note'>
                     <span class = 'value'>Sisimai</span>クラスの
                     <span class = 'value'>make()</span>メソッドは{{ site.html.ss }} 5.0.0で廃止になりました。
                     新たに実装された<span class = 'value'>rise()</span>メソッドをかわりに使ってください。
                 </p>
+                <br />
+
                 <p class = 'description ja'>
                 <span class = 'value'>Sisimai</span>クラスの<span class = 'value'>rise()</span>と
                 <span class = 'value'>dump()</span>の第一引数に変数
